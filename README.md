@@ -1,4 +1,4 @@
 beers-law-lab
 =============
 
-PhET "Beer's Law Lab" simulation
+PhET: Beer's Law Lab simulation
