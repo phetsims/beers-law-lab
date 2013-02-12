@@ -1,3 +1,6 @@
 [submodule "contrib/phetcommon"]
 	path = contrib/phetcommon
 	url = git://github.com/phetsims/phetcommon.git
+[submodule "common/phetcommon"]
+	path = common/phetcommon
+	url = git://github.com/phetsims/phetcommon.git
