@@ -7,7 +7,6 @@ DESIGN ISSUES
 - priority of accessibility?
 
 IMPLEMENTATION ISSUES
-- Easel vs JO's scenegraph
 - Bootstrap controls
 - OO/MVC approach
 - workaround for overriding someMethod and calling super.someMethod
