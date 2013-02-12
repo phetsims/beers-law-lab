@@ -5,7 +5,7 @@
  * Precipitate particles are static (they don't move). They have no associated animation,
  * and they magically appear on the bottom of the beaker.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( [
             'common/model/Inheritance',

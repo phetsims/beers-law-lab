@@ -5,7 +5,7 @@
  * The scheme also defines the concentration range for the solute, where maxConcentration
  * is synonymous with "saturated".
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( [
             'common/model/Color'

@@ -6,7 +6,7 @@
  * of the beaker, and disappears when it hits the surface of the solution (or bottom of the beaker,
  * if the beaker is empty.)
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( [
             'phetcommon/math/Point2D',

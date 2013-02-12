@@ -3,7 +3,7 @@
 /**
  *  A solvent (in this case a liquid) that dissolves another liquid (the solute) to create a solution.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define(
   [],

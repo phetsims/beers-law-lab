@@ -3,7 +3,7 @@
 /**
  * Shaker that contains a solute in solid form.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( [
             'easel',

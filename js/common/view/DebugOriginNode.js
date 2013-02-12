@@ -3,7 +3,7 @@
 /**
  * To debug the origin of a composite node, add an instance of this node as a child.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define(
   [ 'easel', 'PHETCOMMON/model/Inheritance' ],

@@ -3,7 +3,7 @@
 /**
  * Model of a shaker, contains solute in solid form.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( [
             'phetcommon/math/Point2D',

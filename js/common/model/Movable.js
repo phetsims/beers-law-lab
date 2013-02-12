@@ -4,7 +4,7 @@
  * A movable model element.
  * Semantics of units are determined by the client.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define(
   [ 'PHETCOMMON/model/property/Property' ],

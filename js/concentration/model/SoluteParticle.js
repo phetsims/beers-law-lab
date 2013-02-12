@@ -3,7 +3,7 @@
 /**
  * Base class for solute particles.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( [
         'common/model/property/Property'

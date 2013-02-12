@@ -4,7 +4,7 @@
  * A drag handler for something that is movable and constrained to some bounds.
  * All values herein are in the view coordinate frame.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define(
   [

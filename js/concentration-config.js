@@ -4,7 +4,7 @@
  * RequireJS configuration file for the "Beer's Law Lab" sim.
  * Paths are relative to the location of this file.
  *
- * @author Chris Malley (PixelZoom, Inc.)
+ * @author Chris Malley
  */
 require.config(
   {
@@ -17,7 +17,7 @@ require.config(
       image: "../contrib/image-0.2.1",
       tpl: "../contrib/tpl-0.2",
 
-      // common
+      // common directories, uppercase names to identify them in require imports
       PHETCOMMON: "../common/phetcommon/js",
       'EASEL-PHET': "../common/easel-phet/js"
     },
