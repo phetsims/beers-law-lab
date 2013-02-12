@@ -1,3 +1,4 @@
+2/11/13 create contrib directory with copies of libs
 2/11/13 delete jquery-mobile from top-level hmtl
 2/11/13 reformat to use 2-space indentation
 2/11/13 fix config.js and requirejs imports to use uppercase for symbolic constants
