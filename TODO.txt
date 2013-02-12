@@ -43,7 +43,5 @@ COMMON FEATURES:
 
 MIGRATE TO COMMON
 Color
-Inheritance
 Rectangle
-FrameRateNode
 DebugOriginNode
