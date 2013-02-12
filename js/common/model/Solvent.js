@@ -1,11 +1,13 @@
-// Copyright 2013, University of Colorado
+// Copyright 2002-2013, University of Colorado
 
 /**
  *  A solvent (in this case a liquid) that dissolves another liquid (the solute) to create a solution.
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( [], function () {
+define(
+  [],
+  function () {
 
     /**
      * Constructor.
@@ -15,10 +17,10 @@ define( [], function () {
      * @constructor
      */
     function Solvent( name, formula, color ) {
-        this.name = name;
-        this.formula = formula;
-        this.color = color;
+      this.name = name;
+      this.formula = formula;
+      this.color = color;
     }
 
     return Solvent;
-} );
+  } );

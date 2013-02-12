@@ -1,3 +1,5 @@
+2/11/13 reformat to use 2-space indentation
+2/11/13 fix config.js and requirejs imports to use uppercase for symbolic constants
 2/11/13 moved this project from Unfuddle SVN to GitHub, lost all commit history before here, does not run
 1/30/13 port particle models (untested)
 1/30/13 drag handler for shaker, with constrained bounds

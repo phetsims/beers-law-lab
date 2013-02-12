@@ -1,4 +1,4 @@
-// Copyright 2013, University of Colorado
+// Copyright 2002-2013, University of Colorado
 
 /**
  * A movable model element.
@@ -6,7 +6,9 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( [ 'phetcommon/model/property/Property' ], function( Property ) {
+define(
+  [ 'PHETCOMMON/model/property/Property' ],
+  function ( Property ) {
 
     /**
      * Constructor
@@ -15,13 +17,13 @@ define( [ 'phetcommon/model/property/Property' ], function( Property ) {
      * @constructor
      */
     function Movable( location, dragBounds ) {
-        this.locationProperty = new Property( location );
-        this.dragBounds = dragBounds;
+      this.locationProperty = new Property( location );
+      this.dragBounds = dragBounds;
     }
 
-    Movable.prototype.reset = function() {
-        this.locationProperty.reset();
+    Movable.prototype.reset = function () {
+      this.locationProperty.reset();
     }
 
     return Movable;
-});
+  } );

@@ -1,6 +1,8 @@
-// Copyright 2013, University of Colorado
+// Copyright 2002-2013, University of Colorado
 
-define( [], function() {
+define(
+  [],
+  function () {
 
     function StringUtils() {
     }
@@ -13,10 +15,10 @@ define( [], function() {
      * @param args values to be substituted for placeholders in pattern
      */
     StringUtils.messageFormat = function ( pattern, args ) {
-        return pattern.replace( /\{(\d+)\}/g, function () {
-            return args[arguments[1]];
-        } );
+      return pattern.replace( /\{(\d+)\}/g, function () {
+        return args[arguments[1]];
+      } );
     }
 
     return StringUtils;
-} );
+  } );

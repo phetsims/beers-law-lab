@@ -6,37 +6,38 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-require( [
-             'easel',
-             'phetcommon/util/Logger',
-             'phetcommon/view/ModelViewTransform2D',
-             'common/view/CanvasQuirks',
-             'beerslaw/model/BeersLawModel',
-             'beerslaw/view/BeersLawStage',
-             'i18n!../nls/beers-law-lab-strings'
-         ],
-         function ( Easel, Logger, ModelViewTransform2D, CanvasQuirks, BeersLawModel, BeersLawStage, Strings ) {
+require(
+  [
+    'easel',
+    'PHETCOMMON/util/Logger',
+    'PHETCOMMON/view/ModelViewTransform2D',
+    'PHETCOMMON/view/CanvasQuirks',
+    'beerslaw/model/BeersLawModel',
+    'beerslaw/view/BeersLawStage',
+    'i18n!../nls/beers-law-lab-strings'
+  ],
+  function ( Easel, Logger, ModelViewTransform2D, CanvasQuirks, BeersLawModel, BeersLawStage, Strings ) {
 
-             Logger.enabled = true;
+    Logger.enabled = true;
 
-             // Title --------------------------------------------------------------------
+    // Title --------------------------------------------------------------------
 
-             $( 'title' ).html( Strings.beersLawLab );
+    $( 'title' ).html( Strings.beersLawLab );
 
-             // Model --------------------------------------------------------------------
+    // Model --------------------------------------------------------------------
 
-             var model = new BeersLawModel();
+    var model = new BeersLawModel();
 
-             // View --------------------------------------------------------------------
+    // View --------------------------------------------------------------------
 
-             var canvas = document.getElementById( 'canvas' );
-             CanvasQuirks.fixTextCursor( canvas );
-             var stage = new BeersLawStage( canvas, model );
+    var canvas = document.getElementById( 'canvas' );
+    CanvasQuirks.fixTextCursor( canvas );
+    var stage = new BeersLawStage( canvas, model );
 
-             // Animation loop ----------------------------------------------------------
+    // Animation loop ----------------------------------------------------------
 
-             Easel.Ticker.addListener( model );
-             Easel.Ticker.addListener( stage );
-             Easel.Ticker.setFPS( 60 );
-             Easel.Touch.enable( stage, false, false );
-         } );
+    Easel.Ticker.addListener( model );
+    Easel.Ticker.addListener( stage );
+    Easel.Ticker.setFPS( 60 );
+    Easel.Touch.enable( stage, false, false );
+  } );

@@ -1,41 +1,42 @@
-// Copyright 2013, University of Colorado
+// Copyright 2002-2013, University of Colorado
 
 /**
  * Main entry point for the "Concentration" sim.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-require( [
-             'easel',
-             'phetcommon/util/Logger',
-             'phetcommon/view/ModelViewTransform2D',
-             'common/view/CanvasQuirks',
-             'concentration/model/ConcentrationModel',
-             'concentration/view/ConcentrationStage',
-             'i18n!../nls/beers-law-lab-strings'
-         ],
-         function ( Easel, Logger, ModelViewTransform2D, CanvasQuirks, ConcentrationModel, ConcentrationStage, Strings ) {
+require(
+  [
+    'easel',
+    'PHETCOMMON/util/Logger',
+    'PHETCOMMON/view/ModelViewTransform2D',
+    'PHETCOMMON/view/CanvasQuirks',
+    'concentration/model/ConcentrationModel',
+    'concentration/view/ConcentrationStage',
+    'i18n!../nls/beers-law-lab-strings'
+  ],
+  function ( Easel, Logger, ModelViewTransform2D, CanvasQuirks, ConcentrationModel, ConcentrationStage, Strings ) {
 
-             Logger.enabled = true;
+    Logger.enabled = true;
 
-             // Title --------------------------------------------------------------------
+    // Title --------------------------------------------------------------------
 
-             $( 'title' ).html( Strings.concentration );
+    $( 'title' ).html( Strings.concentration );
 
-             // Model --------------------------------------------------------------------
+    // Model --------------------------------------------------------------------
 
-             var model = new ConcentrationModel();
+    var model = new ConcentrationModel();
 
-             // View --------------------------------------------------------------------
+    // View --------------------------------------------------------------------
 
-             var canvas = document.getElementById( 'canvas' );
-             CanvasQuirks.fixTextCursor( canvas );
-             var stage = new ConcentrationStage( canvas, model );
+    var canvas = document.getElementById( 'canvas' );
+    CanvasQuirks.fixTextCursor( canvas );
+    var stage = new ConcentrationStage( canvas, model );
 
-             // Animation loop ----------------------------------------------------------
+    // Animation loop ----------------------------------------------------------
 
-             Easel.Ticker.addListener( model );
-             Easel.Ticker.addListener( stage );
-             Easel.Ticker.setFPS( 60 );
-             Easel.Touch.enable( stage, false, false );
-         } );
+    Easel.Ticker.addListener( model );
+    Easel.Ticker.addListener( stage );
+    Easel.Ticker.setFPS( 60 );
+    Easel.Touch.enable( stage, false, false );
+  } );

@@ -5,14 +5,16 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( [ 'easel', 'common/model/Inheritance' ], function ( Easel, Inheritance ) {
+define(
+  [ 'easel', 'PHETCOMMON/model/Inheritance' ],
+  function ( Easel, Inheritance ) {
 
     function DebugOriginNode( color ) {
-        Easel.Shape.call( this );
-        this.graphics.beginFill( color ).drawCircle( 0, 0, 3 );
+      Easel.Shape.call( this );
+      this.graphics.beginFill( color ).drawCircle( 0, 0, 3 );
     }
 
     Inheritance.inheritPrototype( DebugOriginNode, Easel.Shape );
 
     return DebugOriginNode;
-} );
+  } );

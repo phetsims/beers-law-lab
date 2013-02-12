@@ -5,24 +5,24 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( [
-        ],
-        function ( ) {
+define(
+  [],
+  function () {
 
-            function BeersLawModel() {
-                // model elements
-                //TODO
-            }
+    function BeersLawModel() {
+      // model elements
+      //TODO
+    }
 
-            // Resets all model elements
-            BeersLawModel.prototype.reset = function () {
-                //TODO
-            };
+    // Resets all model elements
+    BeersLawModel.prototype.reset = function () {
+      //TODO
+    };
 
-            // Animates the model, called by Easel.Ticker
-            BeersLawModel.prototype.tick = function() {
-                //TODO
-            };
+    // Animates the model, called by Easel.Ticker
+    BeersLawModel.prototype.tick = function () {
+      //TODO
+    };
 
-            return BeersLawModel;
-        } );
+    return BeersLawModel;
+  } );

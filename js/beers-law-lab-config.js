@@ -6,28 +6,27 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-require.config( {
-
+require.config(
+  {
     deps: ["beers-law-lab-main"],
 
     paths: {
-        // contrib
-        easel:"../../../contrib/easel-0.5.0",
-        i18n:"../../../contrib/i18n-2.0.1-phet",
-        image:"../../../contrib/image-0.2.1",
-        tpl: "../../../contrib/tpl-0.2",
+      // contrib
+      easel: "../../../contrib/easel-0.5.0",
+      i18n: "../../../contrib/i18n-2.0.1-phet",
+      image: "../../../contrib/image-0.2.1",
+      tpl: "../../../contrib/tpl-0.2",
 
-        // common
-        phetcommon:"../../../common/phetcommon/js",
-        phetcommon_html:"../../../common/phetcommon/html",
-        'easel-phet':"../../../common/easel-phet/js"
+      // common
+      PHETCOMMON: "../../../common/phetcommon/js",
+      'EASEL-PHET': "../../../common/easel-phet/js"
     },
 
     shim: {
-        easel: {
-            exports: "createjs"
-        }
+      easel: {
+        exports: "createjs"
+      }
     },
 
     urlArgs: new Date().getTime()  // cache buster to make browser refresh load all included scripts
-} );
+  } );
