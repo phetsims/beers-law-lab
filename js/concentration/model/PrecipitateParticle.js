@@ -7,24 +7,25 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( [
-            'common/model/Inheritance',
-            'concentration/model/SoluteParticle'
-        ],
-        function ( Inheritance, SoluteParticle ) {
+define(
+  [
+    'PHETCOMMON/model/Inheritance',
+    'concentration/model/SoluteParticle'
+  ],
+  function ( Inheritance, SoluteParticle ) {
 
-            /**
-             * Constructor
-             * @param {Solute} solute
-             * @param {Point2D} location location in the beaker's coordinate frame
-             * @param {Number} orientation in radians
-             * @constructor
-             */
-            function PrecipitateParticle( solute, location, orientation ) {
-                SoluteParticle.call( solute.particleColor, solute.particleSize, location, orientation );
-            }
+    /**
+     * Constructor
+     * @param {Solute} solute
+     * @param {Point2D} location location in the beaker's coordinate frame
+     * @param {Number} orientation in radians
+     * @constructor
+     */
+    function PrecipitateParticle( solute, location, orientation ) {
+      SoluteParticle.call( solute.particleColor, solute.particleSize, location, orientation );
+    }
 
-            Inheritance.inheritPrototype( PrecipitateParticle, SoluteParticle );
+    Inheritance.inheritPrototype( PrecipitateParticle, SoluteParticle );
 
-            return PrecipitateParticle;
-        } );
+    return PrecipitateParticle;
+  } );

@@ -1,6 +1,8 @@
 // Copyright 2013, University of Colorado
 
-define( [], function() {
+define(
+  [],
+  function () {
 
     /**
      * Constructor
@@ -10,15 +12,15 @@ define( [], function() {
      * @constructor
      */
     function Beaker( location, size, volume ) {
-        this.location = location;
-        this.size = size;
-        this.volume = volume;
+      this.location = location;
+      this.size = size;
+      this.volume = volume;
     }
 
     // Gets the x coordinate of the left wall.
     Beaker.prototype.getMinX = function () {
-        return this.location.x - ( this.size.width / 2 );
+      return this.location.x - ( this.size.width / 2 );
     }
 
     return Beaker;
-} );
+  } );

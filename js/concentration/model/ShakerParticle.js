@@ -8,57 +8,58 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( [
-            'phetcommon/math/Point2D',
-            'phetcommon/math/Vector2D',
-            'common/model/Inheritance',
-            'concentration/model/SoluteParticle'
-        ],
-        function ( Point2D, Vector2D, Inheritance, SoluteParticle ) {
+define(
+  [
+    'PHETCOMMON/math/Point2D',
+    'PHETCOMMON/math/Vector2D',
+    'PHETCOMMON/model/Inheritance',
+    'concentration/model/SoluteParticle'
+  ],
+  function ( Point2D, Vector2D, Inheritance, SoluteParticle ) {
 
-            /**
-             * Constructor
-             * @param {Solute} solute
-             * @param {Point2D} location in the beaker's coordinate frame
-             * @param {Number} orientation in radians
-             * @param {Vector2D} initialVelocity
-             * @param {Vector2D} acceleration
-             * @constructor
-             */
-            function ShakerParticle( solute, location, orientation, initialVelocity, acceleration ) {
+    /**
+     * Constructor
+     * @param {Solute} solute
+     * @param {Point2D} location in the beaker's coordinate frame
+     * @param {Number} orientation in radians
+     * @param {Vector2D} initialVelocity
+     * @param {Vector2D} acceleration
+     * @constructor
+     */
+    function ShakerParticle( solute, location, orientation, initialVelocity, acceleration ) {
 
-                SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation );
+      SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation );
 
-                this.solute = solute;
-                this.velocity = initialVelocity;
-                this.acceleration = acceleration;
-            }
+      this.solute = solute;
+      this.velocity = initialVelocity;
+      this.acceleration = acceleration;
+    }
 
-            Inheritance.inheritPrototype( ShakerParticle, SoluteParticle );
+    Inheritance.inheritPrototype( ShakerParticle, SoluteParticle );
 
-            /**
-             *  Propagates the particle to a new location.
-             *  @param {Number} deltaSeconds
-             *  @param {Beaker} beaker
-             */
-            ShakerParticle.prototype.tick = function ( deltaSeconds, beaker ) {
+    /**
+     *  Propagates the particle to a new location.
+     *  @param {Number} deltaSeconds
+     *  @param {Beaker} beaker
+     */
+    ShakerParticle.prototype.tick = function ( deltaSeconds, beaker ) {
 
-                this.velocity = this.velocity.plus( this.acceleration.times( deltaSeconds ) );
-                var newLocation = this.locationProperty.get().plus( this.velocity.times( deltaSeconds ) );
+      this.velocity = this.velocity.plus( this.acceleration.times( deltaSeconds ) );
+      var newLocation = this.locationProperty.get().plus( this.velocity.times( deltaSeconds ) );
 
-                /*
-                 * Did the particle hit the left wall of the beaker? If so, change direction.
-                 * Note that this is a very simplified model, and only deals with the left wall of the beaker,
-                 * which is the only wall that the particles can hit in practice.
-                 */
-                var minX = beaker.getMinX() + this.solute.particleSize;
-                if ( newLocation.x <= minX ) {
-                    newLocation = new Point2D( minX, newLocation.y );
-                    this.velocity = new Vector2D( Math.abs( this.velocity.x ), this.velocity.y );
-                }
+      /*
+       * Did the particle hit the left wall of the beaker? If so, change direction.
+       * Note that this is a very simplified model, and only deals with the left wall of the beaker,
+       * which is the only wall that the particles can hit in practice.
+       */
+      var minX = beaker.getMinX() + this.solute.particleSize;
+      if ( newLocation.x <= minX ) {
+        newLocation = new Point2D( minX, newLocation.y );
+        this.velocity = new Vector2D( Math.abs( this.velocity.x ), this.velocity.y );
+      }
 
-                this.locationProperty.set( newLocation );
-            }
+      this.locationProperty.set( newLocation );
+    }
 
-            return ShakerParticle;
-        } );
+    return ShakerParticle;
+  } );
