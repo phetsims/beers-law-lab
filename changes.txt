@@ -1,3 +1,4 @@
+2/15/13 change submodule urls to https so they are not read-only
 2/15/13 rename top-level "concentration" files to "beers-law-lab"
 2/15/13 delete files for 2nd tab until approach stabilizes
 2/11/13 fix requirejs imports in concentration/model/ and concentration/view, sim runs

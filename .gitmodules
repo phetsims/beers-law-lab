@@ -1,9 +1,9 @@
 [submodule "common/easel-phet"]
 	path = common/easel-phet
-	url = git://github.com/phetsims/easel-phet.git
+	url = https://github.com/phetsims/easel-phet.git
 [submodule "common/phetcommon"]
 	path = common/phetcommon
-	url = git://github.com/phetsims/phetcommon.git
+	url = https://github.com/phetsims/phetcommon.git
 [submodule "contrib/i18n"]
 	path = contrib/i18n
 	url = git://github.com/phetsims/i18n.git
