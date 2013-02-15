@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * Main entry point for the "Concentration" sim.
+ * Main entry point for the "Beer's Law Lab" sim.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

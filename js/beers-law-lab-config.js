@@ -8,7 +8,7 @@
  */
 require.config(
   {
-    deps: ["concentration-main"],
+    deps: ["beers-law-lab-main"],
 
     paths: {
       // contrib
