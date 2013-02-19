@@ -63,8 +63,8 @@ define(
         return point;
       }
       else {
-        var xConstrained = Math.max( Math.min( x, bounds.getMaxX() ), bounds.x );
-        var yConstrained = Math.max( Math.min( y, bounds.getMaxY() ), bounds.y );
+        var xConstrained = Math.max( Math.min( point.x, bounds.getMaxX() ), bounds.x );
+        var yConstrained = Math.max( Math.min( point.y, bounds.getMaxY() ), bounds.y );
         return new Point2D( xConstrained, yConstrained );
       }
     };
