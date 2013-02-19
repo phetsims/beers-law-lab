@@ -11,13 +11,12 @@ define(
   [
     'easel',
     "PHETCOMMON/model/Inheritance",
-    "PHETCOMMON/model/property/Property",
     'image!images/faucet_handle.png',
     'image!images/faucet_pipe.png',
     'image!images/faucet_pivot.png',
     'image!images/faucet_spout.png'
   ],
-  function ( Easel, Inheritance, Property, handleImage, pipeImage, pivotImage, spoutImage ) {
+  function ( Easel, Inheritance, handleImage, pipeImage, pivotImage, spoutImage ) {
 
     function FaucetNode( faucet, mvt ) {
 
