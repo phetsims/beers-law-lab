@@ -7,8 +7,8 @@
  */
 define(
   [
-    'easel',
-    'common/util/StringUtils'
+    "easel",
+    "common/util/StringUtils"
   ],
   function ( Easel, StringUtils ) {
 

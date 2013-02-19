@@ -7,12 +7,12 @@
  */
 define(
   [
-    'easel',
-    'PHETCOMMON/math/MathUtil',
-    'PHETCOMMON/model/Inheritance',
-    'common/view/DebugOriginNode',
-    'common/view/MovableDragHandler',
-    'image!images/shaker.png'
+    "easel",
+    "PHETCOMMON/math/MathUtil",
+    "PHETCOMMON/model/Inheritance",
+    "common/view/DebugOriginNode",
+    "common/view/MovableDragHandler",
+    "image!images/shaker.png"
   ],
   function ( Easel, MathUtil, Inheritance, DebugOriginNode, MovableDragHandler, shakerImage ) {
 

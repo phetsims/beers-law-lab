@@ -7,10 +7,10 @@
  */
 define(
   [
-    'PHETCOMMON/math/Point2D',
-    'PHETCOMMON/model/property/Property',
-    'PHETCOMMON/model/Inheritance',
-    'common/model/Movable'
+    "PHETCOMMON/math/Point2D",
+    "PHETCOMMON/model/property/Property",
+    "PHETCOMMON/model/Inheritance",
+    "common/model/Movable"
   ],
   function ( Point2D, Property, Inheritance, Movable ) {
 

@@ -7,13 +7,13 @@
  */
 require(
   [
-    'easel',
-    'PHETCOMMON/util/Logger',
-    'PHETCOMMON/view/ModelViewTransform2D',
-    'PHETCOMMON/view/CanvasQuirks',
-    'concentration/model/ConcentrationModel',
-    'concentration/view/ConcentrationStage',
-    'i18n!../nls/beers-law-lab-strings'
+    "easel",
+    "PHETCOMMON/util/Logger",
+    "PHETCOMMON/view/ModelViewTransform2D",
+    "PHETCOMMON/view/CanvasQuirks",
+    "concentration/model/ConcentrationModel",
+    "concentration/view/ConcentrationStage",
+    "i18n!../nls/beers-law-lab-strings"
   ],
   function ( Easel, Logger, ModelViewTransform2D, CanvasQuirks, ConcentrationModel, ConcentrationStage, Strings ) {
 

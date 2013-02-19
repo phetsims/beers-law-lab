@@ -9,7 +9,7 @@
  */
 define(
   [
-    'common/model/Color'
+    "common/model/Color"
   ],
   function ( Color ) {
 

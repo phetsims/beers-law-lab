@@ -1,6 +1,6 @@
 define(
   [
-    'easel',
+    "easel",
     "PHETCOMMON/model/Inheritance"
   ],
   function( Easel, Inheritance ) {

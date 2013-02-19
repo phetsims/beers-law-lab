@@ -7,7 +7,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define(
-  [ 'i18n!../../nls/beers-law-lab-strings'],
+  [ "i18n!../../nls/beers-law-lab-strings" ],
   function( Strings ) {
 
     function Symbols() {}

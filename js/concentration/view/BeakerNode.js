@@ -2,10 +2,10 @@
 
 define(
   [
-    'easel',
-    'PHETCOMMON/model/Inheritance',
-    'common/util/StringUtils',
-    'i18n!../../../nls/beers-law-lab-strings'
+    "easel",
+    "PHETCOMMON/model/Inheritance",
+    "common/util/StringUtils",
+    "i18n!../../../nls/beers-law-lab-strings"
   ],
   function ( Easel, Inheritance, StringUtils, Strings ) {
 

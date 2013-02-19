@@ -7,16 +7,16 @@
  */
 define(
   [
-    'easel',
-    'PHETCOMMON/view/ModelViewTransform2D',
-    'PHETCOMMON/math/Point2D',
-    'PHETCOMMON/model/Inheritance',
-    'EASEL-PHET/nodes/FrameRateNode',
-    'concentration/view/BeakerNode',
-    'concentration/view/ShakerNode',
-    'concentration/view/FaucetNode',
-    'concentration/view/FaucetFluidNode',
-    'i18n!../../../nls/beers-law-lab-strings'
+    "easel",
+    "PHETCOMMON/view/ModelViewTransform2D",
+    "PHETCOMMON/math/Point2D",
+    "PHETCOMMON/model/Inheritance",
+    "EASEL-PHET/nodes/FrameRateNode",
+    "concentration/view/BeakerNode",
+    "concentration/view/ShakerNode",
+    "concentration/view/FaucetNode",
+    "concentration/view/FaucetFluidNode",
+    "i18n!../../../nls/beers-law-lab-strings"
   ],
   function ( Easel, ModelViewTransform2D, Point2D, Inheritance, FrameRateNode, BeakerNode, ShakerNode, FaucetNode, FaucetFluidNode, Strings ) {
 

@@ -6,7 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define(
-  [ 'easel', 'PHETCOMMON/model/Inheritance' ],
+  [ "easel", "PHETCOMMON/model/Inheritance" ],
   function ( Easel, Inheritance ) {
 
     function DebugOriginNode( color ) {

@@ -9,12 +9,12 @@
  */
 define(
   [
-    'easel',
+    "easel",
     "PHETCOMMON/model/Inheritance",
-    'image!images/faucet_handle.png',
-    'image!images/faucet_pipe.png',
-    'image!images/faucet_pivot.png',
-    'image!images/faucet_spout.png'
+    "image!images/faucet_handle.png",
+    "image!images/faucet_pipe.png",
+    "image!images/faucet_pivot.png",
+    "image!images/faucet_spout.png"
   ],
   function ( Easel, Inheritance, handleImage, pipeImage, pivotImage, spoutImage ) {
 

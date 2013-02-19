@@ -2,11 +2,11 @@
 
 define(
   [
-    'PHETCOMMON/model/Inheritance',
-    'common/model/Color',
-    'concentration/model/Solute',
-    'concentration/model/SoluteColorScheme',
-    'i18n!../../../nls/beers-law-lab-strings'
+    "PHETCOMMON/model/Inheritance",
+    "common/model/Color",
+    "concentration/model/Solute",
+    "concentration/model/SoluteColorScheme",
+    "i18n!../../../nls/beers-law-lab-strings"
   ],
   function ( Inheritance, Color, Solute, SoluteColorScheme, Strings ) {
 

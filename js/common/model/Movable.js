@@ -7,7 +7,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define(
-  [ 'PHETCOMMON/model/property/Property' ],
+  [ "PHETCOMMON/model/property/Property" ],
   function ( Property ) {
 
     /**

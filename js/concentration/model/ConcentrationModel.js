@@ -7,16 +7,16 @@
  */
 define(
   [
-    'PHETCOMMON/math/Dimension2D',
-    'PHETCOMMON/math/Point2D',
-    'PHETCOMMON/math/Range',
-    'PHETCOMMON/model/property/Property',
-    'common/model/Rectangle',
-    'concentration/model/Beaker',
-    'concentration/model/ConcentrationSolution',
-    'concentration/model/Shaker',
-    'concentration/model/Faucet',
-    'concentration/model/DrinkMix'
+    "PHETCOMMON/math/Dimension2D",
+    "PHETCOMMON/math/Point2D",
+    "PHETCOMMON/math/Range",
+    "PHETCOMMON/model/property/Property",
+    "common/model/Rectangle",
+    "concentration/model/Beaker",
+    "concentration/model/ConcentrationSolution",
+    "concentration/model/Shaker",
+    "concentration/model/Faucet",
+    "concentration/model/DrinkMix"
   ],
   function ( Dimension2D, Point2D, Range, Property, Rectangle, Beaker, ConcentrationSolution, Shaker, Faucet, DrinkMix ) {
 

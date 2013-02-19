@@ -7,7 +7,7 @@
  */
 define(
   [
-    'PHETCOMMON/model/property/Property'
+    "PHETCOMMON/model/property/Property"
   ],
   function ( Property ) {
 

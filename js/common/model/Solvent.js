@@ -11,7 +11,7 @@ define(
     "common/Symbols",
     "common/model/Color",
     "common/model/Fluid",
-    'i18n!../../../nls/beers-law-lab-strings'
+    "i18n!../../../nls/beers-law-lab-strings"
   ],
   function ( Inheritance, Symbols, Color, Fluid, Strings ) {
 
