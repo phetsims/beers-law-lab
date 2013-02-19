@@ -80,7 +80,6 @@ define(
 
       // reset
       solution.reset = function () {
-        console.log( "ConcentrationSolution.reset" );//XXX
         Inheritance.callSuper( Fluid, "reset", this );
         solution.soluteAmountProperty.reset();
         solution.volumeProperty.reset();
@@ -106,7 +105,7 @@ define(
     ConcentrationSolution.prototype.getNumberOfPrecipitateParticles = function () {
       var solution = this;
       var numberOfParticles = (int)( solution.soluteProperty.get().particlesPerMole * precipitateAmount.get() );
-      if ( numberOfParticles == 0 && precipitateAmountProperty.get() > 0 ) {
+      if ( numberOfParticles == 0 && solution.precipitateAmountProperty.get() > 0 ) {
         numberOfParticles = 1;
       }
       return numberOfParticles;
