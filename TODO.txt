@@ -12,11 +12,14 @@ IMPLEMENTATION ISSUES
 - workaround for overriding someMethod and calling super.someMethod
 
 HIGH
-- add simple push buttons as placeholders for faucets
+- FaucetNode layout and interactivity
+- FaucetFluidNode flesh out
 - solution in beaker
 - particles in beaker when saturation is reached
 
 MEDIUM
+- upgrade to Easel 0.6
+- implement subscripts for symbols
 - dropper
 - solute combo box
 - evaporation control

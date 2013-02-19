@@ -6,8 +6,14 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define(
-  [],
-  function () {
+  [
+    "PHETCOMMON/model/Inheritance",
+    "common/Symbols",
+    "common/model/Color",
+    "concentration/model/Fluid",
+    'i18n!../../../nls/beers-law-lab-strings'
+  ],
+  function ( Inheritance, Symbols, Color, Fluid, Strings ) {
 
     /**
      * Constructor.
@@ -17,10 +23,16 @@ define(
      * @constructor
      */
     function Solvent( name, formula, color ) {
+
+      Fluid.call( this, color ); // constructor stealing
+
       this.name = name;
       this.formula = formula;
-      this.color = color;
     }
+
+    Inheritance.inheritPrototype( Solvent, Fluid ); // prototype chaining
+
+    Solvent.WATER = new Solvent( Strings.water, Symbols.WATER, new Color( 224, 255, 255 ) );
 
     return Solvent;
   } );

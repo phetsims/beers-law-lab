@@ -30,5 +30,10 @@ define(
       this.particlesPerMole = particlesPerMole;
     }
 
+    // convenience method
+    Solute.prototype.getSaturatedConcentration = function () {
+      return this.colorScheme.get().maxConcentration;
+    }
+
     return Solute;
   } );

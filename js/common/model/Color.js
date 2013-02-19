@@ -64,5 +64,20 @@ define(
       return number1 + ( distance * ( number2 - number1 ) );
     }
 
+    // Common opaque colors
+    Color.BLACK = new Color( 0, 0, 0 );
+    Color.BLUE = new Color( 0, 0, 255 );
+    Color.CYAN = new Color( 0, 255, 255 );
+    Color.DARK_GRAY = new Color( 64, 64, 64 );
+    Color.GRAY = new Color( 128, 128, 128 );
+    Color.GREEN = new Color( 0, 255, 0 );
+    Color.LIGHT_GRAY = new Color( 192, 192, 192 );
+    Color.MAGENTA = new Color( 255, 0, 255 );
+    Color.ORANGE = new Color( 255, 200, 0 );
+    Color.PINK = new Color( 255, 175, 175 );
+    Color.RED = new Color( 255, 0, 0 );
+    Color.WHITE = new Color( 255, 255, 255 );
+    Color.YELLOW = new Color( 255, 255, 0 );
+
     return Color;
   } );

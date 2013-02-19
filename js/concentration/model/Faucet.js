@@ -13,21 +13,22 @@ define(
 
     /**
      * @param {Point2D} location center of output pipe
-     * @param {Number} inputPipeLength
+     * @param {Number} pipeLength
      * @param {Number} maxFlowRate L/sec
      * @constructor
      */
-    function Faucet( location, inputPipeLength, maxFlowRate ) {
+    function Faucet( location, spoutWidth, pipeLength, maxFlowRate ) {
       this.location = location;
-      this.inputPipeLength = inputPipeLength;
+      this.spoutWidth = spoutWidth;
+      this.pipeLength = pipeLength;
       this.maxFlowRate = maxFlowRate;
-      this.flowRate = new Property( 0 );
-      this.enabled = new Property( true );
+      this.flowRateProperty = new Property( 0 );
+      this.enabledProperty = new Property( true );
     }
 
     Faucet.prototype.reset = function () {
-      this.flowRate.reset();
-      this.enabled.reset();
+      this.flowRateProperty.reset();
+      this.enabledProperty.reset();
     }
 
     return Faucet;

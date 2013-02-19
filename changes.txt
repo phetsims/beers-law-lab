@@ -1,3 +1,6 @@
+2/19/13 add view of fluid coming out of faucet (FaucetFluidNode)
+2/19/13 add solution model (ConcentrationSolution)
+2/19/13 add fluid model (Fluid) and subtype solvent and solution models
 2/19/13 add Faucet model and image files
 2/15/13 change submodule urls to https so they are not read-only
 2/15/13 rename top-level "concentration" files to "beers-law-lab"
