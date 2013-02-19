@@ -17,6 +17,10 @@ define(
       this.volume = volume;
     }
 
+    Beaker.prototype.reset = function () {
+      // currently nothing to reset
+    }
+
     // Gets the x coordinate of the left wall.
     Beaker.prototype.getMinX = function () {
       return this.location.x - ( this.size.width / 2 );
