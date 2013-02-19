@@ -1,3 +1,4 @@
+2/19/13 upgraded to Easel 0.6.0 (couldn't find non-minified version)
 2/19/13 use double quotes for requirejs import strings
 2/19/13 use Inheritance.callSuper to chain reset calls to supertypes
 2/19/13 move Fluid to common/model/

@@ -18,7 +18,8 @@ HIGH
 - particles in beaker when saturation is reached
 
 MEDIUM
-- upgrade to Easel 0.6
+- get non-minified version of easeljs-0.6.0
+- switch to PerformanceMeter
 - implement subscripts for symbols
 - dropper
 - solute combo box
