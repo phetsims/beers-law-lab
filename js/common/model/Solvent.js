@@ -10,7 +10,7 @@ define(
     "PHETCOMMON/model/Inheritance",
     "common/Symbols",
     "common/model/Color",
-    "concentration/model/Fluid",
+    "common/model/Fluid",
     'i18n!../../../nls/beers-law-lab-strings'
   ],
   function ( Inheritance, Symbols, Color, Fluid, Strings ) {

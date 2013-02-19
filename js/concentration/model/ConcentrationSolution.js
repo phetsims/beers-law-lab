@@ -13,7 +13,7 @@ define(
     "PHETCOMMON/model/property/Property",
     "common/model/Color",
     "common/model/Solvent",
-    "concentration/model/Fluid"
+    "common/model/Fluid"
   ],
   function( Inheritance, Property, Color, Solvent, Fluid ) {
 
