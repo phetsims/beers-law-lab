@@ -1,3 +1,4 @@
+2/19/13 upgrade from requirejs 2.1.2 to 2.1.4
 2/19/13 fix in MoveableDragHandler
 2/19/13 upgrade from jquery 1.8.3 to 1.9.1
 2/19/13 upgraded to Easel 0.6.0 (couldn't find non-minified version)
