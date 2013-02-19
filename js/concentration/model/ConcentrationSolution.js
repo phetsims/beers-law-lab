@@ -78,14 +78,12 @@ define(
         solution.concentrationProperty.addObserver( colorObserver );
       }
 
-      // reset chaining
-      {
-        var superReset = this.reset;
-        this.reset = function () {
-          superReset();
-          solution.soluteAmountProperty.reset();
-          solution.volumeProperty.reset();
-        }
+      // reset
+      solution.reset = function () {
+        console.log( "ConcentrationSolution.reset" );//XXX
+        Inheritance.callSuper( Fluid, "reset", this );
+        solution.soluteAmountProperty.reset();
+        solution.volumeProperty.reset();
       }
     }
 

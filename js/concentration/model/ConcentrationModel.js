@@ -42,6 +42,8 @@ define(
       model.shaker = new Shaker( new Point2D( 340, 170 ), new Rectangle( 225, 50, 400, 160 ), 0.75 * Math.PI, model.soluteProperty, SHAKER_MAX_DISPENSING_RATE );
       model.solventFaucet = new Faucet( new Point2D( 150, 190 ), 40, 1000, MAX_INPUT_FLOW_RATE );
       model.drainFaucet = new Faucet( new Point2D( 825, 618 ), 40, 20, MAX_OUTPUT_FLOW_RATE );
+
+      model.solution.reset();//XXX
     }
 
     // Resets all model elements

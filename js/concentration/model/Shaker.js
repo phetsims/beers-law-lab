@@ -27,50 +27,51 @@ define(
 
       Movable.call( this, location, dragBounds ); // constructor stealing
 
-      this.orientation = orientation;
-      this.soluteProperty = soluteProperty;
-      this.maxDispensingRate = maxDispensingRate;
+      var shaker = this;
 
-      this.visibleProperty = new Property( true );
-      this.emptyProperty = new Property( false );
-      this.dispensingRateProperty = new Property( 0 );
-      this.previousLocation = location;
+      shaker.orientation = orientation;
+      shaker.soluteProperty = soluteProperty;
+      shaker.maxDispensingRate = maxDispensingRate;
+
+      shaker.visibleProperty = new Property( true );
+      shaker.emptyProperty = new Property( false );
+      shaker.dispensingRateProperty = new Property( 0 );
+      shaker.previousLocation = location;
 
       // set the dispensing rate to zero when the shaker becomes empty or invisible
-      var that = this;
       var observer = function () {
-        if ( that.emptyProperty.get() || !that.visibleProperty.get() ) {
-          that.dispensingRateProperty.set( 0 );
+        if ( shaker.emptyProperty.get() || !shaker.visibleProperty.get() ) {
+          shaker.dispensingRateProperty.set( 0 );
         }
       };
-      this.emptyProperty.addObserver( observer );
-      this.visibleProperty.addObserver( observer );
+      shaker.emptyProperty.addObserver( observer );
+      shaker.visibleProperty.addObserver( observer );
+
+      // reset
+      shaker.reset = function () {
+        Inheritance.callSuper( Movable, "reset", this );
+        shaker.dispensingRateProperty.reset();
+        shaker.previousLocation = this.locationProperty.get(); // to prevent shaker from dispensing solute when its location is reset
+      }
     }
 
     Inheritance.inheritPrototype( Shaker, Movable );
-
-    // Resets the shaker to its initial state.
-    Shaker.prototype.resetSuper = Movable.prototype.reset; //TODO awful hack for calling super.reset
-    Shaker.prototype.reset = function () {
-      this.resetSuper();
-      this.dispensingRateProperty.reset();
-      this.previousLocation = this.locationProperty.get(); // to prevent shaker from dispensing solute when its location is reset
-    }
 
     /*
      * This is called whenever the simulation clock ticks.
      * Sets the dispensing rate if the shaker is moving.
      */
     Shaker.prototype.tick = function () {
-      if ( this.visibleProperty.get() && !this.emptyProperty.get() ) {
-        if ( this.previousLocation.equals( this.locationProperty.get() ) ) {
-          this.dispensingRateProperty.set( 0 ); // shaker is not moving, don't dispense anything
+      var shaker = this;
+      if ( shaker.visibleProperty.get() && !shaker.emptyProperty.get() ) {
+        if ( shaker.previousLocation.equals( shaker.locationProperty.get() ) ) {
+          shaker.dispensingRateProperty.set( 0 ); // shaker is not moving, don't dispense anything
         }
         else {
-          this.dispensingRateProperty.set( this.maxDispensingRate ); // this seems to work fine
+          shaker.dispensingRateProperty.set( shaker.maxDispensingRate ); // this seems to work fine
         }
       }
-      this.previousLocation = this.locationProperty.get();
+      shaker.previousLocation = shaker.locationProperty.get();
     }
 
     return Shaker;

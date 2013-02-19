@@ -1,3 +1,4 @@
+2/19/13 use Inheritance.callSuper to chain reset calls to supertypes
 2/19/13 move Fluid to common/model/
 2/19/13 add view of fluid coming out of faucet (FaucetFluidNode)
 2/19/13 add solution model (ConcentrationSolution)
