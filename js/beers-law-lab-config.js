@@ -13,7 +13,7 @@ require.config(
     paths: {
       // contrib
       easel: "../contrib/easeljs-0.6.0.min",
-      i18n: "../contrib/i18n/i18n",
+      i18n: "../contrib/i18n-2.0.2",
       image: "../contrib/image-0.2.1",
       tpl: "../contrib/tpl-0.2",
 
