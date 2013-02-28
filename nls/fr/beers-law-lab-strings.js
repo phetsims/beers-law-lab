@@ -1,0 +1,4 @@
+define(
+  {
+    "concentration": "Concentration (French)"
+  } );

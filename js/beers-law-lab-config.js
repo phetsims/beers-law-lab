@@ -6,9 +6,15 @@
  *
  * @author Chris Malley
  */
-require.config(
+requirejs.config(
   {
     deps: ["beers-law-lab-main"],
+
+    config: {
+      i18n: {
+        locale: 'fr'
+      }
+    },
 
     paths: {
       // contrib
