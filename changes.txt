@@ -1,3 +1,4 @@
+2/28/13 added phetLocale for reading the locale from URL query parameters
 2/28/13 test i18n local config
 2/28/13 replace i18n fork with official release i18n-2.0.2.js
 2/19/13 upgrade from requirejs 2.1.2 to 2.1.4
