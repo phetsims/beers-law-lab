@@ -57,11 +57,8 @@ define(
 
     Inheritance.inheritPrototype( Shaker, Movable );
 
-    /*
-     * This is called whenever the simulation clock ticks.
-     * Sets the dispensing rate if the shaker is moving.
-     */
-    Shaker.prototype.tick = function () {
+    // Sets the dispensing rate if the shaker is moving.
+    Shaker.prototype.step = function () {
       var shaker = this;
       if ( shaker.visibleProperty.get() && !shaker.emptyProperty.get() ) {
         if ( shaker.previousLocation.equals( shaker.locationProperty.get() ) ) {

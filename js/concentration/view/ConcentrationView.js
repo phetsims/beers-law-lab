@@ -20,7 +20,11 @@ define(
       var mvt = new ModelViewTransform2D( 1, new Point2D( 0, 0 ) );
 
       // scene graph
-      new ConcentrationScene( model, mvt );
+      var scene = new ConcentrationScene( model, mvt );
+
+      this.step = function () {
+        scene.step();
+      };
     }
 
     return ConcentrationView;

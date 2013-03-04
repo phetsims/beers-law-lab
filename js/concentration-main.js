@@ -7,28 +7,23 @@
  */
 require(
   [
-    "PHETCOMMON/util/Logger",
+    "PHETCOMMON/view/PerformanceMonitor",
     "concentration/model/ConcentrationModel",
     "concentration/view/ConcentrationView",
     "i18n!../nls/beers-law-lab-strings"
   ],
-  function ( Logger, ConcentrationModel, ConcentrationView, Strings ) {
-
-    Logger.enabled = true;
-
-    // Model --------------------------------------------------------------------
+  function ( PerformanceMonitor, ConcentrationModel, ConcentrationView, Strings ) {
 
     var model = new ConcentrationModel();
-
-    // View --------------------------------------------------------------------
-
     var view = new ConcentrationView( model, Strings );
+    var performanceMonitor = new PerformanceMonitor();
 
-    // Animation loop ----------------------------------------------------------
-
-    //TODO what is the prototypical animation loop for Scenery?
-//    Easel.Ticker.addListener( model );
-//    Easel.Ticker.addListener( stage );
-//    Easel.Ticker.setFPS( 60 );
-//    Easel.Touch.enable( stage, false, false );
+    // Animation loop
+    (function animationLoop() {
+      performanceMonitor.begin();
+      requestAnimationFrame( animationLoop );
+      model.step();
+      view.step();
+      performanceMonitor.end();
+    })();
   } );

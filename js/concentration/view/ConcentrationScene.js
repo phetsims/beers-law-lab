@@ -18,7 +18,9 @@ define(
       var shakerNode = new ShakerNode( model.shaker, mvt );
       scene.addChild( shakerNode );
 
-      scene.updateScene();
+      this.step = function() {
+          scene.updateScene();
+      };
     }
 
     return ConcentrationScene;

@@ -55,8 +55,8 @@ define(
     };
 
     // Animates the model, called by Easel.Ticker
-    ConcentrationModel.prototype.tick = function () {
-      this.shaker.tick();
+    ConcentrationModel.prototype.step = function () {
+      this.shaker.step();
     };
 
     return ConcentrationModel;
