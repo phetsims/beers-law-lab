@@ -19,17 +19,18 @@ requirejs.config(
     paths: {
 
       // contrib
-      easel: "../contrib/easeljs-0.6.0.min",
+      easel: "../contrib/easeljs-0.6.0.min", //TODO delete me
       i18n: "../contrib/i18n-2.0.2",
       image: "../contrib/image-0.2.1",
       tpl: "../contrib/tpl-0.2",
 
+      // Dependencies required by common repos
+      stats: "../contrib/stats-r11",
+      imagesloaded: "../contrib/jquery.imagesloaded-2.1.1",
+
       // Common repos, uppercase names to identify them in require imports
       'EASEL-PHET': "../../easel-phet/js",
       PHETCOMMON: "../../phetcommon/js",
-
-      // Common dependencies
-      stats: "../../phetcommon/contrib/stats-r11",
 
       // Scenery and its dependencies
       ASSERT: '../../scenery/common/assert/js',

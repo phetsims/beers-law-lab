@@ -1,3 +1,4 @@
+3/4/13 make local copies of libs required by phetcommon, so I can ignore its submodules
 3/4/13 port FaucetNode to scenery
 3/4/13 add PerformanceMonitor
 3/4/13 add animation loop
