@@ -8,18 +8,16 @@ DESIGN ISSUES
 
 IMPLEMENTATION ISSUES
 - Bootstrap controls
-- OO/MVC approach
-- workaround for overriding someMethod and calling super.someMethod
 
 HIGH
+- port to Scenery
+- use ImagesLoader to load images
 - FaucetNode layout and interactivity
 - FaucetFluidNode flesh out
 - solution in beaker
 - particles in beaker when saturation is reached
 
 MEDIUM
-- get non-minified version of easeljs-0.6.0
-- switch to PerformanceMeter
 - implement subscripts for symbols
 - dropper
 - solute combo box
