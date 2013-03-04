@@ -49,12 +49,10 @@ define(
       this.addChild( parentNode );
       parentNode.addChild( imageNode );
       parentNode.addChild( labelNode );
+      parentNode.rotate( MathUtil.toDegrees( shaker.orientation - Math.PI ) );
 
       // Manually adjust these values until the origin is in the middle hole of the shaker.
-      parentNode.setTranslation( -12, -imageNode.height / 2 );
-
-      //TODO this is not rotating about parentNode's origin
-      parentNode.setRotation( MathUtil.toDegrees( shaker.orientation - Math.PI ) );
+      parentNode.translate( -12, -imageNode.height / 2 );
 
       // origin
       if ( DEBUG_ORIGIN ) {

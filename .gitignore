@@ -1,1 +1,3 @@
 beers-law-lab.iml
+dist/
+node_modules/
