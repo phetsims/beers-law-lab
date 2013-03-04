@@ -12,7 +12,7 @@ define(
   [
     "PHETCOMMON/math/Point2D",
     "PHETCOMMON/math/Vector2D",
-    "PHETCOMMON/model/Inheritance",
+    "PHETCOMMON/util/Inheritance",
     "concentration/model/SoluteParticle"
   ],
   function ( Point2D, Vector2D, Inheritance, SoluteParticle ) {

@@ -9,7 +9,7 @@
  */
 define(
   [
-    "PHETCOMMON/model/Inheritance",
+    "PHETCOMMON/util/Inheritance",
     "concentration/model/SoluteParticle"
   ],
   function ( Inheritance, SoluteParticle ) {

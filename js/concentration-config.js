@@ -24,8 +24,8 @@ requirejs.config(
       tpl: "../contrib/tpl-0.2",
 
       // common directories, uppercase names to identify them in require imports
-      PHETCOMMON: "../common/phetcommon/js",
-      'EASEL-PHET': "../common/easel-phet/js",
+      PHETCOMMON: "../../phetcommon/js",
+      'EASEL-PHET': "../../easel-phet/js",
 
       // Scenery and its dependencies
       ASSERT: '../../scenery/common/assert/js',

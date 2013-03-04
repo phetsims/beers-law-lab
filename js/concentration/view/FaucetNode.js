@@ -10,7 +10,7 @@
 define(
   [
     "easel",
-    "PHETCOMMON/model/Inheritance",
+    "PHETCOMMON/util/Inheritance",
     "image!images/faucet_handle.png",
     "image!images/faucet_pipe.png",
     "image!images/faucet_pivot.png",

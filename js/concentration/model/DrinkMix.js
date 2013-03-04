@@ -2,7 +2,7 @@
 
 define(
   [
-    "PHETCOMMON/model/Inheritance",
+    "PHETCOMMON/util/Inheritance",
     "common/model/Color",
     "concentration/model/Solute",
     "concentration/model/SoluteColorScheme",

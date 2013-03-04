@@ -1,7 +1,7 @@
 define(
   [
     "easel",
-    "PHETCOMMON/model/Inheritance"
+    "PHETCOMMON/util/Inheritance"
   ],
   function( Easel, Inheritance ) {
 

@@ -9,7 +9,7 @@
 */
 define(
   [
-    "PHETCOMMON/model/Inheritance",
+    "PHETCOMMON/util/Inheritance",
     "PHETCOMMON/model/property/Property",
     "common/model/Color",
     "common/model/Solvent",

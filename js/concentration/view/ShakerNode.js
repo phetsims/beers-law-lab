@@ -11,7 +11,7 @@ define(
     "SCENERY/nodes/Image",
     "SCENERY/nodes/Text",
     "PHETCOMMON/math/MathUtil",
-    "PHETCOMMON/model/Inheritance",
+    "PHETCOMMON/util/Inheritance",
     "common/view/DebugOriginNode",
     "image!images/shaker.png"
   ],

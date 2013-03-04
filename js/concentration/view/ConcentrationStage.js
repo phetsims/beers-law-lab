@@ -11,7 +11,7 @@ define(
     "easel",
     "PHETCOMMON/view/ModelViewTransform2D",
     "PHETCOMMON/math/Point2D",
-    "PHETCOMMON/model/Inheritance",
+    "PHETCOMMON/util/Inheritance",
     "EASEL-PHET/nodes/FrameRateNode",
     "concentration/view/BeakerNode",
     "concentration/view/ShakerNode",

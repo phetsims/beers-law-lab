@@ -3,7 +3,7 @@
 define(
   [
     "easel",
-    "PHETCOMMON/model/Inheritance",
+    "PHETCOMMON/util/Inheritance",
     "common/util/StringUtils",
     "i18n!../../../nls/beers-law-lab-strings"
   ],

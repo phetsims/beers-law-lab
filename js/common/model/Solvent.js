@@ -7,7 +7,7 @@
  */
 define(
   [
-    "PHETCOMMON/model/Inheritance",
+    "PHETCOMMON/util/Inheritance",
     "common/Symbols",
     "common/model/Color",
     "common/model/Fluid",
