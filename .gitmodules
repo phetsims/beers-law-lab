@@ -1,6 +1,0 @@
-[submodule "common/easel-phet"]
-	path = common/easel-phet
-	url = https://github.com/phetsims/easel-phet.git
-[submodule "common/phetcommon"]
-	path = common/phetcommon
-	url = https://github.com/phetsims/phetcommon.git
