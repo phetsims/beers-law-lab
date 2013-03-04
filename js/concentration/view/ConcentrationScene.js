@@ -14,6 +14,7 @@ define(
 
     function ConcentrationScene( model, mvt ) {
 
+      // Use composition instead of inheritance to hide which scene graph library is used.
       var scene = new Scene( $( '#concentration-scene' ) );
 
       var shakerNode = new ShakerNode( model.shaker, mvt );
