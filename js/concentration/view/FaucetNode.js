@@ -9,24 +9,25 @@
  */
 define(
   [
-    "easel",
+    "SCENERY/Node",
+    "SCENERY/nodes/Image",
     "PHETCOMMON/util/Inheritance",
     "image!images/faucet_handle.png",
     "image!images/faucet_pipe.png",
     "image!images/faucet_pivot.png",
     "image!images/faucet_spout.png"
   ],
-  function ( Easel, Inheritance, handleImage, pipeImage, pivotImage, spoutImage ) {
+  function ( Node, Image, Inheritance, handleImage, pipeImage, pivotImage, spoutImage ) {
 
     function FaucetNode( faucet, mvt ) {
 
-      Easel.Container.call( this ); // constructor stealing
+      Node.call( this ); // constructor stealing
 
       // child nodes
-      var handleNode = new Easel.Bitmap( handleImage );
-      var pipeNode = new Easel.Bitmap( pipeImage );
-      var pivotNode = new Easel.Bitmap( pivotImage );
-      var spoutNode = new Easel.Bitmap( spoutImage );
+      var handleNode = new Image( handleImage );
+      var pipeNode = new Image( pipeImage );
+      var pivotNode = new Image( pivotImage );
+      var spoutNode = new Image( spoutImage );
 
       // rendering order
       this.addChild( pipeNode );
@@ -37,7 +38,7 @@ define(
       // layout
     }
 
-    Inheritance.inheritPrototype( FaucetNode, Easel.Container ); // prototype chaining
+    Inheritance.inheritPrototype( FaucetNode, Node ); // prototype chaining
 
     return FaucetNode;
   }

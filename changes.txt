@@ -1,3 +1,4 @@
+3/4/13 port FaucetNode to scenery
 3/4/13 add PerformanceMonitor
 3/4/13 add animation loop
 3/4/13 fix imports of Inheritance to point to new location in phetcommon

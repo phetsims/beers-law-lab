@@ -25,6 +25,10 @@ define(
       this.step = function () {
         scene.step();
       };
+
+      this.reset = function() {
+        scene.reset();
+      }
     }
 
     return ConcentrationView;
