@@ -6,15 +6,21 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define(
-  [ "easel", "PHETCOMMON/model/Inheritance" ],
-  function ( Easel, Inheritance ) {
+  [
+    "SCENERY/nodes/Path",
+    "SCENERY/Shape",
+    "PHETCOMMON/model/Inheritance"
+  ],
+  function ( Path, Shape, Inheritance ) {
 
     function DebugOriginNode( color ) {
-      Easel.Shape.call( this );
-      this.graphics.beginFill( color ).drawCircle( 0, 0, 3 );
+      Path.call( this, {
+        shape: Shape.circle( 0, 0, 3 ),
+        fill: color
+      } );
     }
 
-    Inheritance.inheritPrototype( DebugOriginNode, Easel.Shape );
+    Inheritance.inheritPrototype( DebugOriginNode, Path );
 
     return DebugOriginNode;
   } );

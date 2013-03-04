@@ -1,5 +1,6 @@
 // Copyright 2013, University of Colorado
 
+//TODO delete this after porting to Scenery
 /**
  * Stage for the "Concentration" module, sets up the scenegraph.
  *

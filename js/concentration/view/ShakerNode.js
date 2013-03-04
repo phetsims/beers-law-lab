@@ -7,14 +7,18 @@
  */
 define(
   [
-    "easel",
+    "SCENERY/Node",
+    "SCENERY/nodes/Image",
+    "SCENERY/nodes/Text",
     "PHETCOMMON/math/MathUtil",
     "PHETCOMMON/model/Inheritance",
     "common/view/DebugOriginNode",
-    "common/view/MovableDragHandler",
     "image!images/shaker.png"
   ],
-  function ( Easel, MathUtil, Inheritance, DebugOriginNode, MovableDragHandler, shakerImage ) {
+  function ( Node, Image, Text, MathUtil, Inheritance, DebugOriginNode, shakerImage ) {
+
+    // constants
+    var DEBUG_ORIGIN = true;
 
     /**
      * Constructor
@@ -24,65 +28,68 @@ define(
      */
     function ShakerNode( shaker, mvt ) {
 
-      Easel.Container.call( this );
+      Node.call( this );
 
-      // constants
-      var DEBUG_ORIGIN = true;
+      var shakerNode = this;
 
       // shaker image
-      var imageNode = new Easel.Bitmap( shakerImage );
-      imageNode.scaleX = 0.75;
-      imageNode.scaleY = 0.75;
+      var imageNode = new Image( shakerImage );
+      imageNode.setScale( 0.75 );
 
       // label
-      var labelNode = new Easel.Text( "?", "bold 22px Arial", "black" );
-      labelNode.textAlign = 'center';
-      labelNode.textBaseline = 'middle';
+      var labelNode = new Text( "?", {
+        font: "bold 22px Arial",
+        fill: "black",
+        textAlign: "center",
+        textBaseline: "middle"
+      } );
 
       // common parent, to simplify rotation and label alignment.
-      var parentNode = new Easel.Container();
+      var parentNode = new Node();
       this.addChild( parentNode );
       parentNode.addChild( imageNode );
       parentNode.addChild( labelNode );
-      parentNode.rotation = MathUtil.toDegrees( shaker.orientation - Math.PI );
 
       // Manually adjust these values until the origin is in the middle hole of the shaker.
-      parentNode.x = -45;
-      parentNode.y = -30;
+      parentNode.setTranslation( -12, -imageNode.height / 2 );
+
+      //TODO this is not rotating about parentNode's origin
+      parentNode.setRotation( MathUtil.toDegrees( shaker.orientation - Math.PI ) );
 
       // origin
       if ( DEBUG_ORIGIN ) {
-        this.addChild( new DebugOriginNode( 'red' ) );
+        this.addChild( new DebugOriginNode( "red" ) );
       }
-
-      var that = this;
 
       // sync location with model
       shaker.locationProperty.addObserver( function updateLocation( location ) {
-        that.x = mvt.modelToView( location.x );
-        that.y = mvt.modelToView( location.y );
+        shakerNode.x = mvt.modelToView( location.x );
+        shakerNode.y = mvt.modelToView( location.y );
       } );
 
       // sync visibility with model
       shaker.visibleProperty.addObserver( function updateVisibility( visible ) {
-        that.visible = visible;
+        shakerNode.visible = visible;
       } );
 
       // sync solute with model
       shaker.soluteProperty.addObserver( function updateSolute( solute ) {
+        // label the shaker with the solute formula
         labelNode.text = solute.formula;
-        labelNode.x = 20 + imageNode.scaleX * imageNode.image.width / 2;
-        labelNode.y = imageNode.scaleY * imageNode.image.height / 2;
+        // center the label on the shaker
+        var capWidth = 0.3 * imageNode.width;
+        labelNode.centerX = capWidth + ( imageNode.width - capWidth ) / 2;
+        labelNode.centerY = imageNode.height / 2;
       } );
 
       // drag handler
-      //TODO mvt.modelToView(shaker.dragBounds)
-      MovableDragHandler.register( this, shaker.dragBounds, function ( point ) {
-        shaker.locationProperty.set( mvt.viewToModel( point ) );
-      } );
+//      TODO mvt.modelToView(shaker.dragBounds)
+//      MovableDragHandler.register( this, shaker.dragBounds, function ( point ) {
+//        shaker.locationProperty.set( mvt.viewToModel( point ) );
+//      } );
     }
 
-    Inheritance.inheritPrototype( ShakerNode, Easel.Container );
+    Inheritance.inheritPrototype( ShakerNode, Node );
 
     return ShakerNode;
   } );

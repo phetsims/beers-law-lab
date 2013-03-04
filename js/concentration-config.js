@@ -1,14 +1,14 @@
 // Copyright 2002-2013, University of Colorado
 
 /*
- * RequireJS configuration file for the "Beer's Law Lab" sim.
+ * RequireJS configuration file for the "Concentration" sim.
  * Paths are relative to the location of this file.
  *
  * @author Chris Malley
  */
 requirejs.config(
   {
-    deps: ["beers-law-lab-main"],
+    deps: ["concentration-main"],
 
     config: {
       i18n: {
@@ -25,13 +25,18 @@ requirejs.config(
 
       // common directories, uppercase names to identify them in require imports
       PHETCOMMON: "../common/phetcommon/js",
-      'EASEL-PHET': "../common/easel-phet/js"
+      'EASEL-PHET': "../common/easel-phet/js",
+
+      // Scenery and its dependencies
+      ASSERT: '../../scenery/common/assert/js',
+      DOT: '../../scenery/common/dot/js',
+      SCENERY: '../../scenery/js'
     },
 
     shim: {
-      easel: {
-        exports: "createjs"
-      }
+      easel: { exports: "createjs" },
+      underscore: { exports: "_" },
+      jquery: { exports: "$" }
     },
 
     urlArgs: new Date().getTime()  // cache buster to make browser refresh load all included scripts

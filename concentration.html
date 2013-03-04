@@ -13,18 +13,17 @@
     <link rel="stylesheet" href="common/phetcommon/css/phetcommon.css"/>
     <link rel="stylesheet" href="css/beers-law-lab.css"/>
 
+    <!-- Contrib libs -->
     <script src="contrib/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="contrib/underscore-1.4.2.js"></script>
 
     <!-- Application JavaScript -->
-    <script src="js/common/util/phetLocale.js"></script>
-    <script data-main='js/beers-law-lab-config.js' src='contrib/require-2.1.4.js'></script>
+    <script data-main='js/concentration-config.js' src='contrib/require-2.1.4.js'></script>
 </head>
 <body>
 <div>
-    <!-- Canvas -->
-    <div>
-        <canvas id='canvas' width='1000' height='650'>Canvas not supported.</canvas>
-    </div>
+    <!-- Scene graph -->
+    <div id="concentration-scene" style="width: 1000px; height: 650px;"></div>
 </div>
 </body>
 </html>
