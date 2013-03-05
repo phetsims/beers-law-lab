@@ -1,3 +1,4 @@
+3/4/13 set pointer cursor on shaker
 3/4/13 adjust imports for SCENERY/nodes/Node
 3/4/13 add stub drag handler to ShakerNode
 3/4/13 remove Easel from Color

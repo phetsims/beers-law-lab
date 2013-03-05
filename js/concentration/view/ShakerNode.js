@@ -29,7 +29,9 @@ define(
      */
     function ShakerNode( shaker, mvt ) {
 
-      Node.call( this );
+      Node.call( this, {
+        cursor: "pointer"
+      } );
 
       var shakerNode = this;
 
