@@ -1,10 +1,12 @@
 TODO list for beers-law-lab (HTML5 port)
 
 DESIGN ISSUES
-- tabs
-- radio buttons
 - tablet usability issues from 1/29/13 notebook
 - priority of accessibility?
+- tabs
+- radio buttons
+- combo box
+- sliders
 
 IMPLEMENTATION ISSUES
 - Bootstrap controls
