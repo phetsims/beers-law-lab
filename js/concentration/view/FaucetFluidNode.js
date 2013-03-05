@@ -1,9 +1,9 @@
 define(
   [
-    "easel",
+    "SCENERY/nodes/Path",
     "PHETCOMMON/util/Inheritance"
   ],
-  function( Easel, Inheritance ) {
+  function( Path, Inheritance ) {
 
     /**
      * @param {Faucet} faucet
@@ -14,7 +14,7 @@ define(
      */
     function FaucetFluidNode( faucet, fluid, mvt, height ) {
 
-      Easel.Shape.call( this ); // constructor stealing
+      Path.call( this ); // constructor stealing
 
       /*
        * Set the color of the fluid coming out of the spout.
@@ -39,7 +39,7 @@ define(
       } );
     }
 
-    Inheritance.inheritPrototype( FaucetFluidNode, Easel.Shape ); // prototype chaining
+    Inheritance.inheritPrototype( FaucetFluidNode, Path ); // prototype chaining
 
     return FaucetFluidNode;
 
