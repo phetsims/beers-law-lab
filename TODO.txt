@@ -48,3 +48,4 @@ Color
 Rectangle
 DebugOriginNode
 FaucetNode + images
+StringUtils
