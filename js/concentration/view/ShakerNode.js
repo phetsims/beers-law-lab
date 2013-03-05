@@ -107,7 +107,6 @@ define(
         }
       };
 
-      var relativePoint;
       this.addInputListener( new SimpleDragHandler(
         {
           translate: function ( options ) {

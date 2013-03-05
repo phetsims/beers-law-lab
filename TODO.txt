@@ -12,6 +12,7 @@ IMPLEMENTATION ISSUES
 - Bootstrap controls
 
 HIGH
+- ask JO about relativePressPoint for SimpleDragHandler
 - rewrite MovableDragHandler based on SimpleDragHandler
 - use ImagesLoader to load images
 - FaucetNode layout and interactivity
