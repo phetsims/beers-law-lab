@@ -11,9 +11,14 @@ DESIGN ISSUES
 IMPLEMENTATION ISSUES
 - Bootstrap controls
 
+SCENERY FEATURES/BUGS
+- DOM.paintCanvas not found
+- relativePressPoint for SimpleDragHandler? mouse gets away from shaker while dragging
+
 HIGH
-- ask JO about relativePressPoint for SimpleDragHandler
+- set DOM text for ShakerNode label
 - rewrite MovableDragHandler based on SimpleDragHandler
+- weird flick/down-scaling issue on mobile Safari
 - use ImagesLoader to load images
 - FaucetNode layout and interactivity
 - FaucetFluidNode flesh out
