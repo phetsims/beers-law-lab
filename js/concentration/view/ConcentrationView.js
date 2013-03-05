@@ -16,6 +16,9 @@ define(
       // browser window title
       $( 'title' ).html( strings.concentration );
 
+      // background color
+      document.bgColor = "white";
+
       // model-view transform (unity)
       var mvt = new ModelViewTransform2D( 1, new Point2D( 0, 0 ) );
 
@@ -28,7 +31,14 @@ define(
 
       this.reset = function() {
         scene.reset();
-      }
+      };
+
+      // handle resizing of the browser window
+      var handleResize = function () {
+        //TODO
+      };
+      $( window ).resize( handleResize );
+      handleResize(); // initial size
     }
 
     return ConcentrationView;
