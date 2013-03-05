@@ -47,8 +47,8 @@ define(
           shape: outlineShape,
           stroke: "black",
           lineWidth: 3,
-          lineCap: "square", //TODO change to "round" when supported by scenery
-          lineJoin: "square" //TODO change to "round" when supported by scenery
+          lineCap: "round",
+          lineJoin: "round"
         } ) );
 
       // horizontal tick marks, left edge, from bottom up
