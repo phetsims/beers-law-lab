@@ -90,14 +90,29 @@ define(
 //        shaker.locationProperty.set( mvt.viewToModel( point ) );
 //      } );
 
+
+      /**
+       * Constrains a point to some bounds.
+       * @param {Point2D} point
+       * @param {Rectangle} bounds
+       */
+      var constrainBounds = function ( point, bounds ) {
+        if ( bounds === undefined || bounds.contains( point.x, point.y ) ) {
+          return point;
+        }
+        else {
+          var xConstrained = Math.max( Math.min( point.x, bounds.getMaxX() ), bounds.x );
+          var yConstrained = Math.max( Math.min( point.y, bounds.getMaxY() ), bounds.y );
+          return new Point2D( xConstrained, yConstrained );
+        }
+      };
+
+      var relativePoint;
       this.addInputListener( new SimpleDragHandler(
         {
-          drag: function ( event ) {
-            console.log( "drag " + event.finger.point.toString() );
-          },
-
-          translate: function( options ) {
-            var pModel = mvt.viewToModel( new Point2D( options.position.x, options.position.y ) )
+          translate: function ( options ) {
+            var pBounded = constrainBounds( new Point2D( options.position.x, options.position.y ), shaker.dragBounds );
+            var pModel = mvt.viewToModel( pBounded );
             shaker.locationProperty.set( pModel );
           }
         } ) );
