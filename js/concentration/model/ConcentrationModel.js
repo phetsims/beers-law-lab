@@ -54,7 +54,7 @@ define(
       model.drainFaucet.reset();
     };
 
-    // Animates the model, called by Easel.Ticker
+    // Animates the model
     ConcentrationModel.prototype.step = function () {
       this.shaker.step();
     };

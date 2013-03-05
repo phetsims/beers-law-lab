@@ -1,3 +1,4 @@
+3/4/13 remove Easel from Color
 3/4/13 port BeakerNode to scenery
 3/4/13 set background color, add stub for window resize handler
 3/4/13 port FaucetFluidNode to scenery

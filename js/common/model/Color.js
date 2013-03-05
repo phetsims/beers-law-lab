@@ -7,10 +7,9 @@
  */
 define(
   [
-    "easel",
     "common/util/StringUtils"
   ],
-  function ( Easel, StringUtils ) {
+  function ( StringUtils ) {
 
     /**
      * Constructor.
@@ -30,7 +29,7 @@ define(
 
     // Gets a CSS-compatible color string.
     Color.prototype.toCSS = function () {
-      return Easel.Graphics.getRGB( this.r, this.g, this.b, this.a );
+      return "rgba(" + this.r + "," + this.g + "," + this.b + "," + this.a + ")";
     }
 
     /**

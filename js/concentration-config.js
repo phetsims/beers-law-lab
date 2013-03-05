@@ -19,7 +19,6 @@ requirejs.config(
     paths: {
 
       // contrib
-      easel: "../contrib/easeljs-0.6.0.min", //TODO delete me
       i18n: "../contrib/i18n-2.0.2",
       image: "../contrib/image-0.2.1",
       tpl: "../contrib/tpl-0.2",
@@ -29,7 +28,6 @@ requirejs.config(
       imagesloaded: "../contrib/jquery.imagesloaded-2.1.1",
 
       // Common repos, uppercase names to identify them in require imports
-      'EASEL-PHET': "../../easel-phet/js",
       PHETCOMMON: "../../phetcommon/js",
 
       // Scenery and its dependencies
@@ -39,7 +37,6 @@ requirejs.config(
     },
 
     shim: {
-      easel: { exports: "createjs" },
       underscore: { exports: "_" },
       jquery: { exports: "$" },
       stats: { exports: "Stats" }

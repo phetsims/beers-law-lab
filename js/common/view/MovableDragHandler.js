@@ -1,5 +1,6 @@
 // Copyright 2002-2013, University of Colorado
 
+//TODO this is for Easel, replace with something similar for Scenery
 /**
  * A drag handler for something that is movable and constrained to some bounds.
  * All values herein are in the view coordinate frame.
