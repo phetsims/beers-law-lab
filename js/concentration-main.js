@@ -18,10 +18,21 @@ require(
     var view = new ConcentrationView( model, Strings );
     var performanceMonitor = new PerformanceMonitor();
 
+    window.animate = (function () {
+      return window.requestAnimationFrame ||
+             window.webkitRequestAnimationFrame ||
+             window.mozRequestAnimationFrame ||
+             window.oRequestAnimationFrame ||
+             window.msRequestAnimationFrame ||
+             function ( callback ) {
+               window.setTimeout( callback, 1000 / 60 );
+             };
+    })();
+
     // Animation loop
     (function animationLoop() {
       performanceMonitor.begin();
-      requestAnimationFrame( animationLoop );
+      window.animate( animationLoop );
       model.step();
       view.step();
       performanceMonitor.end();

@@ -51,3 +51,4 @@ Rectangle
 DebugOriginNode
 FaucetNode + images
 StringUtils
+polyfill for requestAnimationFrame

@@ -1,3 +1,5 @@
+3/5/13 polyfill for requestAnimationFrame
+3/5/13 basic dragging with model-view roundtrip for shaker
 3/5/13 use "round" cap and join, now supported by scenery
 3/5/13 incremental step towards porting MovableDragHandler to scenery
 3/5/13 StringUtils.format for Java-like MessageFormat
