@@ -1,3 +1,4 @@
+3/5/13 create DOM element programmatically for shaker label, update html dynamically, bounds are fubar
 3/5/13 add drag bounds to shaker
 3/5/13 polyfill for requestAnimationFrame
 3/5/13 basic dragging with model-view roundtrip for shaker

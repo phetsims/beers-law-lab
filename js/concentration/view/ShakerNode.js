@@ -41,14 +41,14 @@ define(
       imageNode.setScale( 0.75 );
 
       // label
-//      var labelNode = new Text( "?", {
-//        font: "bold 22px Arial",
-//        fill: "black",
-//        textAlign: "center",
-//        textBaseline: "middle"
-//      } );
-
-      var labelNode = new DOM( $( ".shaker-label" ) );
+      var $labelElement = $( '<div>' );
+      var labelNode = new DOM( $labelElement[0], {
+              font: "bold 22px Arial",
+              fill: "black",
+              textAlign: "center",
+              textBaseline: "middle"
+            } );
+      labelNode.paintCanvas = function() {};//XXX workaround for scenery bug
 
       // common parent, to simplify rotation and label alignment.
       var parentNode = new Node();
@@ -79,21 +79,16 @@ define(
       // sync solute with model
       shaker.soluteProperty.addObserver( function updateSolute( solute ) {
         // label the shaker with the solute formula
-//        labelNode.text = solute.formula;
-        $( ".shaker-label" ).text( "COW" );
+        $labelElement.html( solute.formula );
+        labelNode.invalidateDOM(); //TODO remove this when scenery handles it automatically
+        console.log( labelNode.getBounds().toString() );//XXX bounds are bad here, so layout below is wrong
         // center the label on the shaker
         var capWidth = 0.3 * imageNode.width;
-        labelNode.centerX = capWidth + ( imageNode.width - capWidth ) / 2;
-        labelNode.centerY = imageNode.height / 2;
+        labelNode.centerX = capWidth + ( imageNode.width - capWidth - labelNode.width ) / 2;
+        labelNode.centerY = ( imageNode.height - labelNode.height ) / 2;
       } );
 
-      // drag handler
-//      TODO mvt.modelToView(shaker.dragBounds)
-//      MovableDragHandler.register( this, shaker.dragBounds, function ( point ) {
-//        shaker.locationProperty.set( mvt.viewToModel( point ) );
-//      } );
-
-
+      //XXX this functionality will be absorbed into scenery
       /**
        * Constrains a point to some bounds.
        * @param {Point2D} point
@@ -110,6 +105,7 @@ define(
         }
       };
 
+      // drag handler
       this.addInputListener( new SimpleDragHandler(
         {
           translate: function ( options ) {
