@@ -78,7 +78,7 @@ define(
         if ( isMajorTick ) {
           var labelIndex = ( i / MINOR_TICKS_PER_MAJOR_TICK ) - 1;
           if ( labelIndex < MAJOR_TICK_LABELS.length ) {
-            var label = StringUtils.messageFormat( strings.pattern_0value_1units, [MAJOR_TICK_LABELS[labelIndex], strings.units_liters] );
+            var label = StringUtils.format( strings.pattern_0value_1units, [MAJOR_TICK_LABELS[labelIndex], strings.units_liters] );
             ticksParent.addChild( new Text( label, {
               font: "24px Arial",
               fill: "black",

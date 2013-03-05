@@ -10,7 +10,7 @@ IMPLEMENTATION ISSUES
 - Bootstrap controls
 
 HIGH
-- port to Scenery
+- rewrite MovableDragHandler based on SimpleDragHandler
 - use ImagesLoader to load images
 - FaucetNode layout and interactivity
 - FaucetFluidNode flesh out
