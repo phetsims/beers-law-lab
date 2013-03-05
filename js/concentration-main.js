@@ -18,6 +18,7 @@ require(
     var view = new ConcentrationView( model, Strings );
     var performanceMonitor = new PerformanceMonitor();
 
+    // polyfill for requestAnimationFrame
     window.animate = (function () {
       return window.requestAnimationFrame ||
              window.webkitRequestAnimationFrame ||
@@ -31,8 +32,8 @@ require(
 
     // Animation loop
     (function animationLoop() {
-      performanceMonitor.begin();
       window.animate( animationLoop );
+      performanceMonitor.begin();
       model.step();
       view.step();
       performanceMonitor.end();
