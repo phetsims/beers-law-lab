@@ -2,7 +2,7 @@
 
 define(
   [
-    "SCENERY/Node",
+    "SCENERY/nodes/Node",
     "SCENERY/Shape",
     "SCENERY/nodes/Path",
     "SCENERY/nodes/Text",

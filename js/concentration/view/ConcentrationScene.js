@@ -19,6 +19,10 @@ define(
       // Use composition instead of inheritance to hide which scene graph library is used.
       var scene = new Scene( $( '#concentration-scene' ) );
 
+      //TODO this sure is ugly...
+      scene.initializeFullscreenEvents(); // sets up listeners on the document with preventDefault(), and forwards those events to our scene
+      scene.resizeOnWindowResize(); // the scene gets resized to the full screen size
+
       var beakerNode = new BeakerNode( model.beaker, mvt, strings );
       var shakerNode = new ShakerNode( model.shaker, mvt );
 

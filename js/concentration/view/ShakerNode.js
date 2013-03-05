@@ -7,15 +7,16 @@
  */
 define(
   [
-    "SCENERY/Node",
+    "SCENERY/nodes/Node",
     "SCENERY/nodes/Image",
     "SCENERY/nodes/Text",
+    "SCENERY/input/SimpleDragHandler",
     "PHETCOMMON/math/MathUtil",
     "PHETCOMMON/util/Inheritance",
     "common/view/DebugOriginNode",
     "image!images/shaker.png"
   ],
-  function ( Node, Image, Text, MathUtil, Inheritance, DebugOriginNode, shakerImage ) {
+  function ( Node, Image, Text, SimpleDragHandler, MathUtil, Inheritance, DebugOriginNode, shakerImage ) {
 
     // constants
     var DEBUG_ORIGIN = true;
@@ -85,6 +86,25 @@ define(
 //      MovableDragHandler.register( this, shaker.dragBounds, function ( point ) {
 //        shaker.locationProperty.set( mvt.viewToModel( point ) );
 //      } );
+
+      this.addInputListener( new SimpleDragHandler(
+        {
+          start: function ( event ) {
+            console.log( "start" );
+          },
+
+          end: function ( event ) {
+            console.log( "end" );
+          },
+
+          drag: function ( event ) {
+            console.log( "drag" );
+          },
+
+          translate: function() {
+            // no-op, so dragging won't directly translate the node
+          }
+        } ) );
     }
 
     Inheritance.inheritPrototype( ShakerNode, Node );

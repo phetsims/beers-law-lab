@@ -9,7 +9,7 @@
  */
 define(
   [
-    "SCENERY/Node",
+    "SCENERY/nodes/Node",
     "SCENERY/nodes/Image",
     "PHETCOMMON/util/Inheritance",
     "image!images/faucet_handle.png",

@@ -1,3 +1,5 @@
+3/4/13 adjust imports for SCENERY/nodes/Node
+3/4/13 add stub drag handler to ShakerNode
 3/4/13 remove Easel from Color
 3/4/13 port BeakerNode to scenery
 3/4/13 set background color, add stub for window resize handler
