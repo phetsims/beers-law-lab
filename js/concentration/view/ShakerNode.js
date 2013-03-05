@@ -100,7 +100,7 @@ define(
           },
 
           drag: function ( event ) {
-            console.log( "drag" );
+            console.log( "drag " + event.finger.point.toString() );
           },
 
           translate: function() {
