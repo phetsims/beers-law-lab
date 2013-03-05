@@ -24,16 +24,6 @@ define(
      */
     MovableDragHandler.register = function ( dragNode, dragBounds, dragFunction ) {
 
-      // Drag cursor
-      dragNode.onMouseOver = function () {
-        document.body.style.cursor = "pointer";
-      };
-
-      // Normal cursor
-      dragNode.onMouseOut = function () {
-        document.body.style.cursor = "default";
-      };
-
       // @param {MouseEvent} pressEvent
       dragNode.onPress = function ( pressEvent ) {
 
