@@ -80,8 +80,9 @@ define(
       shaker.soluteProperty.addObserver( function updateSolute( solute ) {
         // label the shaker with the solute formula
         $labelElement.html( solute.formula );
+        //XXX invalidateDOM doesn't work correctly until this node is connected to the scenegraph, will be fixed in scenery
         labelNode.invalidateDOM(); //TODO remove this when scenery handles it automatically
-        console.log( labelNode.getBounds().toString() );//XXX bounds are bad here, so layout below is wrong
+        console.log( labelNode.getBounds().toString() );//XXX bounds are bad here due to invalidateDOM bug, so layout below is wrong
         // center the label on the shaker
         var capWidth = 0.3 * imageNode.width;
         labelNode.centerX = capWidth + ( imageNode.width - capWidth - labelNode.width ) / 2;
