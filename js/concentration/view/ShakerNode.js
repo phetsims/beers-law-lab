@@ -9,7 +9,7 @@ define(
   [
     "SCENERY/nodes/Node",
     "SCENERY/nodes/Image",
-    "SCENERY/nodes/Text",
+    "SCENERY/nodes/DOM",
     "SCENERY/input/SimpleDragHandler",
     "PHETCOMMON/math/MathUtil",
     "PHETCOMMON/math/Point2D",
@@ -17,7 +17,7 @@ define(
     "common/view/DebugOriginNode",
     "image!images/shaker.png"
   ],
-  function ( Node, Image, Text, SimpleDragHandler, MathUtil, Point2D, Inheritance, DebugOriginNode, shakerImage ) {
+  function ( Node, Image, DOM, SimpleDragHandler, MathUtil, Point2D, Inheritance, DebugOriginNode, shakerImage ) {
 
     // constants
     var DEBUG_ORIGIN = true;
@@ -41,12 +41,14 @@ define(
       imageNode.setScale( 0.75 );
 
       // label
-      var labelNode = new Text( "?", {
-        font: "bold 22px Arial",
-        fill: "black",
-        textAlign: "center",
-        textBaseline: "middle"
-      } );
+//      var labelNode = new Text( "?", {
+//        font: "bold 22px Arial",
+//        fill: "black",
+//        textAlign: "center",
+//        textBaseline: "middle"
+//      } );
+
+      var labelNode = new DOM( $( ".shaker-label" ) );
 
       // common parent, to simplify rotation and label alignment.
       var parentNode = new Node();
@@ -77,7 +79,8 @@ define(
       // sync solute with model
       shaker.soluteProperty.addObserver( function updateSolute( solute ) {
         // label the shaker with the solute formula
-        labelNode.text = solute.formula;
+//        labelNode.text = solute.formula;
+        $( ".shaker-label" ).text( "COW" );
         // center the label on the shaker
         var capWidth = 0.3 * imageNode.width;
         labelNode.centerX = capWidth + ( imageNode.width - capWidth ) / 2;
