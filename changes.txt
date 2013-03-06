@@ -1,4 +1,5 @@
-3/4/13 ***** end port from Easel to Scenery *****
+3/5/13 use css to style shaker label DOM node
+3/5/13 ***** end port from Easel to Scenery *****
 3/5/13 generalize drag handler for Movables
 3/5/13 create DOM element programmatically for shaker label, update html dynamically, bounds are fubar
 3/5/13 add drag bounds to shaker

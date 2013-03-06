@@ -42,12 +42,13 @@ define(
 
       // label
       var $labelElement = $( '<div>' );
-      var labelNode = new DOM( $labelElement[0], {
-              font: "bold 22px Arial",
-              fill: "black",
-              textAlign: "center",
-              textBaseline: "middle"
-            } );
+      $labelElement.css(
+        { "font":"bold 22px Arial",
+          "fill": "black",
+          "textAlign": "center",
+          "textBaseline": "middle"
+        } );
+      var labelNode = new DOM( $labelElement[0] );
       labelNode.paintCanvas = function() {};//XXX workaround for scenery bug
 
       // common parent, to simplify rotation and label alignment.
@@ -84,8 +85,8 @@ define(
         //XXX bounds are bad at this point due to invalidateDOM bug, so layout below is wrong
         // center the label on the shaker
         var capWidth = 0.3 * imageNode.width;
-        labelNode.centerX = capWidth + ( imageNode.width - capWidth - labelNode.width ) / 2;
-        labelNode.centerY = ( imageNode.height - labelNode.height ) / 2;
+        labelNode.centerX = capWidth + ( imageNode.width - capWidth ) / 2;
+        labelNode.centerY = imageNode.height / 2;
       } );
 
       // drag handler
