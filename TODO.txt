@@ -24,7 +24,6 @@ HIGH
 - particles in beaker when saturation is reached
 
 MEDIUM
-- implement subscripts for symbols
 - dropper
 - solute combo box
 - evaporation control
