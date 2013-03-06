@@ -1,6 +1,5 @@
 // Copyright 2002-2013, University of Colorado
 
-//TODO this is for Easel, replace with something similar for Scenery
 /**
  * A drag handler for something that is movable and constrained to some bounds.
  * All values herein are in the view coordinate frame.
@@ -9,47 +8,32 @@
  */
 define(
   [
-    "PHETCOMMON/math/Point2D"
+    "PHETCOMMON/math/Point2D",
+    "PHETCOMMON/util/Inheritance",
+    "SCENERY/input/SimpleDragHandler"
   ],
-  function ( Point2D ) {
+  function ( Point2D, Inheritance, SimpleDragHandler ) {
 
-    function MovableDragHandler() {
+    function MovableDragHandler( movable, mvt ) {
+      var dragHandler = this;
+      SimpleDragHandler.call( this, {
+        translate: function ( options ) {
+          var pModel = mvt.viewToModel( new Point2D( options.position.x, options.position.y ) );
+          var pModelConstrained = dragHandler.constrainBounds( pModel, movable.dragBounds );
+          movable.locationProperty.set( pModelConstrained );
+        }
+      } );
     }
 
-    /**
-     * Registers a drag handler with the specified Easel display object.
-     * @param {DisplayObject} dragNode
-     * @param {Rectangle} dragBounds
-     * @param {Function} dragFunction
-     */
-    MovableDragHandler.register = function ( dragNode, dragBounds, dragFunction ) {
+    Inheritance.inheritPrototype( MovableDragHandler, SimpleDragHandler );
 
-      // @param {MouseEvent} pressEvent
-      dragNode.onPress = function ( pressEvent ) {
-
-        // Make dragging relative to touch Point2D.
-        var relativePressPoint = null;
-
-        // @param {MouseEvent} moveEvent
-        pressEvent.onMouseMove = function ( moveEvent ) {
-          var transformed = moveEvent.target.parent.globalToLocal( moveEvent.stageX, moveEvent.stageY );
-          if ( relativePressPoint === null ) {
-            relativePressPoint = new Point2D( pressEvent.target.x - transformed.x, pressEvent.target.y - transformed.y );
-          }
-          else {
-            var p = new Point2D( transformed.x + relativePressPoint.x, transformed.y + relativePressPoint.y );
-            dragFunction( MovableDragHandler.constrainBounds( p, dragBounds ) );
-          }
-        };
-      };
-    };
-
+    //XXX this functionality will be absorbed into scenery
     /**
      * Constrains a point to some bounds.
      * @param {Point2D} point
      * @param {Rectangle} bounds
      */
-    MovableDragHandler.constrainBounds = function ( point, bounds ) {
+    MovableDragHandler.prototype.constrainBounds = function ( point, bounds ) {
       if ( bounds === undefined || bounds.contains( point.x, point.y ) ) {
         return point;
       }
