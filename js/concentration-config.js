@@ -31,8 +31,8 @@ requirejs.config(
       PHETCOMMON: "../../phetcommon/js",
 
       // Scenery and its dependencies
-      ASSERT: '../../scenery/common/assert/js',
-      DOT: '../../scenery/common/dot/js',
+      ASSERT: '../../assert/js',
+      DOT: '../../dot/js',
       SCENERY: '../../scenery/js'
     },
 

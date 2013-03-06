@@ -1,3 +1,4 @@
+3/6/13 ignore scenery submodules, checkout dependencies as sibling repos
 3/6/13 initial layout of faucet images
 3/5/13 automate subscripting in molecule formulas (port of ChemUtils.toSubscript)
 3/5/13 use css to style shaker label DOM node
