@@ -1,3 +1,10 @@
+// Copyright 2002-2013, University of Colorado
+
+/**
+ * Miscellaneous chemistry utils.
+ *
+ * @author Chris Malley (PixelZoom, Inc.)
+ */
 define([], function() {
 
   function ChemUtils() {}

@@ -1,5 +1,10 @@
-// Copyright 2013, University of Colorado
+// Copyright 2002-2013, University of Colorado
 
+/**
+ * Model of a simple beaker.
+ *
+ * @author Chris Malley (PixelZoom, Inc.)
+ */
 define(
   [],
   function () {

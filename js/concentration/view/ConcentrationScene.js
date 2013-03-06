@@ -1,3 +1,5 @@
+// Copyright 2002-2013, University of Colorado
+
 /**
  * Scene graph for the "Concentration" sim.
  *
