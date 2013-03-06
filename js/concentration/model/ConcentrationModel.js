@@ -40,8 +40,8 @@ define(
       model.solution = new ConcentrationSolution( model.soluteProperty, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue );
       model.beaker = new Beaker( new Vector2( 400, 550 ), new Dimension2( 600, 300 ), 1 );
       model.shaker = new Shaker( new Vector2( 340, 170 ), new Rectangle( 225, 50, 400, 160 ), 0.75 * Math.PI, model.soluteProperty, SHAKER_MAX_DISPENSING_RATE );
-      model.solventFaucet = new Faucet( new Vector2( 150, 190 ), 40, 1000, MAX_INPUT_FLOW_RATE );
-      model.drainFaucet = new Faucet( new Vector2( 825, 618 ), 40, 20, MAX_OUTPUT_FLOW_RATE );
+      model.solventFaucet = new Faucet( new Vector2( 150, 190 ), 40, 100, MAX_INPUT_FLOW_RATE );
+      model.drainFaucet = new Faucet( new Vector2( 790, 607 ), 40, 5, MAX_OUTPUT_FLOW_RATE );
     }
 
     // Resets all model elements

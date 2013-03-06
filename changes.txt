@@ -1,3 +1,4 @@
+3/6/13 add css to hide top and left margin in browser window
 3/6/13 delete phetcommon type (Dimension2D, Vector2D, Point2D), use dot type (Dimension2 and Vector2)
 3/6/13 ignore scenery submodules, checkout dependencies as sibling repos
 3/6/13 initial layout of faucet images

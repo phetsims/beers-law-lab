@@ -47,6 +47,10 @@ define(
         this.addChild( new DebugOriginNode( "red" ) );
       }
 
+      //TODO This is horizontally stretching the image, would look better to tile a rectangle with a texture.
+      // size the pipe
+      pipeNode.setScale( mvt.modelToView( faucet.pipeLength ) / pipeNode.width, 1 );
+
       // layout
       {
         // move spout's origin to the center of it's output

@@ -12,12 +12,12 @@ IMPLEMENTATION ISSUES
 - Bootstrap controls
 
 SCENERY FEATURES/BUGS
-- DOM.invalidateDOM broken
+- need to call DOM.invalidateDOM whenever you make changes that could affect bounds
 - relativePressPoint for SimpleDragHandler? mouse gets away from shaker while dragging
 
 HIGH
 - weird flick/down-scaling issue on mobile Safari
-- use ImagesLoader to load images (doesn't work for multiple instances of the same image, like faucet!)
+- use ImagesLoader to load images
 - FaucetNode layout and interactivity
 - FaucetFluidNode flesh out
 - solution in beaker

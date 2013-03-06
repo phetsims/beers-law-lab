@@ -1,8 +1,5 @@
 /* Copyright 2013, University of Colorado */
 
-/* Canvas -------------------------------------------------------------------------------*/
-
-#canvas {
-    position: absolute;
-}
+/* get rid of left and top margin around scene in browser window */
+html, body { padding: 0; margin: 0 }
 
