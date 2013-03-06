@@ -3,7 +3,6 @@ beers-law-lab
 
 PhET: Beer's Law Lab simulation
 
-This repo currently depends on having these PhET repositories checked out as siblings in your directory hierarchy:
-
-phetcommon
-scenery
+NOTE: This repository has dependency on other repositories. Those repositories
+much be checked out as siblings to this repository in your directory structure.
+See js/*config.js for a list of dependencies.
