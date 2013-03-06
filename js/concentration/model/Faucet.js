@@ -12,7 +12,7 @@ define(
   function ( Property ) {
 
     /**
-     * @param {Point2D} location center of output pipe
+     * @param {Vector2} location center of output pipe
      * @param {Number} spoutWidth
      * @param {Number} pipeLength
      * @param {Number} maxFlowRate L/sec

@@ -28,11 +28,9 @@ requirejs.config(
       imagesloaded: "../contrib/jquery.imagesloaded-2.1.1",
 
       // Common repos, uppercase names to identify them in require imports
-      PHETCOMMON: "../../phetcommon/js",
-
-      // Scenery and its dependencies
       ASSERT: '../../assert/js',
       DOT: '../../dot/js',
+      PHETCOMMON: "../../phetcommon/js",
       SCENERY: '../../scenery/js'
     },
 

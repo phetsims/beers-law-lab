@@ -10,20 +10,19 @@
  */
 define(
   [
-    "PHETCOMMON/math/Point2D",
-    "PHETCOMMON/math/Vector2D",
+    "DOT/Vector2",
     "PHETCOMMON/util/Inheritance",
     "concentration/model/SoluteParticle"
   ],
-  function ( Point2D, Vector2D, Inheritance, SoluteParticle ) {
+  function ( Vector2, Inheritance, SoluteParticle ) {
 
     /**
      * Constructor
      * @param {Solute} solute
-     * @param {Point2D} location in the beaker's coordinate frame
+     * @param {Vector2} location in the beaker's coordinate frame
      * @param {Number} orientation in radians
-     * @param {Vector2D} initialVelocity
-     * @param {Vector2D} acceleration
+     * @param {Vector2} initialVelocity
+     * @param {Vector2} acceleration
      * @constructor
      */
     function ShakerParticle( solute, location, orientation, initialVelocity, acceleration ) {
@@ -54,8 +53,8 @@ define(
        */
       var minX = beaker.getMinX() + this.solute.particleSize;
       if ( newLocation.x <= minX ) {
-        newLocation = new Point2D( minX, newLocation.y );
-        this.velocity = new Vector2D( Math.abs( this.velocity.x ), this.velocity.y );
+        newLocation = new Vector2( minX, newLocation.y );
+        this.velocity = new Vector2( Math.abs( this.velocity.x ), this.velocity.y );
       }
 
       this.locationProperty.set( newLocation );

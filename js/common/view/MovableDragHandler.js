@@ -8,17 +8,17 @@
  */
 define(
   [
-    "PHETCOMMON/math/Point2D",
+    "DOT/Vector2",
     "PHETCOMMON/util/Inheritance",
     "SCENERY/input/SimpleDragHandler"
   ],
-  function ( Point2D, Inheritance, SimpleDragHandler ) {
+  function ( Vector2, Inheritance, SimpleDragHandler ) {
 
     function MovableDragHandler( movable, mvt ) {
       var dragHandler = this;
       SimpleDragHandler.call( this, {
         translate: function ( options ) {
-          var pModel = mvt.viewToModel( new Point2D( options.position.x, options.position.y ) );
+          var pModel = mvt.viewToModel( new Vector2( options.position.x, options.position.y ) );
           var pModelConstrained = dragHandler.constrainBounds( pModel, movable.dragBounds );
           movable.locationProperty.set( pModelConstrained );
         }
@@ -30,7 +30,7 @@ define(
     //XXX this functionality will be absorbed into scenery
     /**
      * Constrains a point to some bounds.
-     * @param {Point2D} point
+     * @param {Vector2} point
      * @param {Rectangle} bounds
      */
     MovableDragHandler.prototype.constrainBounds = function ( point, bounds ) {
@@ -40,7 +40,7 @@ define(
       else {
         var xConstrained = Math.max( Math.min( point.x, bounds.getMaxX() ), bounds.x );
         var yConstrained = Math.max( Math.min( point.y, bounds.getMaxY() ), bounds.y );
-        return new Point2D( xConstrained, yConstrained );
+        return new Vector2( xConstrained, yConstrained );
       }
     };
 

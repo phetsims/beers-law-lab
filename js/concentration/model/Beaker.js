@@ -11,8 +11,8 @@ define(
 
     /**
      * Constructor
-     * @param {Point2D} location bottom center
-     * @param {Dimension2D} size
+     * @param {Vector2} location bottom center
+     * @param {Dimension2} size
      * @param {Number} volume in liters (L)
      * @constructor
      */

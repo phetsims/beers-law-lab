@@ -7,8 +7,8 @@
  */
 define(
   [
-    "PHETCOMMON/math/Dimension2D",
-    "PHETCOMMON/math/Point2D",
+    "DOT/Dimension2",
+    "DOT/Vector2",
     "PHETCOMMON/math/Range",
     "PHETCOMMON/model/property/Property",
     "common/model/Rectangle",
@@ -18,7 +18,7 @@ define(
     "concentration/model/Faucet",
     "concentration/model/DrinkMix"
   ],
-  function ( Dimension2D, Point2D, Range, Property, Rectangle, Beaker, ConcentrationSolution, Shaker, Faucet, DrinkMix ) {
+  function ( Dimension2, Vector2, Range, Property, Rectangle, Beaker, ConcentrationSolution, Shaker, Faucet, DrinkMix ) {
 
     function ConcentrationModel() {
 
@@ -38,10 +38,10 @@ define(
       // model elements
       model.soluteProperty = new Property( new DrinkMix() );
       model.solution = new ConcentrationSolution( model.soluteProperty, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue );
-      model.beaker = new Beaker( new Point2D( 400, 550 ), new Dimension2D( 600, 300 ), 1 );
-      model.shaker = new Shaker( new Point2D( 340, 170 ), new Rectangle( 225, 50, 400, 160 ), 0.75 * Math.PI, model.soluteProperty, SHAKER_MAX_DISPENSING_RATE );
-      model.solventFaucet = new Faucet( new Point2D( 150, 190 ), 40, 1000, MAX_INPUT_FLOW_RATE );
-      model.drainFaucet = new Faucet( new Point2D( 825, 618 ), 40, 20, MAX_OUTPUT_FLOW_RATE );
+      model.beaker = new Beaker( new Vector2( 400, 550 ), new Dimension2( 600, 300 ), 1 );
+      model.shaker = new Shaker( new Vector2( 340, 170 ), new Rectangle( 225, 50, 400, 160 ), 0.75 * Math.PI, model.soluteProperty, SHAKER_MAX_DISPENSING_RATE );
+      model.solventFaucet = new Faucet( new Vector2( 150, 190 ), 40, 1000, MAX_INPUT_FLOW_RATE );
+      model.drainFaucet = new Faucet( new Vector2( 825, 618 ), 40, 20, MAX_OUTPUT_FLOW_RATE );
     }
 
     // Resets all model elements

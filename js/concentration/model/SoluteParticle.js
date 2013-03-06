@@ -15,7 +15,7 @@ define(
      * Constructor
      * @param {Color} color
      * @param {Number} size particles are square, this is the length of one side
-     * @param {Point2D} location location of the particle in the beaker's coordinate frame
+     * @param {Vector2} location location of the particle in the beaker's coordinate frame
      * @param {Number} orientation in radians
      * @constructor
      */

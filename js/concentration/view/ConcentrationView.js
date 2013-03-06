@@ -7,11 +7,11 @@
  */
 define(
   [
-    "PHETCOMMON/math/Point2D",
+    "DOT/Vector2",
     "PHETCOMMON/view/ModelViewTransform2D",
     "concentration/view/ConcentrationScene"
   ],
-  function ( Point2D, ModelViewTransform2D, ConcentrationScene ) {
+  function ( Vector2, ModelViewTransform2D, ConcentrationScene ) {
 
     function ConcentrationView( model, strings ) {
 
@@ -22,7 +22,7 @@ define(
       document.bgColor = "white";
 
       // model-view transform (unity)
-      var mvt = new ModelViewTransform2D( 1, new Point2D( 0, 0 ) );
+      var mvt = new ModelViewTransform2D( 1, new Vector2( 0, 0 ) );
 
       // scene graph
       var scene = new ConcentrationScene( model, mvt, strings );

@@ -17,7 +17,7 @@ define(
     /**
      * Constructor
      * @param {Solute} solute
-     * @param {Point2D} location location in the beaker's coordinate frame
+     * @param {Vector2} location location in the beaker's coordinate frame
      * @param {Number} orientation in radians
      * @constructor
      */

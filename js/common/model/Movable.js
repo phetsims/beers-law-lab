@@ -12,7 +12,7 @@ define(
 
     /**
      * Constructor
-     * @param {Point2D} location
+     * @param {Vector2} location
      * @param {Rectangle} dragBounds
      * @constructor
      */

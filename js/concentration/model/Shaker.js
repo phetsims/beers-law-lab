@@ -7,16 +7,16 @@
  */
 define(
   [
-    "PHETCOMMON/math/Point2D",
+    "DOT/Vector2",
     "PHETCOMMON/model/property/Property",
     "PHETCOMMON/util/Inheritance",
     "common/model/Movable"
   ],
-  function ( Point2D, Property, Inheritance, Movable ) {
+  function ( Vector2, Property, Inheritance, Movable ) {
 
     /**
      * Constructor
-     * @param {Point2D} location
+     * @param {Vector2} location
      * @param {Number} orientation in radians
      * @param {Rectangle} dragBounds
      * @param {Property<Solute>} soluteProperty
