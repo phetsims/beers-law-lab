@@ -10,14 +10,14 @@ define(
     "SCENERY/nodes/Node",
     "SCENERY/nodes/Image",
     "SCENERY/nodes/DOM",
-    "PHETCOMMON/math/MathUtil",
     "DOT/Vector2",
+    "PHETCOMMON/math/MathUtil",
     "PHETCOMMON/util/Inheritance",
     "common/view/DebugOriginNode",
     "common/view/MovableDragHandler",
     "image!images/shaker.png"
   ],
-  function ( Node, Image, DOM, MathUtil, Vector2, Inheritance, DebugOriginNode, MovableDragHandler, shakerImage ) {
+  function ( Node, Image, DOM, Vector2, MathUtil, Inheritance, DebugOriginNode, MovableDragHandler, shakerImage ) {
 
     // constants
     var DEBUG_ORIGIN = true;

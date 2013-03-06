@@ -8,11 +8,11 @@
  */
 define(
   [
+    "SCENERY/input/SimpleDragHandler",
     "DOT/Vector2",
-    "PHETCOMMON/util/Inheritance",
-    "SCENERY/input/SimpleDragHandler"
+    "PHETCOMMON/util/Inheritance"
   ],
-  function ( Vector2, Inheritance, SimpleDragHandler ) {
+  function ( SimpleDragHandler, Vector2, Inheritance ) {
 
     function MovableDragHandler( movable, mvt ) {
       var dragHandler = this;
