@@ -81,8 +81,6 @@ define(
         // label the shaker with the solute formula
         $labelElement.html( solute.formula );
         labelNode.invalidateDOM(); //TODO remove this when scenery handles it automatically
-        //XXX bounds are bad at this point due to invalidateDOM bug, so layout below is wrong
-        console.log( "labelNode.bounds = " + labelNode.getBounds().toString() );//XXX
         // center the label on the shaker
         var capWidth = 0.3 * imageNode.width;
         labelNode.centerX = capWidth + ( imageNode.width - capWidth ) / 2;
