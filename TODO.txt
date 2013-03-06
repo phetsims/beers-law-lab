@@ -16,10 +16,8 @@ SCENERY FEATURES/BUGS
 - relativePressPoint for SimpleDragHandler? mouse gets away from shaker while dragging
 
 HIGH
-- set DOM text for ShakerNode label
-- rewrite MovableDragHandler based on SimpleDragHandler
 - weird flick/down-scaling issue on mobile Safari
-- use ImagesLoader to load images
+- use ImagesLoader to load images (doesn't work for multiple instances of the same image, like faucet!)
 - FaucetNode layout and interactivity
 - FaucetFluidNode flesh out
 - solution in beaker
