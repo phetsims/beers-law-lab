@@ -1,3 +1,4 @@
+3/5/13 automate subscripting in molecule formulas (port of ChemUtils.toSubscript)
 3/5/13 use css to style shaker label DOM node
 3/5/13 ***** end port from Easel to Scenery *****
 3/5/13 generalize drag handler for Movables

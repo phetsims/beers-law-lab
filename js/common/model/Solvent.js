@@ -8,12 +8,12 @@
 define(
   [
     "PHETCOMMON/util/Inheritance",
-    "common/Symbols",
+    "common/BLLSymbols",
     "common/model/Color",
     "common/model/Fluid",
     "i18n!../../../nls/beers-law-lab-strings"
   ],
-  function ( Inheritance, Symbols, Color, Fluid, Strings ) {
+  function ( Inheritance, BLLSymbols, Color, Fluid, Strings ) {
 
     /**
      * Constructor.
@@ -32,7 +32,7 @@ define(
 
     Inheritance.inheritPrototype( Solvent, Fluid ); // prototype chaining
 
-    Solvent.WATER = new Solvent( Strings.water, Symbols.WATER, new Color( 224, 255, 255 ) );
+    Solvent.WATER = new Solvent( Strings.water, BLLSymbols.WATER, new Color( 224, 255, 255 ) );
 
     return Solvent;
   } );
