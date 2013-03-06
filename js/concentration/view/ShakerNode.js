@@ -49,7 +49,6 @@ define(
           "textBaseline": "middle"
         } );
       var labelNode = new DOM( $labelElement[0] );
-      labelNode.paintCanvas = function() {};//XXX workaround for scenery bug
 
       // common parent, to simplify rotation and label alignment.
       var parentNode = new Node();

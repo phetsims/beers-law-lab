@@ -13,6 +13,7 @@ IMPLEMENTATION ISSUES
 
 SCENERY FEATURES/BUGS
 - DOM.paintCanvas not found
+- DOM.invalidateDOM broken
 - relativePressPoint for SimpleDragHandler? mouse gets away from shaker while dragging
 
 HIGH
