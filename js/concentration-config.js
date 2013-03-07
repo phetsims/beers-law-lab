@@ -35,7 +35,6 @@ requirejs.config(
     },
 
     shim: {
-      underscore: { exports: "_" },
       jquery: { exports: "$" },
       stats: { exports: "Stats" }
     },
