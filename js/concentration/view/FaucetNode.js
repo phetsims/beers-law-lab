@@ -11,6 +11,7 @@ define(
   [
     "SCENERY/nodes/Node",
     "SCENERY/nodes/Image",
+    "PHETCOMMON/math/Range",
     "PHETCOMMON/util/Inheritance",
     "common/view/DebugOriginNode",
     "image!images/faucet_handle.png",
@@ -18,13 +19,15 @@ define(
     "image!images/faucet_pivot.png",
     "image!images/faucet_spout.png"
   ],
-  function ( Node, Image, Inheritance, DebugOriginNode, handleImage, pipeImage, pivotImage, spoutImage ) {
+  function ( Node, Image, Range, Inheritance, DebugOriginNode, handleImage, pipeImage, pivotImage, spoutImage ) {
 
     var DEBUG_ORIGIN = true;
 
     // where the fluid should come out of the unscaled spout image.
     var SPOUT_OUTPUT_CENTER_X = 85;
     var SPOUT_OUTPUT_WIDTH = 42;
+
+    var HANDLE_ORIENTATION_RANGE = new Range( -Math.PI/4, 0 ); // full off -> full on
 
     function FaucetNode( faucet, mvt ) {
 
