@@ -2,14 +2,14 @@
 
 define(
   [
+    "SCENERY/shapes/Shape",
     "SCENERY/nodes/Node",
-    "SCENERY/Shape",
     "SCENERY/nodes/Path",
     "SCENERY/nodes/Text",
     "PHETCOMMON/util/Inheritance",
     "common/util/StringUtils"
   ],
-  function ( Node, Shape, Path, Text, Inheritance, StringUtils ) {
+  function ( Shape, Node, Path, Text, Inheritance, StringUtils ) {
 
     /**
      * Constructor

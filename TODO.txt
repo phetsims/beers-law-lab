@@ -12,7 +12,8 @@ IMPLEMENTATION ISSUES
 - Bootstrap controls
 
 SCENERY FEATURES/BUGS
-- need to call DOM.invalidateDOM whenever you make changes that could affect bounds
+- Text node is broken on Mac OS (scenery #1)
+- need to call DOM.invalidateDOM whenever you make changes that could affect bounds (scenery #2)
 - relativePressPoint for SimpleDragHandler? mouse gets away from shaker while dragging
 
 HIGH
