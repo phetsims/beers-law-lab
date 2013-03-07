@@ -11,6 +11,7 @@ define(
   [
     "SCENERY/nodes/Node",
     "SCENERY/nodes/Image",
+    "DOT/Vector2",
     "PHETCOMMON/math/Range",
     "PHETCOMMON/util/Inheritance",
     "common/view/DebugOriginNode",
@@ -19,7 +20,7 @@ define(
     "image!images/faucet_pivot.png",
     "image!images/faucet_spout.png"
   ],
-  function ( Node, Image, Range, Inheritance, DebugOriginNode, handleImage, pipeImage, pivotImage, spoutImage ) {
+  function ( Node, Image, Vector2, Range, Inheritance, DebugOriginNode, handleImage, pipeImage, pivotImage, spoutImage ) {
 
     var DEBUG_ORIGIN = true;
 
@@ -68,6 +69,7 @@ define(
         // butt end of handle is centered in pivot
         handleNode.x = pivotNode.getCenterX();
         handleNode.y = pivotNode.getCenterY() - ( handleNode.height / 2 );
+        handleNode.rotateAround( new Vector2( pivotNode.getCenterX(), pivotNode.getCenterY() ), HANDLE_ORIENTATION_RANGE.min );
       }
 
       // move to model location

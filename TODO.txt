@@ -15,6 +15,7 @@ SCENERY FEATURES/BUGS
 - Text node is broken on Mac OS (scenery#1)
 - need to call DOM.invalidateDOM whenever you make changes that could affect bounds (scenery#2)
 - relativePressPoint for SimpleDragHandler? mouse gets away from shaker while dragging (scenery#3)
+- add support for texture mapping
 
 HIGH
 - weird flick/down-scaling issue on mobile Safari
