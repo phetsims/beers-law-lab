@@ -1,3 +1,4 @@
+3/8/13 more partial work on faucet handler drag handler, getting closer
 3/8/13 partial work on faucet handler drag handler, not working yet
 3/7/13 rotate faucet handle in pivot
 3/7/13 adjust imports for new locations of scenery/js/shapes/Shape

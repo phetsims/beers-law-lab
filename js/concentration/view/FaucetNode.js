@@ -12,7 +12,10 @@ define(
     "SCENERY/nodes/Node",
     "SCENERY/nodes/Image",
     "SCENERY/input/SimpleDragHandler",
+    "DOT/Matrix3",
+    "DOT/Transform3",
     "DOT/Vector2",
+    "PHETCOMMON/math/MathUtil",
     "PHETCOMMON/math/Range",
     "PHETCOMMON/util/Inheritance",
     "common/view/DebugOriginNode",
@@ -22,7 +25,7 @@ define(
     "image!images/faucet_pivot.png",
     "image!images/faucet_spout.png"
   ],
-  function ( Node, Image, SimpleDragHandler, Vector2, Range, Inheritance, DebugOriginNode, LinearFunction, handleImage, pipeImage, pivotImage, spoutImage ) {
+  function ( Node, Image, SimpleDragHandler, Matrix3, Transform3, Vector2, MathUtil, Range, Inheritance, DebugOriginNode, LinearFunction, handleImage, pipeImage, pivotImage, spoutImage ) {
 
     var DEBUG_ORIGIN = true;
 
@@ -76,8 +79,7 @@ define(
         // butt end of handle is centered in pivot
         handleNode.x = pivotNode.getCenterX();
         handleNode.y = pivotNode.getCenterY() - ( handleNode.height / 2 );
-        // handle is initially in the "off" orientation
-        handleNode.rotateAround( new Vector2( pivotNode.getCenterX(), pivotNode.getCenterY() ), HANDLE_ORIENTATION_RANGE.min );
+
       }
 
       // move to model location
@@ -85,23 +87,37 @@ define(
       this.x = location.x;
       this.y = location.y;
 
+      // determine on/off handle locations
+      handleNode.rotateAround( new Vector2( pivotNode.getCenterX(), pivotNode.getCenterY() ), HANDLE_ORIENTATION_RANGE.max );
+      var handleOnY = handleNode.getBounds().maxY;
+      handleNode.setRotation( 0 );
+      handleNode.rotateAround( new Vector2( pivotNode.getCenterX(), pivotNode.getCenterY() ), HANDLE_ORIENTATION_RANGE.min );
+      var handleOffY = handleNode.getBounds().minY;
+      // leave the handle in the off orientation
+
+      // mapping from handle y-coordinate to orientation
+      var yToOrientation = new LinearFunction( new Range( handleOffY, handleOnY ), HANDLE_ORIENTATION_RANGE );
+
       handleNode.addInputListener( new SimpleDragHandler(
         {
           translate: function( options ) {
-            var handleOrientation = HANDLE_ORIENTATION_RANGE.max; // TODO compute based on options.position
+            var y = MathUtil.clamp( options.position.y, handleOffY, handleOnY );
+            var handleOrientation = yToOrientation.evaluate( y );
             var flowRate = orientationToFlowRate.evaluate( handleOrientation );
             faucet.flowRateProperty.set( flowRate );
           }
         } ) );
 
       faucet.flowRateProperty.addObserver( function ( flowRate ) {
+        // reset the handle's transform //TODO how to reset transform to identity in scenery?
+        handleNode.setMatrix( Matrix3.IDENTITY );
         // butt end of handle is centered in pivot
         handleNode.x = pivotNode.getCenterX();
         handleNode.y = pivotNode.getCenterY() - ( handleNode.height / 2 );
         // handle orientation matches flow rate
         var orientation = orientationToFlowRate.evaluateInverse( flowRate );
         console.log( "orientation=" + orientation );//XXX
-        handleNode.rotateAround( new Vector2( pivotNode.getCenterX(), pivotNode.getCenterY() ), HANDLE_ORIENTATION_RANGE.min );
+        handleNode.rotateAround( new Vector2( pivotNode.getCenterX(), pivotNode.getCenterY() ), orientation );
       } );
     }
 
