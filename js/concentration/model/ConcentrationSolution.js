@@ -16,6 +16,7 @@ define(
     "common/model/Fluid"
   ],
   function( Inheritance, Property, Color, Solvent, Fluid ) {
+    "use strict";
 
     /**
      * @param {Property(Solute)} soluteProperty

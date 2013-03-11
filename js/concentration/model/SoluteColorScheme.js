@@ -12,6 +12,7 @@ define(
     "common/model/Color"
   ],
   function ( Color ) {
+    "use strict";
 
     function SoluteColorScheme( minConcentration, minColor, midConcentration, midColor, maxConcentration, maxColor ) {
       this.minColor = minColor;

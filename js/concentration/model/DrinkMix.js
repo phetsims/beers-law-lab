@@ -11,6 +11,7 @@ define(
   function ( Inheritance, Color, Solute, SoluteColorScheme, Strings ) {
 
     function DrinkMix() {
+      "use strict";
 
       Solute.call( this,
                    Strings.drinkMix,

@@ -15,6 +15,7 @@ define(
     "concentration/view/ShakerNode"
   ],
   function ( Scene, Text, BeakerNode, FaucetNode, FaucetFluidNode, ShakerNode ) {
+    "use strict";
 
     function ConcentrationScene( model, mvt, strings ) {
 

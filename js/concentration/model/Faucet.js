@@ -10,6 +10,7 @@ define(
     "PHETCOMMON/model/property/Property"
   ],
   function ( Property ) {
+    "use strict";
 
     /**
      * @param {Vector2} location center of output pipe

@@ -13,6 +13,7 @@ require(
     "i18n!../nls/beers-law-lab-strings"
   ],
   function ( PerformanceMonitor, ConcentrationModel, ConcentrationView, Strings ) {
+    "use strict";
 
     var model = new ConcentrationModel();
     var view = new ConcentrationView( model, Strings );

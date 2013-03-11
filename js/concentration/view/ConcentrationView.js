@@ -12,6 +12,7 @@ define(
     "concentration/view/ConcentrationScene"
   ],
   function ( Vector2, ModelViewTransform2D, ConcentrationScene ) {
+    "use strict";
 
     function ConcentrationView( model, strings ) {
 

@@ -13,6 +13,7 @@ define(
     "common/model/Movable"
   ],
   function ( Vector2, Property, Inheritance, Movable ) {
+    "use strict";
 
     /**
      * Constructor

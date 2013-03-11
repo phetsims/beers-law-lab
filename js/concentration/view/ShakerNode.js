@@ -18,6 +18,7 @@ define(
     "image!images/shaker.png"
   ],
   function ( Node, Image, DOM, Vector2, MathUtil, Inheritance, DebugOriginNode, MovableDragHandler, shakerImage ) {
+    "use strict";
 
     // constants
     var DEBUG_ORIGIN = true;

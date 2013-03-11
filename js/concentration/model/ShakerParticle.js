@@ -15,6 +15,7 @@ define(
     "concentration/model/SoluteParticle"
   ],
   function ( Vector2, Inheritance, SoluteParticle ) {
+    "use strict";
 
     /**
      * Constructor

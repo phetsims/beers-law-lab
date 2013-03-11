@@ -26,6 +26,7 @@ define(
     "image!images/faucet_spout.png"
   ],
   function ( Node, Image, SimpleDragHandler, Matrix3, Transform3, Vector2, MathUtil, Range, Inheritance, DebugOriginNode, LinearFunction, handleImage, pipeImage, pivotImage, spoutImage ) {
+    "use strict";
 
     var DEBUG_ORIGIN = true;
 

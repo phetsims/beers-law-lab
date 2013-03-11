@@ -19,6 +19,7 @@ define(
     "concentration/model/DrinkMix"
   ],
   function ( Dimension2, Vector2, Range, Property, Rectangle, Beaker, ConcentrationSolution, Shaker, Faucet, DrinkMix ) {
+    "use strict";
 
     function ConcentrationModel() {
 

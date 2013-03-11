@@ -12,6 +12,7 @@ define(
     "PHETCOMMON/util/Inheritance"
   ],
   function( Path, Inheritance ) {
+    "use strict";
 
     /**
      * @param {Faucet} faucet

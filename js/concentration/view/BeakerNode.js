@@ -10,6 +10,7 @@ define(
     "common/util/StringUtils"
   ],
   function ( Shape, Node, Path, Text, Inheritance, StringUtils ) {
+    "use strict";
 
     /**
      * Constructor
