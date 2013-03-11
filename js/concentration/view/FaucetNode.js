@@ -97,16 +97,19 @@ define(
       // leave the handle in the off orientation
 
       // mapping from handle y-coordinate to orientation
+      console.log( "handleOffY=" + handleOffY + " handleOnY=" + handleOnY );//XXX
       var yToOrientation = new LinearFunction( new Range( handleOffY, handleOnY ), HANDLE_ORIENTATION_RANGE );
 
       handleNode.addInputListener( new SimpleDragHandler(
         {
-          translate: function( options ) {
-            var y = MathUtil.clamp( options.position.y, handleOffY, handleOnY );
+          drag: function( event, options ) {
+            console.log( "event.finger.point=" + event.finger.point.toString()  );//XXX
+            var y = MathUtil.clamp( event.finger.point.y, handleOffY, handleOnY );
             var handleOrientation = yToOrientation.evaluate( y );
             var flowRate = orientationToFlowRate.evaluate( handleOrientation );
             faucet.flowRateProperty.set( flowRate );
-          }
+          },
+          translate: function() {}
         } ) );
 
       faucet.flowRateProperty.addObserver( function ( flowRate ) {
@@ -117,7 +120,7 @@ define(
         handleNode.y = pivotNode.getCenterY() - ( handleNode.height / 2 );
         // handle orientation matches flow rate
         var orientation = orientationToFlowRate.evaluateInverse( flowRate );
-        console.log( "orientation=" + orientation );//XXX
+        console.log( "flowRate=" + flowRate + " orientation=" + MathUtil.toDegrees( orientation ) );//XXX
         handleNode.rotateAround( new Vector2( pivotNode.getCenterX(), pivotNode.getCenterY() ), orientation );
       } );
     }
