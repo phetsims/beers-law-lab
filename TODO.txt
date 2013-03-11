@@ -17,7 +17,7 @@ SCENERY FEATURES/BUGS
 - add support for texture mapping
 
 HIGH
-- weird flick/down-scaling issue on mobile Safari
+- weird flicker/down-scaling issue on mobile Safari
 - use ImagesLoader to load images
 - FaucetNode layout and interactivity
 - FaucetFluidNode flesh out
