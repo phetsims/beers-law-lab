@@ -31,7 +31,8 @@ requirejs.config(
       ASSERT: '../../assert/js',
       DOT: '../../dot/js',
       PHETCOMMON: "../../phetcommon/js",
-      SCENERY: '../../scenery/js'
+      SCENERY: '../../scenery/js',
+      KITE: '../../kite/js'
     },
 
     shim: {

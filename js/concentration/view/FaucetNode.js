@@ -103,8 +103,8 @@ define(
       handleNode.addInputListener( new SimpleDragHandler(
         {
           drag: function ( event, trail ) {
-            var localPosition = trail.getTransform().transformPosition2( event.finger.position ); //XXX exception in Matrix3.timesVector2
-            console.log( "localPosition=" + localPosition );//XXX
+            var localPosition = trail.getTransform().transformPosition2( event.finger.point ); //XXX exception in Matrix3.timesVector2
+            console.log( "event.finger.point=" +event.finger.point.toString() + "localPosition=" + localPosition );//XXX
             var y = MathUtil.clamp( localPosition.y, handleOffY, handleOnY );
             var handleOrientation = yToOrientation.evaluate( y );
             var flowRate = orientationToFlowRate.evaluate( handleOrientation );
@@ -129,7 +129,7 @@ define(
 
       faucet.flowRateProperty.addObserver( function ( flowRate ) {
         // reset the handle's transform //TODO how to reset transform to identity in scenery?
-        handleNode.setMatrix( Matrix3.IDENTITY );
+        handleNode.resetTransform();
         // butt end of handle is centered in pivot
         handleNode.x = pivotNode.getCenterX();
         handleNode.y = pivotNode.getCenterY() - ( handleNode.height / 2 );

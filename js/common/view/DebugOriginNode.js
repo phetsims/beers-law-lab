@@ -9,7 +9,7 @@
 define(
   [
     "SCENERY/nodes/Path",
-    "SCENERY/shapes/Shape",
+    "KITE/Shape",
     "PHETCOMMON/util/Inheritance"
   ],
   function ( Path, Shape, Inheritance ) {
