@@ -102,15 +102,30 @@ define(
 
       handleNode.addInputListener( new SimpleDragHandler(
         {
-          drag: function( event, options ) {
-            console.log( "event.finger.point=" + event.finger.point.toString()  );//XXX
-            var y = MathUtil.clamp( event.finger.point.y, handleOffY, handleOnY );
+          drag: function ( event, trail ) {
+            var localPosition = trail.getTransform().transformPosition2( event.finger.position ); //XXX exception in Matrix3.timesVector2
+            console.log( "localPosition=" + localPosition );//XXX
+            var y = MathUtil.clamp( localPosition.y, handleOffY, handleOnY );
             var handleOrientation = yToOrientation.evaluate( y );
             var flowRate = orientationToFlowRate.evaluate( handleOrientation );
             faucet.flowRateProperty.set( flowRate );
           },
-          translate: function() {}
+          translate: function () {
+          }
         } ) );
+
+      //XXX toggle on/off until I can figure out dag handler.
+//      handleNode.addInputListener(
+//        {
+//          down:function( event ) {
+//            if ( faucet.flowRateProperty.get() == faucet.maxFlowRate ) {
+//              faucet.flowRateProperty.set( 0 );
+//            }
+//            else {
+//              faucet.flowRateProperty.set( faucet.maxFlowRate );
+//            }
+//          }
+//        } );
 
       faucet.flowRateProperty.addObserver( function ( flowRate ) {
         // reset the handle's transform //TODO how to reset transform to identity in scenery?
