@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * Main entry point for the "Concentration" sim.
+ * Main entry point for the "Beer's Law Lab" sim.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -15,8 +15,12 @@ require(
   function ( PerformanceMonitor, ConcentrationModel, ConcentrationView, Strings ) {
     "use strict";
 
+    // Concentration tab
     var model = new ConcentrationModel();
     var view = new ConcentrationView( model, Strings );
+
+    //TODO Beer's Law Lab tab
+
     var performanceMonitor = new PerformanceMonitor();
 
     // polyfill for requestAnimationFrame

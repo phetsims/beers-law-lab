@@ -8,7 +8,7 @@
  */
 requirejs.config(
   {
-    deps: ["concentration-main"],
+    deps: ["beers-law-lab-main"],
 
     config: {
       i18n: {
