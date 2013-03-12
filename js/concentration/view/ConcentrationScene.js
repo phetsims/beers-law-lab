@@ -7,14 +7,16 @@
  */
 define(
   [
+    "DOT/Dimension2",
     "SCENERY/Scene",
+    "SCENERY/nodes/Node",
     "SCENERY/nodes/Text",
     "concentration/view/BeakerNode",
     "concentration/view/FaucetNode",
     "concentration/view/FaucetFluidNode",
     "concentration/view/ShakerNode"
   ],
-  function ( Scene, Text, BeakerNode, FaucetNode, FaucetFluidNode, ShakerNode ) {
+  function ( Dimension2, Scene, Node, Text, BeakerNode, FaucetNode, FaucetFluidNode, ShakerNode ) {
     "use strict";
 
     function ConcentrationScene( model, mvt, strings ) {
@@ -38,12 +40,14 @@ define(
       var drainFluidNode = new FaucetFluidNode( model.drainFaucet, model.solution, DRAIN_FLUID_HEIGHT, mvt );
 
       // Rendering order
-      scene.addChild( solventFluidNode );
-      scene.addChild( solventFaucetNode );
-      scene.addChild( drainFluidNode );
-      scene.addChild( drainFaucetNode );
-      scene.addChild( beakerNode );
-      scene.addChild( shakerNode );
+      var rootNode = new Node();
+      scene.addChild( rootNode );
+      rootNode.addChild( solventFluidNode );
+      rootNode.addChild( solventFaucetNode );
+      rootNode.addChild( drainFluidNode );
+      rootNode.addChild( drainFaucetNode );
+      rootNode.addChild( beakerNode );
+      rootNode.addChild( shakerNode );
 
       this.step = function () {
         scene.updateScene();
@@ -52,6 +56,17 @@ define(
       this.reset = function () {
         //TODO
       };
+
+      //TODO center in the window?
+      // Scale the scene when the browser window is resized.
+      var handleResize = function () {
+        var UNITY_WINDOW_SIZE = new Dimension2( 1024, 768 ); // At this window size, scaling is 1.
+        var windowSize = new Dimension2( $( window ).width(), $( window ).height() );
+        var scale = Math.min( windowSize.width / UNITY_WINDOW_SIZE.width, windowSize.height / UNITY_WINDOW_SIZE.height );
+        rootNode.setScale( scale );
+      };
+      $( window ).resize( handleResize );
+      handleResize(); // initial size
     }
 
     return ConcentrationScene;
