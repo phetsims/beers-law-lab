@@ -1,3 +1,5 @@
+3/12/13 modifications for kite change: Shape.rect(upperleft,lowerright) -> Shape.rect(x,y,width,height)
+3/12/13 modifications for scenery change: Finger -> Pointer
 3/12/13 implement faucet fluid geometry
 3/12/13 set faucet flow to zero when handle is released
 3/12/13 rename top-level files to beers-law-lab

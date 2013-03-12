@@ -101,7 +101,7 @@ define(
         {
           // adjust the flow
           drag: function ( event, trail ) {
-            var localPosition = trail.getTransform().inversePosition2( event.finger.point ); // global to local
+            var localPosition = trail.getTransform().inversePosition2( event.pointer.point ); // global to local
             var y = MathUtil.clamp( localPosition.y, handleOffY, handleOnY );
             var handleOrientation = yToOrientation.evaluate( y );
             var flowRate = orientationToFlowRate.evaluate( handleOrientation );
