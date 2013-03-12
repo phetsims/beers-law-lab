@@ -40,7 +40,6 @@ define(
 
       Node.call( this ); // constructor stealing
 
-      console.log( "length=" + HANDLE_ORIENTATION_RANGE.getLength() );//XXX
       var orientationToFlowRate = new LinearFunction( HANDLE_ORIENTATION_RANGE, new Range( 0, faucet.maxFlowRate ) );
 
       // child nodes
@@ -112,7 +111,7 @@ define(
         } ) );
 
       faucet.flowRateProperty.addObserver( function ( flowRate ) {
-        // reset the handle's transform //TODO how to reset transform to identity in scenery?
+        // reset the handle's transform
         handleNode.resetTransform();
         // butt end of handle is centered in pivot
         handleNode.x = pivotNode.getCenterX();
