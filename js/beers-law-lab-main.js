@@ -19,7 +19,7 @@ require(
     var model = new ConcentrationModel();
     var view = new ConcentrationView( model, Strings );
 
-    //TODO Beer's Law Lab tab
+    //TODO Beer's Law tab
 
     var performanceMonitor = new PerformanceMonitor();
 
