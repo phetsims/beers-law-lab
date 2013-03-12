@@ -31,7 +31,7 @@ define(
     var DEBUG_ORIGIN = true;
 
     // where the fluid should come out of the unscaled spout image.
-    var SPOUT_OUTPUT_CENTER_X = 85;
+    var SPOUT_OUTPUT_CENTER_X = 83;
     var SPOUT_OUTPUT_WIDTH = 42;
 
     var HANDLE_ORIENTATION_RANGE = new Range( -Math.PI / 4, 0 ); // full off -> full on
