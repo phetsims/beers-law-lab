@@ -99,6 +99,7 @@ define(
 
       handleNode.addInputListener( new SimpleDragHandler(
         {
+          // adjust the flow
           drag: function ( event, trail ) {
             var localPosition = trail.getTransform().inversePosition2( event.finger.point ); // global to local
             var y = MathUtil.clamp( localPosition.y, handleOffY, handleOnY );
@@ -106,6 +107,13 @@ define(
             var flowRate = orientationToFlowRate.evaluate( handleOrientation );
             faucet.flowRateProperty.set( flowRate );
           },
+
+          // turn off the faucet when the handle is released
+          end: function() {
+            faucet.flowRateProperty.set( 0 );
+          },
+
+          // prevent default behavior that translates the node
           translate: function () {
           }
         } ) );

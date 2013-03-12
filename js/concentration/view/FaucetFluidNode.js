@@ -8,29 +8,35 @@
  */
 define(
   [
+    "KITE/Shape",
     "SCENERY/nodes/Path",
     "PHETCOMMON/util/Inheritance"
   ],
-  function( Path, Inheritance ) {
+  function ( Shape, Path, Inheritance ) {
     "use strict";
 
     /**
      * @param {Faucet} faucet
      * @param {Fluid} fluid
-     * @param {ModelViewTransform2D} mvt
      * @param {Number} height in model coordinates
+     * @param {ModelViewTransform2D} mvt
      * @constructor
      */
-    function FaucetFluidNode( faucet, fluid, mvt, height ) {
+    function FaucetFluidNode( faucet, fluid, height, mvt) {
 
       Path.call( this ); // constructor stealing
+
+      var faucetFluidNode = this;
+
+      this.x = faucet.location.x;
+      this.y = faucet.location.y;
 
       /*
        * Set the color of the fluid coming out of the spout.
        * @param {Color} color
        */
       fluid.colorProperty.addObserver( function ( color ) {
-        //TODO set fill and stroke color
+        faucetFluidNode.fill = "red";//color.toCSS(); //TODO
       } );
 
       /*
@@ -39,11 +45,12 @@ define(
        */
       faucet.flowRateProperty.addObserver( function ( flowRate ) {
         if ( flowRate == 0 ) {
-          //TODO set shape to null
+          faucetFluidNode.shape = new Shape();
         }
         else {
-          var width = faucet.spoutWidth * flowRate / faucet.maxFlowRate;
-          //TODO set width of shape
+          var viewWidth = mvt.modelToView( faucet.spoutWidth * flowRate / faucet.maxFlowRate );
+          var viewHeight = mvt.modelToView( height );
+          faucetFluidNode.shape = Shape.rect( -viewWidth / 2, 0, viewWidth, viewHeight );
         }
       } );
     }

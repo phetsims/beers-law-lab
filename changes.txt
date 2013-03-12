@@ -1,3 +1,5 @@
+3/12/13 implement faucet fluid geometry
+3/12/13 set faucet flow to zero when handle is released
 3/12/13 rename top-level files to beers-law-lab
 3/11/13 faucet handle drag handler working
 3/11/13 added dependency on kite, change imports for things that moved from scenery to kite
