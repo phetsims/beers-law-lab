@@ -92,7 +92,7 @@ define(
     // convenience function
     ConcentrationSolution.prototype.getSaturatedConcentration = function () {
       return this.soluteProperty.get().getSaturatedConcentration();
-    }
+    };
 
     ConcentrationSolution.prototype.isSaturated = function() {
       var solution = this;
@@ -101,7 +101,7 @@ define(
         saturated = ( solution.soluteAmountProperty.get() / solution.volumeProperty.get() ) > solution.getSaturatedConcentration();
       }
       return saturated;
-    }
+    };
 
     ConcentrationSolution.prototype.getNumberOfPrecipitateParticles = function () {
       var solution = this;
@@ -110,7 +110,7 @@ define(
         numberOfParticles = 1;
       }
       return numberOfParticles;
-    }
+    };
 
     /*
      * Creates a color that corresponds to the solution's concentration.
@@ -124,7 +124,7 @@ define(
         color = solute.colorScheme.get().concentrationToColor( concentration );
       }
       return color;
-    }
+    };
 
     return ConcentrationSolution;
   }

@@ -59,7 +59,7 @@ define(
       }
 
       this.locationProperty.set( newLocation );
-    }
+    };
 
     return ShakerParticle;
   } );

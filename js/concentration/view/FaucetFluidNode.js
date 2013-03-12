@@ -36,6 +36,7 @@ define(
        * @param {Color} color
        */
       fluid.colorProperty.addObserver( function ( color ) {
+        console.log( color );//XXX
         faucetFluidNode.fill = "red";//color.toCSS(); //TODO
       } );
 

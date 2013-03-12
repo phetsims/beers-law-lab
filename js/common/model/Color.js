@@ -30,7 +30,7 @@ define(
     // Gets a CSS-compatible color string.
     Color.prototype.toCSS = function () {
       return "rgba(" + this.r + "," + this.g + "," + this.b + "," + this.a + ")";
-    }
+    };
 
     /**
      * Interpolates between 2 colors in RGBA space. When distance is 0, color1
@@ -49,7 +49,7 @@ define(
       var b = Color.interpolate( color1.b, color2.b, distance );
       var a = Color.interpolate( color1.a, color2.a, distance );
       return new Color( r, g, b, a );
-    }
+    };
 
     /*
      * Interpolates between 2 numbers.
@@ -61,7 +61,7 @@ define(
     Color.interpolate = function ( number1, number2, distance ) {
       //TODO validate distance
       return number1 + ( distance * ( number2 - number1 ) );
-    }
+    };
 
     // Common opaque colors
     Color.BLACK = new Color( 0, 0, 0 );

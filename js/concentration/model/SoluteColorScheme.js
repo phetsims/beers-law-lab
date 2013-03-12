@@ -41,7 +41,7 @@ define(
       else {
         return Color.interpolateRBGA( this.midColor, this.maxColor, ( concentration - this.midConcentration ) / ( this.maxConcentration - this.midConcentration ) );
       }
-    }
+    };
 
     return SoluteColorScheme;
   } );

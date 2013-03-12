@@ -70,7 +70,7 @@ define(
         }
       }
       shaker.previousLocation = shaker.locationProperty.get();
-    }
+    };
 
     return Shaker;
   } );

@@ -38,7 +38,7 @@ define([], function() {
       sub = false;
     }
     return outString;
-  }
+  };
 
   return ChemUtils;
 });

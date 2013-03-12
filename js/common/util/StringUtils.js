@@ -18,7 +18,7 @@ define(
       return pattern.replace( /\{(\d+)\}/g, function () {
         return args[arguments[1]];
       } );
-    }
+    };
 
     return StringUtils;
   } );

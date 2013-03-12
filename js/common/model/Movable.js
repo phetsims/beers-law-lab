@@ -23,7 +23,7 @@ define(
 
     Movable.prototype.reset = function () {
       this.locationProperty.reset();
-    }
+    };
 
     return Movable;
   } );

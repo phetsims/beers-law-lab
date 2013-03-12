@@ -19,7 +19,7 @@ define(
 
     Fluid.prototype.reset = function() {
       this.colorProperty.reset();
-    }
+    };
 
     return Fluid;
   }

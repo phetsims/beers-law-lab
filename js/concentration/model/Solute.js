@@ -34,7 +34,7 @@ define(
     // convenience method
     Solute.prototype.getSaturatedConcentration = function () {
       return this.colorScheme.maxConcentration;
-    }
+    };
 
     return Solute;
   } );

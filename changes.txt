@@ -1,3 +1,4 @@
+3/12/13 add missing semicolons throughout
 3/12/13 turn off faucet when it's disabled
 3/12/13 modifications for kite change: Shape.rect(upperleft,lowerright) -> Shape.rect(x,y,width,height)
 3/12/13 modifications for scenery change: Finger -> Pointer
