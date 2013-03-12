@@ -101,11 +101,13 @@ define(
         {
           // adjust the flow
           drag: function ( event, trail ) {
-            var localPosition = trail.getTransform().inversePosition2( event.pointer.point ); // global to local
-            var y = MathUtil.clamp( localPosition.y, handleOffY, handleOnY );
-            var handleOrientation = yToOrientation.evaluate( y );
-            var flowRate = orientationToFlowRate.evaluate( handleOrientation );
-            faucet.flowRateProperty.set( flowRate );
+            if ( faucet.enabledProperty.get() ) {
+              var localPosition = trail.getTransform().inversePosition2( event.pointer.point ); // global to local
+              var y = MathUtil.clamp( localPosition.y, handleOffY, handleOnY );
+              var handleOrientation = yToOrientation.evaluate( y );
+              var flowRate = orientationToFlowRate.evaluate( handleOrientation );
+              faucet.flowRateProperty.set( flowRate );
+            }
           },
 
           // turn off the faucet when the handle is released
