@@ -12,6 +12,7 @@ define(
     "common/model/Movable"
   ],
   function ( Property, Inheritance, Movable ) {
+    "use strict";
 
     /**
      * @param {Vector2} location

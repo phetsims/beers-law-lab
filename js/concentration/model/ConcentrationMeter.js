@@ -16,6 +16,7 @@ define(
     "common/model/Movable"
   ],
   function( Property, Movable ) {
+    "use strict";
 
     /**
      * @param {Vector2} bodyLocation
