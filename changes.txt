@@ -1,3 +1,4 @@
+3/12/13 port time-based portion of concentration model (untested)
 3/12/13 port property listeners that are internal to concentration model
 3/12/13 drop "Property" suffix from all vars of type Property
 3/12/13 add dropper model element, flesh out some of concentration model

@@ -36,11 +36,12 @@ require(
     })();
 
     // Animation loop
+    var deltaSeconds = 0.04; // similar to Java sim. TODO: compute this
     (function animationLoop() {
       window.animate( animationLoop );
       performanceMonitor.begin();
-      model.step();
-      view.step();
+      model.step( deltaSeconds );
+      view.step( deltaSeconds );
       performanceMonitor.end();
     })();
   } );

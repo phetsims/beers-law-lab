@@ -28,8 +28,8 @@ define(
       // scene graph
       var scene = new ConcentrationScene( model, mvt, strings );
 
-      this.step = function () {
-        scene.step();
+      this.step = function ( deltaSeconds ) {
+        scene.step( deltaSeconds );
       };
 
       this.reset = function() {

@@ -52,7 +52,7 @@ define(
       rootNode.addChild( beakerNode );
       rootNode.addChild( shakerNode );
 
-      this.step = function () {
+      this.step = function ( deltaSeconds ) {
         scene.updateScene();
       };
 

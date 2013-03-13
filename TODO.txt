@@ -25,6 +25,7 @@ HIGH
 - particles in beaker when saturation is reached
 
 MEDIUM
+- compute deltaSeconds in animation loop
 - dropper
 - solute combo box
 - evaporation control
