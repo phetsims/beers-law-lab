@@ -5,44 +5,43 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [
-    "DOT/Vector2",
-    "PHETCOMMON/view/ModelViewTransform2D",
-    "concentration/view/ConcentrationScene"
-  ],
-  function ( Vector2, ModelViewTransform2D, ConcentrationScene ) {
-    "use strict";
+define( function ( require ) {
+  "use strict";
 
-    function ConcentrationView( model, strings ) {
+  // imports
+  var Vector2 = require( "DOT/Vector2" );
+  var ModelViewTransform2D = require( "PHETCOMMON/view/ModelViewTransform2D" );
+  var ConcentrationScene = require( "concentration/view/ConcentrationScene" );
 
-      // browser window title
-      $( 'title' ).html( strings.concentration );
+  function ConcentrationView( model, strings ) {
 
-      // background color
-      document.bgColor = "white";
+    // browser window title
+    $( 'title' ).html( strings.concentration );
 
-      // model-view transform (unity)
-      var mvt = new ModelViewTransform2D( 1, new Vector2( 0, 0 ) );
+    // background color
+    document.bgColor = "white";
 
-      // scene graph
-      var scene = new ConcentrationScene( model, mvt, strings );
+    // model-view transform (unity)
+    var mvt = new ModelViewTransform2D( 1, new Vector2( 0, 0 ) );
 
-      this.step = function ( deltaSeconds ) {
-        scene.step( deltaSeconds );
-      };
+    // scene graph
+    var scene = new ConcentrationScene( model, mvt, strings );
 
-      this.reset = function() {
-        scene.reset();
-      };
+    this.step = function ( deltaSeconds ) {
+      scene.step( deltaSeconds );
+    };
 
-      // handle resizing of the browser window
-      var handleResize = function () {
-        //TODO
-      };
-      $( window ).resize( handleResize );
-      handleResize(); // initial size
-    }
+    this.reset = function () {
+      scene.reset();
+    };
 
-    return ConcentrationView;
-  } );
+    // handle resizing of the browser window
+    var handleResize = function () {
+      //TODO
+    };
+    $( window ).resize( handleResize );
+    handleResize(); // initial size
+  }
+
+  return ConcentrationView;
+} );

@@ -6,42 +6,40 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define(
-  [
-    "PHETCOMMON/util/Inheritance",
-    "KITE/Shape",
-    "SCENERY/nodes/Path"
-  ],
-  function ( Inheritance, Shape, Path ) {
-    "use strict";
+define( function ( require ) {
+  "use strict";
 
-    /**
-     * @param {SoluteParticle} particle
-     * @constructor
-     */
-    function ParticleNode( particle ) {
+  // imports
+  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var Shape = require( "KITE/Shape" );
+  var Path = require( "SCENERY/nodes/Path" );
 
-      var thisNode = this;
+  /**
+   * @param {SoluteParticle} particle
+   * @constructor
+   */
+  function ParticleNode( particle ) {
 
-      Path.call(
-        this,
-        {
-          shape: Shape.rect( -particle.size / 2, -particle.size / 2, particle.size, particle.size ),
-          fill: particle.color.toCSS(),
-          stroke: particle.color.darker().toCSS(),
-          lineWidth: 1
-        } );
+    var thisNode = this;
 
-      thisNode.particle = particle;
-      thisNode.rotation = particle.orientation;
-
-      particle.location.addObserver( function () {
-        thisNode.translation = particle.location.get();
+    Path.call(
+      this,
+      {
+        shape: Shape.rect( -particle.size / 2, -particle.size / 2, particle.size, particle.size ),
+        fill: particle.color.toCSS(),
+        stroke: particle.color.darker().toCSS(),
+        lineWidth: 1
       } );
-    }
 
-    Inheritance.inheritPrototype( ParticleNode, Path );
+    thisNode.particle = particle;
+    thisNode.rotation = particle.orientation;
 
-    return ParticleNode;
+    particle.location.addObserver( function () {
+      thisNode.translation = particle.location.get();
+    } );
   }
-);
+
+  Inheritance.inheritPrototype( ParticleNode, Path );
+
+  return ParticleNode;
+} );

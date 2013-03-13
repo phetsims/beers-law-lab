@@ -6,61 +6,59 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define(
-  [
-    "KITE/Shape",
-    "SCENERY/nodes/Path",
-    "PHETCOMMON/util/Inheritance"
-  ],
-  function ( Shape, Path, Inheritance ) {
-    "use strict";
+define( function ( require ) {
+  "use strict";
 
-    /**
-     * @param {Faucet} faucet
-     * @param {Fluid} fluid
-     * @param {Number} height in model coordinates
-     * @param {ModelViewTransform2D} mvt
-     * @constructor
+  // imports
+  var Shape = require( "KITE/Shape" );
+  var Path = require( "SCENERY/nodes/Path" );
+  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+
+  /**
+   * @param {Faucet} faucet
+   * @param {Fluid} fluid
+   * @param {Number} height in model coordinates
+   * @param {ModelViewTransform2D} mvt
+   * @constructor
+   */
+  function FaucetFluidNode( faucet, fluid, height, mvt ) {
+
+    Path.call( this, {
+      lineWidth: 1  //TODO is this correct?
+    } );
+
+    var faucetFluidNode = this;
+
+    this.x = faucet.location.x;
+    this.y = faucet.location.y;
+
+    /*
+     * Set the color of the fluid coming out of the spout.
+     * @param {Color} color
      */
-    function FaucetFluidNode( faucet, fluid, height, mvt) {
+    fluid.color.addObserver( function ( color ) {
+      faucetFluidNode.fill = color.toCSS();
+      faucetFluidNode.stroke = color.darker(); //TODO too dark!
+    } );
 
-      Path.call( this, {
-        lineWidth: 1  //TODO is this correct?
-      } );
-
-      var faucetFluidNode = this;
-
-      this.x = faucet.location.x;
-      this.y = faucet.location.y;
-
-      /*
-       * Set the color of the fluid coming out of the spout.
-       * @param {Color} color
-       */
-      fluid.color.addObserver( function ( color ) {
-        faucetFluidNode.fill = color.toCSS();
-        faucetFluidNode.stroke = color.darker(); //TODO too dark!
-      } );
-
-      /*
-       * Set the width of the shape to match the flow rate.
-       * @param {Number} flowRate
-       */
-      faucet.flowRate.addObserver( function ( flowRate ) {
-        if ( flowRate == 0 ) {
-          faucetFluidNode.shape = new Shape();
-        }
-        else {
-          var viewWidth = mvt.modelToView( faucet.spoutWidth * flowRate / faucet.maxFlowRate );
-          var viewHeight = mvt.modelToView( height );
-          faucetFluidNode.shape = Shape.rect( -viewWidth / 2, 0, viewWidth, viewHeight );
-        }
-      } );
-    }
-
-    Inheritance.inheritPrototype( FaucetFluidNode, Path ); // prototype chaining
-
-    return FaucetFluidNode;
-
+    /*
+     * Set the width of the shape to match the flow rate.
+     * @param {Number} flowRate
+     */
+    faucet.flowRate.addObserver( function ( flowRate ) {
+      if ( flowRate == 0 ) {
+        faucetFluidNode.shape = new Shape();
+      }
+      else {
+        var viewWidth = mvt.modelToView( faucet.spoutWidth * flowRate / faucet.maxFlowRate );
+        var viewHeight = mvt.modelToView( height );
+        faucetFluidNode.shape = Shape.rect( -viewWidth / 2, 0, viewWidth, viewHeight );
+      }
+    } );
   }
-);
+
+  Inheritance.inheritPrototype( FaucetFluidNode, Path ); // prototype chaining
+
+  return FaucetFluidNode;
+
+} );

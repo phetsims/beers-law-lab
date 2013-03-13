@@ -5,42 +5,41 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define(
-  [
-    "PHETCOMMON/util/Inheritance",
-    "SCENERY/nodes/Node",
-    "concentration/view/ParticleNode"
-  ],
-  function ( Inheritance, Node, ParticleNode ) {
+define( function ( require ) {
+  "use strict";
 
-    /**
-     * @param {ShakerParticles} shakerParticles
-     * @constructor
-     */
-    function ShakerParticlesNode( shakerParticles ) {
+  // imports
+  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var Node = require( "SCENERY/nodes/Node" );
+  var ParticleNode = require( "concentration/view/ParticleNode" );
 
-      var thisNode = this;
+  /**
+   * @param {ShakerParticles} shakerParticles
+   * @constructor
+   */
+  function ShakerParticlesNode( shakerParticles ) {
 
-      Node.call( thisNode );
+    var thisNode = this;
 
-      shakerParticles.registerParticleAddedCallback( function ( particle ) {
-        thisNode.addChild( new ParticleNode( particle ) );
-      } );
+    Node.call( thisNode );
 
-      shakerParticles.registerParticleRemovedCallback( function ( particle ) {
-        //TODO this is inefficient, keep a map of particles to nodes?
-        var children = thisNode.getChildren();
-        for ( var i = 0; i < children.length; i++ ) {
-          if ( children[i].particle == particle ) {
-            thisNode.removeChild( children[i] );
-            break;
-          }
+    shakerParticles.registerParticleAddedCallback( function ( particle ) {
+      thisNode.addChild( new ParticleNode( particle ) );
+    } );
+
+    shakerParticles.registerParticleRemovedCallback( function ( particle ) {
+      //TODO this is inefficient, keep a map of particles to nodes?
+      var children = thisNode.getChildren();
+      for ( var i = 0; i < children.length; i++ ) {
+        if ( children[i].particle == particle ) {
+          thisNode.removeChild( children[i] );
+          break;
         }
-      } );
-    }
-
-    Inheritance.inheritPrototype( ShakerParticlesNode, Node );
-
-    return ShakerParticlesNode;
+      }
+    } );
   }
-);
+
+  Inheritance.inheritPrototype( ShakerParticlesNode, Node );
+
+  return ShakerParticlesNode;
+} );

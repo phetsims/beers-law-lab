@@ -7,132 +7,130 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [
-    "SCENERY/nodes/Node",
-    "SCENERY/nodes/Image",
-    "SCENERY/input/SimpleDragHandler",
-    "DOT/Matrix3",
-    "DOT/Transform3",
-    "DOT/Vector2",
-    "PHETCOMMON/math/MathUtil",
-    "PHETCOMMON/math/Range",
-    "PHETCOMMON/util/Inheritance",
-    "common/view/DebugOriginNode",
-    "common/util/LinearFunction",
-    "image!images/faucet_handle.png",
-    "image!images/faucet_pipe.png",
-    "image!images/faucet_pivot.png",
-    "image!images/faucet_spout.png"
-  ],
-  function ( Node, Image, SimpleDragHandler, Matrix3, Transform3, Vector2, MathUtil, Range, Inheritance, DebugOriginNode, LinearFunction, handleImage, pipeImage, pivotImage, spoutImage ) {
-    "use strict";
+define( function ( require ) {
+  "use strict";
 
-    function FaucetNode( faucet, mvt ) {
+  // imports
+  var Node = require( "SCENERY/nodes/Node" );
+  var Image = require( "SCENERY/nodes/Image" );
+  var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
+  var Matrix3 = require( "DOT/Matrix3" );
+  var Transform3 = require( "DOT/Transform3" );
+  var Vector2 = require( "DOT/Vector2" );
+  var MathUtil = require( "PHETCOMMON/math/MathUtil" );
+  var Range = require( "PHETCOMMON/math/Range" );
+  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var DebugOriginNode = require( "common/view/DebugOriginNode" );
+  var LinearFunction = require( "common/util/LinearFunction" );
+  var handleImage = require( "image!images/faucet_handle.png" );
+  var pipeImage = require( "image!images/faucet_pipe.png" );
+  var pivotImage = require( "image!images/faucet_pivot.png" );
+  var spoutImage = require( "image!images/faucet_spout.png" );
 
-      Node.call( this ); // constructor stealing
+  // constants
+  var DEBUG_ORIGIN = true;
+  var SPOUT_OUTPUT_CENTER_X = 83; // center of spoint, determined by inspecting image file
+  var SPOUT_OUTPUT_WIDTH = 42; // width of spout, determined by inspecting image file
+  var HANDLE_ORIENTATION_RANGE = new Range( -Math.PI / 4, 0 ); // full off -> full on
 
-      // constants
-      var DEBUG_ORIGIN = true;
-      var SPOUT_OUTPUT_CENTER_X = 83; // center of spoint, determined by inspecting image file
-      var SPOUT_OUTPUT_WIDTH = 42; // width of spout, determined by inspecting image file
-      var HANDLE_ORIENTATION_RANGE = new Range( -Math.PI / 4, 0 ); // full off -> full on
+  function FaucetNode( faucet, mvt ) {
 
-      var orientationToFlowRate = new LinearFunction( HANDLE_ORIENTATION_RANGE, new Range( 0, faucet.maxFlowRate ) );
+    Node.call( this ); // constructor stealing
 
-      // child nodes
-      var handleNode = new Image( handleImage, {
-        cursor: "pointer"
-      } );
-      var pipeNode = new Image( pipeImage );
-      var pivotNode = new Image( pivotImage );
-      var spoutNode = new Image( spoutImage );
+    var orientationToFlowRate = new LinearFunction( HANDLE_ORIENTATION_RANGE, new Range( 0, faucet.maxFlowRate ) );
 
-      // rendering order
-      this.addChild( pipeNode );
-      this.addChild( handleNode );
-      this.addChild( pivotNode );
-      this.addChild( spoutNode );
+    // child nodes
+    var handleNode = new Image( handleImage, {
+      cursor: "pointer"
+    } );
+    var pipeNode = new Image( pipeImage );
+    var pivotNode = new Image( pivotImage );
+    var spoutNode = new Image( spoutImage );
 
-      // origin
-      if ( DEBUG_ORIGIN ) {
-        this.addChild( new DebugOriginNode( "red" ) );
-      }
+    // rendering order
+    this.addChild( pipeNode );
+    this.addChild( handleNode );
+    this.addChild( pivotNode );
+    this.addChild( spoutNode );
 
-      //TODO This is horizontally stretching the image, would look better to tile a rectangle with a texture.
-      // size the pipe
-      pipeNode.setScale( mvt.modelToView( faucet.pipeLength ) / pipeNode.width, 1 );
-
-      // layout
-      {
-        // move spout's origin to the center of it's output
-        spoutNode.x = -SPOUT_OUTPUT_CENTER_X;
-        spoutNode.y = -spoutNode.height;
-        // pipe connects to left edge of spout
-        pipeNode.x = spoutNode.getLeft() - pipeNode.width;
-        pipeNode.y = spoutNode.getTop();
-        // pivot is on top of spout
-        pivotNode.x = spoutNode.getLeft() + ( 0.25 * spoutNode.width );
-        pivotNode.y = spoutNode.getTop() - pivotNode.height;
-        // butt end of handle is centered in pivot
-        handleNode.x = pivotNode.getCenterX();
-        handleNode.y = pivotNode.getCenterY() - ( handleNode.height / 2 );
-      }
-
-      // move to model location
-      var location = mvt.modelToView( faucet.location );
-      this.x = location.x;
-      this.y = location.y;
-
-      // determine on/off handle locations
-      handleNode.rotateAround( new Vector2( pivotNode.getCenterX(), pivotNode.getCenterY() ), HANDLE_ORIENTATION_RANGE.max );
-      var handleOnY = handleNode.getBounds().maxY;
-      handleNode.setRotation( 0 );
-      handleNode.rotateAround( new Vector2( pivotNode.getCenterX(), pivotNode.getCenterY() ), HANDLE_ORIENTATION_RANGE.min );
-      var handleOffY = handleNode.getBounds().minY;
-      // leave the handle in the off orientation
-
-      // mapping from handle y-coordinate to orientation
-      var yToOrientation = new LinearFunction( new Range( handleOffY, handleOnY ), HANDLE_ORIENTATION_RANGE );
-
-      handleNode.addInputListener( new SimpleDragHandler(
-        {
-          //TODO: revisit this to make it feel more smooth/natural
-          // adjust the flow
-          drag: function ( event, trail ) {
-            if ( faucet.enabled.get() ) {
-              var localPosition = trail.getTransform().inversePosition2( event.pointer.point ); // global to local
-              var y = MathUtil.clamp( localPosition.y, handleOffY, handleOnY );
-              var handleOrientation = yToOrientation.evaluate( y );
-              var flowRate = orientationToFlowRate.evaluate( handleOrientation );
-              faucet.flowRate.set( flowRate );
-            }
-          },
-
-          // turn off the faucet when the handle is released
-          end: function() {
-            faucet.flowRate.set( 0 );
-          },
-
-          // prevent default behavior that translates the node
-          translate: function () {
-          }
-        } ) );
-
-      faucet.flowRate.addObserver( function ( flowRate ) {
-        // reset the handle's transform
-        handleNode.resetTransform();
-        // butt end of handle is centered in pivot
-        handleNode.x = pivotNode.getCenterX();
-        handleNode.y = pivotNode.getCenterY() - ( handleNode.height / 2 );
-        // handle orientation matches flow rate
-        var orientation = orientationToFlowRate.evaluateInverse( flowRate );
-        handleNode.rotateAround( new Vector2( pivotNode.getCenterX(), pivotNode.getCenterY() ), orientation );
-      } );
+    // origin
+    if ( DEBUG_ORIGIN ) {
+      this.addChild( new DebugOriginNode( "red" ) );
     }
 
-    Inheritance.inheritPrototype( FaucetNode, Node ); // prototype chaining
+    //TODO This is horizontally stretching the image, would look better to tile a rectangle with a texture.
+    // size the pipe
+    pipeNode.setScale( mvt.modelToView( faucet.pipeLength ) / pipeNode.width, 1 );
 
-    return FaucetNode;
+    // layout
+    {
+      // move spout's origin to the center of it's output
+      spoutNode.x = -SPOUT_OUTPUT_CENTER_X;
+      spoutNode.y = -spoutNode.height;
+      // pipe connects to left edge of spout
+      pipeNode.x = spoutNode.getLeft() - pipeNode.width;
+      pipeNode.y = spoutNode.getTop();
+      // pivot is on top of spout
+      pivotNode.x = spoutNode.getLeft() + ( 0.25 * spoutNode.width );
+      pivotNode.y = spoutNode.getTop() - pivotNode.height;
+      // butt end of handle is centered in pivot
+      handleNode.x = pivotNode.getCenterX();
+      handleNode.y = pivotNode.getCenterY() - ( handleNode.height / 2 );
+    }
+
+    // move to model location
+    var location = mvt.modelToView( faucet.location );
+    this.x = location.x;
+    this.y = location.y;
+
+    // determine on/off handle locations
+    handleNode.rotateAround( new Vector2( pivotNode.getCenterX(), pivotNode.getCenterY() ), HANDLE_ORIENTATION_RANGE.max );
+    var handleOnY = handleNode.getBounds().maxY;
+    handleNode.setRotation( 0 );
+    handleNode.rotateAround( new Vector2( pivotNode.getCenterX(), pivotNode.getCenterY() ), HANDLE_ORIENTATION_RANGE.min );
+    var handleOffY = handleNode.getBounds().minY;
+    // leave the handle in the off orientation
+
+    // mapping from handle y-coordinate to orientation
+    var yToOrientation = new LinearFunction( new Range( handleOffY, handleOnY ), HANDLE_ORIENTATION_RANGE );
+
+    handleNode.addInputListener( new SimpleDragHandler(
+      {
+        //TODO: revisit this to make it feel more smooth/natural
+        // adjust the flow
+        drag: function ( event, trail ) {
+          if ( faucet.enabled.get() ) {
+            var localPosition = trail.getTransform().inversePosition2( event.pointer.point ); // global to local
+            var y = MathUtil.clamp( localPosition.y, handleOffY, handleOnY );
+            var handleOrientation = yToOrientation.evaluate( y );
+            var flowRate = orientationToFlowRate.evaluate( handleOrientation );
+            faucet.flowRate.set( flowRate );
+          }
+        },
+
+        // turn off the faucet when the handle is released
+        end: function () {
+          faucet.flowRate.set( 0 );
+        },
+
+        // prevent default behavior that translates the node
+        translate: function () {
+        }
+      } ) );
+
+    faucet.flowRate.addObserver( function ( flowRate ) {
+      // reset the handle's transform
+      handleNode.resetTransform();
+      // butt end of handle is centered in pivot
+      handleNode.x = pivotNode.getCenterX();
+      handleNode.y = pivotNode.getCenterY() - ( handleNode.height / 2 );
+      // handle orientation matches flow rate
+      var orientation = orientationToFlowRate.evaluateInverse( flowRate );
+      handleNode.rotateAround( new Vector2( pivotNode.getCenterX(), pivotNode.getCenterY() ), orientation );
+    } );
   }
-);
+
+  Inheritance.inheritPrototype( FaucetNode, Node ); // prototype chaining
+
+  return FaucetNode;
+} );
