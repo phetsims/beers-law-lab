@@ -35,49 +35,38 @@ define(
       solution.volume = new Property( volume );
 
       // derive concentration (M)
-      {
-        var computeConcentration = function () {
-          var volume = solution.volume.get();
-          var soluteAmount = solution.soluteAmount.get();
-          if ( volume > 0 ) {
-            return Math.min( solution.getSaturatedConcentration(), soluteAmount / volume ); // M = mol/L
-          }
-          else {
-            return 0;
-          }
-        };
-        solution.concentration = new Property( computeConcentration() );
-        solution.solute.addObserver( computeConcentration );
-        solution.soluteAmount.addObserver( computeConcentration );
-        solution.volume.addObserver( computeConcentration );
-      }
+      solution.concentration = new Property( 0 );
+      var updateConcentration = function () {
+        var volume = solution.volume.get();
+        var soluteAmount = solution.soluteAmount.get();
+        var concentration = ( volume > 0 ) ? Math.min( solution.getSaturatedConcentration(), soluteAmount / volume ) : 0; // M = mol/L
+        solution.concentration.set( concentration );
+      };
+      solution.solute.addObserver( updateConcentration );
+      solution.soluteAmount.addObserver( updateConcentration );
+      solution.volume.addObserver( updateConcentration );
 
       // derive amount of precipitate (moles)
-      {
-        var computePrecipitateAmount = function () {
-          var volume = solution.volume.get();
-          var soluteAmount = solution.soluteAmount.get();
-          if ( volume > 0 ) {
-            return Math.max( 0, volume * ( ( solution.soluteAmount.get() / volume ) - solution.getSaturatedConcentration() ) );
-          }
-          else {
-            return soluteAmount;
-          }
-        };
-        solution.precipitateAmount = new Property( computePrecipitateAmount() );
-        solution.solute.addObserver( computePrecipitateAmount );
-        solution.soluteAmount.addObserver( computePrecipitateAmount );
-        solution.volume.addObserver( computePrecipitateAmount );
-      }
+      solution.precipitateAmount = new Property( 0 );
+      var updatePrecipitateAmount = function () {
+        var volume = solution.volume.get();
+        if ( volume > 0 ) {
+          solution.precipitateAmount.set( Math.max( 0, volume * ( ( solution.soluteAmount.get() / volume ) - solution.getSaturatedConcentration() ) ) );
+        }
+        else {
+          solution.precipitateAmount( solution.soluteAmount.get() );
+        }
+      };
+      solution.solute.addObserver( updatePrecipitateAmount );
+      solution.soluteAmount.addObserver( updatePrecipitateAmount );
+      solution.volume.addObserver( updatePrecipitateAmount );
 
       // derive the solution color
-      {
-        var colorObserver = function() {
-          solution.color.set( ConcentrationSolution.createColor( solution.solvent, solution.solute.get(), solution.concentration.get() ) );
-        }
-        solution.solute.addObserver( colorObserver );
-        solution.concentration.addObserver( colorObserver );
+      var updateColor = function () {
+        solution.color.set( ConcentrationSolution.createColor( solution.solvent, solution.solute.get(), solution.concentration.get() ) );
       }
+      solution.solute.addObserver( updateColor );
+      solution.concentration.addObserver( updateColor );
 
       // reset
       solution.reset = function () {

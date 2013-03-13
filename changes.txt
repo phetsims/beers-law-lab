@@ -1,3 +1,4 @@
+3/13/13 fix derived properties in ConcentrationSolution
 3/12/13 add '_' prefix to private methods in particle model
 3/12/13 wire up shaker particles in concentration model
 3/12/13 port shaker particles model
