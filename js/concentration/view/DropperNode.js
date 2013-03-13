@@ -18,6 +18,7 @@ define( function ( require ) {
   var Inheritance = require( "PHETCOMMON/util/Inheritance" );
   var Color = require( "common/model/Color" );
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
+  var MomentaryButtonNode = require( "common/view/MomentaryButtonNode" );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
   var foregroundImage = require( "image!images/dropper_foreground.png" );
   var backgroundImage = require( "image!images/dropper_background.png" );
@@ -83,12 +84,8 @@ define( function ( require ) {
         lineWidth: 0
       } );
 
-    //TODO on/off button
-    // MomentaryButtonNode buttonNode = new MomentaryButtonNode( UserComponents.dropperButton,
-   //                                                                  dropper.on, PiccoloPhetResources.getImage( "button_pressed.png" ), PiccoloPhetResources.getImage( "button_unpressed.png" ),
-   //                                                                  dropper.enabled, PiccoloPhetResources.getImage( "button_pressed_disabled.png" ), PiccoloPhetResources.getImage( "button_unpressed_disabled.png" ) ) {{
-   //            scale( 0.3 );
-   //        }};
+    var buttonNode = new MomentaryButtonNode( dropper.on, dropper.enabled );
+    buttonNode.setScale( 0.3 );
 
     // rendering order
     thisNode.addChild( glassNode );
@@ -96,7 +93,7 @@ define( function ( require ) {
     thisNode.addChild( foregroundNode );
     thisNode.addChild( labelBackgroundNode );
     thisNode.addChild( labelNode );
-//TODO    thisNode.addChild( buttonNode );
+    thisNode.addChild( buttonNode );
     if( DEBUG_ORIGIN ) {
       thisNode.addChild( new DebugOriginNode() );
     }
@@ -109,8 +106,8 @@ define( function ( require ) {
       backgroundNode.x = -backgroundNode.width / 2;
       backgroundNode.y = -backgroundNode.height;
       // center the button in the dropper's bulb
-//TODO      buttonNode.x = foregroundNode.getBounds().getCenterX() - ( buttonNode.width / 2 );
-//TODO      buttonNode.y = foregroundNode.getBounds().getMinY() + BUTTON_Y_OFFSET;
+      buttonNode.x = foregroundNode.getBounds().getCenterX() - ( buttonNode.width / 2 );
+      buttonNode.y = foregroundNode.getBounds().getMinY() + BUTTON_Y_OFFSET;
       //NOTE: label will be positioned whenever its text is set, to keep it centered in the dropper's glass
     }
 
