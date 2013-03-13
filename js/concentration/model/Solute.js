@@ -42,6 +42,12 @@ define(
       return this.colorScheme.maxConcentration;
     };
 
+    // enumeration of forms that the solute can be in
+    Solute.SoluteForm = {
+      SOLID: "solid",
+      STOCK_SOLUTION: "stock-solution"
+    };
+
     // Specific solutes ===========================================
 
     Solute.DRINK_MIX = new Solute(
