@@ -1,3 +1,4 @@
+3/13/13 convert common to CommonJS-style imports
 3/13/13 convert concentration.model to CommonJS-style imports
 3/13/13 convert concentration.view to CommonJS-style imports
 3/13/13 try CommonJS-style imports in BeakerNode

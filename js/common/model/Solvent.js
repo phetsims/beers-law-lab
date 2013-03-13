@@ -5,36 +5,36 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [
-    "PHETCOMMON/util/Inheritance",
-    "common/BLLSymbols",
-    "common/model/Color",
-    "common/model/Fluid",
-    "i18n!../../../nls/beers-law-lab-strings"
-  ],
-  function ( Inheritance, BLLSymbols, Color, Fluid, Strings ) {
+define( function ( require ) {
+  "use strict"
 
-    /**
-     * Constructor.
-     * @param {String} name
-     * @param {String} formula
-     * @param {Color} color
-     * @constructor
-     */
-    function Solvent( name, formula, color ) {
+  // imports
+  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var BLLSymbols = require( "common/BLLSymbols" );
+  var Color = require( "common/model/Color" );
+  var Fluid = require( "common/model/Fluid" );
+  var Strings = require( "i18n!../../../nls/beers-law-lab-strings" );
 
-      Fluid.call( this, color ); // constructor stealing
+  /**
+   * Constructor.
+   * @param {String} name
+   * @param {String} formula
+   * @param {Color} color
+   * @constructor
+   */
+  function Solvent( name, formula, color ) {
 
-      this.name = name;
-      this.formula = formula;
-    }
+    Fluid.call( this, color ); // constructor stealing
 
-    Inheritance.inheritPrototype( Solvent, Fluid ); // prototype chaining
+    this.name = name;
+    this.formula = formula;
+  }
 
-    Solvent.WATER_COLOR = new Color( 224, 255, 255 );
+  Inheritance.inheritPrototype( Solvent, Fluid ); // prototype chaining
 
-    Solvent.WATER = new Solvent( Strings.water, BLLSymbols.WATER, Solvent.WATER_COLOR );
+  Solvent.WATER_COLOR = new Color( 224, 255, 255 );
 
-    return Solvent;
-  } );
+  Solvent.WATER = new Solvent( Strings.water, BLLSymbols.WATER, Solvent.WATER_COLOR );
+
+  return Solvent;
+} );

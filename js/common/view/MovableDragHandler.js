@@ -6,43 +6,43 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [
-    "SCENERY/input/SimpleDragHandler",
-    "DOT/Vector2",
-    "PHETCOMMON/util/Inheritance"
-  ],
-  function ( SimpleDragHandler, Vector2, Inheritance ) {
+define( function ( require ) {
+  "use strict";
 
-    function MovableDragHandler( movable, mvt ) {
-      var dragHandler = this;
-      SimpleDragHandler.call( this, {
-        translate: function ( options ) {
-          var pModel = mvt.viewToModel( new Vector2( options.position.x, options.position.y ) );
-          var pModelConstrained = dragHandler.constrainBounds( pModel, movable.dragBounds );
-          movable.location.set( pModelConstrained );
-        }
-      } );
+  // imports
+  var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
+  var Vector2 = require( "DOT/Vector2" );
+  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+
+  function MovableDragHandler( movable, mvt ) {
+    var dragHandler = this;
+    SimpleDragHandler.call( this, {
+      translate: function ( options ) {
+        var pModel = mvt.viewToModel( new Vector2( options.position.x, options.position.y ) );
+        var pModelConstrained = dragHandler.constrainBounds( pModel, movable.dragBounds );
+        movable.location.set( pModelConstrained );
+      }
+    } );
+  }
+
+  Inheritance.inheritPrototype( MovableDragHandler, SimpleDragHandler );
+
+  //XXX this functionality will be absorbed into scenery
+  /**
+   * Constrains a point to some bounds.
+   * @param {Vector2} point
+   * @param {Rectangle} bounds
+   */
+  MovableDragHandler.prototype.constrainBounds = function ( point, bounds ) {
+    if ( bounds === undefined || bounds.contains( point.x, point.y ) ) {
+      return point;
     }
+    else {
+      var xConstrained = Math.max( Math.min( point.x, bounds.getMaxX() ), bounds.x );
+      var yConstrained = Math.max( Math.min( point.y, bounds.getMaxY() ), bounds.y );
+      return new Vector2( xConstrained, yConstrained );
+    }
+  };
 
-    Inheritance.inheritPrototype( MovableDragHandler, SimpleDragHandler );
-
-    //XXX this functionality will be absorbed into scenery
-    /**
-     * Constrains a point to some bounds.
-     * @param {Vector2} point
-     * @param {Rectangle} bounds
-     */
-    MovableDragHandler.prototype.constrainBounds = function ( point, bounds ) {
-      if ( bounds === undefined || bounds.contains( point.x, point.y ) ) {
-        return point;
-      }
-      else {
-        var xConstrained = Math.max( Math.min( point.x, bounds.getMaxX() ), bounds.x );
-        var yConstrained = Math.max( Math.min( point.y, bounds.getMaxY() ), bounds.y );
-        return new Vector2( xConstrained, yConstrained );
-      }
-    };
-
-    return MovableDragHandler;
-  } );
+  return MovableDragHandler;
+} );

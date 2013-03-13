@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define([], function() {
+define( function () {
 
   function ChemUtils() {}
 
@@ -17,7 +17,9 @@ define([], function() {
   ChemUtils.toSubscript = function ( inString ) {
     var outString = "";
     var sub = false; // are we in a <sub> tag?
-    var isDigit = function( c ) { return ( c >= '0' && c <= '9'); };
+    var isDigit = function ( c ) {
+      return ( c >= '0' && c <= '9');
+    };
     for ( var i = 0; i < inString.length; i++ ) {
       var c = inString.charAt( i );
       if ( !sub && isDigit( c ) ) {
@@ -41,4 +43,4 @@ define([], function() {
   };
 
   return ChemUtils;
-});
+} );

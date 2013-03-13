@@ -6,22 +6,22 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [
-    "SCENERY/nodes/Path",
-    "KITE/Shape",
-    "PHETCOMMON/util/Inheritance"
-  ],
-  function ( Path, Shape, Inheritance ) {
+define( function ( require ) {
+  "use strict";
 
-    function DebugOriginNode( color ) {
-      Path.call( this, {
-        shape: Shape.circle( 0, 0, 3 ),
-        fill: color
-      } );
-    }
+  // imports
+  var Path = require( "SCENERY/nodes/Path" );
+  var Shape = require( "KITE/Shape" );
+  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
 
-    Inheritance.inheritPrototype( DebugOriginNode, Path );
+  function DebugOriginNode( color ) {
+    Path.call( this, {
+      shape: Shape.circle( 0, 0, 3 ),
+      fill: color
+    } );
+  }
 
-    return DebugOriginNode;
-  } );
+  Inheritance.inheritPrototype( DebugOriginNode, Path );
+
+  return DebugOriginNode;
+} );

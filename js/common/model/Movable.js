@@ -6,24 +6,26 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [ "PHETCOMMON/model/property/Property" ],
-  function ( Property ) {
+define( function ( require ) {
+  "use strict";
 
-    /**
-     * Constructor
-     * @param {Vector2} location
-     * @param {Rectangle} dragBounds
-     * @constructor
-     */
-    function Movable( location, dragBounds ) {
-      this.location = new Property( location );
-      this.dragBounds = dragBounds;
-    }
+  // imports
+  var Property = require( "PHETCOMMON/model/property/Property" );
 
-    Movable.prototype.reset = function () {
-      this.location.reset();
-    };
+  /**
+   * Constructor
+   * @param {Vector2} location
+   * @param {Rectangle} dragBounds
+   * @constructor
+   */
+  function Movable( location, dragBounds ) {
+    this.location = new Property( location );
+    this.dragBounds = dragBounds;
+  }
 
-    return Movable;
-  } );
+  Movable.prototype.reset = function () {
+    this.location.reset();
+  };
+
+  return Movable;
+} );

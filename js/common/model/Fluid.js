@@ -5,22 +5,23 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [ "PHETCOMMON/model/property/Property" ],
-  function ( Property ) {
+define( function ( require ) {
+  "use strict";
 
-    /**
-     * @param {Color} color
-     * @constructor
-     */
-    function Fluid( color ) {
-        this.color = new Property( color );
-    }
+  // imports
+  var Property = require( "PHETCOMMON/model/property/Property" );
 
-    Fluid.prototype.reset = function() {
-      this.color.reset();
-    };
-
-    return Fluid;
+  /**
+   * @param {Color} color
+   * @constructor
+   */
+  function Fluid( color ) {
+    this.color = new Property( color );
   }
-);
+
+  Fluid.prototype.reset = function () {
+    this.color.reset();
+  };
+
+  return Fluid;
+} );
