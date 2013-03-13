@@ -66,7 +66,7 @@ define(
           shaker.dispensingRate.set( 0 ); // shaker is not moving, don't dispense anything
         }
         else {
-          shaker.dispensingRate.set( shaker.maxDispensingRate ); // this seems to work fine
+          shaker.dispensingRate.set( shaker.maxDispensingRate ); // max rate seems to work fine
         }
       }
       shaker.previousLocation = shaker.location.get();
