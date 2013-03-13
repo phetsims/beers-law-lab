@@ -97,6 +97,7 @@ define(
 
       handleNode.addInputListener( new SimpleDragHandler(
         {
+          //TODO: revisit this to make it feel more smooth/natural
           // adjust the flow
           drag: function ( event, trail ) {
             if ( faucet.enabled.get() ) {
