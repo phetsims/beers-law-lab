@@ -54,16 +54,16 @@ define( function ( require ) {
     if ( numberOfParticles == 0 ) {
       this._removeAllParticles();
     }
-    else if ( numberOfParticles > this.particles.size() ) {
+    else if ( numberOfParticles > this.particles.length ) {
       // add particles
-      while ( numberOfParticles > this.particles.size() ) {
+      while ( numberOfParticles > this.particles.length ) {
         this._addParticle( new PrecipitateParticle( this.solution.solute.get(), this._getRandomOffset(), Precipitate.getRandomOrientation() ) );
       }
     }
     else {
       // remove particles
-      while ( numberOfParticles < this.particles.size() ) {
-        this._removeParticle( this.particles.get( this.particles.size() - 1 ) );
+      while ( numberOfParticles < this.particles.length ) {
+        this._removeParticle( this.particles[ this.particles.length - 1 ] );
       }
     }
   };
@@ -106,8 +106,8 @@ define( function ( require ) {
     var particleSize = this.solution.solute.get().particleSize;
     // x offset
     var xMargin = particleSize;
-    var width = this.beaker.size.getWidth() - particleSize - ( 2 * xMargin );
-    var x = xMargin + ( Math.random() * width ) - ( this.beaker.size.getWidth() / 2 );
+    var width = this.beaker.size.width - particleSize - ( 2 * xMargin );
+    var x = xMargin + ( Math.random() * width ) - ( this.beaker.size.width / 2 );
     // y offset
     var yMargin = particleSize;
     var y = -yMargin;

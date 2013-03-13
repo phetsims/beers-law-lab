@@ -53,7 +53,7 @@ define( function ( require ) {
         solution.precipitateAmount.set( Math.max( 0, volume * ( ( solution.soluteAmount.get() / volume ) - solution.getSaturatedConcentration() ) ) );
       }
       else {
-        solution.precipitateAmount( solution.soluteAmount.get() );
+        solution.precipitateAmount.set( solution.soluteAmount.get() );
       }
     };
     solution.solute.addObserver( updatePrecipitateAmount );
