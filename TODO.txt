@@ -17,7 +17,6 @@ SCENERY FEATURES/BUGS
 - add support for texture mapping
 
 HIGH
-- StockSolutionNode is not displaying
 - port view nodes for Concentration tab
 - weird flicker/down-scaling issue on mobile Safari
 - use ImagesLoader to load images
