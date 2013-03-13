@@ -44,9 +44,9 @@ define( function ( require ) {
    */
   Color.interpolateRBGA = function ( color1, color2, distance ) {
     //TODO validate distance
-    var r = Color.interpolate( color1.r, color2.r, distance );
-    var g = Color.interpolate( color1.g, color2.g, distance );
-    var b = Color.interpolate( color1.b, color2.b, distance );
+    var r = Math.round( Color.interpolate( color1.r, color2.r, distance ) );
+    var g = Math.round( Color.interpolate( color1.g, color2.g, distance ) );
+    var b = Math.round( Color.interpolate( color1.b, color2.b, distance ) );
     var a = Color.interpolate( color1.a, color2.a, distance );
     return new Color( r, g, b, a );
   };

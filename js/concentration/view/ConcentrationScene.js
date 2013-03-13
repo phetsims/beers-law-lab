@@ -21,6 +21,7 @@ define( function ( require ) {
   var ShakerParticlesNode = require( "concentration/view/ShakerParticlesNode" );
   var PrecipitateNode = require( "concentration/view/PrecipitateNode" );
   var DropperNode = require( "concentration/view/DropperNode" );
+  var StockSolutionNode = require( "concentration/view/StockSolutionNode" );
 
   /**
    * @param {ConcentrationModel} model
@@ -43,7 +44,7 @@ define( function ( require ) {
     var shakerNode = new ShakerNode( model.shaker, mvt );
     var shakerParticlesNode = new ShakerParticlesNode( model.shakerParticles ); //TODO mvt?
     var dropperNode = new DropperNode( model.dropper, model.solution.solvent, model.solution.solute, mvt );
-    //TODO stockSolutionNode
+    var stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.solute, model.dropper, model.beaker, DropperNode.TIP_WIDTH );//TODO mvt
 
     // faucets
     var solventFaucetNode = new FaucetNode( model.solventFaucet, mvt );
@@ -60,7 +61,7 @@ define( function ( require ) {
     rootNode.addChild( solventFaucetNode )
     rootNode.addChild( drainFluidNode );
     rootNode.addChild( drainFaucetNode );
-    //TODO rootNode.addChild( stockSolutionNode );
+    rootNode.addChild( stockSolutionNode );
     rootNode.addChild( solutionNode );
     rootNode.addChild( beakerNode );
     rootNode.addChild( precipitateNode );

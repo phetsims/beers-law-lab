@@ -29,7 +29,8 @@ define( function ( require ) {
   var LABEL_Y_OFFSET = 130; // y-offset of the label's center in dropper image file
 
   // constants specific to the image file
-  var TIP_WIDTH = 15;
+  DropperNode.TIP_WIDTH = 15;  //TODO this is ugly
+  var TIP_WIDTH = DropperNode.TIP_WIDTH;
   var TIP_HEIGHT = 5;
   var GLASS_WIDTH = 46;
   var GLASS_HEIGHT = 150;
