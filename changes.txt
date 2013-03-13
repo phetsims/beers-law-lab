@@ -3,6 +3,7 @@
 3/13/13 convert concentration.view to CommonJS-style imports
 3/13/13 try CommonJS-style imports in BeakerNode
 3/13/13 add shaker particles to view
+3/13/13 **** concentration model fully ported ******
 3/13/13 fix derived properties in ConcentrationSolution
 3/12/13 add '_' prefix to private methods in particle model
 3/12/13 wire up shaker particles in concentration model
