@@ -17,23 +17,18 @@ SCENERY FEATURES/BUGS
 - add support for texture mapping
 
 HIGH
+- port view nodes for Concentration tab
 - weird flicker/down-scaling issue on mobile Safari
 - use ImagesLoader to load images
-- FaucetNode layout and interactivity
-- FaucetFluidNode flesh out
-- solution in beaker
-- particles in beaker when saturation is reached
 
 MEDIUM
 - compute deltaSeconds in animation loop
-- dropper
 - solute combo box
 - evaporation control
 - solution/solid radio buttons
 - concentration meter
 - "Remove Solute" button
 - "Reset All" button
-- faucets
 
 LOW
 - add a unity mvt to Concentration module (no mvt in Java version)
