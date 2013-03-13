@@ -50,27 +50,27 @@ define(
       ];
 
       // model elements
-      model.soluteProperty = new Property( model.solutes[0] );
-      model.solution = new ConcentrationSolution( model.soluteProperty, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue );
+      model.solute = new Property( model.solutes[0] );
+      model.solution = new ConcentrationSolution( model.solute, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue );
       model.beaker = new Beaker( new Vector2( 400, 550 ), new Dimension2( 600, 300 ), 1 );
-      model.shaker = new Shaker( new Vector2( 340, 170 ), new Rectangle( 225, 50, 400, 160 ), 0.75 * Math.PI, model.soluteProperty, SHAKER_MAX_DISPENSING_RATE );
-      model.dropper = new Dropper( new Vector2( 375, 210 ), new Rectangle( 230, 205, 400, 30 ), model.soluteProperty, DROPPER_FLOW_RATE );
+      model.shaker = new Shaker( new Vector2( 340, 170 ), new Rectangle( 225, 50, 400, 160 ), 0.75 * Math.PI, model.solute, SHAKER_MAX_DISPENSING_RATE );
+      model.dropper = new Dropper( new Vector2( 375, 210 ), new Rectangle( 230, 205, 400, 30 ), model.solute, DROPPER_FLOW_RATE );
       model.solventFaucet = new Faucet( new Vector2( 150, 220 ), 40, 100, MAX_INPUT_FLOW_RATE );
       model.drainFaucet = new Faucet( new Vector2( 790, 607 ), 40, 5, MAX_OUTPUT_FLOW_RATE );
 
       //TODO add model elements: precipitate, shakerParticles, concentrationMeter
 
       // model properties
-      var soluteFormProperty = new Property( Solute.SoluteForm.SOLID );
+      var soluteForm = new Property( Solute.SoluteForm.SOLID );
 
       // Things to do when the solute is changed.
-      model.soluteProperty.addObserver( function ( solute ) {
-        model.solution.soluteAmountProperty.set( 0 );
+      model.solute.addObserver( function ( solute ) {
+        model.solution.soluteAmount.set( 0 );
       } );
 
       // Show the correct dispenser for the solute form
-      soluteFormProperty.addObserver( function ( soluteForm ) {
-        model.shaker.visibleProperty.set( soluteForm == Solute.SoluteForm.SOLID );
+      soluteForm.addObserver( function ( soluteForm ) {
+        model.shaker.visible.set( soluteForm == Solute.SoluteForm.SOLID );
         model.dropper.visible.set( soluteForm == Solute.SoluteForm.STOCK_SOLUTION );
       } );
     }
@@ -78,9 +78,10 @@ define(
       // Resets all model elements
     ConcentrationModel.prototype.reset = function () {
       var model = this;
-      model.soluteProperty.reset();
+      model.solute.reset();
       model.beaker.reset();
       model.shaker.reset();
+      model.dropper.reset();
       model.solventFaucet.reset();
       model.drainFaucet.reset();
     };

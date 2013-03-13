@@ -20,7 +20,7 @@ define(
         translate: function ( options ) {
           var pModel = mvt.viewToModel( new Vector2( options.position.x, options.position.y ) );
           var pModelConstrained = dragHandler.constrainBounds( pModel, movable.dragBounds );
-          movable.locationProperty.set( pModelConstrained );
+          movable.location.set( pModelConstrained );
         }
       } );
     }

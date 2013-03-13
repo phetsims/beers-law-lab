@@ -17,12 +17,12 @@ define(
      * @constructor
      */
     function Movable( location, dragBounds ) {
-      this.locationProperty = new Property( location );
+      this.location = new Property( location );
       this.dragBounds = dragBounds;
     }
 
     Movable.prototype.reset = function () {
-      this.locationProperty.reset();
+      this.location.reset();
     };
 
     return Movable;

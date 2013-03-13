@@ -19,26 +19,26 @@ define(
     "use strict";
 
     /**
-     * @param {Property(Solute)} soluteProperty
+     * @param {Property(Solute)} solute
      * @param {Number} soluteAmount moles
      * @param {NUmber} volume L
      */
-    function ConcentrationSolution( soluteProperty, soluteAmount, volume ) {
+    function ConcentrationSolution( solute, soluteAmount, volume ) {
 
       Fluid.call( this, Color.WHITE ); // constructor stealing
 
       var solution = this;
 
       solution.solvent = Solvent.WATER;
-      solution.soluteProperty = soluteProperty;
-      solution.soluteAmountProperty = new Property( soluteAmount );
-      solution.volumeProperty = new Property( volume );
+      solution.solute = solute;
+      solution.soluteAmount = new Property( soluteAmount );
+      solution.volume = new Property( volume );
 
       // derive concentration (M)
       {
         var computeConcentration = function () {
-          var volume = solution.volumeProperty.get();
-          var soluteAmount = solution.soluteAmountProperty.get();
+          var volume = solution.volume.get();
+          var soluteAmount = solution.soluteAmount.get();
           if ( volume > 0 ) {
             return Math.min( solution.getSaturatedConcentration(), soluteAmount / volume ); // M = mol/L
           }
@@ -46,44 +46,44 @@ define(
             return 0;
           }
         };
-        solution.concentrationProperty = new Property( computeConcentration() );
-        solution.soluteProperty.addObserver( computeConcentration );
-        solution.soluteAmountProperty.addObserver( computeConcentration );
-        solution.volumeProperty.addObserver( computeConcentration );
+        solution.concentration = new Property( computeConcentration() );
+        solution.solute.addObserver( computeConcentration );
+        solution.soluteAmount.addObserver( computeConcentration );
+        solution.volume.addObserver( computeConcentration );
       }
 
       // derive amount of precipitate (moles)
       {
         var computePrecipitateAmount = function () {
-          var volume = solution.volumeProperty.get();
-          var soluteAmount = solution.soluteAmountProperty.get();
+          var volume = solution.volume.get();
+          var soluteAmount = solution.soluteAmount.get();
           if ( volume > 0 ) {
-            return Math.max( 0, volume * ( ( solution.soluteAmountProperty.get() / volume ) - solution.getSaturatedConcentration() ) );
+            return Math.max( 0, volume * ( ( solution.soluteAmount.get() / volume ) - solution.getSaturatedConcentration() ) );
           }
           else {
             return soluteAmount;
           }
         };
-        solution.precipitateAmountProperty = new Property( computePrecipitateAmount() );
-        solution.soluteProperty.addObserver( computePrecipitateAmount );
-        solution.soluteAmountProperty.addObserver( computePrecipitateAmount );
-        solution.volumeProperty.addObserver( computePrecipitateAmount );
+        solution.precipitateAmount = new Property( computePrecipitateAmount() );
+        solution.solute.addObserver( computePrecipitateAmount );
+        solution.soluteAmount.addObserver( computePrecipitateAmount );
+        solution.volume.addObserver( computePrecipitateAmount );
       }
 
       // derive the solution color
       {
         var colorObserver = function() {
-          solution.colorProperty.set( ConcentrationSolution.createColor( solution.solvent, solution.soluteProperty.get(), solution.concentrationProperty.get() ) );
+          solution.color.set( ConcentrationSolution.createColor( solution.solvent, solution.solute.get(), solution.concentration.get() ) );
         }
-        solution.soluteProperty.addObserver( colorObserver );
-        solution.concentrationProperty.addObserver( colorObserver );
+        solution.solute.addObserver( colorObserver );
+        solution.concentration.addObserver( colorObserver );
       }
 
       // reset
       solution.reset = function () {
         Inheritance.callSuper( Fluid, "reset", this );
-        solution.soluteAmountProperty.reset();
-        solution.volumeProperty.reset();
+        solution.soluteAmount.reset();
+        solution.volume.reset();
       }
     }
 
@@ -91,22 +91,22 @@ define(
 
     // convenience function
     ConcentrationSolution.prototype.getSaturatedConcentration = function () {
-      return this.soluteProperty.get().getSaturatedConcentration();
+      return this.solute.get().getSaturatedConcentration();
     };
 
     ConcentrationSolution.prototype.isSaturated = function() {
       var solution = this;
       var saturated = false;
-      if ( solution.volumeProperty.get() > 0 ) {
-        saturated = ( solution.soluteAmountProperty.get() / solution.volumeProperty.get() ) > solution.getSaturatedConcentration();
+      if ( solution.volume.get() > 0 ) {
+        saturated = ( solution.soluteAmount.get() / solution.volume.get() ) > solution.getSaturatedConcentration();
       }
       return saturated;
     };
 
     ConcentrationSolution.prototype.getNumberOfPrecipitateParticles = function () {
       var solution = this;
-      var numberOfParticles = (int)( solution.soluteProperty.get().particlesPerMole * precipitateAmount.get() );
-      if ( numberOfParticles == 0 && solution.precipitateAmountProperty.get() > 0 ) {
+      var numberOfParticles = (int)( solution.solute.get().particlesPerMole * precipitateAmount.get() );
+      if ( numberOfParticles == 0 && solution.precipitateAmount.get() > 0 ) {
         numberOfParticles = 1;
       }
       return numberOfParticles;
@@ -119,7 +119,7 @@ define(
      * @param {Number} concentration
      */
     ConcentrationSolution.createColor = function ( solvent, solute, concentration ) {
-      var color = solvent.colorProperty.get();
+      var color = solvent.color.get();
       if ( concentration > 0 ) {
         color = solute.colorScheme.concentrationToColor( concentration );
       }

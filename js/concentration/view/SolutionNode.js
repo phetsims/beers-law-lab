@@ -44,10 +44,9 @@ define(
        * Updates the color of the solution, accounting for saturation.
        * @param {Color} color
        */
-      solution.colorProperty.addObserver( function ( color ) {
-        var solutionColor = solution.colorProperty.get();
-        solutionNode.fill = solutionColor.toCSS();
-        solutionNode.stroke = solutionColor.darker(); //TODO too dark
+      solution.color.addObserver( function ( color ) {
+        solutionNode.fill = color.toCSS();
+        solutionNode.stroke = color.darker(); //TODO too dark
       } );
 
       /*
@@ -55,10 +54,10 @@ define(
        * @param {Number} volume
        */
       var volumeToHeightFunction = new LinearFunction( new Range( 0, beaker.volume ), new Range( 0, beaker.size.height ) );
-      solution.volumeProperty.addObserver( function ( volume ) {
+      solution.volume.addObserver( function ( volume ) {
 
         // determine dimensions in model coordinates
-        var volume = solution.volumeProperty.get();
+        var volume = solution.volume.get();
         var solutionHeight = volumeToHeightFunction.evaluate( volume );
         if ( volume > 0 && solutionHeight < MIN_NONZERO_HEIGHT ) {
           // constrain non-zero volume to minimum height, so that the solution is visible to the user and detectable by the concentration probe

@@ -45,7 +45,7 @@ define(
     ShakerParticle.prototype.tick = function ( deltaSeconds, beaker ) {
 
       this.velocity = this.velocity.plus( this.acceleration.times( deltaSeconds ) );
-      var newLocation = this.locationProperty.get().plus( this.velocity.times( deltaSeconds ) );
+      var newLocation = this.location.get().plus( this.velocity.times( deltaSeconds ) );
 
       /*
        * Did the particle hit the left wall of the beaker? If so, change direction.
@@ -58,7 +58,7 @@ define(
         this.velocity = new Vector2( Math.abs( this.velocity.x ), this.velocity.y );
       }
 
-      this.locationProperty.set( newLocation );
+      this.location.set( newLocation );
     };
 
     return ShakerParticle;

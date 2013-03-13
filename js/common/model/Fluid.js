@@ -14,11 +14,11 @@ define(
      * @constructor
      */
     function Fluid( color ) {
-        this.colorProperty = new Property( color );
+        this.color = new Property( color );
     }
 
     Fluid.prototype.reset = function() {
-      this.colorProperty.reset();
+      this.color.reset();
     };
 
     return Fluid;

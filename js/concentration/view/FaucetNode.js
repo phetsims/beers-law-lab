@@ -101,18 +101,18 @@ define(
         {
           // adjust the flow
           drag: function ( event, trail ) {
-            if ( faucet.enabledProperty.get() ) {
+            if ( faucet.enabled.get() ) {
               var localPosition = trail.getTransform().inversePosition2( event.pointer.point ); // global to local
               var y = MathUtil.clamp( localPosition.y, handleOffY, handleOnY );
               var handleOrientation = yToOrientation.evaluate( y );
               var flowRate = orientationToFlowRate.evaluate( handleOrientation );
-              faucet.flowRateProperty.set( flowRate );
+              faucet.flowRate.set( flowRate );
             }
           },
 
           // turn off the faucet when the handle is released
           end: function() {
-            faucet.flowRateProperty.set( 0 );
+            faucet.flowRate.set( 0 );
           },
 
           // prevent default behavior that translates the node
@@ -120,7 +120,7 @@ define(
           }
         } ) );
 
-      faucet.flowRateProperty.addObserver( function ( flowRate ) {
+      faucet.flowRate.addObserver( function ( flowRate ) {
         // reset the handle's transform
         handleNode.resetTransform();
         // butt end of handle is centered in pivot

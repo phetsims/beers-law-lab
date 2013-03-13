@@ -23,7 +23,7 @@ define(
     function SoluteParticle( color, size, location, orientation ) {
       this.color = color;
       this.size = size;
-      this.locationProperty = new Property( location );
+      this.location = new Property( location );
       this.orientation = orientation;
     }
 

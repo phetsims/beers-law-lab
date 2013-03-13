@@ -67,18 +67,18 @@ define(
       }
 
       // sync location with model
-      shaker.locationProperty.addObserver( function updateLocation( location ) {
+      shaker.location.addObserver( function updateLocation( location ) {
         shakerNode.x = mvt.modelToView( location.x );
         shakerNode.y = mvt.modelToView( location.y );
       } );
 
       // sync visibility with model
-      shaker.visibleProperty.addObserver( function updateVisibility( visible ) {
+      shaker.visible.addObserver( function updateVisibility( visible ) {
         shakerNode.visible = visible;
       } );
 
       // sync solute with model
-      shaker.soluteProperty.addObserver( function updateSolute( solute ) {
+      shaker.solute.addObserver( function updateSolute( solute ) {
         // label the shaker with the solute formula
         $labelElement.html( solute.formula );
         labelNode.invalidateDOM(); //TODO remove this when scenery handles it automatically

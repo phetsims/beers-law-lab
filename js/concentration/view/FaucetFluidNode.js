@@ -37,7 +37,7 @@ define(
        * Set the color of the fluid coming out of the spout.
        * @param {Color} color
        */
-      fluid.colorProperty.addObserver( function ( color ) {
+      fluid.color.addObserver( function ( color ) {
         faucetFluidNode.fill = color.toCSS();
         faucetFluidNode.stroke = color.darker(); //TODO too dark!
       } );
@@ -46,7 +46,7 @@ define(
        * Set the width of the shape to match the flow rate.
        * @param {Number} flowRate
        */
-      faucet.flowRateProperty.addObserver( function ( flowRate ) {
+      faucet.flowRate.addObserver( function ( flowRate ) {
         if ( flowRate == 0 ) {
           faucetFluidNode.shape = new Shape();
         }

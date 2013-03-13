@@ -24,20 +24,20 @@ define(
       this.spoutWidth = spoutWidth;
       this.pipeLength = pipeLength;
       this.maxFlowRate = maxFlowRate;
-      this.flowRateProperty = new Property( 0 );
-      this.enabledProperty = new Property( true );
+      this.flowRate = new Property( 0 );
+      this.enabled = new Property( true );
 
       // when disabled, turn off the faucet.
-      this.enabledProperty.addObserver( function (enabled ) {
+      this.enabled.addObserver( function (enabled ) {
         if ( !enabled ) {
-          this.flowRateProperty.set( 0 );
+          this.flowRate.set( 0 );
         }
       } );
     }
 
     Faucet.prototype.reset = function () {
-      this.flowRateProperty.reset();
-      this.enabledProperty.reset();
+      this.flowRate.reset();
+      this.enabled.reset();
     };
 
     return Faucet;
