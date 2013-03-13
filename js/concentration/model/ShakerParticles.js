@@ -12,6 +12,7 @@ define(
     "concentration/model/ShakerParticle"
   ],
   function( Vector2, ShakerParticle ) {
+    "use strict";
 
     // Units for speed and acceleration are not meaningful here, adjust these so that it looks good.
     var INITIAL_SPEED = 100;
