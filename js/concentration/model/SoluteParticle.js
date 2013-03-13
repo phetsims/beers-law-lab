@@ -20,6 +20,7 @@ define( function ( require ) {
    * @constructor
    */
   function SoluteParticle( color, size, location, orientation ) {
+    console.log( "SoluteParticle size=" + size );//XXX
     this.color = color;
     this.size = size;
     this.location = new Property( location );

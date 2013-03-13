@@ -22,7 +22,7 @@ define( function ( require ) {
    * @constructor
    */
   function PrecipitateParticle( solute, location, orientation ) {
-    SoluteParticle.call( solute.particleColor, solute.particleSize, location, orientation );
+    SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation );
   }
 
   Inheritance.inheritPrototype( PrecipitateParticle, SoluteParticle );

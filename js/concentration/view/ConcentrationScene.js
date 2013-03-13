@@ -19,6 +19,7 @@ define( function ( require ) {
   var ShakerNode = require( "concentration/view/ShakerNode" );
   var SolutionNode = require( "concentration/view/SolutionNode" );
   var ShakerParticlesNode = require( "concentration/view/ShakerParticlesNode" );
+  var PrecipitateNode = require( "concentration/view/PrecipitateNode" );
 
   /**
    * @param {ConcentrationModel} model
@@ -37,6 +38,7 @@ define( function ( require ) {
 
     var beakerNode = new BeakerNode( model.beaker, mvt, strings );
     var solutionNode = new SolutionNode( model.solution, model.beaker, mvt );
+    var precipitateNode = new PrecipitateNode( model.precipitate, model.beaker );
     var shakerNode = new ShakerNode( model.shaker, mvt );
     var shakerParticlesNode = new ShakerParticlesNode( model.shakerParticles );
 
@@ -57,6 +59,7 @@ define( function ( require ) {
     rootNode.addChild( drainFaucetNode );
     rootNode.addChild( solutionNode );
     rootNode.addChild( beakerNode );
+    rootNode.addChild( precipitateNode );
     rootNode.addChild( shakerParticlesNode );
     rootNode.addChild( shakerNode );
 
