@@ -10,34 +10,32 @@
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
 
-define(
-  [
-    "PHETCOMMON/model/property/Property",
-    "common/model/Movable"
-  ],
-  function( Property, Movable ) {
-    "use strict";
+define( function ( require ) {
+  "use strict";
 
-    /**
-     * @param {Vector2} bodyLocation
-     * @param {Rectangle} bodyDragBounds
-     * @param {Vector2} probeLocation
-     * @param {Rectangle} probeDragBounds
-     * @constructor
-     */
-    function ConcentrationMeter( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds ) {
-      this.value = new Property( NaN ); // NaN if the meter is not reading a value
-      this.body = new Movable( bodyLocation, bodyDragBounds );
-      this.probe = new Movable( probeLocation, probeDragBounds );
-    }
+  // imports
+  var Property = require( "PHETCOMMON/model/property/Property" );
+  var Movable = require( "common/model/Movable" );
 
-    ConcentrationMeter.prototype.reset = function () {
-      this.value.reset();
-      this.body.reset();
-      this.probe.reset();
-    };
-
-    return ConcentrationMeter;
-
+  /**
+   * @param {Vector2} bodyLocation
+   * @param {Rectangle} bodyDragBounds
+   * @param {Vector2} probeLocation
+   * @param {Rectangle} probeDragBounds
+   * @constructor
+   */
+  function ConcentrationMeter( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds ) {
+    this.value = new Property( NaN ); // NaN if the meter is not reading a value
+    this.body = new Movable( bodyLocation, bodyDragBounds );
+    this.probe = new Movable( probeLocation, probeDragBounds );
   }
-);
+
+  ConcentrationMeter.prototype.reset = function () {
+    this.value.reset();
+    this.body.reset();
+    this.probe.reset();
+  };
+
+  return ConcentrationMeter;
+
+} );

@@ -5,44 +5,43 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define(
-  [
-    "PHETCOMMON/model/property/Property"
-  ],
-  function ( Property ) {
-    "use strict";
+define( function ( require ) {
+  "use strict";
 
-    /**
-     * @param {Vector2} location center of output pipe
-     * @param {Number} spoutWidth
-     * @param {Number} pipeLength
-     * @param {Number} maxFlowRate L/sec
-     * @constructor
-     */
-    function Faucet( location, spoutWidth, pipeLength, maxFlowRate ) {
+  // imports
+  var Property = require( "PHETCOMMON/model/property/Property" );
 
-      var faucet = this;
+  /**
+   * @param {Vector2} location center of output pipe
+   * @param {Number} spoutWidth
+   * @param {Number} pipeLength
+   * @param {Number} maxFlowRate L/sec
+   * @constructor
+   */
+  function Faucet( location, spoutWidth, pipeLength, maxFlowRate ) {
 
-      faucet.location = location;
-      faucet.spoutWidth = spoutWidth;
-      faucet.pipeLength = pipeLength;
-      faucet.maxFlowRate = maxFlowRate;
-      faucet.flowRate = new Property( 0 );
-      faucet.enabled = new Property( true );
+    var faucet = this;
 
-      // when disabled, turn off the faucet.
-      faucet.enabled.addObserver( function (enabled ) {
-        if ( !enabled ) {
-          faucet.flowRate.set( 0 );
-        }
-      } );
-    }
+    faucet.location = location;
+    faucet.spoutWidth = spoutWidth;
+    faucet.pipeLength = pipeLength;
+    faucet.maxFlowRate = maxFlowRate;
+    faucet.flowRate = new Property( 0 );
+    faucet.enabled = new Property( true );
 
-    Faucet.prototype.reset = function () {
-      this.flowRate.reset();
-      this.enabled.reset();
-    };
+    // when disabled, turn off the faucet.
+    faucet.enabled.addObserver( function ( enabled ) {
+      if ( !enabled ) {
+        faucet.flowRate.set( 0 );
+      }
+    } );
+  }
 
-    return Faucet;
-  } );
+  Faucet.prototype.reset = function () {
+    this.flowRate.reset();
+    this.enabled.reset();
+  };
+
+  return Faucet;
+} );
 

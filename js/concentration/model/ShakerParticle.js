@@ -8,58 +8,57 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [
-    "DOT/Vector2",
-    "PHETCOMMON/util/Inheritance",
-    "concentration/model/SoluteParticle"
-  ],
-  function ( Vector2, Inheritance, SoluteParticle ) {
-    "use strict";
+define( function ( require ) {
+  "use strict";
 
-    /**
-     * Constructor
-     * @param {Solute} solute
-     * @param {Vector2} location in the beaker's coordinate frame
-     * @param {Number} orientation in radians
-     * @param {Vector2} initialVelocity
-     * @param {Vector2} acceleration
-     * @constructor
+  // imports
+  var Vector2 = require( "DOT/Vector2" );
+  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var SoluteParticle = require( "concentration/model/SoluteParticle" );
+
+  /**
+   * Constructor
+   * @param {Solute} solute
+   * @param {Vector2} location in the beaker's coordinate frame
+   * @param {Number} orientation in radians
+   * @param {Vector2} initialVelocity
+   * @param {Vector2} acceleration
+   * @constructor
+   */
+  function ShakerParticle( solute, location, orientation, initialVelocity, acceleration ) {
+
+    SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation );
+
+    this.solute = solute;
+    this.velocity = initialVelocity;
+    this.acceleration = acceleration;
+  }
+
+  Inheritance.inheritPrototype( ShakerParticle, SoluteParticle );
+
+  /**
+   *  Propagates the particle to a new location.
+   *  @param {Number} deltaSeconds
+   *  @param {Beaker} beaker
+   */
+  ShakerParticle.prototype.step = function ( deltaSeconds, beaker ) {
+
+    this.velocity = this.velocity.plus( this.acceleration.times( deltaSeconds ) );
+    var newLocation = this.location.get().plus( this.velocity.times( deltaSeconds ) );
+
+    /*
+     * Did the particle hit the left wall of the beaker? If so, change direction.
+     * Note that this is a very simplified model, and only deals with the left wall of the beaker,
+     * which is the only wall that the particles can hit in practice.
      */
-    function ShakerParticle( solute, location, orientation, initialVelocity, acceleration ) {
-
-      SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation );
-
-      this.solute = solute;
-      this.velocity = initialVelocity;
-      this.acceleration = acceleration;
+    var minX = beaker.getMinX() + this.solute.particleSize;
+    if ( newLocation.x <= minX ) {
+      newLocation = new Vector2( minX, newLocation.y );
+      this.velocity = new Vector2( Math.abs( this.velocity.x ), this.velocity.y );
     }
 
-    Inheritance.inheritPrototype( ShakerParticle, SoluteParticle );
+    this.location.set( newLocation );
+  };
 
-    /**
-     *  Propagates the particle to a new location.
-     *  @param {Number} deltaSeconds
-     *  @param {Beaker} beaker
-     */
-    ShakerParticle.prototype.step = function ( deltaSeconds, beaker ) {
-
-      this.velocity = this.velocity.plus( this.acceleration.times( deltaSeconds ) );
-      var newLocation = this.location.get().plus( this.velocity.times( deltaSeconds ) );
-
-      /*
-       * Did the particle hit the left wall of the beaker? If so, change direction.
-       * Note that this is a very simplified model, and only deals with the left wall of the beaker,
-       * which is the only wall that the particles can hit in practice.
-       */
-      var minX = beaker.getMinX() + this.solute.particleSize;
-      if ( newLocation.x <= minX ) {
-        newLocation = new Vector2( minX, newLocation.y );
-        this.velocity = new Vector2( Math.abs( this.velocity.x ), this.velocity.y );
-      }
-
-      this.location.set( newLocation );
-    };
-
-    return ShakerParticle;
-  } );
+  return ShakerParticle;
+} );

@@ -5,39 +5,37 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define(
-  [
-    "PHETCOMMON/model/property/Property"
-  ],
-  function ( Property ) {
-    "use strict";
+define( function ( require ) {
+  "use strict";
 
-    function Evaporator( maxEvaporationRate, solution ) {
+  // imports
+  var Property = require( "PHETCOMMON/model/property/Property" );
 
-      var evaporator = this;
+  function Evaporator( maxEvaporationRate, solution ) {
 
-      evaporator.maxEvaporationRate = maxEvaporationRate; // L/sec
-      evaporator.evaporationRate = new Property( 0 ); // L/sec
-      evaporator.enabled = new Property( true );
+    var evaporator = this;
 
-      // disable when the volume gets to zero
-      solution.volume.addObserver( function ( volume ) {
-        evaporator.enabled.set( volume > 0 );
-      } );
+    evaporator.maxEvaporationRate = maxEvaporationRate; // L/sec
+    evaporator.evaporationRate = new Property( 0 ); // L/sec
+    evaporator.enabled = new Property( true );
 
-      // when disabled, set the rate to zero
-      evaporator.enabled.addObserver( function ( enabled ) {
-        if ( !enabled ) {
-          evaporator.evaporationRate.set( 0 );
-        }
-      } );
-    }
+    // disable when the volume gets to zero
+    solution.volume.addObserver( function ( volume ) {
+      evaporator.enabled.set( volume > 0 );
+    } );
 
-    Evaporator.prototype.reset = function () {
-      this.evaporationRate.reset();
-      this.enabled.reset();
-    };
-
-    return Evaporator;
+    // when disabled, set the rate to zero
+    evaporator.enabled.addObserver( function ( enabled ) {
+      if ( !enabled ) {
+        evaporator.evaporationRate.set( 0 );
+      }
+    } );
   }
-);
+
+  Evaporator.prototype.reset = function () {
+    this.evaporationRate.reset();
+    this.enabled.reset();
+  };
+
+  return Evaporator;
+} );
