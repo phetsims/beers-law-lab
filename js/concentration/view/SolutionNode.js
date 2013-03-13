@@ -15,6 +15,7 @@ define(
     "common/util/LinearFunction"
   ],
   function ( Range, Inheritance, Shape, Path, LinearFunction ) {
+    "use strict";
 
     var MIN_NONZERO_HEIGHT = 5; // minimum height for a solution with non-zero volume, set by visual inspection
 
