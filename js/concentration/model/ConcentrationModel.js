@@ -17,9 +17,10 @@ define(
     "concentration/model/Shaker",
     "concentration/model/Dropper",
     "concentration/model/Faucet",
-    "concentration/model/Solute"
+    "concentration/model/Solute",
+    "concentration/model/Evaporator"
   ],
-  function ( Dimension2, Vector2, Range, Property, Rectangle, Beaker, ConcentrationSolution, Shaker, Dropper, Faucet, Solute ) {
+  function ( Dimension2, Vector2, Range, Property, Rectangle, Beaker, ConcentrationSolution, Shaker, Dropper, Faucet, Solute, Evaporator ) {
     "use strict";
 
     // constants
@@ -55,10 +56,11 @@ define(
       model.beaker = new Beaker( new Vector2( 400, 550 ), new Dimension2( 600, 300 ), 1 );
       model.shaker = new Shaker( new Vector2( 340, 170 ), new Rectangle( 225, 50, 400, 160 ), 0.75 * Math.PI, model.solute, SHAKER_MAX_DISPENSING_RATE );
       model.dropper = new Dropper( new Vector2( 375, 210 ), new Rectangle( 230, 205, 400, 30 ), model.solute, DROPPER_FLOW_RATE );
+      model.evaporator = new Evaporator( MAX_EVAPORATION_RATE, model.solution );
       model.solventFaucet = new Faucet( new Vector2( 150, 220 ), 40, 100, MAX_INPUT_FLOW_RATE );
       model.drainFaucet = new Faucet( new Vector2( 790, 607 ), 40, 5, MAX_OUTPUT_FLOW_RATE );
 
-      //TODO add model elements: precipitate, shakerParticles, concentrationMeter, evaporator
+      //TODO add model elements: precipitate, shakerParticles, concentrationMeter
 
       // model properties
       model.soluteForm = new Property( Solute.SoluteForm.SOLID );
@@ -98,7 +100,7 @@ define(
       model.soluteForm.reset();
       model.shaker.reset();
       model.dropper.reset();
-//TODO      model.evaporator.reset();
+      model.evaporator.reset();
       model.solventFaucet.reset();
       model.drainFaucet.reset();
 //TODO      model.concentrationMeter.reset();
@@ -143,7 +145,7 @@ define(
 
     // Evaporate solvent
     ConcentrationModel.prototype.evaporateSolvent = function ( deltaSeconds ) {
-//TODO      this.removeSolvent( this.evaporator.evaporationRate.get() * deltaSeconds );
+      this.removeSolvent( this.evaporator.evaporationRate.get() * deltaSeconds );
     };
 
     // Propagate solid solute that came out of the shaker
