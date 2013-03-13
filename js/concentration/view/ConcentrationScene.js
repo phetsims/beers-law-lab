@@ -15,9 +15,10 @@ define(
     "concentration/view/FaucetNode",
     "concentration/view/FaucetFluidNode",
     "concentration/view/ShakerNode",
-    "concentration/view/SolutionNode"
+    "concentration/view/SolutionNode",
+    "concentration/view/ShakerParticlesNode"
   ],
-  function ( Dimension2, Scene, Node, Text, BeakerNode, FaucetNode, FaucetFluidNode, ShakerNode, SolutionNode ) {
+  function ( Dimension2, Scene, Node, Text, BeakerNode, FaucetNode, FaucetFluidNode, ShakerNode, SolutionNode, ShakerParticlesNode ) {
     "use strict";
 
     function ConcentrationScene( model, mvt, strings ) {
@@ -32,6 +33,7 @@ define(
       var beakerNode = new BeakerNode( model.beaker, mvt, strings );
       var solutionNode = new SolutionNode( model.solution, model.beaker, mvt );
       var shakerNode = new ShakerNode( model.shaker, mvt );
+      var shakerParticlesNode = new ShakerParticlesNode( model.shakerParticles );
 
       // faucets
       var solventFaucetNode = new FaucetNode( model.solventFaucet, mvt );
@@ -50,6 +52,7 @@ define(
       rootNode.addChild( drainFaucetNode );
       rootNode.addChild( solutionNode );
       rootNode.addChild( beakerNode );
+      rootNode.addChild( shakerParticlesNode );
       rootNode.addChild( shakerNode );
 
       this.step = function ( deltaSeconds ) {
