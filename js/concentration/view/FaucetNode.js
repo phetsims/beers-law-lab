@@ -28,17 +28,15 @@ define(
   function ( Node, Image, SimpleDragHandler, Matrix3, Transform3, Vector2, MathUtil, Range, Inheritance, DebugOriginNode, LinearFunction, handleImage, pipeImage, pivotImage, spoutImage ) {
     "use strict";
 
-    var DEBUG_ORIGIN = true;
-
-    // where the fluid should come out of the unscaled spout image.
-    var SPOUT_OUTPUT_CENTER_X = 83;
-    var SPOUT_OUTPUT_WIDTH = 42;
-
-    var HANDLE_ORIENTATION_RANGE = new Range( -Math.PI / 4, 0 ); // full off -> full on
-
     function FaucetNode( faucet, mvt ) {
 
       Node.call( this ); // constructor stealing
+
+      // constants
+      var DEBUG_ORIGIN = true;
+      var SPOUT_OUTPUT_CENTER_X = 83; // center of spoint, determined by inspecting image file
+      var SPOUT_OUTPUT_WIDTH = 42; // width of spout, determined by inspecting image file
+      var HANDLE_ORIENTATION_RANGE = new Range( -Math.PI / 4, 0 ); // full off -> full on
 
       var orientationToFlowRate = new LinearFunction( HANDLE_ORIENTATION_RANGE, new Range( 0, faucet.maxFlowRate ) );
 
