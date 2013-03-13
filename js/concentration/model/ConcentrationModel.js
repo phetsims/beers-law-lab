@@ -16,9 +16,9 @@ define(
     "concentration/model/ConcentrationSolution",
     "concentration/model/Shaker",
     "concentration/model/Faucet",
-    "concentration/model/DrinkMix"
+    "concentration/model/Solute"
   ],
-  function ( Dimension2, Vector2, Range, Property, Rectangle, Beaker, ConcentrationSolution, Shaker, Faucet, DrinkMix ) {
+  function ( Dimension2, Vector2, Range, Property, Rectangle, Beaker, ConcentrationSolution, Shaker, Faucet, Solute ) {
     "use strict";
 
     function ConcentrationModel() {
@@ -37,7 +37,7 @@ define(
       var SHAKER_MAX_DISPENSING_RATE = 0.2; // mol/sec
 
       // model elements
-      model.soluteProperty = new Property( new DrinkMix() );
+      model.soluteProperty = new Property( Solute.DRINK_MIX );
       model.solution = new ConcentrationSolution( model.soluteProperty, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue );
       model.beaker = new Beaker( new Vector2( 400, 550 ), new Dimension2( 600, 300 ), 1 );
       model.shaker = new Shaker( new Vector2( 340, 170 ), new Rectangle( 225, 50, 400, 160 ), 0.75 * Math.PI, model.soluteProperty, SHAKER_MAX_DISPENSING_RATE );

@@ -32,7 +32,9 @@ define(
 
     Inheritance.inheritPrototype( Solvent, Fluid ); // prototype chaining
 
-    Solvent.WATER = new Solvent( Strings.water, BLLSymbols.WATER, new Color( 224, 255, 255 ) );
+    Solvent.WATER_COLOR = new Color( 224, 255, 255 );
+
+    Solvent.WATER = new Solvent( Strings.water, BLLSymbols.WATER, Solvent.WATER_COLOR );
 
     return Solvent;
   } );
