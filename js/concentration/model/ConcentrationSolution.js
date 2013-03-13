@@ -95,18 +95,16 @@ define(
     };
 
     ConcentrationSolution.prototype.isSaturated = function() {
-      var solution = this;
       var saturated = false;
-      if ( solution.volume.get() > 0 ) {
-        saturated = ( solution.soluteAmount.get() / solution.volume.get() ) > solution.getSaturatedConcentration();
+      if ( this.volume.get() > 0 ) {
+        saturated = ( this.soluteAmount.get() / this.volume.get() ) > this.getSaturatedConcentration();
       }
       return saturated;
     };
 
     ConcentrationSolution.prototype.getNumberOfPrecipitateParticles = function () {
-      var solution = this;
-      var numberOfParticles = (int)( solution.solute.get().particlesPerMole * precipitateAmount.get() );
-      if ( numberOfParticles == 0 && solution.precipitateAmount.get() > 0 ) {
+      var numberOfParticles = Math.round( this.solute.get().particlesPerMole * this.precipitateAmount.get() );
+      if ( numberOfParticles == 0 && this.precipitateAmount.get() > 0 ) {
         numberOfParticles = 1;
       }
       return numberOfParticles;

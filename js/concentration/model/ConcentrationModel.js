@@ -19,9 +19,10 @@ define(
     "concentration/model/Faucet",
     "concentration/model/Solute",
     "concentration/model/Evaporator",
-    "concentration/model/ConcentrationMeter"
+    "concentration/model/ConcentrationMeter",
+    "concentration/model/Precipitate"
   ],
-  function ( Dimension2, Vector2, Range, Property, Rectangle, Beaker, ConcentrationSolution, Shaker, Dropper, Faucet, Solute, Evaporator, ConcentrationMeter ) {
+  function ( Dimension2, Vector2, Range, Property, Rectangle, Beaker, ConcentrationSolution, Shaker, Dropper, Faucet, Solute, Evaporator, ConcentrationMeter, Precipitate ) {
     "use strict";
 
     // constants
@@ -55,6 +56,7 @@ define(
       model.solute = new Property( model.solutes[0] );
       model.solution = new ConcentrationSolution( model.solute, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue );
       model.beaker = new Beaker( new Vector2( 400, 550 ), new Dimension2( 600, 300 ), 1 );
+      model.precipitate = new Precipitate( model.solution, model.beaker );
       model.shaker = new Shaker( new Vector2( 340, 170 ), new Rectangle( 225, 50, 400, 160 ), 0.75 * Math.PI, model.solute, SHAKER_MAX_DISPENSING_RATE );
       model.dropper = new Dropper( new Vector2( 375, 210 ), new Rectangle( 230, 205, 400, 30 ), model.solute, DROPPER_FLOW_RATE );
       model.evaporator = new Evaporator( MAX_EVAPORATION_RATE, model.solution );
@@ -63,7 +65,7 @@ define(
       model.concentrationMeter = new ConcentrationMeter( new Vector2( 785, 210 ), new Rectangle( 10, 150, 825, 530 ),
                                                          new Vector2( 775, 390 ), new Rectangle( 30, 150, 935, 530 ) );
 
-      //TODO add model elements: precipitate, shakerParticles
+      //TODO add shakerParticles
 
       // model properties
       model.soluteForm = new Property( Solute.SoluteForm.SOLID );
