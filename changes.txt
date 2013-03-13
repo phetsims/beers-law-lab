@@ -1,4 +1,6 @@
+3/12/13 add '_' prefix to private methods in concentration model
 3/12/13 port Concentration Meter model
+3/12/13 port Evaporator model
 3/12/13 port Evaporator model
 3/12/13 port time-based portion of concentration model (untested)
 3/12/13 port property listeners that are internal to concentration model
