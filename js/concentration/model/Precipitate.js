@@ -80,7 +80,7 @@ define(
     };
 
     Precipitate.prototype._removeAllParticles = function () {
-      var particles = this.particles.slice( 0 );
+      var particles = this.particles.slice( 0 ); // copy to prevent concurrent modification
       for ( var i = 0; i < particles.length; i++ ) {
         this._removeParticle( particles[i] );
       }
@@ -88,7 +88,7 @@ define(
 
     // Notify that a {PrecipitateParticle} particle was added.
     Precipitate.prototype._fireParticleAdded = function ( particle ) {
-      var addedCallbacks = this.addedCallbacks.slice( 0 );
+      var addedCallbacks = this.addedCallbacks.slice( 0 ); // copy to prevent concurrent modification
       for ( var i = 0; i < addedCallbacks.length; i++ ) {
         addedCallbacks[i]( particle );
       }
@@ -96,7 +96,7 @@ define(
 
     // Notify that a {PrecipitateParticle} particle was removed.
     Precipitate.prototype._fireParticleRemoved = function ( particle ) {
-      var removedCallbacks = this.removedCallbacks.slice( 0 );
+      var removedCallbacks = this.removedCallbacks.slice( 0 ); // copy to prevent concurrent modification
       for ( var i = 0; i < removedCallbacks.length; i++ ) {
         removedCallbacks[i]( particle );
       }
