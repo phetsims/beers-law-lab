@@ -42,6 +42,7 @@ define( function( require ) {
         thisNode.shape = new Shape();
       }
       // move this node to the dropper's location
+      console.log( "StockSolutionNode translation=" + dropper.location.get() );//XXX
       thisNode.translation = dropper.location.get();
     };
     dropper.location.addObserver( updateShapeAndLocation );
