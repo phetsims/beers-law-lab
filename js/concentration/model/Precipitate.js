@@ -26,8 +26,8 @@ define(
       precipitate.solution = solution;
       precipitate.beaker = beaker;
       precipitate.particles = new Array(); // PrecipitateParticle
-      precipitate.addedCallbacks = new Array();
-      precipitate.removedCallbacks = new Array();
+      precipitate.addedCallbacks = new Array(); // function(PrecipitateParticle)
+      precipitate.removedCallbacks = new Array(); // function(PrecipitateParticle)
 
       // when the saturation changes, update the number of precipitate particles
       precipitate.solution.precipitateAmount.addObserver( function () {
@@ -41,12 +41,12 @@ define(
       } );
     }
 
-    Precipitate.prototype.registerParticleAddedCallback = function ( addedCallback ) {
-      this.addedCallbacks.push( addedCallback );
+    Precipitate.prototype.registerParticleAddedCallback = function ( callback ) {
+      this.addedCallbacks.push( callback );
     };
 
-    Precipitate.prototype.registerParticleRemovedCallback = function ( removedCallback ) {
-      this.removedCallbacks.push( removedCallback );
+    Precipitate.prototype.registerParticleRemovedCallback = function ( callback ) {
+      this.removedCallbacks.push( callback );
     };
 
     // Adds/removes particles to match the model
@@ -116,6 +116,7 @@ define(
       return new Vector2( x, y );
     };
 
+    //TODO common code, duplicate of ShakerParticles.getRandomOrientation
     // Gets a random orientation, in radians.
     Precipitate.getRandomOrientation = function () {
       return Math.random() * 2 * Math.PI;

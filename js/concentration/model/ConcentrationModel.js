@@ -20,9 +20,10 @@ define(
     "concentration/model/Solute",
     "concentration/model/Evaporator",
     "concentration/model/ConcentrationMeter",
-    "concentration/model/Precipitate"
+    "concentration/model/Precipitate",
+    "concentration/model/ShakerParticles"
   ],
-  function ( Dimension2, Vector2, Range, Property, Rectangle, Beaker, ConcentrationSolution, Shaker, Dropper, Faucet, Solute, Evaporator, ConcentrationMeter, Precipitate ) {
+  function ( Dimension2, Vector2, Range, Property, Rectangle, Beaker, ConcentrationSolution, Shaker, Dropper, Faucet, Solute, Evaporator, ConcentrationMeter, Precipitate, ShakerParticles ) {
     "use strict";
 
     // constants
@@ -58,6 +59,7 @@ define(
       model.beaker = new Beaker( new Vector2( 400, 550 ), new Dimension2( 600, 300 ), 1 );
       model.precipitate = new Precipitate( model.solution, model.beaker );
       model.shaker = new Shaker( new Vector2( 340, 170 ), new Rectangle( 225, 50, 400, 160 ), 0.75 * Math.PI, model.solute, SHAKER_MAX_DISPENSING_RATE );
+      model.shakerParticles = new ShakerParticles( model.shaker, model.solution, model.beaker );
       model.dropper = new Dropper( new Vector2( 375, 210 ), new Rectangle( 230, 205, 400, 30 ), model.solute, DROPPER_FLOW_RATE );
       model.evaporator = new Evaporator( MAX_EVAPORATION_RATE, model.solution );
       model.solventFaucet = new Faucet( new Vector2( 150, 220 ), 40, 100, MAX_INPUT_FLOW_RATE );

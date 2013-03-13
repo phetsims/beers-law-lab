@@ -42,7 +42,7 @@ define(
      *  @param {Number} deltaSeconds
      *  @param {Beaker} beaker
      */
-    ShakerParticle.prototype.tick = function ( deltaSeconds, beaker ) {
+    ShakerParticle.prototype.step = function ( deltaSeconds, beaker ) {
 
       this.velocity = this.velocity.plus( this.acceleration.times( deltaSeconds ) );
       var newLocation = this.location.get().plus( this.velocity.times( deltaSeconds ) );
