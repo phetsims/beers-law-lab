@@ -14,9 +14,10 @@ define(
     "concentration/view/BeakerNode",
     "concentration/view/FaucetNode",
     "concentration/view/FaucetFluidNode",
-    "concentration/view/ShakerNode"
+    "concentration/view/ShakerNode",
+    "concentration/view/SolutionNode"
   ],
-  function ( Dimension2, Scene, Node, Text, BeakerNode, FaucetNode, FaucetFluidNode, ShakerNode ) {
+  function ( Dimension2, Scene, Node, Text, BeakerNode, FaucetNode, FaucetFluidNode, ShakerNode, SolutionNode ) {
     "use strict";
 
     function ConcentrationScene( model, mvt, strings ) {
@@ -29,6 +30,7 @@ define(
       scene.resizeOnWindowResize(); // the scene gets resized to the full screen size
 
       var beakerNode = new BeakerNode( model.beaker, mvt, strings );
+      var solutionNode = new SolutionNode( model.solution, model.beaker, mvt );
       var shakerNode = new ShakerNode( model.shaker, mvt );
 
       // faucets
@@ -43,9 +45,10 @@ define(
       var rootNode = new Node();
       scene.addChild( rootNode );
       rootNode.addChild( solventFluidNode );
-      rootNode.addChild( solventFaucetNode );
+      rootNode.addChild( solventFaucetNode )
       rootNode.addChild( drainFluidNode );
       rootNode.addChild( drainFaucetNode );
+      rootNode.addChild( solutionNode );
       rootNode.addChild( beakerNode );
       rootNode.addChild( shakerNode );
 

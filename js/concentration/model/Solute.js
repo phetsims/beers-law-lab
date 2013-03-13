@@ -16,19 +16,19 @@ define(
      * @param {String} formula
      * @param {SoluteColorScheme} colorScheme
      * @param {Number} stockSolutionConcentration
-     * @param {Color} particleColor
      * @param {Number} particleSize
      * @param {Number} particlesPerMole
+     * @param {Color} particleColor (optional)
      * @constructor
      */
-    function Solute( name, formula, colorScheme, stockSolutionConcentration, particleColor, particleSize, particlesPerMole ) {
+    function Solute( name, formula, colorScheme, stockSolutionConcentration, particleSize, particlesPerMole, particleColor ) {
       this.name = name;
       this.formula = formula;
       this.colorScheme = colorScheme;
       this.stockSolutionConcentration = stockSolutionConcentration;
-      this.particleColor = particleColor;
       this.particleSize = particleSize;
       this.particlesPerMole = particlesPerMole;
+      this.particleColor = particleColor || colorScheme.maxColor;
     }
 
     // convenience method

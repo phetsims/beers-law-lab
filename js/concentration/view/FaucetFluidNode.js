@@ -24,7 +24,9 @@ define(
      */
     function FaucetFluidNode( faucet, fluid, height, mvt) {
 
-      Path.call( this ); // constructor stealing
+      Path.call( this, {
+        lineWidth: 1  //TODO is this correct?
+      } );
 
       var faucetFluidNode = this;
 
@@ -36,8 +38,8 @@ define(
        * @param {Color} color
        */
       fluid.colorProperty.addObserver( function ( color ) {
-        console.log( color );//XXX
-        faucetFluidNode.fill = "red";//color.toCSS(); //TODO
+        faucetFluidNode.fill = color.toCSS();
+        faucetFluidNode.stroke = color.darker(); //TODO too dark!
       } );
 
       /*

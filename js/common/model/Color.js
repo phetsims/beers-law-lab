@@ -63,6 +63,22 @@ define(
       return number1 + ( distance * ( number2 - number1 ) );
     };
 
+    Color.prototype.darker = function ( color ) {
+      var FACTOR = 0.7;
+      return new Color( Math.max( Math.round(this.r * FACTOR), 0 ),
+                        Math.max( Math.round(this.g * FACTOR), 0 ),
+                        Math.max( Math.round(this.b * FACTOR), 0 ),
+                        this.a );
+    };
+
+    Color.prototype.brighter = function ( color ) {
+      var FACTOR = 0.7;
+      return new Color( Math.min( Math.round(this.r / FACTOR), 255 ),
+                        Math.min( Math.round(this.g / FACTOR), 255 ),
+                        Math.min( Math.round(this.b / FACTOR), 255 ),
+                        this.a );
+    };
+
     // Common opaque colors
     Color.BLACK = new Color( 0, 0, 0 );
     Color.BLUE = new Color( 0, 0, 255 );

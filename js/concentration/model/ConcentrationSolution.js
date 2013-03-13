@@ -119,9 +119,9 @@ define(
      * @param {Number} concentration
      */
     ConcentrationSolution.createColor = function ( solvent, solute, concentration ) {
-      var color = solvent.color;
+      var color = solvent.colorProperty.get();
       if ( concentration > 0 ) {
-        color = solute.colorScheme.get().concentrationToColor( concentration );
+        color = solute.colorScheme.concentrationToColor( concentration );
       }
       return color;
     };

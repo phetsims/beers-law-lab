@@ -19,7 +19,7 @@ define(
                    new SoluteColorScheme( 0, new Color( 224, 255, 255 ),
                                           0.05, new Color( 255, 225, 225 ),
                                           5.96, new Color( 255, 0, 0 ) ),
-                   5, 200 );
+                   5.50, 5, 200 );
     }
 
     Inheritance.inheritPrototype( DrinkMix, Solute );
