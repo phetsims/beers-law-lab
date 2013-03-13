@@ -67,8 +67,6 @@ define(
       model.concentrationMeter = new ConcentrationMeter( new Vector2( 785, 210 ), new Rectangle( 10, 150, 825, 530 ),
                                                          new Vector2( 775, 390 ), new Rectangle( 30, 150, 935, 530 ) );
 
-      //TODO add shakerParticles
-
       // model properties
       model.soluteForm = new Property( Solute.SoluteForm.SOLID );
 
@@ -157,7 +155,7 @@ define(
 
     // Propagate solid solute that came out of the shaker
     ConcentrationModel.prototype._propagateShakerParticles = function ( deltaSeconds ) {
-//TODO      this.shakerParticles.step( deltaSeconds );
+      this.shakerParticles.step( deltaSeconds );
     };
 
     // Create new solute particles when the shaker is shaken.

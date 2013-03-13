@@ -70,12 +70,12 @@ define(
     };
 
     Precipitate.prototype._addParticle = function ( particle ) {
-      this.particles.add( particle );
+      this.particles.push( particle );
       this._fireParticleAdded( particle );
     };
 
     Precipitate.prototype._removeParticle = function ( particle ) {
-      this.particles.remove( particle );
+      this.particles.splice( this.particles.indexOf( particle ), 1 );
       this._fireParticleRemoved( particle );
     };
 

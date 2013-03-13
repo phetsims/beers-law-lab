@@ -8,9 +8,10 @@
 */
 define(
   [
-    "DOT/Vector2"
+    "DOT/Vector2",
+    "concentration/model/ShakerParticle"
   ],
-  function( Vector2 ) {
+  function( Vector2, ShakerParticle ) {
 
     // Units for speed and acceleration are not meaningful here, adjust these so that it looks good.
     var INITIAL_SPEED = 100;
@@ -66,8 +67,8 @@ define(
 
         // If the particle hits the solution surface or bottom of the beaker, delete it, and add a corresponding amount of solute to the solution.
         var percentFull = solution.volume.get() / beaker.volume;
-        var solutionSurfaceY = beaker.location.getY() - ( percentFull * beaker.size.getHeight() ) - solution.solute.get().particleSize;
-        if ( particle.location.get().getY() > solutionSurfaceY ) {
+        var solutionSurfaceY = beaker.location.y - ( percentFull * beaker.size.height ) - solution.solute.get().particleSize;
+        if ( particle.location.get().y > solutionSurfaceY ) {
           this.removeParticle( particle );
           solution.soluteAmount.set( solution.soluteAmount.get() + ( 1 / solution.solute.get().particlesPerMole ) );
         }
@@ -94,12 +95,12 @@ define(
     };
 
     ShakerParticles.prototype.addParticle = function ( particle ) {
-      this.particles.add( particle );
+      this.particles.push( particle );
       this.fireParticleAdded( particle );
     };
 
     ShakerParticles.prototype.removeParticle = function ( particle ) {
-      this.particles.remove( particle );
+      this.particles.splice( this.particles.indexOf( particle ), 1 );
       this.fireParticleRemoved( particle );
     };
 
@@ -130,7 +131,7 @@ define(
       // (Math.floor(Math.random() * (randNumMax - randNumMin + 1)) + randNumMin);
       var xOffset = ShakerParticles.getRandomInt( -MAX_X_OFFSET, MAX_X_OFFSET ); // positive or negative
       var yOffset = ShakerParticles.getRandomInt( 0, MAX_Y_OFFSET ); // positive only
-      return new Vector2( this.shaker.getX() + xOffset, this.shaker.getY() + yOffset );
+      return new Vector2( this.shaker.location.get().x + xOffset, this.shaker.location.get().y + yOffset );
     };
 
     //TODO common code
