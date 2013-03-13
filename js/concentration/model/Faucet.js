@@ -20,17 +20,20 @@ define(
      * @constructor
      */
     function Faucet( location, spoutWidth, pipeLength, maxFlowRate ) {
-      this.location = location;
-      this.spoutWidth = spoutWidth;
-      this.pipeLength = pipeLength;
-      this.maxFlowRate = maxFlowRate;
-      this.flowRate = new Property( 0 );
-      this.enabled = new Property( true );
+
+      var faucet = this;
+
+      faucet.location = location;
+      faucet.spoutWidth = spoutWidth;
+      faucet.pipeLength = pipeLength;
+      faucet.maxFlowRate = maxFlowRate;
+      faucet.flowRate = new Property( 0 );
+      faucet.enabled = new Property( true );
 
       // when disabled, turn off the faucet.
-      this.enabled.addObserver( function (enabled ) {
+      faucet.enabled.addObserver( function (enabled ) {
         if ( !enabled ) {
-          this.flowRate.set( 0 );
+          faucet.flowRate.set( 0 );
         }
       } );
     }
