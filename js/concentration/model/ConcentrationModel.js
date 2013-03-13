@@ -58,10 +58,10 @@ define(
       model.solventFaucet = new Faucet( new Vector2( 150, 220 ), 40, 100, MAX_INPUT_FLOW_RATE );
       model.drainFaucet = new Faucet( new Vector2( 790, 607 ), 40, 5, MAX_OUTPUT_FLOW_RATE );
 
-      //TODO add model elements: precipitate, shakerParticles, concentrationMeter
+      //TODO add model elements: precipitate, shakerParticles, concentrationMeter, evaporator
 
       // model properties
-      var soluteForm = new Property( Solute.SoluteForm.SOLID );
+      model.soluteForm = new Property( Solute.SoluteForm.SOLID );
 
       // Things to do when the solute is changed.
       model.solute.addObserver( function ( solute ) {
@@ -69,9 +69,24 @@ define(
       } );
 
       // Show the correct dispenser for the solute form
-      soluteForm.addObserver( function ( soluteForm ) {
+      model.soluteForm.addObserver( function ( soluteForm ) {
         model.shaker.visible.set( soluteForm == Solute.SoluteForm.SOLID );
         model.dropper.visible.set( soluteForm == Solute.SoluteForm.STOCK_SOLUTION );
+      } );
+
+      // Enable faucets and dropper based on amount of solution in the beaker.
+      model.solution.volume.addObserver( function ( volume ) {
+        model.solventFaucet.enabled.set( volume < SOLUTION_VOLUME_RANGE.max );
+        model.drainFaucet.enabled.set( volume > SOLUTION_VOLUME_RANGE.min );
+        model.dropper.enabled.set( !model.dropper.empty.get() && ( volume < SOLUTION_VOLUME_RANGE.max ) );
+      } );
+
+      // Empty shaker and dropper when max solute is reached.
+      model.solution.soluteAmount.addObserver( function ( soluteAmount ) {
+        var containsMaxSolute = ( soluteAmount >= SOLUTE_AMOUNT.max );
+        model.shaker.empty.set( containsMaxSolute );
+        model.dropper.empty.set( containsMaxSolute );
+        model.dropper.enabled.set( !model.dropper.empty.get() && !containsMaxSolute && model.solution.volume.get() < SOLUTION_VOLUME_RANGE.max );
       } );
     }
 
@@ -79,11 +94,14 @@ define(
     ConcentrationModel.prototype.reset = function () {
       var model = this;
       model.solute.reset();
-      model.beaker.reset();
+      model.solution.reset();
+      model.soluteForm.reset();
       model.shaker.reset();
       model.dropper.reset();
+//TODO      model.evaporator.reset();
       model.solventFaucet.reset();
       model.drainFaucet.reset();
+//TODO      model.concentrationMeter.reset();
     };
 
     // Animates the model
