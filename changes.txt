@@ -1,3 +1,4 @@
+3/14/13 reorganize observer function in ConcentrationSolution
 3/14/13 add Color.toString
 3/14/13 add bootstrap dependency
 3/14/13 switch to lodash

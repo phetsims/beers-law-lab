@@ -33,21 +33,12 @@ define( function ( require ) {
     solution.soluteAmount = new Property( soluteAmount );
     solution.volume = new Property( volume );
 
-    // derive concentration (M)
-    solution.concentration = new Property( 0 );
-    var updateConcentration = function () {
-      var volume = solution.volume.get();
-      var soluteAmount = solution.soluteAmount.get();
-      var concentration = ( volume > 0 ) ? Math.min( solution.getSaturatedConcentration(), soluteAmount / volume ) : 0; // M = mol/L
-      solution.concentration.set( concentration );
-    };
-    solution.solute.addObserver( updateConcentration );
-    solution.soluteAmount.addObserver( updateConcentration );
-    solution.volume.addObserver( updateConcentration );
-
     // derive amount of precipitate (moles)
     solution.precipitateAmount = new Property( 0 );
+    solution.concentration = new Property( 0 );
     var updatePrecipitateAmount = function () {
+
+      // derive amount of precipitate (moles)
       var volume = solution.volume.get();
       if ( volume > 0 ) {
         solution.precipitateAmount.set( Math.max( 0, volume * ( ( solution.soluteAmount.get() / volume ) - solution.getSaturatedConcentration() ) ) );
@@ -55,6 +46,12 @@ define( function ( require ) {
       else {
         solution.precipitateAmount.set( solution.soluteAmount.get() );
       }
+
+      // derive concentration (M)
+      var volume = solution.volume.get();
+      var soluteAmount = solution.soluteAmount.get();
+      var concentration = ( volume > 0 ) ? Math.min( solution.getSaturatedConcentration(), soluteAmount / volume ) : 0; // M = mol/L
+      solution.concentration.set( concentration );
     };
     solution.solute.addObserver( updatePrecipitateAmount );
     solution.soluteAmount.addObserver( updatePrecipitateAmount );
@@ -109,6 +106,7 @@ define( function ( require ) {
     if ( concentration > 0 ) {
       color = solute.colorScheme.concentrationToColor( concentration );
     }
+    console.log( "ConcentrationSolution.createColor solvent.color=" + solvent.color.get() + " concentration=" + concentration + " color=" + color.toCSS() );//XXX
     return color;
   };
 
