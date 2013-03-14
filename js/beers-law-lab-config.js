@@ -22,6 +22,7 @@ requirejs.config(
       i18n: "../contrib/i18n-2.0.2",
       image: "../contrib/image-0.2.1", //TODO replace with ImagesLoaded
       tpl: "../contrib/tpl-0.2",
+      bootstrap: "../contrib/bootstrap-2.3.0/js/bootstrap",
 
       // Dependencies required by common repos
       stats: "../contrib/stats-r11",
