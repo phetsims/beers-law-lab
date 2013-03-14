@@ -22,6 +22,7 @@ define( function ( require ) {
   var PrecipitateNode = require( "concentration/view/PrecipitateNode" );
   var DropperNode = require( "concentration/view/DropperNode" );
   var StockSolutionNode = require( "concentration/view/StockSolutionNode" );
+  var ConcentrationMeterNode = require( "concentration/view/ConcentrationMeterNode" );
 
   /**
    * @param {ConcentrationModel} model
@@ -54,6 +55,10 @@ define( function ( require ) {
     var solventFluidNode = new FaucetFluidNode( model.solventFaucet, model.solution.solvent, SOLVENT_FLUID_HEIGHT, mvt );
     var drainFluidNode = new FaucetFluidNode( model.drainFaucet, model.solution, DRAIN_FLUID_HEIGHT, mvt );
 
+    var concentrationMeterNode = new ConcentrationMeterNode( model.concentrationMeter, model.solution, model.dropper,
+                                                             solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode,
+                                                             strings );
+
     // Rendering order
     var rootNode = new Node();
     scene.addChild( rootNode );
@@ -68,6 +73,7 @@ define( function ( require ) {
     rootNode.addChild( shakerParticlesNode );
     rootNode.addChild( shakerNode );
     rootNode.addChild( dropperNode );
+    rootNode.addChild( concentrationMeterNode );
 
     this.step = function ( deltaSeconds ) {
       scene.updateScene();
