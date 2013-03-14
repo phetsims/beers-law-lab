@@ -16,9 +16,10 @@ SCENERY FEATURES/BUGS
 - relativePressPoint for SimpleDragHandler? mouse gets away from shaker while dragging (scenery#3)
 - add support for texture mapping
 
-BUGS
+FIX
 - does Node.setVisible have problems?
-- keep shaking solute until the display flips out
+- keep shaking the shaker until the display flips out
+- performance of shaker stinks
 
 HIGH
 - Concentration meter
