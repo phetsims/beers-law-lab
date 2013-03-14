@@ -17,10 +17,10 @@ SCENERY FEATURES/BUGS
 - add support for texture mapping
 
 FIX
-- Reset All bugs
+- Reset All in initial state sets solution color to white
 - does Node.setVisible have problems?
 - keep shaking the shaker until the display flips out
-- performance of shaker stinks
+- performance of particles stinks
 
 HIGH
 - create "Reset All" button dynamically using template?
