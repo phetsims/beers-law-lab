@@ -51,7 +51,7 @@ define( function( require ) {
     solute.addObserver( function ( solute ) {
       var color = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
       thisNode.fill = color.toCSS();
-      thisNode.stroke = color.darker().toCSS();
+      thisNode.stroke = color.darker().toCSS(); //TODO too dark?
     } );
 
     // hide this node when the dropper is invisible

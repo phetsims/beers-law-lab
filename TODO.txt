@@ -18,7 +18,6 @@ SCENERY FEATURES/BUGS
 
 FIX
 - Reset All bugs
-- stroke color of solution in beaker is wrong
 - does Node.setVisible have problems?
 - keep shaking the shaker until the display flips out
 - performance of shaker stinks

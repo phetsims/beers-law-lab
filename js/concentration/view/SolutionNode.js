@@ -45,9 +45,9 @@ define( function ( require ) {
      * @param {Color} color
      */
     solution.color.addObserver( function ( color ) {
-      console.log( "SolutionNode color=" + color.toCSS() );//XXX
       solutionNode.fill = color.toCSS();
-      solutionNode.stroke = color.darker(); //TODO too dark
+      solutionNode.stroke = color.darker().toCSS(); //TODO too dark?
+      console.log( "SolutionNode fill=" + solutionNode.fill + " stroke=" + solutionNode.stroke + " concentration=" + solution.concentration.get() );//XXX
     } );
 
     /*
