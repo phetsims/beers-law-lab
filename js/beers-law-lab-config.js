@@ -20,7 +20,7 @@ requirejs.config(
 
       // contrib
       i18n: "../contrib/i18n-2.0.2",
-      image: "../contrib/image-0.2.1",
+      image: "../contrib/image-0.2.1", //TODO replace with ImagesLoaded
       tpl: "../contrib/tpl-0.2",
 
       // Dependencies required by common repos

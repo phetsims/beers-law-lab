@@ -15,6 +15,8 @@ define( function ( require ) {
 
   function ConcentrationView( model, strings ) {
 
+    var view = this;
+
     // browser window title
     $( 'title' ).html( strings.concentration );
 
@@ -27,13 +29,23 @@ define( function ( require ) {
     // scene graph
     var scene = new ConcentrationScene( model, mvt, strings );
 
-    this.step = function ( deltaSeconds ) {
+    view.step = function ( deltaSeconds ) {
       scene.step( deltaSeconds );
     };
 
-    this.reset = function () {
+    view.reset = function () {
       scene.reset();
     };
+
+    var resetAll = function() {
+      model.reset();
+      view.reset();
+    };
+
+    // Reset All button
+    var $resetAllButton = $( '.reset-all-button' );
+    $resetAllButton.bind( 'touchstart', resetAll );
+    $resetAllButton.bind( 'click', resetAll );
 
     // handle resizing of the browser window
     var handleResize = function () {

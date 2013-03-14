@@ -1,3 +1,5 @@
+3/14/13 switch to lodash
+3/14/13 add <div> for Reset All button
 3/13/13 fix label on dropper
 3/13/13 first pass at StockSolutionNode, not rendering
 3/13/13 bug fix in Color.interpolateRBGA

@@ -20,7 +20,7 @@
 
     <!-- Contrib libs -->
     <script src="contrib/jquery-1.9.1.js"></script>
-    <script type="text/javascript" src="contrib/underscore-1.4.2.js"></script>
+    <script type="text/javascript" src="contrib/lodash-1.0.0-rc.3.js"></script>
 
     <!-- Application JavaScript -->
     <script data-main='js/beers-law-lab-config.js' src='contrib/require-2.1.4.js'></script>
@@ -29,6 +29,11 @@
 <div>
     <!-- Scene graph -->
     <div id="concentration-scene" style="width: 1000px; height: 650px;"></div>
+
+    <!-- Controls -->
+    <div id="controls">
+        <button class="btn btn-warning reset-all-button" style="position: absolute; top: 400px; left: 10px"><i class="icon-refresh icon-2x"></i></button>
+    </div>
 </div>
 </body>
 </html>
