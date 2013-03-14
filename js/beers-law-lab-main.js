@@ -21,7 +21,7 @@ require(
 
     //TODO Beer's Law tab
 
-    var performanceMonitor = new PerformanceMonitor();
+    var performanceMonitor = new PerformanceMonitor( 500, 10 );
 
     // polyfill for requestAnimationFrame
     window.animate = (function () {

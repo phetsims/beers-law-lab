@@ -1,3 +1,4 @@
+3/14/13 change location of performance monitor
 3/14/13 first pass at concentration meter, only the body is rendered
 3/14/13 port of HorizontalTiledNode from piccolo-phet, for use in concentration meter
 3/14/13 fix stroke color of solution in beaker
