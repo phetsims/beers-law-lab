@@ -22,6 +22,8 @@ define( function ( require ) {
   var Inheritance = require( "PHETCOMMON/util/Inheritance" );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
   var LinearFunction = require( "common/util/LinearFunction" );
+
+  // images
   var handleImage = require( "image!images/faucet_handle.png" );
   var pipeImage = require( "image!images/faucet_pipe.png" );
   var pivotImage = require( "image!images/faucet_pivot.png" );
