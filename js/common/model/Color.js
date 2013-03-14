@@ -27,6 +27,10 @@ define( function ( require ) {
     this.a = a || 1;
   }
 
+  Color.prototype.toString = function() {
+    return "Color[r:" + this.r + " g:" + this.g + " b:" + this.b + " a:" + this.a + ")";
+  };
+
   // Gets a CSS-compatible color string.
   Color.prototype.toCSS = function () {
     return "rgba(" + this.r + "," + this.g + "," + this.b + "," + this.a + ")";

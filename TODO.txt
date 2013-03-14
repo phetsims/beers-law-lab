@@ -17,13 +17,14 @@ SCENERY FEATURES/BUGS
 - add support for texture mapping
 
 FIX
+- Reset All bugs
 - does Node.setVisible have problems?
 - keep shaking the shaker until the display flips out
 - performance of shaker stinks
 
 HIGH
+- create "Reset All" button dynamically using template?
 - Concentration meter
-- "Reset All" button
 - "Remove Solute" button
 - Evaporation slider
 - Solid | Solution radio buttons
