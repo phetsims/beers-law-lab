@@ -16,22 +16,26 @@ SCENERY FEATURES/BUGS
 - relativePressPoint for SimpleDragHandler? mouse gets away from shaker while dragging (scenery#3)
 - add support for texture mapping
 
+BUGS
+- does Node.setVisible have problems?
+- keep shaking solute until the display flips out
+
 HIGH
-- port view nodes for Concentration tab
-- weird flicker/down-scaling issue on mobile Safari
-- use ImagesLoader to load images
+- Concentration meter
+- "Reset All" button
+- "Remove Solute" button
+- Evaporation slider
+- Solid | Solution radio buttons
+- Solute combo box
 
 MEDIUM
+- add missing mvts to Concentration nodes
+- weird flicker/down-scaling issue on mobile Safari
+- use ImagesLoader to load images
 - compute deltaSeconds in animation loop
-- solute combo box
-- evaporation control
-- solution/solid radio buttons
-- concentration meter
-- "Remove Solute" button
-- "Reset All" button
 
 LOW
-- add a unity mvt to Concentration module (no mvt in Java version)
+- Font abstraction
 - Beer's Law module
 
 LOWEST
