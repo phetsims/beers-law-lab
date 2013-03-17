@@ -37,10 +37,10 @@ define( function( require ) {
   // constants
   var VALUE_FORMAT = "0.000";
   var NO_VALUE = "-";
-  var TITLE_Y_OFFSET = 12; // specific to body image file
+  var TITLE_CENTER_Y = 26; // specific to body image file
   var TEXT_X_MARGIN = 25;  // specific to body image file
   var VALUE_X_MARGIN = 25; // specific to body image file
-  var VALUE_Y_OFFSET = 67; // specific to body image file
+  var VALUE_CENTER_Y = 80; // specific to body image file
 
   /**
    * @param {ConcentrationMeter} meter
@@ -53,16 +53,33 @@ define( function( require ) {
     Node.call( thisNode );
 
     // text nodes
-    var titleNode = new Text( strings.concentration, { fill: Color.WHITE.toCSS(), font: "bold 18px Arial" } );
-    var unitsNode = new Text( StringUtils.format( strings.pattern_parentheses_0text, [ strings.units_molesPerLiter ]), { fill: Color.WHITE.toCSS(), font: "bold 14px Arial" } );
-    var valueNode = new Text( VALUE_FORMAT, { fill: Color.WHITE.toCSS(), font: "24px Arial" } );
+    var textStyle = {
+      "textAlign": "center",
+      "textBaseline": "middle"
+    };
+    var titleNode = new Text( strings.concentration, _.extend( textStyle, { font: "bold 18px Arial", fill: Color.WHITE.toCSS() } ) );
+    var unitsNode = new Text( StringUtils.format( strings.pattern_parentheses_0text, [ strings.units_molesPerLiter ]), _.extend( textStyle, { font: "bold 14px Arial", fill: Color.WHITE.toCSS() } ) );
+    var valueNode = new Text( VALUE_FORMAT, _.extend( textStyle, { font: "24px Arial", fill: 'black' } ) );
 
     // create a background that fits the text
     var maxTextWidth = Math.max( titleNode.width, Math.max( unitsNode.width, valueNode.width ) );
     var bodyWidth = ( 2 * TEXT_X_MARGIN ) + maxTextWidth;
 
     var imageNode = new HorizontalTiledNode( bodyWidth, new Image( bodyLeftImage ), new Image( bodyCenterImage), new Image( bodyRightImage ) );
+
+    // rendering order
     this.addChild( imageNode );
+    this.addChild( titleNode );
+    this.addChild( unitsNode );
+    this.addChild( valueNode );
+
+    // layout
+    titleNode.centerX = imageNode.getCenterX();
+    titleNode.y = TITLE_CENTER_Y;
+    unitsNode.centerX = imageNode.getCenterX()
+    unitsNode.centerY = titleNode.getBottom() + ( unitsNode.height / 2 ) + 5;
+    valueNode.x = imageNode.width - ( valueNode.width / 2 ) - VALUE_X_MARGIN //NOTE: x offset will be adjusted when value is set, to maintain right justification
+    valueNode.centerY = VALUE_CENTER_Y;
 
     // body location
     meter.body.location.addObserver( function ( location ) {
