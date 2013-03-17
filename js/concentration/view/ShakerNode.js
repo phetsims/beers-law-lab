@@ -43,10 +43,10 @@ define( function ( require ) {
     // label
     var $labelElement = $( '<div>' );
     $labelElement.css(
-      { "font": "bold 22px Arial",
-        "fill": "black",
-        "textAlign": "center",
-        "textBaseline": "middle"
+      { font: "bold 22px Arial",
+        fill: "black",
+        textAlign: "center",
+        textBaseline: "middle"
       } );
     var labelNode = new DOM( $labelElement[0] );
 
