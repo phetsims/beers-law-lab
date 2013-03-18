@@ -15,6 +15,9 @@ require(
   function ( PerformanceMonitor, ConcentrationModel, ConcentrationView, Strings ) {
     "use strict";
 
+    console.log( "dev=" + window.phetcommon.dev );
+    console.log( "foo=" + window.phetcommon.getQueryParameter("foo") );
+
     // Concentration tab
     var model = new ConcentrationModel();
     var view = new ConcentrationView( model, Strings );
