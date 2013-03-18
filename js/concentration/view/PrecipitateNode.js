@@ -17,16 +17,17 @@ define( function ( require ) {
   /**
    * @param {Precipitate} precipitate
    * @param {Beaker} beaker
+   * @param {ModelViewTransform} mvt
    * @constructor
    */
-  function PrecipitateNode( precipitate, beaker ) {
+  function PrecipitateNode( precipitate, beaker, mvt ) {
     var thisNode = this;
     Node.call( thisNode );
 
     thisNode.translation = beaker.location;
 
     precipitate.registerParticleAddedCallback( function ( particle ) {
-      thisNode.addChild( new ParticleNode( particle ) );
+      thisNode.addChild( new ParticleNode( particle, mvt ) );
     } );
 
     precipitate.registerParticleRemovedCallback( function ( particle ) {

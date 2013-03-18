@@ -41,11 +41,11 @@ define( function ( require ) {
 
     var beakerNode = new BeakerNode( model.beaker, mvt, strings );
     var solutionNode = new SolutionNode( model.solution, model.beaker, mvt );
-    var precipitateNode = new PrecipitateNode( model.precipitate, model.beaker ); //TODO mvt?
+    var precipitateNode = new PrecipitateNode( model.precipitate, model.beaker, mvt );
     var shakerNode = new ShakerNode( model.shaker, mvt );
-    var shakerParticlesNode = new ShakerParticlesNode( model.shakerParticles ); //TODO mvt?
+    var shakerParticlesNode = new ShakerParticlesNode( model.shakerParticles, mvt );
     var dropperNode = new DropperNode( model.dropper, model.solution.solvent, model.solution.solute, mvt );
-    var stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.solute, model.dropper, model.beaker, DropperNode.TIP_WIDTH );//TODO mvt
+    var stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.solute, model.dropper, model.beaker, DropperNode.TIP_WIDTH, mvt );
 
     // faucets
     var solventFaucetNode = new FaucetNode( model.solventFaucet, mvt );

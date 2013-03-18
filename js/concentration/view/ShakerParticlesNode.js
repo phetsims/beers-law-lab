@@ -15,16 +15,17 @@ define( function ( require ) {
 
   /**
    * @param {ShakerParticles} shakerParticles
+   * @param {ModelViewTransform} mvt
    * @constructor
    */
-  function ShakerParticlesNode( shakerParticles ) {
+  function ShakerParticlesNode( shakerParticles, mvt ) {
 
     var thisNode = this;
 
     Node.call( thisNode );
 
     shakerParticles.registerParticleAddedCallback( function ( particle ) {
-      thisNode.addChild( new ParticleNode( particle ) );
+      thisNode.addChild( new ParticleNode( particle, mvt ) );
     } );
 
     shakerParticles.registerParticleRemovedCallback( function ( particle ) {

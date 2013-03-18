@@ -32,7 +32,6 @@ HIGH
 - Solute combo box
 
 MEDIUM
-- add missing mvts to Concentration nodes
 - weird flicker/down-scaling issue on mobile Safari
 - use ImagesLoader to load images
 - compute deltaSeconds in animation loop
