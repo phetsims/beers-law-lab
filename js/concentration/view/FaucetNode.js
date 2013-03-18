@@ -70,14 +70,14 @@ define( function ( require ) {
       spoutNode.x = -SPOUT_OUTPUT_CENTER_X;
       spoutNode.y = -spoutNode.height;
       // pipe connects to left edge of spout
-      pipeNode.x = spoutNode.getLeft() - pipeNode.width;
-      pipeNode.y = spoutNode.getTop();
+      pipeNode.x = spoutNode.left - pipeNode.width;
+      pipeNode.y = spoutNode.top;
       // pivot is on top of spout
-      pivotNode.x = spoutNode.getLeft() + ( 0.25 * spoutNode.width );
-      pivotNode.y = spoutNode.getTop() - pivotNode.height;
+      pivotNode.x = spoutNode.left + ( 0.25 * spoutNode.width );
+      pivotNode.y = spoutNode.top - pivotNode.height;
       // butt end of handle is centered in pivot
-      handleNode.x = pivotNode.getCenterX();
-      handleNode.y = pivotNode.getCenterY() - ( handleNode.height / 2 );
+      handleNode.x = pivotNode.centerX;
+      handleNode.y = pivotNode.centerY - ( handleNode.height / 2 );
     }
 
     // move to model location
@@ -86,11 +86,11 @@ define( function ( require ) {
     this.y = location.y;
 
     // determine on/off handle locations
-    handleNode.rotateAround( new Vector2( pivotNode.getCenterX(), pivotNode.getCenterY() ), HANDLE_ORIENTATION_RANGE.max );
-    var handleOnY = handleNode.getBounds().maxY;
+    handleNode.rotateAround( new Vector2( pivotNode.centerX, pivotNode.centerY ), HANDLE_ORIENTATION_RANGE.max );
+    var handleOnY = handleNode.bottom;
     handleNode.setRotation( 0 );
-    handleNode.rotateAround( new Vector2( pivotNode.getCenterX(), pivotNode.getCenterY() ), HANDLE_ORIENTATION_RANGE.min );
-    var handleOffY = handleNode.getBounds().minY;
+    handleNode.rotateAround( new Vector2( pivotNode.centerX, pivotNode.centerY ), HANDLE_ORIENTATION_RANGE.min );
+    var handleOffY = handleNode.top;
     // leave the handle in the off orientation
 
     // mapping from handle y-coordinate to orientation
@@ -124,11 +124,11 @@ define( function ( require ) {
       // reset the handle's transform
       handleNode.resetTransform();
       // butt end of handle is centered in pivot
-      handleNode.x = pivotNode.getCenterX();
-      handleNode.y = pivotNode.getCenterY() - ( handleNode.height / 2 );
+      handleNode.x = pivotNode.centerX;
+      handleNode.y = pivotNode.centerY - ( handleNode.height / 2 );
       // handle orientation matches flow rate
       var orientation = orientationToFlowRate.evaluateInverse( flowRate );
-      handleNode.rotateAround( new Vector2( pivotNode.getCenterX(), pivotNode.getCenterY() ), orientation );
+      handleNode.rotateAround( new Vector2( pivotNode.centerX, pivotNode.centerY ), orientation );
     } );
   }
 
