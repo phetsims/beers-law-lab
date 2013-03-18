@@ -42,6 +42,13 @@ define( function ( require ) {
     solution.solute.addObserver( function () {
       particles._removeAllParticles();
     } );
+
+    // remove all particles if the solute amount goes to zero.
+    solution.soluteAmount.addObserver( function( amount ) {
+      if ( amount === 0 ) {
+        particles._removeAllParticles();
+      }
+    });
   }
 
   ShakerParticles.prototype.registerParticleAddedCallback = function ( callback ) {

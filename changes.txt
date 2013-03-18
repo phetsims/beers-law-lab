@@ -1,3 +1,5 @@
+3/18/13 add some button nodes that combine bootstrap+dom+scenery (not working yet)
+3/18/13 remove all particles when the solute amount goes to zero
 3/18/13 add missing mvts to Concentration nodes
 3/18/13 add wire that connects probe to meter
 3/18/13 add probe to concentration meter
