@@ -75,9 +75,7 @@ define( function ( require ) {
     var $labelElement = $( '<div>' );
     $labelElement.css(
       { "font": "bold 15px Arial",
-        "fill": "black",
-        "textAlign": "center",
-        "textBaseline": "middle"
+        "fill": "black"
       } );
     var labelNode = new DOM( $labelElement[0] );
 
@@ -110,8 +108,8 @@ define( function ( require ) {
       backgroundNode.x = -backgroundNode.width / 2;
       backgroundNode.y = -backgroundNode.height;
       // center the button in the dropper's bulb
-      buttonNode.x = foregroundNode.getBounds().getCenterX() - ( buttonNode.width / 2 );
-      buttonNode.y = foregroundNode.getBounds().getMinY() + BUTTON_Y_OFFSET;
+      buttonNode.x = foregroundNode.centerX - ( buttonNode.width / 2 );
+      buttonNode.y = foregroundNode.top + BUTTON_Y_OFFSET;
       //NOTE: label will be positioned whenever its text is set, to keep it centered in the dropper's glass
     }
 
