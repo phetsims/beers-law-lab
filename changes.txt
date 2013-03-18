@@ -1,3 +1,4 @@
+3/18/13 add wire that connects probe to meter
 3/18/13 add probe to concentration meter
 3/18/13 use same bit-depth and ColorSync profile for all concentration meter images (didn't fix color issue)
 3/18/13 fix in HorizontalTiledNode

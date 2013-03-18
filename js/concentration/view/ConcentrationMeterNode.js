@@ -20,11 +20,16 @@ define( function( require ) {
   "use strict";
 
   // imports
+  var Range = require( "PHETCOMMON/math/Range" );
   var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var Vector2 = require( "DOT/Vector2" );
+  var Shape = require( "KITE/Shape" );
   var Node = require( "SCENERY/nodes/Node" );
   var Image = require( "SCENERY/nodes/Image" );
+  var Path = require( "SCENERY/nodes/Path" );
   var Text = require( "SCENERY/nodes/Text" );
   var Color = require( "common/model/Color" );
+  var LinearFunction = require( "common/util/LinearFunction" );
   var StringUtils = require( "common/util/StringUtils" );
   var HorizontalTiledNode = require( "common/view/HorizontalTiledNode" );
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
@@ -61,7 +66,6 @@ define( function( require ) {
     var unitsNode = new Text( StringUtils.format( strings.pattern_parentheses_0text, [ strings.units_molesPerLiter ]), { font: "bold 14px Arial", fill: "white" } );
     var valueNode = new Text( VALUE_FORMAT, { font: "24px Arial", fill: "black" } );
 
-    //TODO maxTextWidth appears to be wider than expected
     // create a background that fits the text
     var maxTextWidth = Math.max( titleNode.width, Math.max( unitsNode.width, valueNode.width ) );
     var bodyWidth = ( 2 * TEXT_X_MARGIN ) + maxTextWidth;
@@ -69,10 +73,10 @@ define( function( require ) {
     var imageNode = new HorizontalTiledNode( bodyWidth, new Image( bodyLeftImage ), new Image( bodyCenterImage), new Image( bodyRightImage ) );
 
     // rendering order
-    this.addChild( imageNode );
-    this.addChild( titleNode );
-    this.addChild( unitsNode );
-    this.addChild( valueNode );
+    thisNode.addChild( imageNode );
+    thisNode.addChild( titleNode );
+    thisNode.addChild( unitsNode );
+    thisNode.addChild( valueNode );
 
     // layout
     titleNode.centerX = imageNode.centerX;
@@ -115,7 +119,7 @@ define( function( require ) {
   function ProbeNode( meter, mvt, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode ) {
 
     var thisNode = this;
-    Node.call( this, {
+    Node.call( thisNode, {
       cursor: "pointer"
     } );
 
@@ -163,6 +167,49 @@ define( function( require ) {
   Inheritance.inheritPrototype( ProbeNode, Node );
 
   /**
+   * Wire that connects the probe to the body of the meter.
+   * @param {ConcentrationMeter} meter
+   * @param {Node} bodyNode
+   * @param {Node} probeNode
+   * @constructor
+   */
+  function WireNode( meter, bodyNode, probeNode ) {
+
+    var thisNode = this;
+    Path.call( thisNode, {
+      shape: new Shape(),
+      stroke: 'gray',
+      lineWidth: 8,
+      lineCap: "square",
+      lineJoin: "round"
+    } );
+
+    // The y coordinate of the body's control point varies with the x distance between the body and probe.
+    var BODY_CTRL_Y = new LinearFunction( new Range( 0, 800 ), new Range( 0, 200 ) ); // x distance -> y coordinate
+
+    var updateCurve = function() {
+
+      // Connect bottom-center of body to right-center of probe.
+      var bodyConnectionPoint = new Vector2( bodyNode.centerX, bodyNode.bottom - 10 );
+      var probeConnectionPoint = new Vector2( probeNode.right, probeNode.centerY );
+
+      // control points
+      var c1Offset = new Vector2( 0, BODY_CTRL_Y.evaluate( bodyNode.centerX - probeNode.left ) );
+      var c2Offset = new Vector2( 50, 0 );
+      var c1 = new Vector2( bodyConnectionPoint.x + c1Offset.x, bodyConnectionPoint.y + c1Offset.y );
+      var c2 = new Vector2( probeConnectionPoint.x + c2Offset.x, probeConnectionPoint.y + c2Offset.y );
+
+      thisNode.shape = new Shape()
+        .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
+        .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
+    };
+    meter.body.location.addObserver( updateCurve );
+    meter.probe.location.addObserver( updateCurve );
+  }
+
+  Inheritance.inheritPrototype( WireNode, Path );
+
+  /**
    * @param {ConcentrationMeter} meter
    * @param {ConcentrationSolution} solution
    * @param {Faucet} solventFaucet
@@ -182,8 +229,13 @@ define( function( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
-    thisNode.addChild( new BodyNode( meter, mvt, strings ) );
+    var bodyNode = new BodyNode( meter, mvt, strings )
     var probeNode = new ProbeNode( meter, mvt, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode );
+    var wireNode = new WireNode( meter, bodyNode, probeNode );
+
+    // rendering order
+    thisNode.addChild( wireNode );
+    thisNode.addChild( bodyNode );
     thisNode.addChild( probeNode );
 
     var updateValue = function () {
