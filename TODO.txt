@@ -14,8 +14,8 @@ IMPLEMENTATION ISSUES
 SCENERY FEATURES/BUGS
 - need to call DOM.invalidateDOM whenever you make changes that could affect bounds (scenery#2)
 - relativePressPoint for SimpleDragHandler? mouse gets away from shaker while dragging (scenery#3)
-- add support for texture mapping
-- add Node.toImage
+- add Node.toImage (scenery#7)
+- color of meter images (scenery#10)
 
 FIX
 - Reset All in initial state sets solution color to white
@@ -25,7 +25,6 @@ FIX
 
 HIGH
 - create "Reset All" button dynamically using template?
-- Concentration meter
 - "Remove Solute" button
 - Evaporation slider
 - Solid | Solution radio buttons
@@ -38,6 +37,7 @@ MEDIUM
 - compute deltaSeconds in animation loop
 
 LOW
+- use scenery.Pattern to texture map input pipe in FaucetNode
 - Font abstraction
 - Beer's Law module
 
