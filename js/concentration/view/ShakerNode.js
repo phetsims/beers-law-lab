@@ -65,8 +65,7 @@ define( function ( require ) {
 
     // sync location with model
     shaker.location.addObserver( function updateLocation( location ) {
-      shakerNode.x = mvt.modelToView( location.x );
-      shakerNode.y = mvt.modelToView( location.y );
+      shakerNode.translation = mvt.modelToView( location );
     } );
 
     // sync visibility with model
