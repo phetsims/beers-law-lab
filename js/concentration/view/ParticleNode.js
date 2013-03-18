@@ -22,14 +22,12 @@ define( function ( require ) {
 
     var thisNode = this;
 
-    Path.call(
-      this,
-      {
-        shape: Shape.rect( -particle.size / 2, -particle.size / 2, particle.size, particle.size ),
-        fill: particle.color.toCSS(),
-        stroke: particle.color.darker().toCSS(),
-        lineWidth: 1
-      } );
+    Path.call( thisNode, {
+      shape: Shape.rect( -particle.size / 2, -particle.size / 2, particle.size, particle.size ),
+      fill: particle.color.toCSS(),
+      stroke: particle.color.darker().toCSS(),
+      lineWidth: 1
+    } );
 
     thisNode.particle = particle;
     thisNode.rotation = particle.orientation;
