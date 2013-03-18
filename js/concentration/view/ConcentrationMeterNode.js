@@ -37,9 +37,9 @@ define( function( require ) {
   // constants
   var VALUE_FORMAT = "0.000"; //TODO handle this better
   var NO_VALUE = "-";
-  var TITLE_CENTER_Y = 26; // specific to bodyCenterImage
+  var TITLE_TOP = 20; // specific to bodyCenterImage
   var TEXT_X_MARGIN = 25;  // specific to bodyCenterImage
-  var VALUE_X_MARGIN = 25; // specific to bodyCenterImage
+  var VALUE_X_MARGIN = 30; // specific to bodyCenterImage
   var VALUE_CENTER_Y = 80; // specific to bodyCenterImage
 
   /**
@@ -53,13 +53,9 @@ define( function( require ) {
     Node.call( thisNode );
 
     // text nodes
-    var textStyle = {
-      textAlign: "center",
-      textBaseline: "middle"
-    };
-    var titleNode = new Text( strings.concentration, _.extend( textStyle, { font: "bold 18px Arial", fill: "white" } ) );
-    var unitsNode = new Text( StringUtils.format( strings.pattern_parentheses_0text, [ strings.units_molesPerLiter ]), _.extend( textStyle, { font: "bold 14px Arial", fill: "white" } ) );
-    var valueNode = new Text( VALUE_FORMAT, _.extend( textStyle, { font: "24px Arial", fill: "black" } ) );
+    var titleNode = new Text( strings.concentration, { font: "bold 18px Arial", fill: "white" } );
+    var unitsNode = new Text( StringUtils.format( strings.pattern_parentheses_0text, [ strings.units_molesPerLiter ]), { font: "bold 14px Arial", fill: "white" } );
+    var valueNode = new Text( VALUE_FORMAT, { font: "24px Arial", fill: "black" } );
 
     //TODO maxTextWidth appears to be wider than expected
     // create a background that fits the text
@@ -75,11 +71,11 @@ define( function( require ) {
     this.addChild( valueNode );
 
     // layout
-    titleNode.centerX = imageNode.getCenterX();
-    titleNode.y = TITLE_CENTER_Y;
-    unitsNode.centerX = imageNode.getCenterX()
-    unitsNode.centerY = titleNode.getBottom() + ( unitsNode.height / 2 ) + 5;
-    valueNode.x = imageNode.width - ( valueNode.width / 2 ) - VALUE_X_MARGIN //NOTE: x offset will be adjusted when value is set, to maintain right justification
+    titleNode.centerX = imageNode.centerX;
+    titleNode.top = TITLE_TOP;
+    unitsNode.centerX = imageNode.centerX;
+    unitsNode.top = titleNode.bottom + 5;
+    valueNode.right = imageNode.right - VALUE_X_MARGIN; // right justified
     valueNode.centerY = VALUE_CENTER_Y;
 
     // body location

@@ -40,13 +40,11 @@ define( function ( require ) {
     var imageNode = new Image( shakerImage );
     imageNode.setScale( 0.75 );
 
-    // label
+    // label, use DOM to support HTML for formula subscripts
     var $labelElement = $( '<div>' );
     $labelElement.css(
       { font: "bold 22px Arial",
-        fill: "black",
-        textAlign: "center",
-        textBaseline: "middle"
+        fill: "black"
       } );
     var labelNode = new DOM( $labelElement[0] );
 
