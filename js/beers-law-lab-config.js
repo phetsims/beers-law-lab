@@ -12,7 +12,7 @@ requirejs.config(
 
     config: {
       i18n: {
-        locale: "en_us"
+        locale: window.phetcommon.locale
       }
     },
 
