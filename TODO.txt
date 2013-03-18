@@ -25,6 +25,7 @@ FIX
 - performance of particles stinks
 
 HIGH
+- ResetAllButtonNode and DOMButtonNode are not working, buttons don't behave like buttons, callbacks don't fire unless attached to DOM node
 - create "Reset All" button dynamically using template?
 - "Remove Solute" button
 - Evaporation slider
