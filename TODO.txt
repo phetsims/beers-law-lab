@@ -60,3 +60,7 @@ DebugOriginNode
 FaucetNode + images
 StringUtils
 polyfill for requestAnimationFrame
+LinearFunction
+MomentaryButtonNode + images
+HorizontalTiledNode
+ChemUtils
