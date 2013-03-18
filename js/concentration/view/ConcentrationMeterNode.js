@@ -42,7 +42,6 @@ define( function( require ) {
 
   // constants
   var VALUE_DECIMALS = 3;
-  var VALUE_FORMAT = "0.000"; //TODO compute this based on VALUE_DECIMALS
   var NO_VALUE = "-";
   var TITLE_TOP = 20; // specific to bodyCenterImage
   var TEXT_X_MARGIN = 25;  // specific to bodyCenterImage
@@ -64,7 +63,7 @@ define( function( require ) {
     // text nodes
     var titleNode = new Text( strings.concentration, { font: "bold 18px Arial", fill: "white" } );
     var unitsNode = new Text( StringUtils.format( strings.pattern_parentheses_0text, [ strings.units_molesPerLiter ]), { font: "bold 14px Arial", fill: "white" } );
-    var valueNode = new Text( VALUE_FORMAT, { font: "24px Arial", fill: "black" } );
+    var valueNode = new Text( new Number( 1 ).toFixed( VALUE_DECIMALS ), { font: "24px Arial", fill: "black" } );
 
     // create a background that fits the text
     var maxTextWidth = Math.max( titleNode.width, Math.max( unitsNode.width, valueNode.width ) );
