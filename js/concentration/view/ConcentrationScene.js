@@ -57,7 +57,7 @@ define( function ( require ) {
 
     var concentrationMeterNode = new ConcentrationMeterNode( model.concentrationMeter, model.solution, model.dropper,
                                                              solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode,
-                                                             strings );
+                                                             mvt, strings );
 
     // Rendering order
     var rootNode = new Node();
