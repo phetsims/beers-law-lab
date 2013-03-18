@@ -23,29 +23,27 @@ define( function ( require ) {
     // background color
     document.bgColor = "white";
 
+    // Reset All callback
+    var resetAllCallback = function() {
+      console.log( "ConcentrationView.resetAllCallback" );//XXX
+      model.reset();
+      scene.reset();
+    };
+
     // model-view transform (unity)
     var mvt = new ModelViewTransform2D( 1, new Vector2( 0, 0 ) );
 
     // scene graph
-    var scene = new ConcentrationScene( model, mvt, strings );
+    var scene = new ConcentrationScene( model, mvt, strings, resetAllCallback );
 
     view.step = function ( deltaSeconds ) {
       scene.step( deltaSeconds );
     };
 
-    view.reset = function () {
-      scene.reset();
-    };
-
-    var resetAll = function() {
-      model.reset();
-      view.reset();
-    };
-
     // Reset All button
     var $resetAllButton = $( '.reset-all-button' );
-    $resetAllButton.bind( 'touchstart', resetAll );
-    $resetAllButton.bind( 'click', resetAll );
+    $resetAllButton.bind( 'touchstart', resetAllCallback );
+    $resetAllButton.bind( 'click', resetAllCallback );
 
     // handle resizing of the browser window
     var handleResize = function () {

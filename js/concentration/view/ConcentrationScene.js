@@ -11,6 +11,7 @@ define( function ( require ) {
   // imports
   var Dimension2 = require( "DOT/Dimension2" );
   var Scene = require( "SCENERY/Scene" );
+  var DOM = require( "SCENERY/nodes/DOM" );
   var Node = require( "SCENERY/nodes/Node" );
   var Text = require( "SCENERY/nodes/Text" );
   var BeakerNode = require( "concentration/view/BeakerNode" );
@@ -23,19 +24,20 @@ define( function ( require ) {
   var DropperNode = require( "concentration/view/DropperNode" );
   var StockSolutionNode = require( "concentration/view/StockSolutionNode" );
   var ConcentrationMeterNode = require( "concentration/view/ConcentrationMeterNode" );
+  var DOMButtonNode = require( "concentration/view/DOMButtonNode" );
+  var ResetAllButtonNode = require( "concentration/view/ResetAllButtonNode" );
 
   /**
    * @param {ConcentrationModel} model
    * @param {ModelViewTransform2D} mvt
    * @param strings
+   * @param {Function} resetAllCallback
    * @constructor
    */
-  function ConcentrationScene( model, mvt, strings ) {
+  function ConcentrationScene( model, mvt, strings, resetAllCallback ) {
 
     // Use composition instead of inheritance to hide which scene graph library is used.
     var scene = new Scene( $( '#concentration-scene' ) );
-
-    //TODO this sure is ugly...
     scene.initializeFullscreenEvents(); // sets up listeners on the document with preventDefault(), and forwards those events to our scene
     scene.resizeOnWindowResize(); // the scene gets resized to the full screen size
 
@@ -59,11 +61,26 @@ define( function ( require ) {
                                                              solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode,
                                                              mvt, strings );
 
+    // Remove Solute button
+    var removeSoluteButtonNode = new DOMButtonNode( strings.removeSolute, function() {
+      console.log( "ConcentrationScene.removeSoluteButtonNode" ); //XXX
+      model.solution.soluteAmount.set( 0 );
+    });
+    removeSoluteButtonNode.x = beakerNode.centerX;
+    removeSoluteButtonNode.y = beakerNode.bottom + 50; //TODO with spacing = 0, there is overlap
+
+    // Reset All button
+    var resetAllButtonNode = new ResetAllButtonNode( resetAllCallback );
+    resetAllButtonNode.left = removeSoluteButtonNode.right + 30;
+    resetAllButtonNode.top = removeSoluteButtonNode.top;
+
     // Rendering order
     var rootNode = new Node();
     scene.addChild( rootNode );
+    rootNode.addChild( removeSoluteButtonNode );
+    rootNode.addChild( resetAllButtonNode );
     rootNode.addChild( solventFluidNode );
-    rootNode.addChild( solventFaucetNode )
+    rootNode.addChild( solventFaucetNode );
     rootNode.addChild( drainFluidNode );
     rootNode.addChild( drainFaucetNode );
     rootNode.addChild( stockSolutionNode );
