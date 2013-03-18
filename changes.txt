@@ -1,3 +1,4 @@
+3/18/13 fix in HorizontalTiledNode
 3/18/13 rework text layout for shaker and concentration meter
 3/17/13 add text to concentration meter
 3/14/13 change location of performance monitor

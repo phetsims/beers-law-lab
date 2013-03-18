@@ -48,7 +48,7 @@ define( function ( require ) {
 
     // right
     parentNode.addChild( rightNode );
-    rightNode.x = totalWidth - rightNode.x;
+    rightNode.x = totalWidth - rightNode.width;
 
     // tile the center, with overlap between tiles to hide seams
     var previousNode = leftNode;
