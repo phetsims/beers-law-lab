@@ -47,7 +47,7 @@ define( function ( require ) {
     solution.color.addObserver( function ( color ) {
       solutionNode.fill = color.toCSS();
       solutionNode.stroke = color.darker().toCSS(); //TODO too dark?
-      console.log( "SolutionNode fill=" + solutionNode.fill + " stroke=" + solutionNode.stroke + " concentration=" + solution.concentration.get() );//XXX
+//XXX      console.log( "SolutionNode fill=" + solutionNode.fill + " stroke=" + solutionNode.stroke + " concentration=" + solution.concentration.get() );//XXX
     } );
 
     /*

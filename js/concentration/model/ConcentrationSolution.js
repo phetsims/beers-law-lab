@@ -106,7 +106,7 @@ define( function ( require ) {
     if ( concentration > 0 ) {
       color = solute.colorScheme.concentrationToColor( concentration );
     }
-    console.log( "ConcentrationSolution.createColor solvent.color=" + solvent.color.get() + " concentration=" + concentration + " color=" + color.toCSS() );//XXX
+//XXX    console.log( "ConcentrationSolution.createColor solvent.color=" + solvent.color.get() + " concentration=" + concentration + " color=" + color.toCSS() );//XXX
     return color;
   };
 
