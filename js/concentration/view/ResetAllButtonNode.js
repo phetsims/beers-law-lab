@@ -23,7 +23,6 @@ define( function ( require ) {
     $button.bind( 'touchstart', callback );
 
     DOM.call( this, $button[0] );
-//    this.addInputListener( { down: callback } );  //TODO this works
   }
 
   Inheritance.inheritPrototype( ResetAllButtonNode, DOM );

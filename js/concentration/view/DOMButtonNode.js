@@ -24,7 +24,6 @@ define( function ( require ) {
     $button.bind( 'click', callback );
 
     DOM.call( this, $button[0] );
-//    this.addInputListener( { down: callback } );  //TODO this works, but only by clicking upper-left corner of button
   }
 
   Inheritance.inheritPrototype( DOMButtonNode, DOM );
