@@ -1,3 +1,4 @@
+3/19/13 delete window.phetcommon.locale in config.js, it's invalid JSON and causes grunt failure
 3/18/13 add some button nodes that combine bootstrap+dom+scenery (not working yet)
 3/18/13 remove all particles when the solute amount goes to zero
 3/18/13 add missing mvts to Concentration nodes
