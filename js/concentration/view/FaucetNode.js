@@ -62,7 +62,7 @@ define( function ( require ) {
 
     //TODO This is horizontally stretching the image, would look better to tile a rectangle with a texture.
     // size the pipe
-    pipeNode.setScale( mvt.modelToView( faucet.pipeLength ) / pipeNode.width, 1 );
+    pipeNode.setScaleMagnitude( mvt.modelToView( faucet.pipeLength ) / pipeNode.width, 1 );
 
     // layout
     {

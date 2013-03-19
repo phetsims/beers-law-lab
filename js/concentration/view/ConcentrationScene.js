@@ -106,7 +106,7 @@ define( function ( require ) {
       var UNITY_WINDOW_SIZE = new Dimension2( 1024, 768 ); // At this window size, scaling is 1.
       var windowSize = new Dimension2( $( window ).width(), $( window ).height() );
       var scale = Math.min( windowSize.width / UNITY_WINDOW_SIZE.width, windowSize.height / UNITY_WINDOW_SIZE.height );
-      rootNode.setScale( scale );
+      rootNode.setScaleMagnitude( scale );
     };
     $( window ).resize( handleResize );
     handleResize(); // initial size

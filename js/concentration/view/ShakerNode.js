@@ -38,7 +38,7 @@ define( function ( require ) {
 
     // shaker image
     var imageNode = new Image( shakerImage );
-    imageNode.setScale( 0.75 );
+    imageNode.setScaleMagnitude( 0.75 );
 
     // label, use DOM to support HTML for formula subscripts
     var $labelElement = $( '<div>' );
