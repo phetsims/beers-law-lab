@@ -53,7 +53,9 @@ define( function ( require ) {
     // tile the center, with overlap between tiles to hide seams
     var previousNode = leftNode;
     while ( tiledWidth > 0 ) {
-      var tileNode = new Image( centerNode.getImage() );//TODO assumes that centerNode is an image, change to centerNode.toImage
+      // scenery allows nodes to be in the graph multiple times, but not as siblings, so create a parent.
+      var tileNode = new Node();
+      tileNode.addChild( centerNode );
       parentNode.addChild( tileNode );
       tileNode.x = previousNode.getRight() - X_OVERLAP;
       // If tile extends too far into right side, shift the tile to the left.
