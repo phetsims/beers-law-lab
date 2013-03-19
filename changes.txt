@@ -1,3 +1,5 @@
+3/19/13 add debug output for setVisible problem in ShakerNode and DropperNode
+3/19/13 wire up Solid and Solution buttons
 3/19/13 add bootstrap controls for switching between shaker and dropper (not wired up, not correct look)
 3/19/13 add DOM controls to scenegraph last, so that they are not obscured by canvas-based nodes and receive DOM event
 3/19/13 changes for breaking changes in scenery

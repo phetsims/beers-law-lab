@@ -34,7 +34,7 @@ define( function ( require ) {
       cursor: "pointer"
     } );
 
-    var shakerNode = this;
+    var thisNode = this;
 
     // shaker image
     var imageNode = new Image( shakerImage );
@@ -65,19 +65,20 @@ define( function ( require ) {
 
     // sync location with model
     shaker.location.addObserver( function updateLocation( location ) {
-      shakerNode.translation = mvt.modelToView( location );
+      thisNode.translation = mvt.modelToView( location );
     } );
 
     // sync visibility with model
     shaker.visible.addObserver( function updateVisibility( visible ) {
-      shakerNode.visible = visible;
+      console.log( "ShakerNode.observer visible=" + visible );//XXX
+      thisNode.setVisible( visible ); //TODO no exception, but doesn't work
     } );
 
     // sync solute with model
     shaker.solute.addObserver( function updateSolute( solute ) {
       // label the shaker with the solute formula
       $labelElement.html( solute.formula );
-      labelNode.invalidateDOM(); //TODO remove this when scenery handles it automatically
+      labelNode.invalidateDOM();
       // center the label on the shaker
       var capWidth = 0.3 * imageNode.width;
       labelNode.centerX = capWidth + ( imageNode.width - capWidth ) / 2;

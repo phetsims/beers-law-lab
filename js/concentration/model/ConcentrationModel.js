@@ -76,8 +76,8 @@ define( function ( require ) {
 
     // Show the correct dispenser for the solute form
     model.soluteForm.addObserver( function ( soluteForm ) {
-      model.shaker.visible.set( soluteForm == Solute.SoluteForm.SOLID );
-      model.dropper.visible.set( soluteForm == Solute.SoluteForm.STOCK_SOLUTION );
+      model.shaker.visible.set( soluteForm === Solute.SoluteForm.SOLID );
+      model.dropper.visible.set( soluteForm === Solute.SoluteForm.STOCK_SOLUTION );
     } );
 
     // Enable faucets and dropper based on amount of solution in the beaker.

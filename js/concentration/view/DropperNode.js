@@ -120,8 +120,8 @@ define( function ( require ) {
 
     // Visibility
     dropper.visible.addObserver( function ( visible ) {
-      console.log( "visible=" + visible );//XXX
-//      thisNode.setVisible( visible ); //TODO this makes the page unresponsive, scenery bug?
+      console.log( "DropperNode.observer visible=" + visible );//XXX
+//      thisNode.setVisible( visible ); //TODO "no method paintCanvas" exception in CanvasLayer
     } );
 
     // Make the background visible only when the dropper is empty

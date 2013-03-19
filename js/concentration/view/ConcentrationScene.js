@@ -14,6 +14,7 @@ define( function ( require ) {
   var DOM = require( "SCENERY/nodes/DOM" );
   var Node = require( "SCENERY/nodes/Node" );
   var Text = require( "SCENERY/nodes/Text" );
+  var Solute = require( "concentration/model/Solute" );
   var BeakerNode = require( "concentration/view/BeakerNode" );
   var FaucetNode = require( "concentration/view/FaucetNode" );
   var FaucetFluidNode = require( "concentration/view/FaucetFluidNode" );
@@ -64,16 +65,14 @@ define( function ( require ) {
 
     // Solid (shaker) radio button
     var solidRadioButton = new RadioButtonNode( strings.solid, function () {
-      console.log( "solid" );//XXX
-      //TODO switch to shaker
+      model.soluteForm.set( Solute.SoluteForm.SOLID );
     } );
     solidRadioButton.left = concentrationMeterNode.left;
     solidRadioButton.bottom = concentrationMeterNode.top - 30;
 
     // Solution (dropper) radio button
     var solutionRadioButton = new RadioButtonNode( strings.solution, function () {
-      console.log( "solution" );//XXX
-      //TODO switch to dropper
+      model.soluteForm.set( Solute.SoluteForm.STOCK_SOLUTION );
     } );
     solutionRadioButton.left = solidRadioButton.right + 10;
     solutionRadioButton.top = solidRadioButton.top;
