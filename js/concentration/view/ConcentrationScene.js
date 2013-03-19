@@ -24,6 +24,7 @@ define( function ( require ) {
   var DropperNode = require( "concentration/view/DropperNode" );
   var StockSolutionNode = require( "concentration/view/StockSolutionNode" );
   var ConcentrationMeterNode = require( "concentration/view/ConcentrationMeterNode" );
+  var RadioButtonNode = require( "concentration/view/RadioButtonNode" );
   var DOMButtonNode = require( "concentration/view/DOMButtonNode" );
   var ResetAllButtonNode = require( "concentration/view/ResetAllButtonNode" );
 
@@ -61,36 +62,54 @@ define( function ( require ) {
                                                              solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode,
                                                              mvt, strings );
 
+    // Solid (shaker) radio button
+    var solidRadioButton = new RadioButtonNode( strings.solid, function () {
+      console.log( "solid" );//XXX
+      //TODO switch to shaker
+    } );
+    solidRadioButton.left = concentrationMeterNode.left;
+    solidRadioButton.bottom = concentrationMeterNode.top - 30;
+
+    // Solution (dropper) radio button
+    var solutionRadioButton = new RadioButtonNode( strings.solution, function () {
+      console.log( "solution" );//XXX
+      //TODO switch to dropper
+    } );
+    solutionRadioButton.left = solidRadioButton.right + 10;
+    solutionRadioButton.top = solidRadioButton.top;
+
     // Remove Solute button
     var removeSoluteButtonNode = new DOMButtonNode( strings.removeSolute, function() {
-      console.log( "ConcentrationScene.removeSoluteButtonNode" ); //XXX
       model.solution.soluteAmount.set( 0 );
     });
     removeSoluteButtonNode.x = beakerNode.centerX;
-    removeSoluteButtonNode.y = beakerNode.bottom + 50; //TODO with spacing = 0, there is overlap
+    removeSoluteButtonNode.y = beakerNode.bottom + 50;
 
     // Reset All button
     var resetAllButtonNode = new ResetAllButtonNode( resetAllCallback );
-    resetAllButtonNode.left = removeSoluteButtonNode.right + 30;
+    resetAllButtonNode.left = removeSoluteButtonNode.right + 10;
     resetAllButtonNode.top = removeSoluteButtonNode.top;
 
     // Rendering order
     var rootNode = new Node();
     scene.addChild( rootNode );
-    rootNode.addChild( removeSoluteButtonNode );
-    rootNode.addChild( resetAllButtonNode );
     rootNode.addChild( solventFluidNode );
     rootNode.addChild( solventFaucetNode );
     rootNode.addChild( drainFluidNode );
     rootNode.addChild( drainFaucetNode );
     rootNode.addChild( stockSolutionNode );
     rootNode.addChild( solutionNode );
-    rootNode.addChild( beakerNode );
+    rootNode.addChild( beakerNode.mutate( { layerSplit: true } ) ); //TODO experiment to put static nodes in their own layer
     rootNode.addChild( precipitateNode );
     rootNode.addChild( shakerParticlesNode );
     rootNode.addChild( shakerNode );
     rootNode.addChild( dropperNode );
     rootNode.addChild( concentrationMeterNode );
+    // add controls last, switch to DOM renderer cause a layer split
+    rootNode.addChild( removeSoluteButtonNode );
+    rootNode.addChild( resetAllButtonNode );
+    rootNode.addChild( solidRadioButton );
+    rootNode.addChild( solutionRadioButton );
 
     this.step = function ( deltaSeconds ) {
       scene.updateScene();
