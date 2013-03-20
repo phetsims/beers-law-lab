@@ -28,7 +28,8 @@ define( function( require ) {
     };
 
     // dynamically create a DOM check box
-    var $checkBox = $( '<button class="btn v-button"><i class="icon-check-empty"></i>' + text + '</button>' );
+    var initialIcon = getIcon( booleanProperty.get() );
+    var $checkBox = $( '<button class="btn v-button"><i class="' + initialIcon + '"></i>' + text + '</button>' );
     $checkBox.bind( 'click', function() {
       // toggle the property value
       booleanProperty.set( !booleanProperty.get() );
