@@ -12,11 +12,11 @@ IMPLEMENTATION ISSUES
 - Bootstrap controls
 
 SCENERY FEATURES/BUGS
-- need to call DOM.invalidateDOM whenever you make changes that could affect bounds (scenery#2)
 - relativePressPoint for SimpleDragHandler? mouse gets away from shaker while dragging (scenery#3)
 - add Node.toImage (scenery#7)
 - color of meter images (scenery#10)
 - coordinate frame transforms (global, local, parent)
+- Node.setVisible (scenery#9)
 
 FIX
 - Reset All in initial state sets solution color to white
