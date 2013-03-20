@@ -1,4 +1,5 @@
-3/19/13 add contrib/font-awesome-3.0.2/
+3/20/13 delete enum SoluteForm and model.soluteForm, unnecessary
+3/20/13 add contrib/font-awesome-3.0.2/
 3/19/13 add debug output for setVisible problem in ShakerNode and DropperNode
 3/19/13 wire up Solid and Solution buttons
 3/19/13 add bootstrap controls for switching between shaker and dropper (not wired up, not correct look)

@@ -66,18 +66,9 @@ define( function ( require ) {
     model.concentrationMeter = new ConcentrationMeter( new Vector2( 785, 210 ), new Rectangle( 10, 150, 825, 530 ),
                                                        new Vector2( 775, 390 ), new Rectangle( 30, 150, 935, 530 ) );
 
-    // model properties
-    model.soluteForm = new Property( Solute.SoluteForm.SOLID );
-
     // Things to do when the solute is changed.
     model.solute.addObserver( function ( solute ) {
       model.solution.soluteAmount.set( 0 );
-    } );
-
-    // Show the correct dispenser for the solute form
-    model.soluteForm.addObserver( function ( soluteForm ) {
-      model.shaker.visible.set( soluteForm === Solute.SoluteForm.SOLID );
-      model.dropper.visible.set( soluteForm === Solute.SoluteForm.STOCK_SOLUTION );
     } );
 
     // Enable faucets and dropper based on amount of solution in the beaker.
@@ -101,7 +92,6 @@ define( function ( require ) {
     var model = this;
     model.solute.reset();
     model.solution.reset();
-    model.soluteForm.reset();
     model.shaker.reset();
     model.dropper.reset();
     model.evaporator.reset();

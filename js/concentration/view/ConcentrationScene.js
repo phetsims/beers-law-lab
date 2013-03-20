@@ -63,17 +63,13 @@ define( function ( require ) {
                                                              solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode,
                                                              mvt, strings );
 
-    // Solid (shaker) check box
-    var solidCheckBoxNode = new CheckBoxNode( strings.solid, function () {
-      model.soluteForm.set( Solute.SoluteForm.SOLID );
-    } );
+    // Shaker ("Solid") check box
+    var solidCheckBoxNode = new CheckBoxNode( strings.solid, model.shaker.visible );
     solidCheckBoxNode.left = concentrationMeterNode.left;
     solidCheckBoxNode.bottom = concentrationMeterNode.top - 30;
 
-    // Solution (dropper) check box
-    var solutionCheckBoxNode = new CheckBoxNode( strings.solution, function () {
-      model.soluteForm.set( Solute.SoluteForm.STOCK_SOLUTION );
-    } );
+    // Dropper ("Solution") check box
+    var solutionCheckBoxNode = new CheckBoxNode( strings.solution, model.dropper.visible );
     solutionCheckBoxNode.left = solidCheckBoxNode.right + 10;
     solutionCheckBoxNode.top = solidCheckBoxNode.top;
 
