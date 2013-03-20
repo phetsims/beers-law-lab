@@ -15,7 +15,7 @@ SCENERY FEATURES/BUGS
 - relativePressPoint for SimpleDragHandler? mouse gets away from shaker while dragging (scenery#3)
 - add Node.toImage (scenery#7)
 - color of meter images (scenery#10)
-- coordinate frame transforms (global, local, parent)
+- coordinate frame transforms (scenery#12)
 - Node.setVisible (scenery#9)
 
 FIX
