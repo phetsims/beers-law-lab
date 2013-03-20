@@ -1,5 +1,6 @@
 // Copyright 2002-2013, University of Colorado
 
+//TODO make this a subtype of ButtonNode by adding additional stuff to the DOM node's element.
 /**
  * Bootstrap "Reset All" button wrapped in a DOM node.
  *
@@ -17,7 +18,6 @@ define( function ( require ) {
    */
   function ResetAllButtonNode( callback ) {
 
-    // dynamically create a DOM reset-all button
     var $button = $( '<button class="btn btn-warning reset-all-button"><i class="icon-refresh icon-2x"></i></button>' );
     $button.bind( 'click', callback );
     $button.bind( 'touchstart', callback );

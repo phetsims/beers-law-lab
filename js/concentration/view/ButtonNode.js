@@ -18,7 +18,6 @@ define( function ( require ) {
    */
   function ButtonNode( text, callback ) {
 
-    // dynamically create a DOM button
     var $button = $( '<button class="btn">text</button>' );
     $button.html( text );
     $button.bind( 'click', callback );

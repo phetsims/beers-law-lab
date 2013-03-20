@@ -7,9 +7,15 @@
  */
 define( function( require ) {
 
+  // imports
   var Inheritance = require("PHETCOMMON/util/Inheritance" );
   var DOM = require("SCENERY/nodes/DOM" );
 
+  /**
+   * @param {String} text
+   * @param {Property} booleanProperty
+   * @constructor
+   */
   function CheckBoxNode( text, booleanProperty ) {
 
     // font-awesome icons
