@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * A DOM-based button.
+ * Bootstrap button wrapped in a DOM node.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -16,7 +16,7 @@ define( function ( require ) {
    * @param {Function} callback
    * @constructor
    */
-  function DOMButtonNode( text, callback ) {
+  function ButtonNode( text, callback ) {
 
     // dynamically create a DOM button
     var $button = $( '<button class="btn">text</button>' );
@@ -26,7 +26,7 @@ define( function ( require ) {
     DOM.call( this, $button[0] );
   }
 
-  Inheritance.inheritPrototype( DOMButtonNode, DOM );
+  Inheritance.inheritPrototype( ButtonNode, DOM );
 
-  return DOMButtonNode;
+  return ButtonNode;
 } );

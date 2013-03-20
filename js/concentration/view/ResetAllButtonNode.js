@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * A "Reset All" button.
+ * Bootstrap "Reset All" button wrapped in a DOM node.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

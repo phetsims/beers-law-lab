@@ -26,7 +26,7 @@ define( function ( require ) {
   var StockSolutionNode = require( "concentration/view/StockSolutionNode" );
   var ConcentrationMeterNode = require( "concentration/view/ConcentrationMeterNode" );
   var CheckBoxNode = require( "concentration/view/CheckBoxNode" );
-  var DOMButtonNode = require( "concentration/view/DOMButtonNode" );
+  var ButtonNode = require( "concentration/view/ButtonNode" );
   var ResetAllButtonNode = require( "concentration/view/ResetAllButtonNode" );
 
   /**
@@ -74,7 +74,7 @@ define( function ( require ) {
     solutionCheckBoxNode.top = solidCheckBoxNode.top;
 
     // Remove Solute button
-    var removeSoluteButtonNode = new DOMButtonNode( strings.removeSolute, function() {
+    var removeSoluteButtonNode = new ButtonNode( strings.removeSolute, function() {
       model.solution.soluteAmount.set( 0 );
     });
     removeSoluteButtonNode.x = beakerNode.centerX;
