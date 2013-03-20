@@ -25,7 +25,6 @@ define( function ( require ) {
 
     // Reset All callback
     var resetAllCallback = function() {
-      console.log( "ConcentrationView.resetAllCallback" );//XXX
       model.reset();
       scene.reset();
     };
@@ -39,11 +38,6 @@ define( function ( require ) {
     view.step = function ( deltaSeconds ) {
       scene.step( deltaSeconds );
     };
-
-    // Reset All button
-    var $resetAllButton = $( '.reset-all-button' );
-    $resetAllButton.bind( 'touchstart', resetAllCallback );
-    $resetAllButton.bind( 'click', resetAllCallback );
 
     // handle resizing of the browser window
     var handleResize = function () {
