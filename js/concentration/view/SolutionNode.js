@@ -46,8 +46,7 @@ define( function ( require ) {
      */
     solution.color.addObserver( function ( color ) {
       solutionNode.fill = color.toCSS();
-      solutionNode.stroke = color.darker().toCSS(); //TODO too dark?
-//XXX      console.log( "SolutionNode fill=" + solutionNode.fill + " stroke=" + solutionNode.stroke + " concentration=" + solution.concentration.get() );//XXX
+      solutionNode.stroke = color.darker().toCSS();
     } );
 
     /*
@@ -58,7 +57,6 @@ define( function ( require ) {
     solution.volume.addObserver( function ( volume ) {
 
       // determine dimensions in model coordinates
-      var volume = solution.volume.get();
       var solutionHeight = volumeToHeightFunction.evaluate( volume );
       if ( volume > 0 && solutionHeight < MIN_NONZERO_HEIGHT ) {
         // constrain non-zero volume to minimum height, so that the solution is visible to the user and detectable by the concentration probe

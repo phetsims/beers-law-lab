@@ -24,7 +24,7 @@ define( function ( require ) {
    */
   function ConcentrationSolution( solute, soluteAmount, volume ) {
 
-    Fluid.call( this, Color.WHITE ); // constructor stealing
+    Fluid.call( this, Color.WHITE ); // use a bogus initial color, so we'll need to set color properly in reset
 
     var solution = this;
 
@@ -60,7 +60,7 @@ define( function ( require ) {
     // derive the solution color
     var updateColor = function () {
       solution.color.set( ConcentrationSolution.createColor( solution.solvent, solution.solute.get(), solution.concentration.get() ) );
-    }
+    };
     solution.solute.addObserver( updateColor );
     solution.concentration.addObserver( updateColor );
 
@@ -69,10 +69,11 @@ define( function ( require ) {
       Inheritance.callSuper( Fluid, "reset", this );
       solution.soluteAmount.reset();
       solution.volume.reset();
-    }
+      updateColor(); // because we provided a bogus initial color to Fluid constructor
+    };
   }
 
-  Inheritance.inheritPrototype( ConcentrationSolution, Fluid ); // prototype chaining
+  Inheritance.inheritPrototype( ConcentrationSolution, Fluid );
 
   // convenience function
   ConcentrationSolution.prototype.getSaturatedConcentration = function () {
@@ -106,7 +107,6 @@ define( function ( require ) {
     if ( concentration > 0 ) {
       color = solute.colorScheme.concentrationToColor( concentration );
     }
-//XXX    console.log( "ConcentrationSolution.createColor solvent.color=" + solvent.color.get() + " concentration=" + concentration + " color=" + color.toCSS() );//XXX
     return color;
   };
 

@@ -21,7 +21,6 @@ SCENERY ENHANCEMENTS
 
 FIX
 - color of meter images (was scenery#10)
-- Reset All in initial state sets solution color to white
 - keep shaking the shaker until the display flips out
 - performance of particles stinks
 
