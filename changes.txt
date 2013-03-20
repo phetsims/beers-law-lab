@@ -1,3 +1,4 @@
+3/20/13 flesh out CheckBoxNode to handle property and icon changes
 3/20/13 delete enum SoluteForm and model.soluteForm, unnecessary
 3/20/13 add contrib/font-awesome-3.0.2/
 3/19/13 add debug output for setVisible problem in ShakerNode and DropperNode
