@@ -32,6 +32,7 @@ HIGH
 - CSS for bootstrap components
 
 MEDIUM
+- make Solid and Solute check boxes behave like radio buttons
 - weird flicker/down-scaling issue on mobile Safari
 - use ImagesLoader to load images
 - compute deltaSeconds in animation loop
