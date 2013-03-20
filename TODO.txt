@@ -29,6 +29,7 @@ HIGH
 - Evaporation slider
 - Solid | Solution radio buttons
 - Solute combo box
+- CSS for bootstrap components
 
 MEDIUM
 - weird flicker/down-scaling issue on mobile Safari
