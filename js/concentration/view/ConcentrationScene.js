@@ -25,7 +25,7 @@ define( function ( require ) {
   var DropperNode = require( "concentration/view/DropperNode" );
   var StockSolutionNode = require( "concentration/view/StockSolutionNode" );
   var ConcentrationMeterNode = require( "concentration/view/ConcentrationMeterNode" );
-  var RadioButtonNode = require( "concentration/view/RadioButtonNode" );
+  var CheckBoxNode = require( "concentration/view/CheckBoxNode" );
   var DOMButtonNode = require( "concentration/view/DOMButtonNode" );
   var ResetAllButtonNode = require( "concentration/view/ResetAllButtonNode" );
 
@@ -63,19 +63,19 @@ define( function ( require ) {
                                                              solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode,
                                                              mvt, strings );
 
-    // Solid (shaker) radio button
-    var solidRadioButton = new RadioButtonNode( strings.solid, function () {
+    // Solid (shaker) check box
+    var solidCheckBoxNode = new CheckBoxNode( strings.solid, function () {
       model.soluteForm.set( Solute.SoluteForm.SOLID );
     } );
-    solidRadioButton.left = concentrationMeterNode.left;
-    solidRadioButton.bottom = concentrationMeterNode.top - 30;
+    solidCheckBoxNode.left = concentrationMeterNode.left;
+    solidCheckBoxNode.bottom = concentrationMeterNode.top - 30;
 
-    // Solution (dropper) radio button
-    var solutionRadioButton = new RadioButtonNode( strings.solution, function () {
+    // Solution (dropper) check box
+    var solutionCheckBoxNode = new CheckBoxNode( strings.solution, function () {
       model.soluteForm.set( Solute.SoluteForm.STOCK_SOLUTION );
     } );
-    solutionRadioButton.left = solidRadioButton.right + 10;
-    solutionRadioButton.top = solidRadioButton.top;
+    solutionCheckBoxNode.left = solidCheckBoxNode.right + 10;
+    solutionCheckBoxNode.top = solidCheckBoxNode.top;
 
     // Remove Solute button
     var removeSoluteButtonNode = new DOMButtonNode( strings.removeSolute, function() {
@@ -107,8 +107,8 @@ define( function ( require ) {
     // add controls last, switch to DOM renderer cause a layer split
     rootNode.addChild( removeSoluteButtonNode );
     rootNode.addChild( resetAllButtonNode );
-    rootNode.addChild( solidRadioButton );
-    rootNode.addChild( solutionRadioButton );
+    rootNode.addChild( solidCheckBoxNode );
+    rootNode.addChild( solutionCheckBoxNode );
 
     this.step = function ( deltaSeconds ) {
       scene.updateScene();

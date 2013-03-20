@@ -10,7 +10,7 @@ define( function( require ) {
   var Inheritance = require("PHETCOMMON/util/Inheritance" );
   var DOM = require("SCENERY/nodes/DOM" );
 
-  function RadioButtonNode( text, callback ) {
+  function CheckBoxNode( text, callback ) {
 
     // dynamically create a DOM radio button
     var $button = $( '<button class="btn v-button"><i class="icon-check-empty"></i>text</p></button>' );
@@ -20,7 +20,7 @@ define( function( require ) {
     DOM.call( this, $button[0] );
   }
 
-  Inheritance.inheritPrototype( RadioButtonNode, DOM );
+  Inheritance.inheritPrototype( CheckBoxNode, DOM );
 
-  return RadioButtonNode;
+  return CheckBoxNode;
 });
