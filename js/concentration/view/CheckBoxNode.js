@@ -29,7 +29,7 @@ define( function( require ) {
 
     // dynamically create a DOM check box
     var initialIcon = getIcon( booleanProperty.get() );
-    var $checkBox = $( '<button class="btn v-button"><i class="' + initialIcon + '"></i>' + text + '</button>' );
+    var $checkBox = $( '<button class="btn v-button"><p style="font: 16px arial;"><i class="' + initialIcon + '" style="float:left; margin-right: 5px;font-size: larger;"></i>' + text + '</p></button>' );
     $checkBox.bind( 'click', function() {
       // toggle the property value
       booleanProperty.set( !booleanProperty.get() );
