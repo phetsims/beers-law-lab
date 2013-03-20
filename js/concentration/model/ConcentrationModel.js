@@ -64,7 +64,7 @@ define( function ( require ) {
     model.solventFaucet = new Faucet( new Vector2( 150, 220 ), 40, 100, MAX_INPUT_FLOW_RATE );
     model.drainFaucet = new Faucet( new Vector2( 790, 607 ), 40, 5, MAX_OUTPUT_FLOW_RATE );
     model.concentrationMeter = new ConcentrationMeter( new Vector2( 785, 210 ), new Rectangle( 10, 150, 825, 530 ),
-                                                       new Vector2( 775, 390 ), new Rectangle( 30, 150, 935, 530 ) );
+                                                       new Vector2( 750, 370 ), new Rectangle( 30, 150, 935, 530 ) );
 
     // Things to do when the solute is changed.
     model.solute.addObserver( function ( solute ) {
