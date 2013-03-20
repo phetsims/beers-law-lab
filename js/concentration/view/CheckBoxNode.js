@@ -13,7 +13,7 @@ define( function( require ) {
   function CheckBoxNode( text, callback ) {
 
     // dynamically create a DOM radio button
-    var $button = $( '<button class="btn v-button"><i class="icon-check-empty"></i>text</p></button>' );
+    var $button = $( '<button class="btn v-button"><i class="icon-check-empty"></i>text</button>' );
     $button.html( text );
     $button.bind( 'click', callback );
 
