@@ -13,7 +13,7 @@ define( function( require ) {
 
   /**
    * @param {String} text
-   * @param {Property} booleanProperty
+   * @param {Property} booleanProperty (type boolean)
    * @constructor
    */
   function CheckBoxNode( text, booleanProperty ) {

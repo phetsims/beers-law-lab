@@ -16,7 +16,7 @@ define( function ( require ) {
   /**
    * @param {Vector2} location
    * @param {Rectangle} dragBounds
-   * @param {Property<Solute>} solute
+   * @param {Property} solute (type Solute)
    * @param {Number} maxFlowRate
    * @constructor
    */

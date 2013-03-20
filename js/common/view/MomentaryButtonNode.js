@@ -20,8 +20,8 @@ define( function ( require ) {
   var unpressedDisabledImage = require( "image!images/momentary_button_unpressed_disabled.png" );
 
   /**
-   * @param {Property<Boolean>} on
-   * @param {Property<Boolean>} enabled
+   * @param {Property} on (type boolean)
+   * @param {Property} enabled (type boolean)
    * @constructor
    */
   function MomentaryButtonNode( on, enabled ) {

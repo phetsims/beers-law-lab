@@ -19,7 +19,7 @@ define( function ( require ) {
    * @param {Vector2} location
    * @param {Number} orientation in radians
    * @param {Rectangle} dragBounds
-   * @param {Property<Solute>} solute
+   * @param {Property} solute (type Solute)
    * @param {Number} maxDispensingRate
    * @constructor
    */

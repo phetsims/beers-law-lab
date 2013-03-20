@@ -17,7 +17,7 @@ define( function( require ) {
 
   /**
    * @param {Solvent} solvent
-   * @param {Property<Solute>} solute
+   * @param {Property} solute (type Solute)
    * @param {Dropper} dropper
    * @param {Beaker} beaker
    * @param {Number} tipWidth

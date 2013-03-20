@@ -18,7 +18,7 @@ define( function ( require ) {
   var Fluid = require( "common/model/Fluid" );
 
   /**
-   * @param {Property(Solute)} solute
+   * @param {Property} solute (type Solute)
    * @param {Number} soluteAmount moles
    * @param {NUmber} volume L
    */

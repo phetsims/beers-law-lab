@@ -42,7 +42,7 @@ define( function ( require ) {
   /**
    * @param {Dropper} dropper
    * @param {Solvent} solvent
-   * @param {Property<Solute>} solute
+   * @param {Property} solute (type Solute)
    * @param {ModelViewTransform2D} mvt
    * @constructor
    */
