@@ -38,7 +38,7 @@ define( function ( require ) {
      */
     fluid.color.addObserver( function ( color ) {
       faucetFluidNode.fill = color.toCSS();
-      faucetFluidNode.stroke = color.darker(); //TODO too dark!
+      faucetFluidNode.stroke = color.darker().toCSS();
     } );
 
     /*
