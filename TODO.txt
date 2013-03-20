@@ -20,11 +20,11 @@ SCENERY FEATURES/BUGS
 
 FIX
 - Reset All in initial state sets solution color to white
-- does Node.setVisible have problems?
 - keep shaking the shaker until the display flips out
 - performance of particles stinks
 
 HIGH
+- wire up visibility of ShakerNode and DropperNode when scenery#9 is fixed
 - Evaporation slider
 - Solid | Solution radio buttons
 - Solute combo box
