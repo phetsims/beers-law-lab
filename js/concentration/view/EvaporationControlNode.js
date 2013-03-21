@@ -31,9 +31,10 @@ define( function ( require ) {
     var sliderNode = new SliderNode( new Range( 0, evaporator.maxEvaporationRate ),
                                      new Dimension2( 200, 6 ),
                                      evaporator.evaporationRate,
-                                     evaporator.enabled );
-    sliderNode.addLabel( 0, new Text( strings.none, { font: "14px Arial" } ) );
-    sliderNode.addLabel( evaporator.maxEvaporationRate, new Text( strings.lots, { font: "14px Arial" } ) );
+                                     evaporator.enabled,
+                                     true );
+    sliderNode.addMajorTick( 0, new Text( strings.none, { font: "14px Arial" } ) );
+    sliderNode.addMajorTick( evaporator.maxEvaporationRate, new Text( strings.lots, { font: "14px Arial" } ) );
 
     var contentNode = new Node();
     contentNode.addChild( labelNode );
