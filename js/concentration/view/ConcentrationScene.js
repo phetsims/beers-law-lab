@@ -29,7 +29,7 @@ define( function ( require ) {
   var CheckBoxNode = require( "concentration/view/CheckBoxNode" );
   var ButtonNode = require( "concentration/view/ButtonNode" );
   var ResetAllButtonNode = require( "concentration/view/ResetAllButtonNode" );
-  var SliderNode = require( "concentration/view/SliderNode" );
+  var SliderNode = require( "common/view/SliderNode" );
 
   /**
    * @param {ConcentrationModel} model
