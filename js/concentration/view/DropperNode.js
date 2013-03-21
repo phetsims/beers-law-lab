@@ -121,7 +121,7 @@ define( function ( require ) {
     // Visibility
     dropper.visible.addObserver( function ( visible ) {
       console.log( "DropperNode.observer visible=" + visible );//XXX
-//      thisNode.setVisible( visible ); //TODO "no method paintCanvas" exception in CanvasLayer
+      thisNode.setVisible( visible ); //TODO no exception, but doesn't work
     } );
 
     // Make the background visible only when the dropper is empty
