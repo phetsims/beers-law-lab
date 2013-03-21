@@ -39,6 +39,7 @@ define( function ( require ) {
       scene.step( deltaSeconds );
     };
 
+    //TODO scene also has a resize handler, reduce to one handler
     // handle resizing of the browser window
     var handleResize = function () {
       //TODO
