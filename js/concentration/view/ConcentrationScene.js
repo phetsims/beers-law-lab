@@ -29,7 +29,7 @@ define( function ( require ) {
   var CheckBoxNode = require( "concentration/view/CheckBoxNode" );
   var ButtonNode = require( "concentration/view/ButtonNode" );
   var ResetAllButtonNode = require( "concentration/view/ResetAllButtonNode" );
-  var EvaporationControlNode = require( "concentration/view/EvaporationControlNode" );
+  var EvaporationNode = require( "concentration/view/EvaporationNode" );
 
   /**
    * @param {ConcentrationModel} model
@@ -76,7 +76,7 @@ define( function ( require ) {
     solutionCheckBoxNode.top = solidCheckBoxNode.top;
 
     // Evaporation control panel
-    var evaporationControlNode = new EvaporationControlNode( model.evaporator, strings );
+    var evaporationNode = new EvaporationNode( model.evaporator, strings );
 
     // Remove Solute button
     var removeSoluteButtonNode = new ButtonNode( strings.removeSolute, function () {
@@ -101,7 +101,7 @@ define( function ( require ) {
     rootNode.addChild( shakerNode );
     rootNode.addChild( dropperNode );
     rootNode.addChild( concentrationMeterNode );
-    rootNode.addChild( evaporationControlNode );
+    rootNode.addChild( evaporationNode );
     // add controls last, switch to DOM renderer cause a layer split
     rootNode.addChild( removeSoluteButtonNode );
     rootNode.addChild( resetAllButtonNode );
@@ -110,10 +110,10 @@ define( function ( require ) {
 
     // Layout for things that don't have a location in the model.
     {
-      evaporationControlNode.left = mvt.modelToView( model.beaker.location.x - ( model.beaker.size.width / 2 ) );
-      evaporationControlNode.top = beakerNode.bottom + 30;
-      removeSoluteButtonNode.left = evaporationControlNode.right + 30;
-      removeSoluteButtonNode.centerY = evaporationControlNode.centerY;
+      evaporationNode.left = mvt.modelToView( model.beaker.location.x - ( model.beaker.size.width / 2 ) );
+      evaporationNode.top = beakerNode.bottom + 30;
+      removeSoluteButtonNode.left = evaporationNode.right + 30;
+      removeSoluteButtonNode.centerY = evaporationNode.centerY;
       resetAllButtonNode.left = drainFaucetNode.right + 10;
       resetAllButtonNode.top = drainFaucetNode.bottom + 5;
     }
