@@ -72,7 +72,7 @@ define( function ( require ) {
     var backgroundNode = new Image( backgroundImage );
 
     // label
-    var $labelElement = $( '<div>' );
+    var $labelElement = $( '<span>' );
     $labelElement.css(
       { "font": "bold 15px Arial",
         "fill": "black"

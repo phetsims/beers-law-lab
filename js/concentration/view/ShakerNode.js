@@ -41,7 +41,7 @@ define( function ( require ) {
     imageNode.setScaleMagnitude( 0.75 );
 
     // label, use DOM to support HTML for formula subscripts
-    var $labelElement = $( '<div>' );
+    var $labelElement = $( '<span>' );
     $labelElement.css(
       { font: "bold 22px Arial",
         fill: "black"
