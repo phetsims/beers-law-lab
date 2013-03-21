@@ -84,16 +84,12 @@ define( function ( require ) {
     evaporationSliderNode.addLabel( model.evaporator.maxEvaporationRate, new Text( strings.lots, { font: "18px Arial" } ) );
 
     // Remove Solute button
-    var removeSoluteButtonNode = new ButtonNode( strings.removeSolute, function() {
+    var removeSoluteButtonNode = new ButtonNode( strings.removeSolute, function () {
       model.solution.soluteAmount.set( 0 );
-    });
-    removeSoluteButtonNode.x = beakerNode.centerX;
-    removeSoluteButtonNode.y = beakerNode.bottom + 50;
+    } );
 
     // Reset All button
     var resetAllButtonNode = new ResetAllButtonNode( resetAllCallback );
-    resetAllButtonNode.left = removeSoluteButtonNode.right + 10;
-    resetAllButtonNode.top = removeSoluteButtonNode.top;
 
     // Rendering order
     var rootNode = new Node();
@@ -118,8 +114,14 @@ define( function ( require ) {
     rootNode.addChild( solutionCheckBoxNode );
 
     // Layout for things that don't have a location in the model.
-    evaporationSliderNode.left = mvt.modelToView( model.beaker.location.x - ( model.beaker.size.width / 2 ) );
-    evaporationSliderNode.top = beakerNode.bottom + 30;
+    {
+      evaporationSliderNode.left = mvt.modelToView( model.beaker.location.x - ( model.beaker.size.width / 2 ) );
+      evaporationSliderNode.top = beakerNode.bottom + 30;
+      removeSoluteButtonNode.left = evaporationSliderNode.right + 30;
+      removeSoluteButtonNode.centerY = evaporationSliderNode.centerY;
+      resetAllButtonNode.left = drainFaucetNode.right + 10;
+      resetAllButtonNode.top = drainFaucetNode.bottom + 5;
+    }
 
     this.step = function ( deltaSeconds ) {
       scene.updateScene();
