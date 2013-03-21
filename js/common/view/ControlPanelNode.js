@@ -15,8 +15,8 @@ define( function ( require ) {
 
   /**
    * @param {Node} contentNode
-   * @param {Number} xMargin
-   * @param {Number} yMargin
+   * @param {Number} xMargin, optional
+   * @param {Number} yMargin, optional
    * @constructor
    */
   function ControlPanelNode( contentNode, xMargin, yMargin ) {
