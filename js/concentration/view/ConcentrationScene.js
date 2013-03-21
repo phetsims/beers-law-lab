@@ -14,6 +14,7 @@ define( function ( require ) {
   var DOM = require( "SCENERY/nodes/DOM" );
   var Node = require( "SCENERY/nodes/Node" );
   var Text = require( "SCENERY/nodes/Text" );
+  var Range = require( "PHETCOMMON/math/Range" );
   var Solute = require( "concentration/model/Solute" );
   var BeakerNode = require( "concentration/view/BeakerNode" );
   var FaucetNode = require( "concentration/view/FaucetNode" );
@@ -28,6 +29,7 @@ define( function ( require ) {
   var CheckBoxNode = require( "concentration/view/CheckBoxNode" );
   var ButtonNode = require( "concentration/view/ButtonNode" );
   var ResetAllButtonNode = require( "concentration/view/ResetAllButtonNode" );
+  var SliderNode = require( "concentration/view/SliderNode" );
 
   /**
    * @param {ConcentrationModel} model
@@ -73,6 +75,14 @@ define( function ( require ) {
     solutionCheckBoxNode.left = solidCheckBoxNode.right + 10;
     solutionCheckBoxNode.top = solidCheckBoxNode.top;
 
+    // Evaporation slider
+    var evaporationSliderNode = new SliderNode( new Range( 0, model.evaporator.maxEvaporationRate ),
+                                                new Dimension2( 200, 6 ),
+                                                model.evaporator.evaporationRate,
+                                                model.evaporator.enabled );
+    evaporationSliderNode.addLabel( 0, new Text( strings.none, { font: "18px Arial" } ) );
+    evaporationSliderNode.addLabel( model.evaporator.maxEvaporationRate, new Text( strings.lots, { font: "18px Arial" } ) );
+
     // Remove Solute button
     var removeSoluteButtonNode = new ButtonNode( strings.removeSolute, function() {
       model.solution.soluteAmount.set( 0 );
@@ -100,11 +110,16 @@ define( function ( require ) {
     rootNode.addChild( shakerNode );
     rootNode.addChild( dropperNode );
     rootNode.addChild( concentrationMeterNode );
+    rootNode.addChild( evaporationSliderNode );
     // add controls last, switch to DOM renderer cause a layer split
     rootNode.addChild( removeSoluteButtonNode );
     rootNode.addChild( resetAllButtonNode );
     rootNode.addChild( solidCheckBoxNode );
     rootNode.addChild( solutionCheckBoxNode );
+
+    // Layout for things that don't have a location in the model.
+    evaporationSliderNode.left = mvt.modelToView( model.beaker.location.x - ( model.beaker.size.width / 2 ) );
+    evaporationSliderNode.top = beakerNode.bottom + 30;
 
     this.step = function ( deltaSeconds ) {
       scene.updateScene();

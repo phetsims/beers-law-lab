@@ -20,9 +20,8 @@ SCENERY ENHANCEMENTS
 - coordinate frame transforms (scenery#12)
 
 FIX
-- color of meter images (was scenery#10)
-- keep shaking the shaker until the display flips out
 - performance of particles stinks
+- keep shaking the shaker until the display flips out
 
 HIGH
 - wire up visibility of ShakerNode and DropperNode when scenery#9 is fixed
@@ -39,6 +38,7 @@ MEDIUM
 
 LOW
 - use scenery.Pattern to texture map input pipe in FaucetNode
+- improve drag handler for faucet handles
 - Font abstraction
 - Beer's Law module
 
