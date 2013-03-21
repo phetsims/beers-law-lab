@@ -44,10 +44,10 @@ define( function ( require ) {
 
     var panelNode = new Path(
       {
-        shape: Shape.rect( 0, 0, contentNode.width + ( 2 * X_MARGIN ), contentNode.height + ( 2 * Y_MARGIN ) ),
+        shape: Shape.roundRect( 0, 0, contentNode.width + ( 2 * X_MARGIN ), contentNode.height + ( 2 * Y_MARGIN ), 10, 10 ),
         fill: '#F0F0F0',
-        stroke: 'black',
-        lineWidth: 2
+        stroke: 'gray',
+        lineWidth: 1
       }
     );
     thisNode.addChild( panelNode );
