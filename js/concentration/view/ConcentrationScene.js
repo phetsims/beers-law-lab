@@ -29,7 +29,7 @@ define( function ( require ) {
   var CheckBoxNode = require( "concentration/view/CheckBoxNode" );
   var ButtonNode = require( "concentration/view/ButtonNode" );
   var ResetAllButtonNode = require( "concentration/view/ResetAllButtonNode" );
-  var SliderNode = require( "common/view/SliderNode" );
+  var EvaporationControlNode = require( "concentration/view/EvaporationControlNode" );
 
   /**
    * @param {ConcentrationModel} model
@@ -75,13 +75,8 @@ define( function ( require ) {
     solutionCheckBoxNode.left = solidCheckBoxNode.right + 10;
     solutionCheckBoxNode.top = solidCheckBoxNode.top;
 
-    // Evaporation slider
-    var evaporationSliderNode = new SliderNode( new Range( 0, model.evaporator.maxEvaporationRate ),
-                                                new Dimension2( 200, 6 ),
-                                                model.evaporator.evaporationRate,
-                                                model.evaporator.enabled );
-    evaporationSliderNode.addLabel( 0, new Text( strings.none, { font: "18px Arial" } ) );
-    evaporationSliderNode.addLabel( model.evaporator.maxEvaporationRate, new Text( strings.lots, { font: "18px Arial" } ) );
+    // Evaporation control panel
+    var evaporationControlNode = new EvaporationControlNode( model.evaporator, strings );
 
     // Remove Solute button
     var removeSoluteButtonNode = new ButtonNode( strings.removeSolute, function () {
@@ -106,7 +101,7 @@ define( function ( require ) {
     rootNode.addChild( shakerNode );
     rootNode.addChild( dropperNode );
     rootNode.addChild( concentrationMeterNode );
-    rootNode.addChild( evaporationSliderNode );
+    rootNode.addChild( evaporationControlNode );
     // add controls last, switch to DOM renderer cause a layer split
     rootNode.addChild( removeSoluteButtonNode );
     rootNode.addChild( resetAllButtonNode );
@@ -115,10 +110,10 @@ define( function ( require ) {
 
     // Layout for things that don't have a location in the model.
     {
-      evaporationSliderNode.left = mvt.modelToView( model.beaker.location.x - ( model.beaker.size.width / 2 ) );
-      evaporationSliderNode.top = beakerNode.bottom + 30;
-      removeSoluteButtonNode.left = evaporationSliderNode.right + 30;
-      removeSoluteButtonNode.centerY = evaporationSliderNode.centerY;
+      evaporationControlNode.left = mvt.modelToView( model.beaker.location.x - ( model.beaker.size.width / 2 ) );
+      evaporationControlNode.top = beakerNode.bottom + 30;
+      removeSoluteButtonNode.left = evaporationControlNode.right + 30;
+      removeSoluteButtonNode.centerY = evaporationControlNode.centerY;
       resetAllButtonNode.left = drainFaucetNode.right + 10;
       resetAllButtonNode.top = drainFaucetNode.bottom + 5;
     }

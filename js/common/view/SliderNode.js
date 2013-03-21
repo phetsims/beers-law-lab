@@ -65,7 +65,8 @@ define( function ( require ) {
     thisNode.addChild( knobNode );
 
     enabled.addObserver( function ( enabled ) {
-      knobNode.fill = enabled ? 'red' : 'gray';
+      knobNode.fill = enabled ? 'red' : '#F0F0F0';
+      knobNode.cursor = enabled ? "pointer" : "default";
     } );
 
     thisNode._valueToPosition = new LinearFunction( range, new Range( 0, trackSize.width ) );
