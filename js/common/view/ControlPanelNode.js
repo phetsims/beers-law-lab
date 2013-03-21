@@ -21,15 +21,15 @@ define( function ( require ) {
    */
   function ControlPanelNode( contentNode, xMargin, yMargin ) {
 
-    var _xMargin = ( xMargin || 20 );
-    var _yMargin = ( yMargin || 10 );
+    xMargin = ( xMargin || 20 );
+    yMargin = ( yMargin || 10 );
 
     var thisNode = this;
     Node.call( thisNode );
 
     var panelNode = new Path(
       {
-        shape: Shape.roundRect( 0, 0, contentNode.width + ( 2 * _xMargin ), contentNode.height + ( 2 * _yMargin ), 10, 10 ),
+        shape: Shape.roundRect( 0, 0, contentNode.width + ( 2 * xMargin ), contentNode.height + ( 2 * yMargin ), 10, 10 ),
         fill: '#F0F0F0',
         stroke: 'gray',
         lineWidth: 1
