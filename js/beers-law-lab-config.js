@@ -31,6 +31,7 @@ requirejs.config(
       // Common repos, uppercase names to identify them in require imports
       ASSERT: '../../assert/js',
       DOT: '../../dot/js',
+      PHET_CORE: '../../phet-core/js',
       PHETCOMMON: "../../phetcommon/js",
       SCENERY: '../../scenery/js',
       KITE: '../../kite/js'
