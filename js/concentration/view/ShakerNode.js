@@ -70,8 +70,7 @@ define( function ( require ) {
 
     // sync visibility with model
     shaker.visible.addObserver( function updateVisibility( visible ) {
-      console.log( "ShakerNode.observer visible=" + visible );//XXX
-      thisNode.setVisible( visible ); //TODO no exception, but doesn't work
+      thisNode.setVisible( visible );
     } );
 
     // sync solute with model

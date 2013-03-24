@@ -12,7 +12,6 @@ IMPLEMENTATION ISSUES
 - Bootstrap controls
 
 SCENERY BUGS
-- Node.setVisible (scenery#9)
 
 SCENERY ENHANCEMENTS
 - add Node.toImage (scenery#7)

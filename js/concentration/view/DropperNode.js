@@ -120,8 +120,7 @@ define( function ( require ) {
 
     // Visibility
     dropper.visible.addObserver( function ( visible ) {
-      console.log( "DropperNode.observer visible=" + visible );//XXX
-      thisNode.setVisible( visible ); //TODO no exception, but doesn't work
+      thisNode.setVisible( visible );
     } );
 
     // Make the background visible only when the dropper is empty
