@@ -23,7 +23,6 @@ FIX
 - keep shaking the shaker until the display flips out
 
 HIGH
-- wire up visibility of ShakerNode and DropperNode when scenery#9 is fixed
 - Solid | Solution radio buttons
 - Solute combo box
 - CSS for bootstrap components

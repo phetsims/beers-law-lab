@@ -1,5 +1,6 @@
-3/24/13 test commit from IDEA
-3/24/13 test commit from command line
+3/25/13 use class instead of tag when changing check box icon, so that additional icons can be supported
+3/25/13 test commit from IDEA
+3/25/13 test commit from command line
 3/24/13 enabled setVisible calls in DropperNode and ShakerNode
 3/24/13 added PHET_CORE
 3/20/13 generalize ControlPanelNode

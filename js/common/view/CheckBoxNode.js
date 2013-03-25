@@ -29,12 +29,12 @@ define( function( require ) {
 
     // dynamically create a DOM check box
     var initialIcon = getIcon( booleanProperty.get() );
-    var $checkBox = $( '<button class="btn v-button"><p style="font: 16px arial;"><i class="' + initialIcon + '" style="float:left; margin-right: 5px;font-size: larger;"></i>' + text + '</p></button>' );
+    var $checkBox = $( '<button class="btn v-button"><p style="font: 16px arial;"><i class="phet-checkbox-icon ' + initialIcon + '" style="float:left; margin-right: 5px;font-size: larger;"></i>' + text + '</p></button>' );
     $checkBox.bind( 'click', function() {
       // toggle the property value
       booleanProperty.set( !booleanProperty.get() );
       // change the icon
-      var $icon = $checkBox.find( 'i' );
+      var $icon = $checkBox.find( '.phet-checkbox-icon' );
       $icon.removeClass( ICON_CHECKED ).removeClass( ICON_UNCHECKED );
       $icon.addClass( getIcon( booleanProperty.get() ) );
     } );
