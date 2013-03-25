@@ -20,7 +20,7 @@ define( function ( require ) {
   var LinearFunction = require( "common/util/LinearFunction" );
 
   // constants
-  var KNOB_SIZE = new Dimension2( 15, 30 );
+  var KNOB_SIZE = new Dimension2( 20, 30 );
   var MAJOR_TICK_LENGTH = 20;
   var MINOR_TICK_LENGTH = 15;
   var KNOB_FILL_ENABLED = "3399FF";

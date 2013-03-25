@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * Evaporation control panel.
+ * Evaporator.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -16,7 +16,7 @@ define( function ( require ) {
   var SliderNode = require( "common/view/SliderNode" );
   var ControlPanelNode = require( "common/view/ControlPanelNode" );
 
-  function EvaporationControlNode( evaporator, strings ) {
+  function EvaporatorNode( evaporator, strings ) {
 
     var thisNode = this;
 
@@ -40,7 +40,7 @@ define( function ( require ) {
     ControlPanelNode.call( thisNode, contentNode );
   }
 
-  Inheritance.inheritPrototype( EvaporationControlNode, ControlPanelNode );
+  Inheritance.inheritPrototype( EvaporatorNode, ControlPanelNode );
 
-  return EvaporationControlNode;
+  return EvaporatorNode;
 } );
