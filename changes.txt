@@ -1,3 +1,4 @@
+3/25/13 demonstrate using custom icons with bootstrap
 3/25/13 use class instead of tag when changing check box icon, so that additional icons can be supported
 3/25/13 test commit from IDEA
 3/25/13 test commit from command line

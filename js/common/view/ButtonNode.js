@@ -18,7 +18,7 @@ define( function ( require ) {
    */
   function ButtonNode( text, callback ) {
 
-    var $button = $( '<button class="btn"><p style="font: 16px arial;">' + text + '</p></button>' );
+    var $button = $( '<button class="btn"><i class="bll-shaker-icon"></i>' + text + '</button>' );
     $button.bind( 'click', callback );
 
     DOM.call( this, $button[0] );
