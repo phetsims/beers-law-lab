@@ -144,7 +144,7 @@ define( function ( require ) {
         shape: new Shape()
           .moveTo( labelX, this._trackNode.bottom )
           .lineTo( labelX, this._trackNode.bottom + tickLength ),
-        lineWidth: 2,
+        lineWidth: 1,
         stroke: 'black'
       } );
     this._ticksParent.addChild( tickNode );
