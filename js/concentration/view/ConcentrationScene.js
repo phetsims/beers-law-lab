@@ -15,6 +15,9 @@ define( function ( require ) {
   var Node = require( "SCENERY/nodes/Node" );
   var Text = require( "SCENERY/nodes/Text" );
   var Range = require( "PHETCOMMON/math/Range" );
+  var ButtonNode = require( "common/view/ButtonNode" );
+  var CheckBoxNode = require( "common/view/CheckBoxNode" );
+  var ResetAllButtonNode = require( "common/view/ResetAllButtonNode" );
   var Solute = require( "concentration/model/Solute" );
   var BeakerNode = require( "concentration/view/BeakerNode" );
   var FaucetNode = require( "concentration/view/FaucetNode" );
@@ -26,9 +29,6 @@ define( function ( require ) {
   var DropperNode = require( "concentration/view/DropperNode" );
   var StockSolutionNode = require( "concentration/view/StockSolutionNode" );
   var ConcentrationMeterNode = require( "concentration/view/ConcentrationMeterNode" );
-  var CheckBoxNode = require( "concentration/view/CheckBoxNode" );
-  var ButtonNode = require( "concentration/view/ButtonNode" );
-  var ResetAllButtonNode = require( "concentration/view/ResetAllButtonNode" );
   var EvaporationNode = require( "concentration/view/EvaporationNode" );
 
   /**
