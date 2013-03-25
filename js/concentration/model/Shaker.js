@@ -21,9 +21,10 @@ define( function ( require ) {
    * @param {Rectangle} dragBounds
    * @param {Property} solute (type Solute)
    * @param {Number} maxDispensingRate
+   * @param {Boolean} visible
    * @constructor
    */
-  function Shaker( location, dragBounds, orientation, solute, maxDispensingRate ) {
+  function Shaker( location, dragBounds, orientation, solute, maxDispensingRate, visible ) {
 
     Movable.call( this, location, dragBounds ); // constructor stealing
 
@@ -33,7 +34,7 @@ define( function ( require ) {
     shaker.solute = solute;
     shaker.maxDispensingRate = maxDispensingRate;
 
-    shaker.visible = new Property( true );
+    shaker.visible = new Property( visible );
     shaker.empty = new Property( false );
     shaker.dispensingRate = new Property( 0 );
     shaker.previousLocation = location;

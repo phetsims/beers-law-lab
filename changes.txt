@@ -1,3 +1,4 @@
+3/25/12 make dropper initially invisible, add visible arg to dropper and shaker constructors
 3/25/12 make slider knob wider
 3/25/12 rename EvaporatorNode
 3/25/12 specify a font for ButtonNode

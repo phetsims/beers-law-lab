@@ -18,16 +18,17 @@ define( function ( require ) {
    * @param {Rectangle} dragBounds
    * @param {Property} solute (type Solute)
    * @param {Number} maxFlowRate
+   * @param {Boolean} visible
    * @constructor
    */
-  function Dropper( location, dragBounds, solute, maxFlowRate ) {
+  function Dropper( location, dragBounds, solute, maxFlowRate, visible ) {
 
     Movable.call( this, location, dragBounds );
 
     var dropper = this;
 
     dropper.solute = solute;
-    dropper.visible = new Property( true );
+    dropper.visible = new Property( visible );
     dropper.on = new Property( false ); // true if the dropper is dispensing solution
     dropper.enabled = new Property( true );
     dropper.empty = new Property( false );
