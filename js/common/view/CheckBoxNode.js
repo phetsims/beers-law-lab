@@ -2,6 +2,7 @@
 
 /**
  * Bootstrap check box wrapped in a DOM node.
+ * Requires font-awesome for icons.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
