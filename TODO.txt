@@ -36,6 +36,7 @@ MEDIUM
 - compute deltaSeconds in animation loop
 
 LOW
+- value in concentration meter jitters horizontally as value changes
 - use scenery.Pattern to texture map input pipe in FaucetNode
 - improve drag handler for faucet handles
 - Font abstraction
