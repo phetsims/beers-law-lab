@@ -1,3 +1,4 @@
+3/24/13 test commit
 3/24/13 enabled setVisible calls in DropperNode and ShakerNode
 3/24/13 added PHET_CORE
 3/20/13 generalize ControlPanelNode
