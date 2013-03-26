@@ -30,7 +30,7 @@ define( function ( require ) {
   var StockSolutionNode = require( "concentration/view/StockSolutionNode" );
   var ConcentrationMeterNode = require( "concentration/view/ConcentrationMeterNode" );
   var EvaporatorNode = require( "concentration/view/EvaporatorNode" );
-  var SoluteControlNode = require( "concentration/view/SoluteControlNode" );
+  var SoluteFormNode = require( "concentration/view/SoluteFormNode" );
 
   /**
    * @param {ConcentrationModel} model
@@ -68,7 +68,7 @@ define( function ( require ) {
                                                              mvt, strings );
 
     // Solute selector
-    var soluteControlNode = new SoluteControlNode( model.shaker, model.dropper, strings );
+    var soluteControlNode = new SoluteFormNode( model.shaker, model.dropper, strings );
 
     // Evaporator
     var evaporator = new EvaporatorNode( model.evaporator, strings );

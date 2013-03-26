@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * Bootstrap button group that controls mutually-exclusive selection of the solute type,
+ * Bootstrap button group that controls mutually-exclusive selection of the solute form,
  * either solid (shaker) or stock solution (dropper).
  *
  * @author Chris Malley (PixelZoom, Inc.)
@@ -17,7 +17,7 @@ define( function( require ) {
   var CLASS_SELECTED = "btn-info"; // bootstrap class name for "info" button color
   var CLASS_UNSELECTED = "";  // bootstrap class name for default button color
 
-  function SoluteControlNode( shaker, dropper, strings )  {
+  function SoluteFormNode( shaker, dropper, strings )  {
 
     var thisNode = this;
 
@@ -56,7 +56,7 @@ define( function( require ) {
     } );
   }
 
-  Inheritance.inheritPrototype( SoluteControlNode, DOM );
+  Inheritance.inheritPrototype( SoluteFormNode, DOM );
 
-  return SoluteControlNode;
+  return SoluteFormNode;
 });
