@@ -23,11 +23,10 @@ define( function ( require ) {
    */
   function FaucetFluidNode( faucet, fluid, height, mvt ) {
 
-    Path.call( this, {
+    var thisNode = this;
+    Path.call( thisNode, {
       lineWidth: 1  //TODO is this correct?
     } );
-
-    var faucetFluidNode = this;
 
     this.x = faucet.location.x;
     this.y = faucet.location.y;
@@ -37,8 +36,8 @@ define( function ( require ) {
      * @param {Color} color
      */
     fluid.color.addObserver( function ( color ) {
-      faucetFluidNode.fill = color.toCSS();
-      faucetFluidNode.stroke = color.darker().toCSS();
+      thisNode.fill = color.toCSS();
+      thisNode.stroke = color.darker().toCSS();
     } );
 
     /*
@@ -47,12 +46,12 @@ define( function ( require ) {
      */
     faucet.flowRate.addObserver( function ( flowRate ) {
       if ( flowRate == 0 ) {
-        faucetFluidNode.shape = new Shape();
+        thisNode.shape = new Shape();
       }
       else {
         var viewWidth = mvt.modelToView( faucet.spoutWidth * flowRate / faucet.maxFlowRate );
         var viewHeight = mvt.modelToView( height );
-        faucetFluidNode.shape = Shape.rect( -viewWidth / 2, 0, viewWidth, viewHeight );
+        thisNode.shape = Shape.rect( -viewWidth / 2, 0, viewWidth, viewHeight );
       }
     } );
   }

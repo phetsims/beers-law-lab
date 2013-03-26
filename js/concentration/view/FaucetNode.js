@@ -37,7 +37,8 @@ define( function ( require ) {
 
   function FaucetNode( faucet, mvt ) {
 
-    Node.call( this ); // constructor stealing
+    var thisNode = this;
+    Node.call( thisNode ); // constructor stealing
 
     var orientationToFlowRate = new LinearFunction( HANDLE_ORIENTATION_RANGE, new Range( 0, faucet.maxFlowRate ) );
 
@@ -50,14 +51,14 @@ define( function ( require ) {
     var spoutNode = new Image( spoutImage );
 
     // rendering order
-    this.addChild( pipeNode );
-    this.addChild( handleNode );
-    this.addChild( pivotNode );
-    this.addChild( spoutNode );
+    thisNode.addChild( pipeNode );
+    thisNode.addChild( handleNode );
+    thisNode.addChild( pivotNode );
+    thisNode.addChild( spoutNode );
 
     // origin
     if ( DEBUG_ORIGIN ) {
-      this.addChild( new DebugOriginNode( "red" ) );
+      thisNode.addChild( new DebugOriginNode( "red" ) );
     }
 
     //TODO This is horizontally stretching the image, would look better to tile a rectangle with a texture.
@@ -82,8 +83,8 @@ define( function ( require ) {
 
     // move to model location
     var location = mvt.modelToView( faucet.location );
-    this.x = location.x;
-    this.y = location.y;
+    thisNode.x = location.x;
+    thisNode.y = location.y;
 
     // determine on/off handle locations
     handleNode.rotateAround( new Vector2( pivotNode.centerX, pivotNode.centerY ), HANDLE_ORIENTATION_RANGE.max );

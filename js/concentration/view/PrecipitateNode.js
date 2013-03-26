@@ -21,6 +21,7 @@ define( function ( require ) {
    * @constructor
    */
   function PrecipitateNode( precipitate, beaker, mvt ) {
+
     var thisNode = this;
     Node.call( thisNode );
 

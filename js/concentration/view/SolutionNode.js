@@ -27,26 +27,25 @@ define( function ( require ) {
    */
   function SolutionNode( solution, beaker, mvt ) {
 
-    Path.call( this, {
+    var thisNode = this;
+    Path.call( thisNode, {
       lineWidth: 1
     } );
 
-    var solutionNode = this;
-
-    this.solution = solution;
-    this.beaker = beaker;
+    thisNode.solution = solution;
+    thisNode.beaker = beaker;
 
     // same location as the beaker
-    this.x = beaker.location.x;
-    this.y = beaker.location.y;
+    thisNode.x = beaker.location.x;
+    thisNode.y = beaker.location.y;
 
     /*
      * Updates the color of the solution, accounting for saturation.
      * @param {Color} color
      */
     solution.color.addObserver( function ( color ) {
-      solutionNode.fill = color.toCSS();
-      solutionNode.stroke = color.darker().toCSS();
+      thisNode.fill = color.toCSS();
+      thisNode.stroke = color.darker().toCSS();
     } );
 
     /*
@@ -66,7 +65,7 @@ define( function ( require ) {
       // convert to view coordinates and create shape
       var viewWidth = mvt.modelToView( beaker.size.width );
       var viewHeight = mvt.modelToView( solutionHeight );
-      solutionNode.setShape( Shape.rect( -viewWidth / 2, -viewHeight, viewWidth, viewHeight ) );
+      thisNode.setShape( Shape.rect( -viewWidth / 2, -viewHeight, viewWidth, viewHeight ) );
     } );
   }
 

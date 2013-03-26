@@ -36,7 +36,8 @@ define( function ( require ) {
    */
   function BeakerNode( beaker, mvt, strings ) {
 
-    Node.call( this ); // constructor stealing
+    var thisNode = this;
+    Node.call( thisNode ); // constructor stealing
 
     // outline of the beaker, starting from upper left
     var width = mvt.modelToView( beaker.size.width );
@@ -48,7 +49,7 @@ define( function ( require ) {
       .lineTo( width / 2, 0 )
       .lineTo( width / 2, -height )
       .lineTo( (width / 2) + RIM_OFFSET, -height - RIM_OFFSET );
-    this.addChild( new Path(
+    thisNode.addChild( new Path(
       {
         shape: outlineShape,
         stroke: "black",
@@ -59,7 +60,7 @@ define( function ( require ) {
 
     // horizontal tick marks, left edge, from bottom up
     var ticksParent = new Node();
-    this.addChild( ticksParent );
+    thisNode.addChild( ticksParent );
     var numberOfTicks = Math.round( MAX_VOLUME / MINOR_TICK_SPACING );
     var deltaY = height / numberOfTicks;
     for ( var i = 1; i <= numberOfTicks; i++ ) {
@@ -96,8 +97,8 @@ define( function ( require ) {
     }
 
     var location = mvt.modelToView( beaker.location );
-    this.x = location.x;
-    this.y = location.y;
+    thisNode.x = location.x;
+    thisNode.y = location.y;
   }
 
   // prototype chaining

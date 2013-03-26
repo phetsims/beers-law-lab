@@ -18,12 +18,14 @@ define( function( require ) {
 
   function SoluteControlNode( shaker, dropper, strings )  {
 
+    var thisNode = this;
+
     var $buttonGroup = $( '<div class="btn-group" data-toggle="buttons-radio">' +
                           '<button id="shakerButton" type="button" class="btn btn-large"><i class="bll-shaker-icon" style="margin-right: 10px;"></i>' + strings.solid + '</button>' +
                           '<button id="dropperButton" type="button" class="btn btn-large"><i class="bll-dropper-icon" style="margin-right: 10px;"></i>' + strings.solution + '</button>' +
                           '</div>' );
 
-    DOM.call( this, $buttonGroup[0] );
+    DOM.call( thisNode, $buttonGroup[0] );
 
     var $shakerButton = $buttonGroup.find( "#shakerButton" );
     var $dropperButton = $buttonGroup.find( "#dropperButton" );

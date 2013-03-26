@@ -57,7 +57,7 @@ define( function( require ) {
 
     // hide this node when the dropper is invisible
     dropper.visible.addObserver( function ( visible ) {
-//TODO      thisNode.setVisible( visible );
+      thisNode.setVisible( visible );
     } );
   }
 

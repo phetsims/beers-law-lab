@@ -129,7 +129,7 @@ define( function( require ) {
     var drainFluidNode = drainFluidNode;
 
     var imageNode = new Image( probeImage );
-    this.addChild( imageNode );
+    thisNode.addChild( imageNode );
     var radius = imageNode.height / 2; // assumes that image height defines the radius
     imageNode.x = -radius;
     imageNode.y = -radius;
@@ -140,25 +140,25 @@ define( function( require ) {
     } );
 
     // drag handler
-    this.addInputListener( new MovableDragHandler( meter.probe, mvt ) );
+    thisNode.addInputListener( new MovableDragHandler( meter.probe, mvt ) );
 
     var isInNode = function ( node ) {
       return node.getBounds().containsPoint( meter.probe.location.get() );
     };
 
-    this.isInSolution = function () {
+    thisNode.isInSolution = function () {
       return isInNode( solutionNode );
     };
 
-    this.isInSolvent = function () {
+    thisNode.isInSolvent = function () {
       return isInNode( solventFluidNode );
     };
 
-    this.isInDrainFluid = function () {
+    thisNode.isInDrainFluid = function () {
       return isInNode( drainFluidNode );
     };
 
-    this.isInStockSolution = function () {
+    thisNode.isInStockSolution = function () {
       return isInNode( stockSolutionNode );
     };
   }

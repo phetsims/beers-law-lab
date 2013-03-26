@@ -30,11 +30,10 @@ define( function ( require ) {
    */
   function ShakerNode( shaker, mvt ) {
 
-    Node.call( this, {
+    var thisNode = this;
+    Node.call( thisNode, {
       cursor: "pointer"
     } );
-
-    var thisNode = this;
 
     // shaker image
     var imageNode = new Image( shakerImage );
@@ -50,7 +49,7 @@ define( function ( require ) {
 
     // common parent, to simplify rotation and label alignment.
     var parentNode = new Node();
-    this.addChild( parentNode );
+    thisNode.addChild( parentNode );
     parentNode.addChild( imageNode );
     parentNode.addChild( labelNode );
     parentNode.rotate( MathUtil.toDegrees( shaker.orientation - Math.PI ) );
@@ -60,7 +59,7 @@ define( function ( require ) {
 
     // origin
     if ( DEBUG_ORIGIN ) {
-      this.addChild( new DebugOriginNode( "red" ) );
+      thisNode.addChild( new DebugOriginNode( "red" ) );
     }
 
     // sync location with model
@@ -85,7 +84,7 @@ define( function ( require ) {
     } );
 
     // drag handler
-    this.addInputListener( new MovableDragHandler( shaker, mvt ) );
+    thisNode.addInputListener( new MovableDragHandler( shaker, mvt ) );
   }
 
   Inheritance.inheritPrototype( ShakerNode, Node );

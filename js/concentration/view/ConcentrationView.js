@@ -16,7 +16,7 @@ define( function ( require ) {
 
   function ConcentrationView( model, strings ) {
 
-    var view = this;
+    var thisView = this;
 
     // browser window title
     $( 'title' ).html( strings.concentration );
@@ -35,7 +35,7 @@ define( function ( require ) {
     // scene graph
     var scene = new ConcentrationScene( model, mvt, strings, resetAllCallback );
 
-    view.step = function ( deltaSeconds ) {
+    thisView.step = function ( deltaSeconds ) {
       scene.step( deltaSeconds );
     };
 
