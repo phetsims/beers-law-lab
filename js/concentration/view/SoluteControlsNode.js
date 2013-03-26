@@ -14,6 +14,7 @@ define( function ( require ) {
   var Text = require( "SCENERY/nodes/Text" );
   var ControlPanelNode = require( "common/view/ControlPanelNode" );
   var StringUtils = require( "common/util/StringUtils" );
+  var SoluteDropdownNode = require( "concentration/view/SoluteDropdownNode" );
   var SoluteFormNode = require( "concentration/view/SoluteFormNode" );
 
   /**
@@ -32,16 +33,22 @@ define( function ( require ) {
     var text = StringUtils.format( strings.pattern_0label, [ strings.solute ] );
     var soluteLabel = new Text( text, { font: "22px Arial" });
 
+    // solute dropdown
+    var soluteDropdown = new SoluteDropdownNode( solutes, currentSolute );
+
     // radio buttons for solid vs solution
     var soluteFormNode = new SoluteFormNode( shaker, dropper, strings );
 
     var contentNode = new Node();
     contentNode.addChild( soluteLabel );
+    contentNode.addChild( soluteDropdown );
     contentNode.addChild( soluteFormNode );
 
     // layout
+    soluteDropdown.left = soluteLabel.right + 10;
+    soluteDropdown.centerY = soluteLabel.centerY;
     soluteFormNode.left = soluteLabel.left;
-    soluteFormNode.top = soluteLabel.bottom + 20;
+    soluteFormNode.top = Math.max( soluteLabel.bottom, soluteDropdown.bottom ) + 20;
 
     ControlPanelNode.call( thisNode, contentNode, 20, 20 );
   }

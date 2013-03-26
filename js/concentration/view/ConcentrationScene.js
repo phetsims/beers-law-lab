@@ -68,7 +68,7 @@ define( function ( require ) {
                                                              mvt, strings );
 
     // Solute controls
-    var soluteControlsNode = new SoluteControlsNode( model.solutes, model.solution, model.shaker, model.dropper, strings );
+    var soluteControlsNode = new SoluteControlsNode( model.solutes, model.solute, model.shaker, model.dropper, strings );
 
     // Evaporator
     var evaporator = new EvaporatorNode( model.evaporator, strings );
