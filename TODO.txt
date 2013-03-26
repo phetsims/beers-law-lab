@@ -26,7 +26,6 @@ HIGH
 - finish SoluteDropdownNode
 - switch to inherit.js and callSuper.js in phet-core, delete Inheritance.js
 - switch to dot for MathUtil and Range, then delete
-- Solute combo box
 - CSS for bootstrap components
 
 MEDIUM
