@@ -7,6 +7,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
+  "use strict";
 
   // imports
   var Inheritance = require("PHETCOMMON/util/Inheritance" );
@@ -18,6 +19,8 @@ define( function( require ) {
    * @constructor
    */
   function CheckBoxNode( text, booleanProperty ) {
+
+    var thisNode = this;
 
     // font-awesome icons
     var ICON_CHECKED = "icon-check";
@@ -40,7 +43,7 @@ define( function( require ) {
       $icon.addClass( getIcon( booleanProperty.get() ) );
     } );
 
-    DOM.call( this, $checkBox[0] );
+    DOM.call( thisNode, $checkBox[0] );
   }
 
   Inheritance.inheritPrototype( CheckBoxNode, DOM );

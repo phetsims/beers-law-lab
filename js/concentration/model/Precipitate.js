@@ -20,23 +20,23 @@ define( function ( require ) {
    */
   function Precipitate( solution, beaker ) {
 
-    var precipitate = this;
+    var thisPrecipitate = this;
 
-    precipitate.solution = solution;
-    precipitate.beaker = beaker;
-    precipitate.particles = new Array(); // PrecipitateParticle
-    precipitate.addedCallbacks = new Array(); // function(PrecipitateParticle)
-    precipitate.removedCallbacks = new Array(); // function(PrecipitateParticle)
+    thisPrecipitate.solution = solution;
+    thisPrecipitate.beaker = beaker;
+    thisPrecipitate.particles = new Array(); // PrecipitateParticle
+    thisPrecipitate.addedCallbacks = new Array(); // function(PrecipitateParticle)
+    thisPrecipitate.removedCallbacks = new Array(); // function(PrecipitateParticle)
 
     // when the saturation changes, update the number of precipitate particles
-    precipitate.solution.precipitateAmount.addObserver( function () {
-      precipitate._updateParticles();
+    thisPrecipitate.solution.precipitateAmount.addObserver( function () {
+      thisPrecipitate._updateParticles();
     } );
 
     // when the solute changes, remove all particles and create new particles for the solute
-    precipitate.solution.solute.addObserver( function () {
-      precipitate._removeAllParticles();
-      precipitate._updateParticles();
+    thisPrecipitate.solution.solute.addObserver( function () {
+      thisPrecipitate._removeAllParticles();
+      thisPrecipitate._updateParticles();
     } );
   }
 

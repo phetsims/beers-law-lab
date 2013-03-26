@@ -38,10 +38,10 @@ define( function ( require ) {
 
   function ConcentrationModel() {
 
-    var model = this;
+    var thisModel = this;
 
     // Solutes, in rainbow (ROYGBIV) order.
-    model.solutes = [
+    thisModel.solutes = [
       Solute.DRINK_MIX,
       Solute.COBALT_II_NITRATE,
       Solute.COBALT_CHLORIDE,
@@ -53,51 +53,50 @@ define( function ( require ) {
     ];
 
     // model elements
-    model.solute = new Property( model.solutes[0] );
-    model.solution = new ConcentrationSolution( model.solute, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue );
-    model.beaker = new Beaker( new Vector2( 400, 550 ), new Dimension2( 600, 300 ), 1 );
-    model.precipitate = new Precipitate( model.solution, model.beaker );
-    model.shaker = new Shaker( new Vector2( model.beaker.location.x, 170 ), new Rectangle( 225, 50, 400, 160 ), 0.75 * Math.PI, model.solute, SHAKER_MAX_DISPENSING_RATE, true );
-    model.shakerParticles = new ShakerParticles( model.shaker, model.solution, model.beaker );
-    model.dropper = new Dropper( new Vector2( model.beaker.location.x, 210 ), new Rectangle( 230, 205, 400, 30 ), model.solute, DROPPER_FLOW_RATE, false );
-    model.evaporator = new Evaporator( MAX_EVAPORATION_RATE, model.solution );
-    model.solventFaucet = new Faucet( new Vector2( 150, 220 ), 40, 100, MAX_INPUT_FLOW_RATE );
-    model.drainFaucet = new Faucet( new Vector2( 790, 607 ), 40, 5, MAX_OUTPUT_FLOW_RATE );
-    model.concentrationMeter = new ConcentrationMeter( new Vector2( 785, 210 ), new Rectangle( 10, 150, 825, 530 ),
+    thisModel.solute = new Property( thisModel.solutes[0] );
+    thisModel.solution = new ConcentrationSolution( thisModel.solute, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue );
+    thisModel.beaker = new Beaker( new Vector2( 400, 550 ), new Dimension2( 600, 300 ), 1 );
+    thisModel.precipitate = new Precipitate( thisModel.solution, thisModel.beaker );
+    thisModel.shaker = new Shaker( new Vector2( thisModel.beaker.location.x, 170 ), new Rectangle( 225, 50, 400, 160 ), 0.75 * Math.PI, thisModel.solute, SHAKER_MAX_DISPENSING_RATE, true );
+    thisModel.shakerParticles = new ShakerParticles( thisModel.shaker, thisModel.solution, thisModel.beaker );
+    thisModel.dropper = new Dropper( new Vector2( thisModel.beaker.location.x, 210 ), new Rectangle( 230, 205, 400, 30 ), thisModel.solute, DROPPER_FLOW_RATE, false );
+    thisModel.evaporator = new Evaporator( MAX_EVAPORATION_RATE, thisModel.solution );
+    thisModel.solventFaucet = new Faucet( new Vector2( 150, 220 ), 40, 100, MAX_INPUT_FLOW_RATE );
+    thisModel.drainFaucet = new Faucet( new Vector2( 790, 607 ), 40, 5, MAX_OUTPUT_FLOW_RATE );
+    thisModel.concentrationMeter = new ConcentrationMeter( new Vector2( 785, 210 ), new Rectangle( 10, 150, 825, 530 ),
                                                        new Vector2( 750, 370 ), new Rectangle( 30, 150, 935, 530 ) );
 
     // Things to do when the solute is changed.
-    model.solute.addObserver( function ( solute ) {
-      model.solution.soluteAmount.set( 0 );
+    thisModel.solute.addObserver( function ( solute ) {
+      thisModel.solution.soluteAmount.set( 0 );
     } );
 
     // Enable faucets and dropper based on amount of solution in the beaker.
-    model.solution.volume.addObserver( function ( volume ) {
-      model.solventFaucet.enabled.set( volume < SOLUTION_VOLUME_RANGE.max );
-      model.drainFaucet.enabled.set( volume > SOLUTION_VOLUME_RANGE.min );
-      model.dropper.enabled.set( !model.dropper.empty.get() && ( volume < SOLUTION_VOLUME_RANGE.max ) );
+    thisModel.solution.volume.addObserver( function ( volume ) {
+      thisModel.solventFaucet.enabled.set( volume < SOLUTION_VOLUME_RANGE.max );
+      thisModel.drainFaucet.enabled.set( volume > SOLUTION_VOLUME_RANGE.min );
+      thisModel.dropper.enabled.set( !thisModel.dropper.empty.get() && ( volume < SOLUTION_VOLUME_RANGE.max ) );
     } );
 
     // Empty shaker and dropper when max solute is reached.
-    model.solution.soluteAmount.addObserver( function ( soluteAmount ) {
+    thisModel.solution.soluteAmount.addObserver( function ( soluteAmount ) {
       var containsMaxSolute = ( soluteAmount >= SOLUTE_AMOUNT.max );
-      model.shaker.empty.set( containsMaxSolute );
-      model.dropper.empty.set( containsMaxSolute );
-      model.dropper.enabled.set( !model.dropper.empty.get() && !containsMaxSolute && model.solution.volume.get() < SOLUTION_VOLUME_RANGE.max );
+      thisModel.shaker.empty.set( containsMaxSolute );
+      thisModel.dropper.empty.set( containsMaxSolute );
+      thisModel.dropper.enabled.set( !thisModel.dropper.empty.get() && !containsMaxSolute && thisModel.solution.volume.get() < SOLUTION_VOLUME_RANGE.max );
     } );
   }
 
   // Resets all model elements
   ConcentrationModel.prototype.reset = function () {
-    var model = this;
-    model.solute.reset();
-    model.solution.reset();
-    model.shaker.reset();
-    model.dropper.reset();
-    model.evaporator.reset();
-    model.solventFaucet.reset();
-    model.drainFaucet.reset();
-    model.concentrationMeter.reset();
+    this.solute.reset();
+    this.solution.reset();
+    this.shaker.reset();
+    this.dropper.reset();
+    this.evaporator.reset();
+    this.solventFaucet.reset();
+    this.drainFaucet.reset();
+    this.concentrationMeter.reset();
   };
 
   /*

@@ -7,6 +7,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function ( require ) {
+  "use strict";
 
   // imports
   var DOM = require( "SCENERY/nodes/DOM" );
@@ -18,11 +19,13 @@ define( function ( require ) {
    */
   function ResetAllButtonNode( callback ) {
 
+    var thisNode = this;
+
     var $button = $( '<button class="btn btn-warning reset-all-button"><i class="icon-refresh icon-2x"></i></button>' );
     $button.bind( 'click', callback );
     $button.bind( 'touchstart', callback );
 
-    DOM.call( this, $button[0] );
+    DOM.call( thisNode, $button[0] );
   }
 
   Inheritance.inheritPrototype( ResetAllButtonNode, DOM );

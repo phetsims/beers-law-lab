@@ -29,24 +29,24 @@ define( function ( require ) {
    */
   function ShakerParticles( shaker, solution, beaker ) {
 
-    var particles = this;
+    var thisParticles = this;
 
-    particles.shaker = shaker;
-    particles.solution = solution;
-    particles.beaker = beaker;
-    particles.particles = new Array(); // ShakerParticle
-    particles.addedCallbacks = new Array();  // function(ShakerParticle)
-    particles.removedCallbacks = new Array(); // function(ShakerParticle)
+    thisParticles.shaker = shaker;
+    thisParticles.solution = solution;
+    thisParticles.beaker = beaker;
+    thisParticles.particles = new Array(); // ShakerParticle
+    thisParticles.addedCallbacks = new Array();  // function(ShakerParticle)
+    thisParticles.removedCallbacks = new Array(); // function(ShakerParticle)
 
     // when the solute changes, remove all particles
     solution.solute.addObserver( function () {
-      particles._removeAllParticles();
+      thisParticles._removeAllParticles();
     } );
 
     // remove all particles if the solute amount goes to zero.
     solution.soluteAmount.addObserver( function( amount ) {
       if ( amount === 0 ) {
-        particles._removeAllParticles();
+        thisParticles._removeAllParticles();
       }
     });
   }

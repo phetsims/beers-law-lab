@@ -7,6 +7,7 @@
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
 define( function ( require ) {
+  "use strict";
 
   // imports
   var Node = require( "SCENERY/nodes/Node" );

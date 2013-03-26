@@ -13,21 +13,21 @@ define( function ( require ) {
 
   function Evaporator( maxEvaporationRate, solution ) {
 
-    var evaporator = this;
+    var thisEvaporator = this;
 
-    evaporator.maxEvaporationRate = maxEvaporationRate; // L/sec
-    evaporator.evaporationRate = new Property( 0 ); // L/sec
-    evaporator.enabled = new Property( true );
+    thisEvaporator.maxEvaporationRate = maxEvaporationRate; // L/sec
+    thisEvaporator.evaporationRate = new Property( 0 ); // L/sec
+    thisEvaporator.enabled = new Property( true );
 
     // disable when the volume gets to zero
     solution.volume.addObserver( function ( volume ) {
-      evaporator.enabled.set( volume > 0 );
+      thisEvaporator.enabled.set( volume > 0 );
     } );
 
     // when disabled, set the rate to zero
-    evaporator.enabled.addObserver( function ( enabled ) {
+    thisEvaporator.enabled.addObserver( function ( enabled ) {
       if ( !enabled ) {
-        evaporator.evaporationRate.set( 0 );
+        thisEvaporator.evaporationRate.set( 0 );
       }
     } );
   }

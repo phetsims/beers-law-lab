@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function () {
+  "use strict";
 
   function ChemUtils() {}
 

@@ -15,11 +15,11 @@ define( function ( require ) {
   var Inheritance = require( "PHETCOMMON/util/Inheritance" );
 
   function MovableDragHandler( movable, mvt ) {
-    var dragHandler = this;
+    var thisHandler = this;
     SimpleDragHandler.call( this, {
       translate: function ( options ) {
         var pModel = mvt.viewToModel( new Vector2( options.position.x, options.position.y ) );
-        var pModelConstrained = dragHandler.constrainBounds( pModel, movable.dragBounds );
+        var pModelConstrained = thisHandler.constrainBounds( pModel, movable.dragBounds );
         movable.location.set( pModelConstrained );
       }
     } );

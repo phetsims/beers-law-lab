@@ -20,7 +20,7 @@ define( function ( require ) {
     this.minConcentration = minConcentration;
     this.midConcentration = midConcentration;
     this.maxConcentration = maxConcentration;
-  };
+  }
 
   /**
    * Converts a concentration value (in M) to a Color, using a linear interpolation of RGB colors.

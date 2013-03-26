@@ -26,33 +26,32 @@ define( function ( require ) {
    */
   function Shaker( location, dragBounds, orientation, solute, maxDispensingRate, visible ) {
 
-    Movable.call( this, location, dragBounds ); // constructor stealing
+    var thisShaker = this;
+    Movable.call( thisShaker, location, dragBounds ); // constructor stealing
 
-    var shaker = this;
+    thisShaker.orientation = orientation;
+    thisShaker.solute = solute;
+    thisShaker.maxDispensingRate = maxDispensingRate;
 
-    shaker.orientation = orientation;
-    shaker.solute = solute;
-    shaker.maxDispensingRate = maxDispensingRate;
-
-    shaker.visible = new Property( visible );
-    shaker.empty = new Property( false );
-    shaker.dispensingRate = new Property( 0 );
-    shaker.previousLocation = location;
+    thisShaker.visible = new Property( visible );
+    thisShaker.empty = new Property( false );
+    thisShaker.dispensingRate = new Property( 0 );
+    thisShaker.previousLocation = location;
 
     // set the dispensing rate to zero when the shaker becomes empty or invisible
     var observer = function () {
-      if ( shaker.empty.get() || !shaker.visible.get() ) {
-        shaker.dispensingRate.set( 0 );
+      if ( thisShaker.empty.get() || !thisShaker.visible.get() ) {
+        thisShaker.dispensingRate.set( 0 );
       }
     };
-    shaker.empty.addObserver( observer );
-    shaker.visible.addObserver( observer );
+    thisShaker.empty.addObserver( observer );
+    thisShaker.visible.addObserver( observer );
 
     // reset
-    shaker.reset = function () {
+    thisShaker.reset = function () {
       Inheritance.callSuper( Movable, "reset", this );
-      shaker.dispensingRate.reset();
-      shaker.previousLocation = this.location.get(); // to prevent shaker from dispensing solute when its location is reset
+      thisShaker.dispensingRate.reset();
+      thisShaker.previousLocation = this.location.get(); // to prevent shaker from dispensing solute when its location is reset
     }
   }
 

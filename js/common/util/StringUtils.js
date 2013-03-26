@@ -1,6 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 
 define( function () {
+  "use strict";
 
   function StringUtils() {}
 

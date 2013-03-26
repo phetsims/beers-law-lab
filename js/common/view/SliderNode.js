@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function ( require ) {
+  "use strict";
 
   // imports
   var Range = require( "PHETCOMMON/math/Range" );
@@ -51,7 +52,7 @@ define( function ( require ) {
         stroke: 'black',
         lineWidth: 1
       } );
-    thisNode.addChild( this._trackNode );
+    thisNode.addChild( thisNode._trackNode );
 
     // knob
     var knobNode = new Path(

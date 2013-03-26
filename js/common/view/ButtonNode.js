@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function ( require ) {
+  "use strict";
 
   // imports
   var DOM = require( "SCENERY/nodes/DOM")
@@ -18,10 +19,12 @@ define( function ( require ) {
    */
   function ButtonNode( text, callback ) {
 
+    var thisNode = this;
+
     var $button = $( '<button class="btn"><p style="font: 16px arial;">' + text + '</p></button>' );
     $button.bind( 'click', callback );
 
-    DOM.call( this, $button[0] );
+    DOM.call( thisNode, $button[0] );
   }
 
   Inheritance.inheritPrototype( ButtonNode, DOM );

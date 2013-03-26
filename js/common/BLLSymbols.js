@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function ( require ) {
+  "use strict";
 
   // imports
   var ChemUtils = require( "common/util/ChemUtils" );

@@ -8,6 +8,7 @@
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
 define( function ( require ) {
+  "use strict";
 
   // imports
   var Inheritance = require( "PHETCOMMON/util/Inheritance" );

@@ -20,19 +20,19 @@ define( function ( require ) {
    */
   function Faucet( location, spoutWidth, pipeLength, maxFlowRate ) {
 
-    var faucet = this;
+    var thisFaucet = this;
 
-    faucet.location = location;
-    faucet.spoutWidth = spoutWidth;
-    faucet.pipeLength = pipeLength;
-    faucet.maxFlowRate = maxFlowRate;
-    faucet.flowRate = new Property( 0 );
-    faucet.enabled = new Property( true );
+    thisFaucet.location = location;
+    thisFaucet.spoutWidth = spoutWidth;
+    thisFaucet.pipeLength = pipeLength;
+    thisFaucet.maxFlowRate = maxFlowRate;
+    thisFaucet.flowRate = new Property( 0 );
+    thisFaucet.enabled = new Property( true );
 
     // when disabled, turn off the faucet.
-    faucet.enabled.addObserver( function ( enabled ) {
+    thisFaucet.enabled.addObserver( function ( enabled ) {
       if ( !enabled ) {
-        faucet.flowRate.set( 0 );
+        thisFaucet.flowRate.set( 0 );
       }
     } );
   }

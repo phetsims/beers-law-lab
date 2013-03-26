@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function () {
+  "use strict";
 
   /**
    * @param {Range} range1
@@ -14,8 +15,10 @@ define( function () {
    */
   function LinearFunction( range1, range2 ) {
 
+    var thisFunction = this;
+
     // Maps from range1 to range2.
-    this.evaluate = function ( value ) {
+    thisFunction.evaluate = function ( value ) {
       var output = -range1.min + value;
       output = output * range2.getLength() / range1.getLength();
       output = range2.min + output;
@@ -23,7 +26,7 @@ define( function () {
     };
 
     // Maps from range2 to range1.
-    this.evaluateInverse = function ( value ) {
+    thisFunction.evaluateInverse = function ( value ) {
       return new LinearFunction( range2, range1 ).evaluate( value );
     };
   }
