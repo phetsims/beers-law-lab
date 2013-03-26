@@ -19,7 +19,9 @@ SCENERY ENHANCEMENTS
 - coordinate frame transforms (scenery#12)
 
 FIX
-- performance of particles stinks
+- iPad, Nexus: bootstrap components don't work
+- iPad: shaker and its label move separately
+- iPad, Nexus: performance of particles
 - keep shaking the shaker until the display flips out
 
 HIGH
