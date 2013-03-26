@@ -30,6 +30,7 @@ define( function ( require ) {
   var StockSolutionNode = require( "concentration/view/StockSolutionNode" );
   var ConcentrationMeterNode = require( "concentration/view/ConcentrationMeterNode" );
   var EvaporatorNode = require( "concentration/view/EvaporatorNode" );
+  var SoluteControlNode = require( "concentration/view/SoluteControlNode" );
 
   /**
    * @param {ConcentrationModel} model
@@ -65,15 +66,8 @@ define( function ( require ) {
                                                              solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode,
                                                              mvt, strings );
 
-    // Shaker ("Solid") check box
-    var solidCheckBoxNode = new CheckBoxNode( strings.solid, model.shaker.visible );
-    solidCheckBoxNode.left = concentrationMeterNode.left;
-    solidCheckBoxNode.bottom = concentrationMeterNode.top - 30;
-
-    // Dropper ("Solution") check box
-    var solutionCheckBoxNode = new CheckBoxNode( strings.solution, model.dropper.visible );
-    solutionCheckBoxNode.left = solidCheckBoxNode.right + 10;
-    solutionCheckBoxNode.top = solidCheckBoxNode.top;
+    // Choice of "Solid" (shaker) or "Solution" (dropper)
+    var soluteControlNode = new SoluteControlNode( model.shaker, model.dropper, strings );
 
     // Evaporator
     var evaporator = new EvaporatorNode( model.evaporator, strings );
@@ -105,11 +99,16 @@ define( function ( require ) {
     // add controls last, switch to DOM renderer cause a layer split
     rootNode.addChild( removeSoluteButtonNode );
     rootNode.addChild( resetAllButtonNode );
-    rootNode.addChild( solidCheckBoxNode );
-    rootNode.addChild( solutionCheckBoxNode );
+    rootNode.addChild( soluteControlNode );
 
     // Layout for things that don't have a location in the model.
     {
+//      solidCheckBoxNode.left = concentrationMeterNode.left;
+//      solidCheckBoxNode.bottom = concentrationMeterNode.top - 30;
+//      solutionCheckBoxNode.left = solidCheckBoxNode.right + 10;
+//      solutionCheckBoxNode.top = solidCheckBoxNode.top;
+      soluteControlNode.left = concentrationMeterNode.left;
+      soluteControlNode.bottom = concentrationMeterNode.top - 30;
       evaporator.left = mvt.modelToView( model.beaker.location.x - ( model.beaker.size.width / 2 ) );
       evaporator.top = beakerNode.bottom + 30;
       removeSoluteButtonNode.left = evaporator.right + 30;

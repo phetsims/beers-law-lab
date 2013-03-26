@@ -1,6 +1,7 @@
-3/25/12 make dropper initially invisible, add visible arg to dropper and shaker constructors
-3/25/12 make slider knob wider
-3/25/12 rename EvaporatorNode
+3/25/13 change to radio buttons for solid/solution control
+3/25/13 make dropper initially invisible, add visible arg to dropper and shaker constructors
+3/25/13 make slider knob wider
+3/25/13 rename EvaporatorNode
 3/25/12 specify a font for ButtonNode
 3/25/13 demonstrate using custom icons with bootstrap
 3/25/13 use class instead of tag when changing check box icon, so that additional icons can be supported
