@@ -23,6 +23,7 @@ FIX
 - keep shaking the shaker until the display flips out
 
 HIGH
+- finish SoluteDropdownNode
 - switch to inherit.js and callSuper.js in phet-core, delete Inheritance.js
 - Solute combo box
 - CSS for bootstrap components
