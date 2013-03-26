@@ -16,7 +16,6 @@ define( function ( require ) {
   var Text = require( "SCENERY/nodes/Text" );
   var Range = require( "PHETCOMMON/math/Range" );
   var ButtonNode = require( "common/view/ButtonNode" );
-  var CheckBoxNode = require( "common/view/CheckBoxNode" );
   var ResetAllButtonNode = require( "common/view/ResetAllButtonNode" );
   var Solute = require( "concentration/model/Solute" );
   var BeakerNode = require( "concentration/view/BeakerNode" );
@@ -103,10 +102,6 @@ define( function ( require ) {
 
     // Layout for things that don't have a location in the model.
     {
-//      solidCheckBoxNode.left = concentrationMeterNode.left;
-//      solidCheckBoxNode.bottom = concentrationMeterNode.top - 30;
-//      solutionCheckBoxNode.left = solidCheckBoxNode.right + 10;
-//      solutionCheckBoxNode.top = solidCheckBoxNode.top;
       soluteControlNode.left = concentrationMeterNode.left;
       soluteControlNode.bottom = concentrationMeterNode.top - 30;
       evaporator.left = mvt.modelToView( model.beaker.location.x - ( model.beaker.size.width / 2 ) );
