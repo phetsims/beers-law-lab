@@ -65,7 +65,7 @@ define( function ( require ) {
                                                              solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode,
                                                              mvt, strings );
 
-    // Choice of "Solid" (shaker) or "Solution" (dropper)
+    // Solute selector
     var soluteControlNode = new SoluteControlNode( model.shaker, model.dropper, strings );
 
     // Evaporator
@@ -80,25 +80,23 @@ define( function ( require ) {
     var resetAllButtonNode = new ResetAllButtonNode( resetAllCallback );
 
     // Rendering order
-    var rootNode = new Node();
-    scene.addChild( rootNode );
-    rootNode.addChild( solventFluidNode );
-    rootNode.addChild( solventFaucetNode );
-    rootNode.addChild( drainFluidNode );
-    rootNode.addChild( drainFaucetNode );
-    rootNode.addChild( stockSolutionNode );
-    rootNode.addChild( solutionNode );
-    rootNode.addChild( beakerNode.mutate( { layerSplit: true } ) ); //TODO experiment to put static nodes in their own layer
-    rootNode.addChild( precipitateNode );
-    rootNode.addChild( shakerParticlesNode );
-    rootNode.addChild( shakerNode );
-    rootNode.addChild( dropperNode );
-    rootNode.addChild( concentrationMeterNode );
-    rootNode.addChild( evaporator );
+    scene.addChild( solventFluidNode );
+    scene.addChild( solventFaucetNode );
+    scene.addChild( drainFluidNode );
+    scene.addChild( drainFaucetNode );
+    scene.addChild( stockSolutionNode );
+    scene.addChild( solutionNode );
+    scene.addChild( beakerNode.mutate( { layerSplit: true } ) ); //TODO experiment to put static nodes in their own layer
+    scene.addChild( precipitateNode );
+    scene.addChild( shakerParticlesNode );
+    scene.addChild( shakerNode );
+    scene.addChild( dropperNode );
+    scene.addChild( concentrationMeterNode );
+    scene.addChild( evaporator );
     // add controls last, switch to DOM renderer cause a layer split
-    rootNode.addChild( removeSoluteButtonNode );
-    rootNode.addChild( resetAllButtonNode );
-    rootNode.addChild( soluteControlNode );
+    scene.addChild( removeSoluteButtonNode );
+    scene.addChild( resetAllButtonNode );
+    scene.addChild( soluteControlNode );
 
     // Layout for things that don't have a location in the model.
     {
@@ -126,7 +124,7 @@ define( function ( require ) {
       var UNITY_WINDOW_SIZE = new Dimension2( 1024, 768 ); // At this window size, scaling is 1.
       var windowSize = new Dimension2( $( window ).width(), $( window ).height() );
       var scale = Math.min( windowSize.width / UNITY_WINDOW_SIZE.width, windowSize.height / UNITY_WINDOW_SIZE.height );
-      rootNode.setScaleMagnitude( scale );
+      scene.setScaleMagnitude( scale );
     };
     $( window ).resize( handleResize );
     handleResize(); // initial size
