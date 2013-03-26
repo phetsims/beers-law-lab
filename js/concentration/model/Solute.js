@@ -60,7 +60,7 @@ define( function ( require ) {
                            5.64, new Color( 255, 0, 0 ) ) );
 
   Solute.COBALT_CHLORIDE = new Solute(
-    Strings.COBALT_CHLORIDE,
+    Strings.cobaltChloride,
     BLLSymbols.COBALT_CHLORIDE,
     4.0,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR,
@@ -68,7 +68,7 @@ define( function ( require ) {
                            4.33, new Color( 255, 106, 106 ) ) );
 
   Solute.POTASSIUM_DICHROMATE = new Solute(
-    Strings.POTASSIUM_DICHROMATE,
+    Strings.potassiumDichromate,
     BLLSymbols.POTASSIUM_DICHROMATE,
     0.5,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR,
@@ -76,7 +76,7 @@ define( function ( require ) {
                            0.51, new Color( 255, 127, 0 ) ) );
 
   Solute.POTASSIUM_CHROMATE = new Solute(
-    Strings.POTASSIUM_CHROMATE,
+    Strings.potassiumChromate,
     BLLSymbols.POTASSIUM_CHROMATE,
     3.0,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR,
@@ -84,7 +84,7 @@ define( function ( require ) {
                            3.35, new Color( 255, 255, 0 ) ) );
 
   Solute.NICKEL_II_CHLORIDE = new Solute(
-    Strings.NICKEL_II_CHLORIDE,
+    Strings.nickelIIChloride,
     BLLSymbols.NICKEL_II_CHLORIDE,
     5.0,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR,
@@ -92,7 +92,7 @@ define( function ( require ) {
                            5.21, new Color( 0, 128, 0 ) ) );
 
   Solute.COPPER_SULFATE = new Solute(
-    Strings.COPPER_SULFATE,
+    Strings.copperSulfate,
     BLLSymbols.COPPER_SULFATE,
     1.0,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR,
@@ -100,7 +100,7 @@ define( function ( require ) {
                            1.38, new Color( 30, 144, 255 ) ) );
 
   Solute.POTASSIUM_PERMANGANATE = new Solute(
-    Strings.POTASSIUM_PERMANGANATE,
+    Strings.potassiumPermanganate,
     BLLSymbols.POTASSIUM_PERMANGANATE,
     0.4,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR,
