@@ -1,5 +1,9 @@
 // Copyright 2002-2013, University of Colorado
 
+//TODO button needs to be as wide as widest choice
+//TODO no hand cursor over dropdown
+//TODO clicking on current-selection button doesn't show dropdown, must click on caret button
+//TODO add icons to indicate solute colors
 /**
  * Bootstrap dropdown for choosing a solute.
  *
@@ -40,11 +44,16 @@ define( function ( require ) {
 
 //    $comboBox.find( '.dropdown-toggle' ).dropdown(); //TODO this doesn't seem to be needed?
 
-    var $selectionButton = $comboBox.find( "#bll-solute-dropdown-button" );
-    $selectionButton.bind( 'click', function () {
-      console.log( "selectionButton.click" );//XXX
-    } );
+    var $currentSelectionButton = $comboBox.find( "bll-solute-dropdown-button" );
 
+    // Process selection of options in dropdown.
+    $comboBox.find( "li" ).bind( 'click', function ( /* {jQuery.Event} */ event ) {
+      var soluteName = event.delegateTarget.innerHTML;
+      console.log( "click: " + soluteName );
+      //TODO use soluteName to set text on #bll-solute-dropdown-button
+      //TODO var selectedSolute = get solute from solutes[], store an index in the <li> as a custom attribute?
+      //TODO currentSolute.set( selectedSolute );
+    } );
   }
 
   Inheritance.inheritPrototype( SoluteDropdownNode, DOM );
