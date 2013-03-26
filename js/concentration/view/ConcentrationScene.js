@@ -30,7 +30,7 @@ define( function ( require ) {
   var StockSolutionNode = require( "concentration/view/StockSolutionNode" );
   var ConcentrationMeterNode = require( "concentration/view/ConcentrationMeterNode" );
   var EvaporatorNode = require( "concentration/view/EvaporatorNode" );
-  var SoluteFormNode = require( "concentration/view/SoluteFormNode" );
+  var SoluteControlsNode = require( "concentration/view/SoluteControlsNode" );
 
   /**
    * @param {ConcentrationModel} model
@@ -67,8 +67,8 @@ define( function ( require ) {
                                                              solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode,
                                                              mvt, strings );
 
-    // Solute selector
-    var soluteControlNode = new SoluteFormNode( model.shaker, model.dropper, strings );
+    // Solute controls
+    var soluteControlsNode = new SoluteControlsNode( model.solutes, model.solution, model.shaker, model.dropper, strings );
 
     // Evaporator
     var evaporator = new EvaporatorNode( model.evaporator, strings );
@@ -98,12 +98,12 @@ define( function ( require ) {
     // add controls last, switch to DOM renderer cause a layer split
     thisScene.addChild( removeSoluteButtonNode );
     thisScene.addChild( resetAllButtonNode );
-    thisScene.addChild( soluteControlNode );
+    thisScene.addChild( soluteControlsNode );
 
     // Layout for things that don't have a location in the model.
     {
-      soluteControlNode.left = concentrationMeterNode.left;
-      soluteControlNode.bottom = concentrationMeterNode.top - 30;
+      soluteControlsNode.left = beakerNode.right;
+      soluteControlsNode.bottom = beakerNode.top - 70;
       evaporator.left = mvt.modelToView( model.beaker.location.x - ( model.beaker.size.width / 2 ) );
       evaporator.top = beakerNode.bottom + 30;
       removeSoluteButtonNode.left = evaporator.right + 30;

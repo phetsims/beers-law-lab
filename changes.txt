@@ -1,3 +1,4 @@
+3/25/13 put solute controls in a control panel (SoluteControlsNode)
 3/25/13 fix reset for shaker and dropper
 3/25/13 "use strict";
 3/25/13 use 'var thisNode = this' consistently
