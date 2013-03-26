@@ -1,3 +1,4 @@
+3/25/13 move window resize handler to ConcentrationView, use inheritance for scene subtype
 3/25/13 change to radio buttons for solid/solution control
 3/25/13 make dropper initially invisible, add visible arg to dropper and shaker constructors
 3/25/13 make slider knob wider

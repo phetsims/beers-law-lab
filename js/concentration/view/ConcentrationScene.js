@@ -14,6 +14,7 @@ define( function ( require ) {
   var DOM = require( "SCENERY/nodes/DOM" );
   var Node = require( "SCENERY/nodes/Node" );
   var Text = require( "SCENERY/nodes/Text" );
+  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
   var Range = require( "PHETCOMMON/math/Range" );
   var ButtonNode = require( "common/view/ButtonNode" );
   var ResetAllButtonNode = require( "common/view/ResetAllButtonNode" );
@@ -40,10 +41,11 @@ define( function ( require ) {
    */
   function ConcentrationScene( model, mvt, strings, resetAllCallback ) {
 
-    // Use composition instead of inheritance to hide which scene graph library is used.
-    var scene = new Scene( $( '#concentration-scene' ) );
-    scene.initializeFullscreenEvents(); // sets up listeners on the document with preventDefault(), and forwards those events to our scene
-    scene.resizeOnWindowResize(); // the scene gets resized to the full screen size
+    var thisScene = this;
+    Scene.call( thisScene, $( '#concentration-scene' ) );
+
+    thisScene.initializeFullscreenEvents(); // sets up listeners on the document with preventDefault(), and forwards those events to our scene
+    thisScene.resizeOnWindowResize(); // the scene gets resized to the full screen size
 
     var beakerNode = new BeakerNode( model.beaker, mvt, strings );
     var solutionNode = new SolutionNode( model.solution, model.beaker, mvt );
@@ -80,23 +82,23 @@ define( function ( require ) {
     var resetAllButtonNode = new ResetAllButtonNode( resetAllCallback );
 
     // Rendering order
-    scene.addChild( solventFluidNode );
-    scene.addChild( solventFaucetNode );
-    scene.addChild( drainFluidNode );
-    scene.addChild( drainFaucetNode );
-    scene.addChild( stockSolutionNode );
-    scene.addChild( solutionNode );
-    scene.addChild( beakerNode.mutate( { layerSplit: true } ) ); //TODO experiment to put static nodes in their own layer
-    scene.addChild( precipitateNode );
-    scene.addChild( shakerParticlesNode );
-    scene.addChild( shakerNode );
-    scene.addChild( dropperNode );
-    scene.addChild( concentrationMeterNode );
-    scene.addChild( evaporator );
+    thisScene.addChild( solventFluidNode );
+    thisScene.addChild( solventFaucetNode );
+    thisScene.addChild( drainFluidNode );
+    thisScene.addChild( drainFaucetNode );
+    thisScene.addChild( stockSolutionNode );
+    thisScene.addChild( solutionNode );
+    thisScene.addChild( beakerNode.mutate( { layerSplit: true } ) ); //TODO experiment to put static nodes in their own layer
+    thisScene.addChild( precipitateNode );
+    thisScene.addChild( shakerParticlesNode );
+    thisScene.addChild( shakerNode );
+    thisScene.addChild( dropperNode );
+    thisScene.addChild( concentrationMeterNode );
+    thisScene.addChild( evaporator );
     // add controls last, switch to DOM renderer cause a layer split
-    scene.addChild( removeSoluteButtonNode );
-    scene.addChild( resetAllButtonNode );
-    scene.addChild( soluteControlNode );
+    thisScene.addChild( removeSoluteButtonNode );
+    thisScene.addChild( resetAllButtonNode );
+    thisScene.addChild( soluteControlNode );
 
     // Layout for things that don't have a location in the model.
     {
@@ -110,25 +112,12 @@ define( function ( require ) {
       resetAllButtonNode.top = drainFaucetNode.bottom + 5;
     }
 
-    this.step = function ( deltaSeconds ) {
-      scene.updateScene();
+    thisScene.step = function ( deltaSeconds ) {
+      thisScene.updateScene();
     };
-
-    this.reset = function () {
-      //TODO
-    };
-
-    //TODO center in the window?
-    // Scale the scene when the browser window is resized.
-    var handleResize = function () {
-      var UNITY_WINDOW_SIZE = new Dimension2( 1024, 768 ); // At this window size, scaling is 1.
-      var windowSize = new Dimension2( $( window ).width(), $( window ).height() );
-      var scale = Math.min( windowSize.width / UNITY_WINDOW_SIZE.width, windowSize.height / UNITY_WINDOW_SIZE.height );
-      scene.setScaleMagnitude( scale );
-    };
-    $( window ).resize( handleResize );
-    handleResize(); // initial size
   }
+
+  Inheritance.inheritPrototype( ConcentrationScene, Scene );
 
   return ConcentrationScene;
 } );

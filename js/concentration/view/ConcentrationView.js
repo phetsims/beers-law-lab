@@ -9,6 +9,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var Dimension2 = require( "DOT/Dimension2" );
   var Vector2 = require( "DOT/Vector2" );
   var ModelViewTransform2D = require( "PHETCOMMON/view/ModelViewTransform2D" );
   var ConcentrationScene = require( "concentration/view/ConcentrationScene" );
@@ -26,7 +27,6 @@ define( function ( require ) {
     // Reset All callback
     var resetAllCallback = function() {
       model.reset();
-      scene.reset();
     };
 
     // model-view transform (unity)
@@ -39,10 +39,13 @@ define( function ( require ) {
       scene.step( deltaSeconds );
     };
 
-    //TODO scene also has a resize handler, reduce to one handler
-    // handle resizing of the browser window
+    //TODO center in the window?
+    // Scale the scene when the browser window is resized.
     var handleResize = function () {
-      //TODO
+      var UNITY_WINDOW_SIZE = new Dimension2( 1024, 768 ); // At this window size, scaling is 1.
+      var windowSize = new Dimension2( $( window ).width(), $( window ).height() );
+      var scale = Math.min( windowSize.width / UNITY_WINDOW_SIZE.width, windowSize.height / UNITY_WINDOW_SIZE.height );
+      scene.setScaleMagnitude( scale );
     };
     $( window ).resize( handleResize );
     handleResize(); // initial size
