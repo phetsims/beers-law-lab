@@ -51,6 +51,15 @@ define( function ( require ) {
         thisDropper.enabled.set( false );
       }
     } );
+
+    thisDropper.reset = function () {
+      Inheritance.callSuper( Movable, "reset", thisDropper );
+      thisDropper.visible.reset();
+      thisDropper.on.reset();
+      thisDropper.enabled.reset();
+      thisDropper.empty.reset();
+      thisDropper.flowRate.reset();
+    };
   }
 
   Inheritance.inheritPrototype( Dropper, Movable );

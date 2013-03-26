@@ -1,4 +1,5 @@
-3/5/13 "use strict";
+3/25/13 fix reset for shaker and dropper
+3/25/13 "use strict";
 3/25/13 use 'var thisNode = this' consistently
 3/25/13 move window resize handler to ConcentrationView, use inheritance for scene subtype
 3/25/13 change to radio buttons for solid/solution control

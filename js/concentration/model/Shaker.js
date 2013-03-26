@@ -47,28 +47,29 @@ define( function ( require ) {
     thisShaker.empty.addObserver( observer );
     thisShaker.visible.addObserver( observer );
 
-    // reset
     thisShaker.reset = function () {
-      Inheritance.callSuper( Movable, "reset", this );
+      Inheritance.callSuper( Movable, "reset", thisShaker );
+      thisShaker.visible.reset();
+      thisShaker.empty.reset();
       thisShaker.dispensingRate.reset();
       thisShaker.previousLocation = this.location.get(); // to prevent shaker from dispensing solute when its location is reset
-    }
+    };
   }
 
   Inheritance.inheritPrototype( Shaker, Movable );
 
   // Sets the dispensing rate if the shaker is moving.
   Shaker.prototype.step = function () {
-    var shaker = this;
-    if ( shaker.visible.get() && !shaker.empty.get() ) {
-      if ( shaker.previousLocation.equals( shaker.location.get() ) ) {
-        shaker.dispensingRate.set( 0 ); // shaker is not moving, don't dispense anything
+    var thisShaker = this;
+    if ( thisShaker.visible.get() && !thisShaker.empty.get() ) {
+      if ( thisShaker.previousLocation.equals( thisShaker.location.get() ) ) {
+        thisShaker.dispensingRate.set( 0 ); // shaker is not moving, don't dispense anything
       }
       else {
-        shaker.dispensingRate.set( shaker.maxDispensingRate ); // max rate seems to work fine
+        thisShaker.dispensingRate.set( thisShaker.maxDispensingRate ); // max rate seems to work fine
       }
     }
-    shaker.previousLocation = shaker.location.get();
+    thisShaker.previousLocation = thisShaker.location.get();
   };
 
   return Shaker;
