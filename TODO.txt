@@ -31,16 +31,16 @@ HIGH
 MEDIUM
 - nicer knob for evaporation slider
 - gradient in evaporation slider track
-- make Solid and Solute check boxes behave like radio buttons
 - weird flicker/down-scaling issue on mobile Safari
 - use ImagesLoader to load images, delete images.js in config.js
 - compute deltaSeconds in animation loop
 
 LOW
+- load bootstrap and bootstrap-dropdown via config.js
 - value in concentration meter jitters horizontally as value changes
 - use scenery.Pattern to texture map input pipe in FaucetNode
 - improve drag handler for faucet handles
-- Font abstraction
+- use scenery.Font for font specification
 - Beer's Law module
 
 LOWEST
