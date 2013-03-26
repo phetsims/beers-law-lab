@@ -9,8 +9,8 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var DOM = require( "SCENERY/nodes/DOM")
-  var Inheritance = require( "PHETCOMMON/util/Inheritance")
+  var DOM = require( "SCENERY/nodes/DOM" );
+  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
 
   /**
    * @param {String} text
