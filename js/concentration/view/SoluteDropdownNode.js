@@ -22,24 +22,29 @@ define( function ( require ) {
     var thisNode = this;
 
     // construct HTML with solute names
-    var html =  '<div id="bll-dropdown-test" class="btn-group">' +
-                   '<button class="btn btn-info btn-large">' + currentSolute.get().name + '</button>' +
+    var html =  '<div id="bll-solute-dropdown" class="btn-group">' +
+                   '<button id="bll-solute-dropdown-button" class="btn btn-info btn-large">' + currentSolute.get().name + '</button>' +
                    '<button class="btn dropdown-toggle btn-large" data-toggle="dropdown">' +
                        '<span class="caret"></span>' +
                    '</button>' +
                    '<ul class="dropdown-menu">';
-    solutes.forEach( function( solute ) {
-        html = html + '<li>' + solute.name + '</li>';
-    });
+    for ( var i = 0; i < solutes.length; i++ ) {
+      html = html + '<li>' + solutes[i].name + '</li>';
+    }
     html = html + '</ul></div>';
 
     // create the DOM element
     var $comboBox = $( html );
 
-    //TODO what is this supposed to do? it's provided by the bootstrap-dropdown.js plugin
-    $( '#bll-dropdown-test' ).dropdown();
-
     DOM.call( thisNode, $comboBox );
+
+//    $comboBox.find( '.dropdown-toggle' ).dropdown(); //TODO this doesn't seem to be needed?
+
+    var $selectionButton = $comboBox.find( "#bll-solute-dropdown-button" );
+    $selectionButton.bind( 'click', function () {
+      console.log( "selectionButton.click" );//XXX
+    } );
+
   }
 
   Inheritance.inheritPrototype( SoluteDropdownNode, DOM );

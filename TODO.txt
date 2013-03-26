@@ -23,7 +23,7 @@ FIX
 - keep shaking the shaker until the display flips out
 
 HIGH
-- Solid | Solution radio buttons
+- switch to inherit.js and callSuper.js in phet-core, delete Inheritance.js
 - Solute combo box
 - CSS for bootstrap components
 
@@ -32,7 +32,7 @@ MEDIUM
 - gradient in evaporation slider track
 - make Solid and Solute check boxes behave like radio buttons
 - weird flicker/down-scaling issue on mobile Safari
-- use ImagesLoader to load images
+- use ImagesLoader to load images, delete images.js in config.js
 - compute deltaSeconds in animation loop
 
 LOW

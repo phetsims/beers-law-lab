@@ -41,8 +41,8 @@ define( function ( require ) {
 
     var contentNode = new Node();
     contentNode.addChild( soluteLabel );
-    contentNode.addChild( soluteDropdown );
     contentNode.addChild( soluteFormNode );
+    contentNode.addChild( soluteDropdown ); // add last, so that dropdown is on top
 
     // layout
     soluteDropdown.left = soluteLabel.right + 10;

@@ -1,3 +1,5 @@
+3/25/13 solute dropdown pops up, but no selection yet
+3/25/13 include bootstap.js in html instead of config.js, so that bootstrap-dropdown.js plugin works
 3/25/13 first attempt at using a bootstrap dropdown for choosing solute
 3/25/13 put solute controls in a control panel (SoluteControlsNode)
 3/25/13 fix reset for shaker and dropper
