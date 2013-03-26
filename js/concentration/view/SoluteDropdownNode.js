@@ -23,7 +23,7 @@ define( function ( require ) {
 
     // construct HTML with solute names
     var html =  '<div id="bll-dropdown-test" class="btn-group">' +
-                   '<button class="btn btn-large">' + currentSolute.get().name + '</button>' +
+                   '<button class="btn btn-info btn-large">' + currentSolute.get().name + '</button>' +
                    '<button class="btn dropdown-toggle btn-large" data-toggle="dropdown">' +
                        '<span class="caret"></span>' +
                    '</button>' +
