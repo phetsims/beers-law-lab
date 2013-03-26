@@ -24,7 +24,7 @@ define( function ( require ) {
   var KNOB_SIZE = new Dimension2( 20, 30 );
   var MAJOR_TICK_LENGTH = 20;
   var MINOR_TICK_LENGTH = 15;
-  var KNOB_FILL_ENABLED = "3399FF";
+  var KNOB_FILL_ENABLED = "rgb(50,145,184)";
   var KNOB_FILL_DISABLED = "#F0F0F0";
 
   /**
