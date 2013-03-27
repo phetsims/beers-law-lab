@@ -65,7 +65,7 @@ define( function ( require ) {
       .lineTo( TIP_WIDTH / 2, -TIP_HEIGHT )
       .lineTo( TIP_WIDTH / 2, 0 )
       .close();
-    var fluidNode = new Path( { shape: fluidShape, fill: 'red' } );
+    var fluidNode = new Path( { shape: fluidShape } );
 
     // images
     var foregroundNode = new Image( foregroundImage );
@@ -150,8 +150,7 @@ define( function ( require ) {
 
       // fluid color
       var color = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
-      fluidShape.fill = color.toCSS();
-      fluidShape.stroke = color.darker().toCSS();
+      fluidNode.fill = color.toCSS();
     } );
 
     //TODO this listener conflicts with MomentaryButtonNode's listener

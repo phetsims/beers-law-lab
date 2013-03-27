@@ -23,7 +23,6 @@ BUGS
 - weird flicker/down-scaling issue on mobile Safari (gone?)
 
 HIGH
-- dropper color doesn't change when solute is changed
 - finish SoluteDropdownNode
 - CSS for bootstrap components
 
