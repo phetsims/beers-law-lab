@@ -35,6 +35,7 @@ MEDIUM
 - compute deltaSeconds in animation loop
 - improve drag handler for faucet handles
 - split faucet_handle.png into 2 images, so that only the knob is interactive?
+- prevent dropper from being dragged by on/off button
 - Beer's Law module
 
 LOW

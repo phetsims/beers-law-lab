@@ -139,13 +139,13 @@ define( function ( require ) {
       // rotate to vertical, center the label in the droppers glass
       labelNode.setRotation( -Math.PI / 2 );
       labelNode.setTranslation( -( labelNode.width / 2 ),
-                                foregroundNode.getBottom() - ( foregroundNode.height - LABEL_Y_OFFSET ) + ( labelNode.height / 2 ) );
+                                foregroundNode.bottom - ( foregroundNode.height - LABEL_Y_OFFSET ) + ( labelNode.height / 2 ) );
 
       // translucent background for the label, so that it's visible on all solution colors
-      var width = 1.2 * labelNode.width;
+      var width = 1.5 * labelNode.width;
       var height = 1.2 * labelNode.height;
-      var x = labelNode.getCenterX() - ( width / 2 );
-      var y = labelNode.getCenterY() - ( height / 2 );
+      var x = labelNode.centerX - ( width / 2 );
+      var y = labelNode.centerY - ( height / 2 );
       labelBackgroundNode.setShape( Shape.roundRect( x, y, width, height, 5, 5 ) );
 
       // fluid color
