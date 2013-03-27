@@ -47,8 +47,8 @@ define( function ( require ) {
     // layout
     soluteDropdown.left = soluteLabel.right + 10;
     soluteDropdown.centerY = soluteLabel.centerY;
-    soluteFormNode.left = soluteLabel.left;
-    soluteFormNode.top = Math.max( soluteLabel.bottom, soluteDropdown.bottom ) + 20;
+    soluteFormNode.centerX = soluteDropdown.centerX;
+    soluteFormNode.top = soluteDropdown.bottom + 20;
 
     // Use SVG renderer so that this node doesn't block events to other DOM elements in the scene.
     ControlPanelNode.call( thisNode, contentNode, 20, 20, { renderer: "svg" } );
