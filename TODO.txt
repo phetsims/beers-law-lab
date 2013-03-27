@@ -23,6 +23,8 @@ BUGS
 - weird flicker/down-scaling issue on mobile Safari (gone?)
 
 HIGH
+- try Fort
+- create a dropdown node without bootstrap
 - finish SoluteDropdownNode
 - CSS for bootstrap components
 
