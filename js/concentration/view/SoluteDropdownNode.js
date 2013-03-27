@@ -2,7 +2,6 @@
 
 //TODO button needs to be as wide as widest choice
 //TODO no hand cursor over dropdown
-//TODO clicking on current-selection button doesn't show dropdown, must click on caret button
 //TODO add icons to indicate solute colors
 /**
  * Bootstrap dropdown for choosing a solute.
@@ -27,7 +26,7 @@ define( function ( require ) {
 
     // construct HTML with solute names
     var html =  '<div id="bll-solute-dropdown" class="btn-group">' +
-                   '<button id="bll-solute-dropdown-button" class="btn btn-info btn-large">' + currentSolute.get().name + '</button>' +
+                   '<button id="bll-solute-dropdown-button" class="btn btn-info btn-large dropdown-toggle" data-toggle="dropdown">' + currentSolute.get().name + '</button>' +
                    '<button class="btn dropdown-toggle btn-large" data-toggle="dropdown">' +
                        '<span class="caret"></span>' +
                    '</button>' +
