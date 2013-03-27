@@ -1,3 +1,4 @@
+3/27/13 left-justify radio buttons under solute dropdown
 3/27/13 center radio buttons under solute dropdown
 3/27/13 used fixed-width button for solute dropdown menu
 3/27/13 put label and caret on one button for solute dropdown menu, this is the bootstrap "style"
