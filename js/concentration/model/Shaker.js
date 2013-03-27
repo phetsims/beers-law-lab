@@ -18,7 +18,7 @@ define( function ( require ) {
    * Constructor
    * @param {Vector2} location
    * @param {Number} orientation in radians
-   * @param {Rectangle} dragBounds
+   * @param {Bounds2} dragBounds
    * @param {Property} solute (type Solute)
    * @param {Number} maxDispensingRate
    * @param {Boolean} visible

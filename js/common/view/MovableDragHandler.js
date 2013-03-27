@@ -31,10 +31,10 @@ define( function ( require ) {
   /**
    * Constrains a point to some bounds.
    * @param {Vector2} point
-   * @param {Rectangle} bounds
+   * @param {Bounds2} bounds
    */
   MovableDragHandler.prototype.constrainBounds = function ( point, bounds ) {
-    if ( bounds === undefined || bounds.contains( point.x, point.y ) ) {
+    if ( bounds === undefined || bounds.containsCoordinates( point.x, point.y ) ) {
       return point;
     }
     else {

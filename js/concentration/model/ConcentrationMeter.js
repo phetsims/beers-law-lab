@@ -19,9 +19,9 @@ define( function ( require ) {
 
   /**
    * @param {Vector2} bodyLocation
-   * @param {Rectangle} bodyDragBounds
+   * @param {Bounds2} bodyDragBounds
    * @param {Vector2} probeLocation
-   * @param {Rectangle} probeDragBounds
+   * @param {Bounds2} probeDragBounds
    * @constructor
    */
   function ConcentrationMeter( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds ) {

@@ -15,7 +15,7 @@ define( function ( require ) {
   /**
    * Constructor
    * @param {Vector2} location
-   * @param {Rectangle} dragBounds
+   * @param {Bounds2} dragBounds
    * @constructor
    */
   function Movable( location, dragBounds ) {

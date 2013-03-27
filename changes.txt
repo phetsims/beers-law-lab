@@ -1,3 +1,4 @@
+3/26/13 delete Rectangle, replace with dot.Bounds2
 3/26/13 switch from phetcommon.MathUtil to dot.Util
 3/26/13 use renderer:'svg' for solute control panel, so it doesn't block events to other DOM elements in the scene
 3/26/13 add SoluteControlsNode last, so that other DOM nodes get events.

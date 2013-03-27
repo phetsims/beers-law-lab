@@ -59,7 +59,6 @@ COMMON FEATURES:
 
 MIGRATE TO COMMON
 Color
-Rectangle
 DebugOriginNode
 FaucetNode + images
 StringUtils

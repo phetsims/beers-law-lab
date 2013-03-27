@@ -13,7 +13,7 @@ define( function ( require ) {
   var Vector2 = require( "DOT/Vector2" );
   var Range = require( "DOT/Range" );
   var Property = require( "PHETCOMMON/model/property/Property" );
-  var Rectangle = require( "common/model/Rectangle" );
+  var Bounds2 = require( "DOT/Bounds2" );
   var Beaker = require( "concentration/model/Beaker" );
   var ConcentrationSolution = require( "concentration/model/ConcentrationSolution" );
   var Shaker = require( "concentration/model/Shaker" );
@@ -57,14 +57,14 @@ define( function ( require ) {
     thisModel.solution = new ConcentrationSolution( thisModel.solute, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue );
     thisModel.beaker = new Beaker( new Vector2( 400, 550 ), new Dimension2( 600, 300 ), 1 );
     thisModel.precipitate = new Precipitate( thisModel.solution, thisModel.beaker );
-    thisModel.shaker = new Shaker( new Vector2( thisModel.beaker.location.x, 170 ), new Rectangle( 225, 50, 400, 160 ), 0.75 * Math.PI, thisModel.solute, SHAKER_MAX_DISPENSING_RATE, true );
+    thisModel.shaker = new Shaker( new Vector2( thisModel.beaker.location.x, 170 ), new Bounds2( 225, 50, 625, 210 ), 0.75 * Math.PI, thisModel.solute, SHAKER_MAX_DISPENSING_RATE, true );
     thisModel.shakerParticles = new ShakerParticles( thisModel.shaker, thisModel.solution, thisModel.beaker );
-    thisModel.dropper = new Dropper( new Vector2( thisModel.beaker.location.x, 210 ), new Rectangle( 230, 205, 400, 30 ), thisModel.solute, DROPPER_FLOW_RATE, false );
+    thisModel.dropper = new Dropper( new Vector2( thisModel.beaker.location.x, 210 ), new Bounds2( 230, 205, 630, 235 ), thisModel.solute, DROPPER_FLOW_RATE, false );
     thisModel.evaporator = new Evaporator( MAX_EVAPORATION_RATE, thisModel.solution );
     thisModel.solventFaucet = new Faucet( new Vector2( 150, 220 ), 40, 100, MAX_INPUT_FLOW_RATE );
     thisModel.drainFaucet = new Faucet( new Vector2( 790, 607 ), 40, 5, MAX_OUTPUT_FLOW_RATE );
-    thisModel.concentrationMeter = new ConcentrationMeter( new Vector2( 785, 210 ), new Rectangle( 10, 150, 825, 530 ),
-                                                       new Vector2( 750, 370 ), new Rectangle( 30, 150, 935, 530 ) );
+    thisModel.concentrationMeter = new ConcentrationMeter( new Vector2( 785, 210 ), new Bounds2( 10, 150, 835, 680 ),
+                                                           new Vector2( 750, 370 ), new Bounds2( 30, 150, 966, 680 ) );
 
     // Things to do when the solute is changed.
     thisModel.solute.addObserver( function ( solute ) {
