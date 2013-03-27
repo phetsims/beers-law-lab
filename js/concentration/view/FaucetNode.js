@@ -17,7 +17,7 @@ define( function ( require ) {
   var Matrix3 = require( "DOT/Matrix3" );
   var Transform3 = require( "DOT/Transform3" );
   var Vector2 = require( "DOT/Vector2" );
-  var MathUtil = require( "PHETCOMMON/math/MathUtil" );
+  var Util = require( "DOT/Util" );
   var Range = require( "PHETCOMMON/math/Range" );
   var Inheritance = require( "PHETCOMMON/util/Inheritance" );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
@@ -104,7 +104,7 @@ define( function ( require ) {
         drag: function ( event, trail ) {
           if ( faucet.enabled.get() ) {
             var localPosition = trail.getTransform().inversePosition2( event.pointer.point ); // global to local
-            var y = MathUtil.clamp( localPosition.y, handleOffY, handleOnY );
+            var y = Util.clamp( localPosition.y, handleOffY, handleOnY );
             var handleOrientation = yToOrientation.evaluate( y );
             var flowRate = orientationToFlowRate.evaluate( handleOrientation );
             faucet.flowRate.set( flowRate );

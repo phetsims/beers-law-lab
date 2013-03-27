@@ -10,7 +10,7 @@ define( function ( require ) {
 
   // imports
   var Range = require( "PHETCOMMON/math/Range" );
-  var MathUtil = require( "PHETCOMMON/math/MathUtil" );
+  var Util = require( "DOT/Util" );
   var Inheritance = require( "PHETCOMMON/util/Inheritance" );
   var Dimension2 = require( "DOT/Dimension2" );
   var Shape = require( "KITE/Shape" );
@@ -92,7 +92,7 @@ define( function ( require ) {
         drag: function ( event, trail ) {
           if ( enabled.get() ) {
             var localPosition = trail.getTransform().inversePosition2( event.pointer.point ); // global to local
-            value.set( MathUtil.clamp( thisNode._valueToPosition.evaluateInverse( localPosition.x ), range.min, range.max ) );
+            value.set( Util.clamp( thisNode._valueToPosition.evaluateInverse( localPosition.x ), range.min, range.max ) );
           }
         },
         end: function() {

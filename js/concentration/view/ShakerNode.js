@@ -13,7 +13,7 @@ define( function ( require ) {
   var Image = require( "SCENERY/nodes/Image" );
   var DOM = require( "SCENERY/nodes/DOM" );
   var Vector2 = require( "DOT/Vector2" );
-  var MathUtil = require( "PHETCOMMON/math/MathUtil" );
+  var Util = require( "DOT/Util" );
   var Inheritance = require( "PHETCOMMON/util/Inheritance" );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
@@ -52,7 +52,7 @@ define( function ( require ) {
     thisNode.addChild( parentNode );
     parentNode.addChild( imageNode );
     parentNode.addChild( labelNode );
-    parentNode.rotate( MathUtil.toDegrees( shaker.orientation - Math.PI ) );
+    parentNode.rotate( Util.toDegrees( shaker.orientation - Math.PI ) );
 
     // Manually adjust these values until the origin is in the middle hole of the shaker.
     parentNode.translate( -12, -imageNode.height / 2 );
