@@ -24,21 +24,19 @@ require(
     var performanceMonitor = new PerformanceMonitor( 500, 10 );
 
     // polyfill for requestAnimationFrame
-    window.animate = (function () {
-      return window.requestAnimationFrame ||
-             window.webkitRequestAnimationFrame ||
-             window.mozRequestAnimationFrame ||
-             window.oRequestAnimationFrame ||
-             window.msRequestAnimationFrame ||
-             function ( callback ) {
-               window.setTimeout( callback, 1000 / 60 );
-             };
-    })();
+    window.requestAnimationFrame = window.requestAnimationFrame ||
+                                   window.webkitRequestAnimationFrame ||
+                                   window.mozRequestAnimationFrame ||
+                                   window.oRequestAnimationFrame ||
+                                   window.msRequestAnimationFrame ||
+                                   function ( callback ) {
+                                     window.setTimeout( callback, 1000 / 60 );
+                                   };
 
     // Animation loop
     var deltaSeconds = 0.04; // similar to Java sim. TODO: compute this
     (function animationLoop() {
-      window.animate( animationLoop );
+      window.requestAnimationFrame( animationLoop );
       performanceMonitor.begin();
       model.step( deltaSeconds );
       view.step( deltaSeconds );
