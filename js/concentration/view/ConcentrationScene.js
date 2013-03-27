@@ -95,10 +95,11 @@ define( function ( require ) {
     thisScene.addChild( dropperNode );
     thisScene.addChild( concentrationMeterNode );
     thisScene.addChild( evaporator );
-    // add controls last, switch to DOM renderer cause a layer split
+    thisScene.addChild( soluteControlsNode ); // is a Node, but contains DOM nodes
+    // add controls last, switch to DOM renderer causes a layer split
     thisScene.addChild( removeSoluteButtonNode );
     thisScene.addChild( resetAllButtonNode );
-    thisScene.addChild( soluteControlsNode );
+
 
     // Layout for things that don't have a location in the model.
     {
