@@ -25,12 +25,12 @@ define( function ( require ) {
     var thisNode = this;
 
     // construct HTML with solute names
-    var html =  '<div id="bll-solute-dropdown" class="btn-group">' +
-                   '<button id="bll-solute-dropdown-button" class="btn btn-info btn-large dropdown-toggle" data-toggle="dropdown">' + currentSolute.get().name + '</button>' +
-                   '<button class="btn dropdown-toggle btn-large" data-toggle="dropdown">' +
-                       '<span class="caret"></span>' +
-                   '</button>' +
-                   '<ul class="dropdown-menu">';
+    var html = '<div id="bll-solute-dropdown" class="btn-group">' +
+                   '<a id="bll-solute-dropdown-button" class="btn dropdown-toggle btn-info btn-large" data-toggle="dropdown" href="#">' +
+                     '<span id="bll-solute-label">' + currentSolute.get().name + "</span>" +
+                     '<span class="caret" style="margin-left:10px; float:right"></span>' +
+                   '</a>' +
+                 '<ul class="dropdown-menu">';
     /*
      * Add each solute to the dropdown.
      * Include a custom attribute to note its index in the solutes array.
@@ -61,7 +61,7 @@ define( function ( require ) {
 
     // Change the button to reflect the selected solute.
     currentSolute.addObserver( function ( solute ) {
-      $currentSelectionButton.html( solute.name );
+      $currentSelectionButton.find( '#bll-solute-label' ).html( solute.name );
       //TODO set color chip or background color of button?
     } );
   }
