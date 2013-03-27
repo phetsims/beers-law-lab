@@ -19,7 +19,7 @@ define( function ( require ) {
   var Vector2 = require( "DOT/Vector2" );
   var Util = require( "DOT/Util" );
   var Range = require( "DOT/Range" );
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
   var LinearFunction = require( "common/util/LinearFunction" );
 
@@ -38,7 +38,7 @@ define( function ( require ) {
   function FaucetNode( faucet, mvt ) {
 
     var thisNode = this;
-    Node.call( thisNode ); // constructor stealing
+    Node.call( thisNode );
 
     var orientationToFlowRate = new LinearFunction( HANDLE_ORIENTATION_RANGE, new Range( 0, faucet.maxFlowRate ) );
 
@@ -133,7 +133,7 @@ define( function ( require ) {
     } );
   }
 
-  Inheritance.inheritPrototype( FaucetNode, Node ); // prototype chaining
+  inherit( FaucetNode, Node );
 
   return FaucetNode;
 } );

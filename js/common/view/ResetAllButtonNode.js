@@ -11,7 +11,7 @@ define( function ( require ) {
 
   // imports
   var DOM = require( "SCENERY/nodes/DOM" );
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
 
   /**
    * @param {Function} callback
@@ -28,7 +28,7 @@ define( function ( require ) {
     DOM.call( thisNode, $button[0] );
   }
 
-  Inheritance.inheritPrototype( ResetAllButtonNode, DOM );
+  inherit( ResetAllButtonNode, DOM );
 
   return ResetAllButtonNode;
 } );

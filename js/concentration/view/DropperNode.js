@@ -15,7 +15,7 @@ define( function ( require ) {
   var Image = require( "SCENERY/nodes/Image" );
   var DOM = require( "SCENERY/nodes/DOM" );
   var Path = require( "SCENERY/nodes/Path" );
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var Color = require( "common/model/Color" );
   var ConcentrationSolution = require( "concentration/model/ConcentrationSolution" );
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
@@ -159,7 +159,7 @@ define( function ( require ) {
     thisNode.addInputListener( new MovableDragHandler( dropper, mvt ) );
   }
 
-  Inheritance.inheritPrototype( DropperNode, Node );
+  inherit( DropperNode, Node );
 
   return DropperNode;
 

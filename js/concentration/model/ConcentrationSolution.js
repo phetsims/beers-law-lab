@@ -11,7 +11,8 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
+  var callSuper = require( "PHET_CORE/callSuper" );
   var Property = require( "PHETCOMMON/model/property/Property" );
   var Color = require( "common/model/Color" );
   var Solvent = require( "common/model/Solvent" );
@@ -65,14 +66,14 @@ define( function ( require ) {
 
     // reset
     thisSolution.reset = function () {
-      Inheritance.callSuper( Fluid, "reset", this );
+      callSuper( Fluid, "reset", this );
       thisSolution.soluteAmount.reset();
       thisSolution.volume.reset();
       updateColor(); // because we provided a bogus initial color to Fluid constructor
     };
   }
 
-  Inheritance.inheritPrototype( ConcentrationSolution, Fluid );
+  inherit( ConcentrationSolution, Fluid );
 
   // convenience function
   ConcentrationSolution.prototype.getSaturatedConcentration = function () {

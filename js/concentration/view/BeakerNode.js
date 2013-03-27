@@ -14,7 +14,7 @@ define( function ( require ) {
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
   var Text = require( "SCENERY/nodes/Text" );
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var StringUtils = require( "common/util/StringUtils" );
 
   // constants
@@ -37,7 +37,7 @@ define( function ( require ) {
   function BeakerNode( beaker, mvt, strings ) {
 
     var thisNode = this;
-    Node.call( thisNode ); // constructor stealing
+    Node.call( thisNode );
 
     // outline of the beaker, starting from upper left
     var width = mvt.modelToView( beaker.size.width );
@@ -101,8 +101,7 @@ define( function ( require ) {
     thisNode.y = location.y;
   }
 
-  // prototype chaining
-  Inheritance.inheritPrototype( BeakerNode, Node );
+  inherit( BeakerNode, Node );
 
   return BeakerNode;
 } );

@@ -10,7 +10,8 @@ define( function ( require ) {
 
   // imports
   var Property = require( "PHETCOMMON/model/property/Property" );
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
+  var callSuper = require( "PHET_CORE/callSuper" );
   var Movable = require( "common/model/Movable" );
 
   /**
@@ -53,7 +54,7 @@ define( function ( require ) {
     } );
 
     thisDropper.reset = function () {
-      Inheritance.callSuper( Movable, "reset", thisDropper );
+      callSuper( Movable, "reset", thisDropper );
       thisDropper.visible.reset();
       thisDropper.on.reset();
       thisDropper.enabled.reset();
@@ -62,7 +63,7 @@ define( function ( require ) {
     };
   }
 
-  Inheritance.inheritPrototype( Dropper, Movable );
+  inherit( Dropper, Movable );
 
   return Dropper;
 } );

@@ -12,7 +12,7 @@ define( function ( require ) {
   // imports
   var Node = require( "SCENERY/nodes/Node" );
   var Image = require( "SCENERY/nodes/Image" );
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
 
   // images
   var pressedImage = require( "image!images/momentary_button_pressed.png" );
@@ -66,7 +66,7 @@ define( function ( require ) {
       } );
   }
 
-  Inheritance.inheritPrototype( MomentaryButtonNode, Node );
+  inherit( MomentaryButtonNode, Node );
 
   return MomentaryButtonNode;
 

@@ -10,7 +10,7 @@ define( function( require ) {
   "use strict";
 
   // imports
-  var Inheritance = require("PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var DOM = require("SCENERY/nodes/DOM" );
 
   /**
@@ -46,7 +46,7 @@ define( function( require ) {
     DOM.call( thisNode, $checkBox[0] );
   }
 
-  Inheritance.inheritPrototype( CheckBoxNode, DOM );
+  inherit( CheckBoxNode, DOM );
 
   return CheckBoxNode;
 });

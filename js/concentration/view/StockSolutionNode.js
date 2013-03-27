@@ -11,7 +11,7 @@ define( function( require ) {
   // imports
   var Shape = require( "KITE/Shape" );
   var Path = require( "SCENERY/nodes/Path" );
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var ConcentrationSolution = require( "concentration/model/ConcentrationSolution" );
   var DropperNode = require( "concentration/view/DropperNode" );
 
@@ -61,7 +61,7 @@ define( function( require ) {
     } );
   }
 
-  Inheritance.inheritPrototype( StockSolutionNode, Path );
+  inherit( StockSolutionNode, Path );
 
   return StockSolutionNode;
 } );

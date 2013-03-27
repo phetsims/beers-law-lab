@@ -9,7 +9,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var BLLSymbols = require( "common/BLLSymbols" );
   var Color = require( "common/model/Color" );
   var Fluid = require( "common/model/Fluid" );
@@ -24,13 +24,13 @@ define( function ( require ) {
    */
   function Solvent( name, formula, color ) {
 
-    Fluid.call( this, color ); // constructor stealing
+    Fluid.call( this, color );
 
     this.name = name;
     this.formula = formula;
   }
 
-  Inheritance.inheritPrototype( Solvent, Fluid ); // prototype chaining
+  inherit( Solvent, Fluid );
 
   Solvent.WATER_COLOR = new Color( 224, 255, 255 );
 

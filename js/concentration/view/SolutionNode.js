@@ -11,7 +11,7 @@ define( function ( require ) {
 
   // imports
   var Range = require( "DOT/Range" );
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var Shape = require( "KITE/Shape" );
   var Path = require( "SCENERY/nodes/Path" );
   var LinearFunction = require( "common/util/LinearFunction" );
@@ -69,7 +69,7 @@ define( function ( require ) {
     } );
   }
 
-  Inheritance.inheritPrototype( SolutionNode, Path );
+  inherit( SolutionNode, Path );
 
   return SolutionNode;
 

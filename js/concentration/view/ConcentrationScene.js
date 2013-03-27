@@ -14,7 +14,7 @@ define( function ( require ) {
   var DOM = require( "SCENERY/nodes/DOM" );
   var Node = require( "SCENERY/nodes/Node" );
   var Text = require( "SCENERY/nodes/Text" );
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var Range = require( "DOT/Range" );
   var ButtonNode = require( "common/view/ButtonNode" );
   var ResetAllButtonNode = require( "common/view/ResetAllButtonNode" );
@@ -118,7 +118,7 @@ define( function ( require ) {
     };
   }
 
-  Inheritance.inheritPrototype( ConcentrationScene, Scene );
+  inherit( ConcentrationScene, Scene );
 
   return ConcentrationScene;
 } );

@@ -10,7 +10,7 @@ define( function( require ) {
   "use strict";
 
   // imports
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var DOM = require( "SCENERY/nodes/DOM" );
 
   // constants
@@ -56,7 +56,7 @@ define( function( require ) {
     } );
   }
 
-  Inheritance.inheritPrototype( SoluteFormNode, DOM );
+  inherit( SoluteFormNode, DOM );
 
   return SoluteFormNode;
 });

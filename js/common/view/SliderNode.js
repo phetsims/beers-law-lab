@@ -11,7 +11,7 @@ define( function ( require ) {
   // imports
   var Range = require( "DOT/Range" );
   var Util = require( "DOT/Util" );
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var Dimension2 = require( "DOT/Dimension2" );
   var Shape = require( "KITE/Shape" );
   var Node = require( "SCENERY/nodes/Node" );
@@ -111,7 +111,7 @@ define( function ( require ) {
     } );
   }
 
-  Inheritance.inheritPrototype( SliderNode, Node );
+  inherit( SliderNode, Node );
 
   /**
    * Adds a major tick mark.

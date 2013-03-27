@@ -10,7 +10,7 @@ define( function ( require ) {
 
   // imports
   var Range = require( "DOT/Range" );
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var Dimension2 = require( "DOT/Dimension2" );
   var Node = require( "SCENERY/nodes/Node" );
   var Text = require( "SCENERY/nodes/Text" );
@@ -41,7 +41,7 @@ define( function ( require ) {
     ControlPanelNode.call( thisNode, contentNode );
   }
 
-  Inheritance.inheritPrototype( EvaporatorNode, ControlPanelNode );
+  inherit( EvaporatorNode, ControlPanelNode );
 
   return EvaporatorNode;
 } );

@@ -11,7 +11,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Image = require( "SCENERY/nodes/Image" );
 
@@ -70,7 +70,7 @@ define( function ( require ) {
     thisNode.addChild( parentNode );//TODO subtype Image, setImage( parentNode.toImage )
   }
 
-  Inheritance.inheritPrototype( HorizontalTiledNode, Node );
+  inherit( HorizontalTiledNode, Node );
 
   return HorizontalTiledNode;
 } );

@@ -21,7 +21,7 @@ define( function( require ) {
 
   // imports
   var Range = require( "DOT/Range" );
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var Vector2 = require( "DOT/Vector2" );
   var Shape = require( "KITE/Shape" );
   var Node = require( "SCENERY/nodes/Node" );
@@ -103,7 +103,7 @@ define( function( require ) {
     } );
   }
 
-  Inheritance.inheritPrototype( BodyNode, Node );
+  inherit( BodyNode, Node );
 
   /**
    * Meter probe, origin at center of crosshairs.
@@ -163,7 +163,7 @@ define( function( require ) {
     };
   }
 
-  Inheritance.inheritPrototype( ProbeNode, Node );
+  inherit( ProbeNode, Node );
 
   /**
    * Wire that connects the probe to the body of the meter.
@@ -206,7 +206,7 @@ define( function( require ) {
     meter.probe.location.addObserver( updateCurve );
   }
 
-  Inheritance.inheritPrototype( WireNode, Path );
+  inherit( WireNode, Path );
 
   /**
    * @param {ConcentrationMeter} meter
@@ -262,7 +262,7 @@ define( function( require ) {
     drainFaucet.flowRate.addObserver( updateValue );
   }
 
-  Inheritance.inheritPrototype( ConcentrationMeterNode, Node );
+  inherit( ConcentrationMeterNode, Node );
 
   return ConcentrationMeterNode;
 } );

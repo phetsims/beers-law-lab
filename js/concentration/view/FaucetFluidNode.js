@@ -12,7 +12,7 @@ define( function ( require ) {
   // imports
   var Shape = require( "KITE/Shape" );
   var Path = require( "SCENERY/nodes/Path" );
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
 
   /**
    * @param {Faucet} faucet
@@ -56,7 +56,7 @@ define( function ( require ) {
     } );
   }
 
-  Inheritance.inheritPrototype( FaucetFluidNode, Path ); // prototype chaining
+  inherit( FaucetFluidNode, Path );
 
   return FaucetFluidNode;
 

@@ -9,7 +9,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var Shape = require( "KITE/Shape" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
@@ -43,7 +43,7 @@ define( function ( require ) {
     contentNode.centerY = panelNode.centerY;
   }
 
-  Inheritance.inheritPrototype( ControlPanelNode, Node );
+  inherit( ControlPanelNode, Node );
 
   return ControlPanelNode;
 } );

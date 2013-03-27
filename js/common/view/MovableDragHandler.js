@@ -12,7 +12,7 @@ define( function ( require ) {
   // imports
   var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
   var Vector2 = require( "DOT/Vector2" );
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
 
   function MovableDragHandler( movable, mvt ) {
     var thisHandler = this;
@@ -25,7 +25,7 @@ define( function ( require ) {
     } );
   }
 
-  Inheritance.inheritPrototype( MovableDragHandler, SimpleDragHandler );
+  inherit( MovableDragHandler, SimpleDragHandler );
 
   //XXX this functionality will be absorbed into scenery
   /**

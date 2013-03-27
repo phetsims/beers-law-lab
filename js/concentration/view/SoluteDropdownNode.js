@@ -13,7 +13,7 @@
 define( function ( require ) {
 
   // imports
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var DOM = require( "SCENERY/nodes/DOM" );
 
   /**
@@ -56,7 +56,7 @@ define( function ( require ) {
     } );
   }
 
-  Inheritance.inheritPrototype( SoluteDropdownNode, DOM );
+  inherit( SoluteDropdownNode, DOM );
 
   return SoluteDropdownNode;
 } );

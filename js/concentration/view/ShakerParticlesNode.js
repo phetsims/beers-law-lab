@@ -9,7 +9,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var ParticleNode = require( "concentration/view/ParticleNode" );
 
@@ -40,7 +40,7 @@ define( function ( require ) {
     } );
   }
 
-  Inheritance.inheritPrototype( ShakerParticlesNode, Node );
+  inherit( ShakerParticlesNode, Node );
 
   return ShakerParticlesNode;
 } );

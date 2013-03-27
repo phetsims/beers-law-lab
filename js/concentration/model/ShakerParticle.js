@@ -13,7 +13,7 @@ define( function ( require ) {
 
   // imports
   var Vector2 = require( "DOT/Vector2" );
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var SoluteParticle = require( "concentration/model/SoluteParticle" );
 
   /**
@@ -34,7 +34,7 @@ define( function ( require ) {
     this.acceleration = acceleration;
   }
 
-  Inheritance.inheritPrototype( ShakerParticle, SoluteParticle );
+  inherit( ShakerParticle, SoluteParticle );
 
   /**
    *  Propagates the particle to a new location.

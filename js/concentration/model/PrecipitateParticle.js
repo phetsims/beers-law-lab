@@ -11,7 +11,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var SoluteParticle = require( "concentration/model/SoluteParticle" );
 
   /**
@@ -25,7 +25,7 @@ define( function ( require ) {
     SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation );
   }
 
-  Inheritance.inheritPrototype( PrecipitateParticle, SoluteParticle );
+  inherit( PrecipitateParticle, SoluteParticle );
 
   return PrecipitateParticle;
 } );

@@ -12,7 +12,7 @@ define( function ( require ) {
   // imports
   var Path = require( "SCENERY/nodes/Path" );
   var Shape = require( "KITE/Shape" );
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
 
   function DebugOriginNode( color ) {
     Path.call( this, {
@@ -21,7 +21,7 @@ define( function ( require ) {
     } );
   }
 
-  Inheritance.inheritPrototype( DebugOriginNode, Path );
+  inherit( DebugOriginNode, Path );
 
   return DebugOriginNode;
 } );

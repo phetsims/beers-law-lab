@@ -14,7 +14,7 @@ define( function ( require ) {
   var DOM = require( "SCENERY/nodes/DOM" );
   var Vector2 = require( "DOT/Vector2" );
   var Util = require( "DOT/Util" );
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
   var shakerImage = require( "image!images/shaker.png" );
@@ -87,7 +87,7 @@ define( function ( require ) {
     thisNode.addInputListener( new MovableDragHandler( shaker, mvt ) );
   }
 
-  Inheritance.inheritPrototype( ShakerNode, Node );
+  inherit( ShakerNode, Node );
 
   return ShakerNode;
 } );

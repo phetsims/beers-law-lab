@@ -11,7 +11,8 @@ define( function ( require ) {
   // imports
   var Vector2 = require( "DOT/Vector2" );
   var Property = require( "PHETCOMMON/model/property/Property" );
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
+  var callSuper = require( "PHET_CORE/callSuper" );
   var Movable = require( "common/model/Movable" );
 
   /**
@@ -48,7 +49,7 @@ define( function ( require ) {
     thisShaker.visible.addObserver( observer );
 
     thisShaker.reset = function () {
-      Inheritance.callSuper( Movable, "reset", thisShaker );
+      callSuper( Movable, "reset", thisShaker );
       thisShaker.visible.reset();
       thisShaker.empty.reset();
       thisShaker.dispensingRate.reset();
@@ -56,7 +57,7 @@ define( function ( require ) {
     };
   }
 
-  Inheritance.inheritPrototype( Shaker, Movable );
+  inherit( Shaker, Movable );
 
   // Sets the dispensing rate if the shaker is moving.
   Shaker.prototype.step = function () {

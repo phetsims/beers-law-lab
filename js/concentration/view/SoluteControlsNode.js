@@ -9,7 +9,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Inheritance = require( "PHETCOMMON/util/Inheritance" );
+  var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Text = require( "SCENERY/nodes/Text" );
   var ControlPanelNode = require( "common/view/ControlPanelNode" );
@@ -54,7 +54,7 @@ define( function ( require ) {
     ControlPanelNode.call( thisNode, contentNode, 20, 20, { renderer: "svg" } );
   }
 
-  Inheritance.inheritPrototype( SoluteControlsNode, ControlPanelNode );
+  inherit( SoluteControlsNode, ControlPanelNode );
 
   return SoluteControlsNode;
 } );
