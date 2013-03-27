@@ -146,7 +146,7 @@ define( function ( require ) {
       var height = 1.2 * labelNode.height;
       var x = labelNode.getCenterX() - ( width / 2 );
       var y = labelNode.getCenterY() - ( height / 2 );
-      labelBackgroundNode.setShape( Shape.rect( x, y, width, height, 8, 8 ) );
+      labelBackgroundNode.setShape( Shape.roundRect( x, y, width, height, 5, 5 ) );
 
       // fluid color
       var color = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
