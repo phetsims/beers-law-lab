@@ -22,7 +22,7 @@ define( function ( require ) {
   var shakerImage = require( "image!images/shaker.png" );
 
   // constants
-  var DEBUG_ORIGIN = true;
+  var DEBUG_ORIGIN = false;
 
   /**
    * Constructor

@@ -30,7 +30,7 @@ define( function ( require ) {
   var spoutImage = require( "image!images/faucet_spout.png" );
 
   // constants
-  var DEBUG_ORIGIN = true;
+  var DEBUG_ORIGIN = false;
   var SPOUT_OUTPUT_CENTER_X = 83; // center of spoint, determined by inspecting image file
   var SPOUT_OUTPUT_WIDTH = 42; // width of spout, determined by inspecting image file
   var HANDLE_ORIENTATION_RANGE = new Range( -Math.PI / 4, 0 ); // full off -> full on
