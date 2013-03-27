@@ -13,8 +13,8 @@
 define( function ( require ) {
 
   // imports
-  var inherit = require( "PHET_CORE/inherit" );
   var DOM = require( "SCENERY/nodes/DOM" );
+  var inherit = require( "PHET_CORE/inherit" );
 
   /**
    * @param {Array} solutes (of type Solute)

@@ -9,16 +9,16 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Range = require( "DOT/Range" );
-  var Util = require( "DOT/Util" );
-  var inherit = require( "PHET_CORE/inherit" );
   var Dimension2 = require( "DOT/Dimension2" );
-  var Shape = require( "KITE/Shape" );
+  var inherit = require( "PHET_CORE/inherit" );
+  var LinearFunction = require( "common/util/LinearFunction" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
-  var Text = require( "SCENERY/nodes/Text" );
+  var Range = require( "DOT/Range" );
+  var Shape = require( "KITE/Shape" );
   var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
-  var LinearFunction = require( "common/util/LinearFunction" );
+  var Text = require( "SCENERY/nodes/Text" );
+  var Util = require( "DOT/Util" );
 
   // constants
   var KNOB_SIZE = new Dimension2( 20, 30 );

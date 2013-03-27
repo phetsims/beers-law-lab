@@ -10,8 +10,8 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Vector2 = require( "DOT/Vector2" );
   var ShakerParticle = require( "concentration/model/ShakerParticle" );
+  var Vector2 = require( "DOT/Vector2" );
 
   // Units for speed and acceleration are not meaningful here, adjust these so that it looks good.
   var INITIAL_SPEED = 100;

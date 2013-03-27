@@ -9,11 +9,11 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Vector2 = require( "DOT/Vector2" );
-  var Property = require( "PHETCOMMON/model/property/Property" );
-  var inherit = require( "PHET_CORE/inherit" );
   var callSuper = require( "PHET_CORE/callSuper" );
+  var inherit = require( "PHET_CORE/inherit" );
   var Movable = require( "common/model/Movable" );
+  var Property = require( "PHETCOMMON/model/property/Property" );
+  var Vector2 = require( "DOT/Vector2" );
 
   /**
    * Constructor

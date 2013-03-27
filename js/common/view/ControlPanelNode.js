@@ -10,9 +10,9 @@ define( function ( require ) {
 
   // imports
   var inherit = require( "PHET_CORE/inherit" );
-  var Shape = require( "KITE/Shape" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
+  var Shape = require( "KITE/Shape" );
 
   /**
    * @param {Node} contentNode

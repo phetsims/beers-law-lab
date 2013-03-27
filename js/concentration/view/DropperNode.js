@@ -10,17 +10,17 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Shape = require( "KITE/Shape" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Image = require( "SCENERY/nodes/Image" );
-  var DOM = require( "SCENERY/nodes/DOM" );
-  var Path = require( "SCENERY/nodes/Path" );
-  var inherit = require( "PHET_CORE/inherit" );
   var Color = require( "common/model/Color" );
   var ConcentrationSolution = require( "concentration/model/ConcentrationSolution" );
-  var MovableDragHandler = require( "common/view/MovableDragHandler" );
-  var MomentaryButtonNode = require( "common/view/MomentaryButtonNode" );
+  var DOM = require( "SCENERY/nodes/DOM" );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
+  var Image = require( "SCENERY/nodes/Image" );
+  var inherit = require( "PHET_CORE/inherit" );
+  var MomentaryButtonNode = require( "common/view/MomentaryButtonNode" );
+  var MovableDragHandler = require( "common/view/MovableDragHandler" );
+  var Node = require( "SCENERY/nodes/Node" );
+  var Path = require( "SCENERY/nodes/Path" );
+  var Shape = require( "KITE/Shape" );
 
   // images
   var foregroundImage = require( "image!images/dropper_foreground.png" );
@@ -96,7 +96,7 @@ define( function ( require ) {
     thisNode.addChild( labelBackgroundNode );
     thisNode.addChild( labelNode );
     thisNode.addChild( buttonNode );
-    if( DEBUG_ORIGIN ) {
+    if ( DEBUG_ORIGIN ) {
       thisNode.addChild( new DebugOriginNode() );
     }
 

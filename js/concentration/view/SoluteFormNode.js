@@ -10,8 +10,8 @@ define( function( require ) {
   "use strict";
 
   // imports
-  var inherit = require( "PHET_CORE/inherit" );
   var DOM = require( "SCENERY/nodes/DOM" );
+  var inherit = require( "PHET_CORE/inherit" );
 
   // constants
   var CLASS_SELECTED = "btn-info"; // bootstrap class name for "info" button color

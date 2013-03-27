@@ -11,9 +11,9 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
-  var Image = require( "SCENERY/nodes/Image" );
 
   // constants
   var X_OVERLAP = 1; // overlap between tiles, to hide seams

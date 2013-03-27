@@ -9,21 +9,21 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Dimension2 = require( "DOT/Dimension2" );
-  var Vector2 = require( "DOT/Vector2" );
-  var Range = require( "DOT/Range" );
-  var Property = require( "PHETCOMMON/model/property/Property" );
-  var Bounds2 = require( "DOT/Bounds2" );
   var Beaker = require( "concentration/model/Beaker" );
-  var ConcentrationSolution = require( "concentration/model/ConcentrationSolution" );
-  var Shaker = require( "concentration/model/Shaker" );
-  var Dropper = require( "concentration/model/Dropper" );
-  var Faucet = require( "concentration/model/Faucet" );
-  var Solute = require( "concentration/model/Solute" );
-  var Evaporator = require( "concentration/model/Evaporator" );
+  var Bounds2 = require( "DOT/Bounds2" );
   var ConcentrationMeter = require( "concentration/model/ConcentrationMeter" );
+  var ConcentrationSolution = require( "concentration/model/ConcentrationSolution" );
+  var Dimension2 = require( "DOT/Dimension2" );
+  var Dropper = require( "concentration/model/Dropper" );
+  var Evaporator = require( "concentration/model/Evaporator" );
+  var Faucet = require( "concentration/model/Faucet" );
   var Precipitate = require( "concentration/model/Precipitate" );
+  var Property = require( "PHETCOMMON/model/property/Property" );
+  var Range = require( "DOT/Range" );
+  var Shaker = require( "concentration/model/Shaker" );
   var ShakerParticles = require( "concentration/model/ShakerParticles" );
+  var Solute = require( "concentration/model/Solute" );
+  var Vector2 = require( "DOT/Vector2" );
 
   // constants
   var BEAKER_VOLUME = 1; // L

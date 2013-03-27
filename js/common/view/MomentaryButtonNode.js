@@ -10,9 +10,9 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Node = require( "SCENERY/nodes/Node" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
+  var Node = require( "SCENERY/nodes/Node" );
 
   // images
   var pressedImage = require( "image!images/momentary_button_pressed.png" );

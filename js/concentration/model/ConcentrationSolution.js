@@ -11,12 +11,12 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var inherit = require( "PHET_CORE/inherit" );
   var callSuper = require( "PHET_CORE/callSuper" );
-  var Property = require( "PHETCOMMON/model/property/Property" );
   var Color = require( "common/model/Color" );
-  var Solvent = require( "common/model/Solvent" );
   var Fluid = require( "common/model/Fluid" );
+  var inherit = require( "PHET_CORE/inherit" );
+  var Property = require( "PHETCOMMON/model/property/Property" );
+  var Solvent = require( "common/model/Solvent" );
 
   /**
    * @param {Property} solute (type Solute)

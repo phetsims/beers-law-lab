@@ -9,13 +9,13 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Range = require( "DOT/Range" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Dimension2 = require( "DOT/Dimension2" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Text = require( "SCENERY/nodes/Text" );
-  var SliderNode = require( "common/view/SliderNode" );
   var ControlPanelNode = require( "common/view/ControlPanelNode" );
+  var Dimension2 = require( "DOT/Dimension2" );
+  var inherit = require( "PHET_CORE/inherit" );
+  var Node = require( "SCENERY/nodes/Node" );
+  var Range = require( "DOT/Range" );
+  var SliderNode = require( "common/view/SliderNode" );
+  var Text = require( "SCENERY/nodes/Text" );
 
   function EvaporatorNode( evaporator, strings ) {
 

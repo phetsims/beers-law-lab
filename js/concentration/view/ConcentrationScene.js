@@ -9,28 +9,28 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Dimension2 = require( "DOT/Dimension2" );
-  var Scene = require( "SCENERY/Scene" );
-  var DOM = require( "SCENERY/nodes/DOM" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Text = require( "SCENERY/nodes/Text" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Range = require( "DOT/Range" );
-  var ButtonNode = require( "common/view/ButtonNode" );
-  var ResetAllButtonNode = require( "common/view/ResetAllButtonNode" );
-  var Solute = require( "concentration/model/Solute" );
   var BeakerNode = require( "concentration/view/BeakerNode" );
-  var FaucetNode = require( "concentration/view/FaucetNode" );
-  var FaucetFluidNode = require( "concentration/view/FaucetFluidNode" );
-  var ShakerNode = require( "concentration/view/ShakerNode" );
-  var SolutionNode = require( "concentration/view/SolutionNode" );
-  var ShakerParticlesNode = require( "concentration/view/ShakerParticlesNode" );
-  var PrecipitateNode = require( "concentration/view/PrecipitateNode" );
-  var DropperNode = require( "concentration/view/DropperNode" );
-  var StockSolutionNode = require( "concentration/view/StockSolutionNode" );
+  var ButtonNode = require( "common/view/ButtonNode" );
   var ConcentrationMeterNode = require( "concentration/view/ConcentrationMeterNode" );
+  var DOM = require( "SCENERY/nodes/DOM" );
+  var Dimension2 = require( "DOT/Dimension2" );
+  var DropperNode = require( "concentration/view/DropperNode" );
   var EvaporatorNode = require( "concentration/view/EvaporatorNode" );
+  var FaucetFluidNode = require( "concentration/view/FaucetFluidNode" );
+  var FaucetNode = require( "concentration/view/FaucetNode" );
+  var inherit = require( "PHET_CORE/inherit" );
+  var Node = require( "SCENERY/nodes/Node" );
+  var PrecipitateNode = require( "concentration/view/PrecipitateNode" );
+  var Range = require( "DOT/Range" );
+  var ResetAllButtonNode = require( "common/view/ResetAllButtonNode" );
+  var Scene = require( "SCENERY/Scene" );
+  var ShakerNode = require( "concentration/view/ShakerNode" );
+  var ShakerParticlesNode = require( "concentration/view/ShakerParticlesNode" );
+  var Solute = require( "concentration/model/Solute" );
   var SoluteControlsNode = require( "concentration/view/SoluteControlsNode" );
+  var SolutionNode = require( "concentration/view/SolutionNode" );
+  var StockSolutionNode = require( "concentration/view/StockSolutionNode" );
+  var Text = require( "SCENERY/nodes/Text" );
 
   /**
    * @param {ConcentrationModel} model

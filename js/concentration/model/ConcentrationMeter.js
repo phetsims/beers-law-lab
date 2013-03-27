@@ -14,8 +14,8 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Property = require( "PHETCOMMON/model/property/Property" );
   var Movable = require( "common/model/Movable" );
+  var Property = require( "PHETCOMMON/model/property/Property" );
 
   /**
    * @param {Vector2} bodyLocation

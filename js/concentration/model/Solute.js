@@ -11,8 +11,8 @@ define( function ( require ) {
   // imports
   var BLLSymbols = require( "common/BLLSymbols" );
   var Color = require( "common/model/Color" );
-  var Solvent = require( "common/model/Solvent" );
   var SoluteColorScheme = require( "concentration/model/SoluteColorScheme" );
+  var Solvent = require( "common/model/Solvent" );
   var Strings = require( "i18n!../../../nls/beers-law-lab-strings" );
 
   /**

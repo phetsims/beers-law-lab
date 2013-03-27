@@ -11,17 +11,17 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Node = require( "SCENERY/nodes/Node" );
-  var Image = require( "SCENERY/nodes/Image" );
-  var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
-  var Matrix3 = require( "DOT/Matrix3" );
-  var Transform3 = require( "DOT/Transform3" );
-  var Vector2 = require( "DOT/Vector2" );
-  var Util = require( "DOT/Util" );
-  var Range = require( "DOT/Range" );
-  var inherit = require( "PHET_CORE/inherit" );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
+  var Image = require( "SCENERY/nodes/Image" );
+  var inherit = require( "PHET_CORE/inherit" );
   var LinearFunction = require( "common/util/LinearFunction" );
+  var Matrix3 = require( "DOT/Matrix3" );
+  var Node = require( "SCENERY/nodes/Node" );
+  var Range = require( "DOT/Range" );
+  var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
+  var Transform3 = require( "DOT/Transform3" );
+  var Util = require( "DOT/Util" );
+  var Vector2 = require( "DOT/Vector2" );
 
   // images
   var handleImage = require( "image!images/faucet_handle.png" );

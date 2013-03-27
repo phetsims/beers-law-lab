@@ -11,8 +11,8 @@ define( function ( require ) {
 
   // imports
   var inherit = require( "PHET_CORE/inherit" );
-  var Shape = require( "KITE/Shape" );
   var Path = require( "SCENERY/nodes/Path" );
+  var Shape = require( "KITE/Shape" );
 
   /**
    * @param {SoluteParticle} particle

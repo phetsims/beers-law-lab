@@ -10,8 +10,8 @@ define( function( require ) {
   "use strict";
 
   // imports
-  var inherit = require( "PHET_CORE/inherit" );
   var DOM = require("SCENERY/nodes/DOM" );
+  var inherit = require( "PHET_CORE/inherit" );
 
   /**
    * @param {String} text

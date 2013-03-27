@@ -7,12 +7,12 @@
  */
 require(
   [
-    "PHETCOMMON/view/PerformanceMonitor",
     "concentration/model/ConcentrationModel",
     "concentration/view/ConcentrationView",
+    "PHETCOMMON/view/PerformanceMonitor",
     "i18n!../nls/beers-law-lab-strings"
   ],
-  function ( PerformanceMonitor, ConcentrationModel, ConcentrationView, Strings ) {
+  function ( ConcentrationModel, ConcentrationView, PerformanceMonitor, Strings ) {
     "use strict";
 
     // Concentration tab

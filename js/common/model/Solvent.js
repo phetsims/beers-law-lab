@@ -9,10 +9,10 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var inherit = require( "PHET_CORE/inherit" );
   var BLLSymbols = require( "common/BLLSymbols" );
   var Color = require( "common/model/Color" );
   var Fluid = require( "common/model/Fluid" );
+  var inherit = require( "PHET_CORE/inherit" );
   var Strings = require( "i18n!../../../nls/beers-law-lab-strings" );
 
   /**

@@ -9,11 +9,11 @@ define( function( require ) {
   "use strict";
 
   // imports
-  var Shape = require( "KITE/Shape" );
-  var Path = require( "SCENERY/nodes/Path" );
-  var inherit = require( "PHET_CORE/inherit" );
   var ConcentrationSolution = require( "concentration/model/ConcentrationSolution" );
   var DropperNode = require( "concentration/view/DropperNode" );
+  var inherit = require( "PHET_CORE/inherit" );
+  var Path = require( "SCENERY/nodes/Path" );
+  var Shape = require( "KITE/Shape" );
 
   /**
    * @param {Solvent} solvent

@@ -10,12 +10,12 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Shape = require( "KITE/Shape" );
+  var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
-  var Text = require( "SCENERY/nodes/Text" );
-  var inherit = require( "PHET_CORE/inherit" );
+  var Shape = require( "KITE/Shape" );
   var StringUtils = require( "common/util/StringUtils" );
+  var Text = require( "SCENERY/nodes/Text" );
 
   // constants
   var MAX_VOLUME = 1;

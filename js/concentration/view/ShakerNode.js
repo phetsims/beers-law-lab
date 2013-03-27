@@ -9,14 +9,16 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Node = require( "SCENERY/nodes/Node" );
-  var Image = require( "SCENERY/nodes/Image" );
   var DOM = require( "SCENERY/nodes/DOM" );
-  var Vector2 = require( "DOT/Vector2" );
-  var Util = require( "DOT/Util" );
-  var inherit = require( "PHET_CORE/inherit" );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
+  var Image = require( "SCENERY/nodes/Image" );
+  var inherit = require( "PHET_CORE/inherit" );
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
+  var Node = require( "SCENERY/nodes/Node" );
+  var Util = require( "DOT/Util" );
+  var Vector2 = require( "DOT/Vector2" );
+
+  // images
   var shakerImage = require( "image!images/shaker.png" );
 
   // constants

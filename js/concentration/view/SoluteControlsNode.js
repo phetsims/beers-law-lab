@@ -9,13 +9,13 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var ControlPanelNode = require( "common/view/ControlPanelNode" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
-  var Text = require( "SCENERY/nodes/Text" );
-  var ControlPanelNode = require( "common/view/ControlPanelNode" );
-  var StringUtils = require( "common/util/StringUtils" );
   var SoluteDropdownNode = require( "concentration/view/SoluteDropdownNode" );
   var SoluteFormNode = require( "concentration/view/SoluteFormNode" );
+  var StringUtils = require( "common/util/StringUtils" );
+  var Text = require( "SCENERY/nodes/Text" );
 
   /**
    * @param {Array} solutes (of type Solute)

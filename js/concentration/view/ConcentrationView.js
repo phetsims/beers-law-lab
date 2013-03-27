@@ -9,10 +9,10 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Dimension2 = require( "DOT/Dimension2" );
-  var Vector2 = require( "DOT/Vector2" );
-  var ModelViewTransform2D = require( "PHETCOMMON/view/ModelViewTransform2D" );
   var ConcentrationScene = require( "concentration/view/ConcentrationScene" );
+  var Dimension2 = require( "DOT/Dimension2" );
+  var ModelViewTransform2D = require( "PHETCOMMON/view/ModelViewTransform2D" );
+  var Vector2 = require( "DOT/Vector2" );
 
   function ConcentrationView( model, strings ) {
 
@@ -25,7 +25,7 @@ define( function ( require ) {
     document.bgColor = "white";
 
     // Reset All callback
-    var resetAllCallback = function() {
+    var resetAllCallback = function () {
       model.reset();
     };
 

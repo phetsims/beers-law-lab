@@ -1,3 +1,4 @@
+3/26/13 alphabetize imports
 3/26/13 rewrite polyfill for requestAnimationFrame
 3/26/13 switch from phetcommon.util.Inheritance to phet-core.inherit and phet-core.callSuper
 3/26/13 delete Rectangle, replace with dot.Bounds2

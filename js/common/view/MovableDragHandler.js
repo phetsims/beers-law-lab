@@ -10,9 +10,9 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var inherit = require( "PHET_CORE/inherit" );
   var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
   var Vector2 = require( "DOT/Vector2" );
-  var inherit = require( "PHET_CORE/inherit" );
 
   function MovableDragHandler( movable, mvt ) {
     var thisHandler = this;

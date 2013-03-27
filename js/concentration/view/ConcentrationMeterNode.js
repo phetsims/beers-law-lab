@@ -20,19 +20,19 @@ define( function( require ) {
   "use strict";
 
   // imports
-  var Range = require( "DOT/Range" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Vector2 = require( "DOT/Vector2" );
-  var Shape = require( "KITE/Shape" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Image = require( "SCENERY/nodes/Image" );
-  var Path = require( "SCENERY/nodes/Path" );
-  var Text = require( "SCENERY/nodes/Text" );
   var Color = require( "common/model/Color" );
-  var LinearFunction = require( "common/util/LinearFunction" );
-  var StringUtils = require( "common/util/StringUtils" );
   var HorizontalTiledNode = require( "common/view/HorizontalTiledNode" );
+  var Image = require( "SCENERY/nodes/Image" );
+  var inherit = require( "PHET_CORE/inherit" );
+  var LinearFunction = require( "common/util/LinearFunction" );
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
+  var Node = require( "SCENERY/nodes/Node" );
+  var Path = require( "SCENERY/nodes/Path" );
+  var Range = require( "DOT/Range" );
+  var Shape = require( "KITE/Shape" );
+  var StringUtils = require( "common/util/StringUtils" );
+  var Text = require( "SCENERY/nodes/Text" );
+  var Vector2 = require( "DOT/Vector2" );
 
   // images
   var bodyLeftImage = require( "image!images/concentration-meter-body-left.png" );

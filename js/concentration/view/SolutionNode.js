@@ -10,11 +10,11 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Range = require( "DOT/Range" );
   var inherit = require( "PHET_CORE/inherit" );
-  var Shape = require( "KITE/Shape" );
-  var Path = require( "SCENERY/nodes/Path" );
   var LinearFunction = require( "common/util/LinearFunction" );
+  var Path = require( "SCENERY/nodes/Path" );
+  var Range = require( "DOT/Range" );
+  var Shape = require( "KITE/Shape" );
 
   // constants
   var MIN_NONZERO_HEIGHT = 5; // minimum height for a solution with non-zero volume, set by visual inspection

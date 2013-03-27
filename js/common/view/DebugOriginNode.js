@@ -10,9 +10,9 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var inherit = require( "PHET_CORE/inherit" );
   var Path = require( "SCENERY/nodes/Path" );
   var Shape = require( "KITE/Shape" );
-  var inherit = require( "PHET_CORE/inherit" );
 
   function DebugOriginNode( color ) {
     Path.call( this, {
