@@ -23,7 +23,7 @@ define( function ( require ) {
 
     var thisNode = this;
 
-    var buttonWidth = 250; //TODO compute this
+    var buttonWidth = 250; //TODO compute this. But how?...
 
     // construct HTML with solute names
     var html = '<div id="bll-solute-dropdown" class="btn-group">' +
