@@ -23,18 +23,16 @@ FIX
 - iPad, Nexus: bootstrap components don't work (Reset All button works)
 - iPad: shaker and its label move separately, ditto for dropper
 - iPad, Nexus: performance of particles
-- keep shaking the shaker until the display flips out
+- keep shaking the shaker until the display flips out (memory leak?)
+- weird flicker/down-scaling issue on mobile Safari (gone?)
 
 HIGH
 - finish SoluteDropdownNode
-- switch to inherit.js and callSuper.js in phet-core, delete Inheritance.js
-- switch to dot for MathUtil and Range, then delete
 - CSS for bootstrap components
 
 MEDIUM
 - nicer knob for evaporation slider
 - gradient in evaporation slider track
-- weird flicker/down-scaling issue on mobile Safari
 - use ImagesLoader to load images, delete images.js in config.js
 - compute deltaSeconds in animation loop
 
