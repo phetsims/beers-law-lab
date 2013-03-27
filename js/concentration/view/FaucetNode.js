@@ -18,7 +18,7 @@ define( function ( require ) {
   var Transform3 = require( "DOT/Transform3" );
   var Vector2 = require( "DOT/Vector2" );
   var Util = require( "DOT/Util" );
-  var Range = require( "PHETCOMMON/math/Range" );
+  var Range = require( "DOT/Range" );
   var Inheritance = require( "PHETCOMMON/util/Inheritance" );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
   var LinearFunction = require( "common/util/LinearFunction" );

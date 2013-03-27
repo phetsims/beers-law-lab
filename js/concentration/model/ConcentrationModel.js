@@ -11,7 +11,7 @@ define( function ( require ) {
   // imports
   var Dimension2 = require( "DOT/Dimension2" );
   var Vector2 = require( "DOT/Vector2" );
-  var Range = require( "PHETCOMMON/math/Range" );
+  var Range = require( "DOT/Range" );
   var Property = require( "PHETCOMMON/model/property/Property" );
   var Rectangle = require( "common/model/Rectangle" );
   var Beaker = require( "concentration/model/Beaker" );

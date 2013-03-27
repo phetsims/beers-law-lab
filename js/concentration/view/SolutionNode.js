@@ -10,7 +10,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Range = require( "PHETCOMMON/math/Range" );
+  var Range = require( "DOT/Range" );
   var Inheritance = require( "PHETCOMMON/util/Inheritance" );
   var Shape = require( "KITE/Shape" );
   var Path = require( "SCENERY/nodes/Path" );

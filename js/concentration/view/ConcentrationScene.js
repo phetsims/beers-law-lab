@@ -15,7 +15,7 @@ define( function ( require ) {
   var Node = require( "SCENERY/nodes/Node" );
   var Text = require( "SCENERY/nodes/Text" );
   var Inheritance = require( "PHETCOMMON/util/Inheritance" );
-  var Range = require( "PHETCOMMON/math/Range" );
+  var Range = require( "DOT/Range" );
   var ButtonNode = require( "common/view/ButtonNode" );
   var ResetAllButtonNode = require( "common/view/ResetAllButtonNode" );
   var Solute = require( "concentration/model/Solute" );

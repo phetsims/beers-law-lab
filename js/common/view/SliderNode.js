@@ -9,7 +9,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var Range = require( "PHETCOMMON/math/Range" );
+  var Range = require( "DOT/Range" );
   var Util = require( "DOT/Util" );
   var Inheritance = require( "PHETCOMMON/util/Inheritance" );
   var Dimension2 = require( "DOT/Dimension2" );
