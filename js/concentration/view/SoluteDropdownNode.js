@@ -1,6 +1,5 @@
 // Copyright 2002-2013, University of Colorado
 
-//TODO button needs to be as wide as widest choice
 //TODO no hand cursor over dropdown
 //TODO add icons to indicate solute colors
 /**
