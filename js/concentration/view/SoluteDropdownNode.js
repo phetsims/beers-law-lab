@@ -24,9 +24,11 @@ define( function ( require ) {
 
     var thisNode = this;
 
+    var buttonWidth = 250; //TODO compute this
+
     // construct HTML with solute names
     var html = '<div id="bll-solute-dropdown" class="btn-group">' +
-                   '<a id="bll-solute-dropdown-button" class="btn dropdown-toggle btn-info btn-large" data-toggle="dropdown" href="#">' +
+                   '<a id="bll-solute-dropdown-button" class="btn dropdown-toggle btn-info btn-large" data-toggle="dropdown" href="#" style="width:' + buttonWidth + 'px; text-align:left">' +
                      '<span id="bll-solute-label">' + currentSolute.get().name + "</span>" +
                      '<span class="caret" style="margin-left:10px; float:right"></span>' +
                    '</a>' +
