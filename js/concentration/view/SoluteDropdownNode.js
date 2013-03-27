@@ -49,17 +49,21 @@ define( function ( require ) {
 
 //    $comboBox.find( '.dropdown-toggle' ).dropdown(); //TODO bootstrap doc says to call this, but it doesn't seem to be needed?
 
-    var $currentSelectionButton = $comboBox.find( ".bll-solute-dropdown-button" );
+    var $currentSelectionButton = $comboBox.find( "#bll-solute-dropdown-button" );
 
     // Process selection of options in dropdown.
     $comboBox.find( "li" ).bind( 'click', function ( /* {jQuery.Event} */ event ) {
       // Look up the selected solute using the custom attribute that holds the index into the solutes array.
       var index = $( event.delegateTarget ).attr( "solute-index" );
       var selectedSolute = solutes[index];
-      // Set the text on the button to indicate the selected solute.
-      $currentSelectionButton.html( selectedSolute.name ); //TODO not working
       // Update the model.
       currentSolute.set( selectedSolute );
+    } );
+
+    // Change the button to reflect the selected solute.
+    currentSolute.addObserver( function ( solute ) {
+      $currentSelectionButton.html( solute.name );
+      //TODO set color chip or background color of button?
     } );
   }
 
