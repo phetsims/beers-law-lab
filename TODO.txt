@@ -9,14 +9,10 @@ DESIGN ISSUES
 - sliders
 
 IMPLEMENTATION ISSUES
-- Bootstrap controls
 
 SCENERY BUGS
 
 SCENERY ENHANCEMENTS
-- add Node.toImage (scenery#7)
-- relativePressPoint for SimpleDragHandler? mouse gets away from shaker while dragging (scenery#3)
-- coordinate frame transforms (scenery#12)
 
 FIX
 - iPad: "Drink mix" text on shaker is broken into 2 lines, ditto for dropper
@@ -31,18 +27,22 @@ HIGH
 - CSS for bootstrap components
 
 MEDIUM
+- use scenery's new coordinate frame transform methods (scenery#12)
+- add relativePressPoint for drag handlers, so that mouse doesn't get away from drag target
 - nicer knob for evaporation slider
 - gradient in evaporation slider track
 - use ImagesLoader to load images, delete images.js in config.js
 - compute deltaSeconds in animation loop
+- improve drag handler for faucet handles
+- split faucet_handle.png into 2 images, so that only the knob is interactive?
+- Beer's Law module
 
 LOW
 - load bootstrap and bootstrap-dropdown via config.js
 - value in concentration meter jitters horizontally as value changes
 - use scenery.Pattern to texture map input pipe in FaucetNode
-- improve drag handler for faucet handles
 - use scenery.Font for font specification
-- Beer's Law module
+- get new images for faucet, faucet_pipe.png doesn't match up with faucet_spigot.png
 
 LOWEST
 - add missing assets (.ai) for faucet
