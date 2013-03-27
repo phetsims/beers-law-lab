@@ -32,8 +32,13 @@ define( function ( require ) {
                        '<span class="caret"></span>' +
                    '</button>' +
                    '<ul class="dropdown-menu">';
+    /*
+     * Add each solute to the dropdown.
+     * Include a custom attribute to note its index in the solutes array.
+     * Use class=btn-large to get same font as text on button.
+     */
     for ( var i = 0; i < solutes.length; i++ ) {
-      html = html + '<li>' + solutes[i].name + '</li>';
+      html = html + '<li class="btn-large" solute-index="' + i + '">' + solutes[i].name + '</li>';
     }
     html = html + '</ul></div>';
 
@@ -42,17 +47,19 @@ define( function ( require ) {
 
     DOM.call( thisNode, $comboBox );
 
-//    $comboBox.find( '.dropdown-toggle' ).dropdown(); //TODO this doesn't seem to be needed?
+//    $comboBox.find( '.dropdown-toggle' ).dropdown(); //TODO bootstrap doc says to call this, but it doesn't seem to be needed?
 
-    var $currentSelectionButton = $comboBox.find( "bll-solute-dropdown-button" );
+    var $currentSelectionButton = $comboBox.find( ".bll-solute-dropdown-button" );
 
     // Process selection of options in dropdown.
     $comboBox.find( "li" ).bind( 'click', function ( /* {jQuery.Event} */ event ) {
-      var soluteName = event.delegateTarget.innerHTML;
-      console.log( "click: " + soluteName );
-      //TODO use soluteName to set text on #bll-solute-dropdown-button
-      //TODO var selectedSolute = get solute from solutes[], store an index in the <li> as a custom attribute?
-      //TODO currentSolute.set( selectedSolute );
+      // Look up the selected solute using the custom attribute that holds the index into the solutes array.
+      var index = $( event.delegateTarget ).attr( "solute-index" );
+      var selectedSolute = solutes[index];
+      // Set the text on the button to indicate the selected solute.
+      $currentSelectionButton.html( selectedSolute.name ); //TODO not working
+      // Update the model.
+      currentSolute.set( selectedSolute );
     } );
   }
 

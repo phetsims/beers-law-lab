@@ -103,7 +103,7 @@ define( function ( require ) {
 
     // Layout for things that don't have a location in the model.
     {
-      soluteControlsNode.left = beakerNode.right;
+      soluteControlsNode.right = concentrationMeterNode.right;
       soluteControlsNode.top = 20;
       evaporator.left = mvt.modelToView( model.beaker.location.x - ( model.beaker.size.width / 2 ) );
       evaporator.top = beakerNode.bottom + 30;
