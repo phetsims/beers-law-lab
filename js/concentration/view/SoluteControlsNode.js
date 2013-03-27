@@ -50,7 +50,8 @@ define( function ( require ) {
     soluteFormNode.left = soluteLabel.left;
     soluteFormNode.top = Math.max( soluteLabel.bottom, soluteDropdown.bottom ) + 20;
 
-    ControlPanelNode.call( thisNode, contentNode, 20, 20 );
+    // Use SVG renderer so that this node doesn't block events to other DOM elements in the scene.
+    ControlPanelNode.call( thisNode, contentNode, 20, 20, { renderer: "svg" } );
   }
 
   Inheritance.inheritPrototype( SoluteControlsNode, ControlPanelNode );

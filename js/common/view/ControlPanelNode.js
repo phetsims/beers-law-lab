@@ -18,15 +18,16 @@ define( function ( require ) {
    * @param {Node} contentNode
    * @param {Number} xMargin, optional
    * @param {Number} yMargin, optional
+   * @param options scenery.Node options
    * @constructor
    */
-  function ControlPanelNode( contentNode, xMargin, yMargin ) {
+  function ControlPanelNode( contentNode, xMargin, yMargin, options ) {
 
     xMargin = ( xMargin || 20 );
     yMargin = ( yMargin || 10 );
 
     var thisNode = this;
-    Node.call( thisNode );
+    Node.call( thisNode, options );
 
     var panelNode = new Path(
       {
