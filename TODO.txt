@@ -19,9 +19,9 @@ SCENERY ENHANCEMENTS
 - coordinate frame transforms (scenery#12)
 
 FIX
-- iPad: "Drink mix" text on shaker is broken into 2 lines
+- iPad: "Drink mix" text on shaker is broken into 2 lines, ditto for dropper
 - iPad, Nexus: bootstrap components don't work (Reset All button works)
-- iPad: shaker and its label move separately
+- iPad: shaker and its label move separately, ditto for dropper
 - iPad, Nexus: performance of particles
 - keep shaking the shaker until the display flips out
 
