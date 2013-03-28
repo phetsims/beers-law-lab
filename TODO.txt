@@ -15,12 +15,10 @@ SCENERY BUGS
 SCENERY ENHANCEMENTS
 
 BUGS
-- iPad: "Drink mix" text on shaker is broken into 2 lines, ditto for dropper
-- iPad, Nexus: bootstrap components don't work (Reset All button works)
-- iPad: shaker and its label move separately, ditto for dropper
+- iPad: concentration probe becomes stuck when dragged into solution and other parts of sim become unresponsive
+- iPad: "Drink mix" text on shaker is broken into 2 lines, text moves separate from shaker, ditto for dropper (scenery#13)
+- iPad, Nexus: bootstrap components look like they respond but do nothing (all except "Reset All" button)
 - iPad, Nexus: performance of particles
-- keep shaking the shaker until the display flips out (memory leak?)
-- weird flicker/down-scaling issue on mobile Safari (gone?)
 
 HIGH
 - try Fort
