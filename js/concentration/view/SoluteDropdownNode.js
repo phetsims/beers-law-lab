@@ -1,6 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 
 //TODO no hand cursor over dropdown
+//TODO no accessibility in dropdown?
 //TODO add icons to indicate solute colors
 /**
  * Bootstrap dropdown for choosing a solute.
