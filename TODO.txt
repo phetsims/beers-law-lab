@@ -8,7 +8,7 @@ IMPLEMENTATION ISSUES
 - UI components (radio buttons, combo box, sliders)
 
 SCENERY BUGS
-- iPad: concentration probe becomes stuck when dragged into solution and other parts of sim become unresponsive (scenery#16)
+- iPad: Text node performance is not usable for dynamic text (scenery#16)
 - iPad: "Drink mix" text on shaker is broken into 2 lines, text moves separate from shaker, ditto for dropper (scenery#13)
 
 SCENERY ENHANCEMENTS
