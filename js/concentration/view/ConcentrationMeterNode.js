@@ -99,11 +99,14 @@ define( function( require ) {
     meter.value.addObserver( function ( value ) {
       if ( isNaN( value ) ) {
         valueNode.getElement().innerHTML = NO_VALUE;
+        valueNode.invalidateDOM();
+        valueNode.centerX = backgroundNode.centerX; // center justified
       }
       else {
         valueNode.getElement().innerHTML = value.toFixed( VALUE_DECIMALS );
+        valueNode.invalidateDOM();
+        valueNode.right = backgroundNode.right - VALUE_X_MARGIN; // right justified
       }
-      valueNode.right = backgroundNode.right - VALUE_X_MARGIN; // right justified
     } );
   }
 

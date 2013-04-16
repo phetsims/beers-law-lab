@@ -1,3 +1,4 @@
+4/16/13 call invalidateDOM when changing value in concentration meter, so that DOM node bounds are correct
 4/16/13 use a non-empty <title> in html file
 4/16/13 concentration meter workaround for scenery#16 (poor Text node performance)
 3/27/13 fix dropper so that it changes color to match solute
