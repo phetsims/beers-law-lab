@@ -2,21 +2,18 @@ TODO list for beers-law-lab (HTML5 port)
 
 DESIGN ISSUES
 - tablet usability issues from 1/29/13 notebook
-- priority of accessibility?
-- tabs
-- radio buttons
-- combo box
-- sliders
+- interactive components feel too small on Nexus
 
 IMPLEMENTATION ISSUES
+- UI components (radio buttons, combo box, sliders)
 
 SCENERY BUGS
+- iPad: concentration probe becomes stuck when dragged into solution and other parts of sim become unresponsive (scenery#16)
+- iPad: "Drink mix" text on shaker is broken into 2 lines, text moves separate from shaker, ditto for dropper (scenery#13)
 
 SCENERY ENHANCEMENTS
 
 BUGS
-- iPad: concentration probe becomes stuck when dragged into solution and other parts of sim become unresponsive (scenery#16)
-- iPad: "Drink mix" text on shaker is broken into 2 lines, text moves separate from shaker, ditto for dropper (scenery#13)
 - iPad, Nexus: bootstrap components look like they respond but do nothing (all except "Reset All" button)
 - iPad, Nexus: performance of particles
 
