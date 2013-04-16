@@ -15,7 +15,7 @@ SCENERY BUGS
 SCENERY ENHANCEMENTS
 
 BUGS
-- iPad: concentration probe becomes stuck when dragged into solution and other parts of sim become unresponsive (scenery#14)
+- iPad: concentration probe becomes stuck when dragged into solution and other parts of sim become unresponsive (scenery#16)
 - iPad: "Drink mix" text on shaker is broken into 2 lines, text moves separate from shaker, ditto for dropper (scenery#13)
 - iPad, Nexus: bootstrap components look like they respond but do nothing (all except "Reset All" button)
 - iPad, Nexus: performance of particles
