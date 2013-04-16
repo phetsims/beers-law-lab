@@ -1,3 +1,4 @@
+4/16/13 concentration meter workaround for scenery#16 (poor Text node performance)
 3/27/13 fix dropper so that it changes color to match solute
 3/27/13 left-justify radio buttons under solute dropdown
 3/27/13 center radio buttons under solute dropdown

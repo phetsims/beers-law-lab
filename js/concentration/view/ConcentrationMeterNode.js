@@ -21,6 +21,7 @@ define( function( require ) {
 
   // imports
   var Color = require( "common/model/Color" );
+  var DOM = require( "SCENERY/nodes/DOM" );
   var HorizontalTiledNode = require( "common/view/HorizontalTiledNode" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -63,26 +64,30 @@ define( function( require ) {
     // text nodes
     var titleNode = new Text( strings.concentration, { font: "bold 18px Arial", fill: "white" } );
     var unitsNode = new Text( StringUtils.format( strings.pattern_parentheses_0text, [ strings.units_molesPerLiter ]), { font: "bold 14px Arial", fill: "white" } );
-    var valueNode = new Text( new Number( 1 ).toFixed( VALUE_DECIMALS ), { font: "24px Arial", fill: "black" } );
+
+    // value: workaround for scenery#16. It would be preferable to use Text node, but it can't be updated fast enough.
+    var $valueElement = $( '<span>' );
+    $valueElement.css( { font: "24px Arial", fill: "black" } );
+    $valueElement[0].innerHTML = new Number( 1 ).toFixed( VALUE_DECIMALS );
+    var valueNode = new DOM( $valueElement[0] );
 
     // create a background that fits the text
-    var maxTextWidth = Math.max( titleNode.width, Math.max( unitsNode.width, valueNode.width ) );
+    var maxTextWidth = Math.max( titleNode.width, unitsNode.width );
     var bodyWidth = ( 2 * TEXT_X_MARGIN ) + maxTextWidth;
-
-    var imageNode = new HorizontalTiledNode( bodyWidth, new Image( bodyLeftImage ), new Image( bodyCenterImage), new Image( bodyRightImage ) );
+    var backgroundNode = new HorizontalTiledNode( bodyWidth, new Image( bodyLeftImage ), new Image( bodyCenterImage), new Image( bodyRightImage ) );
 
     // rendering order
-    thisNode.addChild( imageNode );
+    thisNode.addChild( backgroundNode );
     thisNode.addChild( titleNode );
     thisNode.addChild( unitsNode );
     thisNode.addChild( valueNode );
 
     // layout
-    titleNode.centerX = imageNode.centerX;
+    titleNode.centerX = backgroundNode.centerX;
     titleNode.top = TITLE_TOP;
-    unitsNode.centerX = imageNode.centerX;
+    unitsNode.centerX = backgroundNode.centerX;
     unitsNode.top = titleNode.bottom + 5;
-    valueNode.right = imageNode.right - VALUE_X_MARGIN; // right justified
+    valueNode.right = backgroundNode.right - VALUE_X_MARGIN; // right justified
     valueNode.centerY = VALUE_CENTER_Y;
 
     // body location
@@ -93,13 +98,12 @@ define( function( require ) {
     // displayed value
     meter.value.addObserver( function ( value ) {
       if ( isNaN( value ) ) {
-        valueNode.text = NO_VALUE;
-        valueNode.centerX = imageNode.centerX; // centered
+        valueNode.getElement().innerHTML = NO_VALUE;
       }
       else {
-        valueNode.text = value.toFixed( VALUE_DECIMALS );
-        valueNode.right = imageNode.right - VALUE_X_MARGIN; // right justified
+        valueNode.getElement().innerHTML = value.toFixed( VALUE_DECIMALS );
       }
+      valueNode.right = backgroundNode.right - VALUE_X_MARGIN; // right justified
     } );
   }
 
