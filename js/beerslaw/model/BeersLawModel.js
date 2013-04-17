@@ -73,7 +73,7 @@ define( function ( require ) {
    * @param deltaSeconds clock time change, in seconds.
    */
   BeersLawModel.prototype.step = function ( deltaSeconds ) {
-    //TODO
+    // do nothing, no animation in this module
   };
 
   return BeersLawModel;
