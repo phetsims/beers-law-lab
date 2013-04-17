@@ -14,8 +14,6 @@ define( function ( require ) {
   var Movable = require( "common/model/Movable" );
   var Property = require( "PHETCOMMON/model/property/Property" );
 
-//  public static enum ATDetectorMode {TRANSMITTANCE, ABSORBANCE}
-
   /**
    * @param {Vector2} location
    * @param {Bounds2} dragBounds
