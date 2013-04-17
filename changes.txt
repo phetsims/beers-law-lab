@@ -1,3 +1,4 @@
+4/17/13 port of absorbance model
 4/17/13 ported most of model for Beer's Law module, loads with require.js, instantiates without errors, but untested
 4/17/13 added modules (in the PhET sim sense), created skeleton for "Beer's Law" module
 4/16/13 call invalidateDOM when changing value in concentration meter, so that DOM node bounds are correct
