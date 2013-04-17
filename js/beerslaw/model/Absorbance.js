@@ -16,7 +16,7 @@
  * <li>C is concentration (M)
  * </ul>
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function ( require ) {
   "use strict";
