@@ -7,19 +7,19 @@
  */
 require(
   [
-    "concentration/model/ConcentrationModel",
-    "concentration/view/ConcentrationView",
+    "concentration/ConcentrationModule",
+    "beerslaw/BeersLawModule",
     "PHETCOMMON/view/PerformanceMonitor",
     "i18n!../nls/beers-law-lab-strings"
   ],
-  function ( ConcentrationModel, ConcentrationView, PerformanceMonitor, Strings ) {
+  function ( ConcentrationModule, BeersLawModule, PerformanceMonitor, strings ) {
     "use strict";
 
-    // Concentration tab
-    var model = new ConcentrationModel();
-    var view = new ConcentrationView( model, Strings );
+    // Modules
+    var concentrationModule = new ConcentrationModule( strings );
+    var beersLawModule = new BeersLawModule( strings );
 
-    //TODO Beer's Law tab
+    var activeModule = concentrationModule;
 
     var performanceMonitor = new PerformanceMonitor( 500, 10 );
 
@@ -38,8 +38,7 @@ require(
     (function animationLoop() {
       window.requestAnimationFrame( animationLoop );
       performanceMonitor.begin();
-      model.step( deltaSeconds );
-      view.step( deltaSeconds );
+      activeModule.step( deltaSeconds );
       performanceMonitor.end();
     })();
   } );

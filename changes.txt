@@ -1,3 +1,4 @@
+4/17/13 added modules (in the PhET sim sense), created skeleton for "Beer's Law" module
 4/16/13 call invalidateDOM when changing value in concentration meter, so that DOM node bounds are correct
 4/16/13 use a non-empty <title> in html file
 4/16/13 concentration meter workaround for scenery#16 (poor Text node performance)
