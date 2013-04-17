@@ -12,7 +12,7 @@ define( function ( require ) {
   var BeersLawModel = require( "beerslaw/model/BeersLawModel" );
   var BeersLawView = require( "beerslaw/view/BeersLawView" );
 
-  function ConcentrationModule( strings ) {
+  function BeersLawModule( strings ) {
     var model = new BeersLawModel();
     var view = new BeersLawView( model, strings );
     this.step = function ( deltaSeconds ) {
@@ -21,5 +21,5 @@ define( function ( require ) {
     };
   }
 
-  return ConcentrationModule;
+  return BeersLawModule;
 } );
