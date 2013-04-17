@@ -10,7 +10,7 @@ define( function ( require ) {
 
   // imports
   var Absorbance = require( "beerslaw/model/Absorbance" );
-//  var ATDetector = require( "beerslaw/model/ATDetector" );
+  var ATDetector = require( "beerslaw/model/ATDetector" );
 //  var Beam = require( "beerslaw/model/Beam" );
   var BeersLawSolution = require( "beerslaw/model/BeersLawSolution" );
   var Bounds2 = require( "DOT/Bounds2" );
@@ -49,10 +49,10 @@ define( function ( require ) {
 
     this.absorbance = new Absorbance( thisModel.light, thisModel.solution, thisModel.cuvette );
 
-//    this.detector = new ATDetector( new Vector2( 6, 3.70 ), new Bounds2( 0, 0, 7.9, 5.25 ),
-//                                    new Vector2( 6, thisModel.light.location.y ), new Bounds2( 0, 0, 7.9, 5.25 ),
-//                                    thisModel.light, thisModel.cuvette, thisModel.absorbance );
-//
+    this.detector = new ATDetector( new Vector2( 6, 3.70 ), new Bounds2( 0, 0, 7.9, 5.25 ),
+                                    new Vector2( 6, thisModel.light.location.y ), new Bounds2( 0, 0, 7.9, 5.25 ),
+                                    thisModel.light, thisModel.cuvette, thisModel.absorbance );
+
 //    this.beam = new Beam( thisModel.light, thisModel.cuvette, thisModel.detector, thisModel.absorbance, thisModel.mvt );
   }
 
@@ -64,7 +64,7 @@ define( function ( require ) {
     this.solution.reset();
     this.light.reset();
     this.cuvette.reset();
-//    this.detector.reset();
+    this.detector.reset();
     this.ruler.reset();
   };
 
