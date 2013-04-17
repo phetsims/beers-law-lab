@@ -1,5 +1,6 @@
 // Copyright 2002-2013, University of Colorado
 
+//TODO lots of duplication with ConcentrationView
 /**
  * View container for "Beer's Law" module.
  *
