@@ -14,16 +14,17 @@ SCENERY BUGS
 SCENERY ENHANCEMENTS
 
 BUGS
+- in SoluteControlsNode, setting font "32px Arial" for soluteLabel results in Node.invalidateSelf assertion failure: "Bounds must be empty or finite in invalidateSelf"
 - iPad, Nexus: bootstrap components look like they respond but do nothing (all except "Reset All" button)
 - iPad, Nexus: performance of particles
 
 HIGH
-- try Fort
-- create a dropdown node without bootstrap
-- finish SoluteDropdownNode
-- CSS for bootstrap components
+- rewrite buttons, radio buttons and combo box in scenery
+- framework and UI for multiple modules
+- Beer's Law module
 
 MEDIUM
+- try Fort
 - use scenery's new coordinate frame transform methods (scenery#12)
 - add relativePressPoint for drag handlers, so that mouse doesn't get away from drag target
 - nicer knob for evaporation slider
@@ -33,10 +34,8 @@ MEDIUM
 - improve drag handler for faucet handles
 - split faucet_handle.png into 2 images, so that only the knob is interactive?
 - prevent dropper from being dragged by on/off button
-- Beer's Law module
 
 LOW
-- load bootstrap and bootstrap-dropdown via config.js
 - value in concentration meter jitters horizontally as value changes
 - use scenery.Pattern to texture map input pipe in FaucetNode
 - use scenery.Font for font specification
@@ -48,10 +47,6 @@ LOWEST
 COMMON FEATURES:
 - Credits: Ariel (lead), Chris (dev), Noah P, Emily, Kathy, Julia
 - About dialog (version info, credits, software agreement)
-- Preferences (updates, privacy)
-- data collection
-- sim update feature
-
 
 MIGRATE TO COMMON
 Color
