@@ -11,7 +11,7 @@ define( function ( require ) {
   // imports
   var Absorbance = require( "beerslaw/model/Absorbance" );
   var ATDetector = require( "beerslaw/model/ATDetector" );
-//  var Beam = require( "beerslaw/model/Beam" );
+  var Beam = require( "beerslaw/model/Beam" );
   var BeersLawSolution = require( "beerslaw/model/BeersLawSolution" );
   var Bounds2 = require( "DOT/Bounds2" );
   var Cuvette = require( "beerslaw/model/Cuvette" );
@@ -53,7 +53,7 @@ define( function ( require ) {
                                     new Vector2( 6, thisModel.light.location.y ), new Bounds2( 0, 0, 7.9, 5.25 ),
                                     thisModel.light, thisModel.cuvette, thisModel.absorbance );
 
-//    this.beam = new Beam( thisModel.light, thisModel.cuvette, thisModel.detector, thisModel.absorbance, thisModel.mvt );
+    this.beam = new Beam( thisModel.light, thisModel.cuvette, thisModel.detector, thisModel.absorbance, thisModel.mvt );
   }
 
   // Resets all model elements

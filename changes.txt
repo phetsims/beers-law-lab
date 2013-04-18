@@ -1,3 +1,4 @@
+4/17/13 partial port of beam model (need to port VisibleColor and figure out gradient paint)
 4/17/13 port of absorbance/transmittance detector
 4/17/13 port of absorbance model
 4/17/13 ported most of model for Beer's Law module, loads with require.js, instantiates without errors, but untested

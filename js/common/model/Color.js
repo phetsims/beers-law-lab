@@ -83,6 +83,10 @@ define( function ( require ) {
                       this.a );
   };
 
+  Color.withAlpha = function( color, alpha ) {
+     return new Color( color.r, color.g, color.b, alpha );
+  };
+
   // Common opaque colors
   Color.BLACK = new Color( 0, 0, 0 );
   Color.BLUE = new Color( 0, 0, 255 );
