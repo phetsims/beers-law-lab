@@ -11,27 +11,26 @@ define( function ( require ) {
   // imports
   var ConcentrationModel = require( "concentration/model/ConcentrationModel" );
   var ConcentrationView = require( "concentration/view/ConcentrationView" );
+  var Image = require( "SCENERY/nodes/Image" );
   var ModelViewTransform2D = require( "PHETCOMMON/view/ModelViewTransform2D" );
-  var Rectangle = require( "SCENERY/nodes/Rectangle" );  //TODO delete me
   var Vector2 = require( "DOT/Vector2" );
+
+  // images
+  var ICON = require( "image!images/Concentration-icon.jpg" )
 
   function ConcentrationModule( strings ) {
 
-    console.log( "ConcentrationModule constructor" );//XXX
-
     this.name = strings.concentration;
-    this.icon = new Rectangle( 0, 0, 40, 40, {fill: 'red'} ); //TODO replace with icon
+    this.icon = new Image( ICON );
 
     // model-view transform (unity)
     var mvt = new ModelViewTransform2D( 1, new Vector2( 0, 0 ) );
 
     this.createModel = function () {
-      console.log( "ConcentrationModule.createModel" );//XXX
       return new ConcentrationModel();
     };
 
     this.createView = function ( model ) {
-      console.log( "ConcentrationModule.createView" );//XXX
       return new ConcentrationView( model, mvt, strings );
     };
   }
