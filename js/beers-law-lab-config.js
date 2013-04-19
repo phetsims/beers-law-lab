@@ -18,22 +18,23 @@ requirejs.config(
 
     paths: {
 
-      // contrib
+      // third-party libs
       i18n: "../contrib/i18n-2.0.2",
       image: "../contrib/image-0.2.1", //TODO replace with ImagesLoaded
       tpl: "../contrib/tpl-0.2",
-
-      // Dependencies required by common repos
       stats: "../contrib/stats-r11",
       imagesloaded: "../contrib/jquery.imagesloaded-2.1.1",
 
-      // Common repos, uppercase names to identify them in require imports
+      // PhET libs, uppercase names to identify them in require.js imports
       ASSERT: '../../assert/js',
       DOT: '../../dot/js',
       PHET_CORE: '../../phet-core/js',
       PHETCOMMON: "../../phetcommon/js",
       SCENERY: '../../scenery/js',
-      KITE: '../../kite/js'
+      KITE: '../../kite/js',
+      SCENERY_PHET: '../../scenery-phet/js',
+      FORT: '../../fort/js',
+      SUN: '../../sun/js'
     },
 
     shim: {

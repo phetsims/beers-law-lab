@@ -1,56 +1,45 @@
 // Copyright 2002-2013, University of Colorado
 
-//TODO lots of duplication with ConcentrationView
 /**
- * View container for "Beer's Law" module.
+ * Scene graph for the "Beer's Law" module.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function ( require ) {
   "use strict";
 
-  // imports
-  var BeersLawScene = require( "beerslaw/view/BeersLawScene" );
-  var Dimension2 = require( "DOT/Dimension2" );
-  var ModelViewTransform2D = require( "PHETCOMMON/view/ModelViewTransform2D" );
-  var Vector2 = require( "DOT/Vector2" );
+  var inherit = require( "PHET_CORE/inherit" );
+  var PlayArea = require( 'SCENERY_PHET/PlayArea' );
+  var ResetAllButtonNode = require( "common/view/ResetAllButtonNode" );
+  var Scene = require( "SCENERY/Scene" );
+  var Text = require( "SCENERY/nodes/Text" );
 
-  function BeersLawView( model, strings ) {
+  /**
+   * @param {BeersLawModel} model
+   * @param {ModelViewTransform2D} mvt
+   * @param strings
+   * @constructor
+   */
+  function BeersLawScene( model, mvt, strings ) {
 
     var thisView = this;
+    PlayArea.call( thisView );
 
-    // browser window title
-    $( 'title' ).html( strings.concentration );
-
-    // background color
-    document.bgColor = "white";
-
-    // Reset All callback
-    var resetAllCallback = function () {
+    // Reset All button
+    var resetAllButtonNode = new ResetAllButtonNode( function() {
       model.reset();
-    };
+    } );
 
-    // model-view transform (unity)
-    var mvt = new ModelViewTransform2D( 1, new Vector2( 0, 0 ) );
+    // Rendering order
+    // Add anything containing interactive DOM elements last, or they will not receive events.
+    thisView.addChild( resetAllButtonNode );
 
-    // scene graph
-    var scene = new BeersLawScene( model, mvt, strings, resetAllCallback );
-
-    thisView.step = function ( deltaSeconds ) {
-      scene.step( deltaSeconds );
-    };
-
-    //TODO center in the window?
-    // Scale the scene when the browser window is resized.
-    var handleResize = function () {
-      var UNITY_WINDOW_SIZE = new Dimension2( 1024, 768 ); // At this window size, scaling is 1.
-      var windowSize = new Dimension2( $( window ).width(), $( window ).height() );
-      var scale = Math.min( windowSize.width / UNITY_WINDOW_SIZE.width, windowSize.height / UNITY_WINDOW_SIZE.height );
-      scene.setScaleMagnitude( scale );
-    };
-    $( window ).resize( handleResize );
-    handleResize(); // initial size
+    // Layout for things that don't have a location in the model.
+    resetAllButtonNode.left = 100;
+    resetAllButtonNode.top = 100;
   }
 
-  return BeersLawView;
+  inherit( BeersLawScene, PlayArea );
+
+  return BeersLawScene;
 } );

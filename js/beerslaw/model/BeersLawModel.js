@@ -16,19 +16,18 @@ define( function ( require ) {
   var Bounds2 = require( "DOT/Bounds2" );
   var Cuvette = require( "beerslaw/model/Cuvette" );
   var Light = require( "beerslaw/model/Light" );
-  var ModelViewTransform2D = require( "PHETCOMMON/view/ModelViewTransform2D" );
   var Property = require( "PHETCOMMON/model/property/Property" );
   var Range = require( "DOT/Range" );
   var Ruler = require( "beerslaw/model/Ruler" );
   var Vector2 = require( "DOT/Vector2" );
 
-  function BeersLawModel() {
+  /**
+   * @param {ModelViewTransform2D} mvt
+   * @constructor
+   */
+  function BeersLawModel( mvt ) {
 
     var thisModel = this;
-
-    //TODO move mvt to view or module
-    // No offset, scale 125x when going from model to view (1cm == 125 pixels)
-    thisModel.mvt = new ModelViewTransform2D( 125, new Vector2( 0, 0 ) );
 
     // Solutions, in rainbow (ROYGBIV) order.
     thisModel.solutions = new Array(
@@ -53,7 +52,7 @@ define( function ( require ) {
                                     new Vector2( 6, thisModel.light.location.y ), new Bounds2( 0, 0, 7.9, 5.25 ),
                                     thisModel.light, thisModel.cuvette, thisModel.absorbance );
 
-    this.beam = new Beam( thisModel.light, thisModel.cuvette, thisModel.detector, thisModel.absorbance, thisModel.mvt );
+    this.beam = new Beam( thisModel.light, thisModel.cuvette, thisModel.detector, thisModel.absorbance, mvt );
   }
 
   // Resets all model elements
@@ -73,7 +72,7 @@ define( function ( require ) {
    * @param deltaSeconds clock time change, in seconds.
    */
   BeersLawModel.prototype.step = function ( deltaSeconds ) {
-    // do nothing, no animation in this module
+    // do nothing, nothing time-based in this model
   };
 
   return BeersLawModel;

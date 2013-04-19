@@ -1,3 +1,4 @@
+4/19/13 rework module and view in order to use scenery-phet/Sim framework
 4/17/13 partial port of beam model (need to port VisibleColor and figure out gradient paint)
 4/17/13 port of absorbance/transmittance detector
 4/17/13 port of absorbance model
