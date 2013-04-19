@@ -8,6 +8,7 @@
 define( function ( require ) {
   "use strict";
 
+  var Bounds2 = require( "DOT/Bounds2" );
   var inherit = require( "PHET_CORE/inherit" );
   var PlayArea = require( 'SCENERY_PHET/PlayArea' );
   var ResetAllButtonNode = require( "common/view/ResetAllButtonNode" );
@@ -39,7 +40,7 @@ define( function ( require ) {
     resetAllButtonNode.top = 100;
   }
 
-  inherit( BeersLawScene, PlayArea );
+  inherit( BeersLawScene, PlayArea, { layoutBounds: new Bounds2( 0, 0, 1024, 700 ) } );
 
   return BeersLawScene;
 } );
