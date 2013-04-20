@@ -4,12 +4,6 @@
 /* get rid of left and top margin around scene in browser window */
 html, body { padding: 0; margin: 0 }
 
-/* TODO required by Sim.js, should be added via JavaScript */
-.scene {
-  background: #ffffff;
-  position: absolute;
-}
-
 /*
  * Custom bootstrap icons.
  * The first part 2 rules are adapted from bootstrap.css.
