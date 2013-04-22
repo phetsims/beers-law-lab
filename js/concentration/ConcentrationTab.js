@@ -16,7 +16,7 @@ define( function ( require ) {
   var Vector2 = require( "DOT/Vector2" );
 
   // images
-  var ICON = require( "image!images/Concentration-icon.jpg" )
+  var ICON = require( "image!images/Concentration-icon.jpg" );
 
   function ConcentrationTab( strings ) {
 
