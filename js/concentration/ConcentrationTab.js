@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * The "Concentration" module.
+ * The "Concentration" tab. Conforms to the contact specified in joist/Tab
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -18,7 +18,7 @@ define( function ( require ) {
   // images
   var ICON = require( "image!images/Concentration-icon.jpg" )
 
-  function ConcentrationModule( strings ) {
+  function ConcentrationTab( strings ) {
 
     this.name = strings.concentration;
     this.icon = new Image( ICON );
@@ -35,5 +35,5 @@ define( function ( require ) {
     };
   }
 
-  return ConcentrationModule;
+  return ConcentrationTab;
 } );

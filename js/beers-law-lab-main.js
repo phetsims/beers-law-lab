@@ -8,11 +8,11 @@
 require(
   [
     "JOIST/Sim",
-    "concentration/ConcentrationModule",
-    "beerslaw/BeersLawModule",
+    "concentration/ConcentrationTab",
+    "beerslaw/BeersLawTab",
     "i18n!../nls/beers-law-lab-strings"
   ],
-  function ( Sim, ConcentrationModule, BeersLawModule, strings ) {
+  function ( Sim, ConcentrationTab, BeersLawTab, strings ) {
     "use strict";
-    new Sim( strings.beersLawLab, [ new ConcentrationModule( strings ), new BeersLawModule( strings ) ] ).start();;
+    new Sim( strings.beersLawLab, [ new ConcentrationTab( strings ), new BeersLawTab( strings ) ] ).start();
   } );

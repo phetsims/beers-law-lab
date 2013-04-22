@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * The "Beer's Law" module.
+ * The "Beer's Law" tab. Conforms to the contact specified in joist/Tab.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -18,7 +18,7 @@ define( function ( require ) {
   // images
   var ICON = require( "image!images/Beers-Law-icon.jpg" );
 
-  function BeersLawModule( strings ) {
+  function BeersLawTab( strings ) {
 
     this.name = strings.beersLaw;
     this.icon = new Image( ICON );
@@ -35,5 +35,5 @@ define( function ( require ) {
     };
   }
 
-  return BeersLawModule;
+  return BeersLawTab;
 } );
