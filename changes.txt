@@ -1,3 +1,4 @@
+4/22/13 ported parts of VisibleColor needed by this sim
 4/22/13 changed "module" to "tab" throughout, to use joist terminology
 4/22/13 Sim framework moved to joist
 4/19/13 remove "scene" div, it is automatically created by Sim.js with proper CSS

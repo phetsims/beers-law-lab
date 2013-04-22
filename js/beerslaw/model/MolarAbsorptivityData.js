@@ -12,17 +12,14 @@ define( function ( require ) {
   "use strict";
 
   // imports
-
-  // constants
-  var MIN_WAVELENGTH = 380;
-  var MAX_WAVELENGTH = 780;
+  var VisibleColor = require( "common/util/VisibleColor" );
 
   /**
    * @param {Array} molarAbsorptivity
    * @constructor
    */
   function MolarAbsorptivityData( molarAbsorptivity ) {
-    //TODO assert ( molarAbsorptivity.length == MAX_WAVELENGTH - MIN_WAVELENGTH + 1 );
+    //TODO assert ( molarAbsorptivity.length == VisibleColor.MAX_WAVELENGTH - VisibleColor.MIN_WAVELENGTH + 1 );
     this.molarAbsorptivity = molarAbsorptivity;
     this.lambdaMax = MolarAbsorptivityData._getLambdaMax( molarAbsorptivity );
   }
@@ -33,8 +30,8 @@ define( function ( require ) {
    * @return {Number}
    */
   MolarAbsorptivityData.prototype.wavelengthToMolarAbsorptivity = function ( wavelength ) {
-    //TODO assert ( wavelength >= MIN_WAVELENGTH && wavelength <= MAX_WAVELENGTH )
-    var index = Math.floor( wavelength - MIN_WAVELENGTH );
+    //TODO assert ( wavelength >= VisibleColor.MIN_WAVELENGTH && wavelength <= VisibleColor.MAX_WAVELENGTH )
+    var index = Math.floor( wavelength - VisibleColor.MIN_WAVELENGTH );
     return this.molarAbsorptivity[index];
   };
 
@@ -53,7 +50,7 @@ define( function ( require ) {
         indexMax = i;
       }
     }
-    return indexMax + MIN_WAVELENGTH;
+    return indexMax + VisibleColor.MIN_WAVELENGTH;
   };
 
   MolarAbsorptivityData.DRINK_MIX = new MolarAbsorptivityData( new Array(

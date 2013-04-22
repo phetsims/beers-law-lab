@@ -18,6 +18,7 @@ define( function ( require ) {
   var Property = require( "PHETCOMMON/model/property/Property" );
   var Range = require( "DOT/Range" );
   var Shape = require( "KITE/Shape" );
+  var VisibleColor = require( "common/util/VisibleColor" );
 
   // constants
   var MAX_LIGHT_WIDTH = 50; // cm, wide enough to be way off the right edge of the play area
@@ -66,9 +67,8 @@ define( function ( require ) {
       if ( thisBeam.visible.get() ) {
         var wavelength = light.wavelength.get();
         var transmittance = absorbance.getTransmittance();
-//TODO port VisibleColor
-//        var leftColor = Color.withAlpha( new VisibleColor( wavelength ), MAX_LIGHT_ALPHA );
-//        var rightColor = Color.withAlpha( new VisibleColor( wavelength ), Math.floor( TRANSMITTANCE_TO_ALPHA.evaluate( transmittance ) ) );
+        var leftColor = Color.withAlpha( VisibleColor.wavelengthToColor( wavelength ), MAX_LIGHT_ALPHA );
+        var rightColor = Color.withAlpha( VisibleColor.wavelengthToColor( wavelength ), TRANSMITTANCE_TO_ALPHA.evaluate( transmittance ) );
         var x = mvt.modelToView( cuvette.location.x );
         var w = mvt.modelToView( cuvette.width.get() );
 //TODO how to do gradient?

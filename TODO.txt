@@ -19,7 +19,8 @@ BUGS
 - iPad, Nexus: performance of particles
 
 HIGH
-- finish port of Beam (VisibleColor, GradientPaint)
+- add assertions
+- finish port of Beam (GradientPaint)
 - port view components for Beer's Law module
 - rewrite buttons, radio buttons and combo box in scenery
 
