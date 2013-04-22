@@ -7,7 +7,7 @@
  */
 require(
   [
-    "SCENERY_PHET/Sim",
+    "JOIST/Sim",
     "concentration/ConcentrationModule",
     "beerslaw/BeersLawModule",
     "i18n!../nls/beers-law-lab-strings"

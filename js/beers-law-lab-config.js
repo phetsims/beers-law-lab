@@ -34,7 +34,8 @@ requirejs.config(
       KITE: '../../kite/js',
       SCENERY_PHET: '../../scenery-phet/js',
       FORT: '../../fort/js',
-      SUN: '../../sun/js'
+      SUN: '../../sun/js',
+      JOIST: '../../joist/js'
     },
 
     shim: {

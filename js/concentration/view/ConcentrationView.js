@@ -21,7 +21,7 @@ define( function ( require ) {
   var FaucetNode = require( "concentration/view/FaucetNode" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
-  var PlayArea = require( 'SCENERY_PHET/PlayArea' );
+  var PlayArea = require( 'JOIST/PlayArea' );
   var PrecipitateNode = require( "concentration/view/PrecipitateNode" );
   var Range = require( "DOT/Range" );
   var ResetAllButtonNode = require( "common/view/ResetAllButtonNode" );

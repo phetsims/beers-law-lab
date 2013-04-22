@@ -10,7 +10,7 @@ define( function ( require ) {
 
   var Bounds2 = require( "DOT/Bounds2" );
   var inherit = require( "PHET_CORE/inherit" );
-  var PlayArea = require( 'SCENERY_PHET/PlayArea' );
+  var PlayArea = require( 'JOIST/PlayArea' );
   var ResetAllButtonNode = require( "common/view/ResetAllButtonNode" );
   var Scene = require( "SCENERY/Scene" );
   var Text = require( "SCENERY/nodes/Text" );
