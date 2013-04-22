@@ -22,7 +22,6 @@ HIGH
 - finish port of Beam (VisibleColor, GradientPaint)
 - port view components for Beer's Law module
 - rewrite buttons, radio buttons and combo box in scenery
-- framework and UI for multiple modules
 
 MEDIUM
 - try Fort
