@@ -22,6 +22,7 @@ define( function ( require ) {
 
     this.name = strings.beersLaw;
     this.icon = new Image( ICON );
+    this.backgroundColor = 'white';
 
     // No offset, scale 125x when going from model to view (1cm == 125 pixels)
     var mvt = new ModelViewTransform2D( 125, new Vector2( 0, 0 ) );

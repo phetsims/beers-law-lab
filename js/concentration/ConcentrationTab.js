@@ -22,6 +22,7 @@ define( function ( require ) {
 
     this.name = strings.concentration;
     this.icon = new Image( ICON );
+    this.backgroundColor = 'white';
 
     // model-view transform (unity)
     var mvt = new ModelViewTransform2D( 1, new Vector2( 0, 0 ) );
