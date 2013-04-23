@@ -12,6 +12,7 @@ define( function ( require ) {
   var BLLStrings = require( "common/BLLStrings" );
   var Bounds2 = require( "DOT/Bounds2" );
   var inherit = require( "PHET_CORE/inherit" );
+  var LightNode = require( "beerslaw/view/LightNode" );
   var TabView = require( 'JOIST/TabView' );
   var ResetAllButtonNode = require( "common/view/ResetAllButtonNode" );
   var Scene = require( "SCENERY/Scene" );
@@ -27,12 +28,15 @@ define( function ( require ) {
     var thisView = this;
     TabView.call( thisView );
 
+    var lightNode = new LightNode( model.light, mvt );
+
     // Reset All button
     var resetAllButtonNode = new ResetAllButtonNode( function() {
       model.reset();
     } );
 
     // Rendering order
+    thisView.addChild( lightNode );
     // Add anything containing interactive DOM elements last, or they will not receive events.
     thisView.addChild( resetAllButtonNode );
 

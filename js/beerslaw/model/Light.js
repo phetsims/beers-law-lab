@@ -35,11 +35,11 @@ define( function ( require ) {
   }
 
   Light.prototype.getMinY = function () {
-    return this.location.getY() - ( this.lensDiameter / 2 );
+    return this.location.y - ( this.lensDiameter / 2 );
   };
 
   Light.prototype.getMaxY = function () {
-    return this.location.getY() + ( this.lensDiameter / 2 );
+    return this.location.y + ( this.lensDiameter / 2 );
   };
 
   Light.prototype.reset = function () {
