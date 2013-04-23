@@ -21,7 +21,7 @@ define( function ( require ) {
   var FaucetNode = require( "concentration/view/FaucetNode" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
-  var PlayArea = require( 'JOIST/PlayArea' );
+  var TabView = require( 'JOIST/TabView' );
   var PrecipitateNode = require( "concentration/view/PrecipitateNode" );
   var Range = require( "DOT/Range" );
   var ResetAllButtonNode = require( "common/view/ResetAllButtonNode" );
@@ -43,7 +43,7 @@ define( function ( require ) {
   function ConcentrationView( model, mvt, strings ) {
 
     var thisView = this;
-    PlayArea.call( thisView );
+    TabView.call( thisView );
 
     // Beaker and stuff inside it
     var beakerNode = new BeakerNode( model.beaker, mvt, strings );
@@ -117,7 +117,7 @@ define( function ( require ) {
     resetAllButtonNode.top = drainFaucetNode.bottom + 5;
   }
 
-  inherit( ConcentrationView, PlayArea, { layoutBounds: new Bounds2( 0, 0, 1024, 700 ) } );
+  inherit( ConcentrationView, TabView, { layoutBounds: new Bounds2( 0, 0, 1024, 700 ) } );
 
   return ConcentrationView;
 } );

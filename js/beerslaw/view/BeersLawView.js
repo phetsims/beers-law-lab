@@ -10,7 +10,7 @@ define( function ( require ) {
 
   var Bounds2 = require( "DOT/Bounds2" );
   var inherit = require( "PHET_CORE/inherit" );
-  var PlayArea = require( 'JOIST/PlayArea' );
+  var TabView = require( 'JOIST/TabView' );
   var ResetAllButtonNode = require( "common/view/ResetAllButtonNode" );
   var Scene = require( "SCENERY/Scene" );
   var Text = require( "SCENERY/nodes/Text" );
@@ -21,10 +21,10 @@ define( function ( require ) {
    * @param strings
    * @constructor
    */
-  function BeersLawScene( model, mvt, strings ) {
+  function BeersLawView( model, mvt, strings ) {
 
     var thisView = this;
-    PlayArea.call( thisView );
+    TabView.call( thisView );
 
     // Reset All button
     var resetAllButtonNode = new ResetAllButtonNode( function() {
@@ -40,7 +40,7 @@ define( function ( require ) {
     resetAllButtonNode.top = 100;
   }
 
-  inherit( BeersLawScene, PlayArea, { layoutBounds: new Bounds2( 0, 0, 1024, 700 ) } );
+  inherit( BeersLawView, TabView, { layoutBounds: new Bounds2( 0, 0, 1024, 700 ) } );
 
-  return BeersLawScene;
+  return BeersLawView;
 } );
