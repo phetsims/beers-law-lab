@@ -1,3 +1,5 @@
+4/22/13 use scenery/Rectangle instead of Kite/Shape.rect for particles, to improve performance
+4/22/13 add has.js to contrib/ and html, disable assertions in config.js
 4/22/13 ported parts of VisibleColor needed by this sim
 4/22/13 changed "module" to "tab" throughout, to use joist terminology
 4/22/13 Sim framework moved to joist
