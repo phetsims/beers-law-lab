@@ -1,3 +1,4 @@
+4/22/13 compute fill color for Beam using scenery.LinearGradient
 4/22/13 use scenery/Rectangle instead of Kite/Shape.rect for particles, to improve performance
 4/22/13 add has.js to contrib/ and html, disable assertions in config.js
 4/22/13 ported parts of VisibleColor needed by this sim

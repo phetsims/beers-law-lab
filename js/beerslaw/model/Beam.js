@@ -15,6 +15,7 @@ define( function ( require ) {
   // imports
   var Color = require( "common/model/Color" );
   var LinearFunction = require( "common/util/LinearFunction" );
+  var LinearGradient = require( "SCENERY/util/LinearGradient" );
   var Property = require( "PHETCOMMON/model/property/Property" );
   var Range = require( "DOT/Range" );
   var Shape = require( "KITE/Shape" );
@@ -40,7 +41,7 @@ define( function ( require ) {
 
     // Proper values will be set when observers are registered
     thisBeam.shape = new Property( Shape.rect( 0, 0, 0, 0 ) );
-    thisBeam.paint = new Property( Color.WHITE );
+    thisBeam.fill = new Property( Color.WHITE );
     thisBeam.visible = new Property( false );
 
     // Make the beam visible when the light is on.
@@ -55,7 +56,7 @@ define( function ( require ) {
         var y = light.getMinY();
         var width = detector.probeInBeam() ? detector.probe.getX() - x : MAX_LIGHT_WIDTH;
         var height = light.lensDiameter;
-        shape.set( Shape.rect( x, y, width, height ) );
+        thisBeam.shape.set( Shape.rect( x, y, width, height ) );
       }
     };
     cuvette.width.addObserver( updateShape );
@@ -70,9 +71,12 @@ define( function ( require ) {
         var leftColor = Color.withAlpha( VisibleColor.wavelengthToColor( wavelength ), MAX_LIGHT_ALPHA );
         var rightColor = Color.withAlpha( VisibleColor.wavelengthToColor( wavelength ), TRANSMITTANCE_TO_ALPHA.evaluate( transmittance ) );
         var x = mvt.modelToView( cuvette.location.x );
+        var y = mvt.modelToView( cuvette.location.y );
         var w = mvt.modelToView( cuvette.width.get() );
-//TODO how to do gradient?
-//        paint.set( new GradientPaint( x, 0, leftColor, ( x + w ), 0, rightColor ) );
+        var h = mvt.modelToView( cuvette.height );
+        thisBeam.fill.set( new LinearGradient( x, y, w, h )
+                             .addColorStop( 0, leftColor.toCSS() )
+                             .addColorStop( 1, rightColor.toCSS() ) );
       }
     };
     light.wavelength.addObserver( updateColor );
