@@ -39,9 +39,9 @@ requirejs.config(
     paths: {
 
       // third-party libs
-      i18n: "../contrib/i18n-2.0.2",
-      image: "../contrib/image-0.2.1", //TODO replace with ImagesLoaded
-      imagesloaded: "../contrib/jquery.imagesloaded-2.1.1",
+      i18n: "../lib/i18n-2.0.2",
+      image: "../lib/image-0.2.1", //TODO replace with ImagesLoaded
+      imagesloaded: "../lib/jquery.imagesloaded-2.1.1",
 
       // PhET libs, uppercase names to identify them in require.js imports
       ASSERT: '../../assert/js',
