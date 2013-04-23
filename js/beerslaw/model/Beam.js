@@ -54,7 +54,7 @@ define( function ( require ) {
       if ( thisBeam.visible.get() ) {
         var x = light.location.x;
         var y = light.getMinY();
-        var width = detector.probeInBeam() ? detector.probe.getX() - x : MAX_LIGHT_WIDTH;
+        var width = detector.probeInBeam() ? detector.probe.location.x - x : MAX_LIGHT_WIDTH;
         var height = light.lensDiameter;
         thisBeam.shape.set( Shape.rect( x, y, width, height ) );
       }

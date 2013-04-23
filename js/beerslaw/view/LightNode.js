@@ -12,9 +12,9 @@ define( function ( require ) {
   // imports
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
-  var MomentaryButtonNode = require( "common/view/MomentaryButtonNode" ); //TODO replace with ToggleButtonNode
   var Node = require( "SCENERY/nodes/Node" );
   var Property = require( "PHETCOMMON/model/property/Property" );
+  var ToggleButtonNode = require( "common/view/ToggleButtonNode" );
 
   // images
   var lightImage = require( "image!images/light.png" );
@@ -31,7 +31,7 @@ define( function ( require ) {
 
     // nodes
     var housingNode = new Image( lightImage );
-    var buttonNode = new MomentaryButtonNode( light.on, new Property( true ) );
+    var buttonNode = new ToggleButtonNode( light.on, new Property( true ) );
 
     // make the button fit in the housing
     buttonNode.setScaleMagnitude( 0.65 * housingNode.height / buttonNode.height );

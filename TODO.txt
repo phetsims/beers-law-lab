@@ -39,6 +39,7 @@ LOW
 - use scenery.Pattern to texture map input pipe in FaucetNode
 - use scenery.Font for font specification
 - get new images for faucet, faucet_pipe.png doesn't match up with faucet_spigot.png
+- factor out commonality in MomentaryButtonNode and ToggleButtonNode, migrate to sun?
 
 LOWEST
 - add missing assets (.ai) for faucet
