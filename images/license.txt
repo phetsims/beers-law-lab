@@ -2,18 +2,25 @@ at-detector-body-center.png author=PhET notes=copied and hacked intensity_meter_
 at-detector-body-left.png author=PhET notes=copied and hacked intensity_meter_box.png from bending-light
 at-detector-body-right.png author=PhET notes=copied and hacked intensity_meter_box.png from bending-light
 at-detector-probe.png author=PhET notes=copied intensity_meter_probe.png from bending-light
+Beers-Law-icon.jpg author=PhET
+bll-icon-sprints.png author=PhET
 color-scheme-edit-icon.png author=PhET notes=screenshot of a generic color wheel
+Concentration-icon.jpg author=PhET
 concentration-meter-body-center.png author=PhET notes=copied and hacked intensity_meter_box.png from bending-light
 concentration-meter-body-left.png author=PhET notes=copied and hacked intensity_meter_box.png from bending-light
 concentration-meter-body-right.png author=PhET notes=copied and hacked intensity_meter_box.png from bending-light
 concentration-meter-probe.png author=PhET notes=created by Noah P.
+dropper-icon.png author=PhET notes=scaled version of dropper_foreground.png
 dropper_background.png author=PhET notes=created by Noah P.
 dropper_foreground.png author=PhET notes=created by Noah P.
-dropper-icon.png author=PhET notes=scaled version of dropper_foreground.png
 faucet_handle.png author=PhET notes=created by Noah P.
 faucet_pipe.png author=PhET notes=created by Noah P.
 faucet_pivot.png author=PhET notes=created by Noah P.
 faucet_spout.png author=PhET notes=created by Noah P.
 light.png author=PhET notes=copied laser.png from bending-light
+momentary_button_pressed.png author=PhET notes=copied from Java piccolo-phet
+momentary_button_pressed_disabled.png author=PhET notes=copied from Java piccolo-phet
+momentary_button_unpressed.png author=PhET notes=copied from Java piccolo-phet
+momentary_button_unpressed_disabled.png author=PhET notes=copied from Java piccolo-phet
 shaker-icon.png author=PhET
 shaker.png author=PhET notes=copied salt_micro.png from sugar-and-salt-solutions
