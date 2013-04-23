@@ -11,8 +11,7 @@ define( function ( require ) {
 
   // imports
   var inherit = require( "PHET_CORE/inherit" );
-  var Path = require( "SCENERY/nodes/Path" );
-  var Shape = require( "KITE/Shape" );
+  var Rectangle = require( "SCENERY/nodes/Rectangle" );
 
   /**
    * @param {SoluteParticle} particle
@@ -24,8 +23,7 @@ define( function ( require ) {
     var thisNode = this;
 
     var viewSize = mvt.modelToView( particle.size );
-    Path.call( thisNode, {
-      shape: Shape.rect( -viewSize / 2, -viewSize / 2, viewSize, viewSize ),
+    Rectangle.call( thisNode, -viewSize / 2, -viewSize / 2, viewSize, viewSize, {
       fill: particle.color.toCSS(),
       stroke: particle.color.darker().toCSS(),
       lineWidth: 1
@@ -39,7 +37,7 @@ define( function ( require ) {
     } );
   }
 
-  inherit( ParticleNode, Path );
+  inherit( ParticleNode, Rectangle );
 
   return ParticleNode;
 } );
