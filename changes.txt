@@ -1,3 +1,4 @@
+4/23/13 delete tpl.js, this sim no longer uses templates
 4/23/13 delete stuff associated with PerformanceMonitor
 4/23/13 validate various function args using assert
 4/23/13 load strings once, in BLLStrings

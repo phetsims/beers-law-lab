@@ -41,7 +41,6 @@ requirejs.config(
       // third-party libs
       i18n: "../contrib/i18n-2.0.2",
       image: "../contrib/image-0.2.1", //TODO replace with ImagesLoaded
-      tpl: "../contrib/tpl-0.2",
       imagesloaded: "../contrib/jquery.imagesloaded-2.1.1",
 
       // PhET libs, uppercase names to identify them in require.js imports
