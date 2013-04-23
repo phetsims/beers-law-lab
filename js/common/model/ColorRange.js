@@ -9,6 +9,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
   var Color = require( "common/model/Color" );
 
   /**
@@ -28,7 +29,7 @@ define( function ( require ) {
    * @return {Color}
    */
   ColorRange.prototype.interpolateLinear = function( distance ) {
-    //TODO assert ( distance >= 0 && distance <= 1 )
+    assert && assert( distance >= 0 && distance <= 1 );
     return Color.interpolateRBGA( this.min, this.max, distance );
   };
 

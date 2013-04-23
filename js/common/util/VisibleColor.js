@@ -8,6 +8,7 @@ define( function ( require ) {
   "useStrict";
 
   // imports
+  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
   var Color = require( "common/model/Color" );
 
   var colorTable;
@@ -24,7 +25,7 @@ define( function ( require ) {
    */
   var initColorTable = function () {
 
-    //TODO assert(!colorTable)
+    assert && assert(!colorTable);
 
     // Allocate the color-lookup array.
     var numWavelengths = Math.floor( VisibleColor.MAX_WAVELENGTH - VisibleColor.MIN_WAVELENGTH + 1 );

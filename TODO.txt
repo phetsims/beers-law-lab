@@ -19,7 +19,6 @@ BUGS
 - iPad, Nexus: performance of particles
 
 HIGH
-- add assertions
 - port view components for Beer's Law module
 - rewrite buttons, radio buttons and combo box in scenery
 

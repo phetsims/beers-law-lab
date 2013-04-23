@@ -11,6 +11,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
@@ -27,17 +28,11 @@ define( function ( require ) {
    */
   function HorizontalTiledNode( totalWidth, leftNode, centerNode, rightNode ) {
 
+    assert && assert( leftNode.height == centerNode.height && centerNode.height == rightNode.height );
+    assert && assert( ( leftNode.width + centerNode.width + rightNode.width ) <= totalWidth );
+
     var thisNode = this;
     Node.call( thisNode );
-
-    //TODO replace with assert
-    // validate args
-    if ( leftNode.height != centerNode.height || centerNode.height != rightNode.height ) {
-      throw "all images must have the same height";
-    }
-    if ( ( leftNode.width + centerNode.width + rightNode.width ) > totalWidth ) {
-      throw "combined images exceed totalWidth";
-    }
 
     // compute the number of tiles required to fill the center
     var tiledWidth = totalWidth - leftNode.width - rightNode.width + ( 2 * X_OVERLAP );
@@ -58,16 +53,16 @@ define( function ( require ) {
       var tileNode = new Node();
       tileNode.addChild( centerNode );
       parentNode.addChild( tileNode );
-      tileNode.x = previousNode.getRight() - X_OVERLAP;
+      tileNode.x = previousNode.right - X_OVERLAP;
       // If tile extends too far into right side, shift the tile to the left.
       if ( tileNode.getRight() > rightNode.getLeft() + X_OVERLAP ) {
-        tileNode.x = rightNode.getLeft() + X_OVERLAP - tileNode.width;
+        tileNode.x = rightNode.left + X_OVERLAP - tileNode.width;
       }
       tiledWidth = tiledWidth - centerNode.width + X_OVERLAP;
       previousNode = tileNode;
     }
 
-    thisNode.addChild( parentNode );//TODO subtype Image, setImage( parentNode.toImage )
+    thisNode.addChild( parentNode );
   }
 
   inherit( HorizontalTiledNode, Node );

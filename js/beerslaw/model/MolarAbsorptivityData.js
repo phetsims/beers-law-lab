@@ -12,6 +12,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
   var VisibleColor = require( "common/util/VisibleColor" );
 
   /**
@@ -19,7 +20,7 @@ define( function ( require ) {
    * @constructor
    */
   function MolarAbsorptivityData( molarAbsorptivity ) {
-    //TODO assert ( molarAbsorptivity.length == VisibleColor.MAX_WAVELENGTH - VisibleColor.MIN_WAVELENGTH + 1 );
+    assert && assert( molarAbsorptivity.length == VisibleColor.MAX_WAVELENGTH - VisibleColor.MIN_WAVELENGTH + 1 );
     this.molarAbsorptivity = molarAbsorptivity;
     this.lambdaMax = MolarAbsorptivityData._getLambdaMax( molarAbsorptivity );
   }
@@ -30,7 +31,7 @@ define( function ( require ) {
    * @return {Number}
    */
   MolarAbsorptivityData.prototype.wavelengthToMolarAbsorptivity = function ( wavelength ) {
-    //TODO assert ( wavelength >= VisibleColor.MIN_WAVELENGTH && wavelength <= VisibleColor.MAX_WAVELENGTH )
+    assert && assert ( wavelength >= VisibleColor.MIN_WAVELENGTH && wavelength <= VisibleColor.MAX_WAVELENGTH );
     var index = Math.floor( wavelength - VisibleColor.MIN_WAVELENGTH );
     return this.molarAbsorptivity[index];
   };

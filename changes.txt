@@ -1,3 +1,4 @@
+4/22/13 validate various function args using assert
 4/22/13 load strings once, in BLLStrings
 4/22/13 compute fill color for Beam using scenery.LinearGradient
 4/22/13 use scenery/Rectangle instead of Kite/Shape.rect for particles, to improve performance
