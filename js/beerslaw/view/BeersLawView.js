@@ -8,6 +8,8 @@
 define( function ( require ) {
   "use strict";
 
+  // imports
+  var BLLStrings = require( "common/BLLStrings" );
   var Bounds2 = require( "DOT/Bounds2" );
   var inherit = require( "PHET_CORE/inherit" );
   var TabView = require( 'JOIST/TabView' );
@@ -18,10 +20,9 @@ define( function ( require ) {
   /**
    * @param {BeersLawModel} model
    * @param {ModelViewTransform2D} mvt
-   * @param strings
    * @constructor
    */
-  function BeersLawView( model, mvt, strings ) {
+  function BeersLawView( model, mvt ) {
 
     var thisView = this;
     TabView.call( thisView );

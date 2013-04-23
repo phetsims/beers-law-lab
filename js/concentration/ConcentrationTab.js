@@ -9,6 +9,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var BLLStrings = require( "common/BLLStrings" );
   var ConcentrationModel = require( "concentration/model/ConcentrationModel" );
   var ConcentrationView = require( "concentration/view/ConcentrationView" );
   var Image = require( "SCENERY/nodes/Image" );
@@ -18,9 +19,9 @@ define( function ( require ) {
   // images
   var ICON = require( "image!images/Concentration-icon.jpg" );
 
-  function ConcentrationTab( strings ) {
+  function ConcentrationTab() {
 
-    this.name = strings.concentration;
+    this.name = BLLStrings.concentration;
     this.icon = new Image( ICON );
     this.backgroundColor = 'white';
 
@@ -32,7 +33,7 @@ define( function ( require ) {
     };
 
     this.createView = function ( model ) {
-      return new ConcentrationView( model, mvt, strings );
+      return new ConcentrationView( model, mvt );
     };
   }
 

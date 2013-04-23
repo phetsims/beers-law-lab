@@ -9,6 +9,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var BLLStrings = require( "common/BLLStrings" );
   var ControlPanelNode = require( "common/view/ControlPanelNode" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
@@ -22,22 +23,21 @@ define( function ( require ) {
    * @param {Property} currentSolute (of type Solute)
    * @param {Shaker} shaker
    * @param {Dropper} dropper
-   * @param strings
    * @constructor
    */
-  function SoluteControlsNode( solutes, currentSolute, shaker, dropper, strings ) {
+  function SoluteControlsNode( solutes, currentSolute, shaker, dropper ) {
 
     var thisNode = this;
 
     // "Solute" label
-    var text = StringUtils.format( strings.pattern_0label, [ strings.solute ] );
+    var text = StringUtils.format( BLLStrings.pattern_0label, [ BLLStrings.solute ] );
     var soluteLabel = new Text( text, { font: "22px Arial" });
 
     // solute dropdown
     var soluteDropdown = new SoluteDropdownNode( solutes, currentSolute );
 
     // radio buttons for solid vs solution
-    var soluteFormNode = new SoluteFormNode( shaker, dropper, strings );
+    var soluteFormNode = new SoluteFormNode( shaker, dropper, BLLStrings );
 
     var contentNode = new Node();
     contentNode.addChild( soluteLabel );

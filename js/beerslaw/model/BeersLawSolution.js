@@ -15,6 +15,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var BLLStrings = require( "common/BLLStrings" );
   var BLLSymbols = require( "common/BLLSymbols" );
   var Color = require( "common/model/Color" );
   var ColorRange = require( "common/model/ColorRange" );
@@ -25,7 +26,6 @@ define( function ( require ) {
   var Range = require( "DOT/Range" );
   var Solvent = require( "common/model/Solvent" );
   var StringUtils = require( "common/util/StringUtils" );
-  var strings = require( "i18n!../../../nls/beers-law-lab-strings" ); //TODO pass in as a param?
 
   /**
    * @param {String} name
@@ -80,7 +80,7 @@ define( function ( require ) {
   };
 
   BeersLawSolution.prototype.getDisplayName = function () {
-    return StringUtils.format( strings.pattern_0formula_1name, [ this.formula, this.name ] );
+    return StringUtils.format( BLLStrings.pattern_0formula_1name, [ this.formula, this.name ] );
   };
 
   BeersLawSolution.prototype.getViewUnits = function () {
@@ -92,7 +92,7 @@ define( function ( require ) {
   //-------------------------------------------------------------------------------------------
 
   BeersLawSolution.DRINK_MIX = new BeersLawSolution(
-    strings.drinkMix,
+    BLLStrings.drinkMix,
     BLLSymbols.DRINK_MIX,
     MolarAbsorptivityData.DRINK_MIX,
     new Range( 0, 0.400, 0.100 ),
@@ -100,7 +100,7 @@ define( function ( require ) {
     new ColorRange( new Color( 255, 225, 225 ), Color.RED ) );
 
   BeersLawSolution.COBALT_II_NITRATE = new BeersLawSolution(
-    strings.cobaltIINitrate,
+    BLLStrings.cobaltIINitrate,
     BLLSymbols.COBALT_II_NITRATE,
     MolarAbsorptivityData.COBALT_II_NITRATE,
     new Range( 0, 0.400, 0.100 ),

@@ -11,10 +11,10 @@ require(
     "concentration/ConcentrationTab",
     "beerslaw/BeersLawTab",
     "SCENERY/util/Util",
-    "i18n!../nls/beers-law-lab-strings"
+    "common/BLLStrings"
   ],
-  function ( Sim, ConcentrationTab, BeersLawTab, Util, strings ) {
+  function ( Sim, ConcentrationTab, BeersLawTab, Util, BLLStrings ) {
     "use strict";
     console.log( Util.testAssert() ); // determine whether assertions are enabled in scenery
-    new Sim( strings.beersLawLab, [ new ConcentrationTab( strings ), new BeersLawTab( strings ) ] ).start();
+    new Sim( BLLStrings.beersLawLab, [ new ConcentrationTab(), new BeersLawTab() ] ).start();
   } );

@@ -9,6 +9,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var BLLStrings = require( "common/BLLStrings" );
   var BeersLawModel = require( "beerslaw/model/BeersLawModel" );
   var BeersLawView = require( "beerslaw/view/BeersLawView" );
   var Image = require( "SCENERY/nodes/Image" );
@@ -18,9 +19,9 @@ define( function ( require ) {
   // images
   var ICON = require( "image!images/Beers-Law-icon.jpg" );
 
-  function BeersLawTab( strings ) {
+  function BeersLawTab() {
 
-    this.name = strings.beersLaw;
+    this.name = BLLStrings.beersLaw;
     this.icon = new Image( ICON );
     this.backgroundColor = 'white';
 
@@ -32,7 +33,7 @@ define( function ( require ) {
     };
 
     this.createView = function ( model ) {
-      return new BeersLawView( model, mvt, strings );
+      return new BeersLawView( model, mvt );
     };
   }
 

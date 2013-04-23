@@ -10,6 +10,7 @@ define( function ( require ) {
 
   // imports
   var BeakerNode = require( "concentration/view/BeakerNode" );
+  var BLLStrings = require( "common/BLLStrings" );
   var Bounds2 = require( "DOT/Bounds2" );
   var ButtonNode = require( "common/view/ButtonNode" );
   var ConcentrationMeterNode = require( "concentration/view/ConcentrationMeterNode" );
@@ -37,16 +38,15 @@ define( function ( require ) {
   /**
    * @param {ConcentrationModel} model
    * @param {ModelViewTransform2D} mvt
-   * @param strings
    * @constructor
    */
-  function ConcentrationView( model, mvt, strings ) {
+  function ConcentrationView( model, mvt ) {
 
     var thisView = this;
     TabView.call( thisView );
 
     // Beaker and stuff inside it
-    var beakerNode = new BeakerNode( model.beaker, mvt, strings );
+    var beakerNode = new BeakerNode( model.beaker, mvt );
     var solutionNode = new SolutionNode( model.solution, model.beaker, mvt );
     var precipitateNode = new PrecipitateNode( model.precipitate, model.beaker, mvt );
 
@@ -68,17 +68,16 @@ define( function ( require ) {
 
     // Concentration meter
     var concentrationMeterNode = new ConcentrationMeterNode( model.concentrationMeter, model.solution, model.dropper, model.solventFaucet, model.drainFaucet,
-                                                             solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode,
-                                                             mvt, strings );
+                                                             solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, mvt );
 
     // Solute controls
-    var soluteControlsNode = new SoluteControlsNode( model.solutes, model.solute, model.shaker, model.dropper, strings );
+    var soluteControlsNode = new SoluteControlsNode( model.solutes, model.solute, model.shaker, model.dropper );
 
     // Evaporator
-    var evaporator = new EvaporatorNode( model.evaporator, strings );
+    var evaporator = new EvaporatorNode( model.evaporator );
 
     // Remove Solute button
-    var removeSoluteButtonNode = new ButtonNode( strings.removeSolute, function () {
+    var removeSoluteButtonNode = new ButtonNode( BLLStrings.removeSolute, function () {
       model.solution.soluteAmount.set( 0 );
     } );
 

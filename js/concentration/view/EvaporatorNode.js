@@ -9,6 +9,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var BLLStrings = require( "common/BLLStrings" );
   var ControlPanelNode = require( "common/view/ControlPanelNode" );
   var Dimension2 = require( "DOT/Dimension2" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -17,19 +18,19 @@ define( function ( require ) {
   var SliderNode = require( "common/view/SliderNode" );
   var Text = require( "SCENERY/nodes/Text" );
 
-  function EvaporatorNode( evaporator, strings ) {
+  function EvaporatorNode( evaporator ) {
 
     var thisNode = this;
 
-    var labelNode = new Text( strings.evaporation, { font: "18px Arial" } );
+    var labelNode = new Text( BLLStrings.evaporation, { font: "18px Arial" } );
 
     var sliderNode = new SliderNode( new Range( 0, evaporator.maxEvaporationRate ),
                                      new Dimension2( 200, 6 ),
                                      evaporator.evaporationRate,
                                      evaporator.enabled,
                                      true );
-    sliderNode.addMajorTick( 0, new Text( strings.none, { font: "14px Arial" } ) );
-    sliderNode.addMajorTick( evaporator.maxEvaporationRate, new Text( strings.lots, { font: "14px Arial" } ) );
+    sliderNode.addMajorTick( 0, new Text( BLLStrings.none, { font: "14px Arial" } ) );
+    sliderNode.addMajorTick( evaporator.maxEvaporationRate, new Text( BLLStrings.lots, { font: "14px Arial" } ) );
 
     var contentNode = new Node();
     contentNode.addChild( labelNode );

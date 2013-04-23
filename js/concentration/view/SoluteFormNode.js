@@ -10,6 +10,7 @@ define( function( require ) {
   "use strict";
 
   // imports
+  var BLLStrings = require( "common/BLLStrings" );
   var DOM = require( "SCENERY/nodes/DOM" );
   var inherit = require( "PHET_CORE/inherit" );
 
@@ -17,13 +18,18 @@ define( function( require ) {
   var CLASS_SELECTED = "btn-info"; // bootstrap class name for "info" button color
   var CLASS_UNSELECTED = "";  // bootstrap class name for default button color
 
-  function SoluteFormNode( shaker, dropper, strings )  {
+  /**
+   * @param {Shaker} shaker
+   * @param {Dropper} dropper
+   * @constructor
+   */
+  function SoluteFormNode( shaker, dropper )  {
 
     var thisNode = this;
 
     var $buttonGroup = $( '<div class="btn-group" data-toggle="buttons-radio">' +
-                          '<button id="shakerButton" type="button" class="btn btn-large"><i class="bll-shaker-icon" style="margin-right: 10px;"></i>' + strings.solid + '</button>' +
-                          '<button id="dropperButton" type="button" class="btn btn-large"><i class="bll-dropper-icon" style="margin-right: 10px;"></i>' + strings.solution + '</button>' +
+                          '<button id="shakerButton" type="button" class="btn btn-large"><i class="bll-shaker-icon" style="margin-right: 10px;"></i>' + BLLStrings.solid + '</button>' +
+                          '<button id="dropperButton" type="button" class="btn btn-large"><i class="bll-dropper-icon" style="margin-right: 10px;"></i>' + BLLStrings.solution + '</button>' +
                           '</div>' );
 
     DOM.call( thisNode, $buttonGroup[0] );

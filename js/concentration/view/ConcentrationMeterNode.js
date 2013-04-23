@@ -20,6 +20,7 @@ define( function( require ) {
   "use strict";
 
   // imports
+  var BLLStrings = require( "common/BLLStrings" );
   var Color = require( "common/model/Color" );
   var DOM = require( "SCENERY/nodes/DOM" );
   var HorizontalTiledNode = require( "common/view/HorizontalTiledNode" );
@@ -53,17 +54,16 @@ define( function( require ) {
    * Meter body, origin at upper left.
    * @param {ConcentrationMeter} meter
    * @param {ModelViewTransform2D} mvt
-   * @param strings
    * @constructor
    */
-  function BodyNode( meter, mvt, strings ) {
+  function BodyNode( meter, mvt ) {
 
     var thisNode = this;
     Node.call( thisNode );
 
     // text nodes
-    var titleNode = new Text( strings.concentration, { font: "bold 18px Arial", fill: "white" } );
-    var unitsNode = new Text( StringUtils.format( strings.pattern_parentheses_0text, [ strings.units_molesPerLiter ]), { font: "bold 14px Arial", fill: "white" } );
+    var titleNode = new Text( BLLStrings.concentration, { font: "bold 18px Arial", fill: "white" } );
+    var unitsNode = new Text( StringUtils.format( BLLStrings.pattern_parentheses_0text, [ BLLStrings.units_molesPerLiter ]), { font: "bold 14px Arial", fill: "white" } );
 
     // value: workaround for scenery#16. It would be preferable to use Text node, but it can't be updated fast enough.
     var $valueElement = $( '<span>' );
