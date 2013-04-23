@@ -25,6 +25,7 @@ HIGH
 - rewrite buttons, radio buttons and combo box in scenery
 
 MEDIUM
+- delete stuff associated with PerformanceMonitor
 - try Fort
 - use scenery's new coordinate frame transform methods (scenery#12)
 - add relativePressPoint for drag handlers, so that mouse doesn't get away from drag target
