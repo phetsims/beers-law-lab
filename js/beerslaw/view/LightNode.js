@@ -4,7 +4,7 @@
  * Visual representation of the light in the Beer's Law tab.
  * Origin is at the right center, where the light comes out of the "housing".
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function ( require ) {
   "use strict";
