@@ -19,6 +19,7 @@ define( function( require ) {
     var isMouseInside = false;
     var isMousePressed = false;
     var downPointer; // the pointer that received the "down" event
+    // listener added to "down" pointer to received corresponding "up" event
     var upListener = {
       up: function () { up(); },
       cancel: function () { up(); }
