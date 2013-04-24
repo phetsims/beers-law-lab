@@ -1,3 +1,4 @@
+4/23/13 default to "Beer's Law" tab for development
 4/23/13 fix beam gradient
 4/23/13 fix positioning of light
 4/23/13 first pass at port of BeamNode, some bugs
