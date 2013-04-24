@@ -47,8 +47,8 @@ define( function ( require ) {
     thisView.addChild( resetAllButtonNode );
 
     // Layout for things that don't have a location in the model.
-    resetAllButtonNode.left = 100;
-    resetAllButtonNode.top = 100;
+    resetAllButtonNode.right = thisView.layoutBounds.maxX - 50;
+    resetAllButtonNode.bottom = thisView.layoutBounds.maxY - 50;
   }
 
   inherit( BeersLawView, TabView, { layoutBounds: new Bounds2( 0, 0, 1024, 700 ) } );
