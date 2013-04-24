@@ -9,6 +9,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var BeamNode = require( "beerslaw/view/BeamNode" );
   var BLLStrings = require( "common/BLLStrings" );
   var Bounds2 = require( "DOT/Bounds2" );
   var CuvetteNode = require( "beerslaw/view/CuvetteNode" );
@@ -31,6 +32,7 @@ define( function ( require ) {
 
     var lightNode = new LightNode( model.light, mvt );
     var cuvetteNode = new CuvetteNode( model.cuvette, model.solution, mvt, 0.1 /* snapInterval, cm */ );
+    var beamNode = new BeamNode( model.beam, mvt );
 
     // Reset All button
     var resetAllButtonNode = new ResetAllButtonNode( function() {
@@ -39,6 +41,7 @@ define( function ( require ) {
 
     // Rendering order
     thisView.addChild( cuvetteNode );
+    thisView.addChild( beamNode );
     thisView.addChild( lightNode );
     // Add anything containing interactive DOM elements last, or they will not receive events.
     thisView.addChild( resetAllButtonNode );

@@ -52,10 +52,10 @@ define( function ( require ) {
     // update shape of the beam
     var updateShape = function () {
       if ( thisBeam.visible.get() ) {
-        var x = light.location.x;
-        var y = light.getMinY();
-        var width = detector.probeInBeam() ? detector.probe.location.x - x : MAX_LIGHT_WIDTH;
-        var height = light.lensDiameter;
+        var x = mvt.modelToView( light.location.x );
+        var y = mvt.modelToView( light.getMinY() );
+        var width = mvt.modelToView( detector.probeInBeam() ? detector.probe.location.get().x - light.location.x : MAX_LIGHT_WIDTH );
+        var height = mvt.modelToView( light.lensDiameter );
         thisBeam.shape.set( Shape.rect( x, y, width, height ) );
       }
     };

@@ -1,0 +1,42 @@
+// Copyright 2013, University of Colorado
+
+/**
+ * Representation of light as a beam.
+ *
+ * @author Chris Malley (PixelZoom, Inc.)
+ */
+define( function ( require ) {
+
+  // imports
+  var Color = require( "common/model/Color" );
+  var inherit = require( "PHET_CORE/inherit" );
+  var Path = require( "SCENERY/nodes/Path" );
+
+  function BeamNode( beam, mvt ) {
+
+    var thisNode = this;
+    Path.call( this, { stroke: new Color( 192, 192, 192, 0.8 ).toCSS(), lineWidth: 0.5 } );
+
+    // shape
+    beam.shape.addObserver( function ( shape ) {
+      console.log( "BeamNode.observer shape=" + shape );//XXX
+      thisNode.setShape( shape );
+    } );
+
+    // fill
+    beam.fill.addObserver( function ( fill ) {
+      console.log( "BeamNode.observer fill=" + fill );//XXX
+      thisNode.fill = fill;
+    } );
+
+    // visibility
+    beam.visible.addObserver( function ( visible ) {
+      console.log( "BeamNode.observer visible=" + visible );//XXX
+      thisNode.setVisible( visible );
+    } );
+  };
+
+  inherit( BeamNode, Path );
+
+  return BeamNode;
+} );
