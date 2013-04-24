@@ -8,6 +8,7 @@
 define( function ( require ) {
 
   // imports
+  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
   var Color = require( "common/model/Color" );
   var FillHighlighter = require( "common/view/FillHighlighter" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -75,11 +76,26 @@ define( function ( require ) {
     var thisNode = this;
     Node.call( this );
 
+    // A double-headed arrow, pointing left and right. Path definition starts at left tip and moves clockwise.
+    assert && assert( ARROW_HEAD_WIDTH > ARROW_TAIL_WIDTH );
+    assert && assert( ARROW_LENGTH > 2 * ARROW_HEAD_LENGTH );
+    var arrowShape = new Shape()
+      .moveTo( -ARROW_LENGTH / 2, 0 )
+      .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, -ARROW_HEAD_WIDTH / 2 )
+      .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, -ARROW_TAIL_WIDTH / 2 )
+      .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, -ARROW_TAIL_WIDTH / 2 )
+      .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, -ARROW_HEAD_WIDTH / 2 )
+      .lineTo( ARROW_LENGTH / 2, 0 )
+      .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, ARROW_HEAD_WIDTH / 2 )
+      .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, ARROW_TAIL_WIDTH / 2 )
+      .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, ARROW_TAIL_WIDTH / 2 )
+      .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, ARROW_HEAD_WIDTH / 2 )
+      .close();
+
     // nodes
     var cuvetteNode = new Path( { stroke: 'black', lineWidth: 3 } );
-    var solutionNode = new Path( { lineWidth: 0.25 } );
-    var arrowNode = new Rectangle( -ARROW_LENGTH / 2, -ARROW_HEAD_WIDTH / 2, ARROW_LENGTH, ARROW_HEAD_WIDTH,
-                                   { fill: ARROW_FILL.toCSS(), stroke: 'black', lineWidth: 1  } )
+    var solutionNode = new Path( { lineWidth: 0.5 } );
+    var arrowNode = new Path( { shape: arrowShape, fill: ARROW_FILL.toCSS(), stroke: 'black', lineWidth: 1 } );
 
     // rendering order
     thisNode.addChild( solutionNode );
