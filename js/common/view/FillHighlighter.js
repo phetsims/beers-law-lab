@@ -16,38 +16,51 @@ define( function( require ) {
 
   function FillHighlighter( node, normalFill, highlightFill ) {
 
-    var thisHandler = this;
     var isMouseInside = false;
     var isMousePressed = false;
+    var downPointer; // the pointer that received the "down" event
+    var upListener = {
+      up: function () { up(); },
+      cancel: function () { up(); }
+    };
 
-    var setHighlighted = function( highlighted ) {
+    var setHighlighted = function ( highlighted ) {
       node.fill = highlighted ? highlightFill : normalFill;
     };
 
-    thisHandler.enter = function () {
+    var enter = function () {
       isMouseInside = true;
       setHighlighted( true );
     };
 
-    thisHandler.exit = function () {
+    var exit = function () {
       isMouseInside = false;
       if ( !isMousePressed ) {
         setHighlighted( false );
       }
     };
 
-    this.down = function() {
+    var down = function ( event ) {
+      downPointer = event.pointer;
       isMousePressed = true;
       setHighlighted( true );
+      // scenery doesn't deliver down/up as event pairs, 'up' must be handled by attaching a listener to pointer
+      event.pointer.addInputListener( upListener );
     };
 
-    //TODO this only gets called when the mouse is inside the node
-    this.up = function () {
+    var up = function () {
       isMousePressed = false;
       if ( !isMouseInside ) {
         setHighlighted( false );
       }
+      downPointer.removeInputListener( upListener );
     };
+
+    this.enter = function () { enter(); };
+
+    this.exit = function () { exit(); };
+
+    this.down = function( event ) { down( event ); };
   }
 
   return FillHighlighter;
