@@ -14,7 +14,7 @@ define( function( require ) {
 
   var inherit = require( "PHET_CORE/inherit" );
 
-  function FillHighlightHandler( node, normalFill, highlightFill ) {
+  function FillHighlighter( node, normalFill, highlightFill ) {
 
     var thisHandler = this;
     var isMouseInside = false;
@@ -50,5 +50,5 @@ define( function( require ) {
     };
   }
 
-  return FillHighlightHandler;
+  return FillHighlighter;
 });
