@@ -26,15 +26,11 @@ define( function( require ) {
   var HorizontalTiledNode = require( "common/view/HorizontalTiledNode" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
-  var LinearFunction = require( "common/util/LinearFunction" );
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
   var Node = require( "SCENERY/nodes/Node" );
-  var Path = require( "SCENERY/nodes/Path" );
-  var Range = require( "DOT/Range" );
-  var Shape = require( "KITE/Shape" );
   var StringUtils = require( "common/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
-  var Vector2 = require( "DOT/Vector2" );
+  var WireNode = require( "common/view/WireNode" );
 
   // images
   var bodyLeftImage = require( "image!images/concentration-meter-body-left.png" );
@@ -173,49 +169,6 @@ define( function( require ) {
   inherit( ProbeNode, Node );
 
   /**
-   * Wire that connects the probe to the body of the meter.
-   * @param {ConcentrationMeter} meter
-   * @param {Node} bodyNode
-   * @param {Node} probeNode
-   * @constructor
-   */
-  function WireNode( meter, bodyNode, probeNode ) {
-
-    var thisNode = this;
-    Path.call( thisNode, {
-      shape: new Shape(),
-      stroke: 'gray',
-      lineWidth: 8,
-      lineCap: "square",
-      lineJoin: "round"
-    } );
-
-    // The y coordinate of the body's control point varies with the x distance between the body and probe.
-    var BODY_CTRL_Y = new LinearFunction( new Range( 0, 800 ), new Range( 0, 200 ) ); // x distance -> y coordinate
-
-    var updateCurve = function() {
-
-      // Connect bottom-center of body to right-center of probe.
-      var bodyConnectionPoint = new Vector2( bodyNode.centerX, bodyNode.bottom - 10 );
-      var probeConnectionPoint = new Vector2( probeNode.right, probeNode.centerY );
-
-      // control points
-      var c1Offset = new Vector2( 0, BODY_CTRL_Y.evaluate( bodyNode.centerX - probeNode.left ) );
-      var c2Offset = new Vector2( 50, 0 );
-      var c1 = new Vector2( bodyConnectionPoint.x + c1Offset.x, bodyConnectionPoint.y + c1Offset.y );
-      var c2 = new Vector2( probeConnectionPoint.x + c2Offset.x, probeConnectionPoint.y + c2Offset.y );
-
-      thisNode.shape = new Shape()
-        .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
-        .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
-    };
-    meter.body.location.addObserver( updateCurve );
-    meter.probe.location.addObserver( updateCurve );
-  }
-
-  inherit( WireNode, Path );
-
-  /**
    * @param {ConcentrationMeter} meter
    * @param {ConcentrationSolution} solution
    * @param {Faucet} solventFaucet
@@ -237,7 +190,7 @@ define( function( require ) {
 
     var bodyNode = new BodyNode( meter, mvt, strings )
     var probeNode = new ProbeNode( meter, mvt, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode );
-    var wireNode = new WireNode( meter, bodyNode, probeNode );
+    var wireNode = new WireNode( meter.body, meter.probe, bodyNode, probeNode );
 
     // rendering order
     thisNode.addChild( wireNode );

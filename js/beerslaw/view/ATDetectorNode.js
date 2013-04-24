@@ -12,8 +12,17 @@ define( function ( require ) {
   var inherit = require( "PHET_CORE/inherit" );
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
   var Node = require( "SCENERY/nodes/Node" );
+  var Path = require( "SCENERY/nodes/Path" );
+  var Rectangle = require( "SCENERY/nodes/Rectangle" ); //TODO delete me
 
   // constants
+  var BUTTONS_X_MARGIN = 25; // specific to image files
+  var BUTTONS_Y_OFFSET = 17; // specific to image files
+  var VALUE_X_MARGIN = 25; // specific to image files
+  var VALUE_Y_OFFSET = 87; // specific to image files
+  var ABSORBANCE_DECIMAL_PLACES = 2;
+  var TRANSMITTANCE_DECIMAL_PLACES = 2;
+  var NO_VALUE = "-";
   var PROBE_CENTER_Y_OFFSET = 55; // specific to image file
 
   // images
@@ -23,8 +32,30 @@ define( function ( require ) {
   var probeImage = require( "image!images/at-detector-probe.png" );
 
   /**
+   * The body of the detector, where A and T values are displayed.
+   * @param {ATDetector} detector
+   * @param {ModelViewTransform2D} mvt
+   * @constructor
+   */
+  function BodyNode( detector, mvt ) {
+
+    var thisNode = this;
+    Node.call( thisNode );
+
+    thisNode.addChild( new Rectangle( 0, 0, 200, 100, { fill: 'green', stroke: 'black' })); //XXX placeholder
+
+    // body location
+    detector.body.location.addObserver( function ( location ) {
+      var viewLocation = mvt.modelToView( location );
+      thisNode.x = viewLocation.x;
+      thisNode.y = viewLocation.y;
+    } );
+  }
+
+  inherit( BodyNode, Node );
+
+  /**
    * The probe portion of the detector.
-   *
    * @param {Movable} probe
    * @param {ModelViewTransform2D} mvt
    * @constructor
@@ -49,6 +80,35 @@ define( function ( require ) {
   inherit( ProbeNode, Image );
 
   /**
+   * Wire that connects the probe to the body of the detector.
+   * @param {Node} bodyNode
+   * @param {Node} probeNode
+   * @constructor
+   */
+  function WireNode( bodyNode, probeNode ) {
+
+    var thisNode = this;
+    Path.call( this );
+  }
+
+  inherit( WireNode, Path );
+
+  /**
+   * Radio button for changing modes
+   * @param {String} text
+   * @param {Property} mode of type ATDetector.Mode
+   * @param {ATDetector.Mode} value
+   * @constructor
+   */
+  function ModeButtonNode( text, mode, value ) {
+
+    var thisNode = this;
+    Node.call( this );
+  }
+
+  inherit( ModeButtonNode, Node );
+
+  /**
    * @param {ATDetector} detector
    * @param {ModelViewTransform2D} mvt
    * @constructor
@@ -58,6 +118,8 @@ define( function ( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
+    thisNode.addChild( new WireNode( detector, mvt ) );
+    thisNode.addChild( new BodyNode( detector, mvt ) );
     thisNode.addChild( new ProbeNode( detector.probe, mvt ) );
   }
 
@@ -66,36 +128,6 @@ define( function ( require ) {
   return ATDetectorNode;
 });
 
-//class ATDetectorNode extends PhetPNode {
-//
-//    public final PNode bodyNode;
-//
-//    public ATDetectorNode( ATDetector detector, ModelViewTransform mvt ) {
-//
-//        // nodes
-//        bodyNode = new BodyNode( detector, mvt );
-//        PNode probeNode = new ProbeNode( detector, mvt );
-//        PNode wireNode = new WireNode( bodyNode, probeNode );
-//
-//        // rendering order
-//        addChild( wireNode );
-//        addChild( bodyNode );
-//        addChild( probeNode );
-//
-//        //NOTE: layout is handled by child nodes observing model elements.
-//    }
-//
-//    // The body of the detector, where A and T values are displayed.
-//    private static class BodyNode extends PNode {
-//
-//        private static final double BUTTONS_X_MARGIN = 25;  // specific to image files
-//        private static final double BUTTONS_Y_OFFSET = 17;  // specific to image files
-//        private static final double VALUE_X_MARGIN = 25; // specific to image files
-//        private static final double VALUE_Y_OFFSET = 87; // specific to image files
-//        private static final DecimalFormat ABSORBANCE_FORMAT = new DecimalFormat( "0.00" );
-//        private static final DecimalFormat TRANSMITTANCE_FORMAT = new DecimalFormat( "0.00" );
-//        private static final String NO_VALUE = "-";
-//
 //        public BodyNode( final ATDetector detector, final ModelViewTransform mvt ) {
 //
 //            // buttons for changing the detector "mode"
