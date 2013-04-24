@@ -63,18 +63,15 @@ define( function ( require ) {
     detector.probe.location.addObserver( updateShape );
     thisBeam.visible.addObserver( updateShape );
 
-    // update color of beam
+    // update color of beam, a left-to-right linear gradient that transitions inside the solution
     var updateColor = function () {
       if ( thisBeam.visible.get() ) {
-        var wavelength = light.wavelength.get();
-        var transmittance = absorbance.getTransmittance();
-        var leftColor = Color.withAlpha( VisibleColor.wavelengthToColor( wavelength ), MAX_LIGHT_ALPHA );
-        var rightColor = Color.withAlpha( VisibleColor.wavelengthToColor( wavelength ), TRANSMITTANCE_TO_ALPHA.evaluate( transmittance ) );
+        var baseColor = VisibleColor.wavelengthToColor( light.wavelength.get() );
+        var leftColor = Color.withAlpha( baseColor, MAX_LIGHT_ALPHA );
+        var rightColor = Color.withAlpha( baseColor, TRANSMITTANCE_TO_ALPHA.evaluate( absorbance.getTransmittance() ) );
         var x = mvt.modelToView( cuvette.location.x );
-        var y = mvt.modelToView( cuvette.location.y );
         var w = mvt.modelToView( cuvette.width.get() );
-        var h = mvt.modelToView( cuvette.height );
-        thisBeam.fill.set( new LinearGradient( x, y, w, h )
+        thisBeam.fill.set( new LinearGradient( x, 0, w, 0 )
                              .addColorStop( 0, leftColor.toCSS() )
                              .addColorStop( 1, rightColor.toCSS() ) );
       }
