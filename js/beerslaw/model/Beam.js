@@ -45,8 +45,8 @@ define( function ( require ) {
     thisBeam.visible = new Property( false );
 
     // Make the beam visible when the light is on.
-    light.on.addObserver( function( on ) {
-         thisBeam.visible.set( on );
+    light.on.addObserver( function ( on ) {
+      thisBeam.visible.set( on );
     } );
 
     // update shape of the beam
@@ -71,7 +71,7 @@ define( function ( require ) {
         var rightColor = Color.withAlpha( baseColor, TRANSMITTANCE_TO_ALPHA.evaluate( absorbance.getTransmittance() ) );
         var x = mvt.modelToView( cuvette.location.x );
         var w = mvt.modelToView( cuvette.width.get() );
-        thisBeam.fill.set( new LinearGradient( x, 0, w, 0 )
+        thisBeam.fill.set( new LinearGradient( x, 0, x + w, 0 )
                              .addColorStop( 0, leftColor.toCSS() )
                              .addColorStop( 1, rightColor.toCSS() ) );
       }
