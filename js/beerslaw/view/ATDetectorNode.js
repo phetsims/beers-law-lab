@@ -8,12 +8,17 @@
 define( function ( require ) {
 
   // imports
+  var ATDetector = require( "beerslaw/model/ATDetector" );
+  var BLLStrings = require( "common/BLLStrings" );
+  var HorizontalTiledNode = require( "common/view/HorizontalTiledNode" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" ); //TODO delete me
+  var Text = require( "SCENERY/nodes/Text" );
+  var WireNode = require( "common/view/WireNode" );
 
   // constants
   var BUTTONS_X_MARGIN = 25; // specific to image files
@@ -42,7 +47,36 @@ define( function ( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
-    thisNode.addChild( new Rectangle( 0, 0, 200, 100, { fill: 'green', stroke: 'black' })); //XXX placeholder
+    // buttons for changing the detector "mode"
+    var transmittanceButton = new ModeButton( BLLStrings.transmittance, detector.mode, ATDetector.Mode.TRANSMITTANCE );
+    var absorbanceButton = new ModeButton( BLLStrings.ABSORBANCE, detector.mode, ATDetector.Mode.ABSORBANCE );
+
+    // group the buttons
+    var buttonGroup = new Node();
+    buttonGroup.addChild( transmittanceButton );
+    buttonGroup.addChild( absorbanceButton );
+    absorbanceButton.x = transmittanceButton.x;
+    absorbanceButton.top = transmittanceButton.bottom + 1;
+
+    //TODO use DOM text
+    // value display
+    var maxValue = 100;
+    var valueNode = new Text( maxValue.toFixed( ABSORBANCE_DECIMAL_PLACES ), { font: "24px Arial" } );
+
+    // background image, sized to fit
+    var bodyWidth = Math.max( buttonGroup.width, valueNode.width ) + ( 2 * BUTTONS_X_MARGIN );
+    var backgroundNode = new HorizontalTiledNode( bodyWidth, new Image( bodyLeftImage ), new Image( bodyCenterImage ), new Image( bodyRightImage ) );
+
+    // rendering order
+    thisNode.addChild( backgroundNode );
+    thisNode.addChild( buttonGroup );
+    thisNode.addChild( valueNode );
+
+    // layout
+    buttonGroup.x = BUTTONS_X_MARGIN;
+    buttonGroup.y = BUTTONS_Y_OFFSET;
+    valueNode.x = VALUE_X_MARGIN;
+    valueNode.y = VALUE_Y_OFFSET;
 
     // body location
     detector.body.location.addObserver( function ( location ) {
@@ -80,33 +114,21 @@ define( function ( require ) {
   inherit( ProbeNode, Image );
 
   /**
-   * Wire that connects the probe to the body of the detector.
-   * @param {Node} bodyNode
-   * @param {Node} probeNode
-   * @constructor
-   */
-  function WireNode( bodyNode, probeNode ) {
-
-    var thisNode = this;
-    Path.call( this );
-  }
-
-  inherit( WireNode, Path );
-
-  /**
    * Radio button for changing modes
    * @param {String} text
    * @param {Property} mode of type ATDetector.Mode
    * @param {ATDetector.Mode} value
    * @constructor
    */
-  function ModeButtonNode( text, mode, value ) {
+  function ModeButton( text, mode, value ) {
 
     var thisNode = this;
     Node.call( this );
+
+    thisNode.addChild( new Rectangle( 0, 0, 20, 20, { fill: 'red', stroke: 'black' })); //XXX placeholder
   }
 
-  inherit( ModeButtonNode, Node );
+  inherit( ModeButton, Node );
 
   /**
    * @param {ATDetector} detector
@@ -118,9 +140,13 @@ define( function ( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
-    thisNode.addChild( new WireNode( detector, mvt ) );
-    thisNode.addChild( new BodyNode( detector, mvt ) );
-    thisNode.addChild( new ProbeNode( detector.probe, mvt ) );
+    var bodyNode = new BodyNode( detector, mvt );
+    var probeNode = new ProbeNode( detector.probe, mvt );
+    var wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
+
+    thisNode.addChild( wireNode );
+    thisNode.addChild( bodyNode );
+    thisNode.addChild( probeNode );
   }
 
   inherit( ATDetectorNode, Node );
@@ -195,37 +221,6 @@ define( function ( require ) {
 //
 //        private String getFormattedTransmittance( double transmittance ) {
 //            return MessageFormat.format( Strings.PATTERN_0PERCENT, TRANSMITTANCE_FORMAT.format( transmittance ) );
-//        }
-//    }
-//
-//    // Wire that connects the probe to the body of the detector.
-//    public class WireNode extends PPath {
-//        public WireNode( final PNode bodyNode, final PNode probeNode ) {
-//            setStroke( new BasicStroke( 8, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND, 1f ) );
-//            setStrokePaint( Color.GRAY );
-//
-//            // Update when bounds of the body or probe change
-//            final PropertyChangeListener listener = new PropertyChangeListener() {
-//                public void propertyChange( PropertyChangeEvent evt ) {
-//
-//                    // connect to left center of body
-//                    final double bodyConnectionX = bodyNode.getFullBoundsReference().getMinX();
-//                    final double bodyConnectionY = bodyNode.getFullBounds().getCenterY();
-//
-//                    // connect to bottom center of probe
-//                    final double probeConnectionX = probeNode.getFullBoundsReference().getCenterX();
-//                    final double probeConnectionY = probeNode.getFullBoundsReference().getMaxY();
-//
-//                    // cubic curve
-//                    final double controlPointOffset = 60;
-//                    setPathTo( new CubicCurve2D.Double( bodyConnectionX, bodyConnectionY,
-//                                                        bodyConnectionX - controlPointOffset, bodyConnectionY,
-//                                                        probeConnectionX, probeConnectionY + controlPointOffset,
-//                                                        probeConnectionX, probeConnectionY ) );
-//                }
-//            };
-//            probeNode.addPropertyChangeListener( PNode.PROPERTY_FULL_BOUNDS, listener );
-//            bodyNode.addPropertyChangeListener( PNode.PROPERTY_FULL_BOUNDS, listener );
 //        }
 //    }
 //
