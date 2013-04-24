@@ -41,8 +41,8 @@ define( function ( require ) {
     thisNode.addChild( buttonNode );
 
     // layout
-    housingNode.right = housingNode.width;
-    housingNode.centerY = housingNode.height / 2;
+    housingNode.x = -housingNode.width;
+    housingNode.y = -housingNode.height / 2;
     buttonNode.left = housingNode.right - buttonNode.width - 40;
     buttonNode.centerY = housingNode.centerY;
 

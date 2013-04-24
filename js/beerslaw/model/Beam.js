@@ -54,9 +54,9 @@ define( function ( require ) {
       if ( thisBeam.visible.get() ) {
         var x = mvt.modelToView( light.location.x );
         var y = mvt.modelToView( light.getMinY() );
-        var width = mvt.modelToView( detector.probeInBeam() ? detector.probe.location.get().x - light.location.x : MAX_LIGHT_WIDTH );
-        var height = mvt.modelToView( light.lensDiameter );
-        thisBeam.shape.set( Shape.rect( x, y, width, height ) );
+        var w = mvt.modelToView( detector.probeInBeam() ? detector.probe.location.get().x - light.location.x : MAX_LIGHT_WIDTH );
+        var h = mvt.modelToView( light.lensDiameter );
+        thisBeam.shape.set( Shape.rect( x, y, w, h ) );
       }
     };
     cuvette.width.addObserver( updateShape );

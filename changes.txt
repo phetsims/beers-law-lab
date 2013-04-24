@@ -1,3 +1,4 @@
+4/23/13 fix positioning of light
 4/23/13 first pass at port of BeamNode, some bugs
 4/23/13 add double-headed arrow drag handle to cuvette
 4/23/13 add cuvette drag handler
