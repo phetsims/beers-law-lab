@@ -10,11 +10,11 @@ IMPLEMENTATION ISSUES
 SCENERY BUGS
 - iPad: Text node performance is not usable for dynamic text (scenery#16)
 - iPad: "Drink mix" text on shaker is broken into 2 lines, text moves separate from shaker, ditto for dropper (scenery#13)
+- in SoluteControlsNode, setting font "32px Arial" for soluteLabel results in Node.invalidateSelf assertion failure (scenery#22)
 
 SCENERY ENHANCEMENTS
 
 BUGS
-- in SoluteControlsNode, setting font "32px Arial" for soluteLabel results in Node.invalidateSelf assertion failure: "Bounds must be empty or finite in invalidateSelf"
 - iPad, Nexus: bootstrap components look like they respond but do nothing (all except "Reset All" button)
 - iPad, Nexus: performance of particles
 
