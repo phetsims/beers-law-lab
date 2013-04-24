@@ -1,3 +1,4 @@
+4/24/13 partial port of ATDetectorNode
 4/24/13 handle 'up' in FillHighlighter by attaching a listener to 'down' pointer (yuck)
 4/23/13 reposition "Reset All" button
 4/23/13 default to "Beer's Law" tab for development

@@ -15,6 +15,7 @@ define( function ( require ) {
   var Property = require( "PHETCOMMON/model/property/Property" );
 
   /**
+   * The probe, whose position indicates where the measurement is being made.
    * @param {Vector2} location
    * @param {Bounds2} dragBounds
    * @param {Number} sensorDiameter cm
