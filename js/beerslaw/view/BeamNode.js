@@ -19,19 +19,16 @@ define( function ( require ) {
 
     // shape
     beam.shape.addObserver( function ( shape ) {
-      console.log( "BeamNode.observer shape=" + shape );//XXX
       thisNode.setShape( shape );
     } );
 
     // fill
     beam.fill.addObserver( function ( fill ) {
-      console.log( "BeamNode.observer fill=" + fill );//XXX
       thisNode.fill = fill;
     } );
 
     // visibility
     beam.visible.addObserver( function ( visible ) {
-      console.log( "BeamNode.observer visible=" + visible );//XXX
       thisNode.setVisible( visible );
     } );
   };
