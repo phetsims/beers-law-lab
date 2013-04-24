@@ -12,7 +12,7 @@ define( function ( require ) {
   var inherit = require( "PHET_CORE/inherit" );
   var Path = require( "SCENERY/nodes/Path" );
 
-  function BeamNode( beam, mvt ) {
+  function BeamNode( beam ) {
 
     var thisNode = this;
     Path.call( this, { stroke: new Color( 192, 192, 192, 0.8 ).toCSS(), lineWidth: 0.5 } );

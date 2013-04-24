@@ -32,7 +32,7 @@ define( function ( require ) {
 
     var lightNode = new LightNode( model.light, mvt );
     var cuvetteNode = new CuvetteNode( model.cuvette, model.solution, mvt, 0.1 /* snapInterval, cm */ );
-    var beamNode = new BeamNode( model.beam, mvt );
+    var beamNode = new BeamNode( model.beam );
 
     // Reset All button
     var resetAllButtonNode = new ResetAllButtonNode( function() {
