@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 
 /*
- * RequireJS configuration file for the "Concentration" sim.
+ * RequireJS configuration file for the "Beer's Law Lab" sim.
  * Paths are relative to the location of this file.
  *
  * @author Chris Malley
