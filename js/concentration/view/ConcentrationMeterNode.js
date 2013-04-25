@@ -103,7 +103,7 @@ define( function( require ) {
 
   /**
    * Meter probe, origin at center of crosshairs.
-   * @param {ConcentrationMeter} meter
+   * @param {Movable} probe
    * @param {ModelViewTransform2D} mvt
    * @param {Node} solutionNode
    * @param {Node} stockSolutionNode
@@ -111,18 +111,12 @@ define( function( require ) {
    * @param {Node} drainFluidNode
    * @constructor
    */
-  function ProbeNode( meter, mvt, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode ) {
+  function ProbeNode( probe, mvt, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode ) {
 
     var thisNode = this;
     Node.call( thisNode, {
       cursor: "pointer"
     } );
-
-    var meter = meter;
-    var solutionNode = solutionNode;
-    var stockSolutionNode = stockSolutionNode;
-    var solventFluidNode = solventFluidNode;
-    var drainFluidNode = drainFluidNode;
 
     var imageNode = new Image( probeImage );
     thisNode.addChild( imageNode );
@@ -131,15 +125,15 @@ define( function( require ) {
     imageNode.y = -radius;
 
     // probe location
-    meter.probe.location.addObserver( function ( location ) {
+    probe.location.addObserver( function ( location ) {
       thisNode.translation = mvt.modelToView( location );
     } );
 
     // drag handler
-    thisNode.addInputListener( new MovableDragHandler( meter.probe, mvt ) );
+    thisNode.addInputListener( new MovableDragHandler( probe, mvt ) );
 
     var isInNode = function ( node ) {
-      return node.getBounds().containsPoint( meter.probe.location.get() );
+      return node.getBounds().containsPoint( probe.location.get() );
     };
 
     thisNode.isInSolution = function () {
@@ -182,7 +176,7 @@ define( function( require ) {
     Node.call( thisNode );
 
     var bodyNode = new BodyNode( meter, mvt, strings )
-    var probeNode = new ProbeNode( meter, mvt, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode );
+    var probeNode = new ProbeNode( meter.probe, mvt, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode );
     var wireNode = new WireNode( meter.body, meter.probe, bodyNode, probeNode );
 
     // rendering order
