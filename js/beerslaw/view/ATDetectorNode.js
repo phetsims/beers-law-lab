@@ -58,7 +58,6 @@ define( function ( require ) {
     absorbanceButton.x = transmittanceButton.x;
     absorbanceButton.top = transmittanceButton.bottom + 1;
 
-    //TODO use DOM text
     // value display
     var maxValue = 100;
     var valueNode = new Text( maxValue.toFixed( ABSORBANCE_DECIMAL_PLACES ), { font: "24px Arial" } );
