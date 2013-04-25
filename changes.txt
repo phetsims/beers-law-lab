@@ -1,3 +1,4 @@
+4/25/13 create temporary DOMText node, for use until Text node supports HTML
 4/24/13 generalize WireNode, for use in both concentration meter and AT detector
 4/24/13 partial port of ATDetectorNode
 4/24/13 handle 'up' in FillHighlighter by attaching a listener to 'down' pointer (yuck)

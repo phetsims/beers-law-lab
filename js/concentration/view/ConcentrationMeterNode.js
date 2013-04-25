@@ -22,7 +22,7 @@ define( function( require ) {
   // imports
   var BLLStrings = require( "common/BLLStrings" );
   var Color = require( "common/model/Color" );
-  var DOM = require( "SCENERY/nodes/DOM" );
+  var DOMText = require( "common/view/DOMText" );
   var HorizontalTiledNode = require( "common/view/HorizontalTiledNode" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -60,12 +60,7 @@ define( function( require ) {
     // text nodes
     var titleNode = new Text( BLLStrings.concentration, { font: "bold 18px Arial", fill: "white" } );
     var unitsNode = new Text( StringUtils.format( BLLStrings.pattern_parentheses_0text, [ BLLStrings.units_molesPerLiter ]), { font: "bold 14px Arial", fill: "white" } );
-
-    // value: workaround for scenery#16. It would be preferable to use Text node, but it can't be updated fast enough.
-    var $valueElement = $( '<span>' );
-    $valueElement.css( { font: "24px Arial", fill: "black" } );
-    $valueElement[0].innerHTML = new Number( 1 ).toFixed( VALUE_DECIMALS );
-    var valueNode = new DOM( $valueElement[0] );
+    var valueNode = new DOMText( new Number( 1 ).toFixed( VALUE_DECIMALS ), { font: "24px Arial", fill: "black" } );
 
     // create a background that fits the text
     var maxTextWidth = Math.max( titleNode.width, unitsNode.width );
@@ -94,13 +89,11 @@ define( function( require ) {
     // displayed value
     meter.value.addObserver( function ( value ) {
       if ( isNaN( value ) ) {
-        valueNode.getElement().innerHTML = NO_VALUE;
-        valueNode.invalidateDOM();
+        valueNode.setText( NO_VALUE );
         valueNode.centerX = backgroundNode.centerX; // center justified
       }
       else {
-        valueNode.getElement().innerHTML = value.toFixed( VALUE_DECIMALS );
-        valueNode.invalidateDOM();
+        valueNode.setText( value.toFixed( VALUE_DECIMALS ) );
         valueNode.right = backgroundNode.right - VALUE_X_MARGIN; // right justified
       }
     } );

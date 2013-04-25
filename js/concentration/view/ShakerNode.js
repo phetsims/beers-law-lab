@@ -9,7 +9,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var DOM = require( "SCENERY/nodes/DOM" );
+  var DOMText = require( "common/view/DOMText" );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -41,13 +41,8 @@ define( function ( require ) {
     var imageNode = new Image( shakerImage );
     imageNode.setScaleMagnitude( 0.75 );
 
-    // label, use DOM to support HTML for formula subscripts
-    var $labelElement = $( '<span>' );
-    $labelElement.css(
-      { font: "bold 22px Arial",
-        fill: "black"
-      } );
-    var labelNode = new DOM( $labelElement[0] );
+    // label
+    var labelNode = new DOMText( shaker.solute.formula, { font: "bold 22px Arial", fill: "black" } );
 
     // common parent, to simplify rotation and label alignment.
     var parentNode = new Node();
@@ -77,8 +72,7 @@ define( function ( require ) {
     // sync solute with model
     shaker.solute.addObserver( function updateSolute( solute ) {
       // label the shaker with the solute formula
-      $labelElement.html( solute.formula );
-      labelNode.invalidateDOM();
+      labelNode.setText( solute.formula );
       // center the label on the shaker
       var capWidth = 0.3 * imageNode.width;
       labelNode.centerX = capWidth + ( imageNode.width - capWidth ) / 2;
