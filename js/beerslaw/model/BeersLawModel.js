@@ -22,7 +22,7 @@ define( function ( require ) {
   var Vector2 = require( "DOT/Vector2" );
 
   /**
-   * @param {ModelViewTransform2D} mvt
+   * @param {ModelViewTransform2} mvt
    * @constructor
    */
   function BeersLawModel( mvt ) {

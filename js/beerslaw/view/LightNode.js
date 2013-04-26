@@ -21,7 +21,7 @@ define( function ( require ) {
 
   /**
    * @param {Light} light
-   * @param {ModelViewTransform2D} mvt
+   * @param {ModelViewTransform2} mvt
    * @constructor
    */
   function LightNode( light, mvt ) {
@@ -47,7 +47,7 @@ define( function ( require ) {
     buttonNode.centerY = housingNode.centerY;
 
     // position
-    var position = mvt.modelToView( light.location );
+    var position = mvt.modelToViewPosition( light.location );
     thisNode.x = position.x;
     thisNode.y = position.y;
   }

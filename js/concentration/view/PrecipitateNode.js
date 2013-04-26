@@ -18,7 +18,7 @@ define( function ( require ) {
   /**
    * @param {Precipitate} precipitate
    * @param {Beaker} beaker
-   * @param {ModelViewTransform} mvt
+   * @param {ModelViewTransform2} mvt
    * @constructor
    */
   function PrecipitateNode( precipitate, beaker, mvt ) {

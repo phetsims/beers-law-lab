@@ -35,6 +35,11 @@ define( function ( require ) {
   var SPOUT_OUTPUT_WIDTH = 42; // width of spout, determined by inspecting image file
   var HANDLE_ORIENTATION_RANGE = new Range( -Math.PI / 4, 0 ); // full off -> full on
 
+  /**
+   * @param {Faucet} faucet
+   * @param {ModelViewTransform2} mvt
+   * @constructor
+   */
   function FaucetNode( faucet, mvt ) {
 
     var thisNode = this;
@@ -63,7 +68,7 @@ define( function ( require ) {
 
     //TODO This is horizontally stretching the image, would look better to tile a rectangle with a texture.
     // size the pipe
-    pipeNode.setScaleMagnitude( mvt.modelToView( faucet.pipeLength ) / pipeNode.width, 1 );
+    pipeNode.setScaleMagnitude( mvt.modelToViewDeltaX( faucet.pipeLength ) / pipeNode.width, 1 );
 
     // layout
     {
@@ -82,7 +87,7 @@ define( function ( require ) {
     }
 
     // move to model location
-    var location = mvt.modelToView( faucet.location );
+    var location = mvt.modelToViewPosition( faucet.location );
     thisNode.x = location.x;
     thisNode.y = location.y;
 

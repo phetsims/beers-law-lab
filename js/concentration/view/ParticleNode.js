@@ -15,14 +15,14 @@ define( function ( require ) {
 
   /**
    * @param {SoluteParticle} particle
-   * @param {ModelViewTransform2D} mvt
+   * @param {ModelViewTransform2} mvt
    * @constructor
    */
   function ParticleNode( particle, mvt ) {
 
     var thisNode = this;
 
-    var viewSize = mvt.modelToView( particle.size );
+    var viewSize = mvt.modelToViewDeltaX( particle.size );
     Rectangle.call( thisNode, -viewSize / 2, -viewSize / 2, viewSize, viewSize, {
       fill: particle.color.toCSS(),
       stroke: particle.color.darker().toCSS(),
@@ -33,7 +33,7 @@ define( function ( require ) {
     thisNode.rotation = particle.orientation;
 
     particle.location.addObserver( function () {
-      thisNode.translation = mvt.modelToView( particle.location.get() );
+      thisNode.translation = mvt.modelToViewPosition( particle.location.get() );
     } );
   }
 

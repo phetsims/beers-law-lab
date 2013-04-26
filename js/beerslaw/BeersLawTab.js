@@ -13,7 +13,7 @@ define( function ( require ) {
   var BeersLawModel = require( "beerslaw/model/BeersLawModel" );
   var BeersLawView = require( "beerslaw/view/BeersLawView" );
   var Image = require( "SCENERY/nodes/Image" );
-  var ModelViewTransform2D = require( "PHETCOMMON/view/ModelViewTransform2D" );
+  var ModelViewTransform2 = require( "PHETCOMMON/view/ModelViewTransform2" );
   var Vector2 = require( "DOT/Vector2" );
 
   // images
@@ -26,7 +26,7 @@ define( function ( require ) {
     this.backgroundColor = 'white';
 
     // No offset, scale 125x when going from model to view (1cm == 125 pixels)
-    var mvt = new ModelViewTransform2D( 125, new Vector2( 0, 0 ) );
+    var mvt = ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 125, 125 );
 
     this.createModel = function () {
       return new BeersLawModel( mvt );

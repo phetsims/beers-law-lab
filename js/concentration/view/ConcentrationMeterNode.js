@@ -49,7 +49,7 @@ define( function( require ) {
   /**
    * Meter body, origin at upper left.
    * @param {ConcentrationMeter} meter
-   * @param {ModelViewTransform2D} mvt
+   * @param {ModelViewTransform2} mvt
    * @constructor
    */
   function BodyNode( meter, mvt ) {
@@ -83,7 +83,7 @@ define( function( require ) {
 
     // body location
     meter.body.location.addObserver( function ( location ) {
-      thisNode.translation = mvt.modelToView( location ) ;
+      thisNode.translation = mvt.modelToViewPosition( location ) ;
     } );
 
     // displayed value
@@ -104,7 +104,7 @@ define( function( require ) {
   /**
    * Meter probe, origin at center of crosshairs.
    * @param {Movable} probe
-   * @param {ModelViewTransform2D} mvt
+   * @param {ModelViewTransform2} mvt
    * @param {Node} solutionNode
    * @param {Node} stockSolutionNode
    * @param {Node} solventFluidNode
@@ -126,7 +126,7 @@ define( function( require ) {
 
     // probe location
     probe.location.addObserver( function ( location ) {
-      thisNode.translation = mvt.modelToView( location );
+      thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
     // drag handler
@@ -165,7 +165,7 @@ define( function( require ) {
    * @param {Node} stockSolutionNode
    * @param {Node} solventFluidNode
    * @param {Node} drainFluidNode
-   * @param {ModelViewTransform2D} mvt
+   * @param {ModelViewTransform2} mvt
    * @param strings
    * @constructor
    */

@@ -33,7 +33,7 @@ define( function ( require ) {
    * Handler that is attached to the cuvette's drag handle.
    * @param {Node} cuvetteNode
    * @param {Cuvette} cuvette
-   * @param {ModelViewTransform2D} mvt
+   * @param {ModelViewTransform2} mvt
    * @param {Number} snapInterval
    * @constructor
    */
@@ -49,7 +49,7 @@ define( function ( require ) {
       },
       drag: function ( event, trail ) {
         var dragX = event.pointer.point.x;
-        var deltaWidth = mvt.viewToModel( dragX - startX );
+        var deltaWidth = mvt.viewToModelDeltaX( dragX - startX );
         var cuvetteWidth = Util.clamp( startWidth + deltaWidth, cuvette.widthRange.min, cuvette.widthRange.max );
         cuvette.width.set( cuvetteWidth );
       },
@@ -68,7 +68,7 @@ define( function ( require ) {
   /**
    * @param {Cuvette} cuvette
    * @param {Property} solution of type BeersLawSolution
-   * @param {ModelViewTransform2D} mvt
+   * @param {ModelViewTransform2} mvt
    * @param {Number} snapInterval
    * @constructor
    */
@@ -105,8 +105,8 @@ define( function ( require ) {
 
     // when the cuvette width changes ...
     cuvette.width.addObserver( function () {
-      var width = mvt.modelToView( cuvette.width.get() );
-      var height = mvt.modelToView( cuvette.height );
+      var width = mvt.modelToViewDeltaX( cuvette.width.get() );
+      var height = mvt.modelToViewDeltaY( cuvette.height );
       cuvetteNode.setShape( new Shape().moveTo( 0, 0 ).lineTo( 0, height ).lineTo( width, height ).lineTo( width, 0 ) );
       solutionNode.setShape( Shape.rect( 0, 0, width, PERCENT_FULL * height ) );
       solutionNode.left = cuvetteNode.left;
@@ -136,7 +136,7 @@ define( function ( require ) {
     arrowNode.addInputListener( new CuvetteDragHandler( thisNode, cuvette, mvt, snapInterval ) );
 
     // location of the cuvette
-    var position = mvt.modelToView( cuvette.location );
+    var position = mvt.modelToViewPosition( cuvette.location );
     thisNode.x = position.x;
     thisNode.y = position.y;
   }

@@ -15,7 +15,7 @@ define( function ( require ) {
 
   /**
    * @param {ShakerParticles} shakerParticles
-   * @param {ModelViewTransform} mvt
+   * @param {ModelViewTransform2} mvt
    * @constructor
    */
   function ShakerParticlesNode( shakerParticles, mvt ) {

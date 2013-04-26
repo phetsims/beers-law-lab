@@ -13,7 +13,7 @@ define( function ( require ) {
   var ConcentrationModel = require( "concentration/model/ConcentrationModel" );
   var ConcentrationView = require( "concentration/view/ConcentrationView" );
   var Image = require( "SCENERY/nodes/Image" );
-  var ModelViewTransform2D = require( "PHETCOMMON/view/ModelViewTransform2D" );
+  var ModelViewTransform2 = require( "PHETCOMMON/view/ModelViewTransform2" );
   var Vector2 = require( "DOT/Vector2" );
 
   // images
@@ -25,8 +25,9 @@ define( function ( require ) {
     this.icon = new Image( ICON );
     this.backgroundColor = 'white';
 
+    //TODO replace with createIdentity after confirming that this works with other scale factors
     // model-view transform (unity)
-    var mvt = new ModelViewTransform2D( 1, new Vector2( 0, 0 ) );
+    var mvt = ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 1, 1 );
 
     this.createModel = function () {
       return new ConcentrationModel();

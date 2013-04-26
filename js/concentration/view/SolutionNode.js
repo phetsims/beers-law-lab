@@ -22,7 +22,7 @@ define( function ( require ) {
   /**
    * @param {ConcentrationSolution} solution
    * @param {Beaker} beaker
-   * @param {ModelViewTransform2D} mvt
+   * @param {ModelViewTransform2} mvt
    * @constructor
    */
   function SolutionNode( solution, beaker, mvt ) {
@@ -63,8 +63,8 @@ define( function ( require ) {
       }
 
       // convert to view coordinates and create shape
-      var viewWidth = mvt.modelToView( beaker.size.width );
-      var viewHeight = mvt.modelToView( solutionHeight );
+      var viewWidth = mvt.modelToViewDeltaX( beaker.size.width );
+      var viewHeight = mvt.modelToViewDeltaY( solutionHeight );
       thisNode.setShape( Shape.rect( -viewWidth / 2, -viewHeight, viewWidth, viewHeight ) );
     } );
   }

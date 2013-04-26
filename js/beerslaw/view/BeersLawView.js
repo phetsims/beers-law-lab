@@ -23,7 +23,7 @@ define( function ( require ) {
 
   /**
    * @param {BeersLawModel} model
-   * @param {ModelViewTransform2D} mvt
+   * @param {ModelViewTransform2} mvt
    * @constructor
    */
   function BeersLawView( model, mvt ) {

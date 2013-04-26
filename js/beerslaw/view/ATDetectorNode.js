@@ -39,7 +39,7 @@ define( function ( require ) {
   /**
    * The body of the detector, where A and T values are displayed.
    * @param {ATDetector} detector
-   * @param {ModelViewTransform2D} mvt
+   * @param {ModelViewTransform2} mvt
    * @constructor
    */
   function BodyNode( detector, mvt ) {
@@ -79,7 +79,7 @@ define( function ( require ) {
 
     // body location
     detector.body.location.addObserver( function ( location ) {
-      var viewLocation = mvt.modelToView( location );
+      var viewLocation = mvt.modelToViewPosition( location );
       thisNode.x = viewLocation.x;
       thisNode.y = viewLocation.y;
     } );
@@ -90,7 +90,7 @@ define( function ( require ) {
   /**
    * The probe portion of the detector.
    * @param {Movable} probe
-   * @param {ModelViewTransform2D} mvt
+   * @param {ModelViewTransform2} mvt
    * @constructor
    */
   function ProbeNode( probe, mvt ) {
@@ -100,7 +100,7 @@ define( function ( require ) {
 
     // location
     probe.location.addObserver( function ( location ) {
-      var viewLocation = mvt.modelToView( location );
+      var viewLocation = mvt.modelToViewPosition( location );
       thisNode.centerX = viewLocation.x;
       thisNode.y = viewLocation.y - PROBE_CENTER_Y_OFFSET;
     } );
@@ -131,7 +131,7 @@ define( function ( require ) {
 
   /**
    * @param {ATDetector} detector
-   * @param {ModelViewTransform2D} mvt
+   * @param {ModelViewTransform2} mvt
    * @constructor
    */
   function ATDetectorNode( detector, mvt ) {

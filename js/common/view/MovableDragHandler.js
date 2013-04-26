@@ -14,11 +14,16 @@ define( function ( require ) {
   var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
   var Vector2 = require( "DOT/Vector2" );
 
+  /**
+   * @param {Movable} movable
+   * @param {ModelViewTransform2} mvt
+   * @constructor
+   */
   function MovableDragHandler( movable, mvt ) {
     var thisHandler = this;
     SimpleDragHandler.call( this, {
       translate: function ( options ) {
-        var pModel = mvt.viewToModel( new Vector2( options.position.x, options.position.y ) );
+        var pModel = mvt.viewToModelPosition( new Vector2( options.position.x, options.position.y ) );
         var pModelConstrained = thisHandler.constrainBounds( pModel, movable.dragBounds );
         movable.location.set( pModelConstrained );
       }

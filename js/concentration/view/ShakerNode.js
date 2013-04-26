@@ -27,7 +27,7 @@ define( function ( require ) {
   /**
    * Constructor
    * @param {Shaker} shaker
-   * @param {ModelViewTransform2D} mvt
+   * @param {ModelViewTransform2} mvt
    * @constructor
    */
   function ShakerNode( shaker, mvt ) {
@@ -61,7 +61,7 @@ define( function ( require ) {
 
     // sync location with model
     shaker.location.addObserver( function updateLocation( location ) {
-      thisNode.translation = mvt.modelToView( location );
+      thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
     // sync visibility with model

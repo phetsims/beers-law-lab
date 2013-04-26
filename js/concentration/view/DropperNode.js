@@ -43,7 +43,7 @@ define( function ( require ) {
    * @param {Dropper} dropper
    * @param {Solvent} solvent
    * @param {Property} solute (type Solute)
-   * @param {ModelViewTransform2D} mvt
+   * @param {ModelViewTransform2} mvt
    * @constructor
    */
   function DropperNode( dropper, solvent, solute, mvt ) {
@@ -115,7 +115,7 @@ define( function ( require ) {
 
     // Update location
     dropper.location.addObserver( function ( location ) {
-      thisNode.translation = mvt.modelToView( location );
+      thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
     // Visibility

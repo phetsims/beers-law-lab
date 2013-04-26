@@ -37,7 +37,7 @@ define( function ( require ) {
 
   /**
    * @param {ConcentrationModel} model
-   * @param {ModelViewTransform2D} mvt
+   * @param {ModelViewTransform2} mvt
    * @constructor
    */
   function ConcentrationView( model, mvt ) {
@@ -108,7 +108,7 @@ define( function ( require ) {
     // Layout for things that don't have a location in the model.
     soluteControlsNode.right = concentrationMeterNode.right;
     soluteControlsNode.top = 20;
-    evaporator.left = mvt.modelToView( model.beaker.location.x - ( model.beaker.size.width / 2 ) );
+    evaporator.left = mvt.modelToViewPosition( model.beaker.location ).x - mvt.modelToViewDeltaX( model.beaker.size.width / 2 );
     evaporator.top = beakerNode.bottom + 30;
     removeSoluteButtonNode.left = evaporator.right + 30;
     removeSoluteButtonNode.centerY = evaporator.centerY;

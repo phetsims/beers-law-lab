@@ -21,7 +21,7 @@ define( function( require ) {
    * @param {Dropper} dropper
    * @param {Beaker} beaker
    * @param {Number} tipWidth
-   * @param {ModelViewTransform2D} mvt
+   * @param {ModelViewTransform2} mvt
    * @constructor
    */
   function StockSolutionNode( solvent, solute, dropper, beaker, tipWidth, mvt ) {
@@ -42,7 +42,7 @@ define( function( require ) {
         thisNode.shape = new Shape();
       }
       // move this node to the dropper's location
-      thisNode.translation = mvt.modelToView( dropper.location.get() );
+      thisNode.translation = mvt.modelToViewPosition( dropper.location.get() );
     };
     dropper.location.addObserver( updateShapeAndLocation );
     dropper.on.addObserver( updateShapeAndLocation );

@@ -18,7 +18,7 @@ define( function ( require ) {
    * @param {Faucet} faucet
    * @param {Fluid} fluid
    * @param {Number} height in model coordinates
-   * @param {ModelViewTransform2D} mvt
+   * @param {ModelViewTransform2} mvt
    * @constructor
    */
   function FaucetFluidNode( faucet, fluid, height, mvt ) {
@@ -49,8 +49,8 @@ define( function ( require ) {
         thisNode.shape = new Shape();
       }
       else {
-        var viewWidth = mvt.modelToView( faucet.spoutWidth * flowRate / faucet.maxFlowRate );
-        var viewHeight = mvt.modelToView( height );
+        var viewWidth = mvt.modelToViewDeltaX( faucet.spoutWidth * flowRate / faucet.maxFlowRate );
+        var viewHeight = mvt.modelToViewDeltaY( height );
         thisNode.shape = Shape.rect( -viewWidth / 2, 0, viewWidth, viewHeight );
       }
     } );
