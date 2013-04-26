@@ -26,6 +26,7 @@ define( function ( require ) {
   var PrecipitateNode = require( "concentration/view/PrecipitateNode" );
   var Range = require( "DOT/Range" );
   var ResetAllButtonNode = require( "common/view/ResetAllButtonNode" );
+  var SaturatedIndicatorNode = require( "concentration/view/SaturatedIndicatorNode" );
   var Scene = require( "SCENERY/Scene" );
   var ShakerNode = require( "concentration/view/ShakerNode" );
   var ShakerParticlesNode = require( "concentration/view/ShakerParticlesNode" );
@@ -49,6 +50,7 @@ define( function ( require ) {
     var beakerNode = new BeakerNode( model.beaker, mvt );
     var solutionNode = new SolutionNode( model.solution, model.beaker, mvt );
     var precipitateNode = new PrecipitateNode( model.precipitate, model.beaker, mvt );
+    var saturatedIndicatorNode = new SaturatedIndicatorNode( model.solution );
 
     // Shaker
     var shakerNode = new ShakerNode( model.shaker, mvt );
@@ -95,6 +97,7 @@ define( function ( require ) {
     thisView.addChild( solutionNode );
     thisView.addChild( beakerNode.mutate( { layerSplit: true } ) ); //TODO experiment to put static nodes in their own layer
     thisView.addChild( precipitateNode );
+    thisView.addChild( saturatedIndicatorNode );
     thisView.addChild( shakerParticlesNode );
     thisView.addChild( shakerNode );
     thisView.addChild( dropperNode );
@@ -106,14 +109,23 @@ define( function ( require ) {
     thisView.addChild( soluteControlsNode );
 
     // Layout for things that don't have a location in the model.
-    soluteControlsNode.right = concentrationMeterNode.right;
-    soluteControlsNode.top = 20;
-    evaporator.left = mvt.modelToViewPosition( model.beaker.location ).x - mvt.modelToViewDeltaX( model.beaker.size.width / 2 );
-    evaporator.top = beakerNode.bottom + 30;
-    removeSoluteButtonNode.left = evaporator.right + 30;
-    removeSoluteButtonNode.centerY = evaporator.centerY;
-    resetAllButtonNode.left = drainFaucetNode.right + 10;
-    resetAllButtonNode.top = drainFaucetNode.bottom + 5;
+    {
+      // centered towards bottom of beaker
+      saturatedIndicatorNode.centerX = beakerNode.centerX;
+      saturatedIndicatorNode.bottom = beakerNode.bottom - 30;
+      // upper right
+      soluteControlsNode.right = concentrationMeterNode.right;
+      soluteControlsNode.top = 20;
+      // left-aligned below beaker
+      evaporator.left = mvt.modelToViewPosition( model.beaker.location ).x - mvt.modelToViewDeltaX( model.beaker.size.width / 2 );
+      evaporator.top = beakerNode.bottom + 30;
+      // left of evaporation control
+      removeSoluteButtonNode.left = evaporator.right + 30;
+      removeSoluteButtonNode.centerY = evaporator.centerY;
+      // lower right
+      resetAllButtonNode.left = drainFaucetNode.right + 10;
+      resetAllButtonNode.top = drainFaucetNode.bottom + 5;
+    }
   }
 
   inherit( ConcentrationView, TabView, { layoutBounds: new Bounds2( 0, 0, 1024, 700 ) } );
