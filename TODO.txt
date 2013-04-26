@@ -19,6 +19,7 @@ BUGS
 - iPad, Nexus: performance of particles
 
 HIGH
+- resize height of wavelength control panel based on whether slider is visible
 - wavelength slider
 - ruler
 - solution combo box
