@@ -42,7 +42,7 @@ define( function( require ) {
     thisNode.addChild( textNode );
 
     // layout
-    textNode.left = outerCircle.right + 5;
+    textNode.left = outerCircle.right + 6;
     textNode.centerY = outerCircle.centerY;
 
     // sync control with model

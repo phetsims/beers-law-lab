@@ -74,10 +74,10 @@ define( function ( require ) {
     thisNode.addChild( valueNode );
 
     // layout
-    buttonGroup.x = BUTTONS_X_MARGIN;
-    buttonGroup.y = BUTTONS_Y_OFFSET;
+    buttonGroup.left = BUTTONS_X_MARGIN;
+    buttonGroup.top = BUTTONS_Y_OFFSET;
     valueNode.x = VALUE_X_MARGIN;
-    valueNode.y = VALUE_Y_OFFSET;
+    valueNode.top = VALUE_Y_OFFSET;
 
     // body location
     detector.body.location.addObserver( function ( location ) {
@@ -98,7 +98,7 @@ define( function ( require ) {
         else {
           valueNode.text = value.toFixed( ABSORBANCE_DECIMAL_PLACES );
         }
-        valueNode.x = backgroundNode.right - VALUE_X_MARGIN; // right justified
+        valueNode.right = backgroundNode.right - VALUE_X_MARGIN; // right justified
       }
     };
     detector.value.addObserver( valueUpdater );
