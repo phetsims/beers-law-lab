@@ -17,9 +17,10 @@ define( function ( require ) {
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
   var RadioButtonNode = require( "common/view/RadioButtonNode" );
+  var Shape = require( "KITE/Shape" );
   var StringUtils = require( "common/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
-  var WireNode = require( "common/view/WireNode" );
+  var Vector2 = require( "DOT/Vector2" );
 
   // constants
   var BUTTONS_X_MARGIN = 25; // specific to image files
@@ -39,6 +40,8 @@ define( function ( require ) {
 
   /**
    * The body of the detector, where A and T values are displayed.
+   * Note that while the body is a Movable, we have currently decided not to allow it to be moved,
+   * so it has no drag handler
    * @param {ATDetector} detector
    * @param {ModelViewTransform2} mvt
    * @constructor
@@ -51,7 +54,7 @@ define( function ( require ) {
     // buttons for changing the detector "mode"
     var textOptions = { font: "22px Arial" };
     var transmittanceButton = new RadioButtonNode( detector.mode, ATDetector.Mode.TRANSMITTANCE, BLLStrings.transmittance, textOptions );
-    var absorbanceButton = new RadioButtonNode( detector.mode, ATDetector.Mode.ABSORBANCE,  BLLStrings.absorbance, textOptions );
+    var absorbanceButton = new RadioButtonNode( detector.mode, ATDetector.Mode.ABSORBANCE, BLLStrings.absorbance, textOptions );
 
     // group the buttons
     var buttonGroup = new Node();
@@ -134,6 +137,47 @@ define( function ( require ) {
   }
 
   inherit( ProbeNode, Node );
+
+  /**
+   * Wire that connects the body and probe.
+   * @param {Movable} body
+   * @param {Movable} probe
+   * @param {Node} bodyNode
+   * @param {Node} probeNode
+   * @constructor
+   */
+  function WireNode( body, probe, bodyNode, probeNode ) {
+
+    var thisNode = this;
+    Path.call( this, {
+      shape: new Shape(),
+      stroke: 'gray',
+      lineWidth: 8,
+      lineCap: "square",
+      lineJoin: "round"
+    } );
+
+    var updateCurve = function () {
+
+      // connection points
+      var bodyConnectionPoint = new Vector2( bodyNode.left, bodyNode.centerY );
+      var probeConnectionPoint = new Vector2( probeNode.centerX, probeNode.bottom );
+
+      // control points
+      var controlPointOffset = 60;
+      var c1 = new Vector2( bodyConnectionPoint.x - controlPointOffset, bodyConnectionPoint.y );
+      var c2 = new Vector2( probeConnectionPoint.x, probeConnectionPoint.y + controlPointOffset );
+
+      // cubic curve
+      thisNode.shape = new Shape()
+        .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
+        .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
+    };
+    body.location.addObserver( updateCurve );
+    probe.location.addObserver( updateCurve );
+  }
+
+  inherit( WireNode, Path );
 
   /**
    * @param {ATDetector} detector

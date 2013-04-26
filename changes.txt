@@ -1,3 +1,4 @@
+4/25/13 fix wires that connect probe to meters (this was apparently not generalized in the Java sim for good reason)
 4/25/13 add radio buttons to AT detector, for selecting mode
 4/25/13 implemented basic radio button
 4/25/13 display value in AT detector
