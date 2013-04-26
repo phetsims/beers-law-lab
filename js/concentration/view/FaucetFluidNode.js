@@ -24,12 +24,7 @@ define( function ( require ) {
   function FaucetFluidNode( faucet, fluid, height, mvt ) {
 
     var thisNode = this;
-    Path.call( thisNode, {
-      lineWidth: 1  //TODO is this correct?
-    } );
-
-    this.x = faucet.location.x;
-    this.y = faucet.location.y;
+    Path.call( thisNode, { lineWidth: 1 } );
 
     /*
      * Set the color of the fluid coming out of the spout.
@@ -44,14 +39,15 @@ define( function ( require ) {
      * Set the width of the shape to match the flow rate.
      * @param {Number} flowRate
      */
+    var viewLocation = mvt.modelToViewPosition( faucet.location );
+    var viewHeight = mvt.modelToViewDeltaY( height );
     faucet.flowRate.addObserver( function ( flowRate ) {
       if ( flowRate == 0 ) {
         thisNode.shape = new Shape();
       }
       else {
         var viewWidth = mvt.modelToViewDeltaX( faucet.spoutWidth * flowRate / faucet.maxFlowRate );
-        var viewHeight = mvt.modelToViewDeltaY( height );
-        thisNode.shape = Shape.rect( -viewWidth / 2, 0, viewWidth, viewHeight );
+        thisNode.shape = Shape.rect( viewLocation.x - (viewWidth / 2), viewLocation.y, viewWidth, viewHeight );
       }
     } );
   }
