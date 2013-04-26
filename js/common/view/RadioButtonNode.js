@@ -1,6 +1,7 @@
 // Copyright 2013, University of Colorado
 
 //TODO not for public consumption, to be refined later
+//TODO remove dependency on Property
 /**
  * Scenery-based radio button, pseudo-Aqua look.
  *
