@@ -58,6 +58,6 @@ FaucetNode + images
 StringUtils
 polyfill for requestAnimationFrame
 LinearFunction
-MomentaryButtonNode + images
+MomentaryButtonNode + ToggleButtonNode + images
 HorizontalTiledNode
 ChemUtils
