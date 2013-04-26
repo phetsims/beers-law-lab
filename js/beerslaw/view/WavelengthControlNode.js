@@ -30,6 +30,8 @@ define( function ( require ) {
    */
   function WavelengthControlNode( solution, light ) {
 
+    var thisNode = this;
+
     var variableWavelength = new Property( false ); // is the wavelength variable or fixed?
 
     var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.wavelength] ), { font: FONT } );
@@ -41,7 +43,6 @@ define( function ( require ) {
     contentNode.addChild( labelNode );
     contentNode.addChild( fixedRadioButton );
     contentNode.addChild( variableRadioButton );
-    contentNode.addChild( wavelengthSlider );
 
     // layout
     var ySpacing = 12;
@@ -52,18 +53,24 @@ define( function ( require ) {
     wavelengthSlider.left = variableRadioButton.left;
     wavelengthSlider.top = variableRadioButton.bottom + ySpacing;
 
-    ControlPanelNode.call( this, contentNode, 20, 20 );
+    ControlPanelNode.call( thisNode, contentNode, 20, 20 );
 
+    //TODO controlPanel doesn't resize because bounds of contentNode don't change, why?
     // When the radio button selection changes...
     variableWavelength.addObserver( function ( isVariable ) {
       if ( isVariable ) {
-        //TODO hide the wavelength slider, resize control panel
+        if ( !contentNode.isChild( wavelengthSlider ) ) {
+          contentNode.addChild( wavelengthSlider );
+        }
       }
       else {
-        //TODO show the wavelength slider, resize control panel
+        if ( contentNode.isChild( wavelengthSlider ) ) {
+          contentNode.removeChild( wavelengthSlider );
+        }
         // Set the light to the current solution's lambdaMax wavelength.
         light.wavelength.set( solution.get().molarAbsorptivityData.lambdaMax );
       }
+      thisNode.resize();
     } );
 
     this.reset = function () {

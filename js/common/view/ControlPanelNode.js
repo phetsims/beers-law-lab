@@ -29,18 +29,16 @@ define( function ( require ) {
     var thisNode = this;
     Node.call( thisNode, options );
 
-    var panelNode = new Path(
-      {
-        shape: Shape.roundRect( 0, 0, contentNode.width + ( 2 * xMargin ), contentNode.height + ( 2 * yMargin ), 10, 10 ),
-        fill: '#F0F0F0',
-        stroke: 'gray',
-        lineWidth: 1
-      }
-    );
+    var panelNode = new Path( { fill: '#F0F0F0', stroke: 'gray', lineWidth: 1  } );
     thisNode.addChild( panelNode );
     thisNode.addChild( contentNode );
-    contentNode.centerX = panelNode.centerX;
-    contentNode.centerY = panelNode.centerY;
+
+    this.resize = function () {
+      panelNode.setShape( Shape.roundRect( 0, 0, contentNode.width + ( 2 * xMargin ), contentNode.height + ( 2 * yMargin ), 10, 10 ) );
+      contentNode.centerX = panelNode.centerX;
+      contentNode.centerY = panelNode.centerY;
+    };
+    thisNode.resize();
   }
 
   inherit( ControlPanelNode, Node );
