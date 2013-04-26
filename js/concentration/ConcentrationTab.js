@@ -27,7 +27,7 @@ define( function ( require ) {
 
     //TODO replace with createIdentity after confirming that this works with other scale factors
     // model-view transform (unity)
-    var mvt = ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 1, 1 );
+    var mvt = ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 1 );
 
     this.createModel = function () {
       return new ConcentrationModel();

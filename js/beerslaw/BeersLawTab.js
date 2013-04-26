@@ -26,7 +26,7 @@ define( function ( require ) {
     this.backgroundColor = 'white';
 
     // No offset, scale 125x when going from model to view (1cm == 125 pixels)
-    var mvt = ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 125, 125 );
+    var mvt = ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 125 );
 
     this.createModel = function () {
       return new BeersLawModel( mvt );
