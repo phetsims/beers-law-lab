@@ -35,10 +35,6 @@ define( function ( require ) {
     thisNode.solution = solution;
     thisNode.beaker = beaker;
 
-    // same location as the beaker
-    thisNode.x = beaker.location.x;
-    thisNode.y = beaker.location.y;
-
     /*
      * Updates the color of the solution, accounting for saturation.
      * @param {Color} color
@@ -52,6 +48,8 @@ define( function ( require ) {
      * Updates the amount of stuff in the beaker, based on solution volume.
      * @param {Number} volume
      */
+    var viewLocation = mvt.modelToViewPosition( beaker.location );
+    var viewWidth = mvt.modelToViewDeltaX( beaker.size.width );
     var volumeToHeightFunction = new LinearFunction( new Range( 0, beaker.volume ), new Range( 0, beaker.size.height ) );
     solution.volume.addObserver( function ( volume ) {
 
@@ -63,9 +61,8 @@ define( function ( require ) {
       }
 
       // convert to view coordinates and create shape
-      var viewWidth = mvt.modelToViewDeltaX( beaker.size.width );
       var viewHeight = mvt.modelToViewDeltaY( solutionHeight );
-      thisNode.setShape( Shape.rect( -viewWidth / 2, -viewHeight, viewWidth, viewHeight ) );
+      thisNode.setShape( Shape.rect( viewLocation.x - (viewWidth / 2), viewLocation.y - viewHeight, viewWidth, viewHeight ) );
     } );
   }
 
