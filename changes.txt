@@ -1,3 +1,7 @@
+4/25/13 add radio buttons to AT detector, for selecting mode
+4/25/13 implemented basic radio button
+4/25/13 display value in AT detector
+4/25/13 pickable=false for solution in cuvette, because AT detector probe goes behind it
 4/25/13 add "Saturated" indicator to Concentration tab
 4/25/13 fix transparency of solution in cuvette
 4/25/13 fix positioning of AT detector probe

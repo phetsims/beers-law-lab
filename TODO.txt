@@ -27,6 +27,7 @@ HIGH
 
 MEDIUM
 - layout of almost all text is inaccurate
+- dynamic text leaves trails (AT detector value)
 - use scenery's new coordinate frame transform methods (scenery#12)
 - add relativePressPoint for drag handlers, so that mouse doesn't get away from drag target
 - gradient in evaporation slider track

@@ -131,6 +131,8 @@ define( function ( require ) {
     } );
 
     // interactivity
+    cuvetteNode.pickable = false;
+    solutionNode.pickable = false;
     arrowNode.cursor = "pointer";
     arrowNode.addInputListener( new FillHighlighter( arrowNode, ARROW_FILL.toCSS(), ARROW_FILL.brighter().toCSS() ) );
     arrowNode.addInputListener( new CuvetteDragHandler( thisNode, cuvette, mvt, snapInterval ) );

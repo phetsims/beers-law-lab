@@ -16,7 +16,8 @@ define( function ( require ) {
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
-  var Rectangle = require( "SCENERY/nodes/Rectangle" ); //TODO delete me
+  var RadioButtonNode = require( "common/view/RadioButtonNode" );
+  var StringUtils = require( "common/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
   var WireNode = require( "common/view/WireNode" );
 
@@ -48,15 +49,16 @@ define( function ( require ) {
     Node.call( thisNode );
 
     // buttons for changing the detector "mode"
-    var transmittanceButton = new ModeButton( BLLStrings.transmittance, detector.mode, ATDetector.Mode.TRANSMITTANCE );
-    var absorbanceButton = new ModeButton( BLLStrings.ABSORBANCE, detector.mode, ATDetector.Mode.ABSORBANCE );
+    var labelOptions = { font: "22px Arial" };
+    var transmittanceButton = new RadioButtonNode( BLLStrings.transmittance, detector.mode, ATDetector.Mode.TRANSMITTANCE, labelOptions );
+    var absorbanceButton = new RadioButtonNode( BLLStrings.absorbance, detector.mode, ATDetector.Mode.ABSORBANCE, labelOptions );
 
     // group the buttons
     var buttonGroup = new Node();
     buttonGroup.addChild( transmittanceButton );
     buttonGroup.addChild( absorbanceButton );
     absorbanceButton.x = transmittanceButton.x;
-    absorbanceButton.top = transmittanceButton.bottom + 1;
+    absorbanceButton.top = transmittanceButton.bottom + 6;
 
     // value display
     var maxValue = 100;
@@ -81,6 +83,26 @@ define( function ( require ) {
     detector.body.location.addObserver( function ( location ) {
       thisNode.translation = mvt.modelToViewPosition( location );
     } );
+
+    // update the value display
+    var valueUpdater = function () {
+      var value = detector.value.get();
+      if ( isNaN( value ) ) {
+        valueNode.text = NO_VALUE;
+        valueNode.centerX = backgroundNode.centerX;
+      }
+      else {
+        if ( detector.mode.get() === ATDetector.Mode.TRANSMITTANCE ) {
+          valueNode.text = StringUtils.format( BLLStrings.pattern_0percent, [value.toFixed( TRANSMITTANCE_DECIMAL_PLACES )] );
+        }
+        else {
+          valueNode.text = value.toFixed( ABSORBANCE_DECIMAL_PLACES );
+        }
+        valueNode.x = backgroundNode.right - VALUE_X_MARGIN; // right justified
+      }
+    };
+    detector.value.addObserver( valueUpdater );
+    detector.mode.addObserver( valueUpdater );
   }
 
   inherit( BodyNode, Node );
@@ -114,23 +136,6 @@ define( function ( require ) {
   inherit( ProbeNode, Node );
 
   /**
-   * Radio button for changing modes
-   * @param {String} text
-   * @param {Property} mode of type ATDetector.Mode
-   * @param {ATDetector.Mode} value
-   * @constructor
-   */
-  function ModeButton( text, mode, value ) {
-
-    var thisNode = this;
-    Node.call( this );
-
-    thisNode.addChild( new Rectangle( 0, 0, 20, 20, { fill: 'red', stroke: 'black' })); //XXX placeholder
-  }
-
-  inherit( ModeButton, Node );
-
-  /**
    * @param {ATDetector} detector
    * @param {ModelViewTransform2} mvt
    * @constructor
@@ -152,86 +157,4 @@ define( function ( require ) {
   inherit( ATDetectorNode, Node );
 
   return ATDetectorNode;
-});
-
-//        public BodyNode( final ATDetector detector, final ModelViewTransform mvt ) {
-//
-//            // buttons for changing the detector "mode"
-//            PNode transmittanceButton = new ModeButton( UserComponents.transmittanceRadioButton, Strings.TRANSMITTANCE, detector.mode, ATDetectorMode.TRANSMITTANCE );
-//            PNode absorbanceButton = new ModeButton( UserComponents.absorbanceRadioButton, Strings.ABSORBANCE, detector.mode, ATDetectorMode.ABSORBANCE );
-//
-//            // group the radio buttons
-//            PNode buttonsNode = new PNode();
-//            buttonsNode.addChild( transmittanceButton );
-//            buttonsNode.addChild( absorbanceButton );
-//            absorbanceButton.setOffset( transmittanceButton.getXOffset(),
-//                                        transmittanceButton.getFullBoundsReference().getMaxY() + 1 );
-//
-//            // value display
-//            final PText valueNode = new PText( getFormattedTransmittance( 100 ) );
-//            valueNode.setFont( new PhetFont( 24 ) );
-//
-//            // background image, sized to fit
-//            double bodyWidth = Math.max( buttonsNode.getFullBoundsReference().getWidth(), valueNode.getFullBoundsReference().getWidth() ) + ( 2 * BUTTONS_X_MARGIN );
-//            final PNode backgroundNode = new HorizontalTiledNode( bodyWidth, Images.AT_DETECTOR_BODY_LEFT, Images.AT_DETECTOR_BODY_CENTER, Images.AT_DETECTOR_BODY_RIGHT );
-//
-//            // rendering order
-//            addChild( backgroundNode );
-//            addChild( buttonsNode );
-//            addChild( valueNode );
-//
-//            // layout
-//            buttonsNode.setOffset( BUTTONS_X_MARGIN, BUTTONS_Y_OFFSET );
-//            valueNode.setOffset( VALUE_X_MARGIN, VALUE_Y_OFFSET );
-//
-//            // body location
-//            detector.body.location.addObserver( new VoidFunction1<Vector2D>() {
-//                public void apply( Vector2D location ) {
-//                    setOffset( mvt.modelToView( location.toPoint2D() ) );
-//                }
-//            } );
-//
-//            // update the value display
-//            RichSimpleObserver observer = new RichSimpleObserver() {
-//                public void update() {
-//                    Double value = detector.value.get();
-//                    if ( value == null ) {
-//                        valueNode.setText( NO_VALUE );
-//                        // centered
-//                        valueNode.setOffset( backgroundNode.getFullBoundsReference().getCenterX() - ( valueNode.getFullBoundsReference().getWidth() / 2 ),
-//                                             valueNode.getYOffset() );
-//                    }
-//                    else {
-//                        String text = ( detector.mode.get() == ATDetectorMode.TRANSMITTANCE ) ? getFormattedTransmittance( value ) : getFormattedAbsorbance( value );
-//                        valueNode.setText( text );
-//                        // right justified
-//                        valueNode.setOffset( backgroundNode.getFullBoundsReference().getMaxX() - valueNode.getFullBoundsReference().getWidth() - VALUE_X_MARGIN,
-//                                             valueNode.getYOffset() );
-//                    }
-//                }
-//            };
-//            observer.observe( detector.value, detector.mode );
-//
-//            addInputEventListener( new NonInteractiveEventHandler( UserComponents.detectorBody ) );
-//        }
-//
-//        private String getFormattedAbsorbance( double absorbance ) {
-//            return ABSORBANCE_FORMAT.format( absorbance );
-//        }
-//
-//        private String getFormattedTransmittance( double transmittance ) {
-//            return MessageFormat.format( Strings.PATTERN_0PERCENT, TRANSMITTANCE_FORMAT.format( transmittance ) );
-//        }
-//    }
-//
-//    // Radio button for changing modes
-//    private static class ModeButton extends PSwing {
-//        public ModeButton( IUserComponent userComponent, String text, Property<ATDetectorMode> mode, ATDetectorMode value ) {
-//            super( new PropertyRadioButton<ATDetectorMode>( userComponent, text, mode, value ) {{
-//                setOpaque( false );
-//                setForeground( Color.WHITE );
-//                setFont( new PhetFont( Font.BOLD, BLLConstants.CONTROL_FONT_SIZE ) );
-//            }} );
-//        }
-//    }
-//}
+} );
