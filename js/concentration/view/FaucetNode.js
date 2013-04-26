@@ -11,6 +11,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -31,8 +32,7 @@ define( function ( require ) {
 
   // constants
   var DEBUG_ORIGIN = false;
-  var SPOUT_OUTPUT_CENTER_X = 83; // center of spoint, determined by inspecting image file
-  var SPOUT_OUTPUT_WIDTH = 42; // width of spout, determined by inspecting image file
+  var SPOUT_OUTPUT_CENTER_X = 83; // center of spout, determined by inspecting image file
   var HANDLE_ORIENTATION_RANGE = new Range( -Math.PI / 4, 0 ); // full off -> full on
 
   /**
@@ -68,7 +68,9 @@ define( function ( require ) {
 
     //TODO This is horizontally stretching the image, would look better to tile a rectangle with a texture.
     // size the pipe
-    pipeNode.setScaleMagnitude( mvt.modelToViewDeltaX( faucet.pipeLength ) / pipeNode.width, 1 );
+    var pipeWidth = mvt.modelToViewDeltaX( faucet.location.x - faucet.pipeMinX ) - SPOUT_OUTPUT_CENTER_X;
+    assert && assert( pipeWidth > 0 );
+    pipeNode.setScaleMagnitude( pipeWidth / pipeNode.width, 1 );
 
     // layout
     {

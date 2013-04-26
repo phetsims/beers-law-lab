@@ -61,8 +61,8 @@ define( function ( require ) {
     thisModel.shakerParticles = new ShakerParticles( thisModel.shaker, thisModel.solution, thisModel.beaker );
     thisModel.dropper = new Dropper( new Vector2( thisModel.beaker.location.x, 210 ), new Bounds2( 230, 205, 630, 235 ), thisModel.solute, DROPPER_FLOW_RATE, false );
     thisModel.evaporator = new Evaporator( MAX_EVAPORATION_RATE, thisModel.solution );
-    thisModel.solventFaucet = new Faucet( new Vector2( 150, 220 ), 40, 100, MAX_INPUT_FLOW_RATE );
-    thisModel.drainFaucet = new Faucet( new Vector2( 790, 607 ), 40, 5, MAX_OUTPUT_FLOW_RATE );
+    thisModel.solventFaucet = new Faucet( new Vector2( 150, 220 ), -100, 40, MAX_INPUT_FLOW_RATE );
+    thisModel.drainFaucet = new Faucet( new Vector2( 790, 607 ), thisModel.beaker.getRight(), 40, MAX_OUTPUT_FLOW_RATE );
     thisModel.concentrationMeter = new ConcentrationMeter( new Vector2( 785, 210 ), new Bounds2( 10, 150, 835, 680 ),
                                                            new Vector2( 750, 370 ), new Bounds2( 30, 150, 966, 680 ) );
 

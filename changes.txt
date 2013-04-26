@@ -1,3 +1,5 @@
+4/25/13 adjust how faucet pipe length is computed, in model and view
+4/25/13 correct some mvt errors in Concentration tab, by testing with non-unity mvt
 4/25/13 switch to ModelViewTransform2
 4/25/13 create temporary DOMText node, for use until Text node supports HTML
 4/24/13 generalize WireNode, for use in both concentration meter and AT detector

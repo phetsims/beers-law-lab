@@ -51,7 +51,7 @@ define( function ( require ) {
      * Note that this is a very simplified model, and only deals with the left wall of the beaker,
      * which is the only wall that the particles can hit in practice.
      */
-    var minX = beaker.getMinX() + this.solute.particleSize;
+    var minX = beaker.getLeft() + this.solute.particleSize;
     if ( newLocation.x <= minX ) {
       newLocation = new Vector2( minX, newLocation.y );
       this.velocity = new Vector2( Math.abs( this.velocity.x ), this.velocity.y );
