@@ -32,7 +32,6 @@ define( function ( require ) {
 
   inherit( MovableDragHandler, SimpleDragHandler );
 
-  //XXX this functionality will be absorbed into scenery
   /**
    * Constrains a point to some bounds.
    * @param {Vector2} point
