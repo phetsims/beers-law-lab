@@ -20,6 +20,7 @@ define( function ( require ) {
   var ResetAllButtonNode = require( "common/view/ResetAllButtonNode" );
   var Scene = require( "SCENERY/Scene" );
   var Text = require( "SCENERY/nodes/Text" );
+  var WavelengthControlNode = require( "beerslaw/view/WavelengthControlNode" );
 
   /**
    * @param {BeersLawModel} model
@@ -35,13 +36,16 @@ define( function ( require ) {
     var cuvetteNode = new CuvetteNode( model.cuvette, model.solution, mvt, 0.1 /* snapInterval, cm */ );
     var beamNode = new BeamNode( model.beam );
     var detectorNode = new ATDetectorNode( model.detector, mvt );
+    var wavelengthControlNode = new WavelengthControlNode( model.solution, model.light );
 
     // Reset All button
-    var resetAllButtonNode = new ResetAllButtonNode( function() {
+    var resetAllButtonNode = new ResetAllButtonNode( function () {
       model.reset();
+      wavelengthControlNode.reset();
     } );
 
     // Rendering order
+    thisView.addChild( wavelengthControlNode );
     thisView.addChild( detectorNode );
     thisView.addChild( cuvetteNode );
     thisView.addChild( beamNode );
@@ -50,8 +54,14 @@ define( function ( require ) {
     thisView.addChild( resetAllButtonNode );
 
     // Layout for things that don't have a location in the model.
-    resetAllButtonNode.right = thisView.layoutBounds.maxX - 50;
-    resetAllButtonNode.bottom = thisView.layoutBounds.maxY - 50;
+    {
+      // below the light
+      wavelengthControlNode.left = lightNode.left;
+      wavelengthControlNode.top = lightNode.bottom + 20;
+      // bottom left
+      resetAllButtonNode.right = thisView.layoutBounds.maxX - 50;
+      resetAllButtonNode.bottom = thisView.layoutBounds.maxY - 50;
+    }
   }
 
   inherit( BeersLawView, TabView, { layoutBounds: new Bounds2( 0, 0, 1024, 700 ) } );
