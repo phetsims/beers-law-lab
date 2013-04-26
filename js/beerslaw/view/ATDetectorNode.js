@@ -49,9 +49,9 @@ define( function ( require ) {
     Node.call( thisNode );
 
     // buttons for changing the detector "mode"
-    var labelOptions = { font: "22px Arial" };
-    var transmittanceButton = new RadioButtonNode( BLLStrings.transmittance, detector.mode, ATDetector.Mode.TRANSMITTANCE, labelOptions );
-    var absorbanceButton = new RadioButtonNode( BLLStrings.absorbance, detector.mode, ATDetector.Mode.ABSORBANCE, labelOptions );
+    var textOptions = { font: "22px Arial" };
+    var transmittanceButton = new RadioButtonNode( detector.mode, ATDetector.Mode.TRANSMITTANCE, BLLStrings.transmittance, textOptions );
+    var absorbanceButton = new RadioButtonNode( detector.mode, ATDetector.Mode.ABSORBANCE,  BLLStrings.absorbance, textOptions );
 
     // group the buttons
     var buttonGroup = new Node();

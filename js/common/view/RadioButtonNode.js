@@ -20,13 +20,13 @@ define( function( require ) {
   var CENTER_COLOR = 'black';
 
   /**
-   * @param {String} text
    * @param {Property} property
    * @param value the value that corresponds to this button, same type as property
+   * @param {String} text
    * @param textOptions options that will be passed to the Text node
    * @constructor
    */
-  function RadioButtonNode( text, property, value, textOptions ) {
+  function RadioButtonNode( property, value, text, textOptions ) {
 
     var thisNode = this;
     Node.call( thisNode );
