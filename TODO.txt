@@ -26,6 +26,7 @@ HIGH
 - prevent dropper from being dragged by on/off button
 
 MEDIUM
+- layout of almost all text is inaccurate
 - use scenery's new coordinate frame transform methods (scenery#12)
 - add relativePressPoint for drag handlers, so that mouse doesn't get away from drag target
 - gradient in evaporation slider track
