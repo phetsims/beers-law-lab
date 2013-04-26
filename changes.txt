@@ -1,3 +1,4 @@
+4/25/13 fix positioning of AT detector probe
 4/25/13 use DOMText node in DropperNode
 4/25/13 use identify mvt in Concentration tab
 4/25/13 adjust how faucet pipe length is computed, in model and view

@@ -79,9 +79,7 @@ define( function ( require ) {
 
     // body location
     detector.body.location.addObserver( function ( location ) {
-      var viewLocation = mvt.modelToViewPosition( location );
-      thisNode.x = viewLocation.x;
-      thisNode.y = viewLocation.y;
+      thisNode.translation = mvt.modelToViewPosition( location );
     } );
   }
 
@@ -96,13 +94,16 @@ define( function ( require ) {
   function ProbeNode( probe, mvt ) {
 
     var thisNode = this;
-    Image.call( thisNode, probeImage );
+    Node.call( thisNode );
+
+    var imageNode = new Image( probeImage );
+    thisNode.addChild( imageNode );
+    imageNode.x = -imageNode.width / 2;
+    imageNode.y = -PROBE_CENTER_Y_OFFSET;
 
     // location
     probe.location.addObserver( function ( location ) {
-      var viewLocation = mvt.modelToViewPosition( location );
-      thisNode.centerX = viewLocation.x;
-      thisNode.y = viewLocation.y - PROBE_CENTER_Y_OFFSET;
+      thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
     // interactivity
@@ -110,7 +111,7 @@ define( function ( require ) {
     thisNode.addInputListener( new MovableDragHandler( probe, mvt ) );
   }
 
-  inherit( ProbeNode, Image );
+  inherit( ProbeNode, Node );
 
   /**
    * Radio button for changing modes
