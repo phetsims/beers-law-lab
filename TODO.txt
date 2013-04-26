@@ -25,11 +25,8 @@ HIGH
 - rewrite buttons, radio buttons and combo box in scenery
 
 MEDIUM
-- drain faucet fluid goes over top of navigation bar
-- try Fort
 - use scenery's new coordinate frame transform methods (scenery#12)
 - add relativePressPoint for drag handlers, so that mouse doesn't get away from drag target
-- nicer knob for evaporation slider
 - gradient in evaporation slider track
 - use ImagesLoader to load images, delete images.js in config.js
 - compute deltaSeconds in animation loop
@@ -38,6 +35,7 @@ MEDIUM
 - prevent dropper from being dragged by on/off button
 
 LOW
+- nicer knob for evaporation slider
 - value in concentration meter jitters horizontally as value changes
 - use scenery.Pattern to texture map input pipe in FaucetNode
 - use scenery.Font for font specification
