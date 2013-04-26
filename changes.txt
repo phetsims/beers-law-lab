@@ -1,3 +1,4 @@
+4/25/13 use DOMText node in DropperNode
 4/25/13 use identify mvt in Concentration tab
 4/25/13 adjust how faucet pipe length is computed, in model and view
 4/25/13 correct some mvt errors in Concentration tab, by testing with non-identify mvt

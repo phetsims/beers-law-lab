@@ -12,7 +12,7 @@ define( function ( require ) {
   // imports
   var Color = require( "common/model/Color" );
   var ConcentrationSolution = require( "concentration/model/ConcentrationSolution" );
-  var DOM = require( "SCENERY/nodes/DOM" );
+  var DOMText = require( "common/view/DOMText" );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -72,12 +72,7 @@ define( function ( require ) {
     var backgroundNode = new Image( backgroundImage );
 
     // label
-    var $labelElement = $( '<span>' );
-    $labelElement.css(
-      { "font": "bold 15px Arial",
-        "fill": "black"
-      } );
-    var labelNode = new DOM( $labelElement[0] );
+    var labelNode = new DOMText( dropper.solute.formula, { font: "bold 15px Arial", fill: "black" } );
 
     // label background, so the label shows up on various fluid colors
     var labelBackgroundNode = new Path(
@@ -133,8 +128,7 @@ define( function ( require ) {
     solute.addObserver( function ( solute ) {
 
       // label, centered in the dropper's glass
-      $labelElement.html( solute.formula );
-      labelNode.invalidateDOM();
+      labelNode.setText( solute.formula );
 
       // rotate to vertical, center the label in the droppers glass
       labelNode.setRotation( -Math.PI / 2 );

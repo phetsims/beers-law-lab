@@ -19,11 +19,11 @@ BUGS
 - iPad, Nexus: performance of particles
 
 HIGH
-- use DOMText node in DropperNode
 - finish ATDetectorNode
 - generalize connection points for WireNode
 - port view components for Beer's Law module
 - rewrite buttons, radio buttons and combo box in scenery
+- prevent dropper from being dragged by on/off button
 
 MEDIUM
 - use scenery's new coordinate frame transform methods (scenery#12)
@@ -33,7 +33,6 @@ MEDIUM
 - compute deltaSeconds in animation loop
 - improve drag handler for faucet handles
 - split faucet_handle.png into 2 images, so that only the knob is interactive?
-- prevent dropper from being dragged by on/off button
 
 LOW
 - nicer knob for evaporation slider
