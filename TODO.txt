@@ -19,6 +19,7 @@ BUGS
 - iPad, Nexus: performance of particles
 
 HIGH
+- use DOMText node in DropperNode
 - finish ATDetectorNode
 - generalize connection points for WireNode
 - port view components for Beer's Law module
