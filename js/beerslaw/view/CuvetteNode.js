@@ -22,7 +22,7 @@ define( function ( require ) {
 
   // constants
   var PERCENT_FULL = 0.92;
-  var SOLUTION_ALPHA = 150;
+  var SOLUTION_ALPHA = 0.6;
   var ARROW_LENGTH = 80;
   var ARROW_HEAD_LENGTH = 25;
   var ARROW_HEAD_WIDTH = 30;
