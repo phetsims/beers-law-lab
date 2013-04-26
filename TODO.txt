@@ -19,7 +19,6 @@ BUGS
 - iPad, Nexus: performance of particles
 
 HIGH
-- fixed/variable wavelength control
 - wavelength slider
 - ruler
 - solution combo box

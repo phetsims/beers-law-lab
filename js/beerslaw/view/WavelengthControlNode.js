@@ -57,10 +57,10 @@ define( function ( require ) {
     // When the radio button selection changes...
     variableWavelength.addObserver( function ( isVariable ) {
       if ( isVariable ) {
-        //TODO hide the wavelength slider
+        //TODO hide the wavelength slider, resize control panel
       }
       else {
-        //TODO show the wavelength slider
+        //TODO show the wavelength slider, resize control panel
         // Set the light to the current solution's lambdaMax wavelength.
         light.wavelength.set( solution.get().molarAbsorptivityData.lambdaMax );
       }
