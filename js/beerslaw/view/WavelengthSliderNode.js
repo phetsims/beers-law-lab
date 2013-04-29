@@ -26,8 +26,6 @@ define( function ( require ) {
   var VisibleColor = require( "common/util/VisibleColor" );
 
   // constants
-  var VALUE_DECIMAL_PLACES = 0;
-  var VALUE_Y_OFFSET = 2;
   var LABEL_TRACK_RATIO = 0.70 // how tall the UV/IR labels should be relative to the track height
 
   /**
@@ -61,7 +59,7 @@ define( function ( require ) {
     var thisNode = this;
     Text.call( this, "?", { font: font, fill: fill } );
     property.addObserver( function ( value ) {
-      thisNode.text = StringUtils.format( BLLStrings.pattern_0value_1units, [value.toFixed( VALUE_DECIMAL_PLACES ), BLLStrings.units_nm] );
+      thisNode.text = StringUtils.format( BLLStrings.pattern_0value_1units, [value.toFixed( 0 ), BLLStrings.units_nm] );
     } );
   }
 
@@ -129,7 +127,7 @@ define( function ( require ) {
     // layout
     cursor.top = track.top;
     thumb.top = track.bottom;
-    valueDisplay.bottom = track.top - 4;
+    valueDisplay.bottom = track.top - 2;
 
     // track interactivity
     track.cursor = 'pointer';
@@ -166,7 +164,15 @@ define( function ( require ) {
       valueDisplay.centerX = x;
 
       // thumb color
-      thumb.fill = VisibleColor.wavelengthToColor( wavelength ).toCSS();
+      if ( wavelength <= VisibleColor.MIN_WAVELENGTH ) {
+        thumb.fill = uvTrackColor;
+      }
+      else if ( wavelength >= VisibleColor.MAX_WAVELENGTH ) {
+        thumb.fill = irTrackColor;
+      }
+      else {
+        thumb.fill = VisibleColor.wavelengthToColor( wavelength ).toCSS();
+      }
     };
     wavelength.addObserver( function ( wavelength ) {
       updateUI( wavelength );
