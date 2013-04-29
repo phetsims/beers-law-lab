@@ -14,7 +14,7 @@ define( function( require ) {
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Property = require( "PHETCOMMON/model/property/Property" );
-  var RadioButton = require( "common/view/RadioButton" );
+  var RadioButton = require( "SUN/RadioButton" );
   var Text = require( "SCENERY/nodes/Text" );
 
   // images
