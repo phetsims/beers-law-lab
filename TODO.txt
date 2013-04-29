@@ -19,7 +19,7 @@ BUGS
 - iPad, Nexus: performance of particles
 
 HIGH
-- resize height of wavelength control panel based on whether slider is visible
+- resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
 - wavelength slider
 - ruler
 - solution combo box
