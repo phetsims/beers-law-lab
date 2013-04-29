@@ -12,7 +12,8 @@ define( function ( require ) {
   var BeakerNode = require( "concentration/view/BeakerNode" );
   var BLLStrings = require( "common/BLLStrings" );
   var Bounds2 = require( "DOT/Bounds2" );
-  var ButtonNode = require( "common/view/ButtonNode" );
+  var Button = require( "SUN/Button" );
+  var ButtonNode = require( "common/view/ButtonNode" ); //XXX delete me
   var ConcentrationMeterNode = require( "concentration/view/ConcentrationMeterNode" );
   var DOM = require( "SCENERY/nodes/DOM" );
   var Dimension2 = require( "DOT/Dimension2" );
@@ -79,7 +80,7 @@ define( function ( require ) {
     var evaporator = new EvaporatorNode( model.evaporator );
 
     // Remove Solute button
-    var removeSoluteButtonNode = new ButtonNode( BLLStrings.removeSolute, function () {
+    var removeSoluteButtonNode = new Button( new Text( BLLStrings.removeSolute, { font: "22px Arial", fill: 'black' } ), {}, function () {
       model.solution.soluteAmount.set( 0 );
     } );
 
