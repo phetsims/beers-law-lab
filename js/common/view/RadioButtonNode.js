@@ -1,7 +1,5 @@
 // Copyright 2013, University of Colorado
 
-//TODO not for public consumption, to be refined later
-//TODO remove dependency on Property
 /**
  * Scenery-based radio button, pseudo-Aqua look.
  *
@@ -11,29 +9,34 @@ define( function ( require ) {
 
   // imports
   var Circle = require( "SCENERY/nodes/Circle" );
-  var Color = require( "common/model/Color" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Text = require( "SCENERY/nodes/Text" );
-
-  var SELECTED_COLOR = new Color( 143, 197, 250 ).toCSS();
-  var UNSELECTED_COLOR = 'white';
-  var CENTER_COLOR = 'black';
 
   /**
    * @param {Property} property
    * @param value the value that corresponds to this button, same type as property
    * @param {Node} node
+   * @param {object} options
    * @constructor
    */
-  function RadioButtonNode( property, value, node ) {
+  function RadioButtonNode( property, value, node, options ) {
 
     var thisNode = this;
     Node.call( thisNode );
 
+    // options
+    options = options || {};
+    var selectedColor = options.selectedColor || 'rgb( 143, 197, 250 )';
+    var unselectedColor = options.unselectedColor || 'white';
+    var centerColor = options.centerColor || 'black';
+    var buttonSize = options.buttonSize || 12;
+    var xSpacing = options.xSpacing || 6;
+    var stroke = options.stroke || 'black';
+
     // nodes
-    var outerCircle = new Circle( 12, { fill: UNSELECTED_COLOR, stroke: CENTER_COLOR } );
-    var innerCircle = new Circle( 4, { fill: "black" } );
+    var outerCircle = new Circle( buttonSize, { fill: unselectedColor, stroke: stroke } );
+    var innerCircle = new Circle( buttonSize / 3, { fill: centerColor } );
 
     // rendering order
     thisNode.addChild( outerCircle );
@@ -41,12 +44,12 @@ define( function ( require ) {
     thisNode.addChild( node );
 
     // layout
-    node.left = outerCircle.right + 6;
+    node.left = outerCircle.right + xSpacing;
     node.centerY = outerCircle.centerY;
 
     // sync control with model
     property.addObserver( function ( newValue ) {
-      outerCircle.fill = ( newValue === value ) ? SELECTED_COLOR : UNSELECTED_COLOR;
+      outerCircle.fill = ( newValue === value ) ? selectedColor : unselectedColor;
       innerCircle.visible = ( newValue === value );
     } );
 
