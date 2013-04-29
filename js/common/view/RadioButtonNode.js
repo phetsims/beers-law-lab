@@ -23,11 +23,10 @@ define( function( require ) {
   /**
    * @param {Property} property
    * @param value the value that corresponds to this button, same type as property
-   * @param {String} text
-   * @param textOptions options that will be passed to the Text node
+   * @param {Node} node
    * @constructor
    */
-  function RadioButtonNode( property, value, text, textOptions ) {
+  function RadioButtonNode( property, value, node ) {
 
     var thisNode = this;
     Node.call( thisNode );
@@ -35,16 +34,15 @@ define( function( require ) {
     // nodes
     var outerCircle = new Circle( 12, { fill: UNSELECTED_COLOR, stroke: CENTER_COLOR } );
     var innerCircle = new Circle( 4, { fill: "black" } );
-    var textNode = new Text( text, textOptions );
 
     // rendering order
     thisNode.addChild( outerCircle );
     thisNode.addChild( innerCircle );
-    thisNode.addChild( textNode );
+    thisNode.addChild( node );
 
     // layout
-    textNode.left = outerCircle.right + 6;
-    textNode.centerY = outerCircle.centerY;
+    node.left = outerCircle.right + 6;
+    node.centerY = outerCircle.centerY;
 
     // sync control with model
     property.addObserver( function( newValue ) {

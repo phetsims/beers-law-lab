@@ -35,8 +35,8 @@ define( function ( require ) {
     var variableWavelength = new Property( false ); // is the wavelength variable or fixed?
 
     var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.wavelength] ), { font: FONT } );
-    var fixedRadioButton = new RadioButtonNode( variableWavelength, false, BLLStrings.fixed, { font: FONT } );
-    var variableRadioButton = new RadioButtonNode( variableWavelength, true, BLLStrings.variable, { font: FONT } );
+    var fixedRadioButton = new RadioButtonNode( variableWavelength, false, new Text( BLLStrings.fixed, { font: FONT } ) );
+    var variableRadioButton = new RadioButtonNode( variableWavelength, true, new Text( BLLStrings.variable, { font: FONT } ) );
     var wavelengthSlider = new WavelengthSliderNode( WAVELENGTH_CONTROL_TRACK_SIZE, light.wavelength );
 
     var contentNode = new Node();

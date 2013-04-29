@@ -1,3 +1,4 @@
+4/29/13 generalize RadioButtonNode to use a Node instead of text string
 4/25/13 attempt to resize wavelength control panel as slider is show/hidden
 4/25/13 first pass at wavelength control panel, with stub for wavelength slider
 4/25/13 fix wires that connect probe to meters (this was apparently not generalized in the Java sim for good reason)
