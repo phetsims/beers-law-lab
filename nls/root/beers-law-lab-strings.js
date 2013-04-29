@@ -12,6 +12,7 @@ define(
     "drinkMix": "Drink mix",
     "evaporation": "Evaporation",
     "fixed": "fixed",
+    "ir": "IR",
     "lots": "lots",
     "nickelIIChloride": "Nickel (II) chloride",
     "none": "none",
@@ -35,6 +36,8 @@ define(
     "units_M": "M",
     "units_mM": "mM",
     "units_uM": "\u00b5M",
+    "units_nm": "nm",
+    "uv": "UV",
     "variable": "variable",
     "water": "water",
     "wavelength": "Wavelength"

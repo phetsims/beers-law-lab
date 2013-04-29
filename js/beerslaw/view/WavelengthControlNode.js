@@ -19,10 +19,6 @@ define( function ( require ) {
   var Text = require( "SCENERY/nodes/Text" );
   var WavelengthSliderNode = require( "beerslaw/view/WavelengthSliderNode" );
 
-  // constants
-  var FONT = "18px Arial";
-  var WAVELENGTH_CONTROL_TRACK_SIZE = new Dimension2( 150, 30 );
-
   /**
    * @param {Property} solution of type BeersLawSolution
    * @param {Light} light
@@ -34,10 +30,11 @@ define( function ( require ) {
 
     var variableWavelength = new Property( false ); // is the wavelength variable or fixed?
 
-    var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.wavelength] ), { font: FONT } );
-    var fixedRadioButton = new RadioButton( variableWavelength, false, new Text( BLLStrings.fixed, { font: FONT } ) );
-    var variableRadioButton = new RadioButton( variableWavelength, true, new Text( BLLStrings.variable, { font: FONT } ) );
-    var wavelengthSlider = new WavelengthSliderNode( WAVELENGTH_CONTROL_TRACK_SIZE, light.wavelength );
+    var textOptions = { font: '18px Arial', fill: 'black' };
+    var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.wavelength] ), textOptions );
+    var fixedRadioButton = new RadioButton( variableWavelength, false, new Text( BLLStrings.fixed, textOptions ) );
+    var variableRadioButton = new RadioButton( variableWavelength, true, new Text( BLLStrings.variable, textOptions ) );
+    var wavelengthSlider = new WavelengthSliderNode( light.wavelength, { trackWidth: 150, trackHeight: 30 } );
 
     var contentNode = new Node();
     contentNode.addChild( labelNode );
