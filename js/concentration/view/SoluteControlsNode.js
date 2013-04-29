@@ -47,7 +47,7 @@ define( function ( require ) {
     // layout
     soluteDropdown.left = soluteLabel.right + 10;
     soluteDropdown.centerY = soluteLabel.centerY;
-    soluteFormNode.left = soluteDropdown.left;
+    soluteFormNode.left = soluteLabel.left;
     soluteFormNode.top = soluteDropdown.bottom + 20;
 
     // Use SVG renderer so that this node doesn't block events to other DOM elements in the scene.

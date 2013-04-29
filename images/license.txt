@@ -3,7 +3,6 @@ at-detector-body-left.png author=PhET notes=copied and hacked intensity_meter_bo
 at-detector-body-right.png author=PhET notes=copied and hacked intensity_meter_box.png from bending-light
 at-detector-probe.png author=PhET notes=copied intensity_meter_probe.png from bending-light
 Beers-Law-icon.jpg author=PhET
-bll-icon-sprints.png author=PhET
 color-scheme-edit-icon.png author=PhET notes=screenshot of a generic color wheel
 Concentration-icon.jpg author=PhET
 concentration-meter-body-center.png author=PhET notes=copied and hacked intensity_meter_box.png from bending-light

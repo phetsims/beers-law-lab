@@ -1,8 +1,7 @@
-// Copyright 2002-2013, University of Colorado
+// Copyright 2013, University of Colorado
 
 /**
- * Bootstrap button group that controls mutually-exclusive selection of the solute form,
- * either solid (shaker) or stock solution (dropper).
+ * Radio buttons that select the solution form, either solid (shaker) or stock solution (dropper).
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -11,12 +10,29 @@ define( function( require ) {
 
   // imports
   var BLLStrings = require( "common/BLLStrings" );
-  var DOM = require( "SCENERY/nodes/DOM" );
+  var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
+  var Node = require( "SCENERY/nodes/Node" );
+  var Property = require( "PHETCOMMON/model/property/Property" );
+  var RadioButtonNode = require( "common/view/RadioButtonNode" );
+  var Text = require( "SCENERY/nodes/Text" );
 
-  // constants
-  var CLASS_SELECTED = "btn-info"; // bootstrap class name for "info" button color
-  var CLASS_UNSELECTED = "";  // bootstrap class name for default button color
+  // images
+  var dropperIcon = require( "image!images/dropper-icon.png" );
+  var shakerIcon = require( "image!images/shaker-icon.png" );
+
+  function TextAndIconNode( text, textOptions, image, xSpacing ) {
+    var thisNode = this;
+    Node.call( thisNode );
+    var textNode = new Text( text, textOptions );
+    var imageNode = new Image( image );
+    thisNode.addChild( textNode );
+    thisNode.addChild( imageNode );
+    imageNode.left = textNode.right + xSpacing;
+    imageNode.centerY = textNode.centerY;
+  }
+
+  inherit( TextAndIconNode, Node );
 
   /**
    * @param {Shaker} shaker
@@ -26,43 +42,30 @@ define( function( require ) {
   function SoluteFormNode( shaker, dropper )  {
 
     var thisNode = this;
+    Node.call( thisNode );
 
-    var $buttonGroup = $( '<div class="btn-group" data-toggle="buttons-radio">' +
-                          '<button id="shakerButton" type="button" class="btn btn-large"><i class="bll-shaker-icon" style="margin-right: 10px;"></i>' + BLLStrings.solid + '</button>' +
-                          '<button id="dropperButton" type="button" class="btn btn-large"><i class="bll-dropper-icon" style="margin-right: 10px;"></i>' + BLLStrings.solution + '</button>' +
-                          '</div>' );
+    var TEXT_OPTIONS = { font: "22px Arial", fill: 'black' };
+    var X_SPACING = 10;
+    var shakerButton = new RadioButtonNode( shaker.visible, true, new TextAndIconNode( BLLStrings.solid, TEXT_OPTIONS, shakerIcon, X_SPACING ) );
+    var dropperButton = new RadioButtonNode( dropper.visible, true, new TextAndIconNode( BLLStrings.solution, TEXT_OPTIONS, dropperIcon, X_SPACING ) );
 
-    DOM.call( thisNode, $buttonGroup[0] );
+    // rendering order
+    thisNode.addChild( shakerButton );
+    thisNode.addChild( dropperButton );
 
-    var $shakerButton = $buttonGroup.find( "#shakerButton" );
-    var $dropperButton = $buttonGroup.find( "#dropperButton" );
+    // layout
+    dropperButton.left = shakerButton.right + 40;
 
-    // Sets the button color to indicate whether it's selected.
-    var setSelected = function( $button, selected ) {
-      $button.removeClass( selected ? CLASS_UNSELECTED : CLASS_SELECTED );
-      $button.addClass( selected ? CLASS_SELECTED : CLASS_UNSELECTED );
-    };
-
-    // Clicking either button sets visibility of the model elements.
-    $shakerButton.bind( 'click', function() {
-      shaker.visible.set( true );
-    } );
-    $dropperButton.bind( 'click', function() {
-      dropper.visible.set( true );
-    } );
-
-    // Sync the controls with the model, and ensure mutual exclusivity.
+    // ensure mutual exclusivity
     shaker.visible.addObserver( function ( visible ) {
-      setSelected( $shakerButton, visible );
       dropper.visible.set( !visible );
     } );
     dropper.visible.addObserver( function ( visible ) {
-      setSelected( $dropperButton, visible );
       shaker.visible.set( !visible );
     } );
   }
 
-  inherit( SoluteFormNode, DOM );
+  inherit( SoluteFormNode, Node );
 
   return SoluteFormNode;
 });
