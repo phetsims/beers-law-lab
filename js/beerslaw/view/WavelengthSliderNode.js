@@ -30,7 +30,12 @@ define( function ( require ) {
   var VALUE_Y_OFFSET = 2;
   var LABEL_TRACK_RATIO = 0.70 // how tall the UV/IR labels should be relative to the track height
 
-  // The slider thumb (aka knob).
+  /**
+   * The slider thumb (aka knob)
+   * @param {Number} width
+   * @param {Number} height
+   * @constructor
+   */
   function Thumb( width, height ) {
     var shape = new Shape()
       .moveTo( 0, 0 )
@@ -39,13 +44,19 @@ define( function ( require ) {
       .lineTo( -0.5 * width, 1 * height )
       .lineTo( -0.5 * width, 0.3 * height )
       .close();
-    Path.call( this, { shape: shape, stroke: 'black', lineWidth: 1 } );
+    Path.call( this, { shape: shape, stroke: 'black', lineWidth: 1, fill: 'black' } );
   }
 
   inherit( Thumb, Path );
 
   //TODO add a background
-  // Value display
+  /**
+   * Displays the value and units.
+   * @param property
+   * @param {String} font
+   * @param {String} fill
+   * @constructor
+   */
   function ValueDisplay( property, font, fill ) {
     var thisNode = this;
     Text.call( this, "?", { font: font, fill: fill } );
@@ -56,7 +67,12 @@ define( function ( require ) {
 
   inherit( ValueDisplay, Text );
 
-  // Rectangular "cursor" that appears in the track directly above the thumb. Origin is at top center of cursor.
+  /**
+   * Rectangular "cursor" that appears in the track directly above the thumb. Origin is at top center of cursor.
+   * @param {Number} width
+   * @param {Number} height
+   * @constructor
+   */
   function Cursor( width, height ) {
     Rectangle.call( this, -width / 2, 0, width, height, { stroke: 'black', lineWidth: 1 } );
   }
@@ -141,8 +157,8 @@ define( function ( require ) {
         }
       } ) );
 
-    wavelength.addObserver( function( wavelength ) {
-
+    // sync with model
+    var updateUI = function ( wavelength ) {
       // positions
       var x = Util.clamp( positionToValue.evaluateInverse( wavelength ), 0, track.width );
       thumb.centerX = x;
@@ -150,8 +166,32 @@ define( function ( require ) {
       valueDisplay.centerX = x;
 
       // thumb color
-      thumb.fill = VisibleColor.wavelengthToColor( wavelength );
+      thumb.fill = VisibleColor.wavelengthToColor( wavelength ).toCSS();
+    };
+    wavelength.addObserver( function ( wavelength ) {
+      updateUI( wavelength );
     } );
+
+    /*
+     * WORKAROUND for Unfuddle #3327:
+     * The horizontal bounds of the wavelength control changes as the slider knob is dragged.
+     * To prevent this, we determine the extents of the control's bounds, then add an invisible horizontal strut.
+     */
+    {
+      // determine bounds at min and max wavelength settings
+      updateUI( minWavelength );
+      var minX = thisNode.left;
+      updateUI( maxWavelength );
+      var maxX = thisNode.right;
+
+      // restore the wavelength
+      updateUI( wavelength.get() );
+
+      // add a horizontal strut
+      var strutNode = new Rectangle( minX, 0, maxX - minX, 1, { pickable: false } );
+      thisNode.addChild( strutNode );
+      strutNode.moveToBack();
+    }
   }
 
   inherit( WavelengthSliderNode, Node );
