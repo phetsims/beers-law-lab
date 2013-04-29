@@ -33,8 +33,8 @@ define( function( require ) {
     Node.call( thisNode );
 
     // nodes
-    var innerCircle = new Circle( 4, { fill: "black" } );
     var outerCircle = new Circle( 12, { fill: UNSELECTED_COLOR, stroke: CENTER_COLOR } );
+    var innerCircle = new Circle( 4, { fill: "black" } );
     var textNode = new Text( text, textOptions );
 
     // rendering order
@@ -51,11 +51,10 @@ define( function( require ) {
        outerCircle.fill = ( newValue === value ) ? SELECTED_COLOR : UNSELECTED_COLOR;
     } );
 
-    //TODO this should probably be on 'up' event
-    // set property value on 'down' event
+    // set property value on 'up' event
     thisNode.addInputListener(
       {
-        down: function() {
+        up: function() {
           property.set( value );
         }
       } );
