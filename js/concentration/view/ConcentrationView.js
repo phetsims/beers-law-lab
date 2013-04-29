@@ -79,9 +79,10 @@ define( function ( require ) {
     var evaporator = new EvaporatorNode( model.evaporator );
 
     // Remove Solute button
-    var removeSoluteButtonNode = new Button( new Text( BLLStrings.removeSolute, { font: "22px Arial", fill: 'black' } ), {}, function () {
-      model.solution.soluteAmount.set( 0 );
-    } );
+    var removeSoluteButtonNode = new Button( new Text( BLLStrings.removeSolute, { font: "22px Arial", fill: 'black' } ),
+                                             function () {
+                                               model.solution.soluteAmount.set( 0 );
+                                             }, { xMargin: 10 } );
 
     // Reset All button
     var resetAllButton = new ResetAllButton( function() {
