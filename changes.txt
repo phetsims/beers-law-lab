@@ -1,3 +1,4 @@
+4/29/13 rename RadioButtonNode to RadioButton, add options and doc
 4/29/13 use scenery-phet.ResetAllButton
 4/29/13 replace "Remove Solute" button with sun.Button
 4/29/13 tweak layout of text in concentration meter and AT detector

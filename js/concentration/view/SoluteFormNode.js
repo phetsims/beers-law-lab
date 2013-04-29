@@ -14,7 +14,7 @@ define( function( require ) {
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Property = require( "PHETCOMMON/model/property/Property" );
-  var RadioButtonNode = require( "common/view/RadioButtonNode" );
+  var RadioButton = require( "common/view/RadioButton" );
   var Text = require( "SCENERY/nodes/Text" );
 
   // images
@@ -46,8 +46,8 @@ define( function( require ) {
 
     var TEXT_OPTIONS = { font: "22px Arial", fill: 'black' };
     var X_SPACING = 10;
-    var shakerButton = new RadioButtonNode( shaker.visible, true, new TextAndIconNode( BLLStrings.solid, TEXT_OPTIONS, shakerIcon, X_SPACING ) );
-    var dropperButton = new RadioButtonNode( dropper.visible, true, new TextAndIconNode( BLLStrings.solution, TEXT_OPTIONS, dropperIcon, X_SPACING ) );
+    var shakerButton = new RadioButton( shaker.visible, true, new TextAndIconNode( BLLStrings.solid, TEXT_OPTIONS, shakerIcon, X_SPACING ) );
+    var dropperButton = new RadioButton( dropper.visible, true, new TextAndIconNode( BLLStrings.solution, TEXT_OPTIONS, dropperIcon, X_SPACING ) );
 
     // rendering order
     thisNode.addChild( shakerButton );

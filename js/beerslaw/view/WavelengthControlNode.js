@@ -14,7 +14,7 @@ define( function ( require ) {
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Property = require( "PHETCOMMON/model/property/Property" );
-  var RadioButtonNode = require( "common/view/RadioButtonNode" );
+  var RadioButton = require( "common/view/RadioButton" );
   var StringUtils = require( "common/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
   var WavelengthSliderNode = require( "beerslaw/view/WavelengthSliderNode" );
@@ -35,8 +35,8 @@ define( function ( require ) {
     var variableWavelength = new Property( false ); // is the wavelength variable or fixed?
 
     var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.wavelength] ), { font: FONT } );
-    var fixedRadioButton = new RadioButtonNode( variableWavelength, false, new Text( BLLStrings.fixed, { font: FONT } ) );
-    var variableRadioButton = new RadioButtonNode( variableWavelength, true, new Text( BLLStrings.variable, { font: FONT } ) );
+    var fixedRadioButton = new RadioButton( variableWavelength, false, new Text( BLLStrings.fixed, { font: FONT } ) );
+    var variableRadioButton = new RadioButton( variableWavelength, true, new Text( BLLStrings.variable, { font: FONT } ) );
     var wavelengthSlider = new WavelengthSliderNode( WAVELENGTH_CONTROL_TRACK_SIZE, light.wavelength );
 
     var contentNode = new Node();
