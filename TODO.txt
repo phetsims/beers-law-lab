@@ -25,7 +25,7 @@ HIGH
 - ruler
 - solution combo box
 - concentration slider
-- rewrite buttons, radio buttons and combo box in scenery
+- rewrite combo box in scenery
 
 MEDIUM
 - prevent dropper from being dragged by on/off button
