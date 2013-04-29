@@ -7,7 +7,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( function ( require ) {
 
   // imports
   var Circle = require( "SCENERY/nodes/Circle" );
@@ -45,14 +45,15 @@ define( function( require ) {
     node.centerY = outerCircle.centerY;
 
     // sync control with model
-    property.addObserver( function( newValue ) {
-       outerCircle.fill = ( newValue === value ) ? SELECTED_COLOR : UNSELECTED_COLOR;
+    property.addObserver( function ( newValue ) {
+      outerCircle.fill = ( newValue === value ) ? SELECTED_COLOR : UNSELECTED_COLOR;
+      innerCircle.visible = ( newValue === value );
     } );
 
     // set property value on 'up' event
     thisNode.addInputListener(
       {
-        up: function() {
+        up: function () {
           property.set( value );
         }
       } );
