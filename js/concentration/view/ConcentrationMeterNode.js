@@ -45,10 +45,10 @@ define( function( require ) {
   // constants
   var VALUE_DECIMALS = 3;
   var NO_VALUE = "-";
-  var TITLE_TOP = 20; // specific to bodyCenterImage
+  var TITLE_TOP = 12; // specific to bodyCenterImage
   var TEXT_X_MARGIN = 25;  // specific to bodyCenterImage
   var VALUE_X_MARGIN = 30; // specific to bodyCenterImage
-  var VALUE_CENTER_Y = 84; // specific to bodyCenterImage
+  var VALUE_CENTER_Y = 70; // specific to bodyCenterImage
 
   /**
    * Meter body, origin at upper left.

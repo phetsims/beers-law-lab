@@ -25,8 +25,8 @@ define( function ( require ) {
   // constants
   var BUTTONS_X_MARGIN = 25; // specific to image files
   var BUTTONS_Y_OFFSET = 17; // specific to image files
-  var VALUE_X_MARGIN = 25; // specific to image files
-  var VALUE_Y_OFFSET = 87; // specific to image files
+  var VALUE_X_MARGIN = 30; // specific to image files
+  var VALUE_Y_OFFSET = 90; // specific to image files
   var ABSORBANCE_DECIMAL_PLACES = 2;
   var TRANSMITTANCE_DECIMAL_PLACES = 2;
   var NO_VALUE = "-";
