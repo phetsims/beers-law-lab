@@ -13,7 +13,6 @@ define( function ( require ) {
   var BLLStrings = require( "common/BLLStrings" );
   var Bounds2 = require( "DOT/Bounds2" );
   var Button = require( "SUN/Button" );
-  var ButtonNode = require( "common/view/ButtonNode" ); //XXX delete me
   var ConcentrationMeterNode = require( "concentration/view/ConcentrationMeterNode" );
   var DOM = require( "SCENERY/nodes/DOM" );
   var Dimension2 = require( "DOT/Dimension2" );
@@ -26,7 +25,7 @@ define( function ( require ) {
   var TabView = require( 'JOIST/TabView' );
   var PrecipitateNode = require( "concentration/view/PrecipitateNode" );
   var Range = require( "DOT/Range" );
-  var ResetAllButtonNode = require( "common/view/ResetAllButtonNode" );
+  var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
   var SaturatedIndicatorNode = require( "concentration/view/SaturatedIndicatorNode" );
   var Scene = require( "SCENERY/Scene" );
   var ShakerNode = require( "concentration/view/ShakerNode" );
@@ -85,7 +84,7 @@ define( function ( require ) {
     } );
 
     // Reset All button
-    var resetAllButtonNode = new ResetAllButtonNode( function() {
+    var resetAllButton = new ResetAllButton( function() {
       model.reset();
     } );
 
@@ -106,7 +105,7 @@ define( function ( require ) {
     thisView.addChild( evaporator );
     // Add anything containing interactive DOM elements last, or they will not receive events.
     thisView.addChild( removeSoluteButtonNode );
-    thisView.addChild( resetAllButtonNode );
+    thisView.addChild( resetAllButton );
     thisView.addChild( soluteControlsNode );
 
     // Layout for things that don't have a location in the model.
@@ -124,8 +123,8 @@ define( function ( require ) {
       removeSoluteButtonNode.left = evaporator.right + 30;
       removeSoluteButtonNode.centerY = evaporator.centerY;
       // lower right
-      resetAllButtonNode.left = drainFaucetNode.right + 10;
-      resetAllButtonNode.top = drainFaucetNode.bottom + 5;
+      resetAllButton.left = drainFaucetNode.right + 10;
+      resetAllButton.top = drainFaucetNode.bottom + 5;
     }
   }
 

@@ -17,7 +17,7 @@ define( function ( require ) {
   var inherit = require( "PHET_CORE/inherit" );
   var LightNode = require( "beerslaw/view/LightNode" );
   var TabView = require( 'JOIST/TabView' );
-  var ResetAllButtonNode = require( "common/view/ResetAllButtonNode" );
+  var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
   var Scene = require( "SCENERY/Scene" );
   var Text = require( "SCENERY/nodes/Text" );
   var WavelengthControlNode = require( "beerslaw/view/WavelengthControlNode" );
@@ -39,7 +39,7 @@ define( function ( require ) {
     var wavelengthControlNode = new WavelengthControlNode( model.solution, model.light );
 
     // Reset All button
-    var resetAllButtonNode = new ResetAllButtonNode( function () {
+    var resetAllButton = new ResetAllButton( function () {
       model.reset();
       wavelengthControlNode.reset();
     } );
@@ -51,7 +51,7 @@ define( function ( require ) {
     thisView.addChild( beamNode );
     thisView.addChild( lightNode );
     // Add anything containing interactive DOM elements last, or they will not receive events.
-    thisView.addChild( resetAllButtonNode );
+    thisView.addChild( resetAllButton );
 
     // Layout for things that don't have a location in the model.
     {
@@ -59,8 +59,8 @@ define( function ( require ) {
       wavelengthControlNode.left = lightNode.left;
       wavelengthControlNode.top = lightNode.bottom + 20;
       // bottom left
-      resetAllButtonNode.right = thisView.layoutBounds.maxX - 50;
-      resetAllButtonNode.bottom = thisView.layoutBounds.maxY - 50;
+      resetAllButton.right = detectorNode.right;
+      resetAllButton.top = detectorNode.bottom + 15;
     }
   }
 
