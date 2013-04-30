@@ -33,18 +33,18 @@ define( function( require ) {
       majorTickLabels[i] = ( i % 2 == 0 ) ? ( i / 2 ).toFixed( 0 ) : "";
     }
 
-    var w = mvt.modelToViewDeltaX( ruler.length );
-    var h = mvt.modelToViewDeltaY( ruler.height );
-    thisNode.addChild( new RulerNode( w, h, majorTickLabels, BLLStrings.units_centimeters ) );
-
-    //TODO ticks, labels, insets, etc.
+    // use the common ruler node
+    var width = mvt.modelToViewDeltaX( ruler.length );
+    var height = mvt.modelToViewDeltaY( ruler.height );
+    thisNode.addChild( new RulerNode( width, height, majorTickLabels, BLLStrings.units_centimeters,
+                                      { minorTicksPerMajorTick: 4 } ) );
 
     // sync with model
-    ruler.location.addObserver( function( location ) {
+    ruler.location.addObserver( function ( location ) {
       var position = mvt.modelToViewPosition( location );
       thisNode.x = position.x;
       thisNode.y = position.y;
-    });
+    } );
 
     // interactivity
     thisNode.cursor = "pointer";
