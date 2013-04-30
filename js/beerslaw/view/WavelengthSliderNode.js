@@ -66,7 +66,6 @@ define( function ( require ) {
 
   inherit( Thumb, Path );
 
-  //TODO add a background
   /**
    * Displays the value and units.
    * @param property
@@ -186,9 +185,9 @@ define( function ( require ) {
     } );
 
     /*
-     * WORKAROUND for Unfuddle #3327:
      * The horizontal bounds of the wavelength control changes as the slider knob is dragged.
-     * To prevent this, we determine the extents of the control's bounds, then add an invisible horizontal strut.
+     * To prevent this, we determine the extents of the control's bounds at min and max values,
+     * then add an invisible horizontal strut.
      */
     {
       // determine bounds at min and max wavelength settings
