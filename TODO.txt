@@ -33,7 +33,6 @@ MEDIUM
 - prevent dropper from being dragged by on/off button
 - layout of almost all text is inaccurate
 - dynamic text leaves trails (AT detector value)
-- use scenery's new coordinate frame transform methods (scenery#12)
 - add relativePressPoint for drag handlers, so that mouse doesn't get away from drag target
 - use ImagesLoader to load images, delete images.js in config.js
 - compute deltaSeconds in animation loop

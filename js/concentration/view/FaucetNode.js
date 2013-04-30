@@ -108,9 +108,9 @@ define( function ( require ) {
       {
         //TODO: revisit this to make it feel more smooth/natural
         // adjust the flow
-        drag: function ( event, trail ) {
+        drag: function ( event ) {
           if ( faucet.enabled.get() ) {
-            var localPosition = trail.getTransform().inversePosition2( event.pointer.point ); // global to local
+            var localPosition = handleNode.globalToParentPoint( event.pointer.point );
             var y = Util.clamp( localPosition.y, handleOffY, handleOnY );
             var handleOrientation = yToOrientation.evaluate( y );
             var flowRate = orientationToFlowRate.evaluate( handleOrientation );
