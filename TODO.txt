@@ -21,13 +21,15 @@ BUGS
 HIGH
 - text that is supposed to be invisible is visible when switching tabs (eg, "Saturate!")
 - resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
-- wavelength slider
 - ruler
 - solution combo box
 - concentration slider
 - rewrite combo box in scenery
 
 MEDIUM
+- better spectrum for wavelength slider track
+- disable (instead of hide) +/- buttons in wavelength slider
+- better +/- buttons for sliders
 - prevent dropper from being dragged by on/off button
 - layout of almost all text is inaccurate
 - dynamic text leaves trails (AT detector value)
