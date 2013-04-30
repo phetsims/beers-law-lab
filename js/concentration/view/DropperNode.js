@@ -72,7 +72,7 @@ define( function ( require ) {
     var backgroundNode = new Image( backgroundImage );
 
     // label
-    var labelNode = new HTMLText( dropper.solute.formula, { font: "bold 15px Arial", fill: "black" } );
+    var labelNode = new HTMLText( dropper.solute.formula, { font: "bold 18px Arial", fill: "black" } );
 
     // label background, so the label shows up on various fluid colors
     var labelBackgroundNode = new Path(
@@ -132,8 +132,8 @@ define( function ( require ) {
 
       // rotate to vertical, center the label in the droppers glass
       labelNode.setRotation( -Math.PI / 2 );
-      labelNode.setTranslation( -( labelNode.width / 2 ),
-                                foregroundNode.bottom - ( foregroundNode.height - LABEL_Y_OFFSET ) + ( labelNode.height / 2 ) );
+      labelNode.centerX = foregroundNode.centerX;
+      labelNode.y = foregroundNode.bottom - ( foregroundNode.height - LABEL_Y_OFFSET ) + ( labelNode.height / 2 );
 
       // translucent background for the label, so that it's visible on all solution colors
       var width = 1.5 * labelNode.width;
