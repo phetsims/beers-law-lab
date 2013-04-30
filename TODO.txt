@@ -15,6 +15,10 @@ SCENERY ENHANCEMENTS
 BUGS
 - iPad, Nexus: bootstrap components look like they respond but do nothing (all except "Reset All" button)
 - iPad, Nexus: performance of particles
+- iPad: unresponsive when concentration probe is dragged into solution, ditto for AT detector (text performance?)
+- iPad: resizing the cuvette is painfully sluggish
+- iPad: text doesn't keep up with dragging (e.g., on shaker)
+- iPad: wavelength slider is unusable and thumb disappears
 
 HIGH
 - resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
