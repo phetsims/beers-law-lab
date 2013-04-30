@@ -23,7 +23,7 @@ define( function ( require ) {
     var thisHandler = this;
     SimpleDragHandler.call( this, {
       translate: function ( options ) {
-        var pModel = mvt.viewToModelPosition( new Vector2( options.position.x, options.position.y ) );
+        var pModel = mvt.viewToModelPosition( options.position );
         var pModelConstrained = thisHandler.constrainBounds( pModel, movable.dragBounds );
         movable.location.set( pModelConstrained );
       }
