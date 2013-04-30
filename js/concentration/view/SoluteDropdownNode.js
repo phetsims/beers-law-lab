@@ -10,6 +10,7 @@
  */
 
 define( function ( require ) {
+  'use strict';
 
   // imports
   var DOM = require( "SCENERY/nodes/DOM" );
