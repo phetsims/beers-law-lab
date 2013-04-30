@@ -76,7 +76,7 @@ define( function ( require ) {
       // center the label on the shaker
       var capWidth = 0.3 * imageNode.width;
       labelNode.centerX = capWidth + ( imageNode.width - capWidth ) / 2;
-      labelNode.centerY = imageNode.height / 2;
+      labelNode.centerY = imageNode.centerY;
     } );
 
     // drag handler
