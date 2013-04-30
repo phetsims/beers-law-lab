@@ -18,7 +18,7 @@ define( function ( require ) {
   var LightNode = require( "beerslaw/view/LightNode" );
   var TabView = require( 'JOIST/TabView' );
   var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
-  var RulerNode = require( "beerslaw/view/RulerNode" );
+  var BLLRulerNode = require( "beerslaw/view/BLLRulerNode" );
   var Scene = require( "SCENERY/Scene" );
   var Text = require( "SCENERY/nodes/Text" );
   var WavelengthControlNode = require( "beerslaw/view/WavelengthControlNode" );
@@ -38,7 +38,7 @@ define( function ( require ) {
     var beamNode = new BeamNode( model.beam );
     var detectorNode = new ATDetectorNode( model.detector, mvt );
     var wavelengthControlNode = new WavelengthControlNode( model.solution, model.light );
-    var rulerNode = new RulerNode( model.ruler, mvt );
+    var rulerNode = new BLLRulerNode( model.ruler, mvt );
 
     // Reset All button
     var resetAllButton = new ResetAllButton( function () {
