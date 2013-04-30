@@ -8,9 +8,7 @@ IMPLEMENTATION ISSUES
 - UI components (radio buttons, combo box, sliders)
 
 SCENERY BUGS
-- iPad: "Drink mix" text on shaker is broken into 2 lines, text moves separate from shaker, ditto for dropper (scenery#13)
-- in SoluteControlsNode, setting font "32px Arial" for soluteLabel results in Node.invalidateSelf assertion failure (scenery#22)
-- text that is supposed to be invisible is visible when switching tabs, eg"Saturate!" (scenery#25)
+- text that is supposed to be invisible is visible when switching tabs, eg "Saturate!" (scenery#25)
 
 SCENERY ENHANCEMENTS
 
