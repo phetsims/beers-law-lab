@@ -21,6 +21,8 @@ BUGS
 - iPad: wavelength slider is unusable and thumb disappears
 
 HIGH
+- alignment of shaker label is off
+- alignment of dropper label is off
 - resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
 - ruler
 - solution combo box
