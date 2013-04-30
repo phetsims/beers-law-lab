@@ -1,8 +1,7 @@
 // Copyright 2013, University of Colorado
 
 /**
- * WavelengthControl is a slider-like control used for setting wavelength.
- * It handles visible wavelengths, plus optional UV and IR wavelengths.
+ * WavelengthControl is a slider-like control used for setting visible wavelength.
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
@@ -12,6 +11,7 @@ define( function ( require ) {
   var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
   var BLLStrings = require( "common/BLLStrings" );
   var Dimension2 = require( "DOT/Dimension2" );
+  var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
   var LinearFunction = require( "common/util/LinearFunction" );
   var Node = require( "SCENERY/nodes/Node" );
@@ -25,8 +25,27 @@ define( function ( require ) {
   var Util = require( "DOT/Util" );
   var VisibleColor = require( "common/util/VisibleColor" );
 
-  // constants
-  var LABEL_TRACK_RATIO = 0.70 // how tall the UV/IR labels should be relative to the track height
+  /**
+   * Slider track that displays the visible spectrum.
+   * @param width
+   * @param height
+   * @param minWavelength
+   * @param maxWavelength
+   * @constructor
+   */
+  //TODO this looks crappy and is likely inefficient
+  function TrackNode( width, height, minWavelength, maxWavelength ) {
+    var thisNode = this;
+    Node.call( thisNode, { stroke: 'black', lineWidth: 1 } );
+    var positionToWavelength = new LinearFunction( new Range( 0, width ), new Range( minWavelength, maxWavelength ) );
+    for ( var i = 0; i < width; i++ ) {
+      var wavelength = positionToWavelength.evaluate( i );
+      var color = VisibleColor.wavelengthToColor( wavelength ).toCSS();
+      thisNode.addChild( new Rectangle( i, 0, 1, height, { fill: color } ) );
+    }
+  }
+
+  inherit( TrackNode, Node );
 
   /**
    * The slider thumb (aka knob)
@@ -92,20 +111,18 @@ define( function ( require ) {
     var minWavelength = options.minWavelength || VisibleColor.MIN_WAVELENGTH;
     var maxWavelength = options.maxWavelength || VisibleColor.MAX_WAVELENGTH;
     assert && assert( minWavelength < maxWavelength );
+    assert && assert( minWavelength >= VisibleColor.MIN_WAVELENGTH && minWavelength <= VisibleColor.MAX_WAVELENGTH );
+    assert && assert( maxWavelength >= VisibleColor.MIN_WAVELENGTH && maxWavelength <= VisibleColor.MAX_WAVELENGTH );
     var trackWidth = options.trackWidth || 150;
     var trackHeight = options.trackHeight || 30;
     var thumbWidth = options.thumbWidth || 20;
     var thumbHeight = options.thumbHeight || 20;
-    var uvTrackColor = options.uvTrackColor || 'rgb(192,192,192)';
-    var uvLabelColor = options.uvLabelColor || 'black';
-    var irTrackColor = options.irTrackColor || 'rgb(192,192,192)';
-    var irLabelColor = options.irLabelColor || 'black';
     var valueFont = options.valueFont || "14px Arial";
     var valueFill = options.valueFill || 'black';
 
     var thumb = new Thumb( thumbWidth, thumbHeight );
     var valueDisplay = new ValueDisplay( wavelength, valueFont, valueFill );
-    var track = new Rectangle( 0, 0, trackWidth, trackHeight, { fill: 'red' } ); //XXX
+    var track = new TrackNode( trackWidth, trackHeight, minWavelength, maxWavelength );
     var cursor = new Cursor( 3, track.height );
 
     /*
@@ -135,7 +152,6 @@ define( function ( require ) {
     track.addInputListener(
       {
         down: function ( event ) {
-          //TODO handleTrackClick
           var x = track.globalToParentPoint( event.pointer.point ).x;
           var value = Util.clamp( positionToValue.evaluate( x ), minWavelength, maxWavelength )
           wavelength.set( value );
@@ -162,17 +178,8 @@ define( function ( require ) {
       thumb.centerX = x;
       cursor.centerX = x;
       valueDisplay.centerX = x;
-
       // thumb color
-      if ( wavelength <= VisibleColor.MIN_WAVELENGTH ) {
-        thumb.fill = uvTrackColor;
-      }
-      else if ( wavelength >= VisibleColor.MAX_WAVELENGTH ) {
-        thumb.fill = irTrackColor;
-      }
-      else {
-        thumb.fill = VisibleColor.wavelengthToColor( wavelength ).toCSS();
-      }
+      thumb.fill = VisibleColor.wavelengthToColor( wavelength ).toCSS();
     };
     wavelength.addObserver( function ( wavelength ) {
       updateUI( wavelength );
@@ -204,72 +211,3 @@ define( function ( require ) {
 
   return WavelengthSliderNode;
 } );
-
-//
-//    //----------------------------------------------------------------------------
-//    // Inner classes
-//    //----------------------------------------------------------------------------
-//
-//    // The track that the slider thumb moves in.
-//    private static class Track extends PComposite {
-//
-//        // Constructor
-//        public Track( int trackWidth, int trackHeight,
-//                      double minWavelength, double maxWavelength,
-//                      Color uvTrackColor, Color uvLabelColor,
-//                      Color irTrackColor, Color irLabelColor ) {
-//            super();
-//
-//            final double totalBandwidth = maxWavelength - minWavelength;
-//            final double uvBandwidth = VisibleColor.MIN_WAVELENGTH - minWavelength;
-//            final double irBandwidth = maxWavelength - VisibleColor.MAX_WAVELENGTH;
-//            final double uvTrackWidth = ( uvBandwidth / totalBandwidth ) * trackWidth;
-//            final double irTrackWidth = ( irBandwidth / totalBandwidth ) * trackWidth;
-//
-//            // Track image for the entire spectrum
-//            Image trackImage = new LinearSpectrumImageFactory().createHorizontalSpectrum( trackWidth, trackHeight, minWavelength, maxWavelength, uvTrackColor, irTrackColor );
-//            PImage trackNode = new PImage( trackImage );
-//            trackNode.setOffset( 0, 0 );
-//            addChild( trackNode );
-//
-//            // Label the UV portion of the track
-//            if ( uvTrackWidth > 0 ) {
-//
-//                PText uvLabel = new PText( UV_STRING );
-//                uvLabel.setTextPaint( uvLabelColor );
-//
-//                // Scale to fit the track height
-//                uvLabel.scale( ( trackHeight * LABEL_TRACK_RATIO ) / uvLabel.getFullBounds().getHeight() );
-//
-//                // Add the UV label if the UV portion of the track is wide enough
-//                if ( uvTrackWidth > uvLabel.getFullBounds().getWidth() ) {
-//
-//                    addChild( uvLabel );
-//
-//                    // center in the UV portion of the track
-//                    uvLabel.setOffset( ( uvTrackWidth - uvLabel.getFullBounds().getWidth() ) / 2,
-//                                       ( trackHeight - uvLabel.getFullBounds().getHeight() ) / 2 );
-//                }
-//            }
-//
-//            // Label the IR portion of the track
-//            if ( irTrackWidth > 0 ) {
-//
-//                PText irLabel = new PText( IR_STRING );
-//                irLabel.setTextPaint( irLabelColor );
-//
-//                // Scale label to fit the track height
-//                irLabel.scale( ( trackHeight * LABEL_TRACK_RATIO ) / irLabel.getFullBounds().getHeight() );
-//
-//                // Add the IR label if the IR portion of the track is wide enough
-//                if ( irTrackWidth > irLabel.getFullBounds().getWidth() ) {
-//
-//                    addChild( irLabel );
-//
-//                    // center in the IR portion of the track
-//                    irLabel.setOffset( trackWidth - irTrackWidth + ( ( irTrackWidth - irLabel.getFullBounds().getWidth() ) / 2 ),
-//                                       ( trackHeight - irLabel.getFullBounds().getHeight() ) / 2 );
-//                }
-//            }
-//        }
-//    }

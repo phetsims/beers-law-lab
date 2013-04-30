@@ -1,3 +1,4 @@
+4/29/12 fully-functional wavelength slider
 4/29/13 first pass at wavelength slider
 4/29/13 rename RadioButtonNode to RadioButton, add options and doc
 4/29/13 use scenery-phet.ResetAllButton
