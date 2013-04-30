@@ -20,7 +20,6 @@ BUGS
 - iPad, Nexus: performance of particles
 
 HIGH
-- handle click offset for thumb in wavelength slider and evaporation slider
 - resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
 - ruler
 - solution combo box

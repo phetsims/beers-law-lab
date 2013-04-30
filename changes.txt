@@ -1,4 +1,4 @@
-4/29/13 handle click offset for wavelength slider thumb
+4/29/13 handle click offset for thumb in wavelength slider and evaporation slider
 4/29/13 add option to clamp value to range for LinearFunction
 4/29/13 add + and - buttons to wavelength slider
 4/29/13 fully-functional wavelength slider

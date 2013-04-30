@@ -87,12 +87,16 @@ define( function ( require ) {
     } );
 
     // update value when knob is dragged
+    var clickXOffset = 0; // x-offset between initial click and thumb's origin
     knobNode.addInputListener( new SimpleDragHandler(
       {
+        start: function ( event ) {
+          clickXOffset = knobNode.globalToParentPoint( event.pointer.point ).x - knobNode.x;
+        },
         drag: function ( event, trail ) {
           if ( enabled.get() ) {
-            var localPosition = trail.getTransform().inversePosition2( event.pointer.point ); // global to local
-            value.set( thisNode._valueToPosition.evaluateInverse( localPosition.x ) );
+            var x = knobNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
+            value.set( thisNode._valueToPosition.evaluateInverse( x ) );
           }
         },
         end: function() {

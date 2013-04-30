@@ -174,14 +174,14 @@ define( function ( require ) {
 
     // thumb interactivity
     thumb.cursor = 'pointer';
+    var clickXOffset = 0; // x-offset between initial click and thumb's origin
     thumb.addInputListener( new SimpleDragHandler(
       {
-        xOffset: 0, // x-offset between initial click and thumb's origin
         start: function( event ) {
-          xOffset = thumb.globalToParentPoint( event.pointer.point ).x - thumb.x;
+          clickXOffset = thumb.globalToParentPoint( event.pointer.point ).x - thumb.x;
         },
         drag: function ( event, trail ) {
-          var x = thumb.globalToParentPoint( event.pointer.point ).x - xOffset;
+          var x = thumb.globalToParentPoint( event.pointer.point ).x - clickXOffset;
           wavelength.set( positionToValue.evaluate( x ) );
         },
         translate: function () {
