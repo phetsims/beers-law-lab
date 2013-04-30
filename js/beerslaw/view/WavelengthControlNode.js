@@ -30,12 +30,14 @@ define( function ( require ) {
 
     var variableWavelength = new Property( false ); // is the wavelength variable or fixed?
 
+    // nodes
     var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.wavelength] ), { font: '22px Arial', fill: 'black' } );
     var textOptions = { font: '18px Arial', fill: 'black' };
     var fixedRadioButton = new RadioButton( variableWavelength, false, new Text( BLLStrings.fixed, textOptions ) );
     var variableRadioButton = new RadioButton( variableWavelength, true, new Text( BLLStrings.variable, textOptions ) );
     var wavelengthSlider = new WavelengthSliderNode( light.wavelength, { trackWidth: 150, trackHeight: 30 } );
 
+    // rendering order
     var contentNode = new Node();
     contentNode.addChild( labelNode );
     contentNode.addChild( fixedRadioButton );
