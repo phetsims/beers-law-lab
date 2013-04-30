@@ -22,9 +22,9 @@ BUGS
 
 HIGH
 - resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
+- solute combo box
 - solution combo box
 - concentration slider
-- rewrite combo box in scenery
 
 MEDIUM
 - better spectrum for wavelength slider track
@@ -41,6 +41,7 @@ LOW
 - value in concentration meter jitters horizontally as value changes
 - split faucet_handle.png into 2 images, so that only the knob is interactive?
 - use scenery.Pattern to texture map input pipe in FaucetNode
+- replace bll.Color with scenery.Color
 - use scenery.Font for font specification
 - get new images for faucet, faucet_pipe.png doesn't match up with faucet_spigot.png
 - factor out commonality in MomentaryButtonNode and ToggleButtonNode, migrate to sun?
