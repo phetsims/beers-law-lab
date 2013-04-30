@@ -5,15 +5,21 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function () {
+define( function ( require ) {
   "use strict";
+
+  // imports
+  var Util = require( "DOT/Util" );
 
   /**
    * @param {Range} range1
    * @param {Range} range2
+   * @param {boolean} clamp clamp the result to the provided ranges
    * @constructor
    */
-  function LinearFunction( range1, range2 ) {
+  function LinearFunction( range1, range2, clamp ) {
+
+    clamp = ( typeof clamp === "undefined" ) ? false : clamp;
 
     var thisFunction = this;
 
@@ -22,6 +28,9 @@ define( function () {
       var output = -range1.min + value;
       output = output * range2.getLength() / range1.getLength();
       output = range2.min + output;
+      if ( clamp ) {
+        output = Util.clamp( output, range2.min, range2.max );
+      }
       return output;
     };
 

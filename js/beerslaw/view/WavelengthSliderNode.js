@@ -23,7 +23,6 @@ define( function ( require ) {
   var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
   var StringUtils = require( "common/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
-  var Util = require( "DOT/Util" );
   var VisibleColor = require( "common/util/VisibleColor" );
 
   /**
@@ -96,6 +95,7 @@ define( function ( require ) {
 
   inherit( Cursor, Rectangle );
 
+
   /**
    * @param {Property} wavelength of type Number
    * @param {object} options
@@ -162,12 +162,12 @@ define( function ( require ) {
 
     // track interactivity
     track.cursor = 'pointer';
-    var positionToValue = new LinearFunction( new Range( 0, track.width ), new Range( minWavelength, maxWavelength ) );
+    var positionToValue = new LinearFunction( new Range( 0, track.width ), new Range( minWavelength, maxWavelength ), true /* clamp */ );
     track.addInputListener(
       {
         down: function ( event ) {
           var x = track.globalToParentPoint( event.pointer.point ).x;
-          var value = Util.clamp( positionToValue.evaluate( x ), minWavelength, maxWavelength )
+          var value = positionToValue.evaluate( x );
           wavelength.set( value );
         }
       } );
@@ -176,9 +176,13 @@ define( function ( require ) {
     thumb.cursor = 'pointer';
     thumb.addInputListener( new SimpleDragHandler(
       {
+        xOffset: 0, // x-offset between initial click and thumb's origin
+        start: function( event ) {
+          xOffset = thumb.globalToParentPoint( event.pointer.point ).x - thumb.x;
+        },
         drag: function ( event, trail ) {
-          var x = thumb.globalToParentPoint( event.pointer.point ).x;
-          wavelength.set( Util.clamp( positionToValue.evaluate( x ), minWavelength, maxWavelength ) );
+          var x = thumb.globalToParentPoint( event.pointer.point ).x - xOffset;
+          wavelength.set( positionToValue.evaluate( x ) );
         },
         translate: function () {
           // do nothing, override default behavior
@@ -188,7 +192,7 @@ define( function ( require ) {
     // sync with model
     var updateUI = function ( wavelength ) {
       // positions
-      var x = Util.clamp( positionToValue.evaluateInverse( wavelength ), 0, track.width );
+      var x = positionToValue.evaluateInverse( wavelength );
       thumb.centerX = x;
       cursor.centerX = x;
       valueDisplay.centerX = x;
