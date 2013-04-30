@@ -19,7 +19,7 @@ BUGS
 - iPad, Nexus: performance of particles
 
 HIGH
-- handle click offset for thumb in wavelength slider
+- handle click offset for thumb in wavelength slider and evaporation slider
 - text that is supposed to be invisible is visible when switching tabs (eg, "Saturate!")
 - resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
 - ruler
