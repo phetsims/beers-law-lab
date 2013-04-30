@@ -31,18 +31,15 @@ MEDIUM
 - disable (instead of hide) +/- buttons in wavelength slider
 - better +/- buttons for sliders
 - prevent dropper from being dragged by on/off button
-- layout of almost all text is inaccurate
-- dynamic text leaves trails (AT detector value)
-- add relativePressPoint for drag handlers, so that mouse doesn't get away from drag target
+- add relativePressPoint to MovableDragHandler, so that mouse doesn't get away from drag target
 - use ImagesLoader to load images, delete images.js in config.js
-- compute deltaSeconds in animation loop
 - improve drag handler for faucet handles
-- split faucet_handle.png into 2 images, so that only the knob is interactive?
 
 LOW
 - Grunt file
 - nicer knob for evaporation slider
 - value in concentration meter jitters horizontally as value changes
+- split faucet_handle.png into 2 images, so that only the knob is interactive?
 - use scenery.Pattern to texture map input pipe in FaucetNode
 - use scenery.Font for font specification
 - get new images for faucet, faucet_pipe.png doesn't match up with faucet_spigot.png
@@ -60,7 +57,6 @@ Color
 DebugOriginNode
 FaucetNode + images
 StringUtils
-polyfill for requestAnimationFrame
 LinearFunction
 MomentaryButtonNode + ToggleButtonNode + images
 HorizontalTiledNode
