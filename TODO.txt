@@ -23,7 +23,6 @@ BUGS
 HIGH
 - alignment of shaker and dropper labels is off (DOM rendering problem when rotation is involved)
 - resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
-- ruler
 - solution combo box
 - concentration slider
 - rewrite combo box in scenery
