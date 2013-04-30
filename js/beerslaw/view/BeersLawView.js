@@ -18,6 +18,7 @@ define( function ( require ) {
   var LightNode = require( "beerslaw/view/LightNode" );
   var TabView = require( 'JOIST/TabView' );
   var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
+  var RulerNode = require( "beerslaw/view/RulerNode" );
   var Scene = require( "SCENERY/Scene" );
   var Text = require( "SCENERY/nodes/Text" );
   var WavelengthControlNode = require( "beerslaw/view/WavelengthControlNode" );
@@ -37,6 +38,7 @@ define( function ( require ) {
     var beamNode = new BeamNode( model.beam );
     var detectorNode = new ATDetectorNode( model.detector, mvt );
     var wavelengthControlNode = new WavelengthControlNode( model.solution, model.light );
+    var rulerNode = new RulerNode( model.ruler, mvt );
 
     // Reset All button
     var resetAllButton = new ResetAllButton( function () {
@@ -50,6 +52,7 @@ define( function ( require ) {
     thisView.addChild( cuvetteNode );
     thisView.addChild( beamNode );
     thisView.addChild( lightNode );
+    thisView.addChild( rulerNode );
     // Add anything containing interactive DOM elements last, or they will not receive events.
     thisView.addChild( resetAllButton );
 
