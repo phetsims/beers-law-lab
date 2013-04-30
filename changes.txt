@@ -1,3 +1,4 @@
+4/30/13 add query-parameters.js and check-assertions.js to html file
 4/30/13 migrate RulerNode to scenery-phet
 4/30/13 complete port of Java RulerNode
 4/30/13 replace DOMText with Text and HTMLText, as appropriate

@@ -15,7 +15,6 @@ require(
   ],
   function ( Sim, ConcentrationTab, BeersLawTab, Util, BLLStrings ) {
     "use strict";
-    console.log( Util.testAssert() ); // determine whether assertions are enabled in scenery
     new Sim( BLLStrings.beersLawLab,
              [ new ConcentrationTab(), new BeersLawTab() ],
              { showHomeScreen: false, tabIndex: 1 } )
