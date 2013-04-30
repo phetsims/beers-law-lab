@@ -115,9 +115,9 @@ define( function ( require ) {
     assert && assert( maxWavelength >= VisibleColor.MIN_WAVELENGTH && maxWavelength <= VisibleColor.MAX_WAVELENGTH );
     var trackWidth = options.trackWidth || 150;
     var trackHeight = options.trackHeight || 30;
-    var thumbWidth = options.thumbWidth || 20;
-    var thumbHeight = options.thumbHeight || 20;
-    var valueFont = options.valueFont || "14px Arial";
+    var thumbWidth = options.thumbWidth || 28;
+    var thumbHeight = options.thumbHeight || 28;
+    var valueFont = options.valueFont || "20px Arial";
     var valueFill = options.valueFill || 'black';
 
     var thumb = new Thumb( thumbWidth, thumbHeight );
