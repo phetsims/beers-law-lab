@@ -12,8 +12,8 @@ define( function ( require ) {
   // imports
   var Color = require( "common/model/Color" );
   var ConcentrationSolution = require( "concentration/model/ConcentrationSolution" );
-  var DOMText = require( "common/view/DOMText" );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
+  var HTMLText = require( "SCENERY/nodes/HTMLText" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
   var MomentaryButtonNode = require( "common/view/MomentaryButtonNode" );
@@ -72,12 +72,12 @@ define( function ( require ) {
     var backgroundNode = new Image( backgroundImage );
 
     // label
-    var labelNode = new DOMText( dropper.solute.formula, { font: "bold 15px Arial", fill: "black" } );
+    var labelNode = new HTMLText( dropper.solute.formula, { font: "bold 15px Arial", fill: "black" } );
 
     // label background, so the label shows up on various fluid colors
     var labelBackgroundNode = new Path(
       {
-        fill: new Color( 240, 240, 240, 150 ).toCSS(),
+        fill: new Color( 240, 240, 240, 0.6 ).toCSS(),
         lineWidth: 0
       } );
 

@@ -9,12 +9,12 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var DOMText = require( "common/view/DOMText" );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
   var Node = require( "SCENERY/nodes/Node" );
+  var HTMLText = require( "SCENERY/nodes/HTMLText" );
   var Util = require( "DOT/Util" );
   var Vector2 = require( "DOT/Vector2" );
 
@@ -42,7 +42,7 @@ define( function ( require ) {
     imageNode.setScaleMagnitude( 0.75 );
 
     // label
-    var labelNode = new DOMText( shaker.solute.formula, { font: "bold 22px Arial", fill: "black" } );
+    var labelNode = new HTMLText( shaker.solute.formula, { font: "bold 22px Arial", fill: "black" } );
 
     // common parent, to simplify rotation and label alignment.
     var parentNode = new Node();

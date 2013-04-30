@@ -22,7 +22,6 @@ define( function( require ) {
   // imports
   var BLLStrings = require( "common/BLLStrings" );
   var Color = require( "common/model/Color" );
-  var DOMText = require( "common/view/DOMText" );
   var HorizontalTiledNode = require( "common/view/HorizontalTiledNode" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -66,7 +65,7 @@ define( function( require ) {
     // text nodes
     var titleNode = new Text( BLLStrings.concentration, { font: "bold 18px Arial", fill: "white" } );
     var unitsNode = new Text( StringUtils.format( BLLStrings.pattern_parentheses_0text, [ BLLStrings.units_molesPerLiter ]), { font: "bold 14px Arial", fill: "white" } );
-    var valueNode = new DOMText( new Number( 1 ).toFixed( VALUE_DECIMALS ), { font: "24px Arial", fill: "black" } );
+    var valueNode = new Text( new Number( 1 ).toFixed( VALUE_DECIMALS ), { font: "24px Arial", fill: "black" } );
 
     // create a background that fits the text
     var maxTextWidth = Math.max( titleNode.width, unitsNode.width );
