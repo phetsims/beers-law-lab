@@ -14,7 +14,7 @@ define( function( require ) {
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
   var Node = require( "SCENERY/nodes/Node" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
-  var RulerNode = require( "beerslaw/view/RulerNode" );
+  var RulerNode = require( "SCENERY_PHET/RulerNode" );
 
   /**
    * @param {Ruler} ruler
