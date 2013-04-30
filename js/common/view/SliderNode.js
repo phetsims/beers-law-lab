@@ -79,7 +79,7 @@ define( function ( require ) {
     } );
 
     // mapping between value and track position
-    thisNode._valueToPosition = new LinearFunction( range, new Range( 0, trackSize.width ) );
+    thisNode._valueToPosition = new LinearFunction( range, new Range( 0, trackSize.width ), true /* clamp */ );
 
     // move knob when value changes
     value.addObserver( function ( value ) {
@@ -92,7 +92,7 @@ define( function ( require ) {
         drag: function ( event, trail ) {
           if ( enabled.get() ) {
             var localPosition = trail.getTransform().inversePosition2( event.pointer.point ); // global to local
-            value.set( Util.clamp( thisNode._valueToPosition.evaluateInverse( localPosition.x ), range.min, range.max ) );
+            value.set( thisNode._valueToPosition.evaluateInverse( localPosition.x ) );
           }
         },
         end: function() {
