@@ -10,6 +10,7 @@ define( function ( require ) {
   // imports
   var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
   var BLLStrings = require( "common/BLLStrings" );
+  var Button = require( "SUN/Button" );
   var Dimension2 = require( "DOT/Dimension2" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -124,6 +125,14 @@ define( function ( require ) {
     var track = new TrackNode( trackWidth, trackHeight, minWavelength, maxWavelength );
     var cursor = new Cursor( 3, track.height );
 
+    //TODO these are ugly
+    var plusButton = new Button( new Text( "+", { font: "18px Arial", fill: 'black' } ), function () {
+      wavelength.set( wavelength.get() + 1 );
+    }, { cornerRadius: 2 } );
+    var minusButton = new Button( new Text( "-", { font: "18px Arial", fill: 'black' } ), function () {
+      wavelength.set( wavelength.get() - 1 );
+    }, { cornerRadius: 2 } );
+
     /*
      * Put a border around the track.
      * We don't stroke the track itself because stroking the track will affect its bounds,
@@ -139,11 +148,17 @@ define( function ( require ) {
     thisNode.addChild( thumb );
     thisNode.addChild( valueDisplay );
     thisNode.addChild( cursor );
+    thisNode.addChild( plusButton );
+    thisNode.addChild( minusButton );
 
     // layout
     cursor.top = track.top;
     thumb.top = track.bottom;
     valueDisplay.bottom = track.top - 2;
+    plusButton.left = track.right + 3;
+    plusButton.centerY = track.centerY;
+    minusButton.right = track.left - 3;
+    minusButton.centerY = track.centerY;
 
     // track interactivity
     track.cursor = 'pointer';
@@ -179,6 +194,10 @@ define( function ( require ) {
       valueDisplay.centerX = x;
       // thumb color
       thumb.fill = VisibleColor.wavelengthToColor( wavelength ).toCSS();
+      // plus and minus buttons
+      //TODO better to disable these button than hide them, but not supported by sun.Button yet
+      plusButton.visible = ( wavelength < maxWavelength );
+      minusButton.visible = ( wavelength > minWavelength );
     };
     wavelength.addObserver( function ( wavelength ) {
       updateUI( wavelength );
