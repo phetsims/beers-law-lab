@@ -16,7 +16,7 @@ define( function ( require ) {
   var ATDetectorNode = require( "beerslaw/view/ATDetectorNode" );
   var inherit = require( "PHET_CORE/inherit" );
   var LightNode = require( "beerslaw/view/LightNode" );
-  var TabView = require( 'JOIST/TabView' );
+  var TabView = require( "JOIST/TabView" );
   var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
   var BLLRulerNode = require( "beerslaw/view/BLLRulerNode" );
   var Scene = require( "SCENERY/Scene" );

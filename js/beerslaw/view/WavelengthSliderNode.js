@@ -6,10 +6,10 @@
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
 define( function ( require ) {
-  'use strict';
+  "use strict";
 
   // imports
-  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
+  var assert = require( "ASSERT/assert" )( "beers-law-lab" );
   var BLLStrings = require( "common/BLLStrings" );
   var Button = require( "SUN/Button" );
   var Dimension2 = require( "DOT/Dimension2" );
@@ -37,7 +37,7 @@ define( function ( require ) {
   //TODO this looks crappy and is likely inefficient
   function TrackNode( width, height, minWavelength, maxWavelength ) {
     var thisNode = this;
-    Node.call( thisNode, { stroke: 'black', lineWidth: 1 } );
+    Node.call( thisNode, { stroke: "black", lineWidth: 1 } );
     var positionToWavelength = new LinearFunction( new Range( 0, width ), new Range( minWavelength, maxWavelength ) );
     for ( var i = 0; i < width; i++ ) {
       var wavelength = positionToWavelength.evaluate( i );
@@ -62,7 +62,7 @@ define( function ( require ) {
       .lineTo( -0.5 * width, 1 * height )
       .lineTo( -0.5 * width, 0.3 * height )
       .close();
-    Path.call( this, { shape: shape, stroke: 'black', lineWidth: 1, fill: 'black' } );
+    Path.call( this, { shape: shape, stroke: "black", lineWidth: 1, fill: "black" } );
   }
 
   inherit( Thumb, Path );
@@ -91,7 +91,7 @@ define( function ( require ) {
    * @constructor
    */
   function Cursor( width, height ) {
-    Rectangle.call( this, -width / 2, 0, width, height, { stroke: 'black', lineWidth: 1 } );
+    Rectangle.call( this, -width / 2, 0, width, height, { stroke: "black", lineWidth: 1 } );
   }
 
   inherit( Cursor, Rectangle );
@@ -119,7 +119,7 @@ define( function ( require ) {
     var thumbWidth = options.thumbWidth || 28;
     var thumbHeight = options.thumbHeight || 28;
     var valueFont = options.valueFont || "20px Arial";
-    var valueFill = options.valueFill || 'black';
+    var valueFill = options.valueFill || "black";
 
     var thumb = new Thumb( thumbWidth, thumbHeight );
     var valueDisplay = new ValueDisplay( wavelength, valueFont, valueFill );
@@ -127,10 +127,10 @@ define( function ( require ) {
     var cursor = new Cursor( 3, track.height );
 
     //TODO these are ugly
-    var plusButton = new Button( new Text( "+", { font: "18px Arial", fill: 'black' } ), function () {
+    var plusButton = new Button( new Text( "+", { font: "18px Arial", fill: "black" } ), function () {
       wavelength.set( wavelength.get() + 1 );
     }, { cornerRadius: 2 } );
-    var minusButton = new Button( new Text( "-", { font: "18px Arial", fill: 'black' } ), function () {
+    var minusButton = new Button( new Text( "-", { font: "18px Arial", fill: "black" } ), function () {
       wavelength.set( wavelength.get() - 1 );
     }, { cornerRadius: 2 } );
 
@@ -141,7 +141,7 @@ define( function ( require ) {
      * Having a separate border also gives subclasses a place to add markings (eg, tick marks)
      * without affecting the track's bounds.
      */
-    var trackBorder = new Rectangle( 0, 0, track.width, track.height, { stroke: 'black', lineWidth: 1, pickable: false } );
+    var trackBorder = new Rectangle( 0, 0, track.width, track.height, { stroke: "black", lineWidth: 1, pickable: false } );
 
     // rendering order
     thisNode.addChild( track );
@@ -162,7 +162,7 @@ define( function ( require ) {
     minusButton.centerY = track.centerY;
 
     // track interactivity
-    track.cursor = 'pointer';
+    track.cursor = "pointer";
     var positionToValue = new LinearFunction( new Range( 0, track.width ), new Range( minWavelength, maxWavelength ), true /* clamp */ );
     track.addInputListener(
       {
@@ -174,7 +174,7 @@ define( function ( require ) {
       } );
 
     // thumb interactivity
-    thumb.cursor = 'pointer';
+    thumb.cursor = "pointer";
     var clickXOffset = 0; // x-offset between initial click and thumb's origin
     thumb.addInputListener( new SimpleDragHandler(
       {

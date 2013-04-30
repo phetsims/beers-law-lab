@@ -173,7 +173,7 @@ define( function( require ) {
     var thisNode = this;
     Path.call( thisNode, {
       shape: new Shape(),
-      stroke: 'gray',
+      stroke: "gray",
       lineWidth: 8,
       lineCap: "square",
       lineJoin: "round"

@@ -22,7 +22,7 @@ define( function ( require ) {
   var FaucetNode = require( "concentration/view/FaucetNode" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
-  var TabView = require( 'JOIST/TabView' );
+  var TabView = require( "JOIST/TabView" );
   var PrecipitateNode = require( "concentration/view/PrecipitateNode" );
   var Range = require( "DOT/Range" );
   var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
@@ -79,7 +79,7 @@ define( function ( require ) {
     var evaporator = new EvaporatorNode( model.evaporator );
 
     // Remove Solute button
-    var removeSoluteButtonNode = new Button( new Text( BLLStrings.removeSolute, { font: "22px Arial", fill: 'black' } ),
+    var removeSoluteButtonNode = new Button( new Text( BLLStrings.removeSolute, { font: "22px Arial", fill: "black" } ),
                                              function () {
                                                model.solution.soluteAmount.set( 0 );
                                              }, { xMargin: 10 } );

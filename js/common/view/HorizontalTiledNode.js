@@ -11,7 +11,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
+  var assert = require( "ASSERT/assert" )( "beers-law-lab" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );

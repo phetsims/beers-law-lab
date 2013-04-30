@@ -48,8 +48,8 @@ define( function ( require ) {
     thisNode._trackNode = new Path(
       {
         shape: Shape.rect( 0, 0, trackSize.width, trackSize.height ),
-        fill: 'white',
-        stroke: 'black',
+        fill: "white",
+        stroke: "black",
         lineWidth: 1
       } );
     thisNode.addChild( thisNode._trackNode );
@@ -66,7 +66,7 @@ define( function ( require ) {
           .lineTo( -KNOB_SIZE.width / 2, 0.65 * KNOB_SIZE.height )
           .close(),
         fill: KNOB_FILL_ENABLED,
-        stroke: 'black',
+        stroke: "black",
         lineWidth: 1
       } );
     knobNode.centerY = thisNode._trackNode.centerY;
@@ -150,7 +150,7 @@ define( function ( require ) {
           .moveTo( labelX, this._trackNode.bottom )
           .lineTo( labelX, this._trackNode.bottom + tickLength ),
         lineWidth: 1,
-        stroke: 'black'
+        stroke: "black"
       } );
     this._ticksParent.addChild( tickNode );
     // label

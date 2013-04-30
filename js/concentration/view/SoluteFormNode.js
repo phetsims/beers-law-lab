@@ -44,7 +44,7 @@ define( function( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
-    var TEXT_OPTIONS = { font: "22px Arial", fill: 'black' };
+    var TEXT_OPTIONS = { font: "22px Arial", fill: "black" };
     var X_SPACING = 10;
     var shakerButton = new RadioButton( shaker.visible, true, new TextAndIconNode( BLLStrings.solid, TEXT_OPTIONS, shakerIcon, X_SPACING ) );
     var dropperButton = new RadioButton( dropper.visible, true, new TextAndIconNode( BLLStrings.solution, TEXT_OPTIONS, dropperIcon, X_SPACING ) );

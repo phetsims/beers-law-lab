@@ -6,7 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function ( require ) {
-  'use strict';
+  "use strict";
 
   // imports
   var ATDetector = require( "beerslaw/model/ATDetector" );
@@ -152,7 +152,7 @@ define( function ( require ) {
     var thisNode = this;
     Path.call( this, {
       shape: new Shape(),
-      stroke: 'gray',
+      stroke: "gray",
       lineWidth: 8,
       lineCap: "square",
       lineJoin: "round"

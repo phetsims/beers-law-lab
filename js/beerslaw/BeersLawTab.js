@@ -23,7 +23,7 @@ define( function ( require ) {
 
     this.name = BLLStrings.beersLaw;
     this.icon = new Image( ICON );
-    this.backgroundColor = 'white';
+    this.backgroundColor = "white";
 
     // No offset, scale 125x when going from model to view (1cm == 125 pixels)
     var mvt = ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 125 );

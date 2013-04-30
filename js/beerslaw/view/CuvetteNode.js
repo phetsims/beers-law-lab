@@ -9,7 +9,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
+  var assert = require( "ASSERT/assert" )( "beers-law-lab" );
   var Color = require( "common/model/Color" );
   var FillHighlighter = require( "common/view/FillHighlighter" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -94,9 +94,9 @@ define( function ( require ) {
       .close();
 
     // nodes
-    var cuvetteNode = new Path( { stroke: 'black', lineWidth: 3 } );
+    var cuvetteNode = new Path( { stroke: "black", lineWidth: 3 } );
     var solutionNode = new Path( { lineWidth: 0.5 } );
-    var arrowNode = new Path( { shape: arrowShape, fill: ARROW_FILL.toCSS(), stroke: 'black', lineWidth: 1 } );
+    var arrowNode = new Path( { shape: arrowShape, fill: ARROW_FILL.toCSS(), stroke: "black", lineWidth: 1 } );
 
     // rendering order
     thisNode.addChild( solutionNode );

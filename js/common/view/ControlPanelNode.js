@@ -29,7 +29,7 @@ define( function ( require ) {
     var thisNode = this;
     Node.call( thisNode, options );
 
-    var panelNode = new Path( { fill: '#F0F0F0', stroke: 'gray', lineWidth: 1  } );
+    var panelNode = new Path( { fill: "#F0F0F0", stroke: "gray", lineWidth: 1  } );
     thisNode.addChild( panelNode );
     thisNode.addChild( contentNode );
 

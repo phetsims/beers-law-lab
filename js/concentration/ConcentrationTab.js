@@ -23,7 +23,7 @@ define( function ( require ) {
 
     this.name = BLLStrings.concentration;
     this.icon = new Image( ICON );
-    this.backgroundColor = 'white';
+    this.backgroundColor = "white";
 
     var mvt = ModelViewTransform2.createIdentity();
 
