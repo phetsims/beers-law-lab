@@ -11,6 +11,7 @@ SCENERY BUGS
 - iPad: Text node performance is not usable for dynamic text (scenery#16)
 - iPad: "Drink mix" text on shaker is broken into 2 lines, text moves separate from shaker, ditto for dropper (scenery#13)
 - in SoluteControlsNode, setting font "32px Arial" for soluteLabel results in Node.invalidateSelf assertion failure (scenery#22)
+- text that is supposed to be invisible is visible when switching tabs, eg"Saturate!" (scenery#25)
 
 SCENERY ENHANCEMENTS
 
@@ -20,7 +21,6 @@ BUGS
 
 HIGH
 - handle click offset for thumb in wavelength slider and evaporation slider
-- text that is supposed to be invisible is visible when switching tabs (eg, "Saturate!")
 - resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
 - ruler
 - solution combo box
