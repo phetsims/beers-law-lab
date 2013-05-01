@@ -35,7 +35,7 @@ MEDIUM
 
 LOW
 - sim resizing doesn't play nice with browser zoom features
-- nicer knob for evaporation slider
+- nicer knobs slider
 - better +/- buttons for sliders
 - better spectrum for wavelength slider track
 - value in concentration meter jitters horizontally as value changes
