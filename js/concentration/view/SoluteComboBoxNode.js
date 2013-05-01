@@ -1,14 +1,11 @@
-// Copyright 2002-2013, University of Colorado
+// Copyright 2013, University of Colorado
 
-//TODO no hand cursor over dropdown
-//TODO no accessibility in dropdown?
-//TODO add icons to indicate solute colors
+//TODO rewrite using scenery
 /**
- * Bootstrap dropdown for choosing a solute.
+ * Combo box for choosing a solute.
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-
 define( function ( require ) {
   "use strict";
 
@@ -21,7 +18,7 @@ define( function ( require ) {
    * @param {Property} currentSolute (of type Solute)
    * @constructor
    */
-  function SoluteDropdownNode( solutes, currentSolute ) {
+  function SoluteComboBoxNode( solutes, currentSolute ) {
 
     var thisNode = this;
 
@@ -69,7 +66,7 @@ define( function ( require ) {
     } );
   }
 
-  inherit( SoluteDropdownNode, DOM );
+  inherit( SoluteComboBoxNode, DOM );
 
-  return SoluteDropdownNode;
+  return SoluteComboBoxNode;
 } );
