@@ -26,16 +26,26 @@ define( function ( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
-    // TODO placeholder
-//    thisNode.addChild( new Rectangle( 0, 0, 300, 30, { stroke: 'black' } ) );
-
+    var defaultItem;
     var items = new Array();
-    items[0] = new Text( "zero", { font: "24px Arial" } );
-    items[1] = new Text( "one", { font: "24px Arial" } );
-    items[2] = new Text( "two", { font: "24px Arial" } );
-    var selectedItem = new Property( items[0] );
-    var comboBoxNode = new ComboBoxNode( items, selectedItem, { buttonFill: "yellow", listPosition: "below" } );
+    for ( var i = 0; i < solutions.length; i++ ) {
+      var solution = solutions[i];
+      items[i] = new Text( solution.name, { font: "20px Arial" } );
+      items[i].solution = solution; //TODO is this an acceptable way to do associate item with its model element?
+      if ( solution === selectedSolution.get() ) {
+        defaultItem = items[i];
+      }
+    }
+    //TODO assert && assert ( !_.isUndefined( defaultItem ) );
+
+    var selectedItem = new Property( defaultItem );
+    var comboBoxNode = new ComboBoxNode( items, selectedItem, { listPosition: "above" } );
     thisNode.addChild( comboBoxNode );
+
+    // update model when combo box selection changes
+    selectedItem.addObserver( function( item ) {
+        selectedSolution.set( item.solution );
+    });
   }
 
   inherit( SolutionComboBoxNode, Node );

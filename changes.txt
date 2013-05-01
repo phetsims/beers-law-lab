@@ -1,3 +1,4 @@
+5/1/13 wire up combo box for selecting solution
 5/1/13 primitive combo box
 5/1/13 delete assertion-disabling code from config.js
 5/1/13 adjust ruler drag bounds
