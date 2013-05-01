@@ -26,7 +26,7 @@ HIGH
 
 MEDIUM
 - resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
-- disable (instead of hide) +/- buttons in wavelength slider (not supported by sun.Button)
+- disable (instead of hide) +/- buttons for sliders (not supported by sun.Button)
 - prevent dropper from being dragged by on/off button
 - add relativePressPoint to MovableDragHandler, so that mouse doesn't get away from drag target
 - use ImagesLoader to load images, delete images.js in config.js
