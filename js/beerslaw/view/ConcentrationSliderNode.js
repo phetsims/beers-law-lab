@@ -115,6 +115,28 @@ define( function ( require ) {
   inherit( TickLabelNode, Text );
 
   /**
+   * The slider thumb, a rounded rectangle with a vertical line through its center.
+   * @param {Dimension2} size
+   * @param {Property} solution of type BeersLawSolution
+   * @constructor
+   */
+  function ThumbNode( size, solution ) {
+
+    var thisNode = this;
+    Node.call( thisNode, { cursor: "pointer" } );
+
+    var arcWidth = 0.25 * size.width;
+    var bodyNode = new Rectangle( -size.width / 2, -size.height/ 2, size.width, size.height, arcWidth, arcWidth,
+                                  { fill: THUMB_FILL_NORMAL.toCSS(), stroke: THUMB_STROKE, lineWidth: THUMB_LINE_WIDTH } );
+    var centerLineNode = new Path( { shape: Shape.lineSegment( 0, -(size.height/2) + 3, 0, (size.height/2) - 3 ), stroke: THUMB_CENTER_LINE_STROKE.toCSS() });
+
+    thisNode.addChild( bodyNode );
+    thisNode.addChild( centerLineNode );
+  }
+
+  inherit( ThumbNode, Node );
+
+  /**
    * @param {Property} solution of type BeersLawSolution
    * @constructor
    */
@@ -125,6 +147,7 @@ define( function ( require ) {
 
     // nodes
     var trackNode = new TrackNode( TRACK_SIZE, solution );
+    var thumbNode = new ThumbNode( THUMB_SIZE, solution );
     var minTickLineNode = new TickLineNode();
     var maxTickLineNode = new TickLineNode();
     var minTickLabelNode = new TickLabelNode( 0 ); // correct value will be set when observer is registered
@@ -136,6 +159,7 @@ define( function ( require ) {
     thisNode.addChild( minTickLabelNode );
     thisNode.addChild( maxTickLabelNode );
     thisNode.addChild( trackNode );
+    thisNode.addChild( thumbNode );
 
     // layout
     minTickLineNode.left = trackNode.left;
@@ -144,6 +168,8 @@ define( function ( require ) {
     maxTickLineNode.right = trackNode.right;
     maxTickLineNode.top = trackNode.bottom;
     maxTickLabelNode.top = maxTickLineNode.bottom + 2;
+    thumbNode.centerX = trackNode.centerX;
+    thumbNode.centerY = trackNode.centerY;
 
     // update the tick labels to match the solution
     solution.addObserver( function ( solution ) {
@@ -163,68 +189,6 @@ define( function ( require ) {
   return ConcentrationSliderNode;
 } );
 
-//    public ConcentrationSliderNode( final Property<BeersLawSolution> solution ) {
-//
-//        // track that the thumb moves in
-//        PNode trackNode = new TrackNode( UserComponents.concentrationSliderTrack, TRACK_SIZE, solution );
-//
-//        // thumb that moves in the track
-//        PNode thumbNode = new ThumbNode( UserComponents.concentrationSliderThumb, THUMB_SIZE, TRACK_SIZE, this, trackNode, solution );
-//
-//        // min and max tick marks
-//        final TickNode minNode = new TickNode( solution.get().concentrationRange.getMin() );
-//        final TickNode maxNode = new TickNode( solution.get().concentrationRange.getMax() );
-//
-//        // rendering order
-//        {
-//            if ( TICKS_VISIBLE ) {
-//                addChild( maxNode );
-//                addChild( minNode );
-//            }
-//            addChild( trackNode );
-//            addChild( thumbNode );
-//        }
-//
-//        // layout
-//        {
-//            // min label at left end of track
-//            minNode.setOffset( 0, trackNode.getFullBoundsReference().getMaxY() );
-//            // max label at right end of track
-//            maxNode.setOffset( TRACK_SIZE.getWidth(), trackNode.getFullBoundsReference().getMaxY() );
-//            // thumb vertically centered in track
-//            thumbNode.setOffset( thumbNode.getXOffset(), trackNode.getFullBoundsReference().getCenterY() );
-//        }
-//
-//        // update the tick marks to match the solution
-//        solution.addObserver( new SimpleObserver() {
-//            public void update() {
-//                final DoubleRange concentrationRange = solution.get().concentrationRange;
-//                final ConcentrationTransform transform = solution.get().concentrationTransform;
-//                minNode.setValue( transform.modelToView( concentrationRange.getMin() ) );
-//                maxNode.setValue( transform.modelToView( concentrationRange.getMax() ) );
-//            }
-//        } );
-//    }
-//
-//    // Tick mark, a vertical line with a label centered below it.
-//    private static class TickNode extends PComposite {
-//
-//        private final PPath tickNode;
-//        private final PText textNode;
-//
-//        public TickNode( double value ) {
-//            addChild( tickNode = new PPath( new Line2D.Double( 0, 0, 0, TICK_LENGTH ) ) ); // vertical tick
-//            addChild( textNode = new PhetPText( TICK_FONT ) );
-//            setValue( value );
-//        }
-//
-//        public void setValue( double value ) {
-//            textNode.setText( TICK_FORMAT.format( value ) );
-//            // center text below tick
-//            textNode.setOffset( tickNode.getFullBoundsReference().getCenterX() - ( textNode.getFullBoundsReference().getWidth() / 2 ),
-//                                tickNode.getFullBoundsReference().getMaxY() + 2 );
-//        }
-//    }
 //
 //    // The slider thumb, a rounded rectangle with a vertical line through its center. Origin is at the thumb's geometric center.
 //    private static class ThumbNode extends PComposite {
