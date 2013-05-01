@@ -1,7 +1,7 @@
 // Copyright 2013, University of Colorado
 
 /**
- * Slider for changing a solution's concentration.
+ * Combo box for selecting solutions.
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
@@ -12,22 +12,22 @@ define( function ( require ) {
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
-  var SliderNode = require( "common/view/SliderNode" );
 
   /**
-   * @param {Property} solution of type BeersLawSolution
+   * @param {Array} solutions of type BeersLawSolution
+   * @param {Property} selectedSolution of type BeersLawSolution
    * @constructor
    */
-  function ConcentrationSliderNode( solution ) {
+  function SolutionComboBoxNode( solutions, selectedSolution ) {
 
     var thisNode = this;
     Node.call( thisNode );
 
     // TODO placeholder
-    thisNode.addChild( new Rectangle( 0, 0, 250, 10, { stroke: 'black' } ) );
+    thisNode.addChild( new Rectangle( 0, 0, 300, 30, { stroke: 'black' } ) );
   }
 
-  inherit( ConcentrationSliderNode, Node );
+  inherit( SolutionComboBoxNode, Node );
 
-  return ConcentrationSliderNode;
+  return SolutionComboBoxNode;
 } );
