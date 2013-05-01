@@ -19,9 +19,9 @@ BUGS
 - iPad: wavelength slider is unusable and thumb disappears
 
 HIGH
+- add +/- buttons to concentration slider
 - solute combo box
 - solution combo box
-- concentration slider
 
 MEDIUM
 - resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
