@@ -188,7 +188,7 @@ define( function ( require ) {
       start: function ( event ) {
         clickXOffset = dragNode.globalToParentPoint( event.pointer.point ).x - event.currentTarget.x;
       },
-      drag: function ( event, trail ) {
+      drag: function ( event ) {
         var x = dragNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
         concentration.set( positionToValue.evaluate( x ) );
       },
