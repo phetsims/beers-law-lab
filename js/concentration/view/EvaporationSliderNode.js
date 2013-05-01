@@ -36,7 +36,7 @@ define( function ( require ) {
    * @param {Boolean} snapToMinWhenReleased
    * @constructor
    */
-  function SliderNode( range, trackSize, value, enabled, snapToMinWhenReleased ) {
+  function EvaporationSliderNode( range, trackSize, value, enabled, snapToMinWhenReleased ) {
 
     // defaults
     snapToMinWhenReleased = _.isUndefined( snapToMinWhenReleased ) ? false : snapToMinWhenReleased;
@@ -119,14 +119,14 @@ define( function ( require ) {
     } );
   }
 
-  inherit( SliderNode, Node );
+  inherit( EvaporationSliderNode, Node );
 
   /**
    * Adds a major tick mark.
    * @param {Number} value
    * @param {Node} labelNode, optional
    */
-  SliderNode.prototype.addMajorTick = function ( value, labelNode ) {
+  EvaporationSliderNode.prototype.addMajorTick = function ( value, labelNode ) {
      this._addTick( MAJOR_TICK_LENGTH, value, labelNode );
   };
 
@@ -135,7 +135,7 @@ define( function ( require ) {
    * @param {Number} value
    * @param {Node} labelNode, optional
    */
-  SliderNode.prototype.addMinorTick = function ( value, labelNode ) {
+  EvaporationSliderNode.prototype.addMinorTick = function ( value, labelNode ) {
     this._addTick( MINOR_TICK_LENGTH, value, labelNode );
   };
 
@@ -145,7 +145,7 @@ define( function ( require ) {
    * @param {Number} value
    * @param {Node} labelNode, optional
    */
-  SliderNode.prototype._addTick = function ( tickLength, value, labelNode ) {
+  EvaporationSliderNode.prototype._addTick = function ( tickLength, value, labelNode ) {
     var labelX = this._valueToPosition.evaluate( value );
     // ticks
     var tickNode = new Path(
@@ -165,5 +165,5 @@ define( function ( require ) {
     }
   };
 
-  return SliderNode;
+  return EvaporationSliderNode;
 } );

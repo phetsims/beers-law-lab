@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * Evaporator.
+ * Evaporation control panel.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -15,20 +15,20 @@ define( function ( require ) {
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Range = require( "DOT/Range" );
-  var SliderNode = require( "common/view/SliderNode" );
+  var EvaporationSliderNode = require( "concentration/view/EvaporationSliderNode" );
   var Text = require( "SCENERY/nodes/Text" );
 
-  function EvaporatorNode( evaporator ) {
+  function EvaporationControlNode( evaporator ) {
 
     var thisNode = this;
 
     var labelNode = new Text( BLLStrings.evaporation, { font: "18px Arial" } );
 
-    var sliderNode = new SliderNode( new Range( 0, evaporator.maxEvaporationRate ),
-                                     new Dimension2( 200, 6 ),
-                                     evaporator.evaporationRate,
-                                     evaporator.enabled,
-                                     true );
+    var sliderNode = new EvaporationSliderNode( new Range( 0, evaporator.maxEvaporationRate ),
+                                                new Dimension2( 200, 6 ),
+                                                evaporator.evaporationRate,
+                                                evaporator.enabled,
+                                                true );
     sliderNode.addMajorTick( 0, new Text( BLLStrings.none, { font: "14px Arial" } ) );
     sliderNode.addMajorTick( evaporator.maxEvaporationRate, new Text( BLLStrings.lots, { font: "14px Arial" } ) );
 
@@ -42,7 +42,7 @@ define( function ( require ) {
     ControlPanelNode.call( thisNode, contentNode );
   }
 
-  inherit( EvaporatorNode, ControlPanelNode );
+  inherit( EvaporationControlNode, ControlPanelNode );
 
-  return EvaporatorNode;
+  return EvaporationControlNode;
 } );

@@ -17,7 +17,7 @@ define( function ( require ) {
   var DOM = require( "SCENERY/nodes/DOM" );
   var Dimension2 = require( "DOT/Dimension2" );
   var DropperNode = require( "concentration/view/DropperNode" );
-  var EvaporatorNode = require( "concentration/view/EvaporatorNode" );
+  var EvaporationControlNode = require( "concentration/view/EvaporationControlNode" );
   var FaucetFluidNode = require( "concentration/view/FaucetFluidNode" );
   var FaucetNode = require( "concentration/view/FaucetNode" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -75,8 +75,8 @@ define( function ( require ) {
     // Solute controls
     var soluteControlsNode = new SoluteControlsNode( model.solutes, model.solute, model.shaker, model.dropper );
 
-    // Evaporator
-    var evaporator = new EvaporatorNode( model.evaporator );
+    // Evaporation controls
+    var evaporationControlNode = new EvaporationControlNode( model.evaporator );
 
     // Remove Solute button
     var removeSoluteButtonNode = new Button( new Text( BLLStrings.removeSolute, { font: "22px Arial", fill: "black" } ),
@@ -103,7 +103,7 @@ define( function ( require ) {
     thisView.addChild( shakerNode );
     thisView.addChild( dropperNode );
     thisView.addChild( concentrationMeterNode );
-    thisView.addChild( evaporator );
+    thisView.addChild( evaporationControlNode );
     // Add anything containing interactive DOM elements last, or they will not receive events.
     thisView.addChild( removeSoluteButtonNode );
     thisView.addChild( resetAllButton );
@@ -118,11 +118,11 @@ define( function ( require ) {
       soluteControlsNode.right = concentrationMeterNode.right;
       soluteControlsNode.top = 20;
       // left-aligned below beaker
-      evaporator.left = mvt.modelToViewPosition( model.beaker.location ).x - mvt.modelToViewDeltaX( model.beaker.size.width / 2 );
-      evaporator.top = beakerNode.bottom + 30;
+      evaporationControlNode.left = mvt.modelToViewPosition( model.beaker.location ).x - mvt.modelToViewDeltaX( model.beaker.size.width / 2 );
+      evaporationControlNode.top = beakerNode.bottom + 30;
       // left of evaporation control
-      removeSoluteButtonNode.left = evaporator.right + 30;
-      removeSoluteButtonNode.centerY = evaporator.centerY;
+      removeSoluteButtonNode.left = evaporationControlNode.right + 30;
+      removeSoluteButtonNode.centerY = evaporationControlNode.centerY;
       // lower right
       resetAllButton.left = drainFaucetNode.right + 10;
       resetAllButton.top = drainFaucetNode.bottom + 5;
