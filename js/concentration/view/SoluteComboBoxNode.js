@@ -1,6 +1,5 @@
 // Copyright 2013, University of Colorado
 
-//TODO rewrite using scenery
 /**
  * Combo box for choosing a solute.
  *
@@ -10,63 +9,44 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var DOM = require( "SCENERY/nodes/DOM" );
+  var assert = require( "ASSERT/assert" )( "beers-law-lab" );
+  var ComboBoxNode = require( "common/view/ComboBoxNode" );
   var inherit = require( "PHET_CORE/inherit" );
+  var Property = require( "PHETCOMMON/model/property/Property" );
+  var Text = require( "SCENERY/nodes/Text" );
 
   /**
    * @param {Array} solutes (of type Solute)
-   * @param {Property} currentSolute (of type Solute)
+   * @param {Property} selectedSolute (of type Solute)
    * @constructor
    */
-  function SoluteComboBoxNode( solutes, currentSolute ) {
+  function SoluteComboBoxNode( solutes, selectedSolute ) {
 
     var thisNode = this;
 
-    var buttonWidth = 250; //TODO compute this. But how?...
-
-    // construct HTML with solute names
-    var html = '<div id="bll-solute-dropdown" class="btn-group">' +
-                   '<a id="bll-solute-dropdown-button" class="btn dropdown-toggle btn-info btn-large" data-toggle="dropdown" href="#" style="width:' + buttonWidth + 'px; text-align:left">' +
-                     '<span id="bll-solute-label">' + currentSolute.get().name + "</span>" +
-                     '<span class="caret" style="margin-left:10px; float:right"></span>' +
-                   '</a>' +
-                 '<ul class="dropdown-menu">';
-    /*
-     * Add each solute to the dropdown.
-     * Include a custom attribute to note its index in the solutes array.
-     * Use class=btn-large to get same font as text on button.
-     */
+    var defaultItem;
+    var items = new Array();
     for ( var i = 0; i < solutes.length; i++ ) {
-      html = html + '<li class="btn-large" solute-index="' + i + '">' + solutes[i].name + '</li>';
+      var solute = solutes[i];
+      items[i] = new Text( solute.name, { font: "20px Arial" } );
+      items[i].solute = solute; //TODO is this an acceptable way to do associate item with its model element?
+      if ( solute === selectedSolute.get() ) {
+        defaultItem = items[i];
+      }
     }
-    html = html + '</ul></div>';
 
-    // create the DOM element
-    var $comboBox = $( html );
+    assert && assert( !_.isUndefined( defaultItem ) );
+    var selectedItem = new Property( defaultItem );
 
-    DOM.call( thisNode, $comboBox );
+    ComboBoxNode.call( thisNode, items, selectedItem, { listPosition: "below" } );
 
-//    $comboBox.find( '.dropdown-toggle' ).dropdown(); //TODO bootstrap doc says to call this, but it doesn't seem to be needed?
-
-    var $currentSelectionButton = $comboBox.find( "#bll-solute-dropdown-button" );
-
-    // Process selection of options in dropdown.
-    $comboBox.find( "li" ).bind( 'click', function ( /* {jQuery.Event} */ event ) {
-      // Look up the selected solute using the custom attribute that holds the index into the solutes array.
-      var index = $( event.delegateTarget ).attr( "solute-index" );
-      var selectedSolute = solutes[index];
-      // Update the model.
-      currentSolute.set( selectedSolute );
-    } );
-
-    // Change the button to reflect the selected solute.
-    currentSolute.addObserver( function ( solute ) {
-      $currentSelectionButton.find( '#bll-solute-label' ).html( solute.name );
-      //TODO set color chip or background color of button?
+    // update model when combo box selection changes
+    selectedItem.addObserver( function ( item ) {
+      selectedSolute.set( item.solute );
     } );
   }
 
-  inherit( SoluteComboBoxNode, DOM );
+  inherit( SoluteComboBoxNode, ComboBoxNode );
 
   return SoluteComboBoxNode;
 } );

@@ -14,7 +14,6 @@ define( function ( require ) {
   var HTMLText = require( "SCENERY/nodes/HTMLText" );
   var inherit = require( "PHET_CORE/inherit" );
   var Property = require( "PHETCOMMON/model/property/Property" );
-  var Rectangle = require( "SCENERY/nodes/Rectangle" );
 
   /**
    * @param {Array} solutions of type BeersLawSolution
