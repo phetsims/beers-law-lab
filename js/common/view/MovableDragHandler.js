@@ -38,7 +38,7 @@ define( function ( require ) {
    * @param {Bounds2} bounds
    */
   MovableDragHandler.prototype.constrainBounds = function ( point, bounds ) {
-    if ( bounds === undefined || bounds.containsCoordinates( point.x, point.y ) ) {
+    if ( typeof bounds === "undefined" || bounds.containsCoordinates( point.x, point.y ) ) {
       return point;
     }
     else {
