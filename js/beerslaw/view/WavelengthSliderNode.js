@@ -183,7 +183,7 @@ define( function ( require ) {
         start: function( event ) {
           clickXOffset = thumb.globalToParentPoint( event.pointer.point ).x - thumb.x;
         },
-        drag: function ( event, trail ) {
+        drag: function ( event ) {
           var x = thumb.globalToParentPoint( event.pointer.point ).x - clickXOffset;
           wavelength.set( positionToValue.evaluate( x ) );
         },

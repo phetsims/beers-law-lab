@@ -142,14 +142,14 @@ define( function ( require ) {
     // interactivity
     bodyNode.addInputListener( new FillHighlighter( bodyNode, THUMB_FILL_NORMAL.toCSS(), THUMB_FILL_HIGHLIGHT.toCSS() ) );
 
-    // sets the drag handler and mapping function for the selected solution
+    // set the drag handler and mapping function for the selected solution
     var dragHandler, concentrationToPosition;
     var setSolution = function ( solution ) {
       // drag handler with solution's concentration range
-      if ( dragHandler != null ) {
+      if ( dragHandler ) {
         thisNode.removeInputListener( dragHandler );
       }
-      dragHandler = {}; // TODO
+      dragHandler = new ThumbDragHandler( thisNode, trackSize, solution.concentration, solution.concentrationRange );
       thisNode.addInputListener( dragHandler );
 
       // linear mapping function with solution's concentration range
@@ -174,6 +174,34 @@ define( function ( require ) {
   }
 
   inherit( ThumbNode, Node );
+
+  /**
+   * Drag handler for the slider thumb.
+   * @param {Node} thumbNode
+   * @param {Dimension2} trackSize
+   * @param {Property} concentration of type number
+   * @param {Range} concentrationRange
+   * @constructor
+   */
+  function ThumbDragHandler( thumbNode, trackSize, concentration, concentrationRange ) {
+
+    var clickXOffset; // x-offset between initial click and thumb's origin
+    var positionToValue = new LinearFunction( new Range( 0, trackSize.width ), concentrationRange, true /* clamp */ );
+    SimpleDragHandler.call( this, {
+      start: function ( event ) {
+        clickXOffset = thumbNode.globalToParentPoint( event.pointer.point ).x - thumbNode.x;
+      },
+      drag: function ( event ) {
+        var x = thumbNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
+        concentration.set( positionToValue.evaluate( x ) );
+      },
+      translate: function () {
+        // do nothing, override default behavior
+      }
+    } );
+  }
+
+  inherit( ThumbDragHandler, SimpleDragHandler );
 
   /**
    * @param {Property} solution of type BeersLawSolution
@@ -227,91 +255,3 @@ define( function ( require ) {
 
   return ConcentrationSliderNode;
 } );
-
-//
-//    // The slider thumb, a rounded rectangle with a vertical line through its center. Origin is at the thumb's geometric center.
-//    private static class ThumbNode extends PComposite {
-//
-//        private Function modelToView;
-//        private ThumbDragHandler dragHandler;
-//
-//        public ThumbNode( final IUserComponent userComponent, final PDimension thumbSize, final PDimension trackSize,
-//                          final PNode relativeNode, final PNode trackNode, final Property<BeersLawSolution> solution ) {
-//
-//            PPath bodyNode = new PPath() {{
-//                final double arcWidth = 0.25 * thumbSize.getWidth();
-//                setPathTo( new RoundRectangle2D.Double( -thumbSize.getWidth() / 2, -thumbSize.getHeight() / 2, thumbSize.getWidth(), thumbSize.getHeight(), arcWidth, arcWidth ) );
-//                setPaint( THUMB_NORMAL_COLOR );
-//                setStroke( THUMB_STROKE );
-//                setStrokePaint( THUMB_STROKE_COLOR );
-//            }};
-//
-//            PPath centerLineNode = new PPath() {{
-//                setPathTo( new Line2D.Double( 0, -( thumbSize.getHeight() / 2 ) + 3, 0, ( thumbSize.getHeight() / 2 ) - 3 ) );
-//                setStrokePaint( THUMB_CENTER_LINE_COLOR );
-//            }};
-//
-//            // rendering order
-//            addChild( bodyNode );
-//            addChild( centerLineNode );
-//
-//            addInputEventListener( new CursorHandler() );
-//            addInputEventListener( new PaintHighlightHandler( bodyNode, THUMB_NORMAL_COLOR, THUMB_HIGHLIGHT_COLOR ) );
-//
-//            // configure for a specific solution
-//            final VoidFunction1<BeersLawSolution> setSolution = new VoidFunction1<BeersLawSolution>() {
-//                public void apply( BeersLawSolution solution ) {
-//
-//                    // drag handler with solution's concentration range
-//                    if ( dragHandler != null ) {
-//                        removeInputEventListener( dragHandler );
-//                    }
-//                    dragHandler = new ThumbDragHandler( userComponent, relativeNode, trackNode, ThumbNode.this, solution.concentrationRange, solution.concentration );
-//                    addInputEventListener( dragHandler );
-//
-//                    // model-to-view function with solution's concentration range
-//                    modelToView = new LinearFunction( solution.concentrationRange.getMin(), solution.concentrationRange.getMax(), 0, trackSize.getWidth() );
-//                }
-//            };
-//            setSolution.apply( solution.get() );
-//
-//            // move the slider thumb to reflect the concentration value
-//            final VoidFunction1<Double> concentrationObserver = new VoidFunction1<Double>() {
-//                public void apply( Double value ) {
-//                    setOffset( modelToView.evaluate( value ), getYOffset() );
-//                }
-//            };
-//            solution.get().concentration.addObserver( concentrationObserver );
-//
-//            // when the solution changes, wire up to the current solution
-//            solution.addObserver( new ChangeObserver<BeersLawSolution>() {
-//                public void update( BeersLawSolution newSolution, BeersLawSolution oldSolution ) {
-//                    setSolution.apply( newSolution );
-//                    oldSolution.concentration.removeObserver( concentrationObserver );
-//                    newSolution.concentration.addObserver( concentrationObserver );
-//                }
-//            } );
-//        }
-//    }
-//
-//    // Drag handler for the slider thumb, with data collection support.
-//    private static class ThumbDragHandler extends SliderThumbDragHandler {
-//
-//        private final Property<Double> modelValue;
-//
-//        public ThumbDragHandler( IUserComponent userComponent, PNode relativeNode, PNode trackNode, PNode thumbNode,
-//                                 DoubleRange range, final Property<Double> modelValue ) {
-//            super( userComponent, false, Orientation.HORIZONTAL, relativeNode, trackNode, thumbNode, range,
-//                   new VoidFunction1<Double>() {
-//                       public void apply( Double value ) {
-//                           modelValue.set( value );
-//                       }
-//                   } );
-//            this.modelValue = modelValue;
-//        }
-//
-//        @Override protected ParameterSet getParametersForAllEvents( PInputEvent event ) {
-//            return super.getParametersForAllEvents( event ).with( ParameterKeys.value, modelValue.get() );
-//        }
-//    }
-//}
