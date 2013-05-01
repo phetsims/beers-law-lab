@@ -9,10 +9,10 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var assert = require( "ASSERT/assert" )( "beers-law-lab" );
   var ComboBoxNode = require( "common/view/ComboBoxNode" );
   var HTMLText = require( "SCENERY/nodes/HTMLText" );
   var inherit = require( "PHET_CORE/inherit" );
-  var Node = require( "SCENERY/nodes/Node" );
   var Property = require( "PHETCOMMON/model/property/Property" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
 
@@ -24,7 +24,6 @@ define( function ( require ) {
   function SolutionComboBoxNode( solutions, selectedSolution ) {
 
     var thisNode = this;
-    Node.call( thisNode );
 
     var defaultItem;
     var items = new Array();
@@ -36,11 +35,11 @@ define( function ( require ) {
         defaultItem = items[i];
       }
     }
-    //TODO assert && assert ( !_.isUndefined( defaultItem ) );
 
+    assert && assert ( !_.isUndefined( defaultItem ) );
     var selectedItem = new Property( defaultItem );
-    var comboBoxNode = new ComboBoxNode( items, selectedItem, { listPosition: "above" } );
-    thisNode.addChild( comboBoxNode );
+
+    ComboBoxNode.call( thisNode, items, selectedItem, { listPosition: "above" } );
 
     // update model when combo box selection changes
     selectedItem.addObserver( function( item ) {
@@ -48,7 +47,7 @@ define( function ( require ) {
     });
   }
 
-  inherit( SolutionComboBoxNode, Node );
+  inherit( SolutionComboBoxNode, ComboBoxNode );
 
   return SolutionComboBoxNode;
 } );
