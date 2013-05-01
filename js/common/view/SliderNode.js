@@ -1,7 +1,8 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * Horizontal slider, snaps to min when released.
+ * Horizontal slider.
+ * Optionally snaps to min when released.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
