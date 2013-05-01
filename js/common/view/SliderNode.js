@@ -38,6 +38,9 @@ define( function ( require ) {
    */
   function SliderNode( range, trackSize, value, enabled, snapToMinWhenReleased ) {
 
+    // defaults
+    snapToMinWhenReleased = _.isUndefined( snapToMinWhenReleased ) ? false : snapToMinWhenReleased;
+
     var thisNode = this;
     Node.call( thisNode );
 
