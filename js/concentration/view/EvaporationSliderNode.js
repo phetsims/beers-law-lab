@@ -21,12 +21,14 @@ define( function ( require ) {
   var Text = require( "SCENERY/nodes/Text" );
   var Util = require( "DOT/Util" );
 
-  // constants
-  var KNOB_SIZE = new Dimension2( 20, 30 );
+  // thumb constants
+  var THUMB_SIZE = new Dimension2( 20, 30 );
+  var THUMB_FILL_ENABLED = "rgb(50,145,184)";
+  var THUMB_FILL_DISABLED = "#F0F0F0";
+
+  // tick constants
   var MAJOR_TICK_LENGTH = 20;
   var MINOR_TICK_LENGTH = 15;
-  var KNOB_FILL_ENABLED = "rgb(50,145,184)";
-  var KNOB_FILL_DISABLED = "#F0F0F0";
 
   /**
    * @param {Range} range
@@ -58,48 +60,48 @@ define( function ( require ) {
       } );
     thisNode.addChild( thisNode._trackNode );
 
-    // knob
-    var knobNode = new Path(
+    // thumb
+    var thumbNode = new Path(
       {
         cursor: "pointer",
         shape: new Shape()
-          .moveTo( -KNOB_SIZE.width / 2, 0 )
-          .lineTo( KNOB_SIZE.width / 2, 0 )
-          .lineTo( KNOB_SIZE.width / 2, 0.65 * KNOB_SIZE.height )
-          .lineTo( 0, KNOB_SIZE.height )
-          .lineTo( -KNOB_SIZE.width / 2, 0.65 * KNOB_SIZE.height )
+          .moveTo( -THUMB_SIZE.width / 2, 0 )
+          .lineTo( THUMB_SIZE.width / 2, 0 )
+          .lineTo( THUMB_SIZE.width / 2, 0.65 * THUMB_SIZE.height )
+          .lineTo( 0, THUMB_SIZE.height )
+          .lineTo( -THUMB_SIZE.width / 2, 0.65 * THUMB_SIZE.height )
           .close(),
-        fill: KNOB_FILL_ENABLED,
+        fill: THUMB_FILL_ENABLED,
         stroke: "black",
         lineWidth: 1
       } );
-    knobNode.centerY = thisNode._trackNode.centerY;
-    thisNode.addChild( knobNode );
+    thumbNode.centerY = thisNode._trackNode.centerY;
+    thisNode.addChild( thumbNode );
 
-    // enable/disable knob
+    // enable/disable thumb
     enabled.addObserver( function ( enabled ) {
-      knobNode.fill = enabled ? KNOB_FILL_ENABLED : KNOB_FILL_DISABLED;
-      knobNode.cursor = enabled ? "pointer" : "default";
+      thumbNode.fill = enabled ? THUMB_FILL_ENABLED : THUMB_FILL_DISABLED;
+      thumbNode.cursor = enabled ? "pointer" : "default";
     } );
 
     // mapping between value and track position
     thisNode._valueToPosition = new LinearFunction( range, new Range( 0, trackSize.width ), true /* clamp */ );
 
-    // move knob when value changes
+    // move thumb when value changes
     value.addObserver( function ( value ) {
-      knobNode.centerX = thisNode._valueToPosition.evaluate( value );
+      thumbNode.centerX = thisNode._valueToPosition.evaluate( value );
     } );
 
-    // update value when knob is dragged
+    // update value when thumb is dragged
     var clickXOffset = 0; // x-offset between initial click and thumb's origin
-    knobNode.addInputListener( new SimpleDragHandler(
+    thumbNode.addInputListener( new SimpleDragHandler(
       {
         start: function ( event ) {
-          clickXOffset = knobNode.globalToParentPoint( event.pointer.point ).x - knobNode.x;
+          clickXOffset = thumbNode.globalToParentPoint( event.pointer.point ).x - thumbNode.x;
         },
-        drag: function ( event, trail ) {
+        drag: function ( event ) {
           if ( enabled.get() ) {
-            var x = knobNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
+            var x = thumbNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
             value.set( thisNode._valueToPosition.evaluateInverse( x ) );
           }
         },
@@ -113,9 +115,9 @@ define( function ( require ) {
       } )
     );
 
-    // update knob location when value changes
+    // update thumb location when value changes
     value.addObserver( function( value ) {
-       knobNode.centerX = thisNode._valueToPosition.evaluate( value );
+       thumbNode.centerX = thisNode._valueToPosition.evaluate( value );
     } );
   }
 
