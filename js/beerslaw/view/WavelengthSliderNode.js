@@ -16,8 +16,10 @@ define( function ( require ) {
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
   var LinearFunction = require( "common/util/LinearFunction" );
+  var MinusIconNode = require( "common/view/MinusIconNode" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
+  var PlusIconNode = require( "common/view/PlusIconNode" );
   var Range = require( "DOT/Range" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
   var Shape = require( "KITE/Shape" );
@@ -126,13 +128,13 @@ define( function ( require ) {
     var track = new TrackNode( trackWidth, trackHeight, minWavelength, maxWavelength );
     var cursor = new Cursor( 3, track.height );
 
-    //TODO these are ugly
-    var plusButton = new Button( new Text( "+", { font: "18px Arial", fill: "black" } ), function () {
+    // buttons for single-unit increments
+    var plusButton = new Button( new PlusIconNode( 12 ), function () {
       wavelength.set( wavelength.get() + 1 );
-    }, { cornerRadius: 2 } );
-    var minusButton = new Button( new Text( "-", { font: "18px Arial", fill: "black" } ), function () {
+    }, { cornerRadius: 4 } );
+    var minusButton = new Button( new MinusIconNode( 12 ), function () {
       wavelength.set( wavelength.get() - 1 );
-    }, { cornerRadius: 2 } );
+    }, { cornerRadius: 4 } );
 
     /*
      * Put a border around the track.

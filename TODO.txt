@@ -33,6 +33,7 @@ MEDIUM
 - add relativePressPoint to MovableDragHandler, so that mouse doesn't get away from drag target
 - use ImagesLoader to load images, delete images.js in config.js
 - improve drag handler for faucet handles
+- sim resizing doesn't play nice with browser zoom features
 
 LOW
 - Grunt file
