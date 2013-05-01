@@ -8,7 +8,6 @@ IMPLEMENTATION ISSUES
 - UI components (radio buttons, combo box, sliders)
 
 SCENERY BUGS
-- text that is supposed to be invisible is visible when switching tabs, eg "Saturate!" (scenery#25)
 
 SCENERY ENHANCEMENTS
 
