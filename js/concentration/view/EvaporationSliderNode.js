@@ -11,6 +11,7 @@ define( function ( require ) {
 
   // imports
   var Dimension2 = require( "DOT/Dimension2" );
+  var FillHighlighter = require( "common/view/FillHighlighter" );
   var inherit = require( "PHET_CORE/inherit" );
   var LinearFunction = require( "common/util/LinearFunction" );
   var Node = require( "SCENERY/nodes/Node" );
@@ -24,6 +25,7 @@ define( function ( require ) {
   // thumb constants
   var THUMB_SIZE = new Dimension2( 20, 30 );
   var THUMB_FILL_ENABLED = "rgb(50,145,184)";
+  var THUMB_FILL_HIGHLIGHTED = "rgb(71,207,255)";
   var THUMB_FILL_DISABLED = "#F0F0F0";
 
   // tick constants
@@ -91,6 +93,9 @@ define( function ( require ) {
     value.addObserver( function ( value ) {
       thumbNode.centerX = thisNode._valueToPosition.evaluate( value );
     } );
+
+    // highlight on mouse enter
+    thumbNode.addInputListener( new FillHighlighter( thumbNode, THUMB_FILL_ENABLED, THUMB_FILL_HIGHLIGHTED, enabled ) );
 
     // update value when thumb is dragged
     var clickXOffset = 0; // x-offset between initial click and thumb's origin

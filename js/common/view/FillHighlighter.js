@@ -13,9 +13,13 @@
 define( function( require ) {
   "use strict";
 
+  // imports
   var inherit = require( "PHET_CORE/inherit" );
+  var Property = require( "PHETCOMMON/model/property/Property" );
 
-  function FillHighlighter( node, normalFill, highlightFill ) {
+  function FillHighlighter( node, normalFill, highlightFill, enabled ) {
+
+    enabled = _.isUndefined( enabled ) ? new Property(true) : enabled;
 
     var isMouseInside = false;
     var isMousePressed = false;
@@ -27,7 +31,9 @@ define( function( require ) {
     };
 
     var setHighlighted = function ( highlighted ) {
-      node.fill = highlighted ? highlightFill : normalFill;
+      if ( enabled.get() ) {
+        node.fill = highlighted ? highlightFill : normalFill;
+      }
     };
 
     var enter = function () {

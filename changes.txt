@@ -1,3 +1,4 @@
+5/1/13 add highlighting to evaporation slider thumb
 5/1/13 made cuvette drag handle 50% larger
 5/1/13 vertically flip AT detector body, so that value display is at the top
 5/1/13 change connection points and control points for AT detector, so that body can be in upper-right of play area
