@@ -35,6 +35,7 @@ MEDIUM
 - PhetStyle.xml
 
 LOW
+- lighting on AT body is vertically flipped
 - sim resizing doesn't play nice with browser zoom features
 - nicer knobs slider
 - better +/- buttons for sliders
