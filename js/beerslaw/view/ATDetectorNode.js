@@ -27,9 +27,9 @@ define( function ( require ) {
 
   // constants
   var BUTTONS_X_MARGIN = 25; // specific to image files
-  var BUTTONS_Y_OFFSET = 17; // specific to image files
+  var BUTTONS_Y_OFFSET = 66; // specific to image files
   var VALUE_X_MARGIN = 30; // specific to image files
-  var VALUE_Y_OFFSET = 90; // specific to image files
+  var VALUE_CENTER_Y = 24; // specific to image files
   var ABSORBANCE_DECIMAL_PLACES = 2;
   var TRANSMITTANCE_DECIMAL_PLACES = 2;
   var NO_VALUE = "-";
@@ -83,7 +83,7 @@ define( function ( require ) {
     buttonGroup.left = BUTTONS_X_MARGIN;
     buttonGroup.top = BUTTONS_Y_OFFSET;
     valueNode.x = VALUE_X_MARGIN;
-    valueNode.top = VALUE_Y_OFFSET;
+    valueNode.top = VALUE_CENTER_Y;
 
     // body location
     detector.body.location.addObserver( function ( location ) {
