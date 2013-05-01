@@ -11,6 +11,7 @@ define( function ( require ) {
   // imports
   var Color = require( "common/model/Color" );
   var Dimension2 = require( "DOT/Dimension2" );
+  var FillHighlighter = require( "common/view/FillHighlighter" );
   var inherit = require( "PHET_CORE/inherit" );
   var LinearFunction = require( "common/util/LinearFunction" );
   var LinearGradient = require( "SCENERY/util/LinearGradient" );
@@ -116,22 +117,60 @@ define( function ( require ) {
 
   /**
    * The slider thumb, a rounded rectangle with a vertical line through its center.
-   * @param {Dimension2} size
+   * @param {Dimension2} thumbSize
+   * @param {Dimension2} trackSize
    * @param {Property} solution of type BeersLawSolution
    * @constructor
    */
-  function ThumbNode( size, solution ) {
+  function ThumbNode( thumbSize, trackSize, solution ) {
 
     var thisNode = this;
     Node.call( thisNode, { cursor: "pointer" } );
 
-    var arcWidth = 0.25 * size.width;
-    var bodyNode = new Rectangle( -size.width / 2, -size.height/ 2, size.width, size.height, arcWidth, arcWidth,
+    // nodes
+    var arcWidth = 0.25 * thumbSize.width;
+    var bodyNode = new Rectangle( -thumbSize.width / 2, -thumbSize.height / 2, thumbSize.width, thumbSize.height, arcWidth, arcWidth,
                                   { fill: THUMB_FILL_NORMAL.toCSS(), stroke: THUMB_STROKE, lineWidth: THUMB_LINE_WIDTH } );
-    var centerLineNode = new Path( { shape: Shape.lineSegment( 0, -(size.height/2) + 3, 0, (size.height/2) - 3 ), stroke: THUMB_CENTER_LINE_STROKE.toCSS() });
+    var centerLineYMargin = 3;
+    var centerLineNode = new Path( { shape: Shape.lineSegment( 0, -( thumbSize.height / 2 ) + centerLineYMargin, 0, ( thumbSize.height / 2 ) - centerLineYMargin ),
+                                     stroke: THUMB_CENTER_LINE_STROKE.toCSS() } );
 
+    // rendering order
     thisNode.addChild( bodyNode );
     thisNode.addChild( centerLineNode );
+
+    // interactivity
+    bodyNode.addInputListener( new FillHighlighter( bodyNode, THUMB_FILL_NORMAL.toCSS(), THUMB_FILL_HIGHLIGHT.toCSS() ) );
+
+    // sets the drag handler and mapping function for the selected solution
+    var dragHandler, concentrationToPosition;
+    var setSolution = function ( solution ) {
+      // drag handler with solution's concentration range
+      if ( dragHandler != null ) {
+        thisNode.removeInputListener( dragHandler );
+      }
+      dragHandler = {}; // TODO
+      thisNode.addInputListener( dragHandler );
+
+      // linear mapping function with solution's concentration range
+      concentrationToPosition = new LinearFunction( solution.concentrationRange, new Range( 0, trackSize.width ), true /* clamp */ );
+    };
+    setSolution( solution.get() );
+
+    // move the slider thumb to reflect the concentration value
+    var concentrationObserver = function ( value ) {
+      thisNode.x = concentrationToPosition.evaluate( value );
+    };
+    solution.get().concentration.addObserver( concentrationObserver );
+
+    // when the solution changes, wire up to the current solution
+    solution.addObserver( function ( newSolution, oldSolution ) {
+      setSolution( newSolution );
+      if ( oldSolution ) {
+        oldSolution.concentration.removeObserver( concentrationObserver );
+      }
+      newSolution.concentration.addObserver( concentrationObserver );
+    } );
   }
 
   inherit( ThumbNode, Node );
@@ -147,7 +186,7 @@ define( function ( require ) {
 
     // nodes
     var trackNode = new TrackNode( TRACK_SIZE, solution );
-    var thumbNode = new ThumbNode( THUMB_SIZE, solution );
+    var thumbNode = new ThumbNode( THUMB_SIZE, TRACK_SIZE, solution );
     var minTickLineNode = new TickLineNode();
     var maxTickLineNode = new TickLineNode();
     var minTickLabelNode = new TickLabelNode( 0 ); // correct value will be set when observer is registered
