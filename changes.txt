@@ -1,3 +1,4 @@
+4/30/13 use _.isUndefined
 4/30/13 slightly better +/- buttons for sliders
 4/30/13 use double quotes consistently
 4/30/13 fix layout of dropper label, increase font size

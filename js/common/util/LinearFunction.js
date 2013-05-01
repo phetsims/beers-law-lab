@@ -19,7 +19,7 @@ define( function ( require ) {
    */
   function LinearFunction( range1, range2, clamp ) {
 
-    clamp = ( typeof clamp === "undefined" ) ? false : clamp;
+    clamp = _.isUndefined( clamp ) ? false : clamp;
 
     var thisFunction = this;
 
