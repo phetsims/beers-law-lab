@@ -63,12 +63,12 @@ define( function ( require ) {
       // below the light
       wavelengthControlNode.left = lightNode.left;
       wavelengthControlNode.top = lightNode.bottom + 20;
+      // below cuvette
+      solutionControlsNode.left = cuvetteNode.left;
+      solutionControlsNode.top = cuvetteNode.bottom + 35;
       // bottom left
-      resetAllButton.right = detectorNode.right;
-      resetAllButton.top = detectorNode.bottom + 15;
-      // solution combo box at top center
-      solutionControlsNode.centerX = thisView.layoutBounds.centerX;
-      solutionControlsNode.top = 20;
+      resetAllButton.left = solutionControlsNode.right + 20;
+      resetAllButton.bottom = solutionControlsNode.bottom;
     }
   }
 

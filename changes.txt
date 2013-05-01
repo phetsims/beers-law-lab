@@ -1,5 +1,4 @@
-5/1/13 move ruler above light, to make room for solution controls below cuvette
-5/1/13 move ruler below wavelength controls
+5/1/13 move things around in "Beer's Law" tab to correspond to layout in design doc
 4/30/13 fix initial location of concentration slider thumb
 4/30/13 update numeric value in concentration control panel, rewire observer when solution changes
 4/30/13 completed port of concentration slider

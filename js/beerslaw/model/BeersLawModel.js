@@ -39,11 +39,11 @@ define( function ( require ) {
 
     thisModel.light = new Light( new Vector2( 1.5, 2.2 ), false, 0.45, thisModel.solution );
 
-    thisModel.cuvette = new Cuvette( new Vector2( thisModel.light.location.x + 1.5, 1.4 ), new Range( 0.5, 2.0, 1.0 ), 3 );
+    thisModel.cuvette = new Cuvette( new Vector2( thisModel.light.location.x + 1.5, 1.3 ), new Range( 0.5, 2.0, 1.0 ), 3 );
 
     var rulerWidth = 2; // cm
     thisModel.ruler = new Ruler( rulerWidth, 0.1, 0.35,
-                                 new Vector2( thisModel.cuvette.location.x - rulerWidth - 0.5, 1 ), // centered under cuvette
+                                 new Vector2( thisModel.cuvette.location.x - rulerWidth - 0.5, 4.9 ),
                                  new Bounds2( 0, 1, 8, 5.5 ) );
 
     this.absorbance = new Absorbance( thisModel.light, thisModel.solution, thisModel.cuvette );
