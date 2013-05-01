@@ -70,12 +70,12 @@ define( function ( require ) {
     thisSolution.fluidColor = new Property( createFluidColor( thisSolution.concentration.get() ) );
 
     // update fluid color when concentration changes
-    this.concentration.addObserver( function( concentration ) {
-         thisSolution.fluidColor.set( createFluidColor( concentration ) );
+    this.concentration.addObserver( function ( concentration ) {
+      thisSolution.fluidColor.set( createFluidColor( concentration ) );
     } );
   }
 
-  BeersLawSolution.prototype.reset = function() {
+  BeersLawSolution.prototype.reset = function () {
     this.concentration.reset();
   };
 
@@ -83,7 +83,7 @@ define( function ( require ) {
     return StringUtils.format( BLLStrings.pattern_0formula_1name, [ this.formula, this.name ] );
   };
 
-  BeersLawSolution.prototype.getViewValue = function() {
+  BeersLawSolution.prototype.getViewValue = function () {
     return this.concentrationTransform.modelToView( this.concentration.get() );
   };
 
@@ -111,5 +111,60 @@ define( function ( require ) {
     ConcentrationTransform.mM,
     new ColorRange( new Color( 255, 225, 225 ), Color.RED ) );
 
+  BeersLawSolution.COBALT_CHLORIDE = new BeersLawSolution(
+    BLLStrings.cobaltChloride,
+    BLLSymbols.COBALT_CHLORIDE,
+    MolarAbsorptivityData.COBALT_CHLORIDE,
+    new Range( 0, 0.250, 0.100 ),
+    ConcentrationTransform.mM,
+    new ColorRange( new Color( 255, 242, 242 ), new Color( 255, 106, 106 ) )
+  );
+
+  BeersLawSolution.POTASSIUM_DICHROMATE = new BeersLawSolution(
+    BLLStrings.potassiumDichromate,
+    BLLSymbols.POTASSIUM_DICHROMATE,
+    MolarAbsorptivityData.POTASSIUM_DICHROMATE,
+    new Range( 0, 0.000500, 0.000100 ),
+    ConcentrationTransform.uM,
+    new ColorRange( new Color( 255, 232, 210 ), new Color( 255, 127, 0 ) )
+  );
+
+  BeersLawSolution.POTASSIUM_CHROMATE = new BeersLawSolution(
+    BLLStrings.potassiumChromate,
+    BLLSymbols.POTASSIUM_CHROMATE,
+    MolarAbsorptivityData.POTASSIUM_CHROMATE,
+    new Range( 0, 0.000400, 0.000100 ),
+    ConcentrationTransform.uM,
+    new ColorRange( new Color( 255, 255, 199 ), new Color( 255, 255, 0 ) )
+  );
+
+  BeersLawSolution.NICKEL_II_CHLORIDE = new BeersLawSolution(
+    BLLStrings.nickelIIChloride,
+    BLLSymbols.NICKEL_II_CHLORIDE,
+    MolarAbsorptivityData.NICKEL_II_CHLORIDE,
+    new Range( 0, 0.350, 0.100 ),
+    ConcentrationTransform.mM,
+    new ColorRange( new Color( 234, 244, 234 ), new Color( 0, 128, 0 ) )
+  );
+
+  BeersLawSolution.COPPER_SULFATE = new BeersLawSolution(
+    BLLStrings.copperSulfate,
+    BLLSymbols.COPPER_SULFATE,
+    MolarAbsorptivityData.COPPER_SULFATE,
+    new Range( 0, 0.200, 0.100 ),
+    ConcentrationTransform.mM,
+    new ColorRange( new Color( 222, 238, 255 ), new Color( 30, 144, 255 ) )
+  );
+
+  BeersLawSolution.POTASSIUM_PERMANGANATE = new BeersLawSolution(
+    BLLStrings.potassiumPermanganate,
+    BLLSymbols.POTASSIUM_PERMANGANATE,
+    MolarAbsorptivityData.POTASSIUM_PERMANGANATE,
+    new Range( 0, 0.000800, 0.000100 ),
+    ConcentrationTransform.uM,
+    new ColorRange( new Color( 255, 235, 255 ), new Color( 255, 0, 255 ) ),
+    new Color( 80, 0, 120 )  // has a special saturated color
+  );
+
   return BeersLawSolution;
-});
+} );

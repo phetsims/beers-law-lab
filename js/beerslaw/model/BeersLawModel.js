@@ -32,7 +32,14 @@ define( function ( require ) {
     // Solutions, in rainbow (ROYGBIV) order.
     thisModel.solutions = new Array(
       BeersLawSolution.DRINK_MIX,
-      BeersLawSolution.COBALT_II_NITRATE );
+      BeersLawSolution.COBALT_II_NITRATE,
+      BeersLawSolution.COBALT_CHLORIDE,
+      BeersLawSolution.POTASSIUM_DICHROMATE,
+      BeersLawSolution.POTASSIUM_CHROMATE,
+      BeersLawSolution.NICKEL_II_CHLORIDE,
+      BeersLawSolution.COPPER_SULFATE,
+      BeersLawSolution.POTASSIUM_PERMANGANATE
+    );
     //TODO add more solutions
 
     thisModel.solution = new Property( thisModel.solutions[0] );
