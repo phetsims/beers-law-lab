@@ -46,11 +46,20 @@ define( function ( require ) {
     valueNode.left = sliderNode.right + 10;
     valueNode.centerY = labelNode.centerY;
 
-    // sync with model
-    solution.addObserver( function ( solution ) {
-      var valueString = solution.getViewValue().toFixed( DECIMAL_PLACES );
-      var units = solution.getViewUnits();
+    // update the value display when concentration changes
+    var concentrationObserver = function () {
+      var valueString = solution.get().getViewValue().toFixed( DECIMAL_PLACES );
+      var units = solution.get().getViewUnits();
       valueNode.text = StringUtils.format( BLLStrings.pattern_0value_1units, [ valueString, units ] );
+    };
+    solution.get().concentration.addObserver( concentrationObserver );
+
+    // when solution changes, rewire the concentration observer
+    solution.addObserver( function ( newSolution, oldSolution ) {
+      if ( oldSolution ) {
+        oldSolution.concentration.removeObserver( concentrationObserver );
+      }
+      newSolution.concentration.addObserver( concentrationObserver );
     } );
   }
 
