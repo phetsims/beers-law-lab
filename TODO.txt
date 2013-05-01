@@ -28,6 +28,7 @@ HIGH
 MEDIUM
 - better spectrum for wavelength slider track
 - disable (instead of hide) +/- buttons in wavelength slider
+- better +/- buttons for sliders
 - prevent dropper from being dragged by on/off button
 - add relativePressPoint to MovableDragHandler, so that mouse doesn't get away from drag target
 - use ImagesLoader to load images, delete images.js in config.js
