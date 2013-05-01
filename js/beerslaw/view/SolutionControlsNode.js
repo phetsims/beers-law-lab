@@ -28,8 +28,10 @@ define( function ( require ) {
     var solutionChoiceNode = new SolutionChoiceNode( solutions, currentSolution );
     var concentrationControlNode = new ConcentrationControlNode( currentSolution );
     var contentNode = new Node();
-    contentNode.addChild( solutionChoiceNode );
+
+    // rendering order
     contentNode.addChild( concentrationControlNode );
+    contentNode.addChild( solutionChoiceNode ); //TODO combo box on top!
 
     // layout
     concentrationControlNode.left = solutionChoiceNode.left;
