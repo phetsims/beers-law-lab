@@ -7,25 +7,6 @@
  * @author Chris Malley
  */
 
-// if has.js is included, set assertion flags to false, to improve performance.
-//if ( window.has ) {
-//  window.has.add( 'assert.dot', function( global, document, anElement ) {
-//    return false;
-//  } );
-//  window.has.add( 'assert.kite', function( global, document, anElement ) {
-//    return false;
-//  } );
-//  window.has.add( 'assert.kite.extra', function( global, document, anElement ) {
-//    return false;
-//  } );
-//  window.has.add( 'assert.scenery', function( global, document, anElement ) {
-//    return false;
-//  } );
-//  window.has.add( 'assert.scenery.extra', function( global, document, anElement ) {
-//    return false;
-//  } );
-//}
-
 requirejs.config(
   {
     deps: ["beers-law-lab-main"],

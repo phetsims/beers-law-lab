@@ -1,3 +1,4 @@
+5/1/13 delete assertion-disabling code from config.js
 5/1/13 adjust ruler drag bounds
 5/1/13 make ticks and label larger on evaporation slider
 5/1/13 make ticks and thumb larger on concentration slider
