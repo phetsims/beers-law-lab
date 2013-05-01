@@ -4,9 +4,8 @@
 //TODO add up/down glyph on button
 //TODO add an inside margin to ItemNode
 //TODO add cornerRadius to list item highlight
-//TODO list margin is off, right margin looks twice as wide as left margin
-//TODO list margin is off, top margin looks twice as tall as bottom margin
 //TODO click outside of list to dismiss it
+//TODO support for options.listAlign
 /**
  * Scenery-based combo box. Composed of a button and a list of items.
  * The list of items is displayed when the button is pressed, and dismissed an item is selected
@@ -117,8 +116,8 @@ define( function ( require ) {
       // add item to list
       var itemNode = new ItemNode( items[i], maxWidth, maxHeight );
       listNode.addChild( itemNode );
-      itemNode.top = options.listXMargin + ( i * maxHeight );
-      itemNode.left = options.listYMargin;
+      itemNode.left = options.listXMargin;
+      itemNode.top = options.listYMargin + ( i * maxHeight );
 
       // item interactivity
       itemNode.cursor = "pointer";
