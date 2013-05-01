@@ -19,7 +19,7 @@ BUGS
 - iPad: wavelength slider is unusable and thumb disappears
 
 HIGH
-- add +/- buttons to concentration slider
+- add +/- buttons to concentration slider, rewire when solution changes
 - solute combo box
 - solution combo box
 
