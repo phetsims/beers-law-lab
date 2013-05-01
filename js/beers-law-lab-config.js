@@ -25,20 +25,20 @@ requirejs.config(
       imagesloaded: "../lib/jquery.imagesloaded-2.1.1",
 
       // PhET libs, uppercase names to identify them in require.js imports
-      ASSERT: '../../assert/js',
-      DOT: '../../dot/js',
-      PHET_CORE: '../../phet-core/js',
+      ASSERT: "../../assert/js",
+      DOT: "../../dot/js",
+      FORT: "../../fort/js",
+      JOIST: "../../joist/js",
+      KITE: "../../kite/js",
+      PHET_CORE: "../../phet-core/js",
       PHETCOMMON: "../../phetcommon/js",
-      SCENERY: '../../scenery/js',
-      KITE: '../../kite/js',
-      SCENERY_PHET: '../../scenery-phet/js',
-      FORT: '../../fort/js',
-      SUN: '../../sun/js',
-      JOIST: '../../joist/js'
+      SCENERY: "../../scenery/js",
+      SCENERY_PHET: "../../scenery-phet/js",
+      SUN: "../../sun/js"
     },
 
     shim: {
-      jquery: { exports: "$" },
+      jquery: { exports: "$" }
     },
 
     //TODO remove this before deploy
