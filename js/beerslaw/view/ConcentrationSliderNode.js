@@ -158,8 +158,8 @@ define( function ( require ) {
     setSolution( solution.get() );
 
     // move the slider thumb to reflect the concentration value
-    var concentrationObserver = function ( value ) {
-      thisNode.x = concentrationToPosition.evaluate( value );
+    var concentrationObserver = function ( concentration ) {
+      thisNode.x = concentrationToPosition.evaluate( concentration );
     };
     solution.get().concentration.addObserver( concentrationObserver );
 
@@ -232,7 +232,6 @@ define( function ( require ) {
     maxTickLineNode.right = trackNode.right;
     maxTickLineNode.top = trackNode.bottom;
     maxTickLabelNode.top = maxTickLineNode.bottom + 2;
-    thumbNode.centerX = trackNode.centerX;
     thumbNode.centerY = trackNode.centerY;
 
     // update the tick labels to match the solution

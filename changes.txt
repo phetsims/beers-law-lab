@@ -1,3 +1,4 @@
+4/30/13 fix initial location of concentration slider thumb
 4/30/13 update numeric value in concentration control panel, rewire observer when solution changes
 4/30/13 completed port of concentration slider
 4/30/13 add track with linear gradient to concentration slider
