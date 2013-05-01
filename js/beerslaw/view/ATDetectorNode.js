@@ -14,10 +14,12 @@ define( function ( require ) {
   var HorizontalTiledNode = require( "common/view/HorizontalTiledNode" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
+  var LinearFunction = require( "common/util/LinearFunction" );
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
   var RadioButton = require( "SUN/RadioButton" );
+  var Range = require( "DOT/Range" );
   var Shape = require( "KITE/Shape" );
   var StringUtils = require( "common/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
@@ -158,16 +160,20 @@ define( function ( require ) {
       lineJoin: "round"
     } );
 
+     // The y coordinate of the body's control point varies with the x distance between the body and probe.
+    var BODY_CTRL_Y = new LinearFunction( new Range( 0, 800 ), new Range( 0, 200 ) ); // x distance -> y coordinate
+
     var updateCurve = function () {
 
       // connection points
-      var bodyConnectionPoint = new Vector2( bodyNode.left, bodyNode.centerY );
+      var bodyConnectionPoint = new Vector2( bodyNode.centerX, bodyNode.bottom );
       var probeConnectionPoint = new Vector2( probeNode.centerX, probeNode.bottom );
 
       // control points
-      var controlPointOffset = 60;
-      var c1 = new Vector2( bodyConnectionPoint.x - controlPointOffset, bodyConnectionPoint.y );
-      var c2 = new Vector2( probeConnectionPoint.x, probeConnectionPoint.y + controlPointOffset );
+      var c1Offset = new Vector2( 0, BODY_CTRL_Y.evaluate( bodyNode.centerX - probeNode.left ) );
+      var c2Offset = new Vector2( 50, 150 );
+      var c1 = new Vector2( bodyConnectionPoint.x + c1Offset.x, bodyConnectionPoint.y + c1Offset.y );
+      var c2 = new Vector2( probeConnectionPoint.x + c2Offset.x, probeConnectionPoint.y + c2Offset.y );
 
       // cubic curve
       thisNode.shape = new Shape()

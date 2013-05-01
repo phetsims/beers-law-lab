@@ -25,7 +25,6 @@ HIGH
 - solution combo box
 
 MEDIUM
-- change connection points and control points for AT detector, so that body can be in upper-right of play area
 - resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
 - disable (instead of hide) +/- buttons in wavelength slider (not supported by sun.Button)
 - prevent dropper from being dragged by on/off button

@@ -48,7 +48,7 @@ define( function ( require ) {
 
     this.absorbance = new Absorbance( thisModel.light, thisModel.solution, thisModel.cuvette );
 
-    this.detector = new ATDetector( new Vector2( 6, 0.20 ), new Bounds2( 0, 0, 7.9, 5.25 ),
+    this.detector = new ATDetector( new Vector2( 6, 0.1 ), new Bounds2( 0, 0, 7.9, 5.25 ),
                                     new Vector2( 6, thisModel.light.location.y ), new Bounds2( 0, 0, 7.9, 5.25 ),
                                     thisModel.light, thisModel.cuvette, thisModel.absorbance );
 
