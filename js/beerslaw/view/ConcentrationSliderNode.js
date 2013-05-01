@@ -20,6 +20,7 @@ define( function ( require ) {
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
   var Shape = require( "KITE/Shape" );
   var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
+  var Text = require( "SCENERY/nodes/Text" );
 
   // track constants
   var TRACK_SIZE = new Dimension2( 200, 15 );
@@ -33,7 +34,6 @@ define( function ( require ) {
   var THUMB_CENTER_LINE_STROKE = Color.WHITE;
 
   // tick constants
-  var TICKS_VISIBLE = true;
   var TICK_LENGTH = 8;
   var TICK_FONT = "12px Arial";
   var TICK_DECIMAL_PLACES = 0;
@@ -89,6 +89,32 @@ define( function ( require ) {
   inherit( TrackNode, Rectangle );
 
   /**
+   * Vertical tick line.
+   * @constructor
+   */
+  function TickLineNode() {
+    Path.call( this, { shape: Shape.lineSegment( 0, 0, 0, TICK_LENGTH ), stroke: "black", lineWidth: 1 } );
+  }
+
+  inherit( TickLineNode, Path );
+
+  /**
+   * Tick label.
+   * @param value
+   * @constructor
+   */
+  function TickLabelNode( value ) {
+    var thisNode = this;
+    Text.call( thisNode, "?", { font: TICK_FONT, fill: "black" } );
+    thisNode.setValue = function ( value ) {
+      thisNode.text = value.toFixed( TICK_DECIMAL_PLACES );
+    };
+    thisNode.setValue( value );
+  }
+
+  inherit( TickLabelNode, Text );
+
+  /**
    * @param {Property} solution of type BeersLawSolution
    * @constructor
    */
@@ -99,11 +125,37 @@ define( function ( require ) {
 
     // nodes
     var trackNode = new TrackNode( TRACK_SIZE, solution );
+    var minTickLineNode = new TickLineNode();
+    var maxTickLineNode = new TickLineNode();
+    var minTickLabelNode = new TickLabelNode( 0 ); // correct value will be set when observer is registered
+    var maxTickLabelNode = new TickLabelNode( 0 ); // correct value will be set when observer is registered
 
     // rendering order
+    thisNode.addChild( minTickLineNode );
+    thisNode.addChild( maxTickLineNode );
+    thisNode.addChild( minTickLabelNode );
+    thisNode.addChild( maxTickLabelNode );
     thisNode.addChild( trackNode );
 
     // layout
+    minTickLineNode.left = trackNode.left;
+    minTickLineNode.top = trackNode.bottom;
+    minTickLabelNode.top = minTickLineNode.bottom + 2;
+    maxTickLineNode.right = trackNode.right;
+    maxTickLineNode.top = trackNode.bottom;
+    maxTickLabelNode.top = maxTickLineNode.bottom + 2;
+
+    // update the tick labels to match the solution
+    solution.addObserver( function ( solution ) {
+      var concentrationRange = solution.concentrationRange;
+      var transform = solution.concentrationTransform;
+      // update label values
+      minTickLabelNode.setValue( transform.modelToView( concentrationRange.min ) );
+      maxTickLabelNode.setValue( transform.modelToView( concentrationRange.max ) );
+      // center values below tick lines
+      minTickLabelNode.centerX = minTickLineNode.centerX;
+      maxTickLabelNode.centerX = maxTickLineNode.centerX;
+    } );
   }
 
   inherit( ConcentrationSliderNode, Node );
