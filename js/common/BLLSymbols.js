@@ -10,14 +10,14 @@ define( function ( require ) {
 
   // imports
   var ChemUtils = require( "common/util/ChemUtils" );
-  var Strings = require( "i18n!../../nls/beers-law-lab-strings" );
+  var BLLStrings = require( "common/BLLStrings" );
 
   function BLLSymbols() {}
 
   BLLSymbols.COBALT_II_NITRATE = ChemUtils.toSubscript( "Co(NO3)2" );
   BLLSymbols.COBALT_CHLORIDE = ChemUtils.toSubscript( "CoCl2" );
   BLLSymbols.COPPER_SULFATE = ChemUtils.toSubscript( "CuSO4" );
-  BLLSymbols.DRINK_MIX = Strings.DRINK_MIX;
+  BLLSymbols.DRINK_MIX = BLLStrings.drinkMix;
   BLLSymbols.NICKEL_II_CHLORIDE = ChemUtils.toSubscript( "NiCl2" );
   BLLSymbols.POTASSIUM_CHROMATE = ChemUtils.toSubscript( "K2CrO4" );
   BLLSymbols.POTASSIUM_DICHROMATE = ChemUtils.toSubscript( "K2Cr2O7" );

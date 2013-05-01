@@ -10,11 +10,11 @@ define( function ( require ) {
 
   // imports
   var ComboBoxNode = require( "common/view/ComboBoxNode" );
+  var HTMLText = require( "SCENERY/nodes/HTMLText" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
-  var Property = require( "PHETCOMMON/model/property/Property" );//TODO delete me?
+  var Property = require( "PHETCOMMON/model/property/Property" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
-  var Text = require( "SCENERY/nodes/Text" );  //TODO delete me?
 
   /**
    * @param {Array} solutions of type BeersLawSolution
@@ -30,7 +30,7 @@ define( function ( require ) {
     var items = new Array();
     for ( var i = 0; i < solutions.length; i++ ) {
       var solution = solutions[i];
-      items[i] = new Text( solution.name, { font: "20px Arial" } );
+      items[i] = new HTMLText( solution.getDisplayName(), { font: "20px Arial" } );
       items[i].solution = solution; //TODO is this an acceptable way to do associate item with its model element?
       if ( solution === selectedSolution.get() ) {
         defaultItem = items[i];

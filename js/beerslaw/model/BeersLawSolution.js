@@ -80,6 +80,9 @@ define( function ( require ) {
   };
 
   BeersLawSolution.prototype.getDisplayName = function () {
+    if ( this.formula === this.name ) {
+      return this.name;
+    }
     return StringUtils.format( BLLStrings.pattern_0formula_1name, [ this.formula, this.name ] );
   };
 
@@ -101,7 +104,8 @@ define( function ( require ) {
     MolarAbsorptivityData.DRINK_MIX,
     new Range( 0, 0.400, 0.100 ),
     ConcentrationTransform.mM,
-    new ColorRange( new Color( 255, 225, 225 ), Color.RED ) );
+    new ColorRange( new Color( 255, 225, 225 ), Color.RED )
+  );
 
   BeersLawSolution.COBALT_II_NITRATE = new BeersLawSolution(
     BLLStrings.cobaltIINitrate,
