@@ -83,6 +83,10 @@ define( function ( require ) {
     return StringUtils.format( BLLStrings.pattern_0formula_1name, [ this.formula, this.name ] );
   };
 
+  BeersLawSolution.prototype.getViewValue = function() {
+    return this.concentrationTransform.modelToView( this.concentration.get() );
+  };
+
   BeersLawSolution.prototype.getViewUnits = function () {
     return this.concentrationTransform.units;
   };
