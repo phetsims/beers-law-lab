@@ -1,3 +1,4 @@
+5/1/13 make ticks and label larger on evaporation slider
 5/1/13 make ticks and thumb larger on concentration slider
 5/1/13 add highlighting to evaporation slider thumb
 5/1/13 made cuvette drag handle 50% larger

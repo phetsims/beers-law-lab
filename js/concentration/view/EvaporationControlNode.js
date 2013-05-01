@@ -16,21 +16,23 @@ define( function ( require ) {
   var Node = require( "SCENERY/nodes/Node" );
   var Range = require( "DOT/Range" );
   var EvaporationSliderNode = require( "concentration/view/EvaporationSliderNode" );
+  var StringUtils = require( "common/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
 
   function EvaporationControlNode( evaporator ) {
 
     var thisNode = this;
 
-    var labelNode = new Text( BLLStrings.evaporation, { font: "18px Arial" } );
+    var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [ BLLStrings.evaporation ] ), { font: "22px Arial" } );
 
     var sliderNode = new EvaporationSliderNode( new Range( 0, evaporator.maxEvaporationRate ),
                                                 new Dimension2( 200, 6 ),
                                                 evaporator.evaporationRate,
                                                 evaporator.enabled,
                                                 true );
-    sliderNode.addMajorTick( 0, new Text( BLLStrings.none, { font: "14px Arial" } ) );
-    sliderNode.addMajorTick( evaporator.maxEvaporationRate, new Text( BLLStrings.lots, { font: "14px Arial" } ) );
+    var tickFont = "16px Arial";
+    sliderNode.addMajorTick( 0, new Text( BLLStrings.none, { font: tickFont } ) );
+    sliderNode.addMajorTick( evaporator.maxEvaporationRate, new Text( BLLStrings.lots, { font: tickFont } ) );
 
     var contentNode = new Node();
     contentNode.addChild( labelNode );
