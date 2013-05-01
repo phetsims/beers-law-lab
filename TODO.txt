@@ -26,8 +26,6 @@ HIGH
 
 MEDIUM
 - change connection points and control points for AT detector, so that body can be in upper-right of play area
-- move concentration controls below cuvette, aligned with left edge of cuvette
-- move everything up in tab 2
 - resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
 - disable (instead of hide) +/- buttons in wavelength slider (not supported by sun.Button)
 - prevent dropper from being dragged by on/off button

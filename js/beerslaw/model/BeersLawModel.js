@@ -37,18 +37,18 @@ define( function ( require ) {
 
     thisModel.solution = new Property( thisModel.solutions[0] );
 
-    thisModel.light = new Light( new Vector2( 1.5, 2.2 ), false, 0.45, thisModel.solution );
+    thisModel.light = new Light( new Vector2( 1.5, 1.7 ), false, 0.45, thisModel.solution );
 
-    thisModel.cuvette = new Cuvette( new Vector2( thisModel.light.location.x + 1.5, 1.3 ), new Range( 0.5, 2.0, 1.0 ), 3 );
+    thisModel.cuvette = new Cuvette( new Vector2( thisModel.light.location.x + 1.5, 0.8 ), new Range( 0.5, 2.0, 1.0 ), 3 );
 
     var rulerWidth = 2; // cm
     thisModel.ruler = new Ruler( rulerWidth, 0.1, 0.35,
-                                 new Vector2( thisModel.cuvette.location.x - rulerWidth - 0.5, 4.9 ),
+                                 new Vector2( thisModel.cuvette.location.x - rulerWidth - 0.5, 4.4 ),
                                  new Bounds2( 0, 1, 8, 5.5 ) );
 
     this.absorbance = new Absorbance( thisModel.light, thisModel.solution, thisModel.cuvette );
 
-    this.detector = new ATDetector( new Vector2( 6, 3.70 ), new Bounds2( 0, 0, 7.9, 5.25 ),
+    this.detector = new ATDetector( new Vector2( 6, 0.20 ), new Bounds2( 0, 0, 7.9, 5.25 ),
                                     new Vector2( 6, thisModel.light.location.y ), new Bounds2( 0, 0, 7.9, 5.25 ),
                                     thisModel.light, thisModel.cuvette, thisModel.absorbance );
 
