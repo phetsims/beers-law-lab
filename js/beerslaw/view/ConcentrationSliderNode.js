@@ -149,7 +149,7 @@ define( function ( require ) {
       if ( dragHandler ) {
         thisNode.removeInputListener( dragHandler );
       }
-      dragHandler = new ThumbDragHandler( thisNode, trackSize, solution.concentration, solution.concentrationRange );
+      dragHandler = new ThumbDragHandler( thisNode, solution.concentration, new LinearFunction( new Range( 0, trackSize.width ), solution.concentrationRange, true /* clamp */ ) );
       thisNode.addInputListener( dragHandler );
 
       // linear mapping function with solution's concentration range
@@ -177,22 +177,19 @@ define( function ( require ) {
 
   /**
    * Drag handler for the slider thumb.
-   * @param {Node} thumbNode
-   * @param {Dimension2} trackSize
+   * @param {Node} dragNode
    * @param {Property} concentration of type number
-   * @param {Range} concentrationRange
+   * @param {LinearFunction} positionToValue
    * @constructor
    */
-  function ThumbDragHandler( thumbNode, trackSize, concentration, concentrationRange ) {
-
+  function ThumbDragHandler( dragNode, concentration, positionToValue ) {
     var clickXOffset; // x-offset between initial click and thumb's origin
-    var positionToValue = new LinearFunction( new Range( 0, trackSize.width ), concentrationRange, true /* clamp */ );
     SimpleDragHandler.call( this, {
       start: function ( event ) {
-        clickXOffset = thumbNode.globalToParentPoint( event.pointer.point ).x - thumbNode.x;
+        clickXOffset = dragNode.globalToParentPoint( event.pointer.point ).x - event.currentTarget.x;
       },
-      drag: function ( event ) {
-        var x = thumbNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
+      drag: function ( event, trail ) {
+        var x = dragNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
         concentration.set( positionToValue.evaluate( x ) );
       },
       translate: function () {
