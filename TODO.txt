@@ -20,9 +20,10 @@ BUGS
 - iPad: wavelength slider is unusable and thumb disappears
 
 HIGH
+- laundry list at top of ComboBoxNode
+- add color chip to items in Solution combo box
 - add +/- buttons to concentration slider, rewire when solution changes
 - solute combo box
-- solution combo box
 
 MEDIUM
 - resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
