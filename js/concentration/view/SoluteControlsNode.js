@@ -50,6 +50,7 @@ define( function ( require ) {
     soluteFormNode.left = soluteLabel.left;
     soluteFormNode.top = soluteDropdown.bottom + 20;
 
+    //TODO ditch svg renderer when bootstrap has been replaced
     // Use SVG renderer so that this node doesn't block events to other DOM elements in the scene.
     ControlPanelNode.call( thisNode, contentNode, 20, 20, { renderer: "svg" } );
   }

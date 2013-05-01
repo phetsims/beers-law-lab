@@ -20,6 +20,7 @@ define( function ( require ) {
   var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
   var BLLRulerNode = require( "beerslaw/view/BLLRulerNode" );
   var Scene = require( "SCENERY/Scene" );
+  var SolutionControlsNode = require( "beerslaw/view/SolutionControlsNode" );
   var Text = require( "SCENERY/nodes/Text" );
   var WavelengthControlNode = require( "beerslaw/view/WavelengthControlNode" );
 
@@ -39,6 +40,7 @@ define( function ( require ) {
     var detectorNode = new ATDetectorNode( model.detector, mvt );
     var wavelengthControlNode = new WavelengthControlNode( model.solution, model.light );
     var rulerNode = new BLLRulerNode( model.ruler, mvt );
+    var solutionControlsNode = new SolutionControlsNode( model.solutions, model.solution );
 
     // Reset All button
     var resetAllButton = new ResetAllButton( function () {
@@ -53,8 +55,8 @@ define( function ( require ) {
     thisView.addChild( beamNode );
     thisView.addChild( lightNode );
     thisView.addChild( rulerNode );
-    // Add anything containing interactive DOM elements last, or they will not receive events.
     thisView.addChild( resetAllButton );
+    thisView.addChild( solutionControlsNode );
 
     // Layout for things that don't have a location in the model.
     {
@@ -64,6 +66,9 @@ define( function ( require ) {
       // bottom left
       resetAllButton.right = detectorNode.right;
       resetAllButton.top = detectorNode.bottom + 15;
+      // solution combo box at top center
+      solutionControlsNode.centerX = thisView.layoutBounds.centerX;
+      solutionControlsNode.top = 20;
     }
   }
 

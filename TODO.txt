@@ -32,6 +32,7 @@ MEDIUM
 - use ImagesLoader to load images, delete images.js in config.js
 - improve drag handler for faucet handles
 - Grunt file
+- PhetStyle.xml
 
 LOW
 - sim resizing doesn't play nice with browser zoom features

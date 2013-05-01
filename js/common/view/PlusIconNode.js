@@ -5,6 +5,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function ( require ) {
+  "use strict";
 
   // imports
   var inherit = require( "PHET_CORE/inherit" );
