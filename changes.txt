@@ -1,3 +1,4 @@
+4/30/13 add track with linear gradient to concentration slider
 4/30/13 stubs for solution and concentration controls
 4/30/13 use _.isUndefined
 4/30/13 slightly better +/- buttons for sliders
