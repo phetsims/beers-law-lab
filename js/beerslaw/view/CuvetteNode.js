@@ -23,10 +23,10 @@ define( function ( require ) {
   // constants
   var PERCENT_FULL = 0.92;
   var SOLUTION_ALPHA = 0.6;
-  var ARROW_LENGTH = 80;
-  var ARROW_HEAD_LENGTH = 25;
-  var ARROW_HEAD_WIDTH = 30;
-  var ARROW_TAIL_WIDTH = 15;
+  var ARROW_LENGTH = 110;
+  var ARROW_HEAD_LENGTH = 38;
+  var ARROW_HEAD_WIDTH = 45;
+  var ARROW_TAIL_WIDTH = 23;
   var ARROW_FILL = Color.ORANGE;
 
   /**
