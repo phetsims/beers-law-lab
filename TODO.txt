@@ -24,6 +24,7 @@ HIGH
 - laundry list at top of ComboBoxNode
 - add color chip to items in Solute and Solution combo boxes
 - add +/- buttons to concentration slider, rewire when solution changes
+- move wavelength value display from slider to control panel
 
 MEDIUM
 - resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
