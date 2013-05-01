@@ -6,7 +6,6 @@ DESIGN ISSUES
 - interactive components feel too small on Nexus
 
 IMPLEMENTATION ISSUES
-- UI components (radio buttons, combo box, sliders)
 
 SCENERY BUGS
 
@@ -21,9 +20,8 @@ BUGS
 
 HIGH
 - laundry list at top of ComboBoxNode
-- add color chip to items in Solution combo box
+- add color chip to items in Solute and Solution combo boxes
 - add +/- buttons to concentration slider, rewire when solution changes
-- solute combo box
 
 MEDIUM
 - resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)

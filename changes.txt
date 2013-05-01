@@ -1,3 +1,4 @@
+5/1/13 delete bootstrap from beers-law-lab, no longer used
 5/1/13 replace bootstrap with ComboBoxNode in implementation of solute combo box
 5/1/13 display correct format of solution names in combo box
 5/1/13 add remaining solution types to "Beer's Law" model
