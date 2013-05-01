@@ -43,7 +43,7 @@ define( function ( require ) {
 
     var rulerWidth = 2; // cm
     thisModel.ruler = new Ruler( rulerWidth, 0.1, 0.35,
-                                 new Vector2( thisModel.cuvette.location.x - rulerWidth - 0.5, 4.9 ), // centered under cuvette
+                                 new Vector2( thisModel.cuvette.location.x - rulerWidth - 0.5, 1 ), // centered under cuvette
                                  new Bounds2( 0, 1, 8, 5.5 ) );
 
     this.absorbance = new Absorbance( thisModel.light, thisModel.solution, thisModel.cuvette );

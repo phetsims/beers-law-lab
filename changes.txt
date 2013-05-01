@@ -1,3 +1,4 @@
+5/1/13 move ruler above light, to make room for solution controls below cuvette
 5/1/13 move ruler below wavelength controls
 4/30/13 fix initial location of concentration slider thumb
 4/30/13 update numeric value in concentration control panel, rewire observer when solution changes
