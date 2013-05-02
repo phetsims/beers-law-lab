@@ -19,6 +19,7 @@ BUGS
 - iPad: wavelength slider is unusable and thumb disappears
 
 HIGH
+- bug: ruler is not correct width, 2cm should be the max path length
 - bug: Solution combo box doesn't sync with model, so doesn't reset
 - bug: Solute combo box doesn't sync with model, so doesn't reset
 - laundry list at top of ComboBoxNode
