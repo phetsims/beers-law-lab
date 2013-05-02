@@ -1,7 +1,7 @@
 TODO list for beers-law-lab (HTML5 port)
 
 DESIGN ISSUES
-- do we want "Wavelength: Value", the wavelength wasn't previously visible in "fixed" mode
+- move wavelength value display from slider to control panel?
 - tablet usability issues from 1/29/13 notebook
 - interactive components feel too small on Nexus
 
@@ -25,7 +25,6 @@ HIGH
 - laundry list at top of ComboBoxNode
 - add color chip to items in Solute and Solution combo boxes
 - add +/- buttons to concentration slider, rewire when solution changes
-- move wavelength value display from slider to control panel
 
 MEDIUM
 - resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
