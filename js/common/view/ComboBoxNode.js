@@ -6,6 +6,7 @@
 //TODO add cornerRadius to list item highlight
 //TODO click outside of list to dismiss it
 //TODO support for options.listAlign
+//TODO support for listParent (and coordinate-frame transforms this requires)
 /**
  * Scenery-based combo box. Composed of a button and a list of items.
  * The list of items is displayed when the button is pressed, and dismissed an item is selected
