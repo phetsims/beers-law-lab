@@ -24,7 +24,6 @@ HIGH
 - bug: Solute combo box doesn't sync with model, so doesn't reset
 - laundry list at top of ComboBoxNode
 - add color chip to items in Solute and Solution combo boxes
-- add +/- buttons to concentration slider, rewire when solution changes
 
 MEDIUM
 - buttons fire on 'up' event even if they haven't seen a 'down' event

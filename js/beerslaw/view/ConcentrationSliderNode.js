@@ -9,6 +9,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var Button = require( "SUN/Button" );
   var Color = require( "common/model/Color" );
   var Dimension2 = require( "DOT/Dimension2" );
   var FillHighlighter = require( "common/view/FillHighlighter" );
@@ -217,6 +218,16 @@ define( function ( require ) {
     var minTickLabelNode = new TickLabelNode( 0 ); // correct value will be set when observer is registered
     var maxTickLabelNode = new TickLabelNode( 0 ); // correct value will be set when observer is registered
 
+    // buttons for single-unit increments
+    var plusButton = new Button( new Path( { fill: "black", shape: new Shape().moveTo( 0, 0 ).lineTo( 16, 8 ).lineTo( 0, 16 ).close() } ),
+                                 function () {
+                                   solution.get().concentration.set( solution.get().concentration.get() + solution.get().concentrationTransform.viewToModel( 1 ) );
+                                 }, { cornerRadius: 4 } );
+    var minusButton = new Button( new Path( { fill: "black", shape: new Shape().moveTo( 0, 8 ).lineTo( 16, 0 ).lineTo( 16, 16 ).close() } ),
+                                  function () {
+                                    solution.get().concentration.set( solution.get().concentration.get() - solution.get().concentrationTransform.viewToModel( 1 ) );
+                                  }, { cornerRadius: 4 } );
+
     // rendering order
     thisNode.addChild( minTickLineNode );
     thisNode.addChild( maxTickLineNode );
@@ -224,6 +235,8 @@ define( function ( require ) {
     thisNode.addChild( maxTickLabelNode );
     thisNode.addChild( trackNode );
     thisNode.addChild( thumbNode );
+    thisNode.addChild( plusButton );
+    thisNode.addChild( minusButton );
 
     // layout
     minTickLineNode.left = trackNode.left;
@@ -233,9 +246,19 @@ define( function ( require ) {
     maxTickLineNode.bottom = trackNode.top;
     maxTickLabelNode.bottom = maxTickLineNode.top - 2;
     thumbNode.centerY = trackNode.centerY;
+    minusButton.right = trackNode.left - ( thumbNode.width / 2 ) - 2;
+    minusButton.bottom = trackNode.bottom;
+    plusButton.left = trackNode.right + ( thumbNode.width / 2 ) + 2;
+    plusButton.bottom = trackNode.bottom;
+
+    var concentrationObserver = function ( concentration ) {
+      // buttons
+      plusButton.visible = ( concentration < solution.get().concentrationRange.max );
+      minusButton.visible = ( concentration > solution.get().concentrationRange.min );
+    };
 
     // update the tick labels to match the solution
-    solution.addObserver( function ( solution ) {
+    solution.addObserver( function ( solution, oldSolution ) {
       var concentrationRange = solution.concentrationRange;
       var transform = solution.concentrationTransform;
       // update label values
@@ -244,7 +267,17 @@ define( function ( require ) {
       // center values below tick lines
       minTickLabelNode.centerX = minTickLineNode.centerX;
       maxTickLabelNode.centerX = maxTickLineNode.centerX;
+      // buttons
+      plusButton.visible = ( solution.concentration.get() < concentrationRange.max );
+      minusButton.visible = ( solution.concentration.get() > concentrationRange.min );
+      // re-wire observer
+      if ( oldSolution ) {
+        oldSolution.concentration.removeObserver( concentrationObserver );
+      }
+      solution.concentration.addObserver( concentrationObserver );
     } );
+
+
   }
 
   inherit( ConcentrationSliderNode, Node );
