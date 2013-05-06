@@ -62,16 +62,16 @@ define( function ( require ) {
       } );
     thisNode.addChild( thisNode._trackNode );
 
-    // thumb
+    // thumb, points up
     var thumbNode = new Path(
       {
         cursor: "pointer",
-        shape: new Shape()
-          .moveTo( -THUMB_SIZE.width / 2, 0 )
-          .lineTo( THUMB_SIZE.width / 2, 0 )
-          .lineTo( THUMB_SIZE.width / 2, 0.65 * THUMB_SIZE.height )
-          .lineTo( 0, THUMB_SIZE.height )
-          .lineTo( -THUMB_SIZE.width / 2, 0.65 * THUMB_SIZE.height )
+        shape: new Shape()  /* clockwise from bottom left */
+          .moveTo( -THUMB_SIZE.width / 2, THUMB_SIZE.height )
+          .lineTo( THUMB_SIZE.width / 2, THUMB_SIZE.height )
+          .lineTo( THUMB_SIZE.width / 2, 0.35 * THUMB_SIZE.height )
+          .lineTo( 0, 0 )
+          .lineTo( -THUMB_SIZE.width / 2, 0.35 * THUMB_SIZE.height )
           .close(),
         fill: THUMB_FILL_ENABLED,
         stroke: "black",
@@ -147,7 +147,7 @@ define( function ( require ) {
   };
 
   /*
-   * Adds a tick mark.
+   * Adds a tick mark above the track.
    * @param {Number} tickLength
    * @param {Number} value
    * @param {Node} labelNode, optional
@@ -158,8 +158,8 @@ define( function ( require ) {
     var tickNode = new Path(
       {
         shape: new Shape()
-          .moveTo( labelX, this._trackNode.bottom )
-          .lineTo( labelX, this._trackNode.bottom + tickLength ),
+          .moveTo( labelX, this._trackNode.top )
+          .lineTo( labelX, this._trackNode.bottom - tickLength ),
         lineWidth: 1,
         stroke: "black"
       } );
@@ -168,7 +168,7 @@ define( function ( require ) {
     if ( labelNode ) {
       this._ticksParent.addChild( labelNode );
       labelNode.centerX = tickNode.centerX;
-      labelNode.top = tickNode.bottom + 6;
+      labelNode.bottom = tickNode.top - 6;
     }
   };
 
