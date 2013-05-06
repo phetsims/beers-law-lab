@@ -49,7 +49,7 @@ define( function ( require ) {
     thisSolution.concentrationRange = concentrationRange;
     thisSolution.concentrationTransform = concentrationTransform;
     thisSolution.colorRange = colorRange;
-    thisSolution.saturatedColor = saturatedColor || colorRange.maxColor;
+    thisSolution.saturatedColor = saturatedColor || colorRange.max;
 
     /*
      * Creates a color that corresponds to the solution's concentration.

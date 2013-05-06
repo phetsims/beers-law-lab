@@ -13,7 +13,29 @@ define( function ( require ) {
   var ComboBoxNode = require( "common/view/ComboBoxNode" );
   var HTMLText = require( "SCENERY/nodes/HTMLText" );
   var inherit = require( "PHET_CORE/inherit" );
+  var Node = require( "SCENERY/nodes/Node" );
   var Property = require( "PHETCOMMON/model/property/Property" );
+  var Rectangle = require( "SCENERY/nodes/Rectangle" );
+
+  /**
+   * An item in the combo box.
+   * @param solution
+   * @constructor
+   */
+  function ItemNode( solution ) {
+    var thisNode = this;
+    Node.call( thisNode );
+    var colorNode = new Rectangle( 0, 0, 20, 20, { fill: solution.saturatedColor.toCSS(), stroke: solution.saturatedColor.darker().toCSS() } );
+    var textNode = new HTMLText( solution.getDisplayName(), { font: "20px Arial" } );
+    thisNode.addChild( colorNode );
+    thisNode.addChild( textNode );
+    textNode.left = colorNode.right + 5;
+    textNode.centerY = colorNode.centerY;
+    //TODO is this an acceptable way to do associate item with its model element?
+    thisNode.solution = solution;
+  }
+
+  inherit( ItemNode, Node );
 
   /**
    * @param {Array} solutions of type BeersLawSolution
@@ -28,8 +50,7 @@ define( function ( require ) {
     var items = new Array();
     for ( var i = 0; i < solutions.length; i++ ) {
       var solution = solutions[i];
-      items[i] = new HTMLText( solution.getDisplayName(), { font: "20px Arial" } );
-      items[i].solution = solution; //TODO is this an acceptable way to do associate item with its model element?
+      items[i] = new ItemNode( solution );
       if ( solution === selectedSolution.get() ) {
         defaultItem = items[i];
       }

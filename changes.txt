@@ -1,3 +1,5 @@
+5/6/13 add color chips to Solute and Solution combo boxes
+5/6/13 fix default assignment of BeersLawSolution.saturatedColor
 5/6/13 handle reset for Solution combo box
 5/6/13 handle reset for Solute combo box
 5/6/13 move wavelength value display from slider to control panel
