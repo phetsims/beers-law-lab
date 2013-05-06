@@ -16,10 +16,8 @@ define( function ( require ) {
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
   var LinearFunction = require( "common/util/LinearFunction" );
-  var MinusIconNode = require( "common/view/MinusIconNode" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
-  var PlusIconNode = require( "common/view/PlusIconNode" );
   var Range = require( "DOT/Range" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
   var Shape = require( "KITE/Shape" );
