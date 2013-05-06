@@ -1,3 +1,4 @@
+5/6/13 use left/right arrows instead of +/- buttons for wavelength slider
 5/6/13 move concentration value between label and slider
 5/6/13 concentration slider: move ticks above track
 5/6/13 evaporation slider: move ticks above track, make knob point up

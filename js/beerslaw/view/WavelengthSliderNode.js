@@ -129,12 +129,14 @@ define( function ( require ) {
     var cursor = new Cursor( 3, track.height );
 
     // buttons for single-unit increments
-    var plusButton = new Button( new PlusIconNode( 12 ), function () {
-      wavelength.set( wavelength.get() + 1 );
-    }, { cornerRadius: 4 } );
-    var minusButton = new Button( new MinusIconNode( 12 ), function () {
-      wavelength.set( wavelength.get() - 1 );
-    }, { cornerRadius: 4 } );
+    var plusButton = new Button( new Path( { fill: "black", shape: new Shape().moveTo( 0, 0 ).lineTo( 20, 10 ).lineTo( 0, 20 ).close() } ),
+                                 function () {
+                                   wavelength.set( wavelength.get() + 1 );
+                                 }, { cornerRadius: 4 } );
+    var minusButton = new Button( new Path( { fill: "black", shape: new Shape().moveTo( 0, 10 ).lineTo( 20, 0 ).lineTo( 20, 20 ).close() } ),
+                                  function () {
+                                    wavelength.set( wavelength.get() - 1 );
+                                  }, { cornerRadius: 4 } );
 
     /*
      * Put a border around the track.
