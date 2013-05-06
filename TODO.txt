@@ -19,22 +19,22 @@ BUGS
 
 HIGH
 - laundry list at top of ComboBoxNode
+- prevent dropper from being dragged by on/off button
+- resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
+- use ImagesLoader to load images, delete images.js in config.js
+- Grunt file
+- PhetStyle.xml
 
 MEDIUM
 - add "item" abstraction (node+model) to combo box, to eliminate "selectedItem" delegate property
 - buttons fire on 'up' event even if they haven't seen a 'down' event
 - ruler can get lost behind Solution control panel
-- resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
 - disable (instead of hide) +/- buttons for sliders (not supported by sun.Button)
-- prevent dropper from being dragged by on/off button
 - add relativePressPoint to MovableDragHandler, so that mouse doesn't get away from drag target
-- use ImagesLoader to load images, delete images.js in config.js
 - improve drag handler for faucet handles
-- Grunt file
-- PhetStyle.xml
-- generalize left/right arrow buttons for sliders
 
 LOW
+- generalize left/right arrow buttons for sliders
 - lighting on AT body is vertically flipped
 - sim resizing doesn't play nice with browser zoom features
 - nicer knobs slider
