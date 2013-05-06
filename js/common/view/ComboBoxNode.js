@@ -131,7 +131,7 @@ define( function ( require ) {
             event.currentTarget.stroke = null;
           },
           down: function ( event ) {
-            console.log( "itemNode.down" );//XXX
+            console.log( "ComboBoxNode.itemNode.down" );//XXX
             selectedItem.set( event.currentTarget.item );
             event.currentTarget.stroke = null;
             options.listParent.removeChild( listNode );
@@ -160,7 +160,7 @@ define( function ( require ) {
     buttonNode.addInputListener(
       {
         down: function () {
-          console.log( "buttonNode.down" );//XXX
+          console.log( "ComboBoxNode.buttonNode.down" );//XXX
           if ( options.listParent.isChild( listNode ) ) {
             options.listParent.removeChild( listNode );
           }
