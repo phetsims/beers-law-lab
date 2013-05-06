@@ -219,11 +219,11 @@ define( function ( require ) {
     var maxTickLabelNode = new TickLabelNode( 0 ); // correct value will be set when observer is registered
 
     // buttons for single-unit increments
-    var plusButton = new Button( new Path( { fill: "black", shape: new Shape().moveTo( 0, 0 ).lineTo( 16, 8 ).lineTo( 0, 16 ).close() } ),
+    var plusButton = new Button( new Path( { fill: "black", shape: new Shape().moveTo( 0, 0 ).lineTo( 20, 10 ).lineTo( 0, 20 ).close() } ),
                                  function () {
                                    solution.get().concentration.set( solution.get().concentration.get() + solution.get().concentrationTransform.viewToModel( 1 ) );
                                  }, { cornerRadius: 4 } );
-    var minusButton = new Button( new Path( { fill: "black", shape: new Shape().moveTo( 0, 8 ).lineTo( 16, 0 ).lineTo( 16, 16 ).close() } ),
+    var minusButton = new Button( new Path( { fill: "black", shape: new Shape().moveTo( 0, 10 ).lineTo( 20, 0 ).lineTo( 20, 20 ).close() } ),
                                   function () {
                                     solution.get().concentration.set( solution.get().concentration.get() - solution.get().concentrationTransform.viewToModel( 1 ) );
                                   }, { cornerRadius: 4 } );
