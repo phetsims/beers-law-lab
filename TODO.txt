@@ -18,7 +18,6 @@ BUGS
 - iPad: wavelength slider is unusable and thumb disappears
 
 HIGH
-- fix shaker rotation angle
 - change "fixed" to "preset"
 - use left/right arrows instead of +/- buttons for sliders
 - move wavelength value display from slider to control panel

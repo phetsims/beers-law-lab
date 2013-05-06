@@ -57,7 +57,7 @@ define( function ( require ) {
     thisModel.solution = new ConcentrationSolution( thisModel.solute, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue );
     thisModel.beaker = new Beaker( new Vector2( 400, 550 ), new Dimension2( 600, 300 ), 1 );
     thisModel.precipitate = new Precipitate( thisModel.solution, thisModel.beaker );
-    thisModel.shaker = new Shaker( new Vector2( thisModel.beaker.location.x, 170 ), new Bounds2( 225, 50, 625, 210 ), 0.75 * Math.PI, thisModel.solute, SHAKER_MAX_DISPENSING_RATE, true );
+    thisModel.shaker = new Shaker( new Vector2( thisModel.beaker.location.x, 170 ), new Bounds2( 225, 50, 625, 210 ), -0.75 * Math.PI, thisModel.solute, SHAKER_MAX_DISPENSING_RATE, true );
     thisModel.shakerParticles = new ShakerParticles( thisModel.shaker, thisModel.solution, thisModel.beaker );
     thisModel.dropper = new Dropper( new Vector2( thisModel.beaker.location.x, 210 ), new Bounds2( 230, 205, 630, 235 ), thisModel.solute, DROPPER_FLOW_RATE, false );
     thisModel.evaporator = new Evaporator( MAX_EVAPORATION_RATE, thisModel.solution );
