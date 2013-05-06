@@ -37,6 +37,7 @@ MEDIUM
 - improve drag handler for faucet handles
 - Grunt file
 - PhetStyle.xml
+- generalize left/right arrow buttons for sliders
 
 LOW
 - lighting on AT body is vertically flipped
