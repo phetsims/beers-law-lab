@@ -19,7 +19,6 @@ BUGS
 
 HIGH
 - laundry list at top of ComboBoxNode
-- add color chip to items in Solute and Solution combo boxes
 
 MEDIUM
 - add "item" abstraction (node+model) to combo box, to eliminate "selectedItem" delegate property
