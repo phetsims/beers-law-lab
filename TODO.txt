@@ -19,7 +19,6 @@ BUGS
 
 HIGH
 - bug: Solution combo box doesn't sync with model, so doesn't reset
-- bug: Solute combo box doesn't sync with model, so doesn't reset
 - laundry list at top of ComboBoxNode
 - add color chip to items in Solute and Solution combo boxes
 

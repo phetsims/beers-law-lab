@@ -44,6 +44,20 @@ define( function ( require ) {
     selectedItem.addObserver( function ( item ) {
       selectedSolute.set( item.solute );
     } );
+
+    // change selected item when selected solute changes
+    selectedSolute.addObserver( function ( solute ) {
+      if ( solute !== selectedItem.get().solute ) {
+        var item = null;
+        for ( var i = 0; i < items.length; i++ ) {
+          if ( items[i].solute === solute ) {
+            item = items[i];
+          }
+        }
+        assert && assert( item != null );
+        selectedItem.set( item );
+      }
+    } );
   }
 
   inherit( SoluteComboBoxNode, ComboBoxNode );
