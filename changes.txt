@@ -1,3 +1,4 @@
+5/6/13 move concentration value between label and slider
 5/6/13 concentration slider: move ticks above track
 5/6/13 evaporation slider: move ticks above track, make knob point up
 5/6/13 change "fixed" to "preset" in wavelength control panel

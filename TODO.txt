@@ -27,6 +27,7 @@ HIGH
 - add +/- buttons to concentration slider, rewire when solution changes
 
 MEDIUM
+- buttons fire on 'up' event even if they haven't seen a 'down' event
 - ruler can get lost behind Solution control panel
 - resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
 - disable (instead of hide) +/- buttons for sliders (not supported by sun.Button)
