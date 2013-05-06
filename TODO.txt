@@ -20,7 +20,6 @@ BUGS
 HIGH
 - use left/right arrows instead of +/- buttons for sliders
 - move wavelength value display from slider to control panel
-- try ticks above sliders (as an option in code)
 - bug: Solution combo box doesn't sync with model, so doesn't reset
 - bug: Solute combo box doesn't sync with model, so doesn't reset
 - laundry list at top of ComboBoxNode

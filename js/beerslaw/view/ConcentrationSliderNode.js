@@ -227,11 +227,11 @@ define( function ( require ) {
 
     // layout
     minTickLineNode.left = trackNode.left;
-    minTickLineNode.top = trackNode.bottom;
-    minTickLabelNode.top = minTickLineNode.bottom + 2;
+    minTickLineNode.bottom = trackNode.top;
+    minTickLabelNode.bottom = minTickLineNode.top - 2;
     maxTickLineNode.right = trackNode.right;
-    maxTickLineNode.top = trackNode.bottom;
-    maxTickLabelNode.top = maxTickLineNode.bottom + 2;
+    maxTickLineNode.bottom = trackNode.top;
+    maxTickLabelNode.bottom = maxTickLineNode.top - 2;
     thumbNode.centerY = trackNode.centerY;
 
     // update the tick labels to match the solution
