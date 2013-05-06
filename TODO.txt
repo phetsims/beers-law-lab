@@ -18,7 +18,6 @@ BUGS
 - iPad: wavelength slider is unusable and thumb disappears
 
 HIGH
-- use left/right arrows instead of +/- buttons for sliders
 - move wavelength value display from slider to control panel
 - bug: Solution combo box doesn't sync with model, so doesn't reset
 - bug: Solute combo box doesn't sync with model, so doesn't reset
