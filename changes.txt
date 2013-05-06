@@ -1,3 +1,4 @@
+5/6/13 change "fixed" to "preset" in wavelength control panel
 5/6/13 fix shaker rotation angle
 5/1/13 ******* FEATURE COMPLETE ********
 5/1/13 delete bootstrap from beers-law-lab, no longer used
