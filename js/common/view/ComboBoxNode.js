@@ -67,7 +67,7 @@ define( function ( require ) {
    */
   function ComboBoxNode( items, selectedItem, options ) {
 
-    //TODO assert that selectedItem.get is in items
+    assert && assert( items.indexOf( selectedItem.get() ) != -1 ); // items contains selectedItem
 
     var thisNode = this;
 
@@ -172,6 +172,7 @@ define( function ( require ) {
 
     // when selectedItem changes, update button
     selectedItem.addObserver( function ( item ) {
+      assert && assert( items.indexOf( selectedItem.get() ) != -1 ); // items contains selectedItem
       buttonNode.setItemNode( new ItemNode( item, maxWidth, maxHeight ) );
     } );
   }
