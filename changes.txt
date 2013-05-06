@@ -1,3 +1,4 @@
+5/6/13 move wavelength value display from slider to control panel
 5/6/13 add increment/decrement buttons to concentration slider, rewire when solution changes
 5/6/13 use left/right arrows instead of +/- buttons for wavelength slider
 5/6/13 move concentration value between label and slider

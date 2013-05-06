@@ -33,20 +33,22 @@ define( function ( require ) {
 
     // nodes
     var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.wavelength] ), { font: "22px Arial", fill: "black" } );
-    var textOptions = { font: "18px Arial", fill: "black" };
-    var fixedRadioButton = new RadioButton( variableWavelength, false, new Text( BLLStrings.fixed, textOptions ) );
-    var variableRadioButton = new RadioButton( variableWavelength, true, new Text( BLLStrings.variable, textOptions ) );
+    var valueNode = new Text( "?", { font: "22px Arial", fill: "black" } );
+    var fixedRadioButton = new RadioButton( variableWavelength, false, new Text( BLLStrings.fixed, { font: "18px Arial", fill: "black" } ) );
+    var variableRadioButton = new RadioButton( variableWavelength, true, new Text( BLLStrings.variable, { font: "18px Arial", fill: "black" } ) );
     var wavelengthSlider = new WavelengthSliderNode( light.wavelength, { trackWidth: 150, trackHeight: 30 } );
 
     // rendering order
     var contentNode = new Node();
     contentNode.addChild( labelNode );
+    contentNode.addChild( valueNode );
     contentNode.addChild( fixedRadioButton );
     contentNode.addChild( variableRadioButton );
     contentNode.addChild( wavelengthSlider );
 
     // layout
-    var ySpacing = 12;
+    var ySpacing = 20;
+    valueNode.left = labelNode.right + 10;
     fixedRadioButton.left = labelNode.left;
     fixedRadioButton.top = labelNode.bottom + ySpacing;
     variableRadioButton.left = fixedRadioButton.right + 15;
@@ -70,6 +72,11 @@ define( function ( require ) {
     this.reset = function () {
       variableWavelength.reset();
     }
+
+    // sync displayed value with model
+    light.wavelength.addObserver( function ( wavelength ) {
+      valueNode.text = StringUtils.format( BLLStrings.pattern_0value_1units, [wavelength.toFixed( 0 ), BLLStrings.units_nm] );
+    } );
   }
 
   inherit( WavelengthControlNode, ControlPanelNode );

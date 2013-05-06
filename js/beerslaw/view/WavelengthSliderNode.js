@@ -26,6 +26,9 @@ define( function ( require ) {
   var Text = require( "SCENERY/nodes/Text" );
   var VisibleColor = require( "common/util/VisibleColor" );
 
+  // features
+  var SHOW_VALUE = false;
+
   /**
    * Slider track that displays the visible spectrum.
    * @param width
@@ -149,7 +152,9 @@ define( function ( require ) {
     thisNode.addChild( track );
     thisNode.addChild( trackBorder );
     thisNode.addChild( thumb );
-    thisNode.addChild( valueDisplay );
+    if ( SHOW_VALUE ) {
+      thisNode.addChild( valueDisplay );
+    }
     thisNode.addChild( cursor );
     thisNode.addChild( plusButton );
     thisNode.addChild( minusButton );
