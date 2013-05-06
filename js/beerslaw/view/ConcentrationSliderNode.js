@@ -252,6 +252,7 @@ define( function ( require ) {
     plusButton.bottom = trackNode.bottom;
 
     var concentrationObserver = function ( concentration ) {
+      //TODO better to disable these button than hide them, but not supported by sun.Button yet
       // buttons
       plusButton.visible = ( concentration < solution.get().concentrationRange.max );
       minusButton.visible = ( concentration > solution.get().concentrationRange.min );
@@ -267,6 +268,7 @@ define( function ( require ) {
       // center values below tick lines
       minTickLabelNode.centerX = minTickLineNode.centerX;
       maxTickLabelNode.centerX = maxTickLineNode.centerX;
+      //TODO better to disable these button than hide them, but not supported by sun.Button yet
       // buttons
       plusButton.visible = ( solution.concentration.get() < concentrationRange.max );
       minusButton.visible = ( solution.concentration.get() > concentrationRange.min );
