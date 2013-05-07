@@ -19,6 +19,7 @@ BUGS
 - iPad: too many layers crashes Safari
 
 HIGH
+- bug: shaker particles move up before falling (broken by scenery changes?)
 - bug: combo box list only receives events every-other time it's popped up
 - bug: wavelength control panel doesn't resize when wavelength control is removed
 - laundry list at top of ComboBoxNode
