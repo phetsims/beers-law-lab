@@ -49,26 +49,14 @@ define( function( require ) {
    * @param {ComboBoxItem} item
    * @param {number} width
    * @param {number} height
-   * @param {String} alignment left, center or right
    * @constructor
    */
-  function ItemNode( item, width, height, alignment ) {
+  function ItemNode( item, width, height ) {
     var thisNode = this;
     Rectangle.call( this, 0, 0, width, height );
     this.item = item;
     thisNode.addChild( item.node );
-    if ( alignment === "center" ) {
-      item.node.centerX = width / 2;
-    }
-    else if ( alignment == "left" ) {
-      item.node.left = 0;
-    }
-    else if ( alignment == "right" ) {
-      item.node.right = width;
-    }
-    else {
-      throw new Error( "unsupported alignment: " + alignment );
-    }
+    item.node.left = 0;
     item.node.centerY = height / 2;
   }
 
@@ -103,9 +91,9 @@ define( function( require ) {
                           listStroke: 'black',
                           listLineWidth: 1,
                           listCornerRadius: 5,
-                          listAlign: "left", // left, right or center
                           // list highlighting
-                          listHighlightStroke: 'red', // color used to highlight list
+                          listHighlightFill: "rgb(218,255,255)",
+                          listHighlightStroke: "black",
                           listHighlightLineWidth: 1
                         },
                         options );
@@ -126,7 +114,7 @@ define( function( require ) {
     }
 
     // button, will be set to correct value when property observer is registered
-    var buttonNode = new ButtonNode( new ItemNode( items[0], maxWidth, maxHeight, options.listAlign ), options );
+    var buttonNode = new ButtonNode( new ItemNode( items[0], maxWidth, maxHeight ), options );
     thisNode.addChild( buttonNode );
 
     // list
@@ -138,7 +126,7 @@ define( function( require ) {
     // populate list with items
     for ( var i = 0; i < items.length; i++ ) {
       // add item to list
-      var itemNode = new ItemNode( items[i], maxWidth, maxHeight, options.listAlign );
+      var itemNode = new ItemNode( items[i], maxWidth, maxHeight );
       listNode.addChild( itemNode );
       itemNode.left = options.listXMargin;
       itemNode.top = options.listYMargin + ( i * maxHeight ) + ( i * options.listYSpacing );
@@ -148,16 +136,19 @@ define( function( require ) {
       itemNode.addInputListener(
           {
             enter: function( event ) {
+              event.currentTarget.fill = options.listHighlightFill;
               event.currentTarget.stroke = options.listHighlightStroke;
             },
             exit: function( event ) {
+              event.currentTarget.fill = null;
               event.currentTarget.stroke = null;
             },
             down: function( event ) {
               console.log( "ComboBoxNode.itemNode.down" );//XXX
-              property.set( event.currentTarget.item.value );
+              event.currentTarget.fill = null;
               event.currentTarget.stroke = null;
               options.listParent.removeChild( listNode );
+              property.set( event.currentTarget.item.value );
             }
           }
       );
@@ -204,7 +195,7 @@ define( function( require ) {
         }
       }
       assert && assert( item != null );
-      buttonNode.setItemNode( new ItemNode( item, maxWidth, maxHeight, options.listAlign ) );
+      buttonNode.setItemNode( new ItemNode( item, maxWidth, maxHeight ) );
     } );
   }
 
