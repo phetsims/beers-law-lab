@@ -16,6 +16,7 @@ BUGS
 - iPad: resizing the cuvette is painfully sluggish
 - iPad: text doesn't keep up with dragging (e.g., on shaker)
 - iPad: wavelength slider is unusable and thumb disappears
+- iPad: too many layers crashes Safari
 
 HIGH
 - bug: combo box list only receives events every-other time it's popped up
