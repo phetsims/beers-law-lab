@@ -42,6 +42,7 @@ define( function ( require ) {
 
     // layout
     valueNode.left = labelNode.right + 3;
+    valueNode.y = labelNode.y; // align baselines
     valueNode.centerY = labelNode.centerY;
     sliderNode.left = valueNode.right + 20;
     sliderNode.centerY = valueNode.centerY;

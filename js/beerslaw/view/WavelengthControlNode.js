@@ -49,6 +49,7 @@ define( function ( require ) {
     // layout
     var ySpacing = 20;
     valueNode.left = labelNode.right + 10;
+    valueNode.y = labelNode.y; // align baselines
     fixedRadioButton.left = labelNode.left;
     fixedRadioButton.top = labelNode.bottom + ySpacing;
     variableRadioButton.left = fixedRadioButton.right + 15;

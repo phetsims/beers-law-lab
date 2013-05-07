@@ -1,3 +1,4 @@
+5/6/13 align baselines of labels and values
 5/6/13 add optional label to left of combo box
 5/6/13 get rid of SolutionChoiceNode, fold into SolutionControlNode
 5/6/13 delete vestigial CSS related to bootstrap UI components
