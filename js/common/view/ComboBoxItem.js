@@ -2,6 +2,7 @@
 
 /**
  * An item in a combo box.
+ * This type exists primarily to document the structural contract for items in a combo box.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
