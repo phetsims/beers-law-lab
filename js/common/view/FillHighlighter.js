@@ -10,7 +10,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( function ( require ) {
   "use strict";
 
   // imports
@@ -19,15 +19,19 @@ define( function( require ) {
 
   function FillHighlighter( node, normalFill, highlightFill, enabled ) {
 
-    enabled = _.isUndefined( enabled ) ? new Property(true) : enabled;
+    enabled = _.isUndefined( enabled ) ? new Property( true ) : enabled;
 
     var isMouseInside = false;
     var isMousePressed = false;
     var downPointer; // the pointer that received the "down" event
     // listener added to "down" pointer to received corresponding "up" event
     var upListener = {
-      up: function () { up(); },
-      cancel: function () { up(); }
+      up: function () {
+        up();
+      },
+      cancel: function () {
+        up();
+      }
     };
 
     var setHighlighted = function ( highlighted ) {
@@ -64,12 +68,18 @@ define( function( require ) {
       downPointer.removeInputListener( upListener );
     };
 
-    this.enter = function () { enter(); };
+    this.enter = function () {
+      enter();
+    };
 
-    this.exit = function () { exit(); };
+    this.exit = function () {
+      exit();
+    };
 
-    this.down = function( event ) { down( event ); };
+    this.down = function ( event ) {
+      down( event );
+    };
   }
 
   return FillHighlighter;
-});
+} );

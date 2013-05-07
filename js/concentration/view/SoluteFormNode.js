@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( function ( require ) {
   "use strict";
 
   // imports
@@ -36,7 +36,7 @@ define( function( require ) {
    * @param {Dropper} dropper
    * @constructor
    */
-  function SoluteFormNode( shaker, dropper )  {
+  function SoluteFormNode( shaker, dropper ) {
 
     var thisNode = this;
     Node.call( thisNode );
@@ -65,4 +65,4 @@ define( function( require ) {
   inherit( SoluteFormNode, Node );
 
   return SoluteFormNode;
-});
+} );

@@ -8,7 +8,8 @@
 define( function () {
   "use strict";
 
-  function ChemUtils() {}
+  function ChemUtils() {
+  }
 
   /*
    * Handles HTML subscript formatting for molecule symbols.

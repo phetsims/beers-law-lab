@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( function( require ) {
+define( function ( require ) {
   "use strict";
 
   // imports

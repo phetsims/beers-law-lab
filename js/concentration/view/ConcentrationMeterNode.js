@@ -16,7 +16,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( function( require ) {
+define( function ( require ) {
   "use strict";
 
   // imports
@@ -59,7 +59,7 @@ define( function( require ) {
 
     // text nodes
     var titleNode = new Text( BLLStrings.concentration, { font: "bold 18px Arial", fill: "white" } );
-    var unitsNode = new Text( StringUtils.format( BLLStrings.pattern_parentheses_0text, [ BLLStrings.units_molesPerLiter ]), { font: "bold 14px Arial", fill: "white" } );
+    var unitsNode = new Text( StringUtils.format( BLLStrings.pattern_parentheses_0text, [ BLLStrings.units_molesPerLiter ] ), { font: "bold 14px Arial", fill: "white" } );
     var valueNode = new Text( new Number( 1 ).toFixed( VALUE_DECIMALS ), { font: "24px Arial", fill: "black" } );
 
     // create a background that fits the text
@@ -86,7 +86,7 @@ define( function( require ) {
 
     // body location
     meter.body.location.addObserver( function ( location ) {
-      thisNode.translation = mvt.modelToViewPosition( location ) ;
+      thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
     // displayed value
@@ -216,8 +216,7 @@ define( function( require ) {
    * @param strings
    * @constructor
    */
-  function ConcentrationMeterNode( meter, solution, dropper, solventFaucet, drainFaucet,
-                                   solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, mvt, strings ) {
+  function ConcentrationMeterNode( meter, solution, dropper, solventFaucet, drainFaucet, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, mvt, strings ) {
 
     var thisNode = this;
     Node.call( thisNode );

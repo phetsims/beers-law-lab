@@ -85,7 +85,7 @@ define( function ( require ) {
                                              }, { xMargin: 10 } );
 
     // Reset All button
-    var resetAllButton = new ResetAllButton( function() {
+    var resetAllButton = new ResetAllButton( function () {
       model.reset();
     } );
 

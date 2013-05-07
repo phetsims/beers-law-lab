@@ -43,7 +43,7 @@ define( function ( require ) {
       thisAbsorbance.molarAbsorptivity = new Property( computeMolarAbsorptivity() );
 
       // dependencies from which this property is derived:
-      var updateMolarAbsorptivity = function() {
+      var updateMolarAbsorptivity = function () {
         thisAbsorbance.molarAbsorptivity.set( computeMolarAbsorptivity() );
       };
       solution.addObserver( updateMolarAbsorptivity );
@@ -86,14 +86,14 @@ define( function ( require ) {
 
     // compute absorbance: A = abC
     {
-      var computeAbsorbance = function() {
+      var computeAbsorbance = function () {
         return Absorbance._getAbsorbance( thisAbsorbance.molarAbsorptivity.get(), thisAbsorbance.pathLength.get(), thisAbsorbance.concentration.get() );
       };
 
       thisAbsorbance.value = new Property( computeAbsorbance() );
 
       // dependencies from which this property is derived:
-      var updateAbsorbance = function() {
+      var updateAbsorbance = function () {
         thisAbsorbance.value.set( computeAbsorbance() );
       };
       thisAbsorbance.molarAbsorptivity.addObserver( updateAbsorbance );

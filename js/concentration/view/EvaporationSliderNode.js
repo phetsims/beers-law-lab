@@ -66,7 +66,7 @@ define( function ( require ) {
     var thumbNode = new Path(
       {
         cursor: "pointer",
-        shape: new Shape()  /* clockwise from bottom left */
+        shape: new Shape()/* clockwise from bottom left */
           .moveTo( -THUMB_SIZE.width / 2, THUMB_SIZE.height )
           .lineTo( THUMB_SIZE.width / 2, THUMB_SIZE.height )
           .lineTo( THUMB_SIZE.width / 2, 0.35 * THUMB_SIZE.height )
@@ -110,7 +110,7 @@ define( function ( require ) {
             value.set( thisNode._valueToPosition.evaluateInverse( x ) );
           }
         },
-        end: function() {
+        end: function () {
           if ( snapToMinWhenReleased ) {
             value.set( range.min );
           }
@@ -121,8 +121,8 @@ define( function ( require ) {
     );
 
     // update thumb location when value changes
-    value.addObserver( function( value ) {
-       thumbNode.centerX = thisNode._valueToPosition.evaluate( value );
+    value.addObserver( function ( value ) {
+      thumbNode.centerX = thisNode._valueToPosition.evaluate( value );
     } );
   }
 
@@ -134,7 +134,7 @@ define( function ( require ) {
    * @param {Node} labelNode, optional
    */
   EvaporationSliderNode.prototype.addMajorTick = function ( value, labelNode ) {
-     this._addTick( MAJOR_TICK_LENGTH, value, labelNode );
+    this._addTick( MAJOR_TICK_LENGTH, value, labelNode );
   };
 
   /**

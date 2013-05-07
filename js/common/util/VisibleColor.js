@@ -13,7 +13,8 @@ define( function ( require ) {
 
   var colorTable;
 
-  function VisibleColor() {}
+  function VisibleColor() {
+  }
 
   VisibleColor.MIN_WAVELENGTH = 380;
   VisibleColor.MAX_WAVELENGTH = 780;
@@ -25,7 +26,7 @@ define( function ( require ) {
    */
   var initColorTable = function () {
 
-    assert && assert(!colorTable);
+    assert && assert( !colorTable );
 
     // Allocate the color-lookup array.
     var numWavelengths = Math.floor( VisibleColor.MAX_WAVELENGTH - VisibleColor.MIN_WAVELENGTH + 1 );

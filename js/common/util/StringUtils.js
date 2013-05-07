@@ -3,7 +3,8 @@
 define( function () {
   "use strict";
 
-  function StringUtils() {}
+  function StringUtils() {
+  }
 
   /*
    * Similar to Java's MessageFormat.

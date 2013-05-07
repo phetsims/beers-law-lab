@@ -6,7 +6,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( function ( require ) {
   "use strict";
 
   // imports
@@ -55,4 +55,4 @@ define( function( require ) {
   inherit( BLLRulerNode, Node );
 
   return BLLRulerNode;
-});
+} );

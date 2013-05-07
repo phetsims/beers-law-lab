@@ -31,11 +31,11 @@ define( function ( require ) {
 
   inherit( Probe, Movable );
 
-  Probe.prototype.getMinY = function() {
+  Probe.prototype.getMinY = function () {
     return this.location.get().y - ( this.sensorDiameter / 2 );
   };
 
-  Probe.prototype.getMaxY = function() {
+  Probe.prototype.getMaxY = function () {
     return this.location.get().y + ( this.sensorDiameter / 2 );
   };
 

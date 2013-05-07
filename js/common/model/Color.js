@@ -27,7 +27,7 @@ define( function ( require ) {
     this.a = a || 1;
   }
 
-  Color.prototype.toString = function() {
+  Color.prototype.toString = function () {
     return "Color[r:" + this.r + " g:" + this.g + " b:" + this.b + " a:" + this.a + ")";
   };
 
@@ -83,8 +83,8 @@ define( function ( require ) {
                       this.a );
   };
 
-  Color.withAlpha = function( color, alpha ) {
-     return new Color( color.r, color.g, color.b, alpha );
+  Color.withAlpha = function ( color, alpha ) {
+    return new Color( color.r, color.g, color.b, alpha );
   };
 
   // Common opaque colors

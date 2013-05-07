@@ -37,7 +37,7 @@ define( function ( require ) {
    * @param maxWavelength
    * @constructor
    */
-  //TODO this looks crappy and is likely inefficient
+    //TODO this looks crappy and is likely inefficient
   function TrackNode( width, height, minWavelength, maxWavelength ) {
     var thisNode = this;
     Node.call( thisNode, { stroke: "black", lineWidth: 1 } );
@@ -185,7 +185,7 @@ define( function ( require ) {
     var clickXOffset = 0; // x-offset between initial click and thumb's origin
     thumb.addInputListener( new SimpleDragHandler(
       {
-        start: function( event ) {
+        start: function ( event ) {
           clickXOffset = thumb.globalToParentPoint( event.pointer.point ).x - thumb.x;
         },
         drag: function ( event ) {

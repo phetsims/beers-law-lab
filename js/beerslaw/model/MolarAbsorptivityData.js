@@ -31,7 +31,7 @@ define( function ( require ) {
    * @return {Number}
    */
   MolarAbsorptivityData.prototype.wavelengthToMolarAbsorptivity = function ( wavelength ) {
-    assert && assert ( wavelength >= VisibleColor.MIN_WAVELENGTH && wavelength <= VisibleColor.MAX_WAVELENGTH );
+    assert && assert( wavelength >= VisibleColor.MIN_WAVELENGTH && wavelength <= VisibleColor.MAX_WAVELENGTH );
     var index = Math.floor( wavelength - VisibleColor.MIN_WAVELENGTH );
     return this.molarAbsorptivity[index];
   };
