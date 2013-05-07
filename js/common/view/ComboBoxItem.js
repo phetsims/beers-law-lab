@@ -6,7 +6,8 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function () {
+  "use strict"
 
   /**
    * @param {Node} node scenery node used to render this item

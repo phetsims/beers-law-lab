@@ -14,6 +14,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function ( require ) {
+  "use strict";
 
   // imports
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
