@@ -6,7 +6,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function(require){
+define( function ( require ) {
 
   /**
    * @param {Node} node scenery node used to render this item
@@ -19,4 +19,4 @@ define( function(require){
   }
 
   return ComboBoxItem;
-});
+} );
