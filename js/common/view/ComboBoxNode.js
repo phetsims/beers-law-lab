@@ -33,7 +33,7 @@ define( function( require ) {
     Rectangle.call( this, 0, 0, itemNode.width + ( 2 * options.buttonXMargin ), itemNode.height + ( 2 * options.buttonYMargin ), options.buttonCornerRadius, options.buttonCornerRadius,
                     { fill: options.buttonFill, stroke: options.buttonStroke, lineWidth: options.buttonLineWidth } );
     thisNode.setItemNode = function( itemNode ) {
-      thisNode.children = []; // remove all children
+      thisNode.removeAllChildren();
       thisNode.addChild( itemNode );
       itemNode.left = options.buttonXMargin;
       itemNode.top = options.buttonYMargin;
