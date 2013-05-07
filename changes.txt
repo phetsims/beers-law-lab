@@ -1,3 +1,4 @@
+5/6/13 get rid of SolutionChoiceNode, fold into SolutionControlNode
 5/6/13 delete vestigial CSS related to bootstrap UI components
 5/6/13 switch from RequireJS.images to jQuery.imagesLoaded for loading images
 5/6/13 prevent dropper from being dragged by on/off button

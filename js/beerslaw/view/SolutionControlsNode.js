@@ -9,11 +9,14 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var BLLStrings = require( "common/BLLStrings" );
   var ConcentrationControlNode = require( "beerslaw/view/ConcentrationControlNode" );
   var ControlPanelNode = require( "common/view/ControlPanelNode" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
-  var SolutionChoiceNode = require( "beerslaw/view/SolutionChoiceNode" );
+  var SolutionComboBoxNode = require( "beerslaw/view/SolutionComboBoxNode" );
+  var StringUtils = require( "common/util/StringUtils" );
+  var Text = require( "SCENERY/nodes/Text" );
 
   /**
    * @param {Array} solutions of type BeersLawSolution
@@ -25,17 +28,21 @@ define( function ( require ) {
     var thisNode = this;
 
     // nodes
-    var solutionChoiceNode = new SolutionChoiceNode( solutions, currentSolution );
+    var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.solution] ), { font: "20px Arial" } );
+    var comboBox = new SolutionComboBoxNode( solutions, currentSolution );
     var concentrationControlNode = new ConcentrationControlNode( currentSolution );
     var contentNode = new Node();
 
     // rendering order
+    contentNode.addChild( labelNode );
     contentNode.addChild( concentrationControlNode );
-    contentNode.addChild( solutionChoiceNode ); //TODO combo box on top!
+    contentNode.addChild( comboBox ); //TODO combo box on top!
 
     // layout
-    concentrationControlNode.left = solutionChoiceNode.left;
-    concentrationControlNode.top = solutionChoiceNode.bottom + 25;
+    comboBox.left = labelNode.right + 10;
+    comboBox.centerY = labelNode.centerY;
+    concentrationControlNode.left = labelNode.left;
+    concentrationControlNode.top = comboBox.bottom + 20;
 
     ControlPanelNode.call( thisNode, contentNode, 20, 20 );
   }
