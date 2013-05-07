@@ -57,7 +57,10 @@ define( function( require ) {
       items[i] = new Item( solute );
     }
 
-    ComboBoxNode.call( this, items, selectedSolute, { labelNode: labelNode, listPosition: "below" } );
+    ComboBoxNode.call( this, items, selectedSolute,
+                       { labelNode: labelNode,
+                         listPosition: "below",
+                         itemHighlightFill: "rgb(218,255,255)" } );
   }
 
   inherit( SoluteComboBoxNode, ComboBoxNode );

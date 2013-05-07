@@ -49,14 +49,15 @@ define( function( require ) {
    * @param {ComboBoxItem} item
    * @param {number} width
    * @param {number} height
+   * @param {number} xMargin
    * @constructor
    */
-  function ItemNode( item, width, height ) {
+  function ItemNode( item, width, height, xMargin ) {
     var thisNode = this;
     Rectangle.call( this, 0, 0, width, height );
     this.item = item;
     thisNode.addChild( item.node );
-    item.node.left = 0;
+    item.node.x = xMargin;
     item.node.centerY = height / 2;
   }
 
@@ -79,22 +80,23 @@ define( function( require ) {
                           buttonStroke: "black",
                           buttonLineWidth: 1,
                           buttonCornerRadius: 3,
-                          buttonXMargin: 10,
-                          buttonYMargin: 6,
+                          buttonXMargin: 4,
+                          buttonYMargin: 4,
                           // list
                           listPosition: "below", // where the list is positioned relative to the button, either "below" or "above"
                           listParent: thisNode, // node that will be used as the list's parent, useful for ensuring that the list is in front of everything else
-                          listXMargin: 10,
-                          listYMargin: 5,
-                          listYSpacing: 5, // vertical space between items in the list
+                          listXMargin: 4,
+                          listYMargin: 4,
                           listFill: "white",
                           listStroke: 'black',
                           listLineWidth: 1,
                           listCornerRadius: 5,
-                          // list highlighting
-                          listHighlightFill: "rgb(218,255,255)",
-                          listHighlightStroke: "black",
-                          listHighlightLineWidth: 1
+                          // items
+                          itemXMargin: 6,
+                          itemYMargin: 6,
+                          itemHighlightFill: "rgb(245,245,245)",
+                          itemHighlightStroke: null,
+                          itemHighlightLineWidth: 1
                         },
                         options );
 
@@ -106,38 +108,40 @@ define( function( require ) {
     }
 
     // determine uniform dimensions for button and list items
-    var maxWidth = 0, maxHeight = 0;
+    var itemWidth = 0, itemHeight = 0;
     for ( var i = 0; i < items.length; i++ ) {
       var item = items[i];
-      if ( item.node.width > maxWidth ) { maxWidth = item.node.width; }
-      if ( item.node.height > maxHeight ) { maxHeight = item.node.height; }
+      if ( item.node.width > itemWidth ) { itemWidth = item.node.width; }
+      if ( item.node.height > itemHeight ) { itemHeight = item.node.height; }
     }
+    itemWidth += ( 2 * options.itemXMargin );
+    itemHeight += ( 2 * options.itemYMargin );
 
     // button, will be set to correct value when property observer is registered
-    var buttonNode = new ButtonNode( new ItemNode( items[0], maxWidth, maxHeight ), options );
+    var buttonNode = new ButtonNode( new ItemNode( items[0], itemWidth, itemHeight, options.itemXMargin ), options );
     thisNode.addChild( buttonNode );
 
     // list
-    var listWidth = maxWidth + ( 2 * options.listXMargin );
-    var listHeight = ( items.length * maxHeight ) + ( 2 * options.listYMargin ) + ( ( items.length - 1 ) * options.listYSpacing );
+    var listWidth = itemWidth + ( 2 * options.listXMargin );
+    var listHeight = ( items.length * itemHeight ) + ( 2 * options.listYMargin );
     var listNode = new Rectangle( 0, 0, listWidth, listHeight, options.listCornerRadius, options.listCornerRadius,
                                   { fill: options.listFill, stroke: options.listStroke, lineWidth: options.listLineWidth } );
 
     // populate list with items
     for ( var i = 0; i < items.length; i++ ) {
       // add item to list
-      var itemNode = new ItemNode( items[i], maxWidth, maxHeight );
+      var itemNode = new ItemNode( items[i], itemWidth, itemHeight, options.itemXMargin );
       listNode.addChild( itemNode );
       itemNode.left = options.listXMargin;
-      itemNode.top = options.listYMargin + ( i * maxHeight ) + ( i * options.listYSpacing );
+      itemNode.top = options.listYMargin + ( i * itemHeight );
 
       // item interactivity
       itemNode.cursor = "pointer";
       itemNode.addInputListener(
           {
             enter: function( event ) {
-              event.currentTarget.fill = options.listHighlightFill;
-              event.currentTarget.stroke = options.listHighlightStroke;
+              event.currentTarget.fill = options.itemHighlightFill;
+              event.currentTarget.stroke = options.itemHighlightStroke;
             },
             exit: function( event ) {
               event.currentTarget.fill = null;
@@ -195,7 +199,7 @@ define( function( require ) {
         }
       }
       assert && assert( item != null );
-      buttonNode.setItemNode( new ItemNode( item, maxWidth, maxHeight ) );
+      buttonNode.setItemNode( new ItemNode( item, itemWidth, itemHeight, options.itemXMargin ) );
     } );
   }
 
