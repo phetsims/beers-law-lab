@@ -1,4 +1,4 @@
-// Copyright 2013, University of Colorado
+// Copyright 2002-2013, University of Colorado
 
 /**
  * Slider for changing a solution's concentration.

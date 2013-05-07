@@ -1,4 +1,4 @@
-// Copyright 2013, University of Colorado
+// Copyright 2002-2013, University of Colorado
 
 /**
  * Highlights a node by changing its fill color.

@@ -1,4 +1,4 @@
-// Copyright 2013, University of Colorado
+// Copyright 2002-2013, University of Colorado
 
 /**
  * WavelengthControl is a slider-like control used for setting visible wavelength.
