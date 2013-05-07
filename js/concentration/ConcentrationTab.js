@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -25,11 +25,11 @@ define( function ( require ) {
 
     var mvt = ModelViewTransform2.createIdentity();
 
-    this.createModel = function () {
+    this.createModel = function() {
       return new ConcentrationModel();
     };
 
-    this.createView = function ( model ) {
+    this.createView = function( model ) {
       return new ConcentrationView( model, mvt );
     };
   }

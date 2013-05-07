@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -57,35 +57,35 @@ define( function ( require ) {
 
     // sync view with model
     var viewToModel;
-    solution.addObserver( function ( solution ) {
+    solution.addObserver( function( solution ) {
       // change the view-to-model function to match the solution's concentration range
       var concentrationRange = solution.concentrationRange;
       viewToModel = new LinearFunction( new Range( 0, trackSize.width ), new Range( concentrationRange.min, concentrationRange.max ), true /* clamp */ );
 
       // fill with a gradient that matches the solution's color range
       thisNode.fill = new LinearGradient( 0, 0, trackSize.width, 0 )
-        .addColorStop( 0, solution.colorRange.min.toCSS() )
-        .addColorStop( 1, solution.colorRange.max.toCSS() );
+          .addColorStop( 0, solution.colorRange.min.toCSS() )
+          .addColorStop( 1, solution.colorRange.max.toCSS() );
     } );
 
     // click in the track to change the value, continue dragging if desired
-    var handleEvent = function ( event ) {
+    var handleEvent = function( event ) {
       var x = thisNode.globalToLocalPoint( event.pointer.point ).x;
       var concentration = viewToModel.evaluate( x );
       solution.get().concentration.set( concentration );
     };
     thisNode.addInputListener( new SimpleDragHandler(
-      {
-        start: function ( event ) {
-          handleEvent( event );
-        },
-        drag: function ( event ) {
-          handleEvent( event );
-        },
-        translate: function () {
-          // do nothing, override default behavior
-        }
-      } ) );
+        {
+          start: function( event ) {
+            handleEvent( event );
+          },
+          drag: function( event ) {
+            handleEvent( event );
+          },
+          translate: function() {
+            // do nothing, override default behavior
+          }
+        } ) );
   }
 
   inherit( TrackNode, Rectangle );
@@ -108,7 +108,7 @@ define( function ( require ) {
   function TickLabelNode( value ) {
     var thisNode = this;
     Text.call( thisNode, "?", { font: TICK_FONT, fill: "black" } );
-    thisNode.setValue = function ( value ) {
+    thisNode.setValue = function( value ) {
       thisNode.text = value.toFixed( TICK_DECIMAL_PLACES );
     };
     thisNode.setValue( value );
@@ -145,7 +145,7 @@ define( function ( require ) {
 
     // set the drag handler and mapping function for the selected solution
     var dragHandler, concentrationToPosition;
-    var setSolution = function ( solution ) {
+    var setSolution = function( solution ) {
       // drag handler with solution's concentration range
       if ( dragHandler ) {
         thisNode.removeInputListener( dragHandler );
@@ -159,13 +159,13 @@ define( function ( require ) {
     setSolution( solution.get() );
 
     // move the slider thumb to reflect the concentration value
-    var concentrationObserver = function ( concentration ) {
+    var concentrationObserver = function( concentration ) {
       thisNode.x = concentrationToPosition.evaluate( concentration );
     };
     solution.get().concentration.addObserver( concentrationObserver );
 
     // when the solution changes, wire up to the current solution
-    solution.addObserver( function ( newSolution, oldSolution ) {
+    solution.addObserver( function( newSolution, oldSolution ) {
       setSolution( newSolution );
       if ( oldSolution ) {
         oldSolution.concentration.removeObserver( concentrationObserver );
@@ -186,14 +186,14 @@ define( function ( require ) {
   function ThumbDragHandler( dragNode, concentration, positionToValue ) {
     var clickXOffset; // x-offset between initial click and thumb's origin
     SimpleDragHandler.call( this, {
-      start: function ( event ) {
+      start: function( event ) {
         clickXOffset = dragNode.globalToParentPoint( event.pointer.point ).x - event.currentTarget.x;
       },
-      drag: function ( event ) {
+      drag: function( event ) {
         var x = dragNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
         concentration.set( positionToValue.evaluate( x ) );
       },
-      translate: function () {
+      translate: function() {
         // do nothing, override default behavior
       }
     } );
@@ -220,11 +220,11 @@ define( function ( require ) {
 
     // buttons for single-unit increments
     var plusButton = new Button( new Path( { fill: "black", shape: new Shape().moveTo( 0, 0 ).lineTo( 20, 10 ).lineTo( 0, 20 ).close() } ),
-                                 function () {
+                                 function() {
                                    solution.get().concentration.set( solution.get().concentration.get() + solution.get().concentrationTransform.viewToModel( 1 ) );
                                  }, { cornerRadius: 4 } );
     var minusButton = new Button( new Path( { fill: "black", shape: new Shape().moveTo( 0, 10 ).lineTo( 20, 0 ).lineTo( 20, 20 ).close() } ),
-                                  function () {
+                                  function() {
                                     solution.get().concentration.set( solution.get().concentration.get() - solution.get().concentrationTransform.viewToModel( 1 ) );
                                   }, { cornerRadius: 4 } );
 
@@ -251,7 +251,7 @@ define( function ( require ) {
     plusButton.left = trackNode.right + ( thumbNode.width / 2 ) + 2;
     plusButton.bottom = trackNode.bottom;
 
-    var concentrationObserver = function ( concentration ) {
+    var concentrationObserver = function( concentration ) {
       //TODO better to disable these button than hide them, but not supported by sun.Button yet
       // buttons
       plusButton.visible = ( concentration < solution.get().concentrationRange.max );
@@ -259,7 +259,7 @@ define( function ( require ) {
     };
 
     // update the tick labels to match the solution
-    solution.addObserver( function ( solution, oldSolution ) {
+    solution.addObserver( function( solution, oldSolution ) {
       var concentrationRange = solution.concentrationRange;
       var transform = solution.concentrationTransform;
       // update label values

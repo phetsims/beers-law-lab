@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -27,12 +27,12 @@ define( function ( require ) {
     this.a = a || 1;
   }
 
-  Color.prototype.toString = function () {
+  Color.prototype.toString = function() {
     return "Color[r:" + this.r + " g:" + this.g + " b:" + this.b + " a:" + this.a + ")";
   };
 
   // Gets a CSS-compatible color string.
-  Color.prototype.toCSS = function () {
+  Color.prototype.toCSS = function() {
     return "rgba(" + this.r + "," + this.g + "," + this.b + "," + this.a + ")";
   };
 
@@ -46,7 +46,7 @@ define( function ( require ) {
    * @param {Color} color2
    * @param {Number} distance distance between color1 and color2, 0 <= distance <= 1
    */
-  Color.interpolateRBGA = function ( color1, color2, distance ) {
+  Color.interpolateRBGA = function( color1, color2, distance ) {
     //TODO validate distance
     var r = Math.round( Color.interpolate( color1.r, color2.r, distance ) );
     var g = Math.round( Color.interpolate( color1.g, color2.g, distance ) );
@@ -62,12 +62,12 @@ define( function ( require ) {
    * @param {Number} distance distance between number1 and number2, 0 <= distance <= 1
    * @return value, such that number1 <= value <= number2
    */
-  Color.interpolate = function ( number1, number2, distance ) {
+  Color.interpolate = function( number1, number2, distance ) {
     //TODO validate distance
     return number1 + ( distance * ( number2 - number1 ) );
   };
 
-  Color.prototype.darker = function ( color ) {
+  Color.prototype.darker = function( color ) {
     var FACTOR = 0.7;
     return new Color( Math.max( Math.round( this.r * FACTOR ), 0 ),
                       Math.max( Math.round( this.g * FACTOR ), 0 ),
@@ -75,7 +75,7 @@ define( function ( require ) {
                       this.a );
   };
 
-  Color.prototype.brighter = function ( color ) {
+  Color.prototype.brighter = function( color ) {
     var FACTOR = 0.7;
     return new Color( Math.min( Math.round( this.r / FACTOR ), 255 ),
                       Math.min( Math.round( this.g / FACTOR ), 255 ),
@@ -83,7 +83,7 @@ define( function ( require ) {
                       this.a );
   };
 
-  Color.withAlpha = function ( color, alpha ) {
+  Color.withAlpha = function( color, alpha ) {
     return new Color( color.r, color.g, color.b, alpha );
   };
 

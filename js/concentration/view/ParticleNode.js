@@ -6,7 +6,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -32,7 +32,7 @@ define( function ( require ) {
     thisNode.particle = particle;
     thisNode.rotation = particle.orientation;
 
-    particle.location.addObserver( function () {
+    particle.location.addObserver( function() {
       thisNode.translation = mvt.modelToViewPosition( particle.location.get() );
     } );
   }

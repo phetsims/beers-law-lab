@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -48,7 +48,7 @@ define( function ( require ) {
     sliderNode.centerY = valueNode.centerY;
 
     // update the value display when concentration changes
-    var concentrationObserver = function () {
+    var concentrationObserver = function() {
       var valueString = solution.get().getViewValue().toFixed( DECIMAL_PLACES );
       var units = solution.get().getViewUnits();
       valueNode.text = StringUtils.format( BLLStrings.pattern_0value_1units, [ valueString, units ] );
@@ -57,7 +57,7 @@ define( function ( require ) {
     solution.get().concentration.addObserver( concentrationObserver );
 
     // when solution changes, rewire the concentration observer
-    solution.addObserver( function ( newSolution, oldSolution ) {
+    solution.addObserver( function( newSolution, oldSolution ) {
       if ( oldSolution ) {
         oldSolution.concentration.removeObserver( concentrationObserver );
       }

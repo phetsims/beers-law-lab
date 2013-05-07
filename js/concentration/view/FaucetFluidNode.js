@@ -6,7 +6,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -30,7 +30,7 @@ define( function ( require ) {
      * Set the color of the fluid coming out of the spout.
      * @param {Color} color
      */
-    fluid.color.addObserver( function ( color ) {
+    fluid.color.addObserver( function( color ) {
       thisNode.fill = color.toCSS();
       thisNode.stroke = color.darker().toCSS();
     } );
@@ -41,7 +41,7 @@ define( function ( require ) {
      */
     var viewLocation = mvt.modelToViewPosition( faucet.location );
     var viewHeight = mvt.modelToViewDeltaY( height );
-    faucet.flowRate.addObserver( function ( flowRate ) {
+    faucet.flowRate.addObserver( function( flowRate ) {
       if ( flowRate == 0 ) {
         thisNode.shape = new Shape();
       }

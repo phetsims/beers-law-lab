@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -19,7 +19,7 @@ define( function ( require ) {
     this.color = new Property( color );
   }
 
-  Fluid.prototype.reset = function () {
+  Fluid.prototype.reset = function() {
     this.color.reset();
   };
 

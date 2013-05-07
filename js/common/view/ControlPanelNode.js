@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -34,7 +34,7 @@ define( function ( require ) {
     thisNode.addChild( panelNode );
     thisNode.addChild( contentNode );
 
-    this.resize = function () {
+    this.resize = function() {
       panelNode.setShape( Shape.roundRect( 0, 0, contentNode.width + ( 2 * xMargin ), contentNode.height + ( 2 * yMargin ), 10, 10 ) );
       contentNode.centerX = panelNode.centerX;
       contentNode.centerY = panelNode.centerY;

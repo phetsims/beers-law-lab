@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -67,19 +67,19 @@ define( function ( require ) {
                                                            new Vector2( 750, 370 ), new Bounds2( 30, 150, 966, 680 ) );
 
     // Things to do when the solute is changed.
-    thisModel.solute.addObserver( function ( solute ) {
+    thisModel.solute.addObserver( function( solute ) {
       thisModel.solution.soluteAmount.set( 0 );
     } );
 
     // Enable faucets and dropper based on amount of solution in the beaker.
-    thisModel.solution.volume.addObserver( function ( volume ) {
+    thisModel.solution.volume.addObserver( function( volume ) {
       thisModel.solventFaucet.enabled.set( volume < SOLUTION_VOLUME_RANGE.max );
       thisModel.drainFaucet.enabled.set( volume > SOLUTION_VOLUME_RANGE.min );
       thisModel.dropper.enabled.set( !thisModel.dropper.empty.get() && ( volume < SOLUTION_VOLUME_RANGE.max ) );
     } );
 
     // Empty shaker and dropper when max solute is reached.
-    thisModel.solution.soluteAmount.addObserver( function ( soluteAmount ) {
+    thisModel.solution.soluteAmount.addObserver( function( soluteAmount ) {
       var containsMaxSolute = ( soluteAmount >= SOLUTE_AMOUNT.max );
       thisModel.shaker.empty.set( containsMaxSolute );
       thisModel.dropper.empty.set( containsMaxSolute );
@@ -88,7 +88,7 @@ define( function ( require ) {
   }
 
   // Resets all model elements
-  ConcentrationModel.prototype.reset = function () {
+  ConcentrationModel.prototype.reset = function() {
     this.solute.reset();
     this.solution.reset();
     this.shaker.reset();
@@ -103,7 +103,7 @@ define( function ( require ) {
    * Moves time forward by the specified amount.
    * @param deltaSeconds clock time change, in seconds.
    */
-  ConcentrationModel.prototype.step = function ( deltaSeconds ) {
+  ConcentrationModel.prototype.step = function( deltaSeconds ) {
     this._addSolventFromInputFaucet( deltaSeconds );
     this._drainSolutionFromOutputFaucet( deltaSeconds );
     this._addStockSolutionFromDropper( deltaSeconds );
@@ -113,12 +113,12 @@ define( function ( require ) {
   };
 
   // Add solvent from the input faucet
-  ConcentrationModel.prototype._addSolventFromInputFaucet = function ( deltaSeconds ) {
+  ConcentrationModel.prototype._addSolventFromInputFaucet = function( deltaSeconds ) {
     this._addSolvent( this.solventFaucet.flowRate.get() * deltaSeconds );
   };
 
   // Drain solution from the output faucet
-  ConcentrationModel.prototype._drainSolutionFromOutputFaucet = function ( deltaSeconds ) {
+  ConcentrationModel.prototype._drainSolutionFromOutputFaucet = function( deltaSeconds ) {
     var drainVolume = this.drainFaucet.flowRate.get() * deltaSeconds;
     if ( drainVolume > 0 ) {
       var concentration = this.solution.concentration.get(); // get concentration before changing volume
@@ -128,7 +128,7 @@ define( function ( require ) {
   };
 
   // Add stock solution from dropper
-  ConcentrationModel.prototype._addStockSolutionFromDropper = function ( deltaSeconds ) {
+  ConcentrationModel.prototype._addStockSolutionFromDropper = function( deltaSeconds ) {
     var dropperVolume = this.dropper.flowRate.get() * deltaSeconds;
     if ( dropperVolume > 0 ) {
       var volumeAdded = this._addSolvent( dropperVolume );
@@ -137,22 +137,22 @@ define( function ( require ) {
   };
 
   // Evaporate solvent
-  ConcentrationModel.prototype._evaporateSolvent = function ( deltaSeconds ) {
+  ConcentrationModel.prototype._evaporateSolvent = function( deltaSeconds ) {
     this._removeSolvent( this.evaporator.evaporationRate.get() * deltaSeconds );
   };
 
   // Propagate solid solute that came out of the shaker
-  ConcentrationModel.prototype._propagateShakerParticles = function ( deltaSeconds ) {
+  ConcentrationModel.prototype._propagateShakerParticles = function( deltaSeconds ) {
     this.shakerParticles.step( deltaSeconds );
   };
 
   // Create new solute particles when the shaker is shaken.
-  ConcentrationModel.prototype._createShakerParticles = function () {
+  ConcentrationModel.prototype._createShakerParticles = function() {
     this.shaker.step();
   };
 
   // Adds solvent to the solution. Returns the amount actually added.
-  ConcentrationModel.prototype._addSolvent = function ( deltaVolume ) {
+  ConcentrationModel.prototype._addSolvent = function( deltaVolume ) {
     if ( deltaVolume > 0 ) {
       var volumeBefore = this.solution.volume.get();
       this.solution.volume.set( Math.min( SOLUTION_VOLUME_RANGE.max, this.solution.volume.get() + deltaVolume ) );
@@ -164,7 +164,7 @@ define( function ( require ) {
   };
 
   // Removes solvent from the solution. Returns the amount actually removed.
-  ConcentrationModel.prototype._removeSolvent = function ( deltaVolume ) {
+  ConcentrationModel.prototype._removeSolvent = function( deltaVolume ) {
     if ( deltaVolume > 0 ) {
       var volumeBefore = this.solution.volume.get();
       this.solution.volume.set( Math.max( SOLUTION_VOLUME_RANGE.min, this.solution.volume.get() - deltaVolume ) );
@@ -176,7 +176,7 @@ define( function ( require ) {
   };
 
   // Adds solvent to the solution. Returns the amount actually added.
-  ConcentrationModel.prototype._addSolute = function ( deltaAmount ) {
+  ConcentrationModel.prototype._addSolute = function( deltaAmount ) {
     if ( deltaAmount > 0 ) {
       var amountBefore = this.solution.soluteAmount.get();
       this.solution.soluteAmount.set( Math.min( SOLUTE_AMOUNT.max, this.solution.soluteAmount.get() + deltaAmount ) );
@@ -188,7 +188,7 @@ define( function ( require ) {
   };
 
   // Removes solvent from the solution. Returns the amount actually removed.
-  ConcentrationModel.prototype._removeSolute = function ( deltaAmount ) {
+  ConcentrationModel.prototype._removeSolute = function( deltaAmount ) {
     if ( deltaAmount > 0 ) {
       var amountBefore = this.solution.soluteAmount.get();
       this.solution.soluteAmount.set( Math.max( SOLUTE_AMOUNT.min, this.solution.soluteAmount.get() - deltaAmount ) );

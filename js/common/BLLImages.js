@@ -10,7 +10,7 @@
  * @author Sam Reid
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function () {
+define( function() {
   "use strict";
   return {};
 } );

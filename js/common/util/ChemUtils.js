@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function () {
+define( function() {
   "use strict";
 
   function ChemUtils() {
@@ -16,10 +16,10 @@ define( function () {
    * All numbers in a string are assumed to be part of a subscript, and will be enclosed in a <sub> tag.
    * For example, "C2H4" becomes "C<sub>2</sub>H<sub>4</sub>".
    */
-  ChemUtils.toSubscript = function ( inString ) {
+  ChemUtils.toSubscript = function( inString ) {
     var outString = "";
     var sub = false; // are we in a <sub> tag?
-    var isDigit = function ( c ) {
+    var isDigit = function( c ) {
       return ( c >= '0' && c <= '9');
     };
     for ( var i = 0; i < inString.length; i++ ) {

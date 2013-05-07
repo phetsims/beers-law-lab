@@ -18,7 +18,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -36,14 +36,14 @@ define( function ( require ) {
 
     // a: molar absorptivity, units=1/(cm*M)
     {
-      var computeMolarAbsorptivity = function () {
+      var computeMolarAbsorptivity = function() {
         return solution.get().molarAbsorptivityData.wavelengthToMolarAbsorptivity( light.wavelength.get() );
       };
 
       thisAbsorbance.molarAbsorptivity = new Property( computeMolarAbsorptivity() );
 
       // dependencies from which this property is derived:
-      var updateMolarAbsorptivity = function () {
+      var updateMolarAbsorptivity = function() {
         thisAbsorbance.molarAbsorptivity.set( computeMolarAbsorptivity() );
       };
       solution.addObserver( updateMolarAbsorptivity );
@@ -52,14 +52,14 @@ define( function ( require ) {
 
     // b: path length, synonymous with cuvette width, units=cm
     {
-      var computePathLength = function () {
+      var computePathLength = function() {
         return cuvette.width.get();
       };
 
       thisAbsorbance.pathLength = new Property( computePathLength() );
 
       // dependencies from which this property is derived:
-      var updatePathLength = function () {
+      var updatePathLength = function() {
         thisAbsorbance.pathLength.set( computePathLength() );
       };
       cuvette.width.addObserver( updatePathLength );
@@ -70,13 +70,13 @@ define( function ( require ) {
       thisAbsorbance.concentration = new Property( solution.get().concentration.get() );
 
       // Observe the concentration property of the current solution.
-      var updateConcentration = function ( concentration ) {
+      var updateConcentration = function( concentration ) {
         thisAbsorbance.concentration.set( concentration );
       };
       solution.get().concentration.addObserver( updateConcentration );
 
       // Rewire the concentration observer when the solution changes.
-      solution.addObserver( function ( newSolution, oldSolution ) {
+      solution.addObserver( function( newSolution, oldSolution ) {
         if ( oldSolution != null ) {
           oldSolution.concentration.removeObserver( updateConcentration );
         }
@@ -86,14 +86,14 @@ define( function ( require ) {
 
     // compute absorbance: A = abC
     {
-      var computeAbsorbance = function () {
+      var computeAbsorbance = function() {
         return Absorbance._getAbsorbance( thisAbsorbance.molarAbsorptivity.get(), thisAbsorbance.pathLength.get(), thisAbsorbance.concentration.get() );
       };
 
       thisAbsorbance.value = new Property( computeAbsorbance() );
 
       // dependencies from which this property is derived:
-      var updateAbsorbance = function () {
+      var updateAbsorbance = function() {
         thisAbsorbance.value.set( computeAbsorbance() );
       };
       thisAbsorbance.molarAbsorptivity.addObserver( updateAbsorbance );
@@ -103,17 +103,17 @@ define( function ( require ) {
   }
 
   // Gets absorbance for a specified path length.
-  Absorbance.prototype.getAbsorbanceAt = function ( pathLength ) {
+  Absorbance.prototype.getAbsorbanceAt = function( pathLength ) {
     return Absorbance._getAbsorbance( this.molarAbsorptivity.get(), pathLength, this.concentration.get() );
   };
 
   // Gets transmittance for a specified path length.
-  Absorbance.prototype.getTransmittanceAt = function ( pathLength ) {
+  Absorbance.prototype.getTransmittanceAt = function( pathLength ) {
     return Absorbance._getTransmittance( this.getAbsorbanceAt( pathLength ) );
   };
 
   // Converts absorbance to transmittance.
-  Absorbance.prototype.getTransmittance = function () {
+  Absorbance.prototype.getTransmittance = function() {
     return Absorbance._getTransmittance( this.value.get() );
   };
 
@@ -124,7 +124,7 @@ define( function ( require ) {
    * @param {Number} concentration
    * @return {Number}
    */
-  Absorbance._getAbsorbance = function ( molarAbsorptivity, pathLength, concentration ) {
+  Absorbance._getAbsorbance = function( molarAbsorptivity, pathLength, concentration ) {
     return molarAbsorptivity * pathLength * concentration;
   };
 
@@ -133,7 +133,7 @@ define( function ( require ) {
    * @param {Number} absorbance
    * @return {Number}
    */
-  Absorbance._getTransmittance = function ( absorbance ) {
+  Absorbance._getTransmittance = function( absorbance ) {
     return Math.pow( 10, -absorbance );
   };
 

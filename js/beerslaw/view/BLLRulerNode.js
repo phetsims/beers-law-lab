@@ -6,7 +6,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -41,7 +41,7 @@ define( function ( require ) {
                                       { minorTicksPerMajorTick: 4 } ) );
 
     // sync with model
-    ruler.location.addObserver( function ( location ) {
+    ruler.location.addObserver( function( location ) {
       var position = mvt.modelToViewPosition( location );
       thisNode.x = position.x;
       thisNode.y = position.y;

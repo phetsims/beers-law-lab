@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -35,25 +35,25 @@ define( function ( require ) {
     thisDropper.flowRate = new Property( 0 ); // L/sec
 
     // Turn off the dropper when it's disabled.
-    thisDropper.enabled.addObserver( function ( enabled ) {
+    thisDropper.enabled.addObserver( function( enabled ) {
       if ( !enabled ) {
         thisDropper.on.set( false );
       }
     } );
 
     // Toggle the flow rate when the dropper is turned on/off.
-    thisDropper.on.addObserver( function ( on ) {
+    thisDropper.on.addObserver( function( on ) {
       thisDropper.flowRate.set( on ? maxFlowRate : 0 );
     } );
 
     // When the dropper becomes empty, disable it.
-    thisDropper.empty.addObserver( function ( empty ) {
+    thisDropper.empty.addObserver( function( empty ) {
       if ( empty ) {
         thisDropper.enabled.set( false );
       }
     } );
 
-    thisDropper.reset = function () {
+    thisDropper.reset = function() {
       callSuper( Movable, "reset", thisDropper );
       thisDropper.visible.reset();
       thisDropper.on.reset();

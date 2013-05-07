@@ -10,7 +10,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -26,33 +26,33 @@ define( function ( require ) {
     var downPointer; // the pointer that received the "down" event
     // listener added to "down" pointer to received corresponding "up" event
     var upListener = {
-      up: function () {
+      up: function() {
         up();
       },
-      cancel: function () {
+      cancel: function() {
         up();
       }
     };
 
-    var setHighlighted = function ( highlighted ) {
+    var setHighlighted = function( highlighted ) {
       if ( enabled.get() ) {
         node.fill = highlighted ? highlightFill : normalFill;
       }
     };
 
-    var enter = function () {
+    var enter = function() {
       isMouseInside = true;
       setHighlighted( true );
     };
 
-    var exit = function () {
+    var exit = function() {
       isMouseInside = false;
       if ( !isMousePressed ) {
         setHighlighted( false );
       }
     };
 
-    var down = function ( event ) {
+    var down = function( event ) {
       downPointer = event.pointer;
       isMousePressed = true;
       setHighlighted( true );
@@ -60,7 +60,7 @@ define( function ( require ) {
       event.pointer.addInputListener( upListener );
     };
 
-    var up = function () {
+    var up = function() {
       isMousePressed = false;
       if ( !isMouseInside ) {
         setHighlighted( false );
@@ -68,15 +68,15 @@ define( function ( require ) {
       downPointer.removeInputListener( upListener );
     };
 
-    this.enter = function () {
+    this.enter = function() {
       enter();
     };
 
-    this.exit = function () {
+    this.exit = function() {
       exit();
     };
 
-    this.down = function ( event ) {
+    this.down = function( event ) {
       down( event );
     };
   }

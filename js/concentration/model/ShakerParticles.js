@@ -6,7 +6,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -39,28 +39,28 @@ define( function ( require ) {
     thisParticles.removedCallbacks = new Array(); // function(ShakerParticle)
 
     // when the solute changes, remove all particles
-    solution.solute.addObserver( function () {
+    solution.solute.addObserver( function() {
       thisParticles._removeAllParticles();
     } );
 
     // remove all particles if the solute amount goes to zero.
-    solution.soluteAmount.addObserver( function ( amount ) {
+    solution.soluteAmount.addObserver( function( amount ) {
       if ( amount === 0 ) {
         thisParticles._removeAllParticles();
       }
     } );
   }
 
-  ShakerParticles.prototype.registerParticleAddedCallback = function ( callback ) {
+  ShakerParticles.prototype.registerParticleAddedCallback = function( callback ) {
     this.addedCallbacks.push( callback );
   };
 
-  ShakerParticles.prototype.registerParticleRemovedCallback = function ( callback ) {
+  ShakerParticles.prototype.registerParticleRemovedCallback = function( callback ) {
     this.removedCallbacks.push( callback );
   };
 
   // Particle animation and delivery to the solution, called when the simulation clock ticks.
-  ShakerParticles.prototype.step = function ( deltaSeconds ) {
+  ShakerParticles.prototype.step = function( deltaSeconds ) {
 
     var beaker = this.beaker;
     var shaker = this.shaker;
@@ -92,26 +92,26 @@ define( function ( require ) {
   };
 
   // Computes an initial velocity for the particle.
-  ShakerParticles.prototype._getInitialVelocity = function () {
+  ShakerParticles.prototype._getInitialVelocity = function() {
     return Vector2.createPolar( INITIAL_SPEED, this.shaker.orientation ); // in the direction the shaker is pointing
   };
 
   // Gravitational acceleration is in the downward direction.
-  ShakerParticles.prototype._getGravitationalAcceleration = function () {
+  ShakerParticles.prototype._getGravitationalAcceleration = function() {
     return new Vector2( 0, GRAVITATIONAL_ACCELERATION_MAGNITUDE );
   };
 
-  ShakerParticles.prototype._addParticle = function ( particle ) {
+  ShakerParticles.prototype._addParticle = function( particle ) {
     this.particles.push( particle );
     this._fireParticleAdded( particle );
   };
 
-  ShakerParticles.prototype._removeParticle = function ( particle ) {
+  ShakerParticles.prototype._removeParticle = function( particle ) {
     this.particles.splice( this.particles.indexOf( particle ), 1 );
     this._fireParticleRemoved( particle );
   };
 
-  ShakerParticles.prototype._removeAllParticles = function () {
+  ShakerParticles.prototype._removeAllParticles = function() {
     var particles = this.particles.slice( 0 );
     for ( var i = 0; i < particles.length; i++ ) {
       this._removeParticle( particles[i] );
@@ -119,7 +119,7 @@ define( function ( require ) {
   };
 
   // Notify that a {ShakerParticle} particle was added.
-  ShakerParticles.prototype._fireParticleAdded = function ( particle ) {
+  ShakerParticles.prototype._fireParticleAdded = function( particle ) {
     var addedCallbacks = this.addedCallbacks.slice( 0 );
     for ( var i = 0; i < addedCallbacks.length; i++ ) {
       addedCallbacks[i]( particle );
@@ -127,14 +127,14 @@ define( function ( require ) {
   };
 
   // Notify that a {ShakerParticle} particle was removed.
-  ShakerParticles.prototype._fireParticleRemoved = function ( particle ) {
+  ShakerParticles.prototype._fireParticleRemoved = function( particle ) {
     var removedCallbacks = this.removedCallbacks.slice( 0 );
     for ( var i = 0; i < removedCallbacks.length; i++ ) {
       removedCallbacks[i]( particle );
     }
   };
 
-  ShakerParticles.prototype._getRandomLocation = function () {
+  ShakerParticles.prototype._getRandomLocation = function() {
     // (Math.floor(Math.random() * (randNumMax - randNumMin + 1)) + randNumMin);
     var xOffset = ShakerParticles.getRandomInt( -MAX_X_OFFSET, MAX_X_OFFSET ); // positive or negative
     var yOffset = ShakerParticles.getRandomInt( 0, MAX_Y_OFFSET ); // positive only
@@ -143,13 +143,13 @@ define( function ( require ) {
 
   //TODO common code
   // Gets a random number in a range
-  ShakerParticles.getRandomInt = function ( min, max ) {
+  ShakerParticles.getRandomInt = function( min, max ) {
     return (Math.floor( Math.random() * (max - min + 1) ) + min);
   };
 
   //TODO common code
   // Gets a random orientation, in radians.
-  ShakerParticles.getRandomOrientation = function () {
+  ShakerParticles.getRandomOrientation = function() {
     return Math.random() * 2 * Math.PI;
   };
 

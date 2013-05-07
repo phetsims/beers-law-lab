@@ -4,7 +4,7 @@
  * Converts a wavelength to a visible color.
  * If the wavelength is not in the visible spectrum, null is returned.
  */
-define( function ( require ) {
+define( function( require ) {
   "useStrict";
 
   // imports
@@ -24,7 +24,7 @@ define( function ( require ) {
    * Initializes a color table, used to map between Color and wavelength.
    * This method is called only once, when a Color is first needed.
    */
-  var initColorTable = function () {
+  var initColorTable = function() {
 
     assert && assert( !colorTable );
 
@@ -99,7 +99,7 @@ define( function ( require ) {
    * @param wavelength
    * @return {*}
    */
-  VisibleColor.wavelengthToColor = function ( wavelength ) {
+  VisibleColor.wavelengthToColor = function( wavelength ) {
     var color;
     if ( wavelength < VisibleColor.MIN_WAVELENGTH || wavelength > VisibleColor.MAX_WAVELENGTH ) {
       // Wavelength is not visible.

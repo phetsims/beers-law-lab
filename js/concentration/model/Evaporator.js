@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -20,19 +20,19 @@ define( function ( require ) {
     thisEvaporator.enabled = new Property( true );
 
     // disable when the volume gets to zero
-    solution.volume.addObserver( function ( volume ) {
+    solution.volume.addObserver( function( volume ) {
       thisEvaporator.enabled.set( volume > 0 );
     } );
 
     // when disabled, set the rate to zero
-    thisEvaporator.enabled.addObserver( function ( enabled ) {
+    thisEvaporator.enabled.addObserver( function( enabled ) {
       if ( !enabled ) {
         thisEvaporator.evaporationRate.set( 0 );
       }
     } );
   }
 
-  Evaporator.prototype.reset = function () {
+  Evaporator.prototype.reset = function() {
     this.evaporationRate.reset();
     this.enabled.reset();
   };

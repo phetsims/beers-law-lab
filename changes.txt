@@ -1,3 +1,4 @@
+5/6/13 format all BLL code again with correct PhetStyle.xml (after restarting IDEA)
 5/6/13 install latest PhetStyle.xml and format all BLL code
 5/6/13 align baselines of labels and values
 5/6/13 add optional label to left of combo box

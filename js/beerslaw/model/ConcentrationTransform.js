@@ -12,7 +12,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -29,12 +29,12 @@ define( function ( require ) {
   }
 
   // Converts from model (M) to view (solution specific).
-  ConcentrationTransform.prototype.modelToView = function ( modelConcentration ) {
+  ConcentrationTransform.prototype.modelToView = function( modelConcentration ) {
     return modelConcentration * this.scale;
   };
 
   // Converts from view (solution specific) to model (M).
-  ConcentrationTransform.prototype.viewToModel = function ( viewConcentration ) {
+  ConcentrationTransform.prototype.viewToModel = function( viewConcentration ) {
     return viewConcentration / this.scale;
   };
 

@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -84,12 +84,12 @@ define( function ( require ) {
     valueNode.top = VALUE_CENTER_Y;
 
     // body location
-    detector.body.location.addObserver( function ( location ) {
+    detector.body.location.addObserver( function( location ) {
       thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
     // update the value display
-    var valueUpdater = function () {
+    var valueUpdater = function() {
       var value = detector.value.get();
       if ( isNaN( value ) ) {
         valueNode.text = NO_VALUE;
@@ -128,7 +128,7 @@ define( function ( require ) {
     imageNode.y = -PROBE_CENTER_Y_OFFSET;
 
     // location
-    probe.location.addObserver( function ( location ) {
+    probe.location.addObserver( function( location ) {
       thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
@@ -161,7 +161,7 @@ define( function ( require ) {
     // The y coordinate of the body's control point varies with the x distance between the body and probe.
     var BODY_CTRL_Y = new LinearFunction( new Range( 0, 800 ), new Range( 0, 200 ) ); // x distance -> y coordinate
 
-    var updateCurve = function () {
+    var updateCurve = function() {
 
       // connection points
       var bodyConnectionPoint = new Vector2( bodyNode.centerX, bodyNode.bottom );
@@ -175,8 +175,8 @@ define( function ( require ) {
 
       // cubic curve
       thisNode.shape = new Shape()
-        .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
-        .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
+          .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
+          .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
     };
     body.location.addObserver( updateCurve );
     probe.location.addObserver( updateCurve );

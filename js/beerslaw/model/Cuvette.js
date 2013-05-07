@@ -11,7 +11,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -30,7 +30,7 @@ define( function ( require ) {
     this.height = height;
   }
 
-  Cuvette.prototype.reset = function () {
+  Cuvette.prototype.reset = function() {
     this.width.reset();
   };
 

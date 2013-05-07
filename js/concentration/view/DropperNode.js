@@ -6,7 +6,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -53,15 +53,15 @@ define( function ( require ) {
 
     // fluid fills the glass portion of the dropper, shape is specific to the dropper image file
     var fluidShape = new Shape()
-      .moveTo( -TIP_WIDTH / 2, 0 )
-      .lineTo( -TIP_WIDTH / 2, -TIP_HEIGHT )
-      .lineTo( -GLASS_WIDTH / 2, -GLASS_Y_OFFSET )
-      .lineTo( -GLASS_WIDTH / 2, -GLASS_HEIGHT )
-      .lineTo( GLASS_WIDTH / 2, -GLASS_HEIGHT )
-      .lineTo( GLASS_WIDTH / 2, -GLASS_Y_OFFSET )
-      .lineTo( TIP_WIDTH / 2, -TIP_HEIGHT )
-      .lineTo( TIP_WIDTH / 2, 0 )
-      .close();
+        .moveTo( -TIP_WIDTH / 2, 0 )
+        .lineTo( -TIP_WIDTH / 2, -TIP_HEIGHT )
+        .lineTo( -GLASS_WIDTH / 2, -GLASS_Y_OFFSET )
+        .lineTo( -GLASS_WIDTH / 2, -GLASS_HEIGHT )
+        .lineTo( GLASS_WIDTH / 2, -GLASS_HEIGHT )
+        .lineTo( GLASS_WIDTH / 2, -GLASS_Y_OFFSET )
+        .lineTo( TIP_WIDTH / 2, -TIP_HEIGHT )
+        .lineTo( TIP_WIDTH / 2, 0 )
+        .close();
     var fluidNode = new Path( { shape: fluidShape } );
 
     // images
@@ -73,10 +73,10 @@ define( function ( require ) {
 
     // label background, so the label shows up on various fluid colors
     var labelBackgroundNode = new Path(
-      {
-        fill: new Color( 240, 240, 240, 0.6 ).toCSS(),
-        lineWidth: 0
-      } );
+        {
+          fill: new Color( 240, 240, 240, 0.6 ).toCSS(),
+          lineWidth: 0
+        } );
 
     var buttonNode = new MomentaryButtonNode( dropper.on, dropper.enabled );
     buttonNode.setScaleMagnitude( 0.3 );
@@ -106,23 +106,23 @@ define( function ( require ) {
     }
 
     // Update location
-    dropper.location.addObserver( function ( location ) {
+    dropper.location.addObserver( function( location ) {
       thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
     // Visibility
-    dropper.visible.addObserver( function ( visible ) {
+    dropper.visible.addObserver( function( visible ) {
       thisNode.setVisible( visible );
     } );
 
     // Make the background visible only when the dropper is empty
-    dropper.empty.addObserver( function ( empty ) {
+    dropper.empty.addObserver( function( empty ) {
       fluidNode.setVisible( !empty );
       backgroundNode.setVisible( empty );
     } );
 
     // Change the label and color when the solute changes.
-    solute.addObserver( function ( solute ) {
+    solute.addObserver( function( solute ) {
 
       // label, centered in the dropper's glass
       labelNode.setText( solute.formula );

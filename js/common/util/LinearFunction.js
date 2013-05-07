@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -24,7 +24,7 @@ define( function ( require ) {
     var thisFunction = this;
 
     // Maps from range1 to range2.
-    thisFunction.evaluate = function ( value ) {
+    thisFunction.evaluate = function( value ) {
       var output = -range1.min + value;
       output = output * range2.getLength() / range1.getLength();
       output = range2.min + output;
@@ -35,7 +35,7 @@ define( function ( require ) {
     };
 
     // Maps from range2 to range1.
-    thisFunction.evaluateInverse = function ( value ) {
+    thisFunction.evaluateInverse = function( value ) {
       return new LinearFunction( range2, range1 ).evaluate( value );
     };
   }

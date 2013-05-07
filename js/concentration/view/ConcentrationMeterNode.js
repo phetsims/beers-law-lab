@@ -16,7 +16,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -85,12 +85,12 @@ define( function ( require ) {
     valueNode.centerY = VALUE_CENTER_Y;
 
     // body location
-    meter.body.location.addObserver( function ( location ) {
+    meter.body.location.addObserver( function( location ) {
       thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
     // displayed value
-    meter.value.addObserver( function ( value ) {
+    meter.value.addObserver( function( value ) {
       if ( isNaN( value ) ) {
         valueNode.setText( NO_VALUE );
         valueNode.centerX = backgroundNode.centerX; // center justified
@@ -128,30 +128,30 @@ define( function ( require ) {
     imageNode.y = -radius;
 
     // probe location
-    probe.location.addObserver( function ( location ) {
+    probe.location.addObserver( function( location ) {
       thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
     // drag handler
     thisNode.addInputListener( new MovableDragHandler( probe, mvt ) );
 
-    var isInNode = function ( node ) {
+    var isInNode = function( node ) {
       return node.getBounds().containsPoint( probe.location.get() );
     };
 
-    thisNode.isInSolution = function () {
+    thisNode.isInSolution = function() {
       return isInNode( solutionNode );
     };
 
-    thisNode.isInSolvent = function () {
+    thisNode.isInSolvent = function() {
       return isInNode( solventFluidNode );
     };
 
-    thisNode.isInDrainFluid = function () {
+    thisNode.isInDrainFluid = function() {
       return isInNode( drainFluidNode );
     };
 
-    thisNode.isInStockSolution = function () {
+    thisNode.isInStockSolution = function() {
       return isInNode( stockSolutionNode );
     };
   }
@@ -180,7 +180,7 @@ define( function ( require ) {
     // The y coordinate of the body's control point varies with the x distance between the body and probe.
     var BODY_CTRL_Y = new LinearFunction( new Range( 0, 800 ), new Range( 0, 200 ) ); // x distance -> y coordinate
 
-    var updateCurve = function () {
+    var updateCurve = function() {
 
       // Connect bottom-center of body to right-center of probe.
       var bodyConnectionPoint = new Vector2( bodyNode.centerX, bodyNode.bottom - 10 );
@@ -193,8 +193,8 @@ define( function ( require ) {
       var c2 = new Vector2( probeConnectionPoint.x + c2Offset.x, probeConnectionPoint.y + c2Offset.y );
 
       thisNode.shape = new Shape()
-        .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
-        .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
+          .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
+          .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
     };
     body.location.addObserver( updateCurve );
     probe.location.addObserver( updateCurve );
@@ -230,7 +230,7 @@ define( function ( require ) {
     thisNode.addChild( bodyNode );
     thisNode.addChild( probeNode );
 
-    var updateValue = function () {
+    var updateValue = function() {
       if ( probeNode.isInSolution() ) {
         meter.value.set( solution.concentration.get() );
       }

@@ -7,7 +7,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -28,11 +28,11 @@ define( function ( require ) {
 
     thisNode.translation = beaker.location;
 
-    precipitate.registerParticleAddedCallback( function ( particle ) {
+    precipitate.registerParticleAddedCallback( function( particle ) {
       thisNode.addChild( new ParticleNode( particle, mvt ) );
     } );
 
-    precipitate.registerParticleRemovedCallback( function ( particle ) {
+    precipitate.registerParticleRemovedCallback( function( particle ) {
       //TODO this is inefficient, keep a map of particles to nodes?
       var children = thisNode.getChildren();
       for ( var i = 0; i < children.length; i++ ) {

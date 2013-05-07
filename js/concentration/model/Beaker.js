@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function () {
+define( function() {
   "use strict";
 
   /**
@@ -21,17 +21,17 @@ define( function () {
     this.volume = volume;
   }
 
-  Beaker.prototype.reset = function () {
+  Beaker.prototype.reset = function() {
     // currently nothing to reset
   };
 
   // Gets the x-coordinate of the left wall.
-  Beaker.prototype.getLeft = function () {
+  Beaker.prototype.getLeft = function() {
     return this.location.x - ( this.size.width / 2 );
   };
 
   // Gets the x-coordinate of the right wall.
-  Beaker.prototype.getRight = function () {
+  Beaker.prototype.getRight = function() {
     return this.location.x + ( this.size.width / 2 );
   }
 

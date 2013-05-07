@@ -10,7 +10,7 @@
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
 
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -30,7 +30,7 @@ define( function ( require ) {
     this.probe = new Movable( probeLocation, probeDragBounds );
   }
 
-  ConcentrationMeter.prototype.reset = function () {
+  ConcentrationMeter.prototype.reset = function() {
     this.value.reset();
     this.body.reset();
     this.probe.reset();

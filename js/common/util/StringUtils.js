@@ -1,6 +1,6 @@
 // Copyright 2002-2013, University of Colorado
 
-define( function () {
+define( function() {
   "use strict";
 
   function StringUtils() {
@@ -13,8 +13,8 @@ define( function () {
    * @param pattern pattern string, with {N} placeholders where N is an integer
    * @param args values to be substituted for placeholders in pattern
    */
-  StringUtils.format = function ( pattern, args ) {
-    return pattern.replace( /\{(\d+)\}/g, function () {
+  StringUtils.format = function( pattern, args ) {
+    return pattern.replace( /\{(\d+)\}/g, function() {
       return args[arguments[1]];
     } );
   };

@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -80,12 +80,12 @@ define( function ( require ) {
 
     // Remove Solute button
     var removeSoluteButtonNode = new Button( new Text( BLLStrings.removeSolute, { font: "22px Arial", fill: "black" } ),
-                                             function () {
+                                             function() {
                                                model.solution.soluteAmount.set( 0 );
                                              }, { xMargin: 10 } );
 
     // Reset All button
-    var resetAllButton = new ResetAllButton( function () {
+    var resetAllButton = new ResetAllButton( function() {
       model.reset();
     } );
 

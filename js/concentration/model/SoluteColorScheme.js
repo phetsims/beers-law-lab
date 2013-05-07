@@ -7,7 +7,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -27,7 +27,7 @@ define( function ( require ) {
    * @param {Number} concentration
    * @return {Color} color
    */
-  SoluteColorScheme.prototype.concentrationToColor = function ( concentration ) {
+  SoluteColorScheme.prototype.concentrationToColor = function( concentration ) {
     if ( concentration >= this.maxConcentration ) {
       return this.maxColor;
     }

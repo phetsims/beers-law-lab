@@ -6,7 +6,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -29,27 +29,27 @@ define( function ( require ) {
     thisPrecipitate.removedCallbacks = new Array(); // function(PrecipitateParticle)
 
     // when the saturation changes, update the number of precipitate particles
-    thisPrecipitate.solution.precipitateAmount.addObserver( function () {
+    thisPrecipitate.solution.precipitateAmount.addObserver( function() {
       thisPrecipitate._updateParticles();
     } );
 
     // when the solute changes, remove all particles and create new particles for the solute
-    thisPrecipitate.solution.solute.addObserver( function () {
+    thisPrecipitate.solution.solute.addObserver( function() {
       thisPrecipitate._removeAllParticles();
       thisPrecipitate._updateParticles();
     } );
   }
 
-  Precipitate.prototype.registerParticleAddedCallback = function ( callback ) {
+  Precipitate.prototype.registerParticleAddedCallback = function( callback ) {
     this.addedCallbacks.push( callback );
   };
 
-  Precipitate.prototype.registerParticleRemovedCallback = function ( callback ) {
+  Precipitate.prototype.registerParticleRemovedCallback = function( callback ) {
     this.removedCallbacks.push( callback );
   };
 
   // Adds/removes particles to match the model
-  Precipitate.prototype._updateParticles = function () {
+  Precipitate.prototype._updateParticles = function() {
     var numberOfParticles = this.solution.getNumberOfPrecipitateParticles();
     if ( numberOfParticles == 0 ) {
       this._removeAllParticles();
@@ -68,17 +68,17 @@ define( function ( require ) {
     }
   };
 
-  Precipitate.prototype._addParticle = function ( particle ) {
+  Precipitate.prototype._addParticle = function( particle ) {
     this.particles.push( particle );
     this._fireParticleAdded( particle );
   };
 
-  Precipitate.prototype._removeParticle = function ( particle ) {
+  Precipitate.prototype._removeParticle = function( particle ) {
     this.particles.splice( this.particles.indexOf( particle ), 1 );
     this._fireParticleRemoved( particle );
   };
 
-  Precipitate.prototype._removeAllParticles = function () {
+  Precipitate.prototype._removeAllParticles = function() {
     var particles = this.particles.slice( 0 ); // copy to prevent concurrent modification
     for ( var i = 0; i < particles.length; i++ ) {
       this._removeParticle( particles[i] );
@@ -86,7 +86,7 @@ define( function ( require ) {
   };
 
   // Notify that a {PrecipitateParticle} particle was added.
-  Precipitate.prototype._fireParticleAdded = function ( particle ) {
+  Precipitate.prototype._fireParticleAdded = function( particle ) {
     var addedCallbacks = this.addedCallbacks.slice( 0 ); // copy to prevent concurrent modification
     for ( var i = 0; i < addedCallbacks.length; i++ ) {
       addedCallbacks[i]( particle );
@@ -94,7 +94,7 @@ define( function ( require ) {
   };
 
   // Notify that a {PrecipitateParticle} particle was removed.
-  Precipitate.prototype._fireParticleRemoved = function ( particle ) {
+  Precipitate.prototype._fireParticleRemoved = function( particle ) {
     var removedCallbacks = this.removedCallbacks.slice( 0 ); // copy to prevent concurrent modification
     for ( var i = 0; i < removedCallbacks.length; i++ ) {
       removedCallbacks[i]( particle );
@@ -102,7 +102,7 @@ define( function ( require ) {
   };
 
   // Gets a random location, relative to the coordinate frame of the beaker.
-  Precipitate.prototype._getRandomOffset = function () {
+  Precipitate.prototype._getRandomOffset = function() {
     var particleSize = this.solution.solute.get().particleSize;
     // x offset
     var xMargin = particleSize;
@@ -117,7 +117,7 @@ define( function ( require ) {
 
   //TODO common code, duplicate of ShakerParticles.getRandomOrientation
   // Gets a random orientation, in radians.
-  Precipitate.getRandomOrientation = function () {
+  Precipitate.getRandomOrientation = function() {
     return Math.random() * 2 * Math.PI;
   };
 

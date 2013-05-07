@@ -6,7 +6,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -29,20 +29,20 @@ define( function ( require ) {
     thisLight.lensDiameter = lensDiameter;
 
     // when the solution changes, set the light to the solution's lambdaMax wavelength
-    solution.addObserver( function ( solution ) {
+    solution.addObserver( function( solution ) {
       thisLight.wavelength.set( solution.molarAbsorptivityData.lambdaMax );
     } );
   }
 
-  Light.prototype.getMinY = function () {
+  Light.prototype.getMinY = function() {
     return this.location.y - ( this.lensDiameter / 2 );
   };
 
-  Light.prototype.getMaxY = function () {
+  Light.prototype.getMaxY = function() {
     return this.location.y + ( this.lensDiameter / 2 );
   };
 
-  Light.prototype.reset = function () {
+  Light.prototype.reset = function() {
     this.on.reset();
   };
 

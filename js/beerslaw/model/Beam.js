@@ -9,7 +9,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -45,12 +45,12 @@ define( function ( require ) {
     thisBeam.visible = new Property( false );
 
     // Make the beam visible when the light is on.
-    light.on.addObserver( function ( on ) {
+    light.on.addObserver( function( on ) {
       thisBeam.visible.set( on );
     } );
 
     // update shape of the beam
-    var updateShape = function () {
+    var updateShape = function() {
       if ( thisBeam.visible.get() ) {
         var x = mvt.modelToViewPosition( light.location ).x;
         var y = mvt.modelToViewPosition( light.location ).y - mvt.modelToViewDeltaY( light.lensDiameter / 2 );
@@ -64,7 +64,7 @@ define( function ( require ) {
     thisBeam.visible.addObserver( updateShape );
 
     // update color of beam, a left-to-right linear gradient that transitions inside the solution
-    var updateColor = function () {
+    var updateColor = function() {
       if ( thisBeam.visible.get() ) {
         var baseColor = VisibleColor.wavelengthToColor( light.wavelength.get() );
         var leftColor = Color.withAlpha( baseColor, MAX_LIGHT_ALPHA );
@@ -72,8 +72,8 @@ define( function ( require ) {
         var x = mvt.modelToViewPosition( cuvette.location ).x;
         var w = mvt.modelToViewDeltaX( cuvette.width.get() );
         thisBeam.fill.set( new LinearGradient( x, 0, x + w, 0 )
-                             .addColorStop( 0, leftColor.toCSS() )
-                             .addColorStop( 1, rightColor.toCSS() ) );
+                               .addColorStop( 0, leftColor.toCSS() )
+                               .addColorStop( 1, rightColor.toCSS() ) );
       }
     };
     light.wavelength.addObserver( updateColor );

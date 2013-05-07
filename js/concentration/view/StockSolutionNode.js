@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -33,7 +33,7 @@ define( function ( require ) {
     } );
 
     // shape and location
-    var updateShapeAndLocation = function () {
+    var updateShapeAndLocation = function() {
       // path
       if ( dropper.on.get() && !dropper.empty.get() ) {
         thisNode.shape = Shape.rect( -tipWidth / 2, 0, tipWidth, beaker.location.y - dropper.location.get().y );
@@ -49,14 +49,14 @@ define( function ( require ) {
     dropper.empty.addObserver( updateShapeAndLocation );
 
     // set color to match solute
-    solute.addObserver( function ( solute ) {
+    solute.addObserver( function( solute ) {
       var color = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
       thisNode.fill = color.toCSS();
       thisNode.stroke = color.darker().toCSS();
     } );
 
     // hide this node when the dropper is invisible
-    dropper.visible.addObserver( function ( visible ) {
+    dropper.visible.addObserver( function( visible ) {
       thisNode.setVisible( visible );
     } );
   }

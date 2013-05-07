@@ -6,7 +6,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -23,7 +23,7 @@ define( function ( require ) {
     this.dragBounds = dragBounds;
   }
 
-  Movable.prototype.reset = function () {
+  Movable.prototype.reset = function() {
     this.location.reset();
   };
 

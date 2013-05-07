@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -31,14 +31,14 @@ define( function ( require ) {
 
     // Solutions, in rainbow (ROYGBIV) order.
     thisModel.solutions = new Array(
-      BeersLawSolution.DRINK_MIX,
-      BeersLawSolution.COBALT_II_NITRATE,
-      BeersLawSolution.COBALT_CHLORIDE,
-      BeersLawSolution.POTASSIUM_DICHROMATE,
-      BeersLawSolution.POTASSIUM_CHROMATE,
-      BeersLawSolution.NICKEL_II_CHLORIDE,
-      BeersLawSolution.COPPER_SULFATE,
-      BeersLawSolution.POTASSIUM_PERMANGANATE
+        BeersLawSolution.DRINK_MIX,
+        BeersLawSolution.COBALT_II_NITRATE,
+        BeersLawSolution.COBALT_CHLORIDE,
+        BeersLawSolution.POTASSIUM_DICHROMATE,
+        BeersLawSolution.POTASSIUM_CHROMATE,
+        BeersLawSolution.NICKEL_II_CHLORIDE,
+        BeersLawSolution.COPPER_SULFATE,
+        BeersLawSolution.POTASSIUM_PERMANGANATE
     );
     //TODO add more solutions
 
@@ -64,7 +64,7 @@ define( function ( require ) {
   }
 
   // Resets all model elements
-  BeersLawModel.prototype.reset = function () {
+  BeersLawModel.prototype.reset = function() {
     for ( var i = 0; i < this.solutions.length; i++ ) {
       this.solutions[i].reset();
     }
@@ -79,7 +79,7 @@ define( function ( require ) {
    * Moves time forward by the specified amount.
    * @param deltaSeconds clock time change, in seconds.
    */
-  BeersLawModel.prototype.step = function ( deltaSeconds ) {
+  BeersLawModel.prototype.step = function( deltaSeconds ) {
     // do nothing, nothing time-based in this model
   };
 

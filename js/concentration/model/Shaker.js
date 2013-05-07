@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -40,7 +40,7 @@ define( function ( require ) {
     thisShaker.previousLocation = location;
 
     // set the dispensing rate to zero when the shaker becomes empty or invisible
-    var observer = function () {
+    var observer = function() {
       if ( thisShaker.empty.get() || !thisShaker.visible.get() ) {
         thisShaker.dispensingRate.set( 0 );
       }
@@ -48,7 +48,7 @@ define( function ( require ) {
     thisShaker.empty.addObserver( observer );
     thisShaker.visible.addObserver( observer );
 
-    thisShaker.reset = function () {
+    thisShaker.reset = function() {
       callSuper( Movable, "reset", thisShaker );
       thisShaker.visible.reset();
       thisShaker.empty.reset();
@@ -60,7 +60,7 @@ define( function ( require ) {
   inherit( Shaker, Movable );
 
   // Sets the dispensing rate if the shaker is moving.
-  Shaker.prototype.step = function () {
+  Shaker.prototype.step = function() {
     var thisShaker = this;
     if ( thisShaker.visible.get() && !thisShaker.empty.get() ) {
       if ( thisShaker.previousLocation.equals( thisShaker.location.get() ) ) {

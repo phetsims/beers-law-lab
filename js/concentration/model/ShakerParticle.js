@@ -8,7 +8,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -41,7 +41,7 @@ define( function ( require ) {
    *  @param {Number} deltaSeconds
    *  @param {Beaker} beaker
    */
-  ShakerParticle.prototype.step = function ( deltaSeconds, beaker ) {
+  ShakerParticle.prototype.step = function( deltaSeconds, beaker ) {
 
     this.velocity = this.velocity.plus( this.acceleration.times( deltaSeconds ) );
     var newLocation = this.location.get().plus( this.velocity.times( deltaSeconds ) );

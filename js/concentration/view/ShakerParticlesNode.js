@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -24,11 +24,11 @@ define( function ( require ) {
 
     Node.call( thisNode );
 
-    shakerParticles.registerParticleAddedCallback( function ( particle ) {
+    shakerParticles.registerParticleAddedCallback( function( particle ) {
       thisNode.addChild( new ParticleNode( particle, mvt ) );
     } );
 
-    shakerParticles.registerParticleRemovedCallback( function ( particle ) {
+    shakerParticles.registerParticleRemovedCallback( function( particle ) {
       //TODO this is inefficient, keep a map of particles to nodes?
       var children = thisNode.getChildren();
       for ( var i = 0; i < children.length; i++ ) {

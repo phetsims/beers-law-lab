@@ -7,7 +7,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -100,30 +100,30 @@ define( function ( require ) {
     var yToOrientation = new LinearFunction( new Range( handleOffY, handleOnY ), HANDLE_ORIENTATION_RANGE );
 
     handleNode.addInputListener( new SimpleDragHandler(
-      {
-        //TODO: revisit this to make it feel more smooth/natural
-        // adjust the flow
-        drag: function ( event ) {
-          if ( faucet.enabled.get() ) {
-            var localPosition = handleNode.globalToParentPoint( event.pointer.point );
-            var y = Util.clamp( localPosition.y, handleOffY, handleOnY );
-            var handleOrientation = yToOrientation.evaluate( y );
-            var flowRate = orientationToFlowRate.evaluate( handleOrientation );
-            faucet.flowRate.set( flowRate );
+        {
+          //TODO: revisit this to make it feel more smooth/natural
+          // adjust the flow
+          drag: function( event ) {
+            if ( faucet.enabled.get() ) {
+              var localPosition = handleNode.globalToParentPoint( event.pointer.point );
+              var y = Util.clamp( localPosition.y, handleOffY, handleOnY );
+              var handleOrientation = yToOrientation.evaluate( y );
+              var flowRate = orientationToFlowRate.evaluate( handleOrientation );
+              faucet.flowRate.set( flowRate );
+            }
+          },
+
+          // turn off the faucet when the handle is released
+          end: function() {
+            faucet.flowRate.set( 0 );
+          },
+
+          // prevent default behavior that translates the node
+          translate: function() {
           }
-        },
+        } ) );
 
-        // turn off the faucet when the handle is released
-        end: function () {
-          faucet.flowRate.set( 0 );
-        },
-
-        // prevent default behavior that translates the node
-        translate: function () {
-        }
-      } ) );
-
-    faucet.flowRate.addObserver( function ( flowRate ) {
+    faucet.flowRate.addObserver( function( flowRate ) {
       // reset the handle's transform
       handleNode.resetTransform();
       // butt end of handle is centered in pivot

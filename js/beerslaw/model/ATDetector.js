@@ -6,7 +6,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -31,11 +31,11 @@ define( function ( require ) {
 
   inherit( Probe, Movable );
 
-  Probe.prototype.getMinY = function () {
+  Probe.prototype.getMinY = function() {
     return this.location.get().y - ( this.sensorDiameter / 2 );
   };
 
-  Probe.prototype.getMaxY = function () {
+  Probe.prototype.getMaxY = function() {
     return this.location.get().y + ( this.sensorDiameter / 2 );
   };
 
@@ -59,7 +59,7 @@ define( function ( require ) {
     thisDetector.probe = new Probe( probeLocation, probeDragBounds, 0.57 );
 
     // Computes the displayed value, NaN if the light is off or the probe is outside the beam.
-    var computeValue = function () {
+    var computeValue = function() {
       var value = NaN;
       if ( thisDetector.probeInBeam() ) {
         // path length is between 0 and cuvette width
@@ -77,7 +77,7 @@ define( function ( require ) {
     thisDetector.value = new Property( computeValue() );
 
     // observer dependencies for the value
-    var updateValue = function () {
+    var updateValue = function() {
       thisDetector.value.set( computeValue() );
     };
     thisDetector.probe.location.addObserver( updateValue );
@@ -87,14 +87,14 @@ define( function ( require ) {
     absorbance.value.addObserver( updateValue );
   }
 
-  ATDetector.prototype.reset = function () {
+  ATDetector.prototype.reset = function() {
     this.body.reset();
     this.probe.reset();
     this.mode.reset();
   };
 
   // Is the probe in some segment of the beam?
-  ATDetector.prototype.probeInBeam = function () {
+  ATDetector.prototype.probeInBeam = function() {
     return this.light.on.get() &&
            ( this.probe.getMinY() < this.light.getMinY() ) &&
            ( this.probe.getMaxY() > this.light.getMaxY() ) &&

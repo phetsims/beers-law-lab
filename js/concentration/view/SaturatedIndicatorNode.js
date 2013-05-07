@@ -6,7 +6,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -41,7 +41,7 @@ define( function ( require ) {
     textNode.centerY = backgroundNode.centerY;
 
     // make this node visible when the solution is saturated
-    solution.concentration.addObserver( function () {
+    solution.concentration.addObserver( function() {
       thisNode.setVisible( solution.isSaturated() );
     } );
   }

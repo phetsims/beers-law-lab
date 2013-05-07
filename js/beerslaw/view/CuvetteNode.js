@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -43,21 +43,21 @@ define( function ( require ) {
     var startWidth; // width of the cuvette when the drag started
 
     SimpleDragHandler.call( this, {
-      start: function ( event ) {
+      start: function( event ) {
         startX = event.pointer.point.x;
         startWidth = cuvette.width.get();
       },
-      drag: function ( event, trail ) {
+      drag: function( event, trail ) {
         var dragX = event.pointer.point.x;
         var deltaWidth = mvt.viewToModelDeltaX( dragX - startX );
         var cuvetteWidth = Util.clamp( startWidth + deltaWidth, cuvette.widthRange.min, cuvette.widthRange.max );
         cuvette.width.set( cuvetteWidth );
       },
-      end: function ( event ) {
+      end: function( event ) {
         var numberOfIntervals = Math.floor( ( cuvette.width.get() + ( snapInterval / 2 ) ) / snapInterval );
         cuvette.width.set( numberOfIntervals * snapInterval );
       },
-      translate: function () {
+      translate: function() {
         // override default behavior, do nothing
       }
     } );
@@ -81,17 +81,17 @@ define( function ( require ) {
     assert && assert( ARROW_HEAD_WIDTH > ARROW_TAIL_WIDTH );
     assert && assert( ARROW_LENGTH > 2 * ARROW_HEAD_LENGTH );
     var arrowShape = new Shape()
-      .moveTo( -ARROW_LENGTH / 2, 0 )
-      .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, -ARROW_HEAD_WIDTH / 2 )
-      .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, -ARROW_TAIL_WIDTH / 2 )
-      .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, -ARROW_TAIL_WIDTH / 2 )
-      .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, -ARROW_HEAD_WIDTH / 2 )
-      .lineTo( ARROW_LENGTH / 2, 0 )
-      .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, ARROW_HEAD_WIDTH / 2 )
-      .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, ARROW_TAIL_WIDTH / 2 )
-      .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, ARROW_TAIL_WIDTH / 2 )
-      .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, ARROW_HEAD_WIDTH / 2 )
-      .close();
+        .moveTo( -ARROW_LENGTH / 2, 0 )
+        .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, -ARROW_HEAD_WIDTH / 2 )
+        .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, -ARROW_TAIL_WIDTH / 2 )
+        .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, -ARROW_TAIL_WIDTH / 2 )
+        .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, -ARROW_HEAD_WIDTH / 2 )
+        .lineTo( ARROW_LENGTH / 2, 0 )
+        .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, ARROW_HEAD_WIDTH / 2 )
+        .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, ARROW_TAIL_WIDTH / 2 )
+        .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, ARROW_TAIL_WIDTH / 2 )
+        .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, ARROW_HEAD_WIDTH / 2 )
+        .close();
 
     // nodes
     var cuvetteNode = new Path( { stroke: "black", lineWidth: 3 } );
@@ -104,7 +104,7 @@ define( function ( require ) {
     thisNode.addChild( arrowNode );
 
     // when the cuvette width changes ...
-    cuvette.width.addObserver( function () {
+    cuvette.width.addObserver( function() {
       var width = mvt.modelToViewDeltaX( cuvette.width.get() );
       var height = mvt.modelToViewDeltaY( cuvette.height );
       cuvetteNode.setShape( new Shape().moveTo( 0, 0 ).lineTo( 0, height ).lineTo( width, height ).lineTo( width, 0 ) );
@@ -116,14 +116,14 @@ define( function ( require ) {
     } );
 
     // when the fluid color changes ...
-    var colorObserver = function ( color ) {
+    var colorObserver = function( color ) {
       solutionNode.fill = Color.withAlpha( color, SOLUTION_ALPHA ).toCSS();
       solutionNode.stroke = color.darker().toCSS();
     };
     solution.get().fluidColor.addObserver( colorObserver );
 
     // when the solution changes, rewire the color observer
-    solution.addObserver( function ( newSolution, oldSolution ) {
+    solution.addObserver( function( newSolution, oldSolution ) {
       if ( oldSolution ) {
         oldSolution.fluidColor.removeObserver( colorObserver );
       }

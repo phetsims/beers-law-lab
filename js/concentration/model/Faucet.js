@@ -6,7 +6,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -34,14 +34,14 @@ define( function ( require ) {
     thisFaucet.enabled = new Property( true );
 
     // when disabled, turn off the faucet.
-    thisFaucet.enabled.addObserver( function ( enabled ) {
+    thisFaucet.enabled.addObserver( function( enabled ) {
       if ( !enabled ) {
         thisFaucet.flowRate.set( 0 );
       }
     } );
   }
 
-  Faucet.prototype.reset = function () {
+  Faucet.prototype.reset = function() {
     this.flowRate.reset();
     this.enabled.reset();
   };

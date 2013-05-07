@@ -13,7 +13,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -32,7 +32,7 @@ define( function ( require ) {
     var thisNode = this;
     Rectangle.call( this, 0, 0, itemNode.width + ( 2 * options.buttonXMargin ), itemNode.height + ( 2 * options.buttonYMargin ), options.buttonCornerRadius, options.buttonCornerRadius,
                     { fill: options.buttonFill, stroke: options.buttonStroke, lineWidth: options.buttonLineWidth } );
-    thisNode.setItemNode = function ( itemNode ) {
+    thisNode.setItemNode = function( itemNode ) {
       thisNode.children = []; // remove all children
       thisNode.addChild( itemNode );
       itemNode.left = options.buttonXMargin;
@@ -132,17 +132,17 @@ define( function ( require ) {
     // button interactivity
     buttonNode.cursor = "pointer";
     buttonNode.addInputListener(
-      {
-        down: function () {
-          console.log( "ComboBoxNode.buttonNode.down" );//XXX
-          if ( options.listParent.isChild( listNode ) ) {
-            options.listParent.removeChild( listNode );
+        {
+          down: function() {
+            console.log( "ComboBoxNode.buttonNode.down" );//XXX
+            if ( options.listParent.isChild( listNode ) ) {
+              options.listParent.removeChild( listNode );
+            }
+            else {
+              options.listParent.addChild( listNode );
+            }
           }
-          else {
-            options.listParent.addChild( listNode );
-          }
-        }
-      } );
+        } );
 
     // list
     var listWidth = maxWidth + ( 2 * options.listXMargin );
@@ -159,20 +159,20 @@ define( function ( require ) {
       // item interactivity
       itemNode.cursor = "pointer";
       itemNode.addInputListener(
-        {
-          enter: function ( event ) {
-            event.currentTarget.stroke = options.listHighlightStroke;
-          },
-          exit: function ( event ) {
-            event.currentTarget.stroke = null;
-          },
-          down: function ( event ) {
-            console.log( "ComboBoxNode.itemNode.down" );//XXX
-            property.set( event.currentTarget.item.value );
-            event.currentTarget.stroke = null;
-            options.listParent.removeChild( listNode );
+          {
+            enter: function( event ) {
+              event.currentTarget.stroke = options.listHighlightStroke;
+            },
+            exit: function( event ) {
+              event.currentTarget.stroke = null;
+            },
+            down: function( event ) {
+              console.log( "ComboBoxNode.itemNode.down" );//XXX
+              property.set( event.currentTarget.item.value );
+              event.currentTarget.stroke = null;
+              options.listParent.removeChild( listNode );
+            }
           }
-        }
       );
     }
 
@@ -193,7 +193,7 @@ define( function ( require ) {
     }
 
     // when property changes, update button
-    property.addObserver( function ( value ) {
+    property.addObserver( function( value ) {
       var item = null;
       for ( var i = 0; i < items.length; i++ ) {
         if ( items[i].value === value ) {

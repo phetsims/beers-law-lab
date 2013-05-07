@@ -6,7 +6,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -54,34 +54,34 @@ define( function ( require ) {
 
     // track
     thisNode._trackNode = new Path(
-      {
-        shape: Shape.rect( 0, 0, trackSize.width, trackSize.height ),
-        fill: "white",
-        stroke: "black",
-        lineWidth: 1
-      } );
+        {
+          shape: Shape.rect( 0, 0, trackSize.width, trackSize.height ),
+          fill: "white",
+          stroke: "black",
+          lineWidth: 1
+        } );
     thisNode.addChild( thisNode._trackNode );
 
     // thumb, points up
     var thumbNode = new Path(
-      {
-        cursor: "pointer",
-        shape: new Shape()/* clockwise from bottom left */
-          .moveTo( -THUMB_SIZE.width / 2, THUMB_SIZE.height )
-          .lineTo( THUMB_SIZE.width / 2, THUMB_SIZE.height )
-          .lineTo( THUMB_SIZE.width / 2, 0.35 * THUMB_SIZE.height )
-          .lineTo( 0, 0 )
-          .lineTo( -THUMB_SIZE.width / 2, 0.35 * THUMB_SIZE.height )
-          .close(),
-        fill: THUMB_FILL_ENABLED,
-        stroke: "black",
-        lineWidth: 1
-      } );
+        {
+          cursor: "pointer",
+          shape: new Shape()/* clockwise from bottom left */
+              .moveTo( -THUMB_SIZE.width / 2, THUMB_SIZE.height )
+              .lineTo( THUMB_SIZE.width / 2, THUMB_SIZE.height )
+              .lineTo( THUMB_SIZE.width / 2, 0.35 * THUMB_SIZE.height )
+              .lineTo( 0, 0 )
+              .lineTo( -THUMB_SIZE.width / 2, 0.35 * THUMB_SIZE.height )
+              .close(),
+          fill: THUMB_FILL_ENABLED,
+          stroke: "black",
+          lineWidth: 1
+        } );
     thumbNode.centerY = thisNode._trackNode.centerY;
     thisNode.addChild( thumbNode );
 
     // enable/disable thumb
-    enabled.addObserver( function ( enabled ) {
+    enabled.addObserver( function( enabled ) {
       thumbNode.fill = enabled ? THUMB_FILL_ENABLED : THUMB_FILL_DISABLED;
       thumbNode.cursor = enabled ? "pointer" : "default";
     } );
@@ -90,7 +90,7 @@ define( function ( require ) {
     thisNode._valueToPosition = new LinearFunction( range, new Range( 0, trackSize.width ), true /* clamp */ );
 
     // move thumb when value changes
-    value.addObserver( function ( value ) {
+    value.addObserver( function( value ) {
       thumbNode.centerX = thisNode._valueToPosition.evaluate( value );
     } );
 
@@ -100,28 +100,28 @@ define( function ( require ) {
     // update value when thumb is dragged
     var clickXOffset = 0; // x-offset between initial click and thumb's origin
     thumbNode.addInputListener( new SimpleDragHandler(
-      {
-        start: function ( event ) {
-          clickXOffset = thumbNode.globalToParentPoint( event.pointer.point ).x - thumbNode.x;
-        },
-        drag: function ( event ) {
-          if ( enabled.get() ) {
-            var x = thumbNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
-            value.set( thisNode._valueToPosition.evaluateInverse( x ) );
+        {
+          start: function( event ) {
+            clickXOffset = thumbNode.globalToParentPoint( event.pointer.point ).x - thumbNode.x;
+          },
+          drag: function( event ) {
+            if ( enabled.get() ) {
+              var x = thumbNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
+              value.set( thisNode._valueToPosition.evaluateInverse( x ) );
+            }
+          },
+          end: function() {
+            if ( snapToMinWhenReleased ) {
+              value.set( range.min );
+            }
+          },
+          translate: function() {
           }
-        },
-        end: function () {
-          if ( snapToMinWhenReleased ) {
-            value.set( range.min );
-          }
-        },
-        translate: function () {
-        }
-      } )
+        } )
     );
 
     // update thumb location when value changes
-    value.addObserver( function ( value ) {
+    value.addObserver( function( value ) {
       thumbNode.centerX = thisNode._valueToPosition.evaluate( value );
     } );
   }
@@ -133,7 +133,7 @@ define( function ( require ) {
    * @param {Number} value
    * @param {Node} labelNode, optional
    */
-  EvaporationSliderNode.prototype.addMajorTick = function ( value, labelNode ) {
+  EvaporationSliderNode.prototype.addMajorTick = function( value, labelNode ) {
     this._addTick( MAJOR_TICK_LENGTH, value, labelNode );
   };
 
@@ -142,7 +142,7 @@ define( function ( require ) {
    * @param {Number} value
    * @param {Node} labelNode, optional
    */
-  EvaporationSliderNode.prototype.addMinorTick = function ( value, labelNode ) {
+  EvaporationSliderNode.prototype.addMinorTick = function( value, labelNode ) {
     this._addTick( MINOR_TICK_LENGTH, value, labelNode );
   };
 
@@ -152,17 +152,17 @@ define( function ( require ) {
    * @param {Number} value
    * @param {Node} labelNode, optional
    */
-  EvaporationSliderNode.prototype._addTick = function ( tickLength, value, labelNode ) {
+  EvaporationSliderNode.prototype._addTick = function( tickLength, value, labelNode ) {
     var labelX = this._valueToPosition.evaluate( value );
     // ticks
     var tickNode = new Path(
-      {
-        shape: new Shape()
-          .moveTo( labelX, this._trackNode.top )
-          .lineTo( labelX, this._trackNode.bottom - tickLength ),
-        lineWidth: 1,
-        stroke: "black"
-      } );
+        {
+          shape: new Shape()
+              .moveTo( labelX, this._trackNode.top )
+              .lineTo( labelX, this._trackNode.bottom - tickLength ),
+          lineWidth: 1,
+          stroke: "black"
+        } );
     this._ticksParent.addChild( tickNode );
     // label
     if ( labelNode ) {

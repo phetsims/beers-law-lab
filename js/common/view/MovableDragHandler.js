@@ -6,7 +6,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -22,7 +22,7 @@ define( function ( require ) {
   function MovableDragHandler( movable, mvt ) {
     var thisHandler = this;
     SimpleDragHandler.call( this, {
-      translate: function ( options ) {
+      translate: function( options ) {
         var pModel = mvt.viewToModelPosition( options.position );
         var pModelConstrained = thisHandler.constrainBounds( pModel, movable.dragBounds );
         movable.location.set( pModelConstrained );
@@ -37,7 +37,7 @@ define( function ( require ) {
    * @param {Vector2} point
    * @param {Bounds2} bounds
    */
-  MovableDragHandler.prototype.constrainBounds = function ( point, bounds ) {
+  MovableDragHandler.prototype.constrainBounds = function( point, bounds ) {
     if ( _.isUndefined( bounds ) || bounds.containsCoordinates( point.x, point.y ) ) {
       return point;
     }

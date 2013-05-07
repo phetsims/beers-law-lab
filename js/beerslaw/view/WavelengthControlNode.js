@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -61,7 +61,7 @@ define( function ( require ) {
 
     //TODO controlPanel doesn't resize because bounds of contentNode don't change, why?
     // When the radio button selection changes...
-    variableWavelength.addObserver( function ( isVariable ) {
+    variableWavelength.addObserver( function( isVariable ) {
       wavelengthSlider.visible = isVariable;
       if ( !isVariable ) {
         // Set the light to the current solution's lambdaMax wavelength.
@@ -70,12 +70,12 @@ define( function ( require ) {
       thisNode.resize();
     } );
 
-    this.reset = function () {
+    this.reset = function() {
       variableWavelength.reset();
     }
 
     // sync displayed value with model
-    light.wavelength.addObserver( function ( wavelength ) {
+    light.wavelength.addObserver( function( wavelength ) {
       valueNode.text = StringUtils.format( BLLStrings.pattern_0value_1units, [wavelength.toFixed( 0 ), BLLStrings.units_nm] );
     } );
   }

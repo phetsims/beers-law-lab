@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -19,17 +19,17 @@ define( function ( require ) {
     Path.call( this, { stroke: new Color( 192, 192, 192, 0.8 ).toCSS(), lineWidth: 0.5 } );
 
     // shape
-    beam.shape.addObserver( function ( shape ) {
+    beam.shape.addObserver( function( shape ) {
       thisNode.setShape( shape );
     } );
 
     // fill
-    beam.fill.addObserver( function ( fill ) {
+    beam.fill.addObserver( function( fill ) {
       thisNode.fill = fill;
     } );
 
     // visibility
-    beam.visible.addObserver( function ( visible ) {
+    beam.visible.addObserver( function( visible ) {
       thisNode.setVisible( visible );
     } );
   };

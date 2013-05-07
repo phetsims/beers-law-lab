@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -26,11 +26,11 @@ define( function ( require ) {
     // No offset, scale 125x when going from model to view (1cm == 125 pixels)
     var mvt = ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 125 );
 
-    this.createModel = function () {
+    this.createModel = function() {
       return new BeersLawModel( mvt );
     };
 
-    this.createView = function ( model ) {
+    this.createView = function( model ) {
       return new BeersLawView( model, mvt );
     };
   }

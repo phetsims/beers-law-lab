@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -43,7 +43,7 @@ define( function ( require ) {
     var solutionControlsNode = new SolutionControlsNode( model.solutions, model.solution );
 
     // Reset All button
-    var resetAllButton = new ResetAllButton( function () {
+    var resetAllButton = new ResetAllButton( function() {
       model.reset();
       wavelengthControlNode.reset();
     } );

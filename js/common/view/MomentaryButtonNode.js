@@ -6,7 +6,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -34,7 +34,7 @@ define( function ( require ) {
     var imageNode = new Image( unpressedImage );
     thisNode.addChild( imageNode );
 
-    on.addObserver( function ( on ) {
+    on.addObserver( function( on ) {
       if ( enabled.get() ) {
         imageNode.setImage( on ? pressedImage : unpressedImage );
       }
@@ -43,7 +43,7 @@ define( function ( require ) {
       }
     } );
 
-    enabled.addObserver( function ( enabled ) {
+    enabled.addObserver( function( enabled ) {
       if ( enabled ) {
         imageNode.setImage( on.get() ? pressedImage : unpressedImage );
         thisNode.cursor = "pointer";
@@ -55,18 +55,18 @@ define( function ( require ) {
     } );
 
     thisNode.addInputListener(
-      {
-        down: function ( event ) {
-          on.set( true && enabled.get() );
-          event.abort();
-        },
-        //TODO this isn't fired if you roll off the node and release the mouse
-        up: function ( event ) {
-          on.set( false );
-          event.abort();
-        }
-        //TODO cancel?
-      } );
+        {
+          down: function( event ) {
+            on.set( true && enabled.get() );
+            event.abort();
+          },
+          //TODO this isn't fired if you roll off the node and release the mouse
+          up: function( event ) {
+            on.set( false );
+            event.abort();
+          }
+          //TODO cancel?
+        } );
   }
 
   inherit( MomentaryButtonNode, Node );

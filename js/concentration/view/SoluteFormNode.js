@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -54,10 +54,10 @@ define( function ( require ) {
     dropperButton.left = shakerButton.right + 40;
 
     // ensure mutual exclusivity
-    shaker.visible.addObserver( function ( visible ) {
+    shaker.visible.addObserver( function( visible ) {
       dropper.visible.set( !visible );
     } );
-    dropper.visible.addObserver( function ( visible ) {
+    dropper.visible.addObserver( function( visible ) {
       shaker.visible.set( !visible );
     } );
   }

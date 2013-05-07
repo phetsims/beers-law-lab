@@ -5,7 +5,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -59,12 +59,12 @@ define( function ( require ) {
    */
   function Thumb( width, height ) {
     var shape = new Shape()
-      .moveTo( 0, 0 )
-      .lineTo( 0.5 * width, 0.3 * height )
-      .lineTo( 0.5 * width, 1 * height )
-      .lineTo( -0.5 * width, 1 * height )
-      .lineTo( -0.5 * width, 0.3 * height )
-      .close();
+        .moveTo( 0, 0 )
+        .lineTo( 0.5 * width, 0.3 * height )
+        .lineTo( 0.5 * width, 1 * height )
+        .lineTo( -0.5 * width, 1 * height )
+        .lineTo( -0.5 * width, 0.3 * height )
+        .close();
     Path.call( this, { shape: shape, stroke: "black", lineWidth: 1, fill: "black" } );
   }
 
@@ -80,7 +80,7 @@ define( function ( require ) {
   function ValueDisplay( property, font, fill ) {
     var thisNode = this;
     Text.call( this, "?", { font: font, fill: fill } );
-    property.addObserver( function ( value ) {
+    property.addObserver( function( value ) {
       thisNode.text = StringUtils.format( BLLStrings.pattern_0value_1units, [value.toFixed( 0 ), BLLStrings.units_nm] );
     } );
   }
@@ -131,11 +131,11 @@ define( function ( require ) {
 
     // buttons for single-unit increments
     var plusButton = new Button( new Path( { fill: "black", shape: new Shape().moveTo( 0, 0 ).lineTo( 20, 10 ).lineTo( 0, 20 ).close() } ),
-                                 function () {
+                                 function() {
                                    wavelength.set( wavelength.get() + 1 );
                                  }, { cornerRadius: 4 } );
     var minusButton = new Button( new Path( { fill: "black", shape: new Shape().moveTo( 0, 10 ).lineTo( 20, 0 ).lineTo( 20, 20 ).close() } ),
-                                  function () {
+                                  function() {
                                     wavelength.set( wavelength.get() - 1 );
                                   }, { cornerRadius: 4 } );
 
@@ -172,33 +172,33 @@ define( function ( require ) {
     track.cursor = "pointer";
     var positionToValue = new LinearFunction( new Range( 0, track.width ), new Range( minWavelength, maxWavelength ), true /* clamp */ );
     track.addInputListener(
-      {
-        down: function ( event ) {
-          var x = track.globalToParentPoint( event.pointer.point ).x;
-          var value = positionToValue.evaluate( x );
-          wavelength.set( value );
-        }
-      } );
+        {
+          down: function( event ) {
+            var x = track.globalToParentPoint( event.pointer.point ).x;
+            var value = positionToValue.evaluate( x );
+            wavelength.set( value );
+          }
+        } );
 
     // thumb interactivity
     thumb.cursor = "pointer";
     var clickXOffset = 0; // x-offset between initial click and thumb's origin
     thumb.addInputListener( new SimpleDragHandler(
-      {
-        start: function ( event ) {
-          clickXOffset = thumb.globalToParentPoint( event.pointer.point ).x - thumb.x;
-        },
-        drag: function ( event ) {
-          var x = thumb.globalToParentPoint( event.pointer.point ).x - clickXOffset;
-          wavelength.set( positionToValue.evaluate( x ) );
-        },
-        translate: function () {
-          // do nothing, override default behavior
-        }
-      } ) );
+        {
+          start: function( event ) {
+            clickXOffset = thumb.globalToParentPoint( event.pointer.point ).x - thumb.x;
+          },
+          drag: function( event ) {
+            var x = thumb.globalToParentPoint( event.pointer.point ).x - clickXOffset;
+            wavelength.set( positionToValue.evaluate( x ) );
+          },
+          translate: function() {
+            // do nothing, override default behavior
+          }
+        } ) );
 
     // sync with model
-    var updateUI = function ( wavelength ) {
+    var updateUI = function( wavelength ) {
       // positions
       var x = positionToValue.evaluateInverse( wavelength );
       thumb.centerX = x;
@@ -211,7 +211,7 @@ define( function ( require ) {
       plusButton.visible = ( wavelength < maxWavelength );
       minusButton.visible = ( wavelength > minWavelength );
     };
-    wavelength.addObserver( function ( wavelength ) {
+    wavelength.addObserver( function( wavelength ) {
       updateUI( wavelength );
     } );
 

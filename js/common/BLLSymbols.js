@@ -5,15 +5,14 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
   var ChemUtils = require( "common/util/ChemUtils" );
   var BLLStrings = require( "common/BLLStrings" );
 
-  function BLLSymbols() {
-  }
+  function BLLSymbols() {}
 
   BLLSymbols.COBALT_II_NITRATE = ChemUtils.toSubscript( "Co(NO3)2" );
   BLLSymbols.COBALT_CHLORIDE = ChemUtils.toSubscript( "CoCl2" );

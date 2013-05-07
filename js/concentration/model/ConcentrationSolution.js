@@ -7,7 +7,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define( function ( require ) {
+define( function( require ) {
   "use strict";
 
   // imports
@@ -36,7 +36,7 @@ define( function ( require ) {
     // derive amount of precipitate (moles)
     thisSolution.precipitateAmount = new Property( 0 );
     thisSolution.concentration = new Property( 0 );
-    var updatePrecipitateAmount = function () {
+    var updatePrecipitateAmount = function() {
 
       // derive amount of precipitate (moles)
       var volume = thisSolution.volume.get();
@@ -58,14 +58,14 @@ define( function ( require ) {
     thisSolution.volume.addObserver( updatePrecipitateAmount );
 
     // derive the solution color
-    var updateColor = function () {
+    var updateColor = function() {
       thisSolution.color.set( ConcentrationSolution.createColor( thisSolution.solvent, thisSolution.solute.get(), thisSolution.concentration.get() ) );
     };
     thisSolution.solute.addObserver( updateColor );
     thisSolution.concentration.addObserver( updateColor );
 
     // reset
-    thisSolution.reset = function () {
+    thisSolution.reset = function() {
       callSuper( Fluid, "reset", this );
       thisSolution.soluteAmount.reset();
       thisSolution.volume.reset();
@@ -76,11 +76,11 @@ define( function ( require ) {
   inherit( ConcentrationSolution, Fluid );
 
   // convenience function
-  ConcentrationSolution.prototype.getSaturatedConcentration = function () {
+  ConcentrationSolution.prototype.getSaturatedConcentration = function() {
     return this.solute.get().getSaturatedConcentration();
   };
 
-  ConcentrationSolution.prototype.isSaturated = function () {
+  ConcentrationSolution.prototype.isSaturated = function() {
     var saturated = false;
     if ( this.volume.get() > 0 ) {
       saturated = ( this.soluteAmount.get() / this.volume.get() ) > this.getSaturatedConcentration();
@@ -88,7 +88,7 @@ define( function ( require ) {
     return saturated;
   };
 
-  ConcentrationSolution.prototype.getNumberOfPrecipitateParticles = function () {
+  ConcentrationSolution.prototype.getNumberOfPrecipitateParticles = function() {
     var numberOfParticles = Math.round( this.solute.get().particlesPerMole * this.precipitateAmount.get() );
     if ( numberOfParticles == 0 && this.precipitateAmount.get() > 0 ) {
       numberOfParticles = 1;
@@ -102,7 +102,7 @@ define( function ( require ) {
    * @param {Solute} solute
    * @param {Number} concentration
    */
-  ConcentrationSolution.createColor = function ( solvent, solute, concentration ) {
+  ConcentrationSolution.createColor = function( solvent, solute, concentration ) {
     var color = solvent.color.get();
     if ( concentration > 0 ) {
       color = solute.colorScheme.concentrationToColor( concentration );
