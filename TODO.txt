@@ -26,7 +26,6 @@ HIGH
 - PhetStyle.xml
 
 MEDIUM
-- add "item" abstraction (node+model) to combo box, to eliminate "selectedItem" delegate property
 - buttons fire on 'up' event even if they haven't seen a 'down' event
 - ruler can get lost behind Solution control panel
 - disable (instead of hide) +/- buttons for sliders (not supported by sun.Button)

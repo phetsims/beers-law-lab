@@ -44,7 +44,8 @@ define( function ( require ) {
   inherit( ButtonNode, Rectangle );
 
   /**
-   * @param {Node} item
+   * A wrapper around the combo box item, adds margins, etc.
+   * @param {ComboBoxItem} item
    * @param {number} width
    * @param {number} height
    * @constructor
@@ -53,7 +54,7 @@ define( function ( require ) {
     var thisNode = this;
     Rectangle.call( this, 0, 0, width, height );
     this.item = item;
-    thisNode.addChild( item );
+    thisNode.addChild( item.node );
     item.centerX = width / 2;
     item.centerY = height / 2;
   }
@@ -61,13 +62,11 @@ define( function ( require ) {
   inherit( ItemNode, Rectangle );
 
   /**
-   * @param {Array<Node>} items
-   * @param {Property<Node>} selectedItem
+   * @param {Array<ComboBoxItem>} items
+   * @param {Property<Node>} property
    * @param {object} options
    */
-  function ComboBoxNode( items, selectedItem, options ) {
-
-    assert && assert( items.indexOf( selectedItem.get() ) != -1 ); // items contains selectedItem
+  function ComboBoxNode( items, property, options ) {
 
     var thisNode = this;
 
@@ -83,7 +82,8 @@ define( function ( require ) {
                           listPosition: "below", // where the list is positioned relative to the button, either "below" or "above"
                           listParent: thisNode, // node that will be used as the list's parent, useful for ensuring that the list is in front of everything else
                           listXMargin: 10,
-                          listYMargin: 6,
+                          listYMargin: 5,
+                          listYSpacing: 5, // vertical space between items in the list
                           listFill: "white",
                           listStroke: 'black',
                           listLineWidth: 1,
@@ -101,16 +101,31 @@ define( function ( require ) {
     var maxWidth = 0, maxHeight = 0;
     for ( var i = 0; i < items.length; i++ ) {
       var item = items[i];
-      if ( item.width > maxWidth ) { maxWidth = item.width; }
-      if ( item.height > maxHeight ) { maxHeight = item.height; }
+      if ( item.node.width > maxWidth ) { maxWidth = item.node.width; }
+      if ( item.node.height > maxHeight ) { maxHeight = item.node.height; }
     }
 
-    // button
-    var buttonNode = new ButtonNode( new ItemNode( selectedItem.get(), maxWidth, maxHeight ), options );
+    // button, will be set to correct value when property observer is registered
+    var buttonNode = new ButtonNode( new ItemNode( items[0], maxWidth, maxHeight ), options );
+
+    // button interactivity
+    buttonNode.cursor = "pointer";
+    buttonNode.addInputListener(
+      {
+        down: function () {
+          console.log( "ComboBoxNode.buttonNode.down" );//XXX
+          if ( options.listParent.isChild( listNode ) ) {
+            options.listParent.removeChild( listNode );
+          }
+          else {
+            options.listParent.addChild( listNode );
+          }
+        }
+      } );
 
     // list
     var listWidth = maxWidth + ( 2 * options.listXMargin );
-    var listHeight = ( items.length * maxHeight ) + ( 2 * options.listYMargin );
+    var listHeight = ( items.length * maxHeight ) + ( 2 * options.listYMargin ) + ( ( items.length - 1 ) * options.listYSpacing );
     var listNode = new Rectangle( 0, 0, listWidth, listHeight, options.listCornerRadius, options.listCornerRadius,
                                   { fill: options.listFill, stroke: options.listStroke, lineWidth: options.listLineWidth } );
     for ( var i = 0; i < items.length; i++ ) {
@@ -118,7 +133,7 @@ define( function ( require ) {
       var itemNode = new ItemNode( items[i], maxWidth, maxHeight );
       listNode.addChild( itemNode );
       itemNode.left = options.listXMargin;
-      itemNode.top = options.listYMargin + ( i * maxHeight );
+      itemNode.top = options.listYMargin + ( i * maxHeight ) + ( i * options.listYSpacing );
 
       // item interactivity
       itemNode.cursor = "pointer";
@@ -132,7 +147,7 @@ define( function ( require ) {
           },
           down: function ( event ) {
             console.log( "ComboBoxNode.itemNode.down" );//XXX
-            selectedItem.set( event.currentTarget.item );
+            property.set( event.currentTarget.item.value );
             event.currentTarget.stroke = null;
             options.listParent.removeChild( listNode );
           }
@@ -155,24 +170,15 @@ define( function ( require ) {
       throw new Error( "unsupported listPosition: " + options.listPosition );
     }
 
-    // interactivity
-    buttonNode.cursor = "pointer";
-    buttonNode.addInputListener(
-      {
-        down: function () {
-          console.log( "ComboBoxNode.buttonNode.down" );//XXX
-          if ( options.listParent.isChild( listNode ) ) {
-            options.listParent.removeChild( listNode );
-          }
-          else {
-            options.listParent.addChild( listNode );
-          }
+    // when property changes, update button
+    property.addObserver( function ( value ) {
+      var item = null;
+      for ( var i = 0; i < items.length; i++ ) {
+        if ( items[i].value === value ) {
+          item = items[i];
         }
-      } );
-
-    // when selectedItem changes, update button
-    selectedItem.addObserver( function ( item ) {
-      assert && assert( items.indexOf( selectedItem.get() ) != -1 ); // items contains selectedItem
+      }
+      assert && assert( item != null );
       buttonNode.setItemNode( new ItemNode( item, maxWidth, maxHeight ) );
     } );
   }
