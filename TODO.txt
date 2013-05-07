@@ -45,16 +45,10 @@ LOW
 - use scenery.Font for font specification
 - get new images for faucet, faucet_pipe.png doesn't match up with faucet_spigot.png
 - factor out commonality in MomentaryButtonNode and ToggleButtonNode, migrate to sun?
-
-LOWEST
-- add missing assets (.ai) for faucet
-
-COMMON FEATURES:
 - Credits: Ariel (lead), Chris (dev), Noah P, Emily, Kathy, Julia
-- About dialog (version info, credits, software agreement)
+- proper usage of JSDoc
 
 MIGRATE TO COMMON
-Color
 DebugOriginNode
 FaucetNode + images
 StringUtils
@@ -62,3 +56,5 @@ LinearFunction
 MomentaryButtonNode + ToggleButtonNode + images
 HorizontalTiledNode
 ChemUtils
+ComboBoxNode + ComboBoxItem
+ControlPanelNode
