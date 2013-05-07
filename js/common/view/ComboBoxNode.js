@@ -2,8 +2,6 @@
 
 //TODO bug: list only receives events every-other time it's popped up
 //TODO add up/down glyph on button
-//TODO add an inside margin to ItemNode
-//TODO add cornerRadius to list item highlight
 //TODO click outside of list to dismiss it
 //TODO support for listParent (and coordinate-frame transforms this requires)
 /**
