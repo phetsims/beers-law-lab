@@ -55,12 +55,14 @@ define( function ( require ) {
 
     thisNode.addInputListener(
       {
-        down: function () {
+        down: function ( event ) {
           on.set( true && enabled.get() );
+          event.abort();
         },
         //TODO this isn't fired if you roll off the node and release the mouse
-        up: function () {
+        up: function ( event ) {
           on.set( false );
+          event.abort();
         }
         //TODO cancel?
       } );
