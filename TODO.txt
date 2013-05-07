@@ -31,14 +31,13 @@ MEDIUM
 - disable (instead of hide) +/- buttons for sliders (not supported by sun.Button)
 - add relativePressPoint to MovableDragHandler, so that mouse doesn't get away from drag target
 - improve drag handler for faucet handles
+- improve implementation of spectrum for wavelength slider track
 
 LOW
 - generalize left/right arrow buttons for sliders
 - lighting on AT body is vertically flipped
 - sim resizing doesn't play nice with browser zoom features
 - nicer knobs slider
-- better +/- buttons for sliders
-- better spectrum for wavelength slider track
 - value in concentration meter jitters horizontally as value changes
 - split faucet_handle.png into 2 images, so that only the knob is interactive?
 - use scenery.Pattern to texture map input pipe in FaucetNode
