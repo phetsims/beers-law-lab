@@ -42,6 +42,7 @@ define( function ( require ) {
 
   inherit( ButtonNode, Rectangle );
 
+  //TODO need a better name for this type, confusing because ComboBoxItem provides a node.
   /**
    * A wrapper around the combo box item, adds margins, etc.
    * @param {ComboBoxItem} item
