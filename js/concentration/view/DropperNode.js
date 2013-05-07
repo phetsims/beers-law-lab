@@ -10,6 +10,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var BLLImages = require( "common/BLLImages" );
   var Color = require( "common/model/Color" );
   var ConcentrationSolution = require( "concentration/model/ConcentrationSolution" );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
@@ -21,10 +22,6 @@ define( function ( require ) {
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
   var Shape = require( "KITE/Shape" );
-
-  // images
-  var foregroundImage = require( "image!images/dropper_foreground.png" );
-  var backgroundImage = require( "image!images/dropper_background.png" );
 
   // constants
   var DEBUG_ORIGIN = false;
@@ -68,8 +65,8 @@ define( function ( require ) {
     var fluidNode = new Path( { shape: fluidShape } );
 
     // images
-    var foregroundNode = new Image( foregroundImage );
-    var backgroundNode = new Image( backgroundImage );
+    var foregroundNode = new Image( BLLImages.getImage( "dropper_foreground.png" ) );
+    var backgroundNode = new Image( BLLImages.getImage( "dropper_background.png" ) );
 
     // label
     var labelNode = new HTMLText( dropper.solute.formula, { font: "bold 18px Arial", fill: "black" } );

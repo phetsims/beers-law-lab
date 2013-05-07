@@ -10,6 +10,7 @@ define( function ( require ) {
 
   // imports
   var ATDetector = require( "beerslaw/model/ATDetector" );
+  var BLLImages = require( "common/BLLImages" );
   var BLLStrings = require( "common/BLLStrings" );
   var HorizontalTiledNode = require( "common/view/HorizontalTiledNode" );
   var Image = require( "SCENERY/nodes/Image" );
@@ -34,12 +35,6 @@ define( function ( require ) {
   var TRANSMITTANCE_DECIMAL_PLACES = 2;
   var NO_VALUE = "-";
   var PROBE_CENTER_Y_OFFSET = 55; // specific to image file
-
-  // images
-  var bodyLeftImage = require( "image!images/at-detector-body-left.png" );
-  var bodyRightImage = require( "image!images/at-detector-body-right.png" );
-  var bodyCenterImage = require( "image!images/at-detector-body-center.png" );
-  var probeImage = require( "image!images/at-detector-probe.png" );
 
   /**
    * The body of the detector, where A and T values are displayed.
@@ -72,7 +67,10 @@ define( function ( require ) {
 
     // background image, sized to fit
     var bodyWidth = Math.max( buttonGroup.width, valueNode.width ) + ( 2 * BUTTONS_X_MARGIN );
-    var backgroundNode = new HorizontalTiledNode( bodyWidth, new Image( bodyLeftImage ), new Image( bodyCenterImage ), new Image( bodyRightImage ) );
+    var backgroundNode = new HorizontalTiledNode( bodyWidth,
+                                                  new Image( BLLImages.getImage( "at-detector-body-left.png" ) ),
+                                                  new Image( BLLImages.getImage( "at-detector-body-center.png" ) ),
+                                                  new Image( BLLImages.getImage( "at-detector-body-right.png" ) ) );
 
     // rendering order
     thisNode.addChild( backgroundNode );
@@ -124,7 +122,7 @@ define( function ( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
-    var imageNode = new Image( probeImage );
+    var imageNode = new Image( BLLImages.getImage( "at-detector-probe.png" ) );
     thisNode.addChild( imageNode );
     imageNode.x = -imageNode.width / 2;
     imageNode.y = -PROBE_CENTER_Y_OFFSET;
@@ -160,7 +158,7 @@ define( function ( require ) {
       lineJoin: "round"
     } );
 
-     // The y coordinate of the body's control point varies with the x distance between the body and probe.
+    // The y coordinate of the body's control point varies with the x distance between the body and probe.
     var BODY_CTRL_Y = new LinearFunction( new Range( 0, 800 ), new Range( 0, 200 ) ); // x distance -> y coordinate
 
     var updateCurve = function () {

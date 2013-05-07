@@ -12,6 +12,7 @@ define( function ( require ) {
 
   // imports
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
+  var BLLImages = require( "common/BLLImages" );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -23,12 +24,6 @@ define( function ( require ) {
   var Transform3 = require( "DOT/Transform3" );
   var Util = require( "DOT/Util" );
   var Vector2 = require( "DOT/Vector2" );
-
-  // images
-  var handleImage = require( "image!images/faucet_handle.png" );
-  var pipeImage = require( "image!images/faucet_pipe.png" );
-  var pivotImage = require( "image!images/faucet_pivot.png" );
-  var spoutImage = require( "image!images/faucet_spout.png" );
 
   // constants
   var DEBUG_ORIGIN = false;
@@ -48,12 +43,12 @@ define( function ( require ) {
     var orientationToFlowRate = new LinearFunction( HANDLE_ORIENTATION_RANGE, new Range( 0, faucet.maxFlowRate ) );
 
     // child nodes
-    var handleNode = new Image( handleImage, {
+    var handleNode = new Image( BLLImages.getImage( "faucet_handle.png" ), {
       cursor: "pointer"
     } );
-    var pipeNode = new Image( pipeImage );
-    var pivotNode = new Image( pivotImage );
-    var spoutNode = new Image( spoutImage );
+    var pipeNode = new Image( BLLImages.getImage( "faucet_pipe.png" ) );
+    var pivotNode = new Image( BLLImages.getImage( "faucet_pivot.png" ) );
+    var spoutNode = new Image( BLLImages.getImage( "faucet_spout.png" ) );
 
     // rendering order
     thisNode.addChild( pipeNode );

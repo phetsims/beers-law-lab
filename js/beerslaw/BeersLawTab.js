@@ -9,6 +9,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var BLLImages = require( "common/BLLImages" );
   var BLLStrings = require( "common/BLLStrings" );
   var BeersLawModel = require( "beerslaw/model/BeersLawModel" );
   var BeersLawView = require( "beerslaw/view/BeersLawView" );
@@ -16,13 +17,10 @@ define( function ( require ) {
   var ModelViewTransform2 = require( "PHETCOMMON/view/ModelViewTransform2" );
   var Vector2 = require( "DOT/Vector2" );
 
-  // images
-  var ICON = require( "image!images/Beers-Law-icon.jpg" );
-
   function BeersLawTab() {
 
     this.name = BLLStrings.beersLaw;
-    this.icon = new Image( ICON );
+    this.icon = new Image( BLLImages.getImage( "Beers-Law-icon.jpg" ) );
     this.backgroundColor = "white";
 
     // No offset, scale 125x when going from model to view (1cm == 125 pixels)

@@ -8,15 +8,23 @@
 require(
   [
     "JOIST/Sim",
+    "PHETCOMMON/util/ImagesLoader",
     "concentration/ConcentrationTab",
     "beerslaw/BeersLawTab",
     "SCENERY/util/Util",
-    "common/BLLStrings"
+    "common/BLLStrings",
+    "common/BLLImages"
   ],
-  function ( Sim, ConcentrationTab, BeersLawTab, Util, BLLStrings ) {
+  function ( Sim, ImagesLoader, ConcentrationTab, BeersLawTab, Util, BLLStrings, BLLImages ) {
     "use strict";
-    new Sim( BLLStrings.beersLawLab,
-             [ new ConcentrationTab(), new BeersLawTab() ],
-             { showHomeScreen: false, tabIndex: 1 } )
-      .start();
+
+    new ImagesLoader( function ( loader ) {
+
+      BLLImages.getImage = loader.getImage;
+
+      new Sim( BLLStrings.beersLawLab,
+               [ new ConcentrationTab(), new BeersLawTab() ],
+               { showHomeScreen: false, tabIndex: 1 } )
+        .start();
+    } );
   } );

@@ -10,14 +10,12 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var BLLImages = require( "common/BLLImages" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Property = require( "PHETCOMMON/model/property/Property" );
   var ToggleButtonNode = require( "common/view/ToggleButtonNode" );
-
-  // images
-  var lightImage = require( "image!images/light.png" );
 
   /**
    * @param {Light} light
@@ -30,7 +28,7 @@ define( function ( require ) {
     Node.call( this );
 
     // nodes
-    var housingNode = new Image( lightImage );
+    var housingNode = new Image( BLLImages.getImage( "light.png" ) );
     var buttonNode = new ToggleButtonNode( light.on, new Property( true ) );
 
     // make the button fit in the housing

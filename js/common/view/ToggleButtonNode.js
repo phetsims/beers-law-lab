@@ -11,15 +11,10 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var BLLImages = require( "common/BLLImages" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
-
-  // images
-  var pressedImage = require( "image!images/momentary_button_pressed.png" );
-  var unpressedImage = require( "image!images/momentary_button_unpressed.png" );
-  var pressedDisabledImage = require( "image!images/momentary_button_pressed_disabled.png" );
-  var unpressedDisabledImage = require( "image!images/momentary_button_unpressed_disabled.png" );
 
   /**
    * @param {Property} on (type boolean)
@@ -30,6 +25,12 @@ define( function ( require ) {
 
     var thisNode = this;
     Node.call( this );
+
+    // images
+    var pressedImage = BLLImages.getImage( "momentary_button_pressed.png" );
+    var unpressedImage = BLLImages.getImage( "momentary_button_unpressed.png" );
+    var pressedDisabledImage = BLLImages.getImage( "momentary_button_pressed_disabled.png" );
+    var unpressedDisabledImage = BLLImages.getImage( "momentary_button_unpressed_disabled.png" );
 
     var imageNode = new Image( unpressedImage );
     thisNode.addChild( imageNode );

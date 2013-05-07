@@ -20,6 +20,7 @@ define( function( require ) {
   "use strict";
 
   // imports
+  var BLLImages = require( "common/BLLImages" );
   var BLLStrings = require( "common/BLLStrings" );
   var Color = require( "common/model/Color" );
   var HorizontalTiledNode = require( "common/view/HorizontalTiledNode" );
@@ -34,12 +35,6 @@ define( function( require ) {
   var StringUtils = require( "common/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
   var Vector2 = require( "DOT/Vector2" );
-
-  // images
-  var bodyLeftImage = require( "image!images/concentration-meter-body-left.png" );
-  var bodyCenterImage = require( "image!images/concentration-meter-body-center.png" );
-  var bodyRightImage = require( "image!images/concentration-meter-body-right.png" );
-  var probeImage = require( "image!images/concentration-meter-probe.png" );
 
   // constants
   var VALUE_DECIMALS = 3;
@@ -70,7 +65,10 @@ define( function( require ) {
     // create a background that fits the text
     var maxTextWidth = Math.max( titleNode.width, unitsNode.width );
     var bodyWidth = ( 2 * TEXT_X_MARGIN ) + maxTextWidth;
-    var backgroundNode = new HorizontalTiledNode( bodyWidth, new Image( bodyLeftImage ), new Image( bodyCenterImage), new Image( bodyRightImage ) );
+    var backgroundNode = new HorizontalTiledNode( bodyWidth,
+                                                  new Image( BLLImages.getImage( "concentration-meter-body-left.png" ) ),
+                                                  new Image( BLLImages.getImage( "concentration-meter-body-center.png" ) ),
+                                                  new Image( BLLImages.getImage( "concentration-meter-body-right.png" ) ) );
 
     // rendering order
     thisNode.addChild( backgroundNode );
@@ -123,7 +121,7 @@ define( function( require ) {
       cursor: "pointer"
     } );
 
-    var imageNode = new Image( probeImage );
+    var imageNode = new Image( BLLImages.getImage( "concentration-meter-probe.png" ) );
     thisNode.addChild( imageNode );
     var radius = imageNode.height / 2; // assumes that image height defines the radius
     imageNode.x = -radius;

@@ -9,6 +9,7 @@ define( function ( require ) {
   "use strict";
 
   // imports
+  var BLLImages = require( "common/BLLImages" );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -17,9 +18,6 @@ define( function ( require ) {
   var HTMLText = require( "SCENERY/nodes/HTMLText" );
   var Util = require( "DOT/Util" );
   var Vector2 = require( "DOT/Vector2" );
-
-  // images
-  var shakerImage = require( "image!images/shaker.png" );
 
   // constants
   var DEBUG_ORIGIN = false;
@@ -38,7 +36,7 @@ define( function ( require ) {
     } );
 
     // shaker image
-    var imageNode = new Image( shakerImage );
+    var imageNode = new Image( BLLImages.getImage( "shaker.png" ) );
     imageNode.setScaleMagnitude( 0.75 );
 
     // label

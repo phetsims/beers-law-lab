@@ -9,6 +9,7 @@ define( function( require ) {
   "use strict";
 
   // imports
+  var BLLImages = require( "common/BLLImages" );
   var BLLStrings = require( "common/BLLStrings" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -16,10 +17,6 @@ define( function( require ) {
   var Property = require( "PHETCOMMON/model/property/Property" );
   var RadioButton = require( "SUN/RadioButton" );
   var Text = require( "SCENERY/nodes/Text" );
-
-  // images
-  var dropperIcon = require( "image!images/dropper-icon.png" );
-  var shakerIcon = require( "image!images/shaker-icon.png" );
 
   function TextAndIconNode( text, textOptions, image, xSpacing ) {
     var thisNode = this;
@@ -46,8 +43,8 @@ define( function( require ) {
 
     var TEXT_OPTIONS = { font: "22px Arial", fill: "black" };
     var X_SPACING = 10;
-    var shakerButton = new RadioButton( shaker.visible, true, new TextAndIconNode( BLLStrings.solid, TEXT_OPTIONS, shakerIcon, X_SPACING ) );
-    var dropperButton = new RadioButton( dropper.visible, true, new TextAndIconNode( BLLStrings.solution, TEXT_OPTIONS, dropperIcon, X_SPACING ) );
+    var shakerButton = new RadioButton( shaker.visible, true, new TextAndIconNode( BLLStrings.solid, TEXT_OPTIONS, BLLImages.getImage( "shaker-icon.png" ), X_SPACING ) );
+    var dropperButton = new RadioButton( dropper.visible, true, new TextAndIconNode( BLLStrings.solution, TEXT_OPTIONS, BLLImages.getImage( "dropper-icon.png" ), X_SPACING ) );
 
     // rendering order
     thisNode.addChild( shakerButton );
