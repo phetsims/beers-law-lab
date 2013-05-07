@@ -18,6 +18,7 @@ BUGS
 - iPad: wavelength slider is unusable and thumb disappears
 
 HIGH
+- bug: combo box list only receives events every-other time it's popped up
 - laundry list at top of ComboBoxNode
 - prevent dropper from being dragged by on/off button
 - resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)

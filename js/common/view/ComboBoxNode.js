@@ -5,7 +5,6 @@
 //TODO add an inside margin to ItemNode
 //TODO add cornerRadius to list item highlight
 //TODO click outside of list to dismiss it
-//TODO support for options.listAlign
 //TODO support for listParent (and coordinate-frame transforms this requires)
 /**
  * Scenery-based combo box. Composed of a button and a list of items.
@@ -48,15 +47,27 @@ define( function ( require ) {
    * @param {ComboBoxItem} item
    * @param {number} width
    * @param {number} height
+   * @param {String} alignment left, center or right
    * @constructor
    */
-  function ItemNode( item, width, height ) {
+  function ItemNode( item, width, height, alignment ) {
     var thisNode = this;
     Rectangle.call( this, 0, 0, width, height );
     this.item = item;
     thisNode.addChild( item.node );
-    item.centerX = width / 2;
-    item.centerY = height / 2;
+    if ( alignment === "center" ) {
+      item.node.centerX = width / 2;
+    }
+    else if ( alignment == "left" ) {
+      item.node.left = 0;
+    }
+    else if ( alignment == "right" ) {
+      item.node.right = width;
+    }
+    else {
+      throw new Error( "unsupported alignment: " + alignment );
+    }
+    item.node.centerY = height / 2;
   }
 
   inherit( ItemNode, Rectangle );
@@ -106,7 +117,7 @@ define( function ( require ) {
     }
 
     // button, will be set to correct value when property observer is registered
-    var buttonNode = new ButtonNode( new ItemNode( items[0], maxWidth, maxHeight ), options );
+    var buttonNode = new ButtonNode( new ItemNode( items[0], maxWidth, maxHeight, options.listAlign ), options );
 
     // button interactivity
     buttonNode.cursor = "pointer";
@@ -130,7 +141,7 @@ define( function ( require ) {
                                   { fill: options.listFill, stroke: options.listStroke, lineWidth: options.listLineWidth } );
     for ( var i = 0; i < items.length; i++ ) {
       // add item to list
-      var itemNode = new ItemNode( items[i], maxWidth, maxHeight );
+      var itemNode = new ItemNode( items[i], maxWidth, maxHeight, options.listAlign );
       listNode.addChild( itemNode );
       itemNode.left = options.listXMargin;
       itemNode.top = options.listYMargin + ( i * maxHeight ) + ( i * options.listYSpacing );
@@ -179,7 +190,7 @@ define( function ( require ) {
         }
       }
       assert && assert( item != null );
-      buttonNode.setItemNode( new ItemNode( item, maxWidth, maxHeight ) );
+      buttonNode.setItemNode( new ItemNode( item, maxWidth, maxHeight, options.listAlign ) );
     } );
   }
 
