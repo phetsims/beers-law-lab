@@ -84,6 +84,8 @@ define( function ( require ) {
     var thisNode = this;
 
     options = _.extend( {
+                          labelNode: null, // optional label, placed to the left of the combo box
+                          labelXSpacing: 10, // horizontal space between label and combo box
                           // button
                           buttonFill: "white",
                           buttonStroke: "black",
@@ -110,6 +112,11 @@ define( function ( require ) {
 
     Node.call( thisNode, options );
 
+    // optional label
+    if ( options.labelNode !== null ) {
+      thisNode.addChild( options.labelNode );
+    }
+
     // determine uniform dimensions for button and list items
     var maxWidth = 0, maxHeight = 0;
     for ( var i = 0; i < items.length; i++ ) {
@@ -120,6 +127,7 @@ define( function ( require ) {
 
     // button, will be set to correct value when property observer is registered
     var buttonNode = new ButtonNode( new ItemNode( items[0], maxWidth, maxHeight, options.listAlign ), options );
+    thisNode.addChild( buttonNode );
 
     // button interactivity
     buttonNode.cursor = "pointer";
@@ -168,10 +176,11 @@ define( function ( require ) {
       );
     }
 
-    // rendering order
-    thisNode.addChild( buttonNode );
-
     // layout
+    if ( options.labelNode ) {
+      buttonNode.left = options.labelNode.right + options.labelXSpacing;
+      buttonNode.centerY = options.labelNode.centerY;
+    }
     listNode.left = buttonNode.left;
     if ( options.listPosition === "below" ) {
       listNode.top = buttonNode.bottom

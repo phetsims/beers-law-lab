@@ -10,11 +10,13 @@ define( function ( require ) {
 
   // imports
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
+  var BLLStrings = require( "common/BLLStrings" );
   var ComboBoxItem = require( "common/view/ComboBoxItem" );
   var ComboBoxNode = require( "common/view/ComboBoxNode" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
+  var StringUtils = require( "common/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
 
   /**
@@ -45,13 +47,17 @@ define( function ( require ) {
    */
   function SoluteComboBoxNode( solutes, selectedSolute ) {
 
+    // "Solute" label
+    var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [ BLLStrings.solute ] ), { font: "22px Arial" } );
+
+    // items
     var items = new Array();
     for ( var i = 0; i < solutes.length; i++ ) {
       var solute = solutes[i];
       items[i] = new Item( solute );
     }
 
-    ComboBoxNode.call( this, items, selectedSolute, { listPosition: "below" } );
+    ComboBoxNode.call( this, items, selectedSolute, { labelNode: labelNode, listPosition: "below" } );
   }
 
   inherit( SoluteComboBoxNode, ComboBoxNode );

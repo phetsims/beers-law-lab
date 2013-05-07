@@ -9,14 +9,11 @@ define( function ( require ) {
   "use strict";
 
   // imports
-  var BLLStrings = require( "common/BLLStrings" );
   var ControlPanelNode = require( "common/view/ControlPanelNode" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var SoluteComboBoxNode = require( "concentration/view/SoluteComboBoxNode" );
   var SoluteFormNode = require( "concentration/view/SoluteFormNode" );
-  var StringUtils = require( "common/util/StringUtils" );
-  var Text = require( "SCENERY/nodes/Text" );
 
   /**
    * @param {Array} solutes (of type Solute)
@@ -29,25 +26,18 @@ define( function ( require ) {
 
     var thisNode = this;
 
-    // "Solute" label
-    var text = StringUtils.format( BLLStrings.pattern_0label, [ BLLStrings.solute ] );
-    var soluteLabel = new Text( text, { font: "22px Arial" });
-
     // solute combo box
     var soluteComboBox = new SoluteComboBoxNode( solutes, currentSolute );
 
     // radio buttons for solid vs solution
-    var soluteFormNode = new SoluteFormNode( shaker, dropper, BLLStrings );
+    var soluteFormNode = new SoluteFormNode( shaker, dropper );
 
     var contentNode = new Node();
-    contentNode.addChild( soluteLabel );
     contentNode.addChild( soluteFormNode );
     contentNode.addChild( soluteComboBox ); // add last, so that dropdown is on top
 
     // layout
-    soluteComboBox.left = soluteLabel.right + 10;
-    soluteComboBox.centerY = soluteLabel.centerY;
-    soluteFormNode.left = soluteLabel.left;
+    soluteFormNode.left = soluteComboBox.left;
     soluteFormNode.top = soluteComboBox.bottom + 20;
 
     //TODO ditch svg renderer when bootstrap has been replaced
