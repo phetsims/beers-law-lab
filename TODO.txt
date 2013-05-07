@@ -20,8 +20,8 @@ BUGS
 
 HIGH
 - bug: combo box list only receives events every-other time it's popped up
+- bug: wavelength control panel doesn't resize when wavelength control is removed
 - laundry list at top of ComboBoxNode
-- resize height of wavelength control panel based on whether slider is visible (scenery bounds bug?)
 - use ImagesLoader to load images, delete images.js in config.js
 - Grunt file
 - PhetStyle.xml
