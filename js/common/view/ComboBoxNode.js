@@ -129,26 +129,13 @@ define( function( require ) {
     var buttonNode = new ButtonNode( new ItemNode( items[0], maxWidth, maxHeight, options.listAlign ), options );
     thisNode.addChild( buttonNode );
 
-    // button interactivity
-    buttonNode.cursor = "pointer";
-    buttonNode.addInputListener(
-        {
-          down: function() {
-            console.log( "ComboBoxNode.buttonNode.down" );//XXX
-            if ( options.listParent.isChild( listNode ) ) {
-              options.listParent.removeChild( listNode );
-            }
-            else {
-              options.listParent.addChild( listNode );
-            }
-          }
-        } );
-
     // list
     var listWidth = maxWidth + ( 2 * options.listXMargin );
     var listHeight = ( items.length * maxHeight ) + ( 2 * options.listYMargin ) + ( ( items.length - 1 ) * options.listYSpacing );
     var listNode = new Rectangle( 0, 0, listWidth, listHeight, options.listCornerRadius, options.listCornerRadius,
                                   { fill: options.listFill, stroke: options.listStroke, lineWidth: options.listLineWidth } );
+
+    // populate list with items
     for ( var i = 0; i < items.length; i++ ) {
       // add item to list
       var itemNode = new ItemNode( items[i], maxWidth, maxHeight, options.listAlign );
@@ -175,6 +162,21 @@ define( function( require ) {
           }
       );
     }
+    // button interactivity
+    buttonNode.cursor = "pointer";
+    buttonNode.addInputListener(
+        {
+          down: function() {
+            console.log( "ComboBoxNode.buttonNode.down" );//XXX
+            if ( options.listParent.isChild( listNode ) ) {
+              options.listParent.removeChild( listNode );
+            }
+            else {
+              options.listParent.addChild( listNode );
+            }
+          }
+        } );
+
 
     // layout
     if ( options.labelNode ) {
@@ -194,6 +196,7 @@ define( function( require ) {
 
     // when property changes, update button
     property.addObserver( function( value ) {
+      // TODO brute force search, better way?
       var item = null;
       for ( var i = 0; i < items.length; i++ ) {
         if ( items[i].value === value ) {
