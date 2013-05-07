@@ -14,6 +14,7 @@ define( function ( require ) {
   var Path = require( "SCENERY/nodes/Path" );
   var Shape = require( "KITE/Shape" );
 
+  //TODO move xMargin, yMargin to options
   /**
    * @param {Node} contentNode
    * @param {Number} xMargin, optional
