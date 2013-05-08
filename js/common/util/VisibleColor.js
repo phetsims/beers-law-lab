@@ -11,7 +11,7 @@ define( function( require ) {
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
   var Color = require( "common/model/Color" );
 
-  var colorTable;
+  var colorTable = []; // populated on demand
 
   function VisibleColor() {
   }
@@ -26,11 +26,10 @@ define( function( require ) {
    */
   var initColorTable = function() {
 
-    assert && assert( !colorTable );
+    assert && assert( colorTable.length === 0 );
 
     // Allocate the color-lookup array.
     var numWavelengths = Math.floor( VisibleColor.MAX_WAVELENGTH - VisibleColor.MIN_WAVELENGTH + 1 );
-    colorTable = new Array();
 
     // Populate the color array.
     var wl;
@@ -111,7 +110,7 @@ define( function( require ) {
     }
     else {
       // Look up the color.
-      if ( !colorTable ) { initColorTable(); }
+      if ( colorTable.length === 0 ) { initColorTable(); }
       color = colorTable[Math.round( wavelength - VisibleColor.MIN_WAVELENGTH )];
     }
     return color;

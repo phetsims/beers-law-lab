@@ -51,7 +51,7 @@ define( function( require ) {
     var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [ BLLStrings.solute ] ), { font: "22px Arial" } );
 
     // items
-    var items = new Array();
+    var items = [];
     for ( var i = 0; i < solutes.length; i++ ) {
       var solute = solutes[i];
       items[i] = new Item( solute );

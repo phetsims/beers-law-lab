@@ -24,9 +24,9 @@ define( function( require ) {
 
     thisPrecipitate.solution = solution;
     thisPrecipitate.beaker = beaker;
-    thisPrecipitate.particles = new Array(); // PrecipitateParticle
-    thisPrecipitate.addedCallbacks = new Array(); // function(PrecipitateParticle)
-    thisPrecipitate.removedCallbacks = new Array(); // function(PrecipitateParticle)
+    thisPrecipitate.particles = []; // PrecipitateParticle
+    thisPrecipitate.addedCallbacks = []; // function(PrecipitateParticle)
+    thisPrecipitate.removedCallbacks = []; // function(PrecipitateParticle)
 
     // when the saturation changes, update the number of precipitate particles
     thisPrecipitate.solution.precipitateAmount.addObserver( function() {

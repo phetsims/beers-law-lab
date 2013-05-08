@@ -28,7 +28,7 @@ define( function( require ) {
     Node.call( thisNode );
 
     // Compute tick labels, 1 major tick for every 0.5 unit of length, labels on the ticks that correspond to integer values.
-    var majorTickLabels = new Array();
+    var majorTickLabels = [];
     var numberOfTicks = ( 2 * ruler.length ) + 1;
     for ( var i = 0; i < numberOfTicks; i++ ) {
       majorTickLabels[i] = ( i % 2 === 0 ) ? ( i / 2 ).toFixed( 0 ) : "";

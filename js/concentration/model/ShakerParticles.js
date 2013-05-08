@@ -34,9 +34,9 @@ define( function( require ) {
     thisParticles.shaker = shaker;
     thisParticles.solution = solution;
     thisParticles.beaker = beaker;
-    thisParticles.particles = new Array(); // ShakerParticle
-    thisParticles.addedCallbacks = new Array();  // function(ShakerParticle)
-    thisParticles.removedCallbacks = new Array(); // function(ShakerParticle)
+    thisParticles.particles = []; // ShakerParticle
+    thisParticles.addedCallbacks = [];  // function(ShakerParticle)
+    thisParticles.removedCallbacks = []; // function(ShakerParticle)
 
     // when the solute changes, remove all particles
     solution.solute.addObserver( function() {
