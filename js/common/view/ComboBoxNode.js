@@ -150,36 +150,38 @@ define( function( require ) {
     var listNode = new Rectangle( 0, 0, listWidth, listHeight, options.listCornerRadius, options.listCornerRadius,
                                   { fill: options.listFill, stroke: options.listStroke, lineWidth: options.listLineWidth } );
 
+    // listener that we'll attach to each item in the list
+    var itemListener = {
+      enter: function( event ) {
+        event.currentTarget.fill = options.itemHighlightFill;
+        event.currentTarget.stroke = options.itemHighlightStroke;
+      },
+      exit: function( event ) {
+        event.currentTarget.fill = null;
+        event.currentTarget.stroke = null;
+      },
+      down: function( event ) {
+        console.log( "ComboBoxNode.itemNode.down" );//XXX
+        event.currentTarget.fill = null;
+        event.currentTarget.stroke = null;
+        options.listParent.removeChild( listNode );
+        property.set( event.currentTarget.item.value );
+      }
+    };
+
     // populate list with items
-    for ( var i = 0; i < items.length; i++ ) {
+    for ( var j = 0; j < items.length; j++ ) {
       // add item to list
-      var itemNode = new ItemNode( items[i], itemWidth, itemHeight, options.itemXMargin );
+      var itemNode = new ItemNode( items[j], itemWidth, itemHeight, options.itemXMargin );
       listNode.addChild( itemNode );
       itemNode.left = options.listXMargin;
-      itemNode.top = options.listYMargin + ( i * itemHeight );
+      itemNode.top = options.listYMargin + ( j * itemHeight );
 
       // item interactivity
       itemNode.cursor = "pointer";
-      itemNode.addInputListener(
-          {
-            enter: function( event ) {
-              event.currentTarget.fill = options.itemHighlightFill;
-              event.currentTarget.stroke = options.itemHighlightStroke;
-            },
-            exit: function( event ) {
-              event.currentTarget.fill = null;
-              event.currentTarget.stroke = null;
-            },
-            down: function( event ) {
-              console.log( "ComboBoxNode.itemNode.down" );//XXX
-              event.currentTarget.fill = null;
-              event.currentTarget.stroke = null;
-              options.listParent.removeChild( listNode );
-              property.set( event.currentTarget.item.value );
-            }
-          }
-      );
+      itemNode.addInputListener( itemListener );
     }
+
     // button interactivity
     buttonNode.cursor = "pointer";
     buttonNode.addInputListener(

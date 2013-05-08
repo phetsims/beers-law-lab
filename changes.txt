@@ -1,5 +1,6 @@
-5/7/13 replace "new Array()" with "[]" to appease Crockford disciples
-5/7/13 fix various jshint warnings
+5/8/13 use a single listener instance for all items in combo box list
+5/8/13 replace "new Array()" with "[]" to appease Crockford disciples
+5/8/13 fix various jshint warnings
 5/7/13 == to === throughout
 5/7/13 fix equilateral triangles in slider buttons
 5/7/13 add up/down glyph to combo box button
