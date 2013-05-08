@@ -66,15 +66,16 @@ module.exports = function( grunt ) {
 
       } );
 
-  // Default task
+  // Default task ('grunt')
   grunt.registerTask( 'default', [ 'lint', 'production' ] ); //TODO default should do lint-common before production
 
-  // Other tasks
+  // Other tasks ('grunt taskName')
   grunt.registerTask( 'lint', [ 'jshint:simFiles' ] );
   grunt.registerTask( 'lint-common', [ 'jshint:commonFiles' ] ); //TODO requires standardizing jshint options
   grunt.registerTask( 'production', [ 'requirejs:production' ] );
 
-  // Load tasks
+  // Load tasks from grunt plugins that have been installed locally using npm.
+  // Put these in package.json and run 'npm install' before running grunt.
   grunt.loadNpmTasks( 'grunt-requirejs' );
   grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 };
