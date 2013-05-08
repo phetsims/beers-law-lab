@@ -66,11 +66,13 @@ module.exports = function( grunt ) {
 
       } );
 
-  // Register tasks
-  grunt.registerTask( 'default', [ 'jshint:simFiles', 'production' ] );
-  grunt.registerTask( 'production', [ 'requirejs:production' ] );
+  // Default task
+  grunt.registerTask( 'default', [ 'lint', 'production' ] ); //TODO default should do lint-common before production
+
+  // Other tasks
   grunt.registerTask( 'lint', [ 'jshint:simFiles' ] );
   grunt.registerTask( 'lint-common', [ 'jshint:commonFiles' ] ); //TODO requires standardizing jshint options
+  grunt.registerTask( 'production', [ 'requirejs:production' ] );
 
   // Load tasks
   grunt.loadNpmTasks( 'grunt-requirejs' );
