@@ -47,7 +47,7 @@ echo "Modifying HTML file..."
 HTML_FILE=${PROJECT}.html
 BACKUP_SUFFIX=.bup
 cp ${HTML_FILE} ${DEPLOY_DIR}
-sed -i ${BACKUP_SUFFIX} "s/<script data-main=\"js\/${PROJECT}-config.js\" src=\"lib\/.*\">/<script type=\"text\/javascript\" src=\"${PROJECT}.min.js\">/g" $DEPLOY_DIR/${HTML_FILE}
+sed -i ${BACKUP_SUFFIX} "s/<script data-main=\"js\/${PROJECT}-config.js\" src=\".*\">/<script type=\"text\/javascript\" src=\"${PROJECT}.min.js\">/g" $DEPLOY_DIR/${HTML_FILE}
 sed -i ${BACKUP_SUFFIX} 's/..\/phetcommon\/css\/phetcommon.css/css\/phetcommon.css/g' $DEPLOY_DIR/${HTML_FILE}
 sed -i ${BACKUP_SUFFIX} 's/..\/phetcommon\/js\/util\/check-assertions.js/js\/check-assertions.js/g' $DEPLOY_DIR/${HTML_FILE}
 sed -i ${BACKUP_SUFFIX} 's/..\/phetcommon\/js\/util\/query-parameters.js/js\/query-parameters.js/g' $DEPLOY_DIR/${HTML_FILE}
