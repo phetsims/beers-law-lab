@@ -8,7 +8,6 @@
 #====================================================================================================
 
 PROJECT=beers-law-lab
-REQUIREJS=require-2.1.4.js
 RESOURCE_DIRS="images"
 COMMON_CSS="../phetcommon/css/phetcommon.css"
 COPY_SCRIPTS="../phetcommon/js/util/check-assertions.js ../phetcommon/js/util/query-parameters.js"
@@ -22,7 +21,7 @@ echo "Cleaning output directory ..."
 rm -rf $DEPLOY_DIR/*
 
 echo "Creating minified script ..."
-grunt || { echo 'grunt failed' ; exit 1; }
+#grunt || { echo 'grunt failed' ; exit 1; }
 
 echo "Copying 3rd-party libs ..."
 cp -rp lib $DEPLOY_DIR
@@ -48,7 +47,7 @@ echo "Modifying HTML file..."
 HTML_FILE=${PROJECT}.html
 BACKUP_SUFFIX=.bup
 cp ${HTML_FILE} ${DEPLOY_DIR}
-sed -i ${BACKUP_SUFFIX} "s/<script data-main=\"js\/${PROJECT}-config.js\" src=\"lib\/${REQUIREJS}\">/<script type=\"text\/javascript\" src=\"${PROJECT}.min.js\">/g" $DEPLOY_DIR/${HTML_FILE}
+sed -i ${BACKUP_SUFFIX} "s/<script data-main=\"js\/${PROJECT}-config.js\" src=\"lib\/.*\">/<script type=\"text\/javascript\" src=\"${PROJECT}.min.js\">/g" $DEPLOY_DIR/${HTML_FILE}
 sed -i ${BACKUP_SUFFIX} 's/..\/phetcommon\/css\/phetcommon.css/css\/phetcommon.css/g' $DEPLOY_DIR/${HTML_FILE}
 sed -i ${BACKUP_SUFFIX} 's/..\/phetcommon\/js\/util\/check-assertions.js/js\/check-assertions.js/g' $DEPLOY_DIR/${HTML_FILE}
 sed -i ${BACKUP_SUFFIX} 's/..\/phetcommon\/js\/util\/query-parameters.js/js\/query-parameters.js/g' $DEPLOY_DIR/${HTML_FILE}
