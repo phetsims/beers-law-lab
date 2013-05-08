@@ -20,7 +20,7 @@ rm -rf $DEPLOY_DIR/*
 
 # create the minified script
 echo "Creating minified script ..."
-#grunt
+grunt
 # TODO bail here if grunt failed
 
 # 3rd-party dependencies that are not in the minified script
