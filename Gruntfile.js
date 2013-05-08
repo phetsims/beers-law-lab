@@ -3,12 +3,24 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-module.exports = function ( grunt ) {
+module.exports = function( grunt ) {
 
   // Project configuration.
   grunt.initConfig(
       {
         pkg: '<json:package.json>',
+
+        requirejs: {
+          production: {
+            options: {
+              almond: true,
+              mainConfigFile: "js/beers-law-lab-config.js",
+              out: "deploy/beers-law-lab.min.js",
+              name: "beers-law-lab-config",
+              optimize: 'uglify2'
+            }
+          }
+        },
 
         jshint: {
           files: [ 'js/**/*.js' ],
@@ -32,18 +44,6 @@ module.exports = function ( grunt ) {
               define: true,
               $: true,
               _: true
-            }
-          }
-        },
-
-        requirejs: {
-          production: {
-            options: {
-              almond: true,
-              mainConfigFile: "js/beers-law-lab-config.js",
-              out: "deploy/release/beers-law-lab.min.js",
-              name: "beers-law-lab-config",
-              optimize: 'uglify2'
             }
           }
         }
