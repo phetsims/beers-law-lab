@@ -10,7 +10,7 @@
 PROJECT=beers-law-lab
 RESOURCE_DIRS="images"
 COMMON_CSS="../phetcommon/css/phetcommon.css"
-COPY_SCRIPTS="../phetcommon/js/util/check-assertions.js ../phetcommon/js/util/query-parameters.js"
+COMMON_SCRIPTS="../phetcommon/js/util/check-assertions.js ../phetcommon/js/util/query-parameters.js"
 DEPLOY_DIR=./deploy
 
 #====================================================================================================
@@ -39,7 +39,7 @@ done
 
 echo "Copying scripts that are loaded before RequireJS ..."
 mkdir $DEPLOY_DIR/js
-for script in ${COPY_SCRIPTS}; do
+for script in ${COMMON_SCRIPTS}; do
   cp -p ${script} ${DEPLOY_DIR}/js
 done
 
