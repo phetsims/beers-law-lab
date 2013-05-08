@@ -1,3 +1,4 @@
+5/7/13 fix equilateral triangles in slider buttons
 5/7/13 add up/down glyph to combo box button
 5/7/13 add fill highlighting to ComboBoxNode
 5/7/13 delete list alignment feature from ComboBoxNode, "left" is sufficient
