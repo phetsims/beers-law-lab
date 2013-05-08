@@ -42,7 +42,7 @@ define( function( require ) {
     var viewLocation = mvt.modelToViewPosition( faucet.location );
     var viewHeight = mvt.modelToViewDeltaY( height );
     faucet.flowRate.addObserver( function( flowRate ) {
-      if ( flowRate == 0 ) {
+      if ( flowRate === 0 ) {
         thisNode.shape = new Shape();
       }
       else {

@@ -28,7 +28,7 @@ define( function( require ) {
    */
   function HorizontalTiledNode( totalWidth, leftNode, centerNode, rightNode ) {
 
-    assert && assert( leftNode.height == centerNode.height && centerNode.height == rightNode.height );
+    assert && assert( leftNode.height === centerNode.height && centerNode.height === rightNode.height );
     assert && assert( ( leftNode.width + centerNode.width + rightNode.width ) <= totalWidth );
 
     var thisNode = this;

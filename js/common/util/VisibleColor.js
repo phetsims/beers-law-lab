@@ -105,7 +105,7 @@ define( function( require ) {
       // Wavelength is not visible.
       color = null;
     }
-    else if ( wavelength == VisibleColor.WHITE_WAVELENGTH ) {
+    else if ( wavelength === VisibleColor.WHITE_WAVELENGTH ) {
       // Special case: white light.
       color = Color.WHITE;
     }

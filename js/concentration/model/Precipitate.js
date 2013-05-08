@@ -51,7 +51,7 @@ define( function( require ) {
   // Adds/removes particles to match the model
   Precipitate.prototype._updateParticles = function() {
     var numberOfParticles = this.solution.getNumberOfPrecipitateParticles();
-    if ( numberOfParticles == 0 ) {
+    if ( numberOfParticles === 0 ) {
       this._removeAllParticles();
     }
     else if ( numberOfParticles > this.particles.length ) {

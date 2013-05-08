@@ -20,7 +20,7 @@ define( function( require ) {
    * @constructor
    */
   function MolarAbsorptivityData( molarAbsorptivity ) {
-    assert && assert( molarAbsorptivity.length == VisibleColor.MAX_WAVELENGTH - VisibleColor.MIN_WAVELENGTH + 1 );
+    assert && assert( molarAbsorptivity.length === VisibleColor.MAX_WAVELENGTH - VisibleColor.MIN_WAVELENGTH + 1 );
     this.molarAbsorptivity = molarAbsorptivity;
     this.lambdaMax = MolarAbsorptivityData._getLambdaMax( molarAbsorptivity );
   }

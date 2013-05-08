@@ -31,7 +31,7 @@ define( function( require ) {
     var majorTickLabels = new Array();
     var numberOfTicks = ( 2 * ruler.length ) + 1;
     for ( var i = 0; i < numberOfTicks; i++ ) {
-      majorTickLabels[i] = ( i % 2 == 0 ) ? ( i / 2 ).toFixed( 0 ) : "";
+      majorTickLabels[i] = ( i % 2 === 0 ) ? ( i / 2 ).toFixed( 0 ) : "";
     }
 
     // use the common ruler node

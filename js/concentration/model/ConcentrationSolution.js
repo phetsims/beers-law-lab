@@ -90,7 +90,7 @@ define( function( require ) {
 
   ConcentrationSolution.prototype.getNumberOfPrecipitateParticles = function() {
     var numberOfParticles = Math.round( this.solute.get().particlesPerMole * this.precipitateAmount.get() );
-    if ( numberOfParticles == 0 && this.precipitateAmount.get() > 0 ) {
+    if ( numberOfParticles === 0 && this.precipitateAmount.get() > 0 ) {
       numberOfParticles = 1;
     }
     return numberOfParticles;

@@ -32,7 +32,7 @@ define( function( require ) {
       //TODO this is inefficient, keep a map of particles to nodes?
       var children = thisNode.getChildren();
       for ( var i = 0; i < children.length; i++ ) {
-        if ( children[i].particle == particle ) {
+        if ( children[i].particle === particle ) {
           thisNode.removeChild( children[i] );
           break;
         }

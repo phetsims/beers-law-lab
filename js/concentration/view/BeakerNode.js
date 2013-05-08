@@ -66,7 +66,7 @@ define( function( require ) {
     for ( var i = 1; i <= numberOfTicks; i++ ) {
 
       // tick
-      var isMajorTick = ( i % MINOR_TICKS_PER_MAJOR_TICK == 0 );
+      var isMajorTick = ( i % MINOR_TICKS_PER_MAJOR_TICK === 0 );
       var y = -( i * deltaY );
       var leftX = -width / 2;
       var rightX = leftX + ( isMajorTick ? MAJOR_TICK_LENGTH : MINOR_TICK_LENGTH );
