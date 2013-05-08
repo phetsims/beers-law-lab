@@ -23,7 +23,20 @@ module.exports = function( grunt ) {
         },
 
         jshint: {
-          files: [ 'js/**/*.js' ],
+          simFiles: [ 'Gruntfile.js', 'js/**/*.js' ],
+          dependencyFiles: [
+            '../assert/js/**/*.js',
+            '../dot/js/**/*.js',
+            '../fort/js/**/*.js',
+            '../joist/js/**/*.js',
+            '../kite/js/**/*.js',
+            '../phet-core/js/**/*.js',
+            '../phetcommon/js/**/*.js',
+            '../scenery/js/**/*.js',
+            '../scenery-phet/js/**/*.js',
+            '../sun/js/**/*.js',
+            '../Watch.JS/src/**/*.js'
+          ],
           options: {
             curly: true,
             eqeqeq: true,
@@ -51,10 +64,10 @@ module.exports = function( grunt ) {
       } );
 
   // Register tasks
-  grunt.registerTask( 'default', [ 'jshint', 'production' ] );
-
-  // Compilation targets
+  grunt.registerTask( 'default', [ 'jshint:simFiles', 'production' ] );
   grunt.registerTask( 'production', [ 'requirejs:production' ] );
+  grunt.registerTask( 'lint', [ 'jshint:simFiles' ] );
+  grunt.registerTask( 'lint-dep', [ 'jshint:dependencyFiles' ] );
 
   // Load tasks
   grunt.loadNpmTasks( 'grunt-requirejs' );
