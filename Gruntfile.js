@@ -10,6 +10,7 @@ module.exports = function( grunt ) {
       {
         pkg: '<json:package.json>',
 
+        //TODO factor out project name, then we could use the same Gruntfile.js for all sims
         requirejs: {
           production: {
             options: {
@@ -41,6 +42,7 @@ module.exports = function( grunt ) {
           ],
           options: {
             // options documented at http://www.jshint.com/docs/
+            //TODO standardize these, import them from a common file
             curly: true,
             eqeqeq: true,
             immed: false,
