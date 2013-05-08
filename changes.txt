@@ -1,3 +1,4 @@
+5/8/13 set up Grunt.js and package.json
 5/8/13 use a single listener instance for all items in combo box list
 5/8/13 replace "new Array()" with "[]" to appease Crockford disciples
 5/8/13 fix various jshint warnings

@@ -1,6 +1,7 @@
 /*
- * Configuration file for Grunt.
- * Used to configure or define tasks, and load Grunt plugins.
+ * beers-law-lab configuration file for Grunt.
+ *
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 module.exports = function ( grunt ) {
 
@@ -36,42 +37,26 @@ module.exports = function ( grunt ) {
         },
 
         requirejs: {
-          compile: {
+          production: {
             options: {
+              almond: true,
               mainConfigFile: "js/beers-law-lab-config.js",
-              out: "deploy/debug/beers-law-lab.debug.js",
+              out: "deploy/release/beers-law-lab.min.js",
               name: "beers-law-lab-config",
-              wrap: true,
-              uglify: {
-                // turn off name mangling to make debugging easier
-                no_mangle: true
-              }
+              optimize: 'uglify2'
             }
           }
-        },
-
-        // Concatenate files.
-        concat: {
-          "deploy/debug/beers-law-lab.debug.js": [
-            "lib/almond-0.2.5.js",
-            "deploy/debug/beers-law-lab.debug.js"
-          ]
-        },
-
-        // Minify files with UglifyJS.
-        uglify: {
-          "deploy/release/beers-law-lab.min.js": [
-            "deploy/debug/beers-law-lab.debug.js"
-          ]
         }
+
       } );
 
   // Register tasks
-  grunt.registerTask( 'default', [ 'jshint', 'requirejs', 'concat', 'uglify'] );
+  grunt.registerTask( 'default', [ 'jshint', 'production' ] );
+
+  // Compilation targets
+  grunt.registerTask( 'production', [ 'requirejs:production' ] );
 
   // Load tasks
+  grunt.loadNpmTasks( 'grunt-requirejs' );
   grunt.loadNpmTasks( 'grunt-contrib-jshint' );
-  grunt.loadNpmTasks( 'grunt-contrib-requirejs' );
-  grunt.loadNpmTasks( 'grunt-contrib-concat' );
-  grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 };
