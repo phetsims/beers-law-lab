@@ -68,7 +68,7 @@ module.exports = function( grunt ) {
   grunt.registerTask( 'default', [ 'jshint:simFiles', 'production' ] );
   grunt.registerTask( 'production', [ 'requirejs:production' ] );
   grunt.registerTask( 'lint', [ 'jshint:simFiles' ] );
-  grunt.registerTask( 'lint-dep', [ 'jshint:dependencyFiles' ] );
+  grunt.registerTask( 'lint-dep', [ 'jshint:dependencyFiles' ] ); //TODO requires standardizing jshint options
 
   // Load tasks
   grunt.loadNpmTasks( 'grunt-requirejs' );
