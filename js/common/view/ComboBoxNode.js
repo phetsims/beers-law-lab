@@ -32,8 +32,8 @@ define( function( require ) {
 
     // up or down arrow
     var arrow = new Path( { fill: "black" } );
-    var arrowHeight = itemNode.height / 2;
-    var arrowWidth = 1.5 * arrowHeight;
+    var arrowWidth = 0.5 * itemNode.height;
+    var arrowHeight = arrowWidth * Math.sqrt( 3 ) / 2; // height of equilateral triangle
     if ( options.listPosition === "above" ) {
       arrow.shape = new Shape().moveTo( 0, arrowHeight ).lineTo( arrowWidth / 2, 0 ).lineTo( arrowWidth, arrowHeight ).close(); // up arrow
     }
