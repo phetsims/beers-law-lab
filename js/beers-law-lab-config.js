@@ -7,7 +7,7 @@
  * @author Chris Malley
  */
 
-requirejs.config(
+require.config(
     {
       deps: ["beers-law-lab-main"],
 

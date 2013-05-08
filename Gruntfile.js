@@ -29,7 +29,8 @@ module.exports = function ( grunt ) {
             globals: {
               Modernizr: true,
               define: true,
-              $: true
+              $: true,
+              _: true
             }
           }
         },

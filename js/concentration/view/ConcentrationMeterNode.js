@@ -60,7 +60,7 @@ define( function( require ) {
     // text nodes
     var titleNode = new Text( BLLStrings.concentration, { font: "bold 18px Arial", fill: "white" } );
     var unitsNode = new Text( StringUtils.format( BLLStrings.pattern_parentheses_0text, [ BLLStrings.units_molesPerLiter ] ), { font: "bold 14px Arial", fill: "white" } );
-    var valueNode = new Text( new Number( 1 ).toFixed( VALUE_DECIMALS ), { font: "24px Arial", fill: "black" } );
+    var valueNode = new Text( ( 1 ).toFixed( VALUE_DECIMALS ), { font: "24px Arial", fill: "black" } );
 
     // create a background that fits the text
     var maxTextWidth = Math.max( titleNode.width, unitsNode.width );
