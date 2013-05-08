@@ -1,7 +1,6 @@
 // Copyright 2002-2013, University of Colorado
 
 //TODO bug: list only receives events every-other time it's popped up
-//TODO add up/down glyph on button
 //TODO click outside of list to dismiss it
 //TODO support for listParent (and coordinate-frame transforms this requires)
 /**
@@ -18,6 +17,7 @@ define( function( require ) {
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
+  var Path = require( "SCENERY/nodes/Path" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
   var Shape = require( "KITE/Shape" );
 
@@ -28,18 +28,44 @@ define( function( require ) {
    */
   function ButtonNode( itemNode, options ) {
     var thisNode = this;
-    Rectangle.call( this, 0, 0, itemNode.width + ( 2 * options.buttonXMargin ), itemNode.height + ( 2 * options.buttonYMargin ), options.buttonCornerRadius, options.buttonCornerRadius,
-                    { fill: options.buttonFill, stroke: options.buttonStroke, lineWidth: options.buttonLineWidth } );
+    Node.call( this );
+
+    // up or down arrow
+    var arrow = new Path( { fill: "black" } );
+    var arrowHeight = itemNode.height / 2;
+    var arrowWidth = 1.5 * arrowHeight;
+    if ( options.listPosition === "above" ) {
+      arrow.shape = new Shape().moveTo( 0, arrowHeight ).lineTo( arrowWidth / 2, 0 ).lineTo( arrowWidth, arrowHeight ).close(); // up arrow
+    }
+    else {
+      arrow.shape = new Shape().moveTo( 0, 0 ).lineTo( arrowWidth, 0 ).lineTo( arrowWidth / 2, arrowHeight ).close(); // down arrow
+    }
+
+    // button background
+    var width = itemNode.width + ( 2 * options.buttonXMargin ) + arrow.width + 5;
+    var background = new Rectangle( 0, 0, width, itemNode.height + ( 2 * options.buttonYMargin ), options.buttonCornerRadius, options.buttonCornerRadius,
+                                    { fill: options.buttonFill, stroke: options.buttonStroke, lineWidth: options.buttonLineWidth } );
+
+    // itemNode's parent
+    var itemNodeParent = new Node();
+
+    thisNode.addChild( background );
+    thisNode.addChild( arrow );
+    thisNode.addChild( itemNodeParent );
+
     thisNode.setItemNode = function( itemNode ) {
-      thisNode.removeAllChildren();
-      thisNode.addChild( itemNode );
+      itemNodeParent.removeAllChildren();
+      itemNodeParent.addChild( itemNode );
       itemNode.left = options.buttonXMargin;
       itemNode.top = options.buttonYMargin;
     };
     thisNode.setItemNode( itemNode );
+
+    arrow.left = itemNode.right;
+    arrow.centerY = background.centerY;
   }
 
-  inherit( ButtonNode, Rectangle );
+  inherit( ButtonNode, Node );
 
   //TODO need a better name for this type, confusing because ComboBoxItem provides a node.
   /**
@@ -177,14 +203,11 @@ define( function( require ) {
       buttonNode.centerY = options.labelNode.centerY;
     }
     listNode.left = buttonNode.left;
-    if ( options.listPosition === "below" ) {
-      listNode.top = buttonNode.bottom
-    }
-    else if ( options.listPosition === "above" ) {
-      listNode.bottom = buttonNode.top
+    if ( options.listPosition === "above" ) {
+      listNode.bottom = buttonNode.top;
     }
     else {
-      throw new Error( "unsupported listPosition: " + options.listPosition );
+      listNode.top = buttonNode.bottom;
     }
 
     // when property changes, update button
