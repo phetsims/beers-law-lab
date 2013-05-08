@@ -8,10 +8,10 @@
 #====================================================================================================
 
 PROJECT=beers-law-lab
+DEPLOY_DIR=./deploy
 RESOURCE_DIRS="images"
 COMMON_CSS="../phetcommon/css/phetcommon.css"
 COMMON_SCRIPTS="../phetcommon/js/util/check-assertions.js ../phetcommon/js/util/query-parameters.js"
-DEPLOY_DIR=./deploy
 
 #====================================================================================================
 
@@ -21,7 +21,7 @@ echo "Cleaning output directory ..."
 rm -rf $DEPLOY_DIR/*
 
 echo "Creating minified script ..."
-#grunt || { echo 'grunt failed' ; exit 1; }
+grunt || { echo 'grunt failed' ; exit 1; }
 
 echo "Copying 3rd-party libs ..."
 cp -rp lib $DEPLOY_DIR
@@ -44,19 +44,36 @@ for script in ${COMMON_SCRIPTS}; do
 done
 
 echo "Modifying HTML file..."
+
 HTML_FILE=${PROJECT}.html
 BACKUP_SUFFIX=.bup
 cp ${HTML_FILE} ${DEPLOY_DIR}
+
+# change script tag to load minified script
 sed -i ${BACKUP_SUFFIX} "s/<script data-main=\"js\/${PROJECT}-config.js\" src=\".*\">/<script type=\"text\/javascript\" src=\"${PROJECT}.min.js\">/g" $DEPLOY_DIR/${HTML_FILE}
-sed -i ${BACKUP_SUFFIX} 's/..\/phetcommon\/css\/phetcommon.css/css\/phetcommon.css/g' $DEPLOY_DIR/${HTML_FILE}
-sed -i ${BACKUP_SUFFIX} 's/..\/phetcommon\/js\/util\/check-assertions.js/js\/check-assertions.js/g' $DEPLOY_DIR/${HTML_FILE}
-sed -i ${BACKUP_SUFFIX} 's/..\/phetcommon\/js\/util\/query-parameters.js/js\/query-parameters.js/g' $DEPLOY_DIR/${HTML_FILE}
+
+# change the path of any CSS files that were consolidated
+for css in ${COMMON_CSS}; do
+  fromFile=`echo ${css} | sed -e 's/[\/]/\\&\//g' | tr '\&' '\'`
+  toFile=css\\/`basename ${css}`
+  sed -i ${BACKUP_SUFFIX} "s/${fromFile}/${toFile}/g" $DEPLOY_DIR/${HTML_FILE}
+done
+
+# change the path of any scripts that were copied
+for script in ${COMMON_SCRIPTS}; do
+  fromFile=`echo ${script} | sed -e 's/[\/]/\\&\//g' | tr '\&' '\'`
+  toFile=js\\/`basename ${script}`
+  sed -i ${BACKUP_SUFFIX} "s/${fromFile}/${toFile}/g" $DEPLOY_DIR/${HTML_FILE}
+done
+
+# delete sed backup files
 rm $DEPLOY_DIR/${HTML_FILE}${BACKUP_SUFFIX}
 
 echo "Done."
 
 #====================================================================================================
 
+# sed -e 's/[\/&]/\\&/g'
 
 
 
