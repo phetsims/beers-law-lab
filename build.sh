@@ -1,7 +1,7 @@
 #!/bin/sh
 #====================================================================================================
 #
-# Builds a simulation for deployment.
+# Builds a simulation for deployment. Usage: build.sh [configFile]
 #
 # Author: Chris Malley (PixelZoom, Inc.)
 #

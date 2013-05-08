@@ -14,10 +14,10 @@ DEPLOY_DIR=./deploy
 # Directories that contain resource files, these will be copied.
 RESOURCE_DIRS="images"
 
-# CSS file names that are not part of your project, as they appear in your HTML file.
+# Common-code CSS file names, as they appear in your HTML file.
 COMMON_CSS="../phetcommon/css/phetcommon.css"
 
-# Scripts that are loaded before RequireJS, as they appear in your HTML file.
+# Common-code scripts that are loaded before RequireJS, as they appear in your HTML file.
 COMMON_SCRIPTS="../phetcommon/js/util/check-assertions.js ../phetcommon/js/util/query-parameters.js"
 
 #====================================================================================================
