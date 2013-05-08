@@ -48,7 +48,6 @@ define( function( require ) {
       }
 
       // derive concentration (M)
-      var volume = thisSolution.volume.get();
       var soluteAmount = thisSolution.soluteAmount.get();
       var concentration = ( volume > 0 ) ? Math.min( thisSolution.getSaturatedConcentration(), soluteAmount / volume ) : 0; // M = mol/L
       thisSolution.concentration.set( concentration );

@@ -33,7 +33,7 @@ define( function() {
   // Gets the x-coordinate of the right wall.
   Beaker.prototype.getRight = function() {
     return this.location.x + ( this.size.width / 2 );
-  }
+  };
 
   return Beaker;
 } );

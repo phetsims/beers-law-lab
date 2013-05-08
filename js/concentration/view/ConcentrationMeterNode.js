@@ -221,7 +221,7 @@ define( function( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
-    var bodyNode = new BodyNode( meter, mvt, strings )
+    var bodyNode = new BodyNode( meter, mvt, strings );
     var probeNode = new ProbeNode( meter.probe, mvt, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode );
     var wireNode = new WireNode( meter.body, meter.probe, bodyNode, probeNode );
 

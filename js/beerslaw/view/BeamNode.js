@@ -32,7 +32,7 @@ define( function( require ) {
     beam.visible.addObserver( function( visible ) {
       thisNode.setVisible( visible );
     } );
-  };
+  }
 
   inherit( BeamNode, Path );
 

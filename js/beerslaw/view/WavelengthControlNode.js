@@ -72,7 +72,7 @@ define( function( require ) {
 
     this.reset = function() {
       variableWavelength.reset();
-    }
+    };
 
     // sync displayed value with model
     light.wavelength.addObserver( function( wavelength ) {

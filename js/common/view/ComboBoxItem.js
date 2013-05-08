@@ -7,7 +7,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function() {
-  "use strict"
+  "use strict";
 
   /**
    * @param {Node} node scenery node used to render this item
