@@ -23,8 +23,10 @@ module.exports = function( grunt ) {
         },
 
         jshint: {
-          simFiles: [ 'Gruntfile.js', 'js/**/*.js' ],
-          dependencyFiles: [
+          // source files that are specific to this simulation
+          simFiles: [ '*.js', 'js/**/*.js' ],
+          // source files from common-code dependencies
+          commonFiles: [
             '../assert/js/**/*.js',
             '../dot/js/**/*.js',
             '../fort/js/**/*.js',
@@ -68,7 +70,7 @@ module.exports = function( grunt ) {
   grunt.registerTask( 'default', [ 'jshint:simFiles', 'production' ] );
   grunt.registerTask( 'production', [ 'requirejs:production' ] );
   grunt.registerTask( 'lint', [ 'jshint:simFiles' ] );
-  grunt.registerTask( 'lint-dep', [ 'jshint:dependencyFiles' ] ); //TODO requires standardizing jshint options
+  grunt.registerTask( 'lint-common', [ 'jshint:commonFiles' ] ); //TODO requires standardizing jshint options
 
   // Load tasks
   grunt.loadNpmTasks( 'grunt-requirejs' );
