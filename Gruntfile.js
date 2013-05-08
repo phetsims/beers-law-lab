@@ -69,7 +69,7 @@ module.exports = function( grunt ) {
       } );
 
   // Default task ('grunt')
-  grunt.registerTask( 'default', [ 'lint', 'production' ] ); //TODO default should do lint-common before production
+  grunt.registerTask( 'default', [ 'lint', 'production' ] ); //TODO default should be [ 'lint', 'lint-common', 'production' ]
 
   // Other tasks ('grunt taskName')
   grunt.registerTask( 'lint', [ 'jshint:simFiles' ] );
