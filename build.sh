@@ -19,7 +19,8 @@ source ./build-config.sh
 echo "Building ${PROJECT} ..."
 
 echo "Cleaning output directory ..."
-rm -rf $DEPLOY_DIR/*
+rm -rf $DEPLOY_DIR
+mkdir $DEPLOY_DIR
 
 echo "Creating minified script ..."
 grunt || { echo 'grunt failed' ; exit 1; }
