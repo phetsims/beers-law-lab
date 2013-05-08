@@ -1,4 +1,4 @@
-/*
+/**
  * beers-law-lab configuration file for Grunt.
  *
  * @author Chris Malley (PixelZoom, Inc.)
@@ -38,6 +38,7 @@ module.exports = function( grunt ) {
             '../Watch.JS/src/**/*.js'
           ],
           options: {
+            // options documented at http://www.jshint.com/docs/
             curly: true,
             eqeqeq: true,
             immed: false,
