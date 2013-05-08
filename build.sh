@@ -7,13 +7,14 @@
 #
 #====================================================================================================
 
-PROJECT=beers-law-lab
-DEPLOY_DIR=./deploy
-RESOURCE_DIRS="images"
-COMMON_CSS="../phetcommon/css/phetcommon.css"
-COMMON_SCRIPTS="../phetcommon/js/util/check-assertions.js ../phetcommon/js/util/query-parameters.js"
+# parse commandline line, optional config file is first arg
+CONFIG=${1:-./build-config.sh}
+if [ ! -f ${CONFIG} ]; then
+    echo "missing config file: ${CONFIG}"; exit 1
+fi
 
-#====================================================================================================
+# read the config file
+source ./build-config.sh
 
 echo "Building ${PROJECT} ..."
 
