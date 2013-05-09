@@ -99,7 +99,7 @@ module.exports = function( grunt ) {
       } );
 
   // Default task ('grunt')
-  grunt.registerTask( 'default', [ 'lint', 'build' ] ); //TODO add lint-common when they all pass
+  grunt.registerTask( 'default', [ 'lint', 'build' ] ); //TODO add 'lint-common' when all common code passes JSHint
 
   // Other tasks ('grunt taskName')
   grunt.registerTask( 'lint', [ 'jshint:simFiles' ] );
