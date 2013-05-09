@@ -9,9 +9,14 @@ module.exports = function( grunt ) {
   // Project configuration.
   grunt.initConfig(
       {
+        // Read in the project settings from the package.json file into the pkg property.
+        // This allows us to refer to project settings from within this config file.
         pkg: grunt.file.readJSON('package.json'),
 
+        // configure the RequireJS plugin
         requirejs: {
+
+          // builds the minified script
           build: {
             options: {
               almond: true,
@@ -23,6 +28,7 @@ module.exports = function( grunt ) {
           }
         },
 
+        // configure the JSHint plugin
         jshint: {
           // source files that are specific to this simulation
           simFiles: [ '*.js', 'js/**/*.js' ],
@@ -93,7 +99,7 @@ module.exports = function( grunt ) {
       } );
 
   // Default task ('grunt')
-  grunt.registerTask( 'default', [ 'lint', 'build' ] );
+  grunt.registerTask( 'default', [ 'lint', 'build' ] ); //TODO add lint-common when they all pass
 
   // Other tasks ('grunt taskName')
   grunt.registerTask( 'lint', [ 'jshint:simFiles' ] );
