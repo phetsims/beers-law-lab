@@ -12,7 +12,7 @@ module.exports = function( grunt ) {
 
         //TODO factor out project name, then we could use the same Gruntfile.js for all sims
         requirejs: {
-          production: {
+          build: {
             options: {
               almond: true,
               mainConfigFile: "js/beers-law-lab-config.js",
@@ -93,12 +93,12 @@ module.exports = function( grunt ) {
       } );
 
   // Default task ('grunt')
-  grunt.registerTask( 'default', [ 'lint', 'lint-common', 'production' ] );
+  grunt.registerTask( 'default', [ 'lint', 'lint-common', 'build' ] );
 
   // Other tasks ('grunt taskName')
   grunt.registerTask( 'lint', [ 'jshint:simFiles' ] );
   grunt.registerTask( 'lint-common', [ 'jshint:commonFiles' ] );
-  grunt.registerTask( 'production', [ 'requirejs:production' ] );
+  grunt.registerTask( 'build', [ 'requirejs:build' ] );
 
   // Load tasks from grunt plugins that have been installed locally using npm.
   // Put these in package.json and run 'npm install' before running grunt.
