@@ -28,19 +28,20 @@ module.exports = function( grunt ) {
           simFiles: [ '*.js', 'js/**/*.js' ],
           // source files from common-code dependencies
           commonFiles: [
-//            '../assert/js/**/*.js',
-//            '../dot/js/**/*.js',
-//            '../fort/js/**/*.js',
-//            '../joist/js/**/*.js',
-//            '../kite/js/**/*.js',
-//            '../phet-core/js/**/*.js',
+            '../assert/js/**/*.js',
+            '../dot/js/**/*.js',
+            '../fort/js/**/*.js',
+            '../joist/js/**/*.js',
+            '../kite/js/**/*.js',
+            '../phet-core/js/**/*.js',
             '../phetcommon/js/**/*.js',
-//            '../scenery/js/**/*.js',
-//            '../scenery-phet/js/**/*.js',
-//            '../sun/js/**/*.js',
-//            '../Watch.JS/src/**/*.js'
+            '../scenery/js/**/*.js',
+            '../scenery-phet/js/**/*.js',
+            '../sun/js/**/*.js'
           ],
           options: {
+            // options documented at http://www.jshint.com/docs/
+
             // enforcing options
             curly: true, // brackets for conditionals
             eqeqeq: true,
@@ -84,8 +85,11 @@ module.exports = function( grunt ) {
               HTMLImageElement: false,
               HTMLCanvasElement: false,
 
-              $: false,
-              _: false,
+              Backbone: true, // backbone is currently run outside of requirejs
+              module: true, // as used in Gruntfile.js
+
+              $: false, // jQuery
+              _: false, // underscore, lodash
               clearTimeout: false,
 
               // for DOM.js
@@ -99,11 +103,11 @@ module.exports = function( grunt ) {
       } );
 
   // Default task ('grunt')
-  grunt.registerTask( 'default', [ 'lint', 'production' ] ); //TODO default should be [ 'lint', 'lint-common', 'production' ]
+  grunt.registerTask( 'default', [ 'lint', 'lint-common', 'production' ] );
 
   // Other tasks ('grunt taskName')
   grunt.registerTask( 'lint', [ 'jshint:simFiles' ] );
-  grunt.registerTask( 'lint-common', [ 'jshint:commonFiles' ] ); //TODO requires standardizing jshint options
+  grunt.registerTask( 'lint-common', [ 'jshint:commonFiles' ] );
   grunt.registerTask( 'production', [ 'requirejs:production' ] );
 
   // Load tasks from grunt plugins that have been installed locally using npm.
