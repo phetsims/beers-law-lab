@@ -59,39 +59,33 @@ module.exports = function( grunt ) {
 
             // tell JSHint about global variables that are defined elsewhere. If value is false (default), JSHint will consider that variable as read-only.
             globals: {
-              // for removal of assertions
-              sceneryAssert: true,
-              sceneryExtraAssert: true,
 
-              // for logging levels
-              sceneryLayerLog: true,
-              sceneryEventLog: true,
+              // writable globals ---------------------------------
 
-              // for require.js
-              define: true,   //TODO should this be false?
-              require: true,  //TODO should this be false?
+              sceneryAssert: true,  // for removal of scenery assertions
+              sceneryExtraAssert: true, // for removal of scenery assertions
+              sceneryLayerLog: true, // scenery logging levels
+              sceneryEventLog: true, // scenery logging levels
+              Float32Array: true, // we actually polyfill this, so allow it to be set
 
+              // read-only globals ---------------------------------
+
+              define: false, // require.js
+              require: false, // require.js
               Uint16Array: false,
               Uint32Array: false,
               document: false,
               window: false,
               console: false,
-              Float32Array: true, // we actually polyfill this, so allow it to be set
-
               HTMLImageElement: false,
               HTMLCanvasElement: false,
-
               Backbone: false, // backbone is currently run outside of requirejs
               module: false, // as used in Gruntfile.js
-
               $: false, // jQuery
               _: false, // underscore, lodash
               clearTimeout: false,
-
-              // for DOM.js
-              Image: false,
-              Blob: false,
-
+              Image: false, // DOM.js
+              Blob: false,  // DOM.js
               canvg: false
             }
           }
