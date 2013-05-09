@@ -43,25 +43,21 @@ module.exports = function( grunt ) {
             // options documented at http://www.jshint.com/docs/
 
             // enforcing options
-            curly: true, // brackets for conditionals
-            eqeqeq: true,
-            immed: true,
-            latedef: true,
-            newcap: true,
-            noarg: true,
-            // noempty: true,
-            nonew: true, // prohibit calling new without assigning result to a variable
-            // quotmark: 'single',
-            undef: true,
-            // unused: true, // certain layer APIs not used in cases
-            // strict: true,
+            curly: true, // require braces around blocks for loops and conditionals
+            eqeqeq: true, // prohibit == and !=, use === and !===
+            immed: true, // prohibits the use of immediate function invocations without wrapping them in parentheses
+            latedef: true, // prohibits the use of a variable before it was defined
+            newcap: true, // requires you to capitalize names of constructor functions
+            noarg: true, // prohibits the use of arguments.caller and arguments.callee
+            nonew: true, // prohibits calling new without assigning result to a variable
+            undef: true, // prohibits the use of explicitly undeclared variables
 
             // relaxing options
+            expr: true, // suppresses warnings about the use of expressions where normally you would expect to see assignments or function calls, so we can use assert && assert( ... )
             es5: true, // we use ES5 getters and setters for now
-            loopfunc: true, // we know how not to shoot ourselves in the foot, and this is useful for _.each
+            loopfunc: true, // suppresses warnings about defining functions inside of loops, but we know how not to shoot ourselves in the foot, and this is useful for _.each
 
-            expr: true, // so we can use assert && assert( ... )
-
+            // tell JSHint about global variables that are defined elsewhere. If value is false (default), JSHint will consider that variable as read-only.
             globals: {
               // for removal of assertions
               sceneryAssert: true,
@@ -72,8 +68,8 @@ module.exports = function( grunt ) {
               sceneryEventLog: true,
 
               // for require.js
-              define: true,
-              require: true,
+              define: true,   //TODO should this be false?
+              require: true,  //TODO should this be false?
 
               Uint16Array: false,
               Uint32Array: false,
@@ -85,8 +81,8 @@ module.exports = function( grunt ) {
               HTMLImageElement: false,
               HTMLCanvasElement: false,
 
-              Backbone: true, // backbone is currently run outside of requirejs
-              module: true, // as used in Gruntfile.js
+              Backbone: false, // backbone is currently run outside of requirejs
+              module: false, // as used in Gruntfile.js
 
               $: false, // jQuery
               _: false, // underscore, lodash
