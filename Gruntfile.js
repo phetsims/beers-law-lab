@@ -16,7 +16,7 @@ module.exports = function( grunt ) {
             options: {
               almond: true,
               mainConfigFile: "js/beers-law-lab-config.js",
-              out: "deploy/beers-law-lab.min.js",
+              out: "build/beers-law-lab.min.js",
               name: "beers-law-lab-config",
               optimize: 'uglify2'
             }
@@ -93,7 +93,7 @@ module.exports = function( grunt ) {
       } );
 
   // Default task ('grunt')
-  grunt.registerTask( 'default', [ 'lint', 'lint-common', 'build' ] );
+  grunt.registerTask( 'default', [ 'lint', 'build' ] );
 
   // Other tasks ('grunt taskName')
   grunt.registerTask( 'lint', [ 'jshint:simFiles' ] );

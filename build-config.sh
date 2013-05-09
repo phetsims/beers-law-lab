@@ -10,8 +10,8 @@
 # Your RequireJS config file must be named $PROJECT-config.js.
 PROJECT=beers-law-lab
 
-# Directory where files will be staged for deployment.
-DEPLOY_DIR=./deploy
+# Directory where files will be created.
+OUTPUT_DIR=./build
 
 # Directories that contain resource files, these will be copied.
 # Paths are relative to the directory where you run the build script.
