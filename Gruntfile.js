@@ -40,7 +40,7 @@ module.exports = function( grunt ) {
             '../sun/js/**/*.js'
           ],
           options: {
-            // options documented at http://www.jshint.com/docs/
+            // options documented at http://www.jshint.com/docs/#options
 
             // enforcing options
             curly: true, // require braces around blocks for loops and conditionals
