@@ -23,7 +23,8 @@ module.exports = function( grunt ) {
               mainConfigFile: "js/<%= pkg.project %>-config.js",
               out: "<%= pkg.outputDir %>/<%= pkg.project %>.min.js",
               name: "<%= pkg.project %>-config",
-              optimize: 'uglify2'
+              optimize: 'uglify2',
+              wrap: true
             },
             uglify2: {
               compress: {
