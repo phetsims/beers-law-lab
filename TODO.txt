@@ -23,8 +23,6 @@ HIGH
 - bug: combo box list only receives events every-other time it's popped up
 - bug: wavelength control panel doesn't resize when wavelength control is removed
 - laundry list at top of ComboBoxNode
-- Grunt file
-- PhetStyle.xml
 
 MEDIUM
 - buttons fire on 'up' event even if they haven't seen a 'down' event
