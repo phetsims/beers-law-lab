@@ -1,6 +1,6 @@
 /**
  * Grunt configuration file for simulations.
- * Requires a package.json file that sets "name" to the project name.
+ * Requires a package.json file containing project settings.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -20,9 +20,9 @@ module.exports = function( grunt ) {
           build: {
             options: {
               almond: true,
-              mainConfigFile: "js/<%= pkg.name %>-config.js",
-              out: "build/<%= pkg.name %>.min.js",
-              name: "<%= pkg.name %>-config",
+              mainConfigFile: "js/<%= pkg.project %>-config.js",
+              out: "<%= pkg.outputDir %>/<%= pkg.project %>.min.js",
+              name: "<%= pkg.project %>-config",
               optimize: 'uglify2'
             }
           }
