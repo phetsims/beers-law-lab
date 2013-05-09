@@ -77,7 +77,7 @@ define( function( require ) {
 
       // Rewire the concentration observer when the solution changes.
       solution.addObserver( function( newSolution, oldSolution ) {
-        if ( oldSolution != null ) {
+        if ( oldSolution !== null ) {
           oldSolution.concentration.removeObserver( updateConcentration );
         }
         newSolution.concentration.addObserver( updateConcentration );

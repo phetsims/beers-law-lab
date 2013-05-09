@@ -220,7 +220,7 @@ define( function( require ) {
           item = items[i];
         }
       }
-      assert && assert( item != null );
+      assert && assert( item !== null );
       buttonNode.setItemNode( new ItemNode( item, itemWidth, itemHeight, options.itemXMargin ) );
     } );
   }
