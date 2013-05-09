@@ -26,7 +26,7 @@ module.exports = function( grunt ) {
         jshint: {
           // source files that are specific to this simulation
           simFiles: [ '*.js', 'js/**/*.js' ],
-          // source files from common-code dependencies
+          // source files for common-code dependencies
           commonFiles: [
             '../assert/js/**/*.js',
             '../dot/js/**/*.js',
