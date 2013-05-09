@@ -18,7 +18,7 @@ require(
     function( Sim, ImagesLoader, ConcentrationTab, BeersLawTab, Util, BLLStrings, BLLImages ) {
       "use strict";
 
-      new ImagesLoader( function( loader ) {
+      var loader = new ImagesLoader( function( loader ) {
 
         BLLImages.getImage = loader.getImage;
 

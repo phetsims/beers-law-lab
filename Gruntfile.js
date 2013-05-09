@@ -50,7 +50,7 @@ module.exports = function( grunt ) {
             newcap: true,
             noarg: true,
             // noempty: true,
-            nonew: true,
+            nonew: true, // prohibit calling new without assigning result to a variable
             // quotmark: 'single',
             undef: true,
             // unused: true, // certain layer APIs not used in cases
