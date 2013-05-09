@@ -1,5 +1,6 @@
 /**
- * beers-law-lab configuration file for Grunt.
+ * Grunt configuration file for simulations.
+ * Requires a package.json file that sets "name" to the project name.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -8,16 +9,15 @@ module.exports = function( grunt ) {
   // Project configuration.
   grunt.initConfig(
       {
-        pkg: '<json:package.json>',
+        pkg: grunt.file.readJSON('package.json'),
 
-        //TODO factor out project name, then we could use the same Gruntfile.js for all sims
         requirejs: {
           build: {
             options: {
               almond: true,
-              mainConfigFile: "js/beers-law-lab-config.js",
-              out: "build/beers-law-lab.min.js",
-              name: "beers-law-lab-config",
+              mainConfigFile: "js/<%= pkg.name %>-config.js",
+              out: "build/<%= pkg.name %>.min.js",
+              name: "<%= pkg.name %>-config",
               optimize: 'uglify2'
             }
           }

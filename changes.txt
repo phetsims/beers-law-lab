@@ -1,3 +1,4 @@
+5/8/13 make Gruntfile independent of sim project by reading project name from package.json
 5/8/13 build.sh
 5/8/13 set up Grunt.js and package.json
 5/8/13 use a single listener instance for all items in combo box list
