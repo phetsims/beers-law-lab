@@ -8,13 +8,13 @@
 #====================================================================================================
 
 # parse commandline line, optional config file is first arg
-CONFIG=${1:-./build-config.sh}
+CONFIG=${1:-./build.config}
 if [ ! -f ${CONFIG} ]; then
     echo "missing config file: ${CONFIG}"; exit 1
 fi
 
 # read the config file
-source ./build-config.sh
+source ${CONFIG}
 
 echo "Building ${PROJECT} ..."
 
