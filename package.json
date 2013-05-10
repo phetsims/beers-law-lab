@@ -2,6 +2,9 @@
   "project": "beers-law-lab",
   "version": "0.0.0.0",
   "license": "GPL",
+  "resourceDirs": "images",
+  "commonCSS": "../phetcommon/css/phetcommon.css",
+  "commonScripts": "../phetcommon/js/util/check-assertions.js ../phetcommon/js/util/query-parameters.js",
   "devDependencies": {
     "grunt": "~0.4.0",
     "grunt-requirejs": "~0.3.2",
