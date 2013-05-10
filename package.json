@@ -1,7 +1,6 @@
 {
   "project": "beers-law-lab",
-  "outputDir": "build",
-  "version": "0.0.0",
+  "version": "0.0.0.0",
   "license": "GPL",
   "devDependencies": {
     "grunt": "~0.4.0",
