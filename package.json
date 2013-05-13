@@ -5,7 +5,7 @@
   "include": "../phetcommon/css/phetcommon.css ../phetcommon/js/util/check-assertions.js ../phetcommon/js/util/query-parameters.js",
   "license": "GPL",
   "devDependencies": {
-    "grunt": "~0.4.0",
+    "grunt": "~0.4.1",
     "grunt-requirejs": "~0.3.2",
     "grunt-contrib-jshint": "~0.3.0"
   }
