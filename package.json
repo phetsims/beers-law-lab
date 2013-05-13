@@ -1,6 +1,6 @@
 {
-  "project": "beers-law-lab",
-  "version": "0.0.0.0",
+  "name": "beers-law-lab",
+  "version": "0.0.0-0",
   "resourceDirs": "images",
   "include": "../phetcommon/css/phetcommon.css ../phetcommon/js/util/check-assertions.js ../phetcommon/js/util/query-parameters.js",
   "license": "GPL",
