@@ -24,7 +24,7 @@ require(
 
         new Sim( BLLStrings.beersLawLab,
                  [ new ConcentrationTab(), new BeersLawTab() ],
-                 { showHomeScreen: false, tabIndex: 1 } )
+                 { showHomeScreen: false, tabIndex: 0 } )
             .start();
       } );
     } );
