@@ -1,3 +1,4 @@
+# 0.0.0-1 5/13/13
 5/13/13 increase performance of wavelength spectrum image by drawing it directly to a canvas
 5/10/13 replace build.config with package.json
 5/10/13 move Gruntfile.js and build.sh to chipper
