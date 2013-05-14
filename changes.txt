@@ -1,3 +1,6 @@
+5/14/13 make slider thumbs bigger so that they are easier to grab on tablets
+5/14/13 scenery.DOMLayer fixed so that HTML text doesn't wrap
+5/14/13 scenery.Text boundsMethod was changed to "fastCanvas", resulting in fewer layers, and able to run nicely on iPad
 # 0.0.0-1 5/13/13
 5/13/13 increase performance of wavelength spectrum image by drawing it directly to a canvas
 5/10/13 replace build.config with package.json
