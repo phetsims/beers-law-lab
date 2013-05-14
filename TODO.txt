@@ -16,9 +16,9 @@ BUGS
 - iPad: resizing the cuvette is painfully sluggish
 - iPad: text doesn't keep up with dragging (e.g., on shaker)
 - iPad: wavelength slider is unusable and thumb disappears
-- iPad: too many layers crashes Safari
 
 HIGH
+- reduce number of layers, it's crashing Safari mobile
 - bug: shaker particles move up before falling (broken by scenery changes?)
 - bug: combo box list only receives events every-other time it's popped up
 - bug: wavelength control panel doesn't resize when wavelength control is removed
@@ -30,7 +30,6 @@ MEDIUM
 - disable (instead of hide) increment/decrement buttons for sliders (not supported by sun.Button)
 - add relativePressPoint to MovableDragHandler, so that mouse doesn't get away from drag target
 - improve drag handler for faucet handles
-- improve implementation of spectrum for wavelength slider track
 
 LOW
 - generalize left/right arrow buttons for sliders
