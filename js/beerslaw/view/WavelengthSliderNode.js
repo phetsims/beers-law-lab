@@ -55,8 +55,6 @@ define( function( require ) {
     }
 
     thisNode.addChild( new Image( canvas ) );
-
-    //TODO how to free the canvas that was created above? or is that even necessary?
   }
 
   inherit( TrackNode, Node );
