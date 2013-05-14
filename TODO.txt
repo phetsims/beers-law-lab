@@ -18,7 +18,6 @@ BUGS
 - iPad: wavelength slider is unusable and thumb disappears
 
 HIGH
-- reduce number of layers, it's crashing Safari mobile
 - bug: shaker particles move up before falling (broken by scenery changes?)
 - bug: combo box list only receives events every-other time it's popped up
 - bug: wavelength control panel doesn't resize when wavelength control is removed
