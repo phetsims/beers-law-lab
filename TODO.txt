@@ -11,6 +11,7 @@ SCENERY BUGS
 SCENERY ENHANCEMENTS
 
 BUGS
+- Nexus: big part of play area is not visible
 - iPad, Nexus: performance of particles
 - iPad: unresponsive when concentration probe is dragged into solution, ditto for AT detector (text performance?)
 - iPad: resizing the cuvette is painfully sluggish
