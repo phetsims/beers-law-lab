@@ -37,16 +37,26 @@ define( function( require ) {
    * @param maxWavelength
    * @constructor
    */
-    //TODO this looks crappy and is likely inefficient
   function TrackNode( width, height, minWavelength, maxWavelength ) {
+
     var thisNode = this;
-    Node.call( thisNode, { stroke: "black", lineWidth: 1 } );
+    Node.call( thisNode );
+
+    // Draw the spectrum directly to a canvas, to improve performance.
+    var canvas = document.createElement( 'canvas' );
+    var context = canvas.getContext( '2d' );
+    canvas.width = width;
+    canvas.height = height;
     var positionToWavelength = new LinearFunction( new Range( 0, width ), new Range( minWavelength, maxWavelength ) );
     for ( var i = 0; i < width; i++ ) {
       var wavelength = positionToWavelength.evaluate( i );
-      var color = VisibleColor.wavelengthToColor( wavelength ).toCSS();
-      thisNode.addChild( new Rectangle( i, 0, 1, height, { fill: color } ) );
+      context.fillStyle = VisibleColor.wavelengthToColor( wavelength ).toCSS();
+      context.fillRect( i, 0, 1, 50 );
     }
+
+    thisNode.addChild( new Image( canvas ) );
+
+    //TODO how to free the canvas that was created above? or is that even necessary?
   }
 
   inherit( TrackNode, Node );
