@@ -115,7 +115,7 @@ define( function( require ) {
       saturatedIndicatorNode.centerX = beakerNode.centerX;
       saturatedIndicatorNode.bottom = beakerNode.bottom - 30;
       // upper right
-      soluteControlsNode.right = concentrationMeterNode.right;
+      soluteControlsNode.right = concentrationMeterNode.right + 100;
       soluteControlsNode.top = 20;
       // left-aligned below beaker
       evaporationControlNode.left = mvt.modelToViewPosition( model.beaker.location ).x - mvt.modelToViewDeltaX( model.beaker.size.width / 2 );
