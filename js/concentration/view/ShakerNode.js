@@ -16,7 +16,6 @@ define( function( require ) {
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
   var Node = require( "SCENERY/nodes/Node" );
   var HTMLText = require( "SCENERY/nodes/HTMLText" );
-  var Util = require( "DOT/Util" );
   var Vector2 = require( "DOT/Vector2" );
 
   // constants
@@ -47,7 +46,7 @@ define( function( require ) {
     thisNode.addChild( parentNode );
     parentNode.addChild( imageNode );
     parentNode.addChild( labelNode );
-    parentNode.rotate( Util.toDegrees( shaker.orientation - Math.PI ) );
+    parentNode.rotate( shaker.orientation - Math.PI );
 
     // Manually adjust these values until the origin is in the middle hole of the shaker.
     parentNode.translate( -12, -imageNode.height / 2 );
