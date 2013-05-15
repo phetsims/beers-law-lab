@@ -17,7 +17,7 @@ define( function( require ) {
   var DOM = require( "SCENERY/nodes/DOM" );
   var Dimension2 = require( "DOT/Dimension2" );
   var DropperNode = require( "concentration/view/DropperNode" );
-  var EvaporationControlNode = require( "concentration/view/EvaporationControlNode" );
+  var EvaporationControl = require( "concentration/view/EvaporationControl" );
   var FaucetFluidNode = require( "concentration/view/FaucetFluidNode" );
   var FaucetNode = require( "concentration/view/FaucetNode" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -26,12 +26,12 @@ define( function( require ) {
   var PrecipitateNode = require( "concentration/view/PrecipitateNode" );
   var Range = require( "DOT/Range" );
   var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
-  var SaturatedIndicatorNode = require( "concentration/view/SaturatedIndicatorNode" );
+  var SaturatedIndicator = require( "concentration/view/SaturatedIndicator" );
   var Scene = require( "SCENERY/Scene" );
   var ShakerNode = require( "concentration/view/ShakerNode" );
   var ShakerParticlesNode = require( "concentration/view/ShakerParticlesNode" );
   var Solute = require( "concentration/model/Solute" );
-  var SoluteControlsNode = require( "concentration/view/SoluteControlsNode" );
+  var SoluteControls = require( "concentration/view/SoluteControls" );
   var SolutionNode = require( "concentration/view/SolutionNode" );
   var StockSolutionNode = require( "concentration/view/StockSolutionNode" );
   var Text = require( "SCENERY/nodes/Text" );
@@ -50,7 +50,7 @@ define( function( require ) {
     var beakerNode = new BeakerNode( model.beaker, mvt );
     var solutionNode = new SolutionNode( model.solution, model.beaker, mvt );
     var precipitateNode = new PrecipitateNode( model.precipitate, model.beaker, mvt );
-    var saturatedIndicatorNode = new SaturatedIndicatorNode( model.solution );
+    var saturatedIndicator = new SaturatedIndicator( model.solution );
 
     // Shaker
     var shakerNode = new ShakerNode( model.shaker, mvt );
@@ -73,10 +73,10 @@ define( function( require ) {
                                                              solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, mvt );
 
     // Solute controls
-    var soluteControlsNode = new SoluteControlsNode( model.solutes, model.solute, model.shaker, model.dropper );
+    var soluteControls = new SoluteControls( model.solutes, model.solute, model.shaker, model.dropper );
 
-    // Evaporation controls
-    var evaporationControlNode = new EvaporationControlNode( model.evaporator );
+    // Evaporation control
+    var evaporationControl = new EvaporationControl( model.evaporator );
 
     // Remove Solute button
     var removeSoluteButtonNode = new Button( new Text( BLLStrings.removeSolute, { font: "22px Arial", fill: "black" } ),
@@ -98,31 +98,31 @@ define( function( require ) {
     thisView.addChild( solutionNode );
     thisView.addChild( beakerNode.mutate( { layerSplit: true } ) ); //TODO experiment to put static nodes in their own layer
     thisView.addChild( precipitateNode );
-    thisView.addChild( saturatedIndicatorNode );
+    thisView.addChild( saturatedIndicator );
     thisView.addChild( shakerParticlesNode );
     thisView.addChild( shakerNode );
     thisView.addChild( dropperNode );
     thisView.addChild( concentrationMeterNode );
-    thisView.addChild( evaporationControlNode );
+    thisView.addChild( evaporationControl );
     // Add anything containing interactive DOM elements last, or they will not receive events.
     thisView.addChild( removeSoluteButtonNode );
     thisView.addChild( resetAllButton );
-    thisView.addChild( soluteControlsNode );
+    thisView.addChild( soluteControls );
 
     // Layout for things that don't have a location in the model.
     {
       // centered towards bottom of beaker
-      saturatedIndicatorNode.centerX = beakerNode.centerX;
-      saturatedIndicatorNode.bottom = beakerNode.bottom - 30;
+      saturatedIndicator.centerX = beakerNode.centerX;
+      saturatedIndicator.bottom = beakerNode.bottom - 30;
       // upper right
-      soluteControlsNode.right = concentrationMeterNode.right + 100;
-      soluteControlsNode.top = 20;
+      soluteControls.right = concentrationMeterNode.right + 100;
+      soluteControls.top = 20;
       // left-aligned below beaker
-      evaporationControlNode.left = mvt.modelToViewPosition( model.beaker.location ).x - mvt.modelToViewDeltaX( model.beaker.size.width / 2 );
-      evaporationControlNode.top = beakerNode.bottom + 30;
+      evaporationControl.left = mvt.modelToViewPosition( model.beaker.location ).x - mvt.modelToViewDeltaX( model.beaker.size.width / 2 );
+      evaporationControl.top = beakerNode.bottom + 30;
       // left of evaporation control
-      removeSoluteButtonNode.left = evaporationControlNode.right + 30;
-      removeSoluteButtonNode.centerY = evaporationControlNode.centerY;
+      removeSoluteButtonNode.left = evaporationControl.right + 30;
+      removeSoluteButtonNode.centerY = evaporationControl.centerY;
       // lower right
       resetAllButton.left = drainFaucetNode.right + 10;
       resetAllButton.top = drainFaucetNode.bottom + 5;

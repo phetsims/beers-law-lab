@@ -21,24 +21,24 @@ define( function( require ) {
    * @param {ConcentrationSolution} solution
    * @constructor
    */
-  function SaturatedIndicatorNode( solution ) {
+  function SaturatedIndicator( solution ) {
 
     var thisNode = this;
     Node.call( thisNode );
 
-    var textNode = new Text( BLLStrings.saturated, { font: "20px Arial" } );
+    var label = new Text( BLLStrings.saturated, { font: "20px Arial" } );
 
     // translucent light-gray background, so this shows up on all solution colors
-    var backgroundNode = new Rectangle( 0, 0, 1.2 * textNode.width, 1.2 * textNode.height, 8, 8,
-                                        { fill: new Color( 240, 240, 240, 0.6 ).toCSS() } );
+    var background = new Rectangle( 0, 0, 1.2 * label.width, 1.2 * label.height, 8, 8,
+                                    { fill: new Color( 240, 240, 240, 0.6 ).toCSS() } );
 
     // rendering order
-    thisNode.addChild( backgroundNode );
-    thisNode.addChild( textNode );
+    thisNode.addChild( background );
+    thisNode.addChild( label );
 
     // layout
-    textNode.centerX = backgroundNode.centerX;
-    textNode.centerY = backgroundNode.centerY;
+    label.centerX = background.centerX;
+    label.centerY = background.centerY;
 
     // make this node visible when the solution is saturated
     solution.concentration.addObserver( function() {
@@ -46,7 +46,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( SaturatedIndicatorNode, Node );
+  inherit( SaturatedIndicator, Node );
 
-  return SaturatedIndicatorNode;
+  return SaturatedIndicator;
 } );

@@ -40,7 +40,7 @@ define( function( require ) {
    * @param {Boolean} snapToMinWhenReleased
    * @constructor
    */
-  function EvaporationSliderNode( range, trackSize, value, enabled, snapToMinWhenReleased ) {
+  function EvaporationSlider( range, trackSize, value, enabled, snapToMinWhenReleased ) {
 
     // defaults
     snapToMinWhenReleased = _.isUndefined( snapToMinWhenReleased ) ? false : snapToMinWhenReleased;
@@ -53,17 +53,17 @@ define( function( require ) {
     thisNode.addChild( thisNode._ticksParent );
 
     // track
-    thisNode._trackNode = new Path(
+    thisNode._track = new Path(
         {
           shape: Shape.rect( 0, 0, trackSize.width, trackSize.height ),
           fill: "white",
           stroke: "black",
           lineWidth: 1
         } );
-    thisNode.addChild( thisNode._trackNode );
+    thisNode.addChild( thisNode._track );
 
     // thumb, points up
-    var thumbNode = new Path(
+    var thumb = new Path(
         {
           cursor: "pointer",
           shape: new Shape()/* clockwise from bottom left */
@@ -77,13 +77,13 @@ define( function( require ) {
           stroke: "black",
           lineWidth: 1
         } );
-    thumbNode.centerY = thisNode._trackNode.centerY;
-    thisNode.addChild( thumbNode );
+    thumb.centerY = thisNode._track.centerY;
+    thisNode.addChild( thumb );
 
     // enable/disable thumb
     enabled.addObserver( function( enabled ) {
-      thumbNode.fill = enabled ? THUMB_FILL_ENABLED : THUMB_FILL_DISABLED;
-      thumbNode.cursor = enabled ? "pointer" : "default";
+      thumb.fill = enabled ? THUMB_FILL_ENABLED : THUMB_FILL_DISABLED;
+      thumb.cursor = enabled ? "pointer" : "default";
     } );
 
     // mapping between value and track position
@@ -91,22 +91,22 @@ define( function( require ) {
 
     // move thumb when value changes
     value.addObserver( function( value ) {
-      thumbNode.centerX = thisNode._valueToPosition.evaluate( value );
+      thumb.centerX = thisNode._valueToPosition.evaluate( value );
     } );
 
     // highlight on mouse enter
-    thumbNode.addInputListener( new FillHighlighter( thumbNode, THUMB_FILL_ENABLED, THUMB_FILL_HIGHLIGHTED, enabled ) );
+    thumb.addInputListener( new FillHighlighter( thumb, THUMB_FILL_ENABLED, THUMB_FILL_HIGHLIGHTED, enabled ) );
 
     // update value when thumb is dragged
     var clickXOffset = 0; // x-offset between initial click and thumb's origin
-    thumbNode.addInputListener( new SimpleDragHandler(
+    thumb.addInputListener( new SimpleDragHandler(
         {
           start: function( event ) {
-            clickXOffset = thumbNode.globalToParentPoint( event.pointer.point ).x - thumbNode.x;
+            clickXOffset = thumb.globalToParentPoint( event.pointer.point ).x - thumb.x;
           },
           drag: function( event ) {
             if ( enabled.get() ) {
-              var x = thumbNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
+              var x = thumb.globalToParentPoint( event.pointer.point ).x - clickXOffset;
               value.set( thisNode._valueToPosition.evaluateInverse( x ) );
             }
           },
@@ -122,55 +122,55 @@ define( function( require ) {
 
     // update thumb location when value changes
     value.addObserver( function( value ) {
-      thumbNode.centerX = thisNode._valueToPosition.evaluate( value );
+      thumb.centerX = thisNode._valueToPosition.evaluate( value );
     } );
   }
 
-  inherit( EvaporationSliderNode, Node );
+  inherit( EvaporationSlider, Node );
 
   /**
    * Adds a major tick mark.
    * @param {Number} value
-   * @param {Node} labelNode, optional
+   * @param {Node} label optional
    */
-  EvaporationSliderNode.prototype.addMajorTick = function( value, labelNode ) {
-    this._addTick( MAJOR_TICK_LENGTH, value, labelNode );
+  EvaporationSlider.prototype.addMajorTick = function( value, label ) {
+    this._addTick( MAJOR_TICK_LENGTH, value, label );
   };
 
   /**
    * Adds a minor tick mark.
    * @param {Number} value
-   * @param {Node} labelNode, optional
+   * @param {Node} label optional
    */
-  EvaporationSliderNode.prototype.addMinorTick = function( value, labelNode ) {
-    this._addTick( MINOR_TICK_LENGTH, value, labelNode );
+  EvaporationSlider.prototype.addMinorTick = function( value, label ) {
+    this._addTick( MINOR_TICK_LENGTH, value, label );
   };
 
   /*
    * Adds a tick mark above the track.
    * @param {Number} tickLength
    * @param {Number} value
-   * @param {Node} labelNode, optional
+   * @param {Node} label optional
    */
-  EvaporationSliderNode.prototype._addTick = function( tickLength, value, labelNode ) {
+  EvaporationSlider.prototype._addTick = function( tickLength, value, label ) {
     var labelX = this._valueToPosition.evaluate( value );
     // ticks
-    var tickNode = new Path(
+    var tick = new Path(
         {
           shape: new Shape()
-              .moveTo( labelX, this._trackNode.top )
-              .lineTo( labelX, this._trackNode.bottom - tickLength ),
+              .moveTo( labelX, this._track.top )
+              .lineTo( labelX, this._track.bottom - tickLength ),
           lineWidth: 1,
           stroke: "black"
         } );
-    this._ticksParent.addChild( tickNode );
+    this._ticksParent.addChild( tick );
     // label
-    if ( labelNode ) {
-      this._ticksParent.addChild( labelNode );
-      labelNode.centerX = tickNode.centerX;
-      labelNode.bottom = tickNode.top - 6;
+    if ( label ) {
+      this._ticksParent.addChild( label );
+      label.centerX = tick.centerX;
+      label.bottom = tick.top - 6;
     }
   };
 
-  return EvaporationSliderNode;
+  return EvaporationSlider;
 } );
