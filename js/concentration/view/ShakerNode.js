@@ -46,7 +46,7 @@ define( function( require ) {
     thisNode.addChild( parentNode );
     parentNode.addChild( imageNode );
     parentNode.addChild( labelNode );
-    parentNode.rotate( shaker.orientation - Math.PI ); // assumes that shaker point to the left in the image file
+    parentNode.rotate( shaker.orientation - Math.PI ); // assumes that shaker points to the left in the image file
 
     // Manually adjust these values until the origin is in the middle hole of the shaker.
     parentNode.translate( -12, -imageNode.height / 2 );
