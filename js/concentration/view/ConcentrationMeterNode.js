@@ -22,7 +22,6 @@ define( function( require ) {
   // imports
   var BLLImages = require( "common/BLLImages" );
   var BLLStrings = require( "common/BLLStrings" );
-  var Color = require( "common/model/Color" );
   var HorizontalTiledNode = require( "common/view/HorizontalTiledNode" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );

@@ -9,7 +9,7 @@ define( function( require ) {
   "use strict";
 
   // imports
-  var Color = require( "common/model/Color" );
+  var Color = require( "SCENERY/util/Color" );
   var inherit = require( "PHET_CORE/inherit" );
   var Path = require( "SCENERY/nodes/Path" );
 
@@ -20,7 +20,7 @@ define( function( require ) {
   function BeamNode( beam ) {
 
     var thisNode = this;
-    Path.call( this, { stroke: new Color( 192, 192, 192, 0.8 ).toCSS(), lineWidth: 0.5 } );
+    Path.call( this, { stroke: "rgba( 192, 192, 192, 0.8 )", lineWidth: 0.5 } );
 
     // shape
     beam.shape.addObserver( function( shape ) {

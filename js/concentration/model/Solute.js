@@ -11,7 +11,7 @@ define( function( require ) {
   // imports
   var BLLStrings = require( "common/BLLStrings" );
   var BLLSymbols = require( "common/BLLSymbols" );
-  var Color = require( "common/model/Color" );
+  var Color = require( "SCENERY/util/Color" );
   var SoluteColorScheme = require( "concentration/model/SoluteColorScheme" );
   var Solvent = require( "common/model/Solvent" );
 

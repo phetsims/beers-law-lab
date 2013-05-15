@@ -25,7 +25,7 @@ define( function( require ) {
     var viewSize = mvt.modelToViewDeltaX( particle.size );
     Rectangle.call( thisNode, -viewSize / 2, -viewSize / 2, viewSize, viewSize, {
       fill: particle.color.toCSS(),
-      stroke: particle.color.darker().toCSS(),
+      stroke: particle.color.darkerColor().toCSS(),
       lineWidth: 1
     } );
 

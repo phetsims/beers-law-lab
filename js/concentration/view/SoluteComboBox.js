@@ -28,7 +28,7 @@ define( function( require ) {
 
     // node
     var node = new Node();
-    var colorNode = new Rectangle( 0, 0, 20, 20, { fill: solute.colorScheme.maxColor.toCSS(), stroke: solute.colorScheme.maxColor.darker().toCSS() } );
+    var colorNode = new Rectangle( 0, 0, 20, 20, { fill: solute.colorScheme.maxColor.toCSS(), stroke: solute.colorScheme.maxColor.darkerColor().toCSS() } );
     var textNode = new Text( solute.name, { font: "20px Arial" } );
     node.addChild( colorNode );
     node.addChild( textNode );

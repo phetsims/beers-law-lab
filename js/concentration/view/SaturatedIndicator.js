@@ -11,7 +11,6 @@ define( function( require ) {
 
   // imports
   var BLLStrings = require( "common/BLLStrings" );
-  var Color = require( "common/model/Color" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
@@ -30,7 +29,7 @@ define( function( require ) {
 
     // translucent light-gray background, so this shows up on all solution colors
     var background = new Rectangle( 0, 0, 1.2 * label.width, 1.2 * label.height, 8, 8,
-                                    { fill: new Color( 240, 240, 240, 0.6 ).toCSS() } );
+                                    { fill: "rgba( 240, 240, 240, 0.6 )" } );
 
     // rendering order
     thisNode.addChild( background );

@@ -32,7 +32,7 @@ define( function( require ) {
      */
     fluid.color.addObserver( function( color ) {
       thisNode.fill = color.toCSS();
-      thisNode.stroke = color.darker().toCSS();
+      thisNode.stroke = color.darkerColor().toCSS();
     } );
 
     /*

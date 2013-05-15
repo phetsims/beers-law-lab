@@ -12,7 +12,7 @@ define( function( require ) {
 
   // imports
   var callSuper = require( "PHET_CORE/callSuper" );
-  var Color = require( "common/model/Color" );
+  var Color = require( "SCENERY/util/Color" );
   var Fluid = require( "common/model/Fluid" );
   var inherit = require( "PHET_CORE/inherit" );
   var Property = require( "PHETCOMMON/model/property/Property" );

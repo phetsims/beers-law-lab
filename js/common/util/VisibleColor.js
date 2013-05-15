@@ -9,7 +9,7 @@ define( function( require ) {
 
   // imports
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
-  var Color = require( "common/model/Color" );
+  var Color = require( "SCENERY/util/Color" );
 
   var colorTable = []; // populated on demand
 

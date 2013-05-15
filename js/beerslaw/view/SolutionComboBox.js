@@ -29,7 +29,7 @@ define( function( require ) {
 
     // node
     var node = new Node();
-    var colorSquare = new Rectangle( 0, 0, 20, 20, { fill: solution.saturatedColor.toCSS(), stroke: solution.saturatedColor.darker().toCSS() } );
+    var colorSquare = new Rectangle( 0, 0, 20, 20, { fill: solution.saturatedColor.toCSS(), stroke: solution.saturatedColor.darkerColor().toCSS() } );
     var solutionName = new HTMLText( solution.getDisplayName(), { font: "20px Arial" } );
     node.addChild( colorSquare );
     node.addChild( solutionName );

@@ -11,7 +11,7 @@ define( function( require ) {
   "use strict";
 
   // imports
-  var Color = require( "common/model/Color" );
+  var ColorUtils = require( "common/util/ColorUtils" );
 
   /**
    * @param {Number} minConcentration
@@ -44,10 +44,10 @@ define( function( require ) {
       return this.minColor;
     }
     else if ( concentration <= this.midConcentration ) {
-      return Color.interpolateRBGA( this.minColor, this.midColor, ( concentration - this.minConcentration ) / ( this.midConcentration - this.minConcentration ) );
+      return ColorUtils.interpolateRBGA( this.minColor, this.midColor, ( concentration - this.minConcentration ) / ( this.midConcentration - this.minConcentration ) );
     }
     else {
-      return Color.interpolateRBGA( this.midColor, this.maxColor, ( concentration - this.midConcentration ) / ( this.maxConcentration - this.midConcentration ) );
+      return ColorUtils.interpolateRBGA( this.midColor, this.maxColor, ( concentration - this.midConcentration ) / ( this.maxConcentration - this.midConcentration ) );
     }
   };
 

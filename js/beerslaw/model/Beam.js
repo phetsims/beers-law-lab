@@ -13,7 +13,7 @@ define( function( require ) {
   "use strict";
 
   // imports
-  var Color = require( "common/model/Color" );
+  var Color = require( "SCENERY/util/Color" );
   var LinearFunction = require( "common/util/LinearFunction" );
   var LinearGradient = require( "SCENERY/util/LinearGradient" );
   var Property = require( "PHETCOMMON/model/property/Property" );
@@ -36,6 +36,9 @@ define( function( require ) {
    * @constructor
    */
   function Beam( light, cuvette, detector, absorbance, mvt ) {
+
+    console.log( new Color( 100, 100, 100 ).brighterColor() );
+    console.log( new Color( 100, 100, 100 ).darkerColor() );
 
     var thisBeam = this;
 
@@ -67,8 +70,8 @@ define( function( require ) {
     var updateColor = function() {
       if ( thisBeam.visible.get() ) {
         var baseColor = VisibleColor.wavelengthToColor( light.wavelength.get() );
-        var leftColor = Color.withAlpha( baseColor, MAX_LIGHT_ALPHA );
-        var rightColor = Color.withAlpha( baseColor, TRANSMITTANCE_TO_ALPHA.evaluate( absorbance.getTransmittance() ) );
+        var leftColor = baseColor.withAlpha( MAX_LIGHT_ALPHA );
+        var rightColor = baseColor.withAlpha( TRANSMITTANCE_TO_ALPHA.evaluate( absorbance.getTransmittance() ) );
         var x = mvt.modelToViewPosition( cuvette.location ).x;
         var w = mvt.modelToViewDeltaX( cuvette.width.get() );
         thisBeam.fill.set( new LinearGradient( x, 0, x + w, 0 )

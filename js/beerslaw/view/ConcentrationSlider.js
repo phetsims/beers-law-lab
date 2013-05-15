@@ -10,7 +10,7 @@ define( function( require ) {
 
   // imports
   var Button = require( "SUN/Button" );
-  var Color = require( "common/model/Color" );
+  var Color = require( "SCENERY/util/Color" );
   var Dimension2 = require( "DOT/Dimension2" );
   var FillHighlighter = require( "common/view/FillHighlighter" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -31,7 +31,7 @@ define( function( require ) {
   var THUMB_SIZE = new Dimension2( 30, 45 );
   var THUMB_LINE_WIDTH = 1;
   var THUMB_FILL_NORMAL = new Color( 89, 156, 212 );
-  var THUMB_FILL_HIGHLIGHT = THUMB_FILL_NORMAL.brighter();
+  var THUMB_FILL_HIGHLIGHT = THUMB_FILL_NORMAL.brighterColor();
   var THUMB_STROKE = Color.BLACK;
   var THUMB_CENTER_LINE_STROKE = Color.WHITE;
 

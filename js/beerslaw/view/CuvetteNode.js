@@ -10,7 +10,7 @@ define( function( require ) {
 
   // imports
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
-  var Color = require( "common/model/Color" );
+  var Color = require( "SCENERY/util/Color" );
   var FillHighlighter = require( "common/view/FillHighlighter" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
@@ -117,8 +117,8 @@ define( function( require ) {
 
     // when the fluid color changes ...
     var colorObserver = function( color ) {
-      solutionNode.fill = Color.withAlpha( color, SOLUTION_ALPHA ).toCSS();
-      solutionNode.stroke = color.darker().toCSS();
+      solutionNode.fill = color.withAlpha( SOLUTION_ALPHA ).toCSS();
+      solutionNode.stroke = color.darkerColor().toCSS();
     };
     solution.get().fluidColor.addObserver( colorObserver );
 
@@ -134,7 +134,7 @@ define( function( require ) {
     cuvetteNode.pickable = false;
     solutionNode.pickable = false;
     arrowNode.cursor = "pointer";
-    arrowNode.addInputListener( new FillHighlighter( arrowNode, ARROW_FILL.toCSS(), ARROW_FILL.brighter().toCSS() ) );
+    arrowNode.addInputListener( new FillHighlighter( arrowNode, ARROW_FILL.toCSS(), ARROW_FILL.brighterColor().toCSS() ) );
     arrowNode.addInputListener( new CuvetteDragHandler( thisNode, cuvette, mvt, snapInterval ) );
 
     // location of the cuvette

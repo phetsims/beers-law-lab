@@ -11,7 +11,6 @@ define( function( require ) {
 
   // imports
   var BLLImages = require( "common/BLLImages" );
-  var Color = require( "common/model/Color" );
   var ConcentrationSolution = require( "concentration/model/ConcentrationSolution" );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
   var HTMLText = require( "SCENERY/nodes/HTMLText" );
@@ -73,7 +72,7 @@ define( function( require ) {
     // label background, so the label shows up on various fluid colors
     var labelBackground = new Path(
         {
-          fill: new Color( 240, 240, 240, 0.6 ).toCSS(),
+          fill: "rgba( 240, 240, 240, 0.6 )",
           lineWidth: 0
         } );
 
