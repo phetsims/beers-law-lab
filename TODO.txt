@@ -5,6 +5,7 @@ DESIGN ISSUES
 - interactive components feel too small on Nexus
 
 IMPLEMENTATION ISSUES
+- how to set font for i18n?
 
 SCENERY BUGS
 
