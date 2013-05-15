@@ -34,7 +34,7 @@ LOW
 - generalize left/right arrow buttons for sliders
 - lighting on AT body is vertically flipped, graphic is not tall enough
 - sim resizing doesn't play nice with browser zoom features
-- nicer knobs slider
+- nicer slider thumbs
 - value in concentration meter jitters horizontally as value changes
 - split faucet_handle.png into 2 images, so that only the knob is interactive?
 - use scenery.Pattern to texture map input pipe in FaucetNode
