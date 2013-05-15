@@ -51,7 +51,7 @@ define( function( require ) {
 
     var rulerWidth = 2; // cm
     thisModel.ruler = new Ruler( rulerWidth, 0.1, 0.5,
-                                 new Vector2( 0.5, 4.7 ),
+                                 new Vector2( 0.4, 4.9 ),
                                  new Bounds2( 0, 0, 6, 5 ) );
 
     this.absorbance = new Absorbance( thisModel.light, thisModel.solution, thisModel.cuvette );

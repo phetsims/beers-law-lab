@@ -1,3 +1,4 @@
+5/14/13 move ruler down and left a tad
 5/14/13 make wavelength slider thumbs bigger so it's easier to grab on tablets
 5/14/13 make ruler taller so that it's more tablet-friendly
 5/14/13 increase default size of radio buttons to work better on tablets
