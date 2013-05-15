@@ -17,7 +17,7 @@ define( function( require ) {
   var HTMLText = require( "SCENERY/nodes/HTMLText" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
-  var MomentaryButtonNode = require( "common/view/MomentaryButtonNode" );
+  var MomentaryButton = require( "common/view/MomentaryButton" );
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
@@ -61,32 +61,32 @@ define( function( require ) {
         .lineTo( TIP_WIDTH / 2, -TIP_HEIGHT )
         .lineTo( TIP_WIDTH / 2, 0 )
         .close();
-    var fluidNode = new Path( { shape: fluidShape } );
+    var fluid = new Path( { shape: fluidShape } );
 
     // images
-    var foregroundNode = new Image( BLLImages.getImage( "dropper_foreground.png" ) );
-    var backgroundNode = new Image( BLLImages.getImage( "dropper_background.png" ) );
+    var foreground = new Image( BLLImages.getImage( "dropper_foreground.png" ) );
+    var background = new Image( BLLImages.getImage( "dropper_background.png" ) );
 
     // label
-    var labelNode = new HTMLText( dropper.solute.formula, { font: "bold 18px Arial", fill: "black" } );
+    var label = new HTMLText( dropper.solute.formula, { font: "bold 18px Arial", fill: "black" } );
 
     // label background, so the label shows up on various fluid colors
-    var labelBackgroundNode = new Path(
+    var labelBackground = new Path(
         {
           fill: new Color( 240, 240, 240, 0.6 ).toCSS(),
           lineWidth: 0
         } );
 
-    var buttonNode = new MomentaryButtonNode( dropper.on, dropper.enabled );
-    buttonNode.setScaleMagnitude( 0.3 );
+    var button = new MomentaryButton( dropper.on, dropper.enabled );
+    button.setScaleMagnitude( 0.3 );
 
     // rendering order
-    thisNode.addChild( fluidNode );
-    thisNode.addChild( backgroundNode );
-    thisNode.addChild( foregroundNode );
-    thisNode.addChild( labelBackgroundNode );
-    thisNode.addChild( labelNode );
-    thisNode.addChild( buttonNode );
+    thisNode.addChild( fluid );
+    thisNode.addChild( background );
+    thisNode.addChild( foreground );
+    thisNode.addChild( labelBackground );
+    thisNode.addChild( label );
+    thisNode.addChild( button );
     if ( DEBUG_ORIGIN ) {
       thisNode.addChild( new DebugOriginNode() );
     }
@@ -94,13 +94,13 @@ define( function( require ) {
     // layout
     {
       // move origin to bottom center (tip) of images
-      foregroundNode.x = -foregroundNode.width / 2;
-      foregroundNode.y = -foregroundNode.height;
-      backgroundNode.x = -backgroundNode.width / 2;
-      backgroundNode.y = -backgroundNode.height;
+      foreground.x = -foreground.width / 2;
+      foreground.y = -foreground.height;
+      background.x = -background.width / 2;
+      background.y = -background.height;
       // center the button in the dropper's bulb
-      buttonNode.x = foregroundNode.centerX - ( buttonNode.width / 2 );
-      buttonNode.y = foregroundNode.top + BUTTON_Y_OFFSET;
+      button.x = foreground.centerX - ( button.width / 2 );
+      button.y = foreground.top + BUTTON_Y_OFFSET;
       //NOTE: label will be positioned whenever its text is set, to keep it centered in the dropper's glass
     }
 
@@ -116,34 +116,34 @@ define( function( require ) {
 
     // Make the background visible only when the dropper is empty
     dropper.empty.addObserver( function( empty ) {
-      fluidNode.setVisible( !empty );
-      backgroundNode.setVisible( empty );
+      fluid.setVisible( !empty );
+      background.setVisible( empty );
     } );
 
     // Change the label and color when the solute changes.
     solute.addObserver( function( solute ) {
 
       // label, centered in the dropper's glass
-      labelNode.setText( solute.formula );
+      label.setText( solute.formula );
 
       // rotate to vertical, center the label in the droppers glass
-      labelNode.setRotation( -Math.PI / 2 );
-      labelNode.centerX = foregroundNode.centerX;
-      labelNode.y = foregroundNode.bottom - ( foregroundNode.height - LABEL_Y_OFFSET ) + ( labelNode.height / 2 );
+      label.setRotation( -Math.PI / 2 );
+      label.centerX = foreground.centerX;
+      label.y = foreground.bottom - ( foreground.height - LABEL_Y_OFFSET ) + ( label.height / 2 );
 
       // translucent background for the label, so that it's visible on all solution colors
-      var width = 1.5 * labelNode.width;
-      var height = 1.2 * labelNode.height;
-      var x = labelNode.centerX - ( width / 2 );
-      var y = labelNode.centerY - ( height / 2 );
-      labelBackgroundNode.setShape( Shape.roundRect( x, y, width, height, 5, 5 ) );
+      var width = 1.5 * label.width;
+      var height = 1.2 * label.height;
+      var x = label.centerX - ( width / 2 );
+      var y = label.centerY - ( height / 2 );
+      labelBackground.setShape( Shape.roundRect( x, y, width, height, 5, 5 ) );
 
       // fluid color
       var color = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
-      fluidNode.fill = color.toCSS();
+      fluid.fill = color.toCSS();
     } );
 
-    //TODO this listener conflicts with MomentaryButtonNode's listener
+    //TODO this listener conflicts with MomentaryButton's listener
     // drag handler
     thisNode.addInputListener( new MovableDragHandler( dropper, mvt ) );
   }
@@ -155,5 +155,4 @@ define( function( require ) {
   };
 
   return DropperNode;
-
 } );

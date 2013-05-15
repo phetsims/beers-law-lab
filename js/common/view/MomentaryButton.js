@@ -1,8 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 
-//TODO lots in common with MomentaryButtonNode
 /**
- * A toggle button changes it's on/off state when pressed.
+ * A momentary button is "on" while pressed, "off" when released.
  * Origin is at the upper-left of the bounding rectangle.
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
@@ -21,7 +20,7 @@ define( function( require ) {
    * @param {Property} enabled (type boolean)
    * @constructor
    */
-  function MomentaryButtonNode( on, enabled ) {
+  function MomentaryButton( on, enabled ) {
 
     var thisNode = this;
     Node.call( this );
@@ -57,15 +56,21 @@ define( function( require ) {
 
     thisNode.addInputListener(
         {
-          down: function() {
-            on.set( !on.get() && enabled.get() );
+          down: function( event ) {
+            on.set( true && enabled.get() );
+            event.handle();
+          },
+          //TODO this isn't fired if you roll off the node and release the mouse
+          up: function( event ) {
+            on.set( false );
+            event.handle();
           }
           //TODO cancel?
         } );
   }
 
-  inherit( MomentaryButtonNode, Node );
+  inherit( MomentaryButton, Node );
 
-  return MomentaryButtonNode;
+  return MomentaryButton;
 
 } );

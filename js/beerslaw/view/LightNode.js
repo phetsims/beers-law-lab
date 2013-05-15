@@ -15,7 +15,7 @@ define( function( require ) {
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Property = require( "PHETCOMMON/model/property/Property" );
-  var ToggleButtonNode = require( "common/view/ToggleButtonNode" );
+  var ToggleButton = require( "common/view/ToggleButton" );
 
   /**
    * @param {Light} light
@@ -28,21 +28,21 @@ define( function( require ) {
     Node.call( this );
 
     // nodes
-    var housingNode = new Image( BLLImages.getImage( "light.png" ) );
-    var buttonNode = new ToggleButtonNode( light.on, new Property( true ) );
+    var housing = new Image( BLLImages.getImage( "light.png" ) );
+    var button = new ToggleButton( light.on, new Property( true ) );
 
     // make the button fit in the housing
-    buttonNode.setScaleMagnitude( 0.65 * housingNode.height / buttonNode.height );
+    button.setScaleMagnitude( 0.65 * housing.height / button.height );
 
     // rendering order
-    thisNode.addChild( housingNode );
-    thisNode.addChild( buttonNode );
+    thisNode.addChild( housing );
+    thisNode.addChild( button );
 
     // layout
-    housingNode.x = -housingNode.width;
-    housingNode.y = -housingNode.height / 2;
-    buttonNode.left = housingNode.right - buttonNode.width - 40;
-    buttonNode.centerY = housingNode.centerY;
+    housing.x = -housing.width;
+    housing.y = -housing.height / 2;
+    button.left = housing.right - button.width - 40;
+    button.centerY = housing.centerY;
 
     // position
     var position = mvt.modelToViewPosition( light.location );
