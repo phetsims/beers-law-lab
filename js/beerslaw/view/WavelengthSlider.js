@@ -37,7 +37,7 @@ define( function( require ) {
    * @param maxWavelength
    * @constructor
    */
-  function TrackNode( width, height, minWavelength, maxWavelength ) {
+  function Track( width, height, minWavelength, maxWavelength ) {
 
     var thisNode = this;
     Node.call( thisNode );
@@ -57,7 +57,7 @@ define( function( require ) {
     thisNode.addChild( new Image( canvas ) );
   }
 
-  inherit( TrackNode, Node );
+  inherit( Track, Node );
 
   /**
    * The slider thumb (aka knob)
@@ -113,7 +113,7 @@ define( function( require ) {
    * @param {object} options
    * @constructor
    */
-  function WavelengthSliderNode( wavelength, options ) {
+  function WavelengthSlider( wavelength, options ) {
 
     var thisNode = this;
     Node.call( thisNode, options );
@@ -134,7 +134,7 @@ define( function( require ) {
 
     var thumb = new Thumb( thumbWidth, thumbHeight );
     var valueDisplay = new ValueDisplay( wavelength, valueFont, valueFill );
-    var track = new TrackNode( trackWidth, trackHeight, minWavelength, maxWavelength );
+    var track = new Track( trackWidth, trackHeight, minWavelength, maxWavelength );
     var cursor = new Cursor( 3, track.height );
 
     // buttons for single-unit increments
@@ -241,13 +241,13 @@ define( function( require ) {
       updateUI( wavelength.get() );
 
       // add a horizontal strut
-      var strutNode = new Rectangle( minX, 0, maxX - minX, 1, { pickable: false } );
-      thisNode.addChild( strutNode );
-      strutNode.moveToBack();
+      var strut = new Rectangle( minX, 0, maxX - minX, 1, { pickable: false } );
+      thisNode.addChild( strut );
+      strut.moveToBack();
     }
   }
 
-  inherit( WavelengthSliderNode, Node );
+  inherit( WavelengthSlider, Node );
 
-  return WavelengthSliderNode;
+  return WavelengthSlider;
 } );

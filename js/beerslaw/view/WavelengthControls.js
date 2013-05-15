@@ -18,49 +18,49 @@ define( function( require ) {
   var RadioButton = require( "SUN/RadioButton" );
   var StringUtils = require( "common/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
-  var WavelengthSliderNode = require( "beerslaw/view/WavelengthSliderNode" );
+  var WavelengthSlider = require( "beerslaw/view/WavelengthSlider" );
 
   /**
    * @param {Property} solution of type BeersLawSolution
    * @param {Light} light
    * @constructor
    */
-  function WavelengthControlNode( solution, light ) {
+  function WavelengthControls( solution, light ) {
 
     var thisNode = this;
 
     var variableWavelength = new Property( false ); // is the wavelength variable or fixed?
 
     // nodes
-    var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.wavelength] ), { font: "22px Arial", fill: "black" } );
-    var valueNode = new Text( "?", { font: "22px Arial", fill: "black" } );
+    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.wavelength] ), { font: "22px Arial", fill: "black" } );
+    var valueDisplay = new Text( "?", { font: "22px Arial", fill: "black" } );
     var fixedRadioButton = new RadioButton( variableWavelength, false, new Text( BLLStrings.fixed, { font: "18px Arial", fill: "black" } ) );
     var variableRadioButton = new RadioButton( variableWavelength, true, new Text( BLLStrings.variable, { font: "18px Arial", fill: "black" } ) );
-    var wavelengthSlider = new WavelengthSliderNode( light.wavelength, { trackWidth: 150, trackHeight: 30 } );
+    var wavelengthSlider = new WavelengthSlider( light.wavelength, { trackWidth: 150, trackHeight: 30 } );
 
     // rendering order
-    var contentNode = new Node();
-    contentNode.addChild( labelNode );
-    contentNode.addChild( valueNode );
-    contentNode.addChild( fixedRadioButton );
-    contentNode.addChild( variableRadioButton );
-    contentNode.addChild( wavelengthSlider );
+    var content = new Node();
+    content.addChild( label );
+    content.addChild( valueDisplay );
+    content.addChild( fixedRadioButton );
+    content.addChild( variableRadioButton );
+    content.addChild( wavelengthSlider );
 
     // layout
     var ySpacing = 20;
-    valueNode.left = labelNode.right + 10;
-    valueNode.y = labelNode.y; // align baselines
-    fixedRadioButton.left = labelNode.left;
-    fixedRadioButton.top = labelNode.bottom + ySpacing;
+    valueDisplay.left = label.right + 10;
+    valueDisplay.y = label.y; // align baselines
+    fixedRadioButton.left = label.left;
+    fixedRadioButton.top = label.bottom + ySpacing;
     variableRadioButton.left = fixedRadioButton.right + 15;
     variableRadioButton.centerY = fixedRadioButton.centerY;
     wavelengthSlider.left = fixedRadioButton.left;
     wavelengthSlider.top = fixedRadioButton.bottom + ySpacing;
 
-    PanelNode.call( thisNode, contentNode,
+    PanelNode.call( thisNode, content,
                     { xMargin: 20, yMargin: 20, fill: "#F0F0F0", stroke: "gray", lineWidth: 1 } );
 
-    //TODO controlPanel doesn't resize because bounds of contentNode don't change, why?
+    //TODO controlPanel doesn't resize because bounds of content don't change, why?
     // When the radio button selection changes...
     variableWavelength.addObserver( function( isVariable ) {
       wavelengthSlider.visible = isVariable;
@@ -76,11 +76,11 @@ define( function( require ) {
 
     // sync displayed value with model
     light.wavelength.addObserver( function( wavelength ) {
-      valueNode.text = StringUtils.format( BLLStrings.pattern_0value_1units, [wavelength.toFixed( 0 ), BLLStrings.units_nm] );
+      valueDisplay.text = StringUtils.format( BLLStrings.pattern_0value_1units, [wavelength.toFixed( 0 ), BLLStrings.units_nm] );
     } );
   }
 
-  inherit( WavelengthControlNode, PanelNode );
+  inherit( WavelengthControls, PanelNode );
 
-  return WavelengthControlNode;
+  return WavelengthControls;
 } );

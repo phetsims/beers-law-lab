@@ -29,12 +29,12 @@ define( function( require ) {
 
     // node
     var node = new Node();
-    var colorNode = new Rectangle( 0, 0, 20, 20, { fill: solution.saturatedColor.toCSS(), stroke: solution.saturatedColor.darker().toCSS() } );
-    var textNode = new HTMLText( solution.getDisplayName(), { font: "20px Arial" } );
-    node.addChild( colorNode );
-    node.addChild( textNode );
-    textNode.left = colorNode.right + 5;
-    textNode.centerY = colorNode.centerY;
+    var colorSquare = new Rectangle( 0, 0, 20, 20, { fill: solution.saturatedColor.toCSS(), stroke: solution.saturatedColor.darker().toCSS() } );
+    var solutionName = new HTMLText( solution.getDisplayName(), { font: "20px Arial" } );
+    node.addChild( colorSquare );
+    node.addChild( solutionName );
+    solutionName.left = colorSquare.right + 5;
+    solutionName.centerY = colorSquare.centerY;
 
     ComboBoxItem.call( this, node, solution );
   }
@@ -49,7 +49,7 @@ define( function( require ) {
   function SolutionComboBox( solutions, selectedSolution ) {
 
     // "Solution" label
-    var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.solution] ), { font: "20px Arial" } );
+    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.solution] ), { font: "20px Arial" } );
 
     // items
     var items = [];
@@ -59,7 +59,7 @@ define( function( require ) {
     }
 
     ComboBox.call( this, items, selectedSolution,
-                       { labelNode: labelNode,
+                       { labelNode: label,
                          listPosition: "above",
                          itemHighlightFill: "rgb(218,255,255)" } );
   }

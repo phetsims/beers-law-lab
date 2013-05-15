@@ -10,7 +10,7 @@ define( function( require ) {
 
   // imports
   var BLLStrings = require( "common/BLLStrings" );
-  var ConcentrationSliderNode = require( "beerslaw/view/ConcentrationSliderNode" );
+  var ConcentrationSlider = require( "beerslaw/view/ConcentrationSlider" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );  //TODO delete me
@@ -25,34 +25,34 @@ define( function( require ) {
    * @param {Property} solution of type  BeersLawSolution
    * @constructor
    */
-  function ConcentrationControlNode( solution ) {
+  function ConcentrationControl( solution ) {
 
     var thisNode = this;
     Node.call( thisNode );
 
     // nodes
-    var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.concentration] ), { font: FONT } );
-    var sliderNode = new ConcentrationSliderNode( solution );
-    var valueNode = new Text( "400 XXX", { font: FONT } );
+    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.concentration] ), { font: FONT } );
+    var slider = new ConcentrationSlider( solution );
+    var valueDisplay = new Text( "400 XXX", { font: FONT } );
 
     // rendering order
-    thisNode.addChild( labelNode );
-    thisNode.addChild( sliderNode );
-    thisNode.addChild( valueNode );
+    thisNode.addChild( label );
+    thisNode.addChild( slider );
+    thisNode.addChild( valueDisplay );
 
     // layout
-    valueNode.left = labelNode.right + 3;
-    valueNode.y = labelNode.y; // align baselines
-    valueNode.centerY = labelNode.centerY;
-    sliderNode.left = valueNode.right + 20;
-    sliderNode.centerY = valueNode.centerY;
+    valueDisplay.left = label.right + 3;
+    valueDisplay.y = label.y; // align baselines
+    valueDisplay.centerY = label.centerY;
+    slider.left = valueDisplay.right + 20;
+    slider.centerY = valueDisplay.centerY;
 
     // update the value display when concentration changes
     var concentrationObserver = function() {
       var valueString = solution.get().getViewValue().toFixed( DECIMAL_PLACES );
       var units = solution.get().getViewUnits();
-      valueNode.text = StringUtils.format( BLLStrings.pattern_0value_1units, [ valueString, units ] );
-      valueNode.right = sliderNode.left - 20;
+      valueDisplay.text = StringUtils.format( BLLStrings.pattern_0value_1units, [ valueString, units ] );
+      valueDisplay.right = slider.left - 20;
     };
     solution.get().concentration.addObserver( concentrationObserver );
 
@@ -65,7 +65,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( ConcentrationControlNode, Node );
+  inherit( ConcentrationControl, Node );
 
-  return ConcentrationControlNode;
+  return ConcentrationControl;
 } );

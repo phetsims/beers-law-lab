@@ -49,7 +49,7 @@ define( function( require ) {
    * @param {Property} solution of type BeersLawSolution
    * @constructor
    */
-  function TrackNode( trackSize, solution ) {
+  function Track( trackSize, solution ) {
 
     var thisNode = this;
     Rectangle.call( thisNode, 0, 0, trackSize.width, trackSize.height,
@@ -88,24 +88,24 @@ define( function( require ) {
         } ) );
   }
 
-  inherit( TrackNode, Rectangle );
+  inherit( Track, Rectangle );
 
   /**
    * Vertical tick line.
    * @constructor
    */
-  function TickLineNode() {
+  function TickLine() {
     Path.call( this, { shape: Shape.lineSegment( 0, 0, 0, TICK_LENGTH ), stroke: "black", lineWidth: 1 } );
   }
 
-  inherit( TickLineNode, Path );
+  inherit( TickLine, Path );
 
   /**
    * Tick label.
    * @param value
    * @constructor
    */
-  function TickLabelNode( value ) {
+  function TickLabel( value ) {
     var thisNode = this;
     Text.call( thisNode, "?", { font: TICK_FONT, fill: "black" } );
     thisNode.setValue = function( value ) {
@@ -114,7 +114,7 @@ define( function( require ) {
     thisNode.setValue( value );
   }
 
-  inherit( TickLabelNode, Text );
+  inherit( TickLabel, Text );
 
   /**
    * The slider thumb, a rounded rectangle with a vertical line through its center.
@@ -123,25 +123,25 @@ define( function( require ) {
    * @param {Property} solution of type BeersLawSolution
    * @constructor
    */
-  function ThumbNode( thumbSize, trackSize, solution ) {
+  function Thumb( thumbSize, trackSize, solution ) {
 
     var thisNode = this;
     Node.call( thisNode, { cursor: "pointer" } );
 
     // nodes
     var arcWidth = 0.25 * thumbSize.width;
-    var bodyNode = new Rectangle( -thumbSize.width / 2, -thumbSize.height / 2, thumbSize.width, thumbSize.height, arcWidth, arcWidth,
-                                  { fill: THUMB_FILL_NORMAL.toCSS(), stroke: THUMB_STROKE, lineWidth: THUMB_LINE_WIDTH } );
+    var body = new Rectangle( -thumbSize.width / 2, -thumbSize.height / 2, thumbSize.width, thumbSize.height, arcWidth, arcWidth,
+                              { fill: THUMB_FILL_NORMAL.toCSS(), stroke: THUMB_STROKE, lineWidth: THUMB_LINE_WIDTH } );
     var centerLineYMargin = 3;
-    var centerLineNode = new Path( { shape: Shape.lineSegment( 0, -( thumbSize.height / 2 ) + centerLineYMargin, 0, ( thumbSize.height / 2 ) - centerLineYMargin ),
-                                     stroke: THUMB_CENTER_LINE_STROKE.toCSS() } );
+    var centerLine = new Path( { shape: Shape.lineSegment( 0, -( thumbSize.height / 2 ) + centerLineYMargin, 0, ( thumbSize.height / 2 ) - centerLineYMargin ),
+                                 stroke: THUMB_CENTER_LINE_STROKE.toCSS() } );
 
     // rendering order
-    thisNode.addChild( bodyNode );
-    thisNode.addChild( centerLineNode );
+    thisNode.addChild( body );
+    thisNode.addChild( centerLine );
 
     // interactivity
-    bodyNode.addInputListener( new FillHighlighter( bodyNode, THUMB_FILL_NORMAL.toCSS(), THUMB_FILL_HIGHLIGHT.toCSS() ) );
+    body.addInputListener( new FillHighlighter( body, THUMB_FILL_NORMAL.toCSS(), THUMB_FILL_HIGHLIGHT.toCSS() ) );
 
     // set the drag handler and mapping function for the selected solution
     var dragHandler, concentrationToPosition;
@@ -174,7 +174,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( ThumbNode, Node );
+  inherit( Thumb, Node );
 
   /**
    * Drag handler for the slider thumb.
@@ -205,18 +205,18 @@ define( function( require ) {
    * @param {Property} solution of type BeersLawSolution
    * @constructor
    */
-  function ConcentrationSliderNode( solution ) {
+  function ConcentrationSlider( solution ) {
 
     var thisNode = this;
     Node.call( thisNode );
 
     // nodes
-    var trackNode = new TrackNode( TRACK_SIZE, solution );
-    var thumbNode = new ThumbNode( THUMB_SIZE, TRACK_SIZE, solution );
-    var minTickLineNode = new TickLineNode();
-    var maxTickLineNode = new TickLineNode();
-    var minTickLabelNode = new TickLabelNode( 0 ); // correct value will be set when observer is registered
-    var maxTickLabelNode = new TickLabelNode( 0 ); // correct value will be set when observer is registered
+    var track = new Track( TRACK_SIZE, solution );
+    var thumb = new Thumb( THUMB_SIZE, TRACK_SIZE, solution );
+    var minTickLine = new TickLine();
+    var maxTickLine = new TickLine();
+    var minTickLabel = new TickLabel( 0 ); // correct value will be set when observer is registered
+    var maxTickLabel = new TickLabel( 0 ); // correct value will be set when observer is registered
 
     // buttons for single-unit increments
     var arrowHeight = 20;
@@ -231,27 +231,27 @@ define( function( require ) {
                                   }, { cornerRadius: 4 } );
 
     // rendering order
-    thisNode.addChild( minTickLineNode );
-    thisNode.addChild( maxTickLineNode );
-    thisNode.addChild( minTickLabelNode );
-    thisNode.addChild( maxTickLabelNode );
-    thisNode.addChild( trackNode );
-    thisNode.addChild( thumbNode );
+    thisNode.addChild( minTickLine );
+    thisNode.addChild( maxTickLine );
+    thisNode.addChild( minTickLabel );
+    thisNode.addChild( maxTickLabel );
+    thisNode.addChild( track );
+    thisNode.addChild( thumb );
     thisNode.addChild( plusButton );
     thisNode.addChild( minusButton );
 
     // layout
-    minTickLineNode.left = trackNode.left;
-    minTickLineNode.bottom = trackNode.top;
-    minTickLabelNode.bottom = minTickLineNode.top - 2;
-    maxTickLineNode.right = trackNode.right;
-    maxTickLineNode.bottom = trackNode.top;
-    maxTickLabelNode.bottom = maxTickLineNode.top - 2;
-    thumbNode.centerY = trackNode.centerY;
-    minusButton.right = trackNode.left - ( thumbNode.width / 2 ) - 2;
-    minusButton.bottom = trackNode.bottom;
-    plusButton.left = trackNode.right + ( thumbNode.width / 2 ) + 2;
-    plusButton.bottom = trackNode.bottom;
+    minTickLine.left = track.left;
+    minTickLine.bottom = track.top;
+    minTickLabel.bottom = minTickLine.top - 2;
+    maxTickLine.right = track.right;
+    maxTickLine.bottom = track.top;
+    maxTickLabel.bottom = maxTickLine.top - 2;
+    thumb.centerY = track.centerY;
+    minusButton.right = track.left - ( thumb.width / 2 ) - 2;
+    minusButton.bottom = track.bottom;
+    plusButton.left = track.right + ( thumb.width / 2 ) + 2;
+    plusButton.bottom = track.bottom;
 
     var concentrationObserver = function( concentration ) {
       //TODO better to disable these button than hide them, but not supported by sun.Button yet
@@ -265,11 +265,11 @@ define( function( require ) {
       var concentrationRange = solution.concentrationRange;
       var transform = solution.concentrationTransform;
       // update label values
-      minTickLabelNode.setValue( transform.modelToView( concentrationRange.min ) );
-      maxTickLabelNode.setValue( transform.modelToView( concentrationRange.max ) );
+      minTickLabel.setValue( transform.modelToView( concentrationRange.min ) );
+      maxTickLabel.setValue( transform.modelToView( concentrationRange.max ) );
       // center values below tick lines
-      minTickLabelNode.centerX = minTickLineNode.centerX;
-      maxTickLabelNode.centerX = maxTickLineNode.centerX;
+      minTickLabel.centerX = minTickLine.centerX;
+      maxTickLabel.centerX = maxTickLine.centerX;
       //TODO better to disable these button than hide them, but not supported by sun.Button yet
       // buttons
       plusButton.visible = ( solution.concentration.get() < concentrationRange.max );
@@ -284,7 +284,7 @@ define( function( require ) {
 
   }
 
-  inherit( ConcentrationSliderNode, Node );
+  inherit( ConcentrationSlider, Node );
 
-  return ConcentrationSliderNode;
+  return ConcentrationSlider;
 } );

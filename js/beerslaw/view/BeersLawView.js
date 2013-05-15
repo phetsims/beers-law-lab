@@ -20,9 +20,9 @@ define( function( require ) {
   var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
   var BLLRulerNode = require( "beerslaw/view/BLLRulerNode" );
   var Scene = require( "SCENERY/Scene" );
-  var SolutionControlsNode = require( "beerslaw/view/SolutionControlsNode" );
+  var SolutionControls = require( "beerslaw/view/SolutionControls" );
   var Text = require( "SCENERY/nodes/Text" );
-  var WavelengthControlNode = require( "beerslaw/view/WavelengthControlNode" );
+  var WavelengthControls = require( "beerslaw/view/WavelengthControls" );
 
   /**
    * @param {BeersLawModel} model
@@ -38,37 +38,37 @@ define( function( require ) {
     var cuvetteNode = new CuvetteNode( model.cuvette, model.solution, mvt, 0.1 /* snapInterval, cm */ );
     var beamNode = new BeamNode( model.beam );
     var detectorNode = new ATDetectorNode( model.detector, mvt );
-    var wavelengthControlNode = new WavelengthControlNode( model.solution, model.light );
+    var wavelengthControls = new WavelengthControls( model.solution, model.light );
     var rulerNode = new BLLRulerNode( model.ruler, mvt );
-    var solutionControlsNode = new SolutionControlsNode( model.solutions, model.solution );
+    var solutionControls = new SolutionControls( model.solutions, model.solution );
 
     // Reset All button
     var resetAllButton = new ResetAllButton( function() {
       model.reset();
-      wavelengthControlNode.reset();
+      wavelengthControls.reset();
     } );
 
     // Rendering order
-    thisView.addChild( wavelengthControlNode );
+    thisView.addChild( wavelengthControls );
     thisView.addChild( detectorNode );
     thisView.addChild( cuvetteNode );
     thisView.addChild( beamNode );
     thisView.addChild( lightNode );
     thisView.addChild( resetAllButton );
-    thisView.addChild( solutionControlsNode );
+    thisView.addChild( solutionControls );
     thisView.addChild( rulerNode );
 
     // Layout for things that don't have a location in the model.
     {
       // below the light
-      wavelengthControlNode.left = lightNode.left;
-      wavelengthControlNode.top = lightNode.bottom + 20;
+      wavelengthControls.left = lightNode.left;
+      wavelengthControls.top = lightNode.bottom + 20;
       // below cuvette
-      solutionControlsNode.left = cuvetteNode.left;
-      solutionControlsNode.top = cuvetteNode.bottom + 35;
+      solutionControls.left = cuvetteNode.left;
+      solutionControls.top = cuvetteNode.bottom + 35;
       // bottom left
-      resetAllButton.left = solutionControlsNode.right + 20;
-      resetAllButton.bottom = solutionControlsNode.bottom;
+      resetAllButton.left = solutionControls.right + 20;
+      resetAllButton.bottom = solutionControls.bottom;
     }
   }
 
