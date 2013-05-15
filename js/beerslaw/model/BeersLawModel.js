@@ -50,7 +50,7 @@ define( function( require ) {
                                  false, 0.45, thisModel.solution );
 
     var rulerWidth = 2; // cm
-    thisModel.ruler = new Ruler( rulerWidth, 0.1, 0.35,
+    thisModel.ruler = new Ruler( rulerWidth, 0.1, 0.5,
                                  new Vector2( 0.5, 4.7 ),
                                  new Bounds2( 0, 0, 6, 5 ) );
 
