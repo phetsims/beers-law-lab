@@ -14,9 +14,10 @@ SCENERY ENHANCEMENTS
 BUGS
 - Nexus: big part of play area is not visible
 - Nexus: performance
+- Desktop: HTML text dragging lags on Firefox, joist#5
 
 HIGH
-- dynamically resize wavelength control panel
+- dynamically resize wavelength control panel, scenery#45
 
 MEDIUM
 - ComboBoxNode: use listNode.visible instead of addChild/removeChild(listNode)
