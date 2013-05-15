@@ -60,7 +60,6 @@ define( function( require ) {
     PanelNode.call( thisNode, content,
                     { xMargin: 20, yMargin: 20, fill: "#F0F0F0", stroke: "gray", lineWidth: 1 } );
 
-    //TODO controlPanel doesn't resize because bounds of content don't change, why?
     // When the radio button selection changes...
     variableWavelength.addObserver( function( isVariable ) {
       wavelengthSlider.visible = isVariable;

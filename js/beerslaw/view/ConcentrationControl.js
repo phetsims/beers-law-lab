@@ -13,7 +13,6 @@ define( function( require ) {
   var ConcentrationSlider = require( "beerslaw/view/ConcentrationSlider" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
-  var Rectangle = require( "SCENERY/nodes/Rectangle" );  //TODO delete me
   var StringUtils = require( "common/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
 

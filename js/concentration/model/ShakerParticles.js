@@ -85,7 +85,7 @@ define( function( require ) {
     if ( shaker.dispensingRate.get() > 0 ) {
       var numberOfParticles = Math.round( Math.max( 1, shaker.dispensingRate.get() * solution.solute.get().particlesPerMole * deltaSeconds ) );
       for ( var j = 0; j < numberOfParticles; j++ ) {
-        this._addParticle( new ShakerParticle( solution.solute.get(), this._getRandomLocation(), ShakerParticles.getRandomOrientation(),
+        this._addParticle( new ShakerParticle( solution.solute.get(), this._getRandomLocation(), ShakerParticles._getRandomOrientation(),
                                                this._getInitialVelocity(), this._getGravitationalAcceleration() ) );
       }
     }
@@ -136,20 +136,18 @@ define( function( require ) {
 
   ShakerParticles.prototype._getRandomLocation = function() {
     // (Math.floor(Math.random() * (randNumMax - randNumMin + 1)) + randNumMin);
-    var xOffset = ShakerParticles.getRandomInt( -MAX_X_OFFSET, MAX_X_OFFSET ); // positive or negative
-    var yOffset = ShakerParticles.getRandomInt( 0, MAX_Y_OFFSET ); // positive only
+    var xOffset = ShakerParticles._getRandomInt( -MAX_X_OFFSET, MAX_X_OFFSET ); // positive or negative
+    var yOffset = ShakerParticles._getRandomInt( 0, MAX_Y_OFFSET ); // positive only
     return new Vector2( this.shaker.location.get().x + xOffset, this.shaker.location.get().y + yOffset );
   };
 
-  //TODO common code
   // Gets a random number in a range
-  ShakerParticles.getRandomInt = function( min, max ) {
+  ShakerParticles._getRandomInt = function( min, max ) {
     return (Math.floor( Math.random() * (max - min + 1) ) + min);
   };
 
-  //TODO common code
   // Gets a random orientation, in radians.
-  ShakerParticles.getRandomOrientation = function() {
+  ShakerParticles._getRandomOrientation = function() {
     return Math.random() * 2 * Math.PI;
   };
 

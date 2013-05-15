@@ -1,3 +1,5 @@
+5/15/13 use "_" prefix for methods that are not intended to be part of public interface
+5/15/13 review TODO items in code, delete some that have been done
 # 0.0.0-2 5/14/13
 5/14/13 event batching added to joist.Sim, resolves lag time when dragging text
 5/14/13 make AT detector radio buttons smaller until we get a bigger graphic

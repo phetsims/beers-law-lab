@@ -57,7 +57,7 @@ define( function( require ) {
     else if ( numberOfParticles > this.particles.length ) {
       // add particles
       while ( numberOfParticles > this.particles.length ) {
-        this._addParticle( new PrecipitateParticle( this.solution.solute.get(), this._getRandomOffset(), Precipitate.getRandomOrientation() ) );
+        this._addParticle( new PrecipitateParticle( this.solution.solute.get(), this._getRandomOffset(), Precipitate._getRandomOrientation() ) );
       }
     }
     else {
@@ -115,12 +115,10 @@ define( function( require ) {
     return new Vector2( x, y );
   };
 
-  //TODO common code, duplicate of ShakerParticles.getRandomOrientation
   // Gets a random orientation, in radians.
-  Precipitate.getRandomOrientation = function() {
+  Precipitate._getRandomOrientation = function() {
     return Math.random() * 2 * Math.PI;
   };
 
   return Precipitate;
-
 } );

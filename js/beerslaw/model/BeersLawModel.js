@@ -40,7 +40,6 @@ define( function( require ) {
         BeersLawSolution.COPPER_SULFATE,
         BeersLawSolution.POTASSIUM_PERMANGANATE
     );
-    //TODO add more solutions
 
     thisModel.solution = new Property( thisModel.solutions[0] );
 

@@ -143,7 +143,6 @@ define( function( require ) {
       fluid.fill = color.toCSS();
     } );
 
-    //TODO this listener conflicts with MomentaryButton's listener
     // drag handler
     thisNode.addInputListener( new MovableDragHandler( dropper, mvt ) );
   }

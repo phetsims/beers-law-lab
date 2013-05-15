@@ -31,7 +31,7 @@ define( function( require ) {
 
     // rendering order
     contentNode.addChild( concentrationControl );
-    contentNode.addChild( comboBox ); //TODO combo box on top!
+    contentNode.addChild( comboBox );
 
     // layout
     concentrationControl.left = comboBox.left;
