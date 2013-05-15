@@ -32,7 +32,7 @@ MEDIUM
 
 LOW
 - generalize left/right arrow buttons for sliders
-- lighting on AT body is vertically flipped
+- lighting on AT body is vertically flipped, graphic is not tall enough
 - sim resizing doesn't play nice with browser zoom features
 - nicer knobs slider
 - value in concentration meter jitters horizontally as value changes
