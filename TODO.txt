@@ -57,3 +57,4 @@ HorizontalTiledNode
 ChemUtils
 ComboBoxNode + ComboBoxItem
 ControlPanelNode
+WavelengthSliderNode

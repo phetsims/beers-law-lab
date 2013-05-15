@@ -127,8 +127,8 @@ define( function( require ) {
     assert && assert( maxWavelength >= VisibleColor.MIN_WAVELENGTH && maxWavelength <= VisibleColor.MAX_WAVELENGTH );
     var trackWidth = options.trackWidth || 150;
     var trackHeight = options.trackHeight || 30;
-    var thumbWidth = options.thumbWidth || 28;
-    var thumbHeight = options.thumbHeight || 28;
+    var thumbWidth = options.thumbWidth || 35;
+    var thumbHeight = options.thumbHeight || 45;
     var valueFont = options.valueFont || "20px Arial";
     var valueFill = options.valueFill || "black";
 

@@ -1,7 +1,8 @@
+5/14/13 make wavelength slider thumbs bigger so it's easier to grab on tablets
 5/14/13 make ruler taller so that it's more tablet-friendly
 5/14/13 increase default size of radio buttons to work better on tablets
 5/14/13 add a "hit area" to radio buttons, so we don't have a dead spot between button and node
-5/14/13 make slider thumbs bigger so that they are easier to grab on tablets
+5/14/13 make evaporation and concentration slider thumbs bigger so that they are easier to grab on tablets
 5/14/13 scenery.DOMLayer fixed so that HTML text doesn't wrap
 5/14/13 scenery.Text boundsMethod was changed to "fastCanvas", resulting in fewer layers, and able to run nicely on iPad
 # 0.0.0-1 5/13/13
