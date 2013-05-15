@@ -1,3 +1,4 @@
+# 0.0.0-2 5/14/13
 5/14/13 make AT detector radio buttons smaller until we get a bigger graphic
 5/14/13 remove "Node" suffix from type names that are UI components or clearly have no analogous model element
 5/14/13 fixed scenery#38 with JO (combo box popup works every other time)
