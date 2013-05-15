@@ -14,7 +14,7 @@ SCENERY ENHANCEMENTS
 BUGS
 - Nexus: big part of play area is not visible
 - Nexus: performance
-- iPad: text doesn't keep up with dragging (e.g., on shaker)
+- iPad: text doesn't keep up with dragging (e.g., on shaker), joist#5
 
 HIGH
 - bug: shaker particles move up before falling (broken by scenery changes?)
