@@ -16,8 +16,7 @@ BUGS
 - Nexus: performance
 
 HIGH
-- bug: wavelength control panel doesn't resize when wavelength control is removed
-- laundry list at top of ComboBoxNode
+- dynamically resize wavelength control panel
 
 MEDIUM
 - ComboBoxNode: use listNode.visible instead of addChild/removeChild(listNode)
