@@ -76,7 +76,7 @@ define( function( require ) {
 
   /*
    * Moves time forward by the specified amount.
-   * @param deltaSeconds clock time change, in seconds.
+   * @param {Number} deltaSeconds clock time change, in seconds.
    */
   BeersLawModel.prototype.step = function( deltaSeconds ) {
     // do nothing, nothing time-based in this model

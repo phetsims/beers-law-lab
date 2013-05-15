@@ -13,6 +13,15 @@ define( function( require ) {
   // imports
   var Color = require( "common/model/Color" );
 
+  /**
+   * @param {Number} minConcentration
+   * @param {Color} minColor
+   * @param {Number} midConcentration
+   * @param {Color} midColor
+   * @param {Number} maxConcentration
+   * @param {Color} maxColor
+   * @constructor
+   */
   function SoluteColorScheme( minConcentration, minColor, midConcentration, midColor, maxConcentration, maxColor ) {
     this.minColor = minColor;
     this.midColor = midColor;
@@ -23,8 +32,8 @@ define( function( require ) {
   }
 
   /**
-   * Converts a concentration value (in M) to a Color, using a linear interpolation of RGB colors.
-   * @param {Number} concentration
+   * Converts a concentration value to a Color, using a linear interpolation of RGB colors.
+   * @param {Number} concentration moles (M)
    * @return {Color} color
    */
   SoluteColorScheme.prototype.concentrationToColor = function( concentration ) {

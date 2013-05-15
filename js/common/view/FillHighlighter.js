@@ -17,6 +17,13 @@ define( function( require ) {
   var inherit = require( "PHET_CORE/inherit" );
   var Property = require( "PHETCOMMON/model/property/Property" );
 
+  /**
+   * @param {Node} node
+   * @param {String} normalFill CSS color string
+   * @param {String} highlightFill CSS color string
+   * @param {Property<Boolean>} enabled
+   * @constructor
+   */
   function FillHighlighter( node, normalFill, highlightFill, enabled ) {
 
     enabled = _.isUndefined( enabled ) ? new Property( true ) : enabled;

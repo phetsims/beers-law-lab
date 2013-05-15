@@ -46,7 +46,7 @@ define( function( require ) {
    * Clicking in the track changes the value.
    *
    * @param {Dimension2} trackSize
-   * @param {Property} solution of type BeersLawSolution
+   * @param {Property<BeersLawSolution>} solution
    * @constructor
    */
   function Track( trackSize, solution ) {
@@ -102,7 +102,7 @@ define( function( require ) {
 
   /**
    * Tick label.
-   * @param value
+   * @param {Number} value
    * @constructor
    */
   function TickLabel( value ) {
@@ -120,7 +120,7 @@ define( function( require ) {
    * The slider thumb, a rounded rectangle with a vertical line through its center.
    * @param {Dimension2} thumbSize
    * @param {Dimension2} trackSize
-   * @param {Property} solution of type BeersLawSolution
+   * @param {Property<BeersLawSolution>} solution
    * @constructor
    */
   function Thumb( thumbSize, trackSize, solution ) {
@@ -179,7 +179,7 @@ define( function( require ) {
   /**
    * Drag handler for the slider thumb.
    * @param {Node} dragNode
-   * @param {Property} concentration of type number
+   * @param {Property<Number>} concentration
    * @param {LinearFunction} positionToValue
    * @constructor
    */
@@ -202,7 +202,7 @@ define( function( require ) {
   inherit( ThumbDragHandler, SimpleDragHandler );
 
   /**
-   * @param {Property} solution of type BeersLawSolution
+   * @param {Property<BeersLawSolution>} solution
    * @constructor
    */
   function ConcentrationSlider( solution ) {

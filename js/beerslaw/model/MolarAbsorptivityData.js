@@ -16,7 +16,7 @@ define( function( require ) {
   var VisibleColor = require( "common/util/VisibleColor" );
 
   /**
-   * @param {Array} molarAbsorptivity
+   * @param {Array<Number>} molarAbsorptivity
    * @constructor
    */
   function MolarAbsorptivityData( molarAbsorptivity ) {
@@ -39,7 +39,7 @@ define( function( require ) {
   /*
    * Finds the wavelength with the maximum molar absorptivity.
    * If there are identical maximums, the lower value is returned.
-   * @param {Array} molarAbsorptivity
+   * @param {Array<Number>} molarAbsorptivity
    * @return {Number}
    */
   MolarAbsorptivityData._getLambdaMax = function( molarAbsorptivity ) {

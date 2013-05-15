@@ -20,7 +20,7 @@ define( function( require ) {
 
   /**
    * @param {Node} itemNode
-   * @param {object} options
+   * @param {*} options object with optional properties
    * @constructor
    */
   function ButtonNode( itemNode, options ) {
@@ -67,9 +67,9 @@ define( function( require ) {
   /**
    * A wrapper around the combo box item, adds margins, etc.
    * @param {ComboBoxItem} item
-   * @param {number} width
-   * @param {number} height
-   * @param {number} xMargin
+   * @param {Number} width
+   * @param {Number} height
+   * @param {Number} xMargin
    * @constructor
    */
   function ItemNode( item, width, height, xMargin ) {
@@ -86,7 +86,7 @@ define( function( require ) {
   /**
    * @param {Array<ComboBoxItem>} items
    * @param {Property<Node>} property
-   * @param {object} options
+   * @param {*} options object with optional properties
    */
   function ComboBoxNode( items, property, options ) {
 

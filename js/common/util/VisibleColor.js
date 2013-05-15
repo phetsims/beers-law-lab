@@ -94,9 +94,8 @@ define( function( require ) {
 
   /**
    * Converts a wavelength to a visible color.
-   * If the wavelength is not in the visible spectrum, null is returned.
-   * @param wavelength
-   * @return {*}
+   * @param {Number} wavelength
+   * @return {Number|null} null if wavelength is not in the visible spectrum
    */
   VisibleColor.wavelengthToColor = function( wavelength ) {
     var color;

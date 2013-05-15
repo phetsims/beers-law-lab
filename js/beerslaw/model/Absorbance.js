@@ -26,7 +26,7 @@ define( function( require ) {
 
   /**
    * @param {Light} light
-   * @param {Property} solution of type BeersLawSolution
+   * @param {Property<BeersLawSolution>} solution
    * @param {Cuvette} cuvette
    * @constructor
    */

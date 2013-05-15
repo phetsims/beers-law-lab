@@ -21,9 +21,9 @@ define( function( require ) {
    * @param {String} formula
    * @param {Number} stockSolutionConcentration
    * @param {SoluteColorScheme} colorScheme
-   * @param {Color} particleColor (optional)
-   * @param {Number} particleSize (optional)
-   * @param {Number} particlesPerMole (optional)
+   * @param {Color|undefined} particleColor
+   * @param {Number|undefined} particleSize
+   * @param {Number|undefined} particlesPerMole
    * @constructor
    */
   function Solute( name, formula, stockSolutionConcentration, colorScheme, particleColor, particleSize, particlesPerMole ) {

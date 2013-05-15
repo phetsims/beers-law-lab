@@ -16,8 +16,8 @@ define( function( require ) {
   var SoluteFormNode = require( "concentration/view/SoluteFormNode" );
 
   /**
-   * @param {Array} solutes (of type Solute)
-   * @param {Property} currentSolute (of type Solute)
+   * @param {Array<Solute>} solutes
+   * @param {Property<Solute>} currentSolute
    * @param {Shaker} shaker
    * @param {Dropper} dropper
    * @constructor

@@ -17,8 +17,8 @@ define( function( require ) {
   var Node = require( "SCENERY/nodes/Node" );
 
   /**
-   * @param {Property} on (type boolean)
-   * @param {Property} enabled (type boolean)
+   * @param {Property<Boolean>} on
+   * @param {Property<Boolean>} enabled
    * @constructor
    */
   function ToggleButton( on, enabled ) {

@@ -40,10 +40,24 @@ define( function( require ) {
     } );
   }
 
+  /**
+   * Document the callback.
+   * @name Precipitate~Callback
+   * @param {Particle} particle
+   */
+
+  /**
+   * Registers a callback that will be notified when a particle is added.
+   * @param {Precipitate~Callback} callback
+   */
   Precipitate.prototype.registerParticleAddedCallback = function( callback ) {
     this.addedCallbacks.push( callback );
   };
 
+  /**
+   * Registers a callback that will be notified when a particle is removed.
+   * @param {Precipitate~Callback} callback
+   */
   Precipitate.prototype.registerParticleRemovedCallback = function( callback ) {
     this.removedCallbacks.push( callback );
   };

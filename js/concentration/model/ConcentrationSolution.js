@@ -19,7 +19,7 @@ define( function( require ) {
   var Solvent = require( "common/model/Solvent" );
 
   /**
-   * @param {Property} solute (type Solute)
+   * @param {Property<Solute>} solute
    * @param {Number} soluteAmount moles
    * @param {NUmber} volume L
    */

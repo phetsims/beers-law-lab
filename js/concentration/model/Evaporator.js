@@ -11,6 +11,11 @@ define( function( require ) {
   // imports
   var Property = require( "PHETCOMMON/model/property/Property" );
 
+  /**
+   * @param {Number} maxEvaporationRate L/sec
+   * @param {ConcentrationSolution} solution
+   * @constructor
+   */
   function Evaporator( maxEvaporationRate, solution ) {
 
     var thisEvaporator = this;

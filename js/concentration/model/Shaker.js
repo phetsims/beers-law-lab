@@ -20,7 +20,7 @@ define( function( require ) {
    * @param {Vector2} location
    * @param {Number} orientation in radians
    * @param {Bounds2} dragBounds
-   * @param {Property} solute (type Solute)
+   * @param {Property<Solute>} solute
    * @param {Number} maxDispensingRate
    * @param {Boolean} visible
    * @constructor
@@ -28,7 +28,7 @@ define( function( require ) {
   function Shaker( location, dragBounds, orientation, solute, maxDispensingRate, visible ) {
 
     var thisShaker = this;
-    Movable.call( thisShaker, location, dragBounds ); // constructor stealing
+    Movable.call( thisShaker, location, dragBounds );
 
     thisShaker.orientation = orientation;
     thisShaker.solute = solute;

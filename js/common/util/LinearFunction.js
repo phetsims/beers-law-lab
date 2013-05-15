@@ -14,7 +14,7 @@ define( function( require ) {
   /**
    * @param {Range} range1
    * @param {Range} range2
-   * @param {boolean} clamp clamp the result to the provided ranges
+   * @param {Boolean} clamp clamp the result to the provided ranges
    * @constructor
    */
   function LinearFunction( range1, range2, clamp ) {

@@ -14,10 +14,14 @@ define( function( require ) {
   var Path = require( "SCENERY/nodes/Path" );
   var Shape = require( "KITE/Shape" );
 
-  function DebugOriginNode( color ) {
+  /**
+   * @param {String} fill
+   * @constructor
+   */
+  function DebugOriginNode( fill ) {
     Path.call( this, {
       shape: Shape.circle( 0, 0, 3 ),
-      fill: color
+      fill: fill
     } );
   }
 

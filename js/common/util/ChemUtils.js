@@ -11,10 +11,12 @@ define( function() {
   function ChemUtils() {
   }
 
-  /*
+  /**
    * Handles HTML subscript formatting for molecule symbols.
    * All numbers in a string are assumed to be part of a subscript, and will be enclosed in a <sub> tag.
    * For example, "C2H4" becomes "C<sub>2</sub>H<sub>4</sub>".
+   * @param {String} inString the input plaintext string
+   * @return {String} HTML fragment
    */
   ChemUtils.toSubscript = function( inString ) {
     var outString = "";

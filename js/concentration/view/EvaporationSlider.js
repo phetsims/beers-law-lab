@@ -35,8 +35,8 @@ define( function( require ) {
   /**
    * @param {Range} range
    * @param {Dimension2} trackSize
-   * @param {Property} value (type number)
-   * @param {Property} enabled (type Boolean)
+   * @param {Property<Number>} value
+   * @param {Property<Boolean>} enabled
    * @param {Boolean} snapToMinWhenReleased
    * @constructor
    */

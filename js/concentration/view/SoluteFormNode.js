@@ -18,6 +18,13 @@ define( function( require ) {
   var RadioButton = require( "SUN/RadioButton" );
   var Text = require( "SCENERY/nodes/Text" );
 
+  /**
+   * @param {String} text
+   * @param {*} textOptions
+   * @param {*} image any type supported by scenery.Image
+   * @param {Number} xSpacing
+   * @constructor
+   */
   function TextAndIconNode( text, textOptions, image, xSpacing ) {
     var thisNode = this;
     Node.call( thisNode );

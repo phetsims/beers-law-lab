@@ -109,7 +109,7 @@ define( function( require ) {
 
 
   /**
-   * @param {Property} wavelength of type Number
+   * @param {Property<Number>} wavelength
    * @param {object} options
    * @constructor
    */

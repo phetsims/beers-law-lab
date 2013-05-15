@@ -42,7 +42,6 @@ LOW
 - get new images for faucet, faucet_pipe.png doesn't match up with faucet_spigot.png
 - factor out commonality in MomentaryButtonNode and ToggleButtonNode, migrate to sun?
 - Credits: Ariel (lead), Chris (dev), Noah P, Emily, Kathy, Julia
-- proper usage of JSDoc
 - TODO items throughout code
 
 MIGRATE TO COMMON

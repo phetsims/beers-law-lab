@@ -160,10 +160,10 @@ define( function( require ) {
 
   /**
    * Wire that connects the body and probe.
-   * @param body
-   * @param probe
-   * @param bodyNode
-   * @param probeNode
+   * @param {Movable} body
+   * @param {Movable} probe
+   * @param {Node} bodyNode
+   * @param {Node} probeNode
    * @constructor
    */
   function WireNode( body, probe, bodyNode, probeNode ) {

@@ -21,7 +21,7 @@ define( function( require ) {
   var DECIMAL_PLACES = 0;
 
   /**
-   * @param {Property} solution of type  BeersLawSolution
+   * @param {Property<BeersLawSolution>} solution
    * @constructor
    */
   function ConcentrationControl( solution ) {

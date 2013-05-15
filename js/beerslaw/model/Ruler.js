@@ -9,18 +9,21 @@ define( function( require ) {
   "use strict";
 
   // imports
+  var assert = require( "ASSERT/assert" )( "beers-law-lab" );
   var inherit = require( "PHET_CORE/inherit" );
   var Movable = require( "common/model/Movable" );
 
   /**
-   * @param length  // cm, must be integer units
-   * @param insets  // cm, the horizontal insets at the ends of the ruler
-   * @param height  // cm
-   * @param location
-   * @param dragBounds
+   * @param {Number} length cm, must be integer units
+   * @param {Number} insets cm, the horizontal insets at the ends of the ruler
+   * @param {Number} height cm
+   * @param {Vector2} location
+   * @param {Bounds2} dragBounds
    * @constructor
    */
   function Ruler( length, insets, height, location, dragBounds ) {
+
+    assert && assert( length % 1 === 0 ); // length is an integer
 
     var thisRuler = this;
     Movable.call( thisRuler, location, dragBounds );

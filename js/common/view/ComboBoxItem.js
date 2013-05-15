@@ -11,7 +11,7 @@ define( function() {
 
   /**
    * @param {Node} node scenery node used to render this item
-   * @param {object} value the model value of this item
+   * @param {*} value the model value of this item
    * @constructor
    */
   function ComboBoxItem( node, value ) {

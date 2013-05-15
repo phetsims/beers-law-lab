@@ -13,10 +13,10 @@ define( function( require ) {
   var Property = require( "PHETCOMMON/model/property/Property" );
 
   /**
-   * @param location cm
-   * @param on
-   * @param lensDiameter cm
-   * @param solution Property, of type BeersLawSolution
+   * @param {Vector2} location cm
+   * @param {Boolean} on
+   * @param {Number} lensDiameter cm
+   * @param {Property<BeersLawSolution>} solution
    * @constructor
    */
   function Light( location, on, lensDiameter, solution ) {

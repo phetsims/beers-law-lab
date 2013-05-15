@@ -10,8 +10,9 @@ define( function() {
    * Similar to Java's MessageFormat.
    * Eg, StringUtils.format( "{0} + {1}", [2,3] ) -> "2 + 3"
    *
-   * @param pattern pattern string, with {N} placeholders where N is an integer
-   * @param args values to be substituted for placeholders in pattern
+   * @param {String} pattern pattern string, with N placeholders, where N is an integer
+   * @param {Array} args array of values to be substituted for placeholders in pattern
+   * @return {String}
    */
   StringUtils.format = function( pattern, args ) {
     return pattern.replace( /\{(\d+)\}/g, function() {

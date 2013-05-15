@@ -67,7 +67,7 @@ define( function( require ) {
 
   /**
    * @param {Cuvette} cuvette
-   * @param {Property} solution of type BeersLawSolution
+   * @param {Property<BeersLawSolution>} solution
    * @param {ModelViewTransform2} mvt
    * @param {Number} snapInterval
    * @constructor

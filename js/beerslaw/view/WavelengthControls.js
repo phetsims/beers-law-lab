@@ -21,7 +21,7 @@ define( function( require ) {
   var WavelengthSlider = require( "beerslaw/view/WavelengthSlider" );
 
   /**
-   * @param {Property} solution of type BeersLawSolution
+   * @param {Property<BeersLawSolution>} solution
    * @param {Light} light
    * @constructor
    */

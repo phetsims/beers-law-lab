@@ -51,10 +51,24 @@ define( function( require ) {
     } );
   }
 
+  /**
+   * Document the callback.
+   * @name ShakerParticles~Callback
+   * @param {Particle} particle
+   */
+
+  /**
+   * Registers a callback that will be notified when a particle is added.
+   * @param {ShakerParticles~Callback} callback
+   */
   ShakerParticles.prototype.registerParticleAddedCallback = function( callback ) {
     this.addedCallbacks.push( callback );
   };
 
+  /**
+   * Registers a callback that will be notified when a particle is removed.
+   * @param {ShakerParticles~Callback} callback
+   */
   ShakerParticles.prototype.registerParticleRemovedCallback = function( callback ) {
     this.removedCallbacks.push( callback );
   };

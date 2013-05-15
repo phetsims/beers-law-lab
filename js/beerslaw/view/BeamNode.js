@@ -13,6 +13,10 @@ define( function( require ) {
   var inherit = require( "PHET_CORE/inherit" );
   var Path = require( "SCENERY/nodes/Path" );
 
+  /**
+   * @param {Beam} beam
+   * @constructor
+   */
   function BeamNode( beam ) {
 
     var thisNode = this;

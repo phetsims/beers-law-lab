@@ -16,8 +16,8 @@ define( function( require ) {
   var SolutionComboBox = require( "beerslaw/view/SolutionComboBox" );
 
   /**
-   * @param {Array} solutions of type BeersLawSolution
-   * @param {Property} currentSolution of type  BeersLawSolution
+   * @param {Array<BeersLawSolution>} solutions
+   * @param {Property<BeersLawSolution>} currentSolution
    * @constructor
    */
   function SolutionControls( solutions, currentSolution ) {

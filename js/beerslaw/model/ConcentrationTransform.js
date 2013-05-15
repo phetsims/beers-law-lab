@@ -19,7 +19,7 @@ define( function( require ) {
   var BLLStrings = require( "common/BLLStrings" );
 
   /**
-   * @param {Number} scale scale factor used to convert model units (M) to view units
+   * @param {Number} scale scale factor used to convert model units (Moles, M) to view units
    * @param {String} units
    * @constructor
    */
@@ -28,12 +28,20 @@ define( function( require ) {
     this.units = units;
   }
 
-  // Converts from model (M) to view (solution specific).
+  /**
+   * Converts from model (M) to view (solution specific).
+   * @param {Number} modelConcentration
+   * @returns {number}
+   */
   ConcentrationTransform.prototype.modelToView = function( modelConcentration ) {
     return modelConcentration * this.scale;
   };
 
-  // Converts from view (solution specific) to model (M).
+  /**
+   * Converts from view (solution specific) to model (M).
+   * @param {Number} viewConcentration
+   * @returns {number}
+   */
   ConcentrationTransform.prototype.viewToModel = function( viewConcentration ) {
     return viewConcentration / this.scale;
   };

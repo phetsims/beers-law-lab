@@ -60,7 +60,7 @@ define( function( require ) {
    * @param {Number} number1
    * @param {Number} number2
    * @param {Number} distance distance between number1 and number2, 0 <= distance <= 1
-   * @return value, such that number1 <= value <= number2
+   * @return {Number} such that number1 <= value <= number2
    */
   Color.interpolate = function( number1, number2, distance ) {
     //TODO validate distance

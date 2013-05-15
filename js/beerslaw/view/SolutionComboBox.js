@@ -22,7 +22,7 @@ define( function( require ) {
 
   /**
    * An item in the combo box.
-   * @param solution
+   * @param {BeersLawSolution} solution
    * @constructor
    */
   function Item( solution ) {
@@ -42,8 +42,8 @@ define( function( require ) {
   inherit( Item, ComboBoxItem );
 
   /**
-   * @param {Array} solutions of type BeersLawSolution
-   * @param {Property} selectedSolution of type BeersLawSolution
+   * @param {Array<BeersLawSolution>} solutions
+   * @param {Property<BeersLawSolution>} selectedSolution
    * @constructor
    */
   function SolutionComboBox( solutions, selectedSolution ) {

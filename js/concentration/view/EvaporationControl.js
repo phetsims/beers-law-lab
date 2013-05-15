@@ -19,6 +19,10 @@ define( function( require ) {
   var StringUtils = require( "common/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
 
+  /**
+   * @param {Evaporator} evaporator
+   * @constructor
+   */
   function EvaporationControl( evaporator ) {
 
     var thisNode = this;
