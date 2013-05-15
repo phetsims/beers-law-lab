@@ -12,7 +12,7 @@ define( function( require ) {
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
   var BLLStrings = require( "common/BLLStrings" );
   var ComboBoxItem = require( "common/view/ComboBoxItem" );
-  var ComboBoxNode = require( "common/view/ComboBoxNode" );
+  var ComboBox = require( "common/view/ComboBox" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
@@ -45,7 +45,7 @@ define( function( require ) {
    * @param {Property} selectedSolute (of type Solute)
    * @constructor
    */
-  function SoluteComboBoxNode( solutes, selectedSolute ) {
+  function SoluteComboBox( solutes, selectedSolute ) {
 
     // "Solute" label
     var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [ BLLStrings.solute ] ), { font: "22px Arial" } );
@@ -57,13 +57,13 @@ define( function( require ) {
       items[i] = new Item( solute );
     }
 
-    ComboBoxNode.call( this, items, selectedSolute,
-                       { labelNode: labelNode,
-                         listPosition: "below",
-                         itemHighlightFill: "rgb(218,255,255)" } );
+    ComboBox.call( this, items, selectedSolute,
+                   { labelNode: labelNode,
+                     listPosition: "below",
+                     itemHighlightFill: "rgb(218,255,255)" } );
   }
 
-  inherit( SoluteComboBoxNode, ComboBoxNode );
+  inherit( SoluteComboBox, ComboBox );
 
-  return SoluteComboBoxNode;
+  return SoluteComboBox;
 } );

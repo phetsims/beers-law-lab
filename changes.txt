@@ -1,3 +1,4 @@
+5/14/13 remove "Node" suffix from type names that are UI components or clearly have no analogous model element
 5/14/13 fixed scenery#38 with JO (combo box popup works every other time)
 5/14/13 fix: orientation of shaker node was being set in degrees, should use radians
 5/14/13 fix: shaker particle go up, incorrect shaker orientation set incorrect initial velocity

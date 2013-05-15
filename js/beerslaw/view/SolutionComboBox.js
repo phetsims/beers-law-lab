@@ -12,7 +12,7 @@ define( function( require ) {
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
   var BLLStrings = require( "common/BLLStrings" );
   var ComboBoxItem = require( "common/view/ComboBoxItem" );
-  var ComboBoxNode = require( "common/view/ComboBoxNode" );
+  var ComboBox = require( "common/view/ComboBox" );
   var HTMLText = require( "SCENERY/nodes/HTMLText" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
@@ -46,7 +46,7 @@ define( function( require ) {
    * @param {Property} selectedSolution of type BeersLawSolution
    * @constructor
    */
-  function SolutionComboBoxNode( solutions, selectedSolution ) {
+  function SolutionComboBox( solutions, selectedSolution ) {
 
     // "Solution" label
     var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.solution] ), { font: "20px Arial" } );
@@ -58,13 +58,13 @@ define( function( require ) {
       items[i] = new Item( solution );
     }
 
-    ComboBoxNode.call( this, items, selectedSolution,
+    ComboBox.call( this, items, selectedSolution,
                        { labelNode: labelNode,
                          listPosition: "above",
                          itemHighlightFill: "rgb(218,255,255)" } );
   }
 
-  inherit( SolutionComboBoxNode, ComboBoxNode );
+  inherit( SolutionComboBox, ComboBox );
 
-  return SolutionComboBoxNode;
+  return SolutionComboBox;
 } );

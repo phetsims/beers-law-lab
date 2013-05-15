@@ -13,7 +13,7 @@ define( function( require ) {
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var PanelNode = require( "SUN/PanelNode" );
-  var SolutionComboBoxNode = require( "beerslaw/view/SolutionComboBoxNode" );
+  var SolutionComboBox = require( "beerslaw/view/SolutionComboBox" );
 
   /**
    * @param {Array} solutions of type BeersLawSolution
@@ -25,7 +25,7 @@ define( function( require ) {
     var thisNode = this;
 
     // nodes
-    var comboBox = new SolutionComboBoxNode( solutions, currentSolution );
+    var comboBox = new SolutionComboBox( solutions, currentSolution );
     var concentrationControlNode = new ConcentrationControlNode( currentSolution );
     var contentNode = new Node();
 

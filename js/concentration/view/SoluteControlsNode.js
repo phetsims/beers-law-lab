@@ -12,7 +12,7 @@ define( function( require ) {
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var PanelNode = require( "SUN/PanelNode" );
-  var SoluteComboBoxNode = require( "concentration/view/SoluteComboBoxNode" );
+  var SoluteComboBox = require( "concentration/view/SoluteComboBox" );
   var SoluteFormNode = require( "concentration/view/SoluteFormNode" );
 
   /**
@@ -27,7 +27,7 @@ define( function( require ) {
     var thisNode = this;
 
     // solute combo box
-    var soluteComboBox = new SoluteComboBoxNode( solutes, currentSolute );
+    var soluteComboBox = new SoluteComboBox( solutes, currentSolute );
 
     // radio buttons for solid vs solution
     var soluteFormNode = new SoluteFormNode( shaker, dropper );
