@@ -13,11 +13,8 @@ SCENERY ENHANCEMENTS
 
 BUGS
 - Nexus: big part of play area is not visible
-- iPad, Nexus: performance of particles
-- iPad: unresponsive when concentration probe is dragged into solution, ditto for AT detector (text performance?)
-- iPad: resizing the cuvette is painfully sluggish
+- Nexus: performance
 - iPad: text doesn't keep up with dragging (e.g., on shaker)
-- iPad: wavelength slider is unusable and thumb disappears
 
 HIGH
 - bug: shaker particles move up before falling (broken by scenery changes?)
