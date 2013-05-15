@@ -24,6 +24,7 @@ MEDIUM
 - ComboBoxNode: use listNode.visible instead of addChild/removeChild(listNode)
 - ComboBoxNode: click outside of list to dismiss it
 - ComboBoxNode: support for listParent (and coordinate-frame transforms this requires)
+- make radio buttons on AT detector larger
 - buttons fire on 'up' event even if they haven't seen a 'down' event
 - disable (instead of hide) increment/decrement buttons for sliders (not supported by sun.Button)
 - add relativePressPoint to MovableDragHandler, so that mouse doesn't get away from drag target
@@ -31,7 +32,7 @@ MEDIUM
 
 LOW
 - generalize left/right arrow buttons for sliders
-- lighting on AT body is vertically flipped, graphic is not tall enough
+- lighting on AT body is vertically flipped, graphic is not tall enough for larger radio buttons
 - sim resizing doesn't play nice with browser zoom features
 - nicer slider thumbs
 - value in concentration meter jitters horizontally as value changes
