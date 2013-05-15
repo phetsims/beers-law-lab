@@ -10,6 +10,7 @@ define( function( require ) {
 
   // imports
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
+  var BLLFont = require( "common/BLLFont" );
   var BLLStrings = require( "common/BLLStrings" );
   var ComboBoxItem = require( "common/view/ComboBoxItem" );
   var ComboBox = require( "common/view/ComboBox" );
@@ -29,7 +30,7 @@ define( function( require ) {
     // node
     var node = new Node();
     var colorNode = new Rectangle( 0, 0, 20, 20, { fill: solute.colorScheme.maxColor.toCSS(), stroke: solute.colorScheme.maxColor.darkerColor().toCSS() } );
-    var textNode = new Text( solute.name, { font: "20px Arial" } );
+    var textNode = new Text( solute.name, { font: new BLLFont( 20 ).toCSS() } );
     node.addChild( colorNode );
     node.addChild( textNode );
     textNode.left = colorNode.right + 5;
@@ -48,7 +49,8 @@ define( function( require ) {
   function SoluteComboBox( solutes, selectedSolute ) {
 
     // "Solute" label
-    var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [ BLLStrings.solute ] ), { font: "22px Arial" } );
+    var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [ BLLStrings.solute ] ),
+                              { font: new BLLFont( 22 ).toCSS() } );
 
     // items
     var items = [];

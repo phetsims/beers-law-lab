@@ -10,6 +10,7 @@ define( function( require ) {
   "use strict";
 
   // imports
+  var BLLFont = require( "common/BLLFont" );
   var BLLStrings = require( "common/BLLStrings" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
@@ -25,7 +26,7 @@ define( function( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
-    var label = new Text( BLLStrings.saturated, { font: "20px Arial" } );
+    var label = new Text( BLLStrings.saturated, { font: new BLLFont( 20 ).toCSS() } );
 
     // translucent light-gray background, so this shows up on all solution colors
     var background = new Rectangle( 0, 0, 1.2 * label.width, 1.2 * label.height, 8, 8,

@@ -9,6 +9,7 @@ define( function( require ) {
   "use strict";
 
   // imports
+  var BLLFont = require( "common/BLLFont" );
   var Button = require( "SUN/Button" );
   var Color = require( "SCENERY/util/Color" );
   var Dimension2 = require( "DOT/Dimension2" );
@@ -37,7 +38,7 @@ define( function( require ) {
 
   // tick constants
   var TICK_LENGTH = 14;
-  var TICK_FONT = "16px Arial";
+  var TICK_FONT = new BLLFont( 16 );
   var TICK_DECIMAL_PLACES = 0;
 
   /**

@@ -10,6 +10,7 @@ define( function( require ) {
 
   // imports
   var ATDetector = require( "beerslaw/model/ATDetector" );
+  var BLLFont = require( "common/BLLFont" );
   var BLLImages = require( "common/BLLImages" );
   var BLLStrings = require( "common/BLLStrings" );
   var HorizontalTiledNode = require( "common/view/HorizontalTiledNode" );
@@ -50,7 +51,7 @@ define( function( require ) {
     Node.call( thisNode );
 
     // buttons for changing the detector "mode"
-    var textOptions = { font: "18px Arial", fill: "white" };
+    var textOptions = { font: new BLLFont( 18 ).toCSS(), fill: "white" };
     var transmittanceButton = new RadioButton( detector.mode, ATDetector.Mode.TRANSMITTANCE, new Text( BLLStrings.transmittance, textOptions ), { radius: 12 } );
     var absorbanceButton = new RadioButton( detector.mode, ATDetector.Mode.ABSORBANCE, new Text( BLLStrings.absorbance, textOptions ), { radius: 12 } );
 
@@ -63,7 +64,7 @@ define( function( require ) {
 
     // value display
     var maxValue = 100;
-    var valueNode = new Text( maxValue.toFixed( ABSORBANCE_DECIMAL_PLACES ), { font: "24px Arial" } );
+    var valueNode = new Text( maxValue.toFixed( ABSORBANCE_DECIMAL_PLACES ), { font: new BLLFont( 24 ).toCSS() } );
 
     // background image, sized to fit
     var bodyWidth = Math.max( buttonGroup.width, valueNode.width ) + ( 2 * BUTTONS_X_MARGIN );

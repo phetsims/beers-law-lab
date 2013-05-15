@@ -10,6 +10,7 @@ define( function( require ) {
   "use strict";
 
   // imports
+  var BLLFont = require( "common/BLLFont" );
   var BLLStrings = require( "common/BLLStrings" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
@@ -87,7 +88,7 @@ define( function( require ) {
         if ( labelIndex < MAJOR_TICK_LABELS.length ) {
           var label = StringUtils.format( BLLStrings.pattern_0value_1units, [MAJOR_TICK_LABELS[labelIndex], BLLStrings.units_liters] );
           ticksParent.addChild( new Text( label, {
-            font: "24px Arial",
+            font: new BLLFont( 24 ).toCSS(),
             fill: "black",
             x: rightX + TICK_LABEL_X_SPACING,
             centerY: tickPath.centerY

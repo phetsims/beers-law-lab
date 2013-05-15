@@ -10,6 +10,7 @@ define( function( require ) {
   "use strict";
 
   // imports
+  var BLLFont = require( "common/BLLFont" );
   var BLLImages = require( "common/BLLImages" );
   var ConcentrationSolution = require( "concentration/model/ConcentrationSolution" );
   var DebugOriginNode = require( "common/view/DebugOriginNode" );
@@ -67,7 +68,7 @@ define( function( require ) {
     var background = new Image( BLLImages.getImage( "dropper_background.png" ) );
 
     // label
-    var label = new HTMLText( dropper.solute.formula, { font: "bold 18px Arial", fill: "black" } );
+    var label = new HTMLText( dropper.solute.formula, { font: new BLLFont( 18, "bold" ).toCSS(), fill: "black" } );
 
     // label background, so the label shows up on various fluid colors
     var labelBackground = new Path(

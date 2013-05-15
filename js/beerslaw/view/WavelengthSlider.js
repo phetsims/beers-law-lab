@@ -10,6 +10,7 @@ define( function( require ) {
 
   // imports
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
+  var BLLFont = require( "common/BLLFont" );
   var BLLStrings = require( "common/BLLStrings" );
   var Button = require( "SUN/Button" );
   var Dimension2 = require( "DOT/Dimension2" );
@@ -129,7 +130,7 @@ define( function( require ) {
     var trackHeight = options.trackHeight || 30;
     var thumbWidth = options.thumbWidth || 35;
     var thumbHeight = options.thumbHeight || 45;
-    var valueFont = options.valueFont || "20px Arial";
+    var valueFont = options.valueFont || new BLLFont( 20 ).toCSS();
     var valueFill = options.valueFill || "black";
 
     var thumb = new Thumb( thumbWidth, thumbHeight );

@@ -17,7 +17,6 @@ BUGS
 - Desktop: HTML text dragging lags on Mac+Firefox, joist#5
 
 HIGH
-- use scenery.Font for font specification
 - dynamically resize wavelength control panel, scenery#45
 
 MEDIUM

@@ -9,6 +9,7 @@ define( function( require ) {
   "use strict";
 
   // imports
+  var BLLFont = require( "common/BLLFont" );
   var BLLStrings = require( "common/BLLStrings" );
   var Dimension2 = require( "DOT/Dimension2" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -27,14 +28,15 @@ define( function( require ) {
 
     var thisNode = this;
 
-    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, [ BLLStrings.evaporation ] ), { font: "22px Arial" } );
+    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, [ BLLStrings.evaporation ] ), { font: new BLLFont( 22 ).toCSS() } );
 
     var slider = new EvaporationSlider( new Range( 0, evaporator.maxEvaporationRate ),
                                         new Dimension2( 200, 6 ),
                                         evaporator.evaporationRate,
                                         evaporator.enabled,
                                         true );
-    var tickFont = "16px Arial";
+
+    var tickFont = new BLLFont( 16 ).toCSS();
     slider.addMajorTick( 0, new Text( BLLStrings.none, { font: tickFont } ) );
     slider.addMajorTick( evaporator.maxEvaporationRate, new Text( BLLStrings.lots, { font: tickFont } ) );
 

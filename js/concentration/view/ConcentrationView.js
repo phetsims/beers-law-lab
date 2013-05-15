@@ -10,6 +10,7 @@ define( function( require ) {
 
   // imports
   var BeakerNode = require( "concentration/view/BeakerNode" );
+  var BLLFont = require( "common/BLLFont" );
   var BLLStrings = require( "common/BLLStrings" );
   var Bounds2 = require( "DOT/Bounds2" );
   var Button = require( "SUN/Button" );
@@ -79,7 +80,7 @@ define( function( require ) {
     var evaporationControl = new EvaporationControl( model.evaporator );
 
     // Remove Solute button
-    var removeSoluteButtonNode = new Button( new Text( BLLStrings.removeSolute, { font: "22px Arial", fill: "black" } ),
+    var removeSoluteButtonNode = new Button( new Text( BLLStrings.removeSolute, { font: new BLLFont( 22 ).toCSS(), fill: "black" } ),
                                              function() {
                                                model.solution.soluteAmount.set( 0 );
                                              }, { xMargin: 10 } );

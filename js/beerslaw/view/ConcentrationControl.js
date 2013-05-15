@@ -9,6 +9,7 @@ define( function( require ) {
   "use strict";
 
   // imports
+  var BLLFont = require( "common/BLLFont" );
   var BLLStrings = require( "common/BLLStrings" );
   var ConcentrationSlider = require( "beerslaw/view/ConcentrationSlider" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -17,7 +18,7 @@ define( function( require ) {
   var Text = require( "SCENERY/nodes/Text" );
 
   // constants
-  var FONT = "20px Arial";
+  var FONT = new BLLFont( 20 );
   var DECIMAL_PLACES = 0;
 
   /**
