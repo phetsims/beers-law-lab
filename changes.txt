@@ -1,3 +1,4 @@
+5/14/13 fixed scenery#38 with JO (combo box popup works every other time)
 5/14/13 fix: orientation of shaker node was being set in degrees, should use radians
 5/14/13 fix: shaker particle go up, incorrect shaker orientation set incorrect initial velocity
 5/14/13 replace ControlPanelNode with sun.PanelNode
