@@ -26,7 +26,6 @@ HIGH
 
 MEDIUM
 - buttons fire on 'up' event even if they haven't seen a 'down' event
-- ruler can get lost behind Solution control panel
 - disable (instead of hide) increment/decrement buttons for sliders (not supported by sun.Button)
 - add relativePressPoint to MovableDragHandler, so that mouse doesn't get away from drag target
 - improve drag handler for faucet handles

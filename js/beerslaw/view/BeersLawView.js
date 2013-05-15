@@ -54,9 +54,9 @@ define( function( require ) {
     thisView.addChild( cuvetteNode );
     thisView.addChild( beamNode );
     thisView.addChild( lightNode );
-    thisView.addChild( rulerNode );
     thisView.addChild( resetAllButton );
     thisView.addChild( solutionControlsNode );
+    thisView.addChild( rulerNode );
 
     // Layout for things that don't have a location in the model.
     {

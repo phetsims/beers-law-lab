@@ -1,3 +1,4 @@
+5/14/13 move ruler to front, so it won't get lost behind things
 5/14/13 move Solute control panel to the right a bit, so it doesn't interfere with shaker
 5/14/13 move ruler down and left a tad
 5/14/13 make wavelength slider thumbs bigger so it's easier to grab on tablets
