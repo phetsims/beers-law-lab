@@ -9,9 +9,9 @@ define( function( require ) {
   "use strict";
 
   // imports
-  var ControlPanelNode = require( "common/view/ControlPanelNode" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
+  var PanelNode = require( "SUN/PanelNode" );
   var SoluteComboBoxNode = require( "concentration/view/SoluteComboBoxNode" );
   var SoluteFormNode = require( "concentration/view/SoluteFormNode" );
 
@@ -40,12 +40,11 @@ define( function( require ) {
     soluteFormNode.left = soluteComboBox.left;
     soluteFormNode.top = soluteComboBox.bottom + 20;
 
-    //TODO ditch svg renderer when bootstrap has been replaced
-    // Use SVG renderer so that this node doesn't block events to other DOM elements in the scene.
-    ControlPanelNode.call( thisNode, contentNode, 20, 20, { renderer: "svg" } );
+    PanelNode.call( thisNode, contentNode,
+                    { xMargin: 20, yMargin: 20, fill: "#F0F0F0", stroke: "gray", lineWidth: 1 } );
   }
 
-  inherit( SoluteControlsNode, ControlPanelNode );
+  inherit( SoluteControlsNode, PanelNode );
 
   return SoluteControlsNode;
 } );

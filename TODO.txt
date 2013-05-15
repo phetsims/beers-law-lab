@@ -53,5 +53,4 @@ MomentaryButtonNode + ToggleButtonNode + images
 HorizontalTiledNode
 ChemUtils
 ComboBoxNode + ComboBoxItem
-ControlPanelNode
 WavelengthSliderNode

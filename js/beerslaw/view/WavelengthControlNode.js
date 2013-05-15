@@ -10,10 +10,10 @@ define( function( require ) {
 
   // imports
   var BLLStrings = require( "common/BLLStrings" );
-  var ControlPanelNode = require( "common/view/ControlPanelNode" );
   var Dimension2 = require( "DOT/Dimension2" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
+  var PanelNode = require( "SUN/PanelNode" );
   var Property = require( "PHETCOMMON/model/property/Property" );
   var RadioButton = require( "SUN/RadioButton" );
   var StringUtils = require( "common/util/StringUtils" );
@@ -57,7 +57,8 @@ define( function( require ) {
     wavelengthSlider.left = fixedRadioButton.left;
     wavelengthSlider.top = fixedRadioButton.bottom + ySpacing;
 
-    ControlPanelNode.call( thisNode, contentNode, 20, 20 );
+    PanelNode.call( thisNode, contentNode,
+                    { xMargin: 20, yMargin: 20, fill: "#F0F0F0", stroke: "gray", lineWidth: 1 } );
 
     //TODO controlPanel doesn't resize because bounds of contentNode don't change, why?
     // When the radio button selection changes...
@@ -67,7 +68,6 @@ define( function( require ) {
         // Set the light to the current solution's lambdaMax wavelength.
         light.wavelength.set( solution.get().molarAbsorptivityData.lambdaMax );
       }
-      thisNode.resize();
     } );
 
     this.reset = function() {
@@ -80,7 +80,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( WavelengthControlNode, ControlPanelNode );
+  inherit( WavelengthControlNode, PanelNode );
 
   return WavelengthControlNode;
 } );

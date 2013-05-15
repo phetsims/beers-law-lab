@@ -10,10 +10,10 @@ define( function( require ) {
 
   // imports
   var BLLStrings = require( "common/BLLStrings" );
-  var ControlPanelNode = require( "common/view/ControlPanelNode" );
   var Dimension2 = require( "DOT/Dimension2" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
+  var PanelNode = require( "SUN/PanelNode" );
   var Range = require( "DOT/Range" );
   var EvaporationSliderNode = require( "concentration/view/EvaporationSliderNode" );
   var StringUtils = require( "common/util/StringUtils" );
@@ -41,10 +41,11 @@ define( function( require ) {
     sliderNode.left = labelNode.right + 10;
     sliderNode.centerY = labelNode.centerY;
 
-    ControlPanelNode.call( thisNode, contentNode );
+    PanelNode.call( thisNode, contentNode,
+                    { xMargin: 20, yMargin: 10, fill: "#F0F0F0", stroke: "gray", lineWidth: 1 } );
   }
 
-  inherit( EvaporationControlNode, ControlPanelNode );
+  inherit( EvaporationControlNode, PanelNode );
 
   return EvaporationControlNode;
 } );
