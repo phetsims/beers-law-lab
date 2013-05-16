@@ -12,6 +12,7 @@ SCENERY BUGS
 SCENERY ENHANCEMENTS
 
 BUGS
+- iPad: show About dialog, sim starts to scale down
 - Nexus: big part of play area is not visible
 - Nexus: performance
 - Desktop: HTML text dragging lags on Mac+Firefox, joist#5
