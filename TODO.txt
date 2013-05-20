@@ -22,7 +22,7 @@ HIGH
 
 MEDIUM
 - ComboBoxNode: use listNode.visible instead of addChild/removeChild(listNode)
-- ComboBoxNode: click outside of list to dismiss it
+- dropper can be dragged by button, fix this without using event.handle
 - make radio buttons on AT detector larger
 - buttons fire on 'up' event even if they haven't seen a 'down' event
 - disable (instead of hide) increment/decrement buttons for sliders (not supported by sun.Button)

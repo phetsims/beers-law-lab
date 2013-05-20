@@ -161,7 +161,6 @@ define( function( require ) {
       down: function( event ) {
         event.currentTarget.fill = null;
         event.currentTarget.stroke = null;
-        options.listParent.removeChild( listNode );
         property.set( event.currentTarget.item.value );
       }
     };
@@ -197,17 +196,39 @@ define( function( require ) {
       }
     };
 
+    /**
+     * Because clickToDismissListener is added to the scene, it receives the 'down' event that
+     * buttonNode received to register the listener. This is because scenery propagates events
+     * up the event trail, and the scene is further up the trail than the button.  This flag
+     * is used to ignore the first 'down' event, which is the one that the button received.
+     * If we don't do this, then we never see the list because it is immediately popped down.
+     * This behavior is may change, and is being discussed in scenery#58.
+     */
+    var enableClickToDismissListener;
+
+    // listener for "click outside to dismiss"
+    var clickToDismissListener = {
+      down: function( event ) {
+        if ( enableClickToDismissListener ) {
+          thisNode.getUniqueTrail().rootNode().removeInputListener( clickToDismissListener );
+          options.listParent.removeChild( listNode );
+        }
+        else {
+          enableClickToDismissListener = true;
+        }
+      }
+    };
+
     // button interactivity
     buttonNode.cursor = "pointer";
     buttonNode.addInputListener(
         {
-          down: function() {
-            if ( options.listParent.isChild( listNode ) ) {
-              options.listParent.removeChild( listNode );
-            }
-            else {
+          down: function( event ) {
+            if ( !options.listParent.isChild( listNode ) ) {
               moveList();
               options.listParent.addChild( listNode );
+              enableClickToDismissListener = false;
+              thisNode.getUniqueTrail().rootNode().addInputListener( clickToDismissListener ); // add listener to scene
             }
           }
         } );

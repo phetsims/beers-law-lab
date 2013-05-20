@@ -1,3 +1,5 @@
+5/20/13 ComboBoxNode: add "click to dismiss" feature, by attaching a 'down' listener to the scene
+5/20/13 remove lousy solution for dragging the dropper by its button, investigate other approaches
 5/20/13 ComboBoxNode: support for listParent (and coordinate-frame transforms this requires) so that combo box list is always on top
 5/20/13 remove Color.toCSS calls from places where a Color is supported
 5/20/13 remove Font.toCSS calls from places where a Font is supported
