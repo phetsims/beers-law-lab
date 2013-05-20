@@ -31,7 +31,7 @@ define( function( require ) {
     // node
     var node = new Node();
     var colorSquare = new Rectangle( 0, 0, 20, 20, { fill: solution.saturatedColor.toCSS(), stroke: solution.saturatedColor.darkerColor().toCSS() } );
-    var solutionName = new HTMLText( solution.getDisplayName(), { font: new BLLFont( 20 ).toCSS() } );
+    var solutionName = new HTMLText( solution.getDisplayName(), { font: new BLLFont( 20 ) } );
     node.addChild( colorSquare );
     node.addChild( solutionName );
     solutionName.left = colorSquare.right + 5;
@@ -50,7 +50,7 @@ define( function( require ) {
   function SolutionComboBox( solutions, selectedSolution ) {
 
     // "Solution" label
-    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.solution] ), { font: new BLLFont( 20 ).toCSS() } );
+    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.solution] ), { font: new BLLFont( 20 ) } );
 
     // items
     var items = [];

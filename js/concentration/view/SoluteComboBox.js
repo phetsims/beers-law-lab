@@ -30,7 +30,7 @@ define( function( require ) {
     // node
     var node = new Node();
     var colorNode = new Rectangle( 0, 0, 20, 20, { fill: solute.colorScheme.maxColor.toCSS(), stroke: solute.colorScheme.maxColor.darkerColor().toCSS() } );
-    var textNode = new Text( solute.name, { font: new BLLFont( 20 ).toCSS() } );
+    var textNode = new Text( solute.name, { font: new BLLFont( 20 ) } );
     node.addChild( colorNode );
     node.addChild( textNode );
     textNode.left = colorNode.right + 5;
@@ -50,7 +50,7 @@ define( function( require ) {
 
     // "Solute" label
     var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [ BLLStrings.solute ] ),
-                              { font: new BLLFont( 22 ).toCSS() } );
+                              { font: new BLLFont( 22 ) } );
 
     // items
     var items = [];

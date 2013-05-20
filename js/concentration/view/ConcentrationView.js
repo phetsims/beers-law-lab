@@ -80,7 +80,7 @@ define( function( require ) {
     var evaporationControl = new EvaporationControl( model.evaporator );
 
     // Remove Solute button
-    var removeSoluteButtonNode = new Button( new Text( BLLStrings.removeSolute, { font: new BLLFont( 22 ).toCSS(), fill: "black" } ),
+    var removeSoluteButtonNode = new Button( new Text( BLLStrings.removeSolute, { font: new BLLFont( 22 ), fill: "black" } ),
                                              function() {
                                                model.solution.soluteAmount.set( 0 );
                                              }, { xMargin: 10 } );

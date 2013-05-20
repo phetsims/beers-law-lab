@@ -68,7 +68,7 @@ define( function( require ) {
     var background = new Image( BLLImages.getImage( "dropper_background.png" ) );
 
     // label
-    var label = new HTMLText( dropper.solute.formula, { font: new BLLFont( 18, "bold" ).toCSS(), fill: "black" } );
+    var label = new HTMLText( dropper.solute.formula, { font: new BLLFont( 18, "bold" ), fill: "black" } );
 
     // label background, so the label shows up on various fluid colors
     var labelBackground = new Path(

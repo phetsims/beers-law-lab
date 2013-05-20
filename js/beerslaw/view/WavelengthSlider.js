@@ -130,7 +130,7 @@ define( function( require ) {
     var trackHeight = options.trackHeight || 30;
     var thumbWidth = options.thumbWidth || 35;
     var thumbHeight = options.thumbHeight || 45;
-    var valueFont = options.valueFont || new BLLFont( 20 ).toCSS();
+    var valueFont = options.valueFont || new BLLFont( 20 );
     var valueFill = options.valueFill || "black";
 
     var thumb = new Thumb( thumbWidth, thumbHeight );

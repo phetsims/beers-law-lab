@@ -88,7 +88,7 @@ define( function( require ) {
         if ( labelIndex < MAJOR_TICK_LABELS.length ) {
           var label = StringUtils.format( BLLStrings.pattern_0value_1units, [MAJOR_TICK_LABELS[labelIndex], BLLStrings.units_liters] );
           ticksParent.addChild( new Text( label, {
-            font: new BLLFont( 24 ).toCSS(),
+            font: new BLLFont( 24 ),
             fill: "black",
             x: rightX + TICK_LABEL_X_SPACING,
             centerY: tickPath.centerY

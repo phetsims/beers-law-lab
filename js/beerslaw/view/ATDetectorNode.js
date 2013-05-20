@@ -51,7 +51,7 @@ define( function( require ) {
     Node.call( thisNode );
 
     // buttons for changing the detector "mode"
-    var textOptions = { font: new BLLFont( 18 ).toCSS(), fill: "white" };
+    var textOptions = { font: new BLLFont( 18 ), fill: "white" };
     var transmittanceButton = new RadioButton( detector.mode, ATDetector.Mode.TRANSMITTANCE, new Text( BLLStrings.transmittance, textOptions ), { radius: 12 } );
     var absorbanceButton = new RadioButton( detector.mode, ATDetector.Mode.ABSORBANCE, new Text( BLLStrings.absorbance, textOptions ), { radius: 12 } );
 
@@ -64,7 +64,7 @@ define( function( require ) {
 
     // value display
     var maxValue = 100;
-    var valueNode = new Text( maxValue.toFixed( ABSORBANCE_DECIMAL_PLACES ), { font: new BLLFont( 24 ).toCSS() } );
+    var valueNode = new Text( maxValue.toFixed( ABSORBANCE_DECIMAL_PLACES ), { font: new BLLFont( 24 ) } );
 
     // background image, sized to fit
     var bodyWidth = Math.max( buttonGroup.width, valueNode.width ) + ( 2 * BUTTONS_X_MARGIN );

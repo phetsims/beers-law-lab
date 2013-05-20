@@ -28,7 +28,7 @@ define( function( require ) {
 
     var thisNode = this;
 
-    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, [ BLLStrings.evaporation ] ), { font: new BLLFont( 22 ).toCSS() } );
+    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, [ BLLStrings.evaporation ] ), { font: new BLLFont( 22 ) } );
 
     var slider = new EvaporationSlider( new Range( 0, evaporator.maxEvaporationRate ),
                                         new Dimension2( 200, 6 ),
@@ -36,7 +36,7 @@ define( function( require ) {
                                         evaporator.enabled,
                                         true );
 
-    var tickFont = new BLLFont( 16 ).toCSS();
+    var tickFont = new BLLFont( 16 );
     slider.addMajorTick( 0, new Text( BLLStrings.none, { font: tickFont } ) );
     slider.addMajorTick( evaporator.maxEvaporationRate, new Text( BLLStrings.lots, { font: tickFont } ) );
 

@@ -40,7 +40,7 @@ define( function( require ) {
     imageNode.setScaleMagnitude( 0.75 );
 
     // label
-    var labelNode = new HTMLText( shaker.solute.formula, { font: new BLLFont( 22, "bold" ).toCSS(), fill: "black" } );
+    var labelNode = new HTMLText( shaker.solute.formula, { font: new BLLFont( 22, "bold" ), fill: "black" } );
 
     // common parent, to simplify rotation and label alignment.
     var parentNode = new Node();
