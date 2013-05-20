@@ -58,12 +58,10 @@ define( function( require ) {
         {
           down: function( event ) {
             on.set( true && enabled.get() );
-            event.handle();
           },
           //TODO this isn't fired if you roll off the node and release the mouse
           up: function( event ) {
             on.set( false );
-            event.handle();
           }
           //TODO cancel?
         } );
