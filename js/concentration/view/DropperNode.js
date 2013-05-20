@@ -149,7 +149,7 @@ define( function( require ) {
   inherit( DropperNode, Node );
 
   DropperNode.prototype.getTipWidth = function() {
-     return TIP_WIDTH;
+    return TIP_WIDTH;
   };
 
   return DropperNode;

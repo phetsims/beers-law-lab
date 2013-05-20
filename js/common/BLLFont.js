@@ -10,8 +10,8 @@ define( function( require ) {
   "use strict";
 
   // imports
-  var Font = require("SCENERY/util/Font" );
-  var inherit = require("PHET_CORE/inherit" );
+  var Font = require( "SCENERY/util/Font" );
+  var inherit = require( "PHET_CORE/inherit" );
 
   /**
    * @param {Number} size in pixels
@@ -29,4 +29,4 @@ define( function( require ) {
   inherit( BLLFont, Font );
 
   return BLLFont;
-});
+} );
