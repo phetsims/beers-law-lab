@@ -24,6 +24,7 @@ define( function( require ) {
   /**
    * An item in the combo box.
    * @param {BeersLawSolution} solution
+   * @param {Node} solutionListParent
    * @constructor
    */
   function Item( solution ) {
@@ -46,9 +47,10 @@ define( function( require ) {
   /**
    * @param {Array<BeersLawSolution>} solutions
    * @param {Property<BeersLawSolution>} selectedSolution
+   * @param {Node} soluteListParent
    * @constructor
    */
-  function SolutionComboBox( solutions, selectedSolution ) {
+  function SolutionComboBox( solutions, selectedSolution, soluteListParent ) {
 
     // "Solution" label
     var label = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.solution] ), { font: new BLLFont( 20 ) } );
@@ -61,9 +63,10 @@ define( function( require ) {
     }
 
     ComboBox.call( this, items, selectedSolution,
-                       { labelNode: label,
-                         listPosition: "above",
-                         itemHighlightFill: "rgb(218,255,255)" } );
+                   { labelNode: label,
+                     listPosition: "above",
+                     itemHighlightFill: "rgb(218,255,255)",
+                     listParent: soluteListParent } );
   }
 
   inherit( SolutionComboBox, ComboBox );

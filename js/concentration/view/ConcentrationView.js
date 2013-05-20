@@ -74,7 +74,8 @@ define( function( require ) {
                                                              solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, mvt );
 
     // Solute controls
-    var soluteControls = new SoluteControls( model.solutes, model.solute, model.shaker, model.dropper );
+    var soluteListParent = new Node();
+    var soluteControls = new SoluteControls( model.solutes, model.solute, model.shaker, model.dropper, soluteListParent );
 
     // Evaporation control
     var evaporationControl = new EvaporationControl( model.evaporator );
@@ -109,6 +110,7 @@ define( function( require ) {
     thisView.addChild( removeSoluteButtonNode );
     thisView.addChild( resetAllButton );
     thisView.addChild( soluteControls );
+    thisView.addChild( soluteListParent ); // last, so that combo box list is on top
 
     // Layout for things that don't have a location in the model.
     {

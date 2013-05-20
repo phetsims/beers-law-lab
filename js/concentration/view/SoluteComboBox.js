@@ -44,9 +44,10 @@ define( function( require ) {
   /**
    * @param {Array<Solute>} solutes
    * @param {Property<Solute>} selectedSolute
+   * @param {Node} soluteListParent
    * @constructor
    */
-  function SoluteComboBox( solutes, selectedSolute ) {
+  function SoluteComboBox( solutes, selectedSolute, soluteListParent ) {
 
     // "Solute" label
     var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, [ BLLStrings.solute ] ),
@@ -62,7 +63,8 @@ define( function( require ) {
     ComboBox.call( this, items, selectedSolute,
                    { labelNode: labelNode,
                      listPosition: "below",
-                     itemHighlightFill: "rgb(218,255,255)" } );
+                     itemHighlightFill: "rgb(218,255,255)",
+                     listParent: soluteListParent } );
   }
 
   inherit( SoluteComboBox, ComboBox );

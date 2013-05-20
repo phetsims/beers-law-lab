@@ -20,14 +20,15 @@ define( function( require ) {
    * @param {Property<Solute>} currentSolute
    * @param {Shaker} shaker
    * @param {Dropper} dropper
+   * @param {Node} soluteListParent
    * @constructor
    */
-  function SoluteControlsNode( solutes, currentSolute, shaker, dropper ) {
+  function SoluteControlsNode( solutes, currentSolute, shaker, dropper, soluteListParent ) {
 
     var thisNode = this;
 
     // solute combo box
-    var soluteComboBox = new SoluteComboBox( solutes, currentSolute );
+    var soluteComboBox = new SoluteComboBox( solutes, currentSolute, soluteListParent );
 
     // radio buttons for solid vs solution
     var soluteFormNode = new SoluteFormNode( shaker, dropper );

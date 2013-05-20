@@ -17,6 +17,7 @@ define( function( require ) {
   var Path = require( "SCENERY/nodes/Path" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
   var Shape = require( "KITE/Shape" );
+  var Vector2 = require( "DOT/Vector2" );
 
   /**
    * @param {Node} itemNode
@@ -178,6 +179,21 @@ define( function( require ) {
       itemNode.addInputListener( itemListener );
     }
 
+    // Handles the coordinate transform required to make the list pop up near the button.
+    var moveList = function() {
+      var pParentGlobal = options.listParent.localToGlobalPoint( new Vector2( options.listParent.x, options.listParent.y ) );
+      var pParentLocal = thisNode.globalToLocalPoint( pParentGlobal );
+      var xOffset = thisNode.x - pParentLocal.x;
+      var yOffset = thisNode.y - pParentLocal.y;
+      listNode.left = buttonNode.left + xOffset;
+      if ( options.listPosition === "above" ) {
+        listNode.bottom = buttonNode.top + yOffset;
+      }
+      else {
+        listNode.top = buttonNode.bottom + yOffset;
+      }
+    };
+
     // button interactivity
     buttonNode.cursor = "pointer";
     buttonNode.addInputListener(
@@ -187,6 +203,7 @@ define( function( require ) {
               options.listParent.removeChild( listNode );
             }
             else {
+              moveList();
               options.listParent.addChild( listNode );
             }
           }
@@ -197,13 +214,6 @@ define( function( require ) {
     if ( options.labelNode ) {
       buttonNode.left = options.labelNode.right + options.labelXSpacing;
       buttonNode.centerY = options.labelNode.centerY;
-    }
-    listNode.left = buttonNode.left;
-    if ( options.listPosition === "above" ) {
-      listNode.bottom = buttonNode.top;
-    }
-    else {
-      listNode.top = buttonNode.bottom;
     }
 
     // when property changes, update button
