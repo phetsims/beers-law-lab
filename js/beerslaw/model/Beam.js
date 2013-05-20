@@ -37,9 +37,6 @@ define( function( require ) {
    */
   function Beam( light, cuvette, detector, absorbance, mvt ) {
 
-    console.log( new Color( 100, 100, 100 ).brighterColor() );
-    console.log( new Color( 100, 100, 100 ).darkerColor() );
-
     var thisBeam = this;
 
     // Proper values will be set when observers are registered
