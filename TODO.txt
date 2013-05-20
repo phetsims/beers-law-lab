@@ -31,6 +31,7 @@ MEDIUM
 - improve drag handler for faucet handles
 
 LOW
+- remove uses of Color.toCSS in Beam and ConcentrationSlider
 - generalize left/right arrow buttons for sliders
 - lighting on AT body is vertically flipped, graphic is not tall enough for larger radio buttons
 - sim resizing doesn't play nice with browser zoom features
