@@ -181,10 +181,13 @@ define( function( require ) {
 
     // Handles the coordinate transform required to make the list pop up near the button.
     var moveList = function() {
-      var pParentGlobal = options.listParent.localToGlobalPoint( new Vector2( options.listParent.x, options.listParent.y ) );
-      var pParentLocal = thisNode.globalToLocalPoint( pParentGlobal );
-      var xOffset = thisNode.x - pParentLocal.x;
-      var yOffset = thisNode.y - pParentLocal.y;
+      var xOffset = 0, yOffset = 0;
+      if ( options.listParent !== thisNode ) {
+        var pParentGlobal = options.listParent.localToGlobalPoint( options.listParent.translation );
+        var pParentLocal = thisNode.globalToLocalPoint( pParentGlobal );
+        xOffset = thisNode.x - pParentLocal.x;
+        yOffset = thisNode.y - pParentLocal.y;
+      }
       listNode.left = buttonNode.left + xOffset;
       if ( options.listPosition === "above" ) {
         listNode.bottom = buttonNode.top + yOffset;
