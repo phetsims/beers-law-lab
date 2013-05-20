@@ -7,7 +7,7 @@
  * where testing node intersections simplifies the process. Otherwise we'd need to
  * model the shapes of the various fluids, an unnecessary complication.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 
 define( function( require ) {

@@ -3,7 +3,7 @@
 /**
  * Stock solution coming out of the dropper.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   "use strict";

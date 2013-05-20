@@ -4,7 +4,7 @@
  * Manages the lifetime of shaker particles, from creation when they exit the shaker,
  * to deletion when they are delivered to the solution.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   "use strict";

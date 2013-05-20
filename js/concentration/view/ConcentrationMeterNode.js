@@ -14,7 +14,7 @@
  * Rather than trying to model the shapes of all of these fluids, we handle "probe is in fluid"
  * herein via intersection of node shapes.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   "use strict";

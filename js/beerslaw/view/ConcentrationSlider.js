@@ -3,7 +3,7 @@
 /**
  * Slider for changing a solution's concentration.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   "use strict";

@@ -4,7 +4,7 @@
  * Faucet model, used for input and output faucets.
  * This model assumes that the pipe enters the faucet from the left.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   "use strict";

@@ -5,7 +5,7 @@
  * This module has a single solution that is mutated by changing the solute, solute amount, and volume.
  * Concentration is derived via M=mol/L.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   "use strict";

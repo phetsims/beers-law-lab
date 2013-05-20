@@ -4,7 +4,7 @@
  * A momentary button is "on" while pressed, "off" when released.
  * Origin is at the upper-left of the bounding rectangle.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   "use strict";

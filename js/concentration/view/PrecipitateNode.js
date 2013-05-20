@@ -5,7 +5,7 @@
  * Manages the creation and deletion of precipitate particle nodes.
  * Origin is at bottom center of the beaker.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   "use strict";

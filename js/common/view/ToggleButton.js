@@ -5,7 +5,7 @@
  * A toggle button changes it's on/off state when pressed.
  * Origin is at the upper-left of the bounding rectangle.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   "use strict";

@@ -3,7 +3,7 @@
 /**
  * WavelengthControl is a slider-like control used for setting visible wavelength.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   "use strict";

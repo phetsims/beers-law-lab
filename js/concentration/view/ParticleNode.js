@@ -4,7 +4,7 @@
  * Base type for all particles.
  * Origin is at the center of the particle.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   "use strict";

@@ -4,7 +4,7 @@
  * The precipitate that forms on the bottom of the beaker.
  * Manages the creation and deletion of precipitate particles.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   "use strict";

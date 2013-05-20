@@ -4,7 +4,7 @@
  * Fluid coming out of a faucet.
  * Origin is at the top center, to simplify alignment with the center of the faucet's output pipe.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   "use strict";

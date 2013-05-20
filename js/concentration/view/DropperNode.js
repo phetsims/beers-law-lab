@@ -4,7 +4,7 @@
  * Dropper that contains a solute in solution form.
  * Origin is at the center of the hole where solution comes out of the dropper (bottom center).
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   "use strict";

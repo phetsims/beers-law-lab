@@ -5,7 +5,7 @@
  * The left and right nodes can be thought of as "book ends", with the center node tiled to fill the space in the middle.
  * This allows us to create (for example) control panels that have 3D-looking backgrounds, but can adjust to fit i18n.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   "use strict";

@@ -3,7 +3,7 @@
 /**
  * Model element that determines the rate at which solvent is evaporated from the solution in the beaker.
  *
- * @author Chris Malley (cmalley@pixelzoom.com)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   "use strict";
