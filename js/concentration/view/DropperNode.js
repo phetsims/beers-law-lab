@@ -139,8 +139,7 @@ define( function( require ) {
       labelBackground.setShape( Shape.roundRect( x, y, width, height, 5, 5 ) );
 
       // fluid color
-      var color = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
-      fluid.fill = color.toCSS();
+      fluid.fill = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
     } );
 
     // drag handler

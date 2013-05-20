@@ -132,17 +132,17 @@ define( function( require ) {
     // nodes
     var arcWidth = 0.25 * thumbSize.width;
     var body = new Rectangle( -thumbSize.width / 2, -thumbSize.height / 2, thumbSize.width, thumbSize.height, arcWidth, arcWidth,
-                              { fill: THUMB_FILL_NORMAL.toCSS(), stroke: THUMB_STROKE, lineWidth: THUMB_LINE_WIDTH } );
+                              { fill: THUMB_FILL_NORMAL, stroke: THUMB_STROKE, lineWidth: THUMB_LINE_WIDTH } );
     var centerLineYMargin = 3;
     var centerLine = new Path( { shape: Shape.lineSegment( 0, -( thumbSize.height / 2 ) + centerLineYMargin, 0, ( thumbSize.height / 2 ) - centerLineYMargin ),
-                                 stroke: THUMB_CENTER_LINE_STROKE.toCSS() } );
+                                 stroke: THUMB_CENTER_LINE_STROKE } );
 
     // rendering order
     thisNode.addChild( body );
     thisNode.addChild( centerLine );
 
     // interactivity
-    body.addInputListener( new FillHighlighter( body, THUMB_FILL_NORMAL.toCSS(), THUMB_FILL_HIGHLIGHT.toCSS() ) );
+    body.addInputListener( new FillHighlighter( body, THUMB_FILL_NORMAL, THUMB_FILL_HIGHLIGHT ) );
 
     // set the drag handler and mapping function for the selected solution
     var dragHandler, concentrationToPosition;

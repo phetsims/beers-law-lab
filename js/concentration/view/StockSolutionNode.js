@@ -51,8 +51,8 @@ define( function( require ) {
     // set color to match solute
     solute.addObserver( function( solute ) {
       var color = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
-      thisNode.fill = color.toCSS();
-      thisNode.stroke = color.darkerColor().toCSS();
+      thisNode.fill = color;
+      thisNode.stroke = color.darkerColor();
     } );
 
     // hide this node when the dropper is invisible

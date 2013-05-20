@@ -29,7 +29,7 @@ define( function( require ) {
 
     // node
     var node = new Node();
-    var colorNode = new Rectangle( 0, 0, 20, 20, { fill: solute.colorScheme.maxColor.toCSS(), stroke: solute.colorScheme.maxColor.darkerColor().toCSS() } );
+    var colorNode = new Rectangle( 0, 0, 20, 20, { fill: solute.colorScheme.maxColor, stroke: solute.colorScheme.maxColor.darkerColor() } );
     var textNode = new Text( solute.name, { font: new BLLFont( 20 ) } );
     node.addChild( colorNode );
     node.addChild( textNode );

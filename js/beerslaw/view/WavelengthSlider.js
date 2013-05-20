@@ -216,7 +216,7 @@ define( function( require ) {
       cursor.centerX = x;
       valueDisplay.centerX = x;
       // thumb color
-      thumb.fill = VisibleColor.wavelengthToColor( wavelength ).toCSS();
+      thumb.fill = VisibleColor.wavelengthToColor( wavelength );
       // plus and minus buttons
       //TODO better to disable these button than hide them, but not supported by sun.Button yet
       plusButton.visible = ( wavelength < maxWavelength );

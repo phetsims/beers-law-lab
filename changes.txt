@@ -1,3 +1,4 @@
+5/20/13 remove Color.toCSS calls from places where a Color is supported
 5/20/13 remove Font.toCSS calls from places where a Font is supported
 5/15/13 encapsulate fonts in BLLFont, use scenery.Font, provide a fallback family and limited options (size and weight)
 5/15/13 switch from beers-law-lab.Color to scenery.Color (major change)

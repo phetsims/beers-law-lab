@@ -30,7 +30,8 @@ define( function( require ) {
 
     // node
     var node = new Node();
-    var colorSquare = new Rectangle( 0, 0, 20, 20, { fill: solution.saturatedColor.toCSS(), stroke: solution.saturatedColor.darkerColor().toCSS() } );
+    var colorSquare = new Rectangle( 0, 0, 20, 20,
+                                     { fill: solution.saturatedColor, stroke: solution.saturatedColor.darkerColor() } );
     var solutionName = new HTMLText( solution.getDisplayName(), { font: new BLLFont( 20 ) } );
     node.addChild( colorSquare );
     node.addChild( solutionName );

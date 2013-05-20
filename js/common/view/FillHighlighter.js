@@ -19,8 +19,8 @@ define( function( require ) {
 
   /**
    * @param {Node} node
-   * @param {String} normalFill CSS color string
-   * @param {String} highlightFill CSS color string
+   * @param {Color|String} normalFill
+   * @param {Color|String} highlightFill
    * @param {Property<Boolean>} enabled
    * @constructor
    */

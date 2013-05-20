@@ -96,7 +96,7 @@ define( function( require ) {
     // nodes
     var cuvetteNode = new Path( { stroke: "black", lineWidth: 3 } );
     var solutionNode = new Path( { lineWidth: 0.5 } );
-    var arrowNode = new Path( { shape: arrowShape, fill: ARROW_FILL.toCSS(), stroke: "black", lineWidth: 1 } );
+    var arrowNode = new Path( { shape: arrowShape, fill: ARROW_FILL, stroke: "black", lineWidth: 1 } );
 
     // rendering order
     thisNode.addChild( solutionNode );
@@ -117,8 +117,8 @@ define( function( require ) {
 
     // when the fluid color changes ...
     var colorObserver = function( color ) {
-      solutionNode.fill = color.withAlpha( SOLUTION_ALPHA ).toCSS();
-      solutionNode.stroke = color.darkerColor().toCSS();
+      solutionNode.fill = color.withAlpha( SOLUTION_ALPHA );
+      solutionNode.stroke = color.darkerColor();
     };
     solution.get().fluidColor.addObserver( colorObserver );
 
@@ -134,7 +134,7 @@ define( function( require ) {
     cuvetteNode.pickable = false;
     solutionNode.pickable = false;
     arrowNode.cursor = "pointer";
-    arrowNode.addInputListener( new FillHighlighter( arrowNode, ARROW_FILL.toCSS(), ARROW_FILL.brighterColor().toCSS() ) );
+    arrowNode.addInputListener( new FillHighlighter( arrowNode, ARROW_FILL, ARROW_FILL.brighterColor() ) );
     arrowNode.addInputListener( new CuvetteDragHandler( thisNode, cuvette, mvt, snapInterval ) );
 
     // location of the cuvette
