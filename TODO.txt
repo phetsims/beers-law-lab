@@ -18,15 +18,15 @@ BUGS
 - Desktop: HTML text dragging lags on Mac+Firefox, joist#5
 
 HIGH
-
-MEDIUM
-- replace Property with Fort?
-- dropper can be dragged by button, fix this without using event.handle
-- make radio buttons on AT detector larger
+- draw shaker particles directly to Canvas
 - buttons fire on 'up' event even if they haven't seen a 'down' event
-- disable (instead of hide) increment/decrement buttons for sliders (not supported by sun.Button)
+- dropper can be dragged by button, fix this without using event.handle
 - add relativePressPoint to MovableDragHandler, so that mouse doesn't get away from drag target
 - improve drag handler for faucet handles
+
+MEDIUM
+- make radio buttons on AT detector larger
+- disable (instead of hide) increment/decrement buttons for sliders (not supported by sun.Button)
 
 LOW
 - ComboBox: use visible instead of add/removeChild when scenery bounds means "visible bounds"
