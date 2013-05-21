@@ -1,3 +1,4 @@
+5/21/13 remove lib/font-awesome, not used
 5/20/13 scrub my email address from source files
 5/20/13 temporarily restore CSS to remove browser window margins, should be handled by joist#6
 5/20/13 ComboBoxNode: add "click to dismiss" feature, by attaching a 'down' listener to the scene
