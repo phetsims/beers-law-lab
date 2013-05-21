@@ -89,7 +89,7 @@ define( function( require ) {
    * @param {Property<Node>} property
    * @param {*} options object with optional properties
    */
-  function ComboBoxNode( items, property, options ) {
+  function ComboBox( items, property, options ) {
 
     var thisNode = this;
 
@@ -105,6 +105,7 @@ define( function( require ) {
                           buttonYMargin: 4,
                           // list
                           listPosition: "below", // where the list is positioned relative to the button, either "below" or "above"
+                          //TODO consider defaulting this to the scene, so that list can be guaranteed to be in front
                           listParent: thisNode, // node that will be used as the list's parent, useful for ensuring that the list is in front of everything else
                           listXMargin: 4,
                           listYMargin: 4,
@@ -254,7 +255,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( ComboBoxNode, Node );
+  inherit( ComboBox, Node );
 
-  return ComboBoxNode;
+  return ComboBox;
 } );
