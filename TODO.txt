@@ -31,6 +31,7 @@ MEDIUM
 - improve drag handler for faucet handles
 
 LOW
+- update to latest version of lib/ dependencies, including jQuery 2.x
 - browser window has borders, joist#6
 - remove scenery#58 workaround in ComboBox?
 - remove uses of Color.toCSS in Beam and ConcentrationSlider
