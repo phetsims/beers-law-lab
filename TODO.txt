@@ -21,7 +21,6 @@ HIGH
 
 MEDIUM
 - replace Property with Fort?
-- ComboBoxNode: use listNode.visible instead of addChild/removeChild(listNode)
 - dropper can be dragged by button, fix this without using event.handle
 - make radio buttons on AT detector larger
 - buttons fire on 'up' event even if they haven't seen a 'down' event
@@ -30,6 +29,7 @@ MEDIUM
 - improve drag handler for faucet handles
 
 LOW
+- ComboBox: use visible instead of add/removeChild when scenery bounds means "visible bounds"
 - WavelengthControls: use visible instead of add/removeChild when scenery bounds means "visible bounds"
 - update to latest version of lib/ dependencies, including jQuery 2.x
 - beers-law-lab.css: delete CSS for browser window borders, workaround for joist#6
