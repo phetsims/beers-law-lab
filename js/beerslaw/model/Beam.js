@@ -72,8 +72,8 @@ define( function( require ) {
         var x = mvt.modelToViewPosition( cuvette.location ).x;
         var w = mvt.modelToViewDeltaX( cuvette.width.get() );
         thisBeam.fill.set( new LinearGradient( x, 0, x + w, 0 )
-                               .addColorStop( 0, leftColor.toCSS() )
-                               .addColorStop( 1, rightColor.toCSS() ) );
+                               .addColorStop( 0, leftColor )
+                               .addColorStop( 1, rightColor ) );
       }
     };
     light.wavelength.addObserver( updateColor );

@@ -65,8 +65,8 @@ define( function( require ) {
 
       // fill with a gradient that matches the solution's color range
       thisNode.fill = new LinearGradient( 0, 0, trackSize.width, 0 )
-          .addColorStop( 0, solution.colorRange.min.toCSS() )
-          .addColorStop( 1, solution.colorRange.max.toCSS() );
+          .addColorStop( 0, solution.colorRange.min )
+          .addColorStop( 1, solution.colorRange.max );
     } );
 
     // click in the track to change the value, continue dragging if desired
