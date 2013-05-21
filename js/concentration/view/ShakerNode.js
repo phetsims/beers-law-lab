@@ -20,7 +20,7 @@ define( function( require ) {
   var Vector2 = require( "DOT/Vector2" );
 
   // constants
-  var DEBUG_ORIGIN = false;
+  var DEBUG_ORIGIN = true;
 
   /**
    * Constructor
@@ -54,7 +54,7 @@ define( function( require ) {
 
     // origin
     if ( DEBUG_ORIGIN ) {
-      thisNode.addChild( new DebugOriginNode( "red" ) );
+      thisNode.addChild( new DebugOriginNode() );
     }
 
     // sync location with model

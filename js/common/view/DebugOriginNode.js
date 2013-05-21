@@ -11,21 +11,18 @@ define( function( require ) {
 
   // imports
   var inherit = require( "PHET_CORE/inherit" );
-  var Path = require( "SCENERY/nodes/Path" );
-  var Shape = require( "KITE/Shape" );
+  var Circle = require( "SCENERY/nodes/Circle" );
 
   /**
-   * @param {String} fill
+   * @param {object} options
    * @constructor
    */
-  function DebugOriginNode( fill ) {
-    Path.call( this, {
-      shape: Shape.circle( 0, 0, 3 ),
-      fill: fill
-    } );
+  function DebugOriginNode( options ) {
+    options = _.extend( { radius: 3, fill: 'red' }, options );
+    Circle.call( this, options.radius, { fill: options.fill } );
   }
 
-  inherit( DebugOriginNode, Path );
+  inherit( DebugOriginNode, Circle );
 
   return DebugOriginNode;
 } );

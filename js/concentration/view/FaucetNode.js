@@ -58,7 +58,7 @@ define( function( require ) {
 
     // origin
     if ( DEBUG_ORIGIN ) {
-      thisNode.addChild( new DebugOriginNode( "red" ) );
+      thisNode.addChild( new DebugOriginNode() );
     }
 
     //TODO This is horizontally stretching the image, would look better to tile a rectangle with a texture.

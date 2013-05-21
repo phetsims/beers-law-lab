@@ -1,18 +1,9 @@
 TODO list for beers-law-lab (HTML5 port)
 
 DESIGN ISSUES
-- tablet usability issues from 1/29/13 notebook
-- interactive components feel too small on Nexus
-
-IMPLEMENTATION ISSUES
-- how to set font for i18n?
-
-SCENERY BUGS
-
-SCENERY ENHANCEMENTS
 
 BUGS
-- iPad: show About dialog, sim starts to scale down
+- iPad: open About dialog, sim starts to scale down
 - Nexus: big part of play area is not visible
 - Nexus: performance
 - Desktop: HTML text dragging lags on Mac+Firefox, joist#5
@@ -50,9 +41,9 @@ DebugOriginNode
 FaucetNode + images
 StringUtils
 LinearFunction
-MomentaryButtonNode + ToggleButtonNode + images
+MomentaryButton + ToggleButton + images
 HorizontalTiledNode
 ChemUtils
 ColorUtils
-ComboBoxNode + ComboBoxItem
-WavelengthSliderNode
+ComboBox + ComboBoxItem
+WavelengthSlider
