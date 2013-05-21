@@ -17,6 +17,7 @@ define( function( require ) {
   var PanelNode = require( "SUN/PanelNode" );
   var Property = require( "PHETCOMMON/model/property/Property" );
   var RadioButton = require( "SUN/RadioButton" );
+  var Rectangle = require( "SCENERY/nodes/Rectangle" );
   var StringUtils = require( "common/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
   var WavelengthSlider = require( "beerslaw/view/WavelengthSlider" );
@@ -47,6 +48,9 @@ define( function( require ) {
     content.addChild( variableRadioButton );
     content.addChild( wavelengthSlider );
 
+    // add a horizontal strut to prevent width changes
+    content.addChild( new Rectangle( 0, 0, content.width, 1, { pickable: false } ) );
+
     // layout
     var ySpacing = 20;
     valueDisplay.left = label.right + 10;
@@ -63,7 +67,17 @@ define( function( require ) {
 
     // When the radio button selection changes...
     variableWavelength.addObserver( function( isVariable ) {
-      wavelengthSlider.visible = isVariable;
+      //TODO when bounds means "visible bounds", replace this if-else statement with: wavelengthSlider.visible = isVariable;
+      if ( isVariable ) {
+        if ( !content.isChild( wavelengthSlider ) ) {
+           content.addChild( wavelengthSlider );
+        }
+      }
+      else {
+        if ( content.isChild( wavelengthSlider ) ) {
+          content.removeChild( wavelengthSlider );
+        }
+      }
       if ( !isVariable ) {
         // Set the light to the current solution's lambdaMax wavelength.
         light.wavelength.set( solution.get().molarAbsorptivityData.lambdaMax );

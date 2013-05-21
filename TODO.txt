@@ -18,7 +18,6 @@ BUGS
 - Desktop: HTML text dragging lags on Mac+Firefox, joist#5
 
 HIGH
-- dynamically resize wavelength control panel, scenery#45
 
 MEDIUM
 - replace Property with Fort?
@@ -31,9 +30,10 @@ MEDIUM
 - improve drag handler for faucet handles
 
 LOW
+- WavelengthControls: use visible instead of add/removeChild when scenery bounds means "visible bounds"
 - update to latest version of lib/ dependencies, including jQuery 2.x
-- browser window has borders, joist#6
-- remove scenery#58 workaround in ComboBox?
+- beers-law-lab.css: delete CSS for browser window borders, workaround for joist#6
+- ComboBox: remove enableClickToDismissListener, workaround for scenery#58
 - remove uses of Color.toCSS in Beam and ConcentrationSlider
 - generalize left/right arrow buttons for sliders
 - lighting on AT body is vertically flipped, graphic is not tall enough for larger radio buttons
