@@ -3,6 +3,7 @@ TODO list for beers-law-lab (HTML5 port)
 DESIGN ISSUES
 
 BUGS
+- Safari 5: text bounds are very wrong
 - iPad: open About dialog, sim starts to scale down
 - Nexus: big part of play area is not visible
 - Nexus: performance
