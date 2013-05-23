@@ -11,7 +11,7 @@ define(
     "copperSulfate": "Copper sulfate",
     "drinkMix": "Drink mix",
     "evaporation": "Evaporation",
-    "fixed": "preset",
+    "preset": "preset",
     "ir": "IR",
     "lots": "lots",
     "nickelIIChloride": "Nickel (II) chloride",

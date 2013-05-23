@@ -36,7 +36,7 @@ define( function( require ) {
     // nodes
     var label = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.wavelength] ), { font: new BLLFont( 22 ), fill: "black" } );
     var valueDisplay = new Text( "?", { font: "22px Arial", fill: "black" } );
-    var fixedRadioButton = new RadioButton( variableWavelength, false, new Text( BLLStrings.fixed, { font: new BLLFont( 18 ), fill: "black" } ) );
+    var presetRadioButton = new RadioButton( variableWavelength, false, new Text( BLLStrings.preset, { font: new BLLFont( 18 ), fill: "black" } ) );
     var variableRadioButton = new RadioButton( variableWavelength, true, new Text( BLLStrings.variable, { font: new BLLFont( 18 ), fill: "black" } ) );
     var wavelengthSlider = new WavelengthSlider( light.wavelength, { trackWidth: 150, trackHeight: 30 } );
 
@@ -44,7 +44,7 @@ define( function( require ) {
     var content = new Node();
     content.addChild( label );
     content.addChild( valueDisplay );
-    content.addChild( fixedRadioButton );
+    content.addChild( presetRadioButton );
     content.addChild( variableRadioButton );
     content.addChild( wavelengthSlider );
 
@@ -55,12 +55,12 @@ define( function( require ) {
     var ySpacing = 20;
     valueDisplay.left = label.right + 10;
     valueDisplay.y = label.y; // align baselines
-    fixedRadioButton.left = label.left;
-    fixedRadioButton.top = label.bottom + ySpacing;
-    variableRadioButton.left = fixedRadioButton.right + 15;
-    variableRadioButton.centerY = fixedRadioButton.centerY;
-    wavelengthSlider.left = fixedRadioButton.left;
-    wavelengthSlider.top = fixedRadioButton.bottom + ySpacing;
+    presetRadioButton.left = label.left;
+    presetRadioButton.top = label.bottom + ySpacing;
+    variableRadioButton.left = presetRadioButton.right + 15;
+    variableRadioButton.centerY = presetRadioButton.centerY;
+    wavelengthSlider.left = presetRadioButton.left;
+    wavelengthSlider.top = presetRadioButton.bottom + ySpacing;
 
     PanelNode.call( thisNode, content,
                     { xMargin: 20, yMargin: 20, fill: "#F0F0F0", stroke: "gray", lineWidth: 1 } );
