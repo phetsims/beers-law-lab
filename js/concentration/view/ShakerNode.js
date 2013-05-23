@@ -20,7 +20,7 @@ define( function( require ) {
   var Vector2 = require( "DOT/Vector2" );
 
   // constants
-  var DEBUG_ORIGIN = true;
+  var DEBUG_ORIGIN = false;
 
   /**
    * Constructor
