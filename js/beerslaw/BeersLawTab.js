@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * The "Beer's Law" tab. Conforms to the contact specified in joist/Tab.
+ * The "Beer's Law" tab. Conforms to the contract specified in joist/Tab.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
