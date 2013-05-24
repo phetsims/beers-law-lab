@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * Model container for the "Concentration" module.
+ * Model container for the "Concentration" tab.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

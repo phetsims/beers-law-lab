@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * Scene graph for the "Beer's Law" module.
+ * Scene graph for the "Beer's Law" tab.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * View for the "Concentration" module.
+ * View for the "Concentration" tab.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
