@@ -1,3 +1,4 @@
+5/23/13 remove ComboBoxItem from ComboBox API, document the "item" contract
 5/23/13 rename BLLStrings.fixed to BLLStrings.preset
 5/21/13 generalize DebugOriginNode
 5/21/13 remove uses of Color.toCSS in Beam and ConcentrationSlider

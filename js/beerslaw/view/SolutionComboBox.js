@@ -12,7 +12,6 @@ define( function( require ) {
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
   var BLLFont = require( "common/BLLFont" );
   var BLLStrings = require( "common/BLLStrings" );
-  var ComboBoxItem = require( "common/view/ComboBoxItem" );
   var ComboBox = require( "common/view/ComboBox" );
   var HTMLText = require( "SCENERY/nodes/HTMLText" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -20,29 +19,6 @@ define( function( require ) {
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
   var StringUtils = require( "common/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
-
-  /**
-   * An item in the combo box.
-   * @param {BeersLawSolution} solution
-   * @param {Node} solutionListParent
-   * @constructor
-   */
-  function Item( solution ) {
-
-    // node
-    var node = new Node();
-    var colorSquare = new Rectangle( 0, 0, 20, 20,
-                                     { fill: solution.saturatedColor, stroke: solution.saturatedColor.darkerColor() } );
-    var solutionName = new HTMLText( solution.getDisplayName(), { font: new BLLFont( 20 ) } );
-    node.addChild( colorSquare );
-    node.addChild( solutionName );
-    solutionName.left = colorSquare.right + 5;
-    solutionName.centerY = colorSquare.centerY;
-
-    ComboBoxItem.call( this, node, solution );
-  }
-
-  inherit( Item, ComboBoxItem );
 
   /**
    * @param {Array<BeersLawSolution>} solutions
@@ -59,7 +35,7 @@ define( function( require ) {
     var items = [];
     for ( var i = 0; i < solutions.length; i++ ) {
       var solution = solutions[i];
-      items[i] = new Item( solution );
+      items[i] = this._createItem( solution );
     }
 
     ComboBox.call( this, items, selectedSolution,
@@ -70,6 +46,27 @@ define( function( require ) {
   }
 
   inherit( SolutionComboBox, ComboBox );
+
+  /**
+   * Creates a combo box item.
+   * @param {Solution} solution
+   * @returns {{node: *, value: *}}
+   * @private
+   */
+  SolutionComboBox.prototype._createItem = function( solution ) {
+
+    // node
+    var node = new Node();
+    var colorSquare = new Rectangle( 0, 0, 20, 20,
+                                     { fill: solution.saturatedColor, stroke: solution.saturatedColor.darkerColor() } );
+    var solutionName = new HTMLText( solution.getDisplayName(), { font: new BLLFont( 20 ) } );
+    node.addChild( colorSquare );
+    node.addChild( solutionName );
+    solutionName.left = colorSquare.right + 5;
+    solutionName.centerY = colorSquare.centerY;
+
+    return ComboBox.createItem( node, solution );
+  };
 
   return SolutionComboBox;
 } );

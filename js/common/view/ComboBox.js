@@ -4,6 +4,8 @@
  * Scenery-based combo box. Composed of a button and a list of items.
  * The list of items is displayed when the button is pressed, and dismissed an item is selected
  * or the user clicks outside the list.  The list can be displayed either above or below the button.
+ * <p>
+ * An item in the combo box had 2 properties: {Node} node, {*} value.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -67,7 +69,7 @@ define( function( require ) {
 
   /**
    * A wrapper around the combo box item, adds margins, etc.
-   * @param {ComboBoxItem} item
+   * @param item
    * @param {Number} width
    * @param {Number} height
    * @param {Number} xMargin
@@ -85,7 +87,7 @@ define( function( require ) {
   inherit( ItemNode, Rectangle );
 
   /**
-   * @param {Array<ComboBoxItem>} items
+   * @param {Array} items
    * @param {Property<Node>} property
    * @param {*} options object with optional properties
    */
@@ -256,6 +258,16 @@ define( function( require ) {
   }
 
   inherit( ComboBox, Node );
+
+  /**
+   * Creates a combo box item.
+   * @param {Node} node
+   * @param {*} value
+   * @returns {{node: *, value: *}}
+   */
+  ComboBox.createItem = function( node, value ) {
+     return { node: node, value: value };
+  };
 
   return ComboBox;
 } );
