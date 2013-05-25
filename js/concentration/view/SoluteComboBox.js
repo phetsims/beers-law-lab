@@ -12,7 +12,7 @@ define( function( require ) {
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
   var BLLFont = require( "common/BLLFont" );
   var BLLStrings = require( "common/BLLStrings" );
-  var ComboBox = require( "common/view/ComboBox" );
+  var ComboBox = require( "SUN/ComboBox" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );

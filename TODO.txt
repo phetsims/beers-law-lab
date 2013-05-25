@@ -47,5 +47,4 @@ MomentaryButton + ToggleButton + images
 HorizontalTiledNode
 ChemUtils
 ColorUtils
-ComboBox + ComboBoxItem
 WavelengthSlider
