@@ -115,8 +115,11 @@ define( function( require ) {
     // Layout for things that don't have a location in the model.
     {
       // centered towards bottom of beaker
+      var saturatedIndicatorVisible = saturatedIndicator.visible; // so we can layout an invisible node
+      saturatedIndicator.visible = true;
       saturatedIndicator.centerX = beakerNode.centerX;
       saturatedIndicator.bottom = beakerNode.bottom - 30;
+      saturatedIndicator.visible = saturatedIndicatorVisible;
       // upper right
       soluteControls.right = concentrationMeterNode.right + 100;
       soluteControls.top = 20;
