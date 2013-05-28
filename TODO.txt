@@ -11,6 +11,7 @@ BUGS
 
 HIGH
 - draw shaker particles directly to Canvas
+- selecting from "Solute" combo box also presses radio buttons behind it
 - buttons fire on 'up' event even if they haven't seen a 'down' event
 - dropper can be dragged by button, fix this without using event.handle
 - add relativePressPoint to MovableDragHandler, so that mouse doesn't get away from drag target
