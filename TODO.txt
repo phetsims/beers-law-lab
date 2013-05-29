@@ -10,6 +10,7 @@ BUGS
 - Desktop: HTML text dragging lags on Mac+Firefox, joist#5
 
 HIGH
+- use addChild/removeChild to show/hide wavelength slider
 - draw shaker particles directly to Canvas
 - selecting from "Solute" combo box also presses radio buttons behind it
 - buttons fire on 'up' event even if they haven't seen a 'down' event
