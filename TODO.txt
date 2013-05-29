@@ -10,6 +10,7 @@ BUGS
 - Desktop: HTML text dragging lags on Mac+Firefox, joist#5
 
 HIGH
+- convert to Fort so that ComboBox works
 - use addChild/removeChild to show/hide wavelength slider
 - draw shaker particles directly to Canvas
 - selecting from "Solute" combo box also presses radio buttons behind it
