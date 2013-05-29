@@ -13,7 +13,7 @@ define( function( require ) {
   // imports
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
   var BLLImages = require( "common/BLLImages" );
-  var DebugOriginNode = require( "common/view/DebugOriginNode" );
+  var Circle = require( "SCENERY/nodes/Circle" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
   var LinearFunction = require( "common/util/LinearFunction" );
@@ -58,7 +58,7 @@ define( function( require ) {
 
     // origin
     if ( DEBUG_ORIGIN ) {
-      thisNode.addChild( new DebugOriginNode() );
+      thisNode.addChild( new Circle( { radius: 3, fill: 'red' } ) );
     }
 
     //TODO This is horizontally stretching the image, would look better to tile a rectangle with a texture.

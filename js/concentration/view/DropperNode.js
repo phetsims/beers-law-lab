@@ -12,8 +12,8 @@ define( function( require ) {
   // imports
   var BLLFont = require( "common/BLLFont" );
   var BLLImages = require( "common/BLLImages" );
+  var Circle = require( "SCENERY/nodes/Circle" );
   var ConcentrationSolution = require( "concentration/model/ConcentrationSolution" );
-  var DebugOriginNode = require( "common/view/DebugOriginNode" );
   var HTMLText = require( "SCENERY/nodes/HTMLText" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -88,7 +88,7 @@ define( function( require ) {
     thisNode.addChild( label );
     thisNode.addChild( button );
     if ( DEBUG_ORIGIN ) {
-      thisNode.addChild( new DebugOriginNode() );
+      thisNode.addChild( new Circle( { radius: 3, fill: 'red' } ) );
     }
 
     // layout

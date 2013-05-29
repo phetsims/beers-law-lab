@@ -11,7 +11,7 @@ define( function( require ) {
   // imports
   var BLLFont = require( "common/BLLFont" );
   var BLLImages = require( "common/BLLImages" );
-  var DebugOriginNode = require( "common/view/DebugOriginNode" );
+  var Circle = require( "SCENERY/nodes/Circle" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
@@ -54,7 +54,7 @@ define( function( require ) {
 
     // origin
     if ( DEBUG_ORIGIN ) {
-      thisNode.addChild( new DebugOriginNode() );
+      thisNode.addChild( new Circle( { radius: 3, fill: 'red' } ) );
     }
 
     // sync location with model
