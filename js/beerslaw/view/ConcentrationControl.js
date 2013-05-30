@@ -31,7 +31,7 @@ define( function( require ) {
     Node.call( thisNode );
 
     // nodes
-    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.concentration] ), { font: FONT } );
+    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.concentration ), { font: FONT } );
     var slider = new ConcentrationSlider( solution );
     var valueDisplay = new Text( "400 XXX", { font: FONT } );
 
@@ -51,7 +51,7 @@ define( function( require ) {
     var concentrationObserver = function() {
       var valueString = solution.get().getViewValue().toFixed( DECIMAL_PLACES );
       var units = solution.get().getViewUnits();
-      valueDisplay.text = StringUtils.format( BLLStrings.pattern_0value_1units, [ valueString, units ] );
+      valueDisplay.text = StringUtils.format( BLLStrings.pattern_0value_1units, valueString, units );
       valueDisplay.right = slider.left - 20;
     };
     solution.get().concentration.addObserver( concentrationObserver );

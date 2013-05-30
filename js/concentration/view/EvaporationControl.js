@@ -28,7 +28,7 @@ define( function( require ) {
 
     var thisNode = this;
 
-    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, [ BLLStrings.evaporation ] ), { font: new BLLFont( 22 ) } );
+    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.evaporation ), { font: new BLLFont( 22 ) } );
 
     var slider = new EvaporationSlider( new Range( 0, evaporator.maxEvaporationRate ),
                                         new Dimension2( 200, 6 ),

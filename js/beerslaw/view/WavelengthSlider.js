@@ -90,7 +90,7 @@ define( function( require ) {
     var thisNode = this;
     Text.call( this, "?", { font: font, fill: fill } );
     property.addObserver( function( value ) {
-      thisNode.text = StringUtils.format( BLLStrings.pattern_0value_1units, [value.toFixed( 0 ), BLLStrings.units_nm] );
+      thisNode.text = StringUtils.format( BLLStrings.pattern_0value_1units, value.toFixed( 0 ), BLLStrings.units_nm );
     } );
   }
 

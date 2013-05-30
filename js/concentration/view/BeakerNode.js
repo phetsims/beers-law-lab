@@ -86,7 +86,7 @@ define( function( require ) {
       if ( isMajorTick ) {
         var labelIndex = ( i / MINOR_TICKS_PER_MAJOR_TICK ) - 1;
         if ( labelIndex < MAJOR_TICK_LABELS.length ) {
-          var label = StringUtils.format( BLLStrings.pattern_0value_1units, [MAJOR_TICK_LABELS[labelIndex], BLLStrings.units_liters] );
+          var label = StringUtils.format( BLLStrings.pattern_0value_1units, MAJOR_TICK_LABELS[labelIndex], BLLStrings.units_liters );
           ticksParent.addChild( new Text( label, {
             font: new BLLFont( 24 ),
             fill: "black",

@@ -29,7 +29,7 @@ define( function( require ) {
   function SolutionComboBox( solutions, selectedSolution, soluteListParent ) {
 
     // "Solution" label
-    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, [BLLStrings.solution] ), { font: new BLLFont( 20 ) } );
+    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.solution ), { font: new BLLFont( 20 ) } );
 
     // items
     var items = [];

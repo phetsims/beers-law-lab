@@ -83,7 +83,7 @@ define( function( require ) {
     if ( this.formula === this.name ) {
       return this.name;
     }
-    return StringUtils.format( BLLStrings.pattern_0formula_1name, [ this.formula, this.name ] );
+    return StringUtils.format( BLLStrings.pattern_0formula_1name, this.formula, this.name );
   };
 
   BeersLawSolution.prototype.getViewValue = function() {

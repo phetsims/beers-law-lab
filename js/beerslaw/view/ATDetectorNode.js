@@ -98,7 +98,7 @@ define( function( require ) {
       }
       else {
         if ( detector.mode.get() === ATDetector.Mode.TRANSMITTANCE ) {
-          valueNode.text = StringUtils.format( BLLStrings.pattern_0percent, [value.toFixed( TRANSMITTANCE_DECIMAL_PLACES )] );
+          valueNode.text = StringUtils.format( BLLStrings.pattern_0percent, value.toFixed( TRANSMITTANCE_DECIMAL_PLACES ) );
         }
         else {
           valueNode.text = value.toFixed( ABSORBANCE_DECIMAL_PLACES );

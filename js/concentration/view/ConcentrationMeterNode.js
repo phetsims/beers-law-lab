@@ -60,7 +60,7 @@ define( function( require ) {
     // text nodes
     var titleNode = new Text( BLLStrings.concentration,
                               { font: new BLLFont( 18 ), fill: "white" } );
-    var unitsNode = new Text( StringUtils.format( BLLStrings.pattern_parentheses_0text, [ BLLStrings.units_molesPerLiter ] ),
+    var unitsNode = new Text( StringUtils.format( BLLStrings.pattern_parentheses_0text, BLLStrings.units_molesPerLiter ),
                               { font: new BLLFont( 18 ), fill: "white" } );
     var valueNode = new Text( ( 1 ).toFixed( VALUE_DECIMALS ),
                               { font: new BLLFont( 24 ), fill: "black" } );
