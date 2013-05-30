@@ -22,7 +22,6 @@ HIGH
 
 MEDIUM
 - replace LinearFunction with dot.Util.linear
-- should BeersLawModel be calling new Array() ?
 - make radio buttons on AT detector larger
 - disable (instead of hide) increment/decrement buttons for sliders (not supported by sun.Button)
 

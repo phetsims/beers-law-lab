@@ -30,7 +30,7 @@ define( function( require ) {
     var thisModel = this;
 
     // Solutions, in rainbow (ROYGBIV) order.
-    thisModel.solutions = new Array(
+    thisModel.solutions = [
         BeersLawSolution.DRINK_MIX,
         BeersLawSolution.COBALT_II_NITRATE,
         BeersLawSolution.COBALT_CHLORIDE,
@@ -39,7 +39,7 @@ define( function( require ) {
         BeersLawSolution.NICKEL_II_CHLORIDE,
         BeersLawSolution.COPPER_SULFATE,
         BeersLawSolution.POTASSIUM_PERMANGANATE
-    );
+    ];
 
     thisModel.solution = new Property( thisModel.solutions[0] );
 
