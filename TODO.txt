@@ -12,7 +12,6 @@ BUGS
 HIGH
 - faucet version with slider
 - faucet version with pinball shooter
-- use addChild/removeChild to show/hide wavelength slider
 - draw shaker particles directly to Canvas
 - selecting from "Solute" combo box also presses radio buttons behind it
 - buttons fire on 'up' event even if they haven't seen a 'down' event
@@ -26,8 +25,6 @@ MEDIUM
 - disable (instead of hide) increment/decrement buttons for sliders (not supported by sun.Button)
 
 LOW
-- ComboBox: use visible instead of add/removeChild when scenery bounds means "visible bounds"
-- WavelengthControls: use visible instead of add/removeChild when scenery bounds means "visible bounds"
 - update to latest version of lib/ dependencies, including jQuery 2.x
 - beers-law-lab.css: delete CSS for browser window borders, workaround for joist#6
 - ComboBox: remove enableClickToDismissListener, workaround for scenery#58
