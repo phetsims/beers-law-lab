@@ -1,3 +1,4 @@
+5/31/13 migrate StringUtils to phetcommon.util
 5/30/13 create solutions array using [] instead of new Array()
 5/30/13 varargs implementation of StringUtil.format
 5/29/13 replace DebugOriginNode with scenery.Circle

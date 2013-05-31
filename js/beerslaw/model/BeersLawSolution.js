@@ -25,7 +25,7 @@ define( function( require ) {
   var Property = require( "PHETCOMMON/model/property/Property" );
   var Range = require( "DOT/Range" );
   var Solvent = require( "common/model/Solvent" );
-  var StringUtils = require( "common/util/StringUtils" );
+  var StringUtils = require( "PHETCOMMON/util/StringUtils" );
 
   /**
    * @param {String} name

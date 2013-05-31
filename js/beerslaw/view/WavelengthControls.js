@@ -18,7 +18,7 @@ define( function( require ) {
   var Property = require( "PHETCOMMON/model/property/Property" );
   var RadioButton = require( "SUN/RadioButton" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
-  var StringUtils = require( "common/util/StringUtils" );
+  var StringUtils = require( "PHETCOMMON/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
   var WavelengthSlider = require( "beerslaw/view/WavelengthSlider" );
 

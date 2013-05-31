@@ -32,7 +32,7 @@ define( function( require ) {
   var Path = require( "SCENERY/nodes/Path" );
   var Range = require( "DOT/Range" );
   var Shape = require( "KITE/Shape" );
-  var StringUtils = require( "common/util/StringUtils" );
+  var StringUtils = require( "PHETCOMMON/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
   var Vector2 = require( "DOT/Vector2" );
 

@@ -17,7 +17,7 @@ define( function( require ) {
   var PanelNode = require( "SUN/PanelNode" );
   var Range = require( "DOT/Range" );
   var EvaporationSlider = require( "concentration/view/EvaporationSlider" );
-  var StringUtils = require( "common/util/StringUtils" );
+  var StringUtils = require( "PHETCOMMON/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
 
   /**

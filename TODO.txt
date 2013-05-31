@@ -41,7 +41,6 @@ LOW
 
 MIGRATE TO COMMON
 FaucetNode + images
-StringUtils
 LinearFunction
 MomentaryButton + ToggleButton + images
 HorizontalTiledNode

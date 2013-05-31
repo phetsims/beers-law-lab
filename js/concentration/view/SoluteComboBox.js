@@ -16,7 +16,7 @@ define( function( require ) {
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
-  var StringUtils = require( "common/util/StringUtils" );
+  var StringUtils = require( "PHETCOMMON/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
 
   /**
