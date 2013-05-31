@@ -44,6 +44,4 @@ FaucetNode + images
 LinearFunction
 MomentaryButton + ToggleButton + images
 HorizontalTiledNode
-ChemUtils
-ColorUtils
 WavelengthSlider
