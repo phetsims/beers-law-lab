@@ -20,7 +20,7 @@ HIGH
 - improve drag handler for faucet handles
 
 MEDIUM
-- replace LinearFunction with dot.Util.linear
+- change to LinearFunction(x1,y1,x2,y2,clamp), migrate to dot
 - make radio buttons on AT detector larger
 - disable (instead of hide) increment/decrement buttons for sliders (not supported by sun.Button)
 
