@@ -11,7 +11,7 @@ define( function( require ) {
   "use strict";
 
   // imports
-  var ColorUtils = require( "common/util/ColorUtils" );
+  var interpolateRBGA = require( "SCENERY/util/Color" ).interpolateRBGA;
 
   /**
    * @param {Number} minConcentration
@@ -44,10 +44,10 @@ define( function( require ) {
       return this.minColor;
     }
     else if ( concentration <= this.midConcentration ) {
-      return ColorUtils.interpolateRBGA( this.minColor, this.midColor, ( concentration - this.minConcentration ) / ( this.midConcentration - this.minConcentration ) );
+      return interpolateRBGA( this.minColor, this.midColor, ( concentration - this.minConcentration ) / ( this.midConcentration - this.minConcentration ) );
     }
     else {
-      return ColorUtils.interpolateRBGA( this.midColor, this.maxColor, ( concentration - this.midConcentration ) / ( this.maxConcentration - this.midConcentration ) );
+      return interpolateRBGA( this.midColor, this.maxColor, ( concentration - this.midConcentration ) / ( this.maxConcentration - this.midConcentration ) );
     }
   };
 

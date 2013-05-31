@@ -10,7 +10,7 @@ define( function( require ) {
 
   // imports
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
-  var ColorUtils = require( "common/util/ColorUtils" );
+  var Color = require( "SCENERY/util/Color" );
 
   /**
    * @param {Color} min
@@ -30,7 +30,7 @@ define( function( require ) {
    */
   ColorRange.prototype.interpolateLinear = function( distance ) {
     assert && assert( distance >= 0 && distance <= 1 );
-    return ColorUtils.interpolateRBGA( this.min, this.max, distance );
+    return Color.interpolateRBGA( this.min, this.max, distance );
   };
 
   return ColorRange;
