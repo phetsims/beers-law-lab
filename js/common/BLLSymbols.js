@@ -9,20 +9,20 @@ define( function( require ) {
   "use strict";
 
   // imports
-  var ChemUtils = require( "common/util/ChemUtils" );
+  var toSubscript = require( "NITROGLYCERIN/ChemUtils" ).toSubscript;
   var BLLStrings = require( "common/BLLStrings" );
 
   function BLLSymbols() {}
 
-  BLLSymbols.COBALT_II_NITRATE = ChemUtils.toSubscript( "Co(NO3)2" );
-  BLLSymbols.COBALT_CHLORIDE = ChemUtils.toSubscript( "CoCl2" );
-  BLLSymbols.COPPER_SULFATE = ChemUtils.toSubscript( "CuSO4" );
+  BLLSymbols.COBALT_II_NITRATE = toSubscript( "Co(NO3)2" );
+  BLLSymbols.COBALT_CHLORIDE = toSubscript( "CoCl2" );
+  BLLSymbols.COPPER_SULFATE = toSubscript( "CuSO4" );
   BLLSymbols.DRINK_MIX = BLLStrings.drinkMix;
-  BLLSymbols.NICKEL_II_CHLORIDE = ChemUtils.toSubscript( "NiCl2" );
-  BLLSymbols.POTASSIUM_CHROMATE = ChemUtils.toSubscript( "K2CrO4" );
-  BLLSymbols.POTASSIUM_DICHROMATE = ChemUtils.toSubscript( "K2Cr2O7" );
-  BLLSymbols.POTASSIUM_PERMANGANATE = ChemUtils.toSubscript( "KMnO4" );
-  BLLSymbols.WATER = ChemUtils.toSubscript( "H2O" );
+  BLLSymbols.NICKEL_II_CHLORIDE = toSubscript( "NiCl2" );
+  BLLSymbols.POTASSIUM_CHROMATE = toSubscript( "K2CrO4" );
+  BLLSymbols.POTASSIUM_DICHROMATE = toSubscript( "K2Cr2O7" );
+  BLLSymbols.POTASSIUM_PERMANGANATE = toSubscript( "KMnO4" );
+  BLLSymbols.WATER = toSubscript( "H2O" );
 
   return BLLSymbols;
 } );
