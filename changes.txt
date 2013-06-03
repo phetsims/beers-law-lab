@@ -1,3 +1,4 @@
+# 0.0.0-4 6/3/13
 6/3/13 dev version with "pinball shooter" faucet control (FaucetNode2)
 6/3/13 FaucetNode4: alternate design with slider on pipe
 6/3/13 FaucetNode3: alternate design with slider on valve, ala Java version
