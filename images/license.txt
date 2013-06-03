@@ -18,6 +18,8 @@ faucet1_spout.png author=PhET notes=created by Noah P.
 faucet2_pipe.png author=PhET notes=created by Sharon Siman-Tov
 faucet2_shooter.png author=PhET notes=created by Sharon Siman-Tov
 faucet2_spout.png author=PhET notes=created by Sharon Siman-Tov
+faucet3_pipe.png author=PhET notes=created by Noah P.
+faucet3_spout.png author=PhET notes=created by Noah P.
 light.png author=PhET notes=copied laser.png from bending-light
 momentary_button_pressed.png author=PhET notes=copied from Java piccolo-phet
 momentary_button_pressed_disabled.png author=PhET notes=copied from Java piccolo-phet
