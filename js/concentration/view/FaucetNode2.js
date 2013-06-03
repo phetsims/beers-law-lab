@@ -30,7 +30,7 @@ define( function( require ) {
   var DEBUG_ORIGIN = false;
   var SPOUT_OUTPUT_CENTER_X = 63; // center of spout, determined by inspecting image file
   var PIPE_Y_OFFSET = 20; // offset of pipe in spout image
-  var SHOOTER_MIN_X_OFFSET = 20; // offset of shooter's off position in spout image
+  var SHOOTER_MIN_X_OFFSET = 10; // offset of shooter's off position in spout image
   var SHOOTER_MAX_X_OFFSET = 55; // offset of shooter's full-on position in spout image
   var SHOOTER_Y_OFFSET = 12; // offset of shooter's centerY in spout image
 
@@ -48,6 +48,7 @@ define( function( require ) {
     var shooterNode = new Image( BLLImages.getImage( "faucet2_shooter.png" ), {
       cursor: "pointer"
     } );
+    shooterNode.scale( 1.4 ); //TODO get an image file that doesn't require scaling up
     var pipeNode = new Image( BLLImages.getImage( "faucet2_pipe.png" ) );
     var spoutNode = new Image( BLLImages.getImage( "faucet2_spout.png" ), { pickable: false } );
 
