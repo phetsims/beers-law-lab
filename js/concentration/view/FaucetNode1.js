@@ -35,7 +35,7 @@ define( function( require ) {
    * @param {ModelViewTransform2} mvt
    * @constructor
    */
-  function FaucetNode( faucet, mvt ) {
+  function FaucetNode1( faucet, mvt ) {
 
     var thisNode = this;
     Node.call( thisNode );
@@ -43,12 +43,12 @@ define( function( require ) {
     var orientationToFlowRate = new LinearFunction( HANDLE_ORIENTATION_RANGE, new Range( 0, faucet.maxFlowRate ) );
 
     // child nodes
-    var handleNode = new Image( BLLImages.getImage( "faucet_handle.png" ), {
+    var handleNode = new Image( BLLImages.getImage( "faucet1_handle.png" ), {
       cursor: "pointer"
     } );
-    var pipeNode = new Image( BLLImages.getImage( "faucet_pipe.png" ) );
-    var pivotNode = new Image( BLLImages.getImage( "faucet_pivot.png" ) );
-    var spoutNode = new Image( BLLImages.getImage( "faucet_spout.png" ) );
+    var pipeNode = new Image( BLLImages.getImage( "faucet1_pipe.png" ) );
+    var pivotNode = new Image( BLLImages.getImage( "faucet1_pivot.png" ) );
+    var spoutNode = new Image( BLLImages.getImage( "faucet1_spout.png" ) );
 
     // rendering order
     thisNode.addChild( pipeNode );
@@ -135,7 +135,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( FaucetNode, Node );
+  inherit( FaucetNode1, Node );
 
-  return FaucetNode;
+  return FaucetNode1;
 } );
