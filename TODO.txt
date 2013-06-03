@@ -10,8 +10,6 @@ BUGS
 - Desktop: HTMLText dragging lags on Mac+Firefox, eg label on shaker, joist#5
 
 HIGH
-- faucet version with slider
-- faucet version with pinball shooter
 - draw shaker particles directly to Canvas
 - selecting from "Solute" combo box also presses radio buttons behind it
 - buttons fire on 'up' event even if they haven't seen a 'down' event
@@ -25,6 +23,7 @@ MEDIUM
 - disable (instead of hide) increment/decrement buttons for sliders (not supported by sun.Button)
 
 LOW
+- delete unused faucet variants and associated image files
 - replace Property.set/get with Property.value
 - update to latest version of lib/ dependencies, including jQuery 2.x
 - beers-law-lab.css: delete CSS for browser window borders, workaround for joist#6
