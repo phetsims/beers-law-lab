@@ -25,6 +25,7 @@ MEDIUM
 - disable (instead of hide) increment/decrement buttons for sliders (not supported by sun.Button)
 
 LOW
+- replace Property.set/get with Property.value
 - update to latest version of lib/ dependencies, including jQuery 2.x
 - beers-law-lab.css: delete CSS for browser window borders, workaround for joist#6
 - ComboBox: remove enableClickToDismissListener, workaround for scenery#58
