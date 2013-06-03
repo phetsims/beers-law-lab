@@ -1,3 +1,4 @@
+6/3/13 FaucetNode2: alternate design that uses a pinball shooter
 6/3/13 rename FaucetNode1 and related image files, preparing for 2 alternative implementations
 5/31/13 migrate ChemUtils to nitroglycerin.ChemUtils
 5/31/13 migrate ColorUtils.interpolateRGBA to scenery.Color

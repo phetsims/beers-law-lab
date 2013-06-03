@@ -1,9 +1,10 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * Faucet, with a movable handle to control the flow rate.
- * Releasing the handle sets the flow rate to zero.
- * When the faucet is disabled, the flow rate is set to zero and the handle is disabled.
+ * Faucet with a rotating lever.
+ * Pushing the lever down increases the flow rate.
+ * Releasing the lever sets the flow rate to zero.
+ * When the faucet is disabled, the flow rate is set to zero and the lever is disabled.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -43,7 +44,7 @@ define( function( require ) {
     var orientationToFlowRate = new LinearFunction( HANDLE_ORIENTATION_RANGE, new Range( 0, faucet.maxFlowRate ) );
 
     // child nodes
-    var handleNode = new Image( BLLImages.getImage( "faucet1_handle.png" ), {
+    var leverNode = new Image( BLLImages.getImage( "faucet1_lever.png" ), {
       cursor: "pointer"
     } );
     var pipeNode = new Image( BLLImages.getImage( "faucet1_pipe.png" ) );
@@ -52,7 +53,7 @@ define( function( require ) {
 
     // rendering order
     thisNode.addChild( pipeNode );
-    thisNode.addChild( handleNode );
+    thisNode.addChild( leverNode );
     thisNode.addChild( pivotNode );
     thisNode.addChild( spoutNode );
 
@@ -78,9 +79,9 @@ define( function( require ) {
       // pivot is on top of spout
       pivotNode.x = spoutNode.left + ( 0.25 * spoutNode.width );
       pivotNode.y = spoutNode.top - pivotNode.height;
-      // butt end of handle is centered in pivot
-      handleNode.x = pivotNode.centerX;
-      handleNode.y = pivotNode.centerY - ( handleNode.height / 2 );
+      // butt end of lever is centered in pivot
+      leverNode.x = pivotNode.centerX;
+      leverNode.y = pivotNode.centerY - ( leverNode.height / 2 );
     }
 
     // move to model location
@@ -88,32 +89,32 @@ define( function( require ) {
     thisNode.x = location.x;
     thisNode.y = location.y;
 
-    // determine on/off handle locations
-    handleNode.rotateAround( new Vector2( pivotNode.centerX, pivotNode.centerY ), HANDLE_ORIENTATION_RANGE.max );
-    var handleOnY = handleNode.bottom;
-    handleNode.setRotation( 0 );
-    handleNode.rotateAround( new Vector2( pivotNode.centerX, pivotNode.centerY ), HANDLE_ORIENTATION_RANGE.min );
-    var handleOffY = handleNode.top;
-    // leave the handle in the off orientation
+    // determine on/off lever locations
+    leverNode.rotateAround( new Vector2( pivotNode.centerX, pivotNode.centerY ), HANDLE_ORIENTATION_RANGE.max );
+    var leverOnY = leverNode.bottom;
+    leverNode.setRotation( 0 );
+    leverNode.rotateAround( new Vector2( pivotNode.centerX, pivotNode.centerY ), HANDLE_ORIENTATION_RANGE.min );
+    var leverOffY = leverNode.top;
+    // leave the lever in the off orientation
 
-    // mapping from handle y-coordinate to orientation
-    var yToOrientation = new LinearFunction( new Range( handleOffY, handleOnY ), HANDLE_ORIENTATION_RANGE );
+    // mapping from lever y-coordinate to orientation
+    var yToOrientation = new LinearFunction( new Range( leverOffY, leverOnY ), HANDLE_ORIENTATION_RANGE );
 
-    handleNode.addInputListener( new SimpleDragHandler(
+    leverNode.addInputListener( new SimpleDragHandler(
         {
           //TODO: revisit this to make it feel more smooth/natural
           // adjust the flow
           drag: function( event ) {
             if ( faucet.enabled.get() ) {
-              var localPosition = handleNode.globalToParentPoint( event.pointer.point );
-              var y = Util.clamp( localPosition.y, handleOffY, handleOnY );
-              var handleOrientation = yToOrientation.evaluate( y );
-              var flowRate = orientationToFlowRate.evaluate( handleOrientation );
+              var localPosition = leverNode.globalToParentPoint( event.pointer.point );
+              var y = Util.clamp( localPosition.y, leverOffY, leverOnY );
+              var leverOrientation = yToOrientation.evaluate( y );
+              var flowRate = orientationToFlowRate.evaluate( leverOrientation );
               faucet.flowRate.set( flowRate );
             }
           },
 
-          // turn off the faucet when the handle is released
+          // turn off the faucet when the lever is released
           end: function() {
             faucet.flowRate.set( 0 );
           },
@@ -124,14 +125,14 @@ define( function( require ) {
         } ) );
 
     faucet.flowRate.addObserver( function( flowRate ) {
-      // reset the handle's transform
-      handleNode.resetTransform();
-      // butt end of handle is centered in pivot
-      handleNode.x = pivotNode.centerX;
-      handleNode.y = pivotNode.centerY - ( handleNode.height / 2 );
-      // handle orientation matches flow rate
+      // reset the lever's transform
+      leverNode.resetTransform();
+      // butt end of lever is centered in pivot
+      leverNode.x = pivotNode.centerX;
+      leverNode.y = pivotNode.centerY - ( leverNode.height / 2 );
+      // lever orientation matches flow rate
       var orientation = orientationToFlowRate.evaluateInverse( flowRate );
-      handleNode.rotateAround( new Vector2( pivotNode.centerX, pivotNode.centerY ), orientation );
+      leverNode.rotateAround( new Vector2( pivotNode.centerX, pivotNode.centerY ), orientation );
     } );
   }
 
