@@ -1,3 +1,4 @@
+6/3/13 FaucetNode4: alternate design with slider on pipe
 6/3/13 FaucetNode3: alternate design with slider on valve, ala Java version
 6/3/13 FaucetNode2: alternate design that uses a pinball shooter
 6/3/13 rename FaucetNode1 and related image files, preparing for 2 alternative implementations
