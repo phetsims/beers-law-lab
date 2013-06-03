@@ -36,7 +36,7 @@ define( function( require ) {
 
     // Maps from range2 to range1.
     thisFunction.evaluateInverse = function( value ) {
-      return new LinearFunction( range2, range1 ).evaluate( value );
+      return new LinearFunction( range2, range1, clamp ).evaluate( value );
     };
   }
 
