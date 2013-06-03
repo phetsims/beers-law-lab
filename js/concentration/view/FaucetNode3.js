@@ -1,10 +1,10 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * Faucet with a pinball machine "shooter".
- * Pulling out the shooter changes the flow rate.
- * Releasing the shooter sets the flow rate to zero.
- * When the faucet is disabled, the flow rate is set to zero and the shooter is disabled.
+ * Faucet with a horizontal slider on the faucet valve.
+ * Moving the slider thumb changes the flow rate.
+ * Releasing the thumb sets the flow rate to zero.
+ * When the faucet is disabled, the flow rate is set to zero and the thumb is disabled.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -160,31 +160,6 @@ define( function( require ) {
     var location = mvt.modelToViewPosition( faucet.location );
     thisNode.x = location.x;
     thisNode.y = location.y;
-
-//    shooterNode.addInputListener( new SimpleDragHandler(
-//        {
-//          // adjust the flow
-//          drag: function( event ) {
-//            if ( faucet.enabled.get() ) {
-//              var x = shooterNode.globalToParentPoint( event.pointer.point ).x + SHOOTER_MIN_X_OFFSET;
-//              var flowRate = Util.clamp( Util.linear( SHOOTER_MIN_X_OFFSET, 0, SHOOTER_MAX_X_OFFSET, faucet.maxFlowRate, x ), 0, faucet.maxFlowRate );
-//              faucet.flowRate.set( flowRate );
-//            }
-//          },
-//
-//          // turn off the faucet when the handle is released
-//          end: function() {
-//            faucet.flowRate.set( 0 );
-//          },
-//
-//          // prevent default behavior that translates the node
-//          translate: function() {
-//          }
-//        } ) );
-
-    faucet.flowRate.addObserver( function( flowRate ) {
-      //TODO
-    } );
   }
 
   inherit( FaucetNode3, Node );
