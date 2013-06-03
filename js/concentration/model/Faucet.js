@@ -34,7 +34,7 @@ define( function( require ) {
     thisFaucet.enabled = new Property( true );
 
     // when disabled, turn off the faucet.
-    thisFaucet.enabled.addObserver( function( enabled ) {
+    thisFaucet.enabled.link( function( enabled ) {
       if ( !enabled ) {
         thisFaucet.flowRate.set( 0 );
       }

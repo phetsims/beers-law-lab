@@ -34,7 +34,7 @@ define( function( require ) {
     var imageNode = new Image( unpressedImage );
     thisNode.addChild( imageNode );
 
-    on.addObserver( function( on ) {
+    on.link( function( on ) {
       if ( enabled.get() ) {
         imageNode.setImage( on ? pressedImage : unpressedImage );
       }
@@ -43,7 +43,7 @@ define( function( require ) {
       }
     } );
 
-    enabled.addObserver( function( enabled ) {
+    enabled.link( function( enabled ) {
       if ( enabled ) {
         imageNode.setImage( on.get() ? pressedImage : unpressedImage );
         thisNode.cursor = "pointer";

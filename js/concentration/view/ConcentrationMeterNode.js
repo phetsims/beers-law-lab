@@ -88,12 +88,12 @@ define( function( require ) {
     valueNode.centerY = VALUE_CENTER_Y;
 
     // body location
-    meter.body.location.addObserver( function( location ) {
+    meter.body.location.link( function( location ) {
       thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
     // displayed value
-    meter.value.addObserver( function( value ) {
+    meter.value.link( function( value ) {
       if ( isNaN( value ) ) {
         valueNode.setText( NO_VALUE );
         valueNode.centerX = backgroundNode.centerX; // center justified
@@ -131,7 +131,7 @@ define( function( require ) {
     imageNode.y = -radius;
 
     // probe location
-    probe.location.addObserver( function( location ) {
+    probe.location.link( function( location ) {
       thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
@@ -199,8 +199,8 @@ define( function( require ) {
           .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
           .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
     };
-    body.location.addObserver( updateCurve );
-    probe.location.addObserver( updateCurve );
+    body.location.link( updateCurve );
+    probe.location.link( updateCurve );
   }
 
   inherit( WireNode, Path );
@@ -250,12 +250,12 @@ define( function( require ) {
         meter.value.set( NaN );
       }
     };
-    meter.probe.location.addObserver( updateValue );
-    solution.solute.addObserver( updateValue );
-    solution.volume.addObserver( updateValue );
-    solution.concentration.addObserver( updateValue );
-    solventFaucet.flowRate.addObserver( updateValue );
-    drainFaucet.flowRate.addObserver( updateValue );
+    meter.probe.location.link( updateValue );
+    solution.solute.link( updateValue );
+    solution.volume.link( updateValue );
+    solution.concentration.link( updateValue );
+    solventFaucet.flowRate.link( updateValue );
+    drainFaucet.flowRate.link( updateValue );
   }
 
   inherit( ConcentrationMeterNode, Node );

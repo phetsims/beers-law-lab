@@ -105,23 +105,23 @@ define( function( require ) {
     }
 
     // Update location
-    dropper.location.addObserver( function( location ) {
+    dropper.location.link( function( location ) {
       thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
     // Visibility
-    dropper.visible.addObserver( function( visible ) {
+    dropper.visible.link( function( visible ) {
       thisNode.setVisible( visible );
     } );
 
     // Make the background visible only when the dropper is empty
-    dropper.empty.addObserver( function( empty ) {
+    dropper.empty.link( function( empty ) {
       fluid.setVisible( !empty );
       background.setVisible( empty );
     } );
 
     // Change the label and color when the solute changes.
-    solute.addObserver( function( solute ) {
+    solute.link( function( solute ) {
 
       // label, centered in the dropper's glass
       label.setText( solute.formula );

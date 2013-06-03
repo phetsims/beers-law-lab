@@ -58,7 +58,7 @@ define( function( require ) {
 
     // sync view with model
     var viewToModel;
-    solution.addObserver( function( solution ) {
+    solution.link( function( solution ) {
       // change the view-to-model function to match the solution's concentration range
       var concentrationRange = solution.concentrationRange;
       viewToModel = new LinearFunction( new Range( 0, trackSize.width ), new Range( concentrationRange.min, concentrationRange.max ), true /* clamp */ );
@@ -163,15 +163,15 @@ define( function( require ) {
     var concentrationObserver = function( concentration ) {
       thisNode.x = concentrationToPosition.evaluate( concentration );
     };
-    solution.get().concentration.addObserver( concentrationObserver );
+    solution.get().concentration.link( concentrationObserver );
 
     // when the solution changes, wire up to the current solution
-    solution.addObserver( function( newSolution, oldSolution ) {
+    solution.link( function( newSolution, oldSolution ) {
       setSolution( newSolution );
       if ( oldSolution ) {
-        oldSolution.concentration.removeObserver( concentrationObserver );
+        oldSolution.concentration.unlink( concentrationObserver );
       }
-      newSolution.concentration.addObserver( concentrationObserver );
+      newSolution.concentration.link( concentrationObserver );
     } );
   }
 
@@ -262,7 +262,7 @@ define( function( require ) {
     };
 
     // update the tick labels to match the solution
-    solution.addObserver( function( solution, oldSolution ) {
+    solution.link( function( solution, oldSolution ) {
       var concentrationRange = solution.concentrationRange;
       var transform = solution.concentrationTransform;
       // update label values
@@ -277,9 +277,9 @@ define( function( require ) {
       minusButton.visible = ( solution.concentration.get() > concentrationRange.min );
       // re-wire observer
       if ( oldSolution ) {
-        oldSolution.concentration.removeObserver( concentrationObserver );
+        oldSolution.concentration.unlink( concentrationObserver );
       }
-      solution.concentration.addObserver( concentrationObserver );
+      solution.concentration.link( concentrationObserver );
     } );
 
 

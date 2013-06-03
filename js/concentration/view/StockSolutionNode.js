@@ -44,19 +44,19 @@ define( function( require ) {
       // move this node to the dropper's location
       thisNode.translation = mvt.modelToViewPosition( dropper.location.get() );
     };
-    dropper.location.addObserver( updateShapeAndLocation );
-    dropper.on.addObserver( updateShapeAndLocation );
-    dropper.empty.addObserver( updateShapeAndLocation );
+    dropper.location.link( updateShapeAndLocation );
+    dropper.on.link( updateShapeAndLocation );
+    dropper.empty.link( updateShapeAndLocation );
 
     // set color to match solute
-    solute.addObserver( function( solute ) {
+    solute.link( function( solute ) {
       var color = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
       thisNode.fill = color;
       thisNode.stroke = color.darkerColor();
     } );
 
     // hide this node when the dropper is invisible
-    dropper.visible.addObserver( function( visible ) {
+    dropper.visible.link( function( visible ) {
       thisNode.setVisible( visible );
     } );
   }

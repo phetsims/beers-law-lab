@@ -66,7 +66,7 @@ define( function( require ) {
                     { xMargin: 20, yMargin: 20, fill: "#F0F0F0", stroke: "gray", lineWidth: 1 } );
 
     // When the radio button selection changes...
-    variableWavelength.addObserver( function( isVariable ) {
+    variableWavelength.link( function( isVariable ) {
       //TODO when bounds means "visible bounds", replace this if-else statement with: wavelengthSlider.visible = isVariable;
       if ( isVariable ) {
         if ( !content.isChild( wavelengthSlider ) ) {
@@ -89,7 +89,7 @@ define( function( require ) {
     };
 
     // sync displayed value with model
-    light.wavelength.addObserver( function( wavelength ) {
+    light.wavelength.link( function( wavelength ) {
       valueDisplay.text = StringUtils.format( BLLStrings.pattern_0value_1units, wavelength.toFixed( 0 ), BLLStrings.units_nm );
     } );
   }

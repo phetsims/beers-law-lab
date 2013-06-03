@@ -124,7 +124,7 @@ define( function( require ) {
           }
         } ) );
 
-    faucet.flowRate.addObserver( function( flowRate ) {
+    faucet.flowRate.link( function( flowRate ) {
       // reset the lever's transform
       leverNode.resetTransform();
       // butt end of lever is centered in pivot

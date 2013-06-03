@@ -107,7 +107,7 @@ define( function( require ) {
           }
         } ) );
 
-    faucet.flowRate.addObserver( function( flowRate ) {
+    faucet.flowRate.link( function( flowRate ) {
       var xOffset = Util.linear( 0, SHOOTER_MIN_X_OFFSET, faucet.maxFlowRate, SHOOTER_MAX_X_OFFSET, flowRate );
       shooterNode.x = spoutNode.left + xOffset;
     } );

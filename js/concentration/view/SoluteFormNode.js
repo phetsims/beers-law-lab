@@ -62,10 +62,10 @@ define( function( require ) {
     dropperButton.left = shakerButton.right + 40;
 
     // ensure mutual exclusivity
-    shaker.visible.addObserver( function( visible ) {
+    shaker.visible.link( function( visible ) {
       dropper.visible.set( !visible );
     } );
-    dropper.visible.addObserver( function( visible ) {
+    dropper.visible.link( function( visible ) {
       shaker.visible.set( !visible );
     } );
   }

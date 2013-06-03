@@ -1,3 +1,4 @@
+6/3/13 use Property.link/unlink instead of addObserver/removeObserver
 # 0.0.0-6 6/3/13
 6/3/13 dev version with "slider on pipe" faucet control (FaucetNode4)
 # 0.0.0-5 6/3/13

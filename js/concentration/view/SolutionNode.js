@@ -39,7 +39,7 @@ define( function( require ) {
      * Updates the color of the solution, accounting for saturation.
      * @param {Color} color
      */
-    solution.color.addObserver( function( color ) {
+    solution.color.link( function( color ) {
       thisNode.fill = color;
       thisNode.stroke = color.darkerColor();
     } );
@@ -51,7 +51,7 @@ define( function( require ) {
     var viewLocation = mvt.modelToViewPosition( beaker.location );
     var viewWidth = mvt.modelToViewDeltaX( beaker.size.width );
     var volumeToHeightFunction = new LinearFunction( new Range( 0, beaker.volume ), new Range( 0, beaker.size.height ) );
-    solution.volume.addObserver( function( volume ) {
+    solution.volume.link( function( volume ) {
 
       // determine dimensions in model coordinates
       var solutionHeight = volumeToHeightFunction.evaluate( volume );

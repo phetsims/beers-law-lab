@@ -54,14 +54,14 @@ define( function( require ) {
       valueDisplay.text = StringUtils.format( BLLStrings.pattern_0value_1units, valueString, units );
       valueDisplay.right = slider.left - 20;
     };
-    solution.get().concentration.addObserver( concentrationObserver );
+    solution.get().concentration.link( concentrationObserver );
 
     // when solution changes, rewire the concentration observer
-    solution.addObserver( function( newSolution, oldSolution ) {
+    solution.link( function( newSolution, oldSolution ) {
       if ( oldSolution ) {
-        oldSolution.concentration.removeObserver( concentrationObserver );
+        oldSolution.concentration.unlink( concentrationObserver );
       }
-      newSolution.concentration.addObserver( concentrationObserver );
+      newSolution.concentration.link( concentrationObserver );
     } );
   }
 

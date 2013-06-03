@@ -46,8 +46,8 @@ define( function( require ) {
       var updateMolarAbsorptivity = function() {
         thisAbsorbance.molarAbsorptivity.set( computeMolarAbsorptivity() );
       };
-      solution.addObserver( updateMolarAbsorptivity );
-      light.wavelength.addObserver( updateMolarAbsorptivity );
+      solution.link( updateMolarAbsorptivity );
+      light.wavelength.link( updateMolarAbsorptivity );
     }
 
     // b: path length, synonymous with cuvette width, units=cm
@@ -62,7 +62,7 @@ define( function( require ) {
       var updatePathLength = function() {
         thisAbsorbance.pathLength.set( computePathLength() );
       };
-      cuvette.width.addObserver( updatePathLength );
+      cuvette.width.link( updatePathLength );
     }
 
     // C: concentration, units=M
@@ -73,14 +73,14 @@ define( function( require ) {
       var updateConcentration = function( concentration ) {
         thisAbsorbance.concentration.set( concentration );
       };
-      solution.get().concentration.addObserver( updateConcentration );
+      solution.get().concentration.link( updateConcentration );
 
       // Rewire the concentration observer when the solution changes.
-      solution.addObserver( function( newSolution, oldSolution ) {
+      solution.link( function( newSolution, oldSolution ) {
         if ( oldSolution !== null ) {
-          oldSolution.concentration.removeObserver( updateConcentration );
+          oldSolution.concentration.unlink( updateConcentration );
         }
-        newSolution.concentration.addObserver( updateConcentration );
+        newSolution.concentration.link( updateConcentration );
       } );
     }
 
@@ -96,9 +96,9 @@ define( function( require ) {
       var updateAbsorbance = function() {
         thisAbsorbance.value.set( computeAbsorbance() );
       };
-      thisAbsorbance.molarAbsorptivity.addObserver( updateAbsorbance );
-      thisAbsorbance.pathLength.addObserver( updateAbsorbance );
-      thisAbsorbance.concentration.addObserver( updateAbsorbance );
+      thisAbsorbance.molarAbsorptivity.link( updateAbsorbance );
+      thisAbsorbance.pathLength.link( updateAbsorbance );
+      thisAbsorbance.concentration.link( updateAbsorbance );
     }
   }
 

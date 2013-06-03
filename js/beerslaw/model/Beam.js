@@ -45,7 +45,7 @@ define( function( require ) {
     thisBeam.visible = new Property( false );
 
     // Make the beam visible when the light is on.
-    light.on.addObserver( function( on ) {
+    light.on.link( function( on ) {
       thisBeam.visible.set( on );
     } );
 
@@ -59,9 +59,9 @@ define( function( require ) {
         thisBeam.shape.set( Shape.rect( x, y, w, h ) );
       }
     };
-    cuvette.width.addObserver( updateShape );
-    detector.probe.location.addObserver( updateShape );
-    thisBeam.visible.addObserver( updateShape );
+    cuvette.width.link( updateShape );
+    detector.probe.location.link( updateShape );
+    thisBeam.visible.link( updateShape );
 
     // update color of beam, a left-to-right linear gradient that transitions inside the solution
     var updateColor = function() {
@@ -76,10 +76,10 @@ define( function( require ) {
                                .addColorStop( 1, rightColor ) );
       }
     };
-    light.wavelength.addObserver( updateColor );
-    cuvette.width.addObserver( updateColor );
-    absorbance.value.addObserver( updateColor );
-    thisBeam.visible.addObserver( updateColor );
+    light.wavelength.link( updateColor );
+    cuvette.width.link( updateColor );
+    absorbance.value.link( updateColor );
+    thisBeam.visible.link( updateColor );
   }
 
   return Beam;

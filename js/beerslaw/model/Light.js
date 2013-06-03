@@ -29,7 +29,7 @@ define( function( require ) {
     thisLight.lensDiameter = lensDiameter;
 
     // when the solution changes, set the light to the solution's lambdaMax wavelength
-    solution.addObserver( function( solution ) {
+    solution.link( function( solution ) {
       thisLight.wavelength.set( solution.molarAbsorptivityData.lambdaMax );
     } );
   }

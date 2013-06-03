@@ -45,8 +45,8 @@ define( function( require ) {
         thisShaker.dispensingRate.set( 0 );
       }
     };
-    thisShaker.empty.addObserver( observer );
-    thisShaker.visible.addObserver( observer );
+    thisShaker.empty.link( observer );
+    thisShaker.visible.link( observer );
 
     thisShaker.reset = function() {
       callSuper( Movable, "reset", thisShaker );

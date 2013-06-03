@@ -80,11 +80,11 @@ define( function( require ) {
     var updateValue = function() {
       thisDetector.value.set( computeValue() );
     };
-    thisDetector.probe.location.addObserver( updateValue );
-    thisDetector.light.on.addObserver( updateValue );
-    thisDetector.probe.location.addObserver( updateValue );
-    thisDetector.mode.addObserver( updateValue );
-    absorbance.value.addObserver( updateValue );
+    thisDetector.probe.location.link( updateValue );
+    thisDetector.light.on.link( updateValue );
+    thisDetector.probe.location.link( updateValue );
+    thisDetector.mode.link( updateValue );
+    absorbance.value.link( updateValue );
   }
 
   ATDetector.prototype.reset = function() {

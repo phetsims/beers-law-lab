@@ -70,7 +70,7 @@ define( function( require ) {
     thisSolution.fluidColor = new Property( createFluidColor( thisSolution.concentration.get() ) );
 
     // update fluid color when concentration changes
-    this.concentration.addObserver( function( concentration ) {
+    this.concentration.link( function( concentration ) {
       thisSolution.fluidColor.set( createFluidColor( concentration ) );
     } );
   }

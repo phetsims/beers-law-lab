@@ -25,12 +25,12 @@ define( function( require ) {
     thisEvaporator.enabled = new Property( true );
 
     // disable when the volume gets to zero
-    solution.volume.addObserver( function( volume ) {
+    solution.volume.link( function( volume ) {
       thisEvaporator.enabled.set( volume > 0 );
     } );
 
     // when disabled, set the rate to zero
-    thisEvaporator.enabled.addObserver( function( enabled ) {
+    thisEvaporator.enabled.link( function( enabled ) {
       if ( !enabled ) {
         thisEvaporator.evaporationRate.set( 0 );
       }

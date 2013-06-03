@@ -73,7 +73,7 @@ define( function( require ) {
     thisNode.addChild( thumb );
 
     // enable/disable thumb
-    enabled.addObserver( function( enabled ) {
+    enabled.link( function( enabled ) {
       thumb.fill = enabled ? THUMB_FILL_ENABLED : THUMB_FILL_DISABLED;
       thumb.cursor = enabled ? "pointer" : "default";
     } );
@@ -105,7 +105,7 @@ define( function( require ) {
     );
 
     // update thumb location when value changes
-    value.addObserver( function( value ) {
+    value.link( function( value ) {
       thumb.centerX = thisNode._valueToPosition.evaluate( value );
     } );
   }

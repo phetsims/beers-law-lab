@@ -67,19 +67,19 @@ define( function( require ) {
                                                            new Vector2( 750, 370 ), new Bounds2( 30, 150, 966, 680 ) );
 
     // Things to do when the solute is changed.
-    thisModel.solute.addObserver( function( solute ) {
+    thisModel.solute.link( function( solute ) {
       thisModel.solution.soluteAmount.set( 0 );
     } );
 
     // Enable faucets and dropper based on amount of solution in the beaker.
-    thisModel.solution.volume.addObserver( function( volume ) {
+    thisModel.solution.volume.link( function( volume ) {
       thisModel.solventFaucet.enabled.set( volume < SOLUTION_VOLUME_RANGE.max );
       thisModel.drainFaucet.enabled.set( volume > SOLUTION_VOLUME_RANGE.min );
       thisModel.dropper.enabled.set( !thisModel.dropper.empty.get() && ( volume < SOLUTION_VOLUME_RANGE.max ) );
     } );
 
     // Empty shaker and dropper when max solute is reached.
-    thisModel.solution.soluteAmount.addObserver( function( soluteAmount ) {
+    thisModel.solution.soluteAmount.link( function( soluteAmount ) {
       var containsMaxSolute = ( soluteAmount >= SOLUTE_AMOUNT.max );
       thisModel.shaker.empty.set( containsMaxSolute );
       thisModel.dropper.empty.set( containsMaxSolute );

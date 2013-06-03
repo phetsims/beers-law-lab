@@ -23,17 +23,17 @@ define( function( require ) {
     Path.call( this, { stroke: "rgba( 192, 192, 192, 0.8 )", lineWidth: 0.5 } );
 
     // shape
-    beam.shape.addObserver( function( shape ) {
+    beam.shape.link( function( shape ) {
       thisNode.setShape( shape );
     } );
 
     // fill
-    beam.fill.addObserver( function( fill ) {
+    beam.fill.link( function( fill ) {
       thisNode.fill = fill;
     } );
 
     // visibility
-    beam.visible.addObserver( function( visible ) {
+    beam.visible.link( function( visible ) {
       thisNode.setVisible( visible );
     } );
   }

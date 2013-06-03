@@ -52,16 +52,16 @@ define( function( require ) {
       var concentration = ( volume > 0 ) ? Math.min( thisSolution.getSaturatedConcentration(), soluteAmount / volume ) : 0; // M = mol/L
       thisSolution.concentration.set( concentration );
     };
-    thisSolution.solute.addObserver( updatePrecipitateAmount );
-    thisSolution.soluteAmount.addObserver( updatePrecipitateAmount );
-    thisSolution.volume.addObserver( updatePrecipitateAmount );
+    thisSolution.solute.link( updatePrecipitateAmount );
+    thisSolution.soluteAmount.link( updatePrecipitateAmount );
+    thisSolution.volume.link( updatePrecipitateAmount );
 
     // derive the solution color
     var updateColor = function() {
       thisSolution.color.set( ConcentrationSolution.createColor( thisSolution.solvent, thisSolution.solute.get(), thisSolution.concentration.get() ) );
     };
-    thisSolution.solute.addObserver( updateColor );
-    thisSolution.concentration.addObserver( updateColor );
+    thisSolution.solute.link( updateColor );
+    thisSolution.concentration.link( updateColor );
 
     // reset
     thisSolution.reset = function() {

@@ -39,12 +39,12 @@ define( function( require ) {
     thisParticles.removedCallbacks = []; // function(ShakerParticle)
 
     // when the solute changes, remove all particles
-    solution.solute.addObserver( function() {
+    solution.solute.link( function() {
       thisParticles._removeAllParticles();
     } );
 
     // remove all particles if the solute amount goes to zero.
-    solution.soluteAmount.addObserver( function( amount ) {
+    solution.soluteAmount.link( function( amount ) {
       if ( amount === 0 ) {
         thisParticles._removeAllParticles();
       }

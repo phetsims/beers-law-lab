@@ -58,17 +58,17 @@ define( function( require ) {
     }
 
     // sync location with model
-    shaker.location.addObserver( function updateLocation( location ) {
+    shaker.location.link( function updateLocation( location ) {
       thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
     // sync visibility with model
-    shaker.visible.addObserver( function updateVisibility( visible ) {
+    shaker.visible.link( function updateVisibility( visible ) {
       thisNode.setVisible( visible );
     } );
 
     // sync solute with model
-    shaker.solute.addObserver( function updateSolute( solute ) {
+    shaker.solute.link( function updateSolute( solute ) {
       // label the shaker with the solute formula
       labelNode.setText( solute.formula );
       // center the label on the shaker

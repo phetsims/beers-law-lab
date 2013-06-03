@@ -104,7 +104,7 @@ define( function( require ) {
     thisNode.addChild( arrowNode );
 
     // when the cuvette width changes ...
-    cuvette.width.addObserver( function() {
+    cuvette.width.link( function() {
       var width = mvt.modelToViewDeltaX( cuvette.width.get() );
       var height = mvt.modelToViewDeltaY( cuvette.height );
       cuvetteNode.setShape( new Shape().moveTo( 0, 0 ).lineTo( 0, height ).lineTo( width, height ).lineTo( width, 0 ) );
@@ -120,14 +120,14 @@ define( function( require ) {
       solutionNode.fill = color.withAlpha( SOLUTION_ALPHA );
       solutionNode.stroke = color.darkerColor();
     };
-    solution.get().fluidColor.addObserver( colorObserver );
+    solution.get().fluidColor.link( colorObserver );
 
     // when the solution changes, rewire the color observer
-    solution.addObserver( function( newSolution, oldSolution ) {
+    solution.link( function( newSolution, oldSolution ) {
       if ( oldSolution ) {
-        oldSolution.fluidColor.removeObserver( colorObserver );
+        oldSolution.fluidColor.unlink( colorObserver );
       }
-      newSolution.fluidColor.addObserver( colorObserver );
+      newSolution.fluidColor.link( colorObserver );
     } );
 
     // interactivity

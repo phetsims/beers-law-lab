@@ -29,12 +29,12 @@ define( function( require ) {
     thisPrecipitate.removedCallbacks = []; // function(PrecipitateParticle)
 
     // when the saturation changes, update the number of precipitate particles
-    thisPrecipitate.solution.precipitateAmount.addObserver( function() {
+    thisPrecipitate.solution.precipitateAmount.link( function() {
       thisPrecipitate._updateParticles();
     } );
 
     // when the solute changes, remove all particles and create new particles for the solute
-    thisPrecipitate.solution.solute.addObserver( function() {
+    thisPrecipitate.solution.solute.link( function() {
       thisPrecipitate._removeAllParticles();
       thisPrecipitate._updateParticles();
     } );

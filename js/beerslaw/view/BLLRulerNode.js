@@ -41,7 +41,7 @@ define( function( require ) {
                                       { minorTicksPerMajorTick: 4 } ) );
 
     // sync with model
-    ruler.location.addObserver( function( location ) {
+    ruler.location.link( function( location ) {
       var position = mvt.modelToViewPosition( location );
       thisNode.x = position.x;
       thisNode.y = position.y;

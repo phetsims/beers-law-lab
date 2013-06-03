@@ -30,7 +30,7 @@ define( function( require ) {
      * Set the color of the fluid coming out of the spout.
      * @param {Color} color
      */
-    fluid.color.addObserver( function( color ) {
+    fluid.color.link( function( color ) {
       thisNode.fill = color;
       thisNode.stroke = color.darkerColor();
     } );
@@ -41,7 +41,7 @@ define( function( require ) {
      */
     var viewLocation = mvt.modelToViewPosition( faucet.location );
     var viewHeight = mvt.modelToViewDeltaY( height );
-    faucet.flowRate.addObserver( function( flowRate ) {
+    faucet.flowRate.link( function( flowRate ) {
       if ( flowRate === 0 ) {
         thisNode.shape = new Shape();
       }

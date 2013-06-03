@@ -85,7 +85,7 @@ define( function( require ) {
     valueNode.top = VALUE_CENTER_Y;
 
     // body location
-    detector.body.location.addObserver( function( location ) {
+    detector.body.location.link( function( location ) {
       thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
@@ -106,8 +106,8 @@ define( function( require ) {
         valueNode.right = backgroundNode.right - VALUE_X_MARGIN; // right justified
       }
     };
-    detector.value.addObserver( valueUpdater );
-    detector.mode.addObserver( valueUpdater );
+    detector.value.link( valueUpdater );
+    detector.mode.link( valueUpdater );
   }
 
   inherit( BodyNode, Node );
@@ -129,7 +129,7 @@ define( function( require ) {
     imageNode.y = -PROBE_CENTER_Y_OFFSET;
 
     // location
-    probe.location.addObserver( function( location ) {
+    probe.location.link( function( location ) {
       thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
@@ -179,8 +179,8 @@ define( function( require ) {
           .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
           .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
     };
-    body.location.addObserver( updateCurve );
-    probe.location.addObserver( updateCurve );
+    body.location.link( updateCurve );
+    probe.location.link( updateCurve );
   }
 
   inherit( WireNode, Path );
