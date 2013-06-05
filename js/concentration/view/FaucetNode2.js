@@ -17,10 +17,8 @@ define( function( require ) {
   var Circle = require( "SCENERY/nodes/Circle" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
-  var LinearFunction = require( "common/util/LinearFunction" );
   var Matrix3 = require( "DOT/Matrix3" );
   var Node = require( "SCENERY/nodes/Node" );
-  var Range = require( "DOT/Range" );
   var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
   var Transform3 = require( "DOT/Transform3" );
   var Util = require( "DOT/Util" );
