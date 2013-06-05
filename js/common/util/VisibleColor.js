@@ -18,7 +18,6 @@ define( function( require ) {
 
   VisibleColor.MIN_WAVELENGTH = 380;
   VisibleColor.MAX_WAVELENGTH = 780;
-  VisibleColor.WHITE_WAVELENGTH = 0;
 
   /**
    * Initializes a color table, used to map between Color and wavelength.
@@ -26,7 +25,7 @@ define( function( require ) {
    */
   var initColorTable = function() {
 
-    assert && assert( colorTable.length === 0 );
+    assert && assert( colorTable.length === 0 ); // call this function exactly once
 
     // Allocate the color-lookup array.
     var numWavelengths = Math.floor( VisibleColor.MAX_WAVELENGTH - VisibleColor.MIN_WAVELENGTH + 1 );
@@ -94,7 +93,7 @@ define( function( require ) {
 
   /**
    * Converts a wavelength to a visible color.
-   * @param {Number} wavelength
+   * @param {Number} wavelength will be rounded to the closest integer value
    * @return {Number|null} null if wavelength is not in the visible spectrum
    */
   VisibleColor.wavelengthToColor = function( wavelength ) {
@@ -103,14 +102,10 @@ define( function( require ) {
       // Wavelength is not visible.
       color = null;
     }
-    else if ( wavelength === VisibleColor.WHITE_WAVELENGTH ) {
-      // Special case: white light.
-      color = Color.WHITE;
-    }
     else {
       // Look up the color.
       if ( colorTable.length === 0 ) { initColorTable(); }
-      color = colorTable[Math.round( wavelength - VisibleColor.MIN_WAVELENGTH )];
+      color = colorTable[ Math.round( wavelength ) - VisibleColor.MIN_WAVELENGTH ];
     }
     return color;
   };

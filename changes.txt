@@ -1,3 +1,4 @@
+6/5/13 remove vestigial special case from VisibleColor.wavelengthToColor
 6/5/13 change LinearFunction.evaluateInverse to inverse
 6/5/13 fix where fluid comes out of FaucetNode4
 6/5/13 change signature of LinearFunction constructor to match dot.Util.linear
