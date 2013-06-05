@@ -20,7 +20,7 @@ define( function( require ) {
   var Color = require( "SCENERY/util/Color" );
   var ColorRange = require( "common/model/ColorRange" );
   var ConcentrationTransform = require( "beerslaw/model/ConcentrationTransform" );
-  var LinearFunction = require( "common/util/LinearFunction" );
+  var linear = require( "DOT/Util" ).linear;
   var MolarAbsorptivityData = require( "beerslaw/model/MolarAbsorptivityData" );
   var Property = require( "PHETCOMMON/model/property/Property" );
   var Range = require( "DOT/Range" );
@@ -62,8 +62,8 @@ define( function( require ) {
     var createFluidColor = function( concentration, concentrationRange, colorRange, solvent ) {
       var color = thisSolution.solvent.color.get();
       if ( concentration > 0 ) {
-        var f = new LinearFunction( thisSolution.concentrationRange, new Range( 0, 1 ) );
-        color = thisSolution.colorRange.interpolateLinear( f.evaluate( concentration ) );
+        var distance = linear( thisSolution.concentrationRange.min, 0, thisSolution.concentrationRange.max, 1, concentration );
+        color = thisSolution.colorRange.interpolateLinear( distance );
       }
       return color;
     };

@@ -14,7 +14,7 @@ define( function( require ) {
 
   // imports
   var Color = require( "SCENERY/util/Color" );
-  var LinearFunction = require( "common/util/LinearFunction" );
+  var linear = require( "DOT/Util" ).linear;
   var LinearGradient = require( "SCENERY/util/LinearGradient" );
   var Property = require( "PHETCOMMON/model/property/Property" );
   var Range = require( "DOT/Range" );
@@ -25,7 +25,6 @@ define( function( require ) {
   var MAX_LIGHT_WIDTH = 50; // cm, wide enough to be way off the right edge of the play area
   var MAX_LIGHT_ALPHA = 0.78; // transparency of light when transmittance is 1.0 (tuned by eye)
   var MIN_LIGHT_ALPHA = 0.078; // min transparency of light when transmittance is non-zero (tuned by eye)
-  var TRANSMITTANCE_TO_ALPHA = new LinearFunction( new Range( 0, 1 ), new Range( MIN_LIGHT_ALPHA, MAX_LIGHT_ALPHA ) ); // maps transmittance to transparency
 
   /**
    * @param {Light} light
@@ -68,7 +67,7 @@ define( function( require ) {
       if ( thisBeam.visible.get() ) {
         var baseColor = VisibleColor.wavelengthToColor( light.wavelength.get() );
         var leftColor = baseColor.withAlpha( MAX_LIGHT_ALPHA );
-        var rightColor = baseColor.withAlpha( TRANSMITTANCE_TO_ALPHA.evaluate( absorbance.getTransmittance() ) );
+        var rightColor = baseColor.withAlpha( linear( 0, MIN_LIGHT_ALPHA, 1, MAX_LIGHT_ALPHA, absorbance.getTransmittance() ) );
         var x = mvt.modelToViewPosition( cuvette.location ).x;
         var w = mvt.modelToViewDeltaX( cuvette.width.get() );
         thisBeam.fill.set( new LinearGradient( x, 0, x + w, 0 )
