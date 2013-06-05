@@ -46,7 +46,7 @@ define( function( require ) {
     Node.call( thisNode );
 
     // mapping between value and track position
-    thisNode._valueToPosition = new LinearFunction( range, new Range( 0, trackSize.width ), true /* clamp */ );
+    var valueToPosition = new LinearFunction( range, new Range( 0, trackSize.width ), true /* clamp */ );
 
     // track
     var track = new Rectangle( 0, 0, trackSize.width, trackSize.height,
@@ -90,7 +90,7 @@ define( function( require ) {
           drag: function( event ) {
             if ( enabled.get() ) {
               var x = thumb.globalToParentPoint( event.pointer.point ).x - clickXOffset;
-              value.set( thisNode._valueToPosition.evaluateInverse( x ) );
+              value.set( valueToPosition.evaluateInverse( x ) );
             }
           },
           end: function() {
@@ -105,7 +105,7 @@ define( function( require ) {
 
     // update thumb location when value changes
     value.link( function( value ) {
-      thumb.centerX = thisNode._valueToPosition.evaluate( value );
+      thumb.centerX = valueToPosition.evaluate( value );
     } );
   }
 
