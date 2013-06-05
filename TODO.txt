@@ -9,7 +9,7 @@ BUGS
 
 HIGH
 - draw shaker particles directly to Canvas
-- MovableDragHandler: cursor drifts slightly during drag, something wrong with coordinate transforms
+- MovableDragHandler: cursor drifts slightly during drag, mvt is not the same as scenery's global coordinate frame
 
 MEDIUM
 - change to LinearFunction(a1,b1,a2,b2,clamp), support var f = LinearFunction(...), f(5), f.inverse(2), migrate to dot
