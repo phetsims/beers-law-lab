@@ -1,3 +1,4 @@
+6/4/13 integrate scenery.ButtonListener with ToggleButton
 6/4/13 fix: selecting from "Solute" combo box also presses radio buttons behind it
 6/3/13 delete backbone from lib/, delete FORT from config.js
 6/3/13 delete css for scrollbars that was addressed in joist#6

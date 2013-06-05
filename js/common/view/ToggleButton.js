@@ -12,6 +12,7 @@ define( function( require ) {
 
   // imports
   var BLLImages = require( "common/BLLImages" );
+  var ButtonListener = require( "SCENERY/input/ButtonListener" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
@@ -55,13 +56,11 @@ define( function( require ) {
       }
     } );
 
-    thisNode.addInputListener(
-        {
-          down: function() {
-            on.set( !on.get() && enabled.get() );
-          }
-          //TODO cancel?
-        } );
+    thisNode.addInputListener( new ButtonListener( {
+      fire: function() {
+        on.set( !on.get() && enabled.get() );
+      }
+    } ) );
   }
 
   inherit( ToggleButton, Node );
