@@ -35,6 +35,7 @@ LOWEST
 
 MIGRATE TO COMMON
 FaucetNode + images
+LinearFunction
 MomentaryButton + ToggleButton + images
 HorizontalTiledNode
 WavelengthSlider
