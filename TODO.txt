@@ -11,7 +11,6 @@ BUGS
 
 HIGH
 - draw shaker particles directly to Canvas
-- dropper can be dragged by button, fix this without using event.handle
 - add relativePressPoint to MovableDragHandler, so that mouse doesn't get away from drag target
 
 MEDIUM
