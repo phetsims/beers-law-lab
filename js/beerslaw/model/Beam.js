@@ -6,6 +6,9 @@
  * Consists of 3 segments: left (between light and cuvette), center (inside cuvette), and right (to right of cuvette).
  * Beam may be intercepted at any point by the Absorbance-Transmittance detector.
  * The beam is in the probe if the entire beam is in contact with the probe lens.
+ * <p>
+ * Unlike most model types, properties are in view coordinates.
+ * This makes it convenient to describe the beam's shape and gradient fill.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -38,8 +41,8 @@ define( function( require ) {
     var thisBeam = this;
 
     // Proper values will be set when observers are registered
-    thisBeam.shape = new Property( Shape.rect( 0, 0, 0, 0 ) );
-    thisBeam.fill = new Property( Color.WHITE );
+    thisBeam.shape = new Property( Shape.rect( 0, 0, 0, 0 ) ); // in view coordinates
+    thisBeam.fill = new Property( Color.WHITE ); // gradient, prepared for shape
     thisBeam.visible = new Property( false );
 
     // Make the beam visible when the light is on.
