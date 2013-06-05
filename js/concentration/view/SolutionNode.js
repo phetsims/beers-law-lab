@@ -11,7 +11,7 @@ define( function( require ) {
 
   // imports
   var inherit = require( "PHET_CORE/inherit" );
-  var LinearFunction = require( "common/util/LinearFunction" );
+  var linear = require( "DOT/Util" ).linear;
   var Path = require( "SCENERY/nodes/Path" );
   var Range = require( "DOT/Range" );
   var Shape = require( "KITE/Shape" );
@@ -50,11 +50,10 @@ define( function( require ) {
      */
     var viewLocation = mvt.modelToViewPosition( beaker.location );
     var viewWidth = mvt.modelToViewDeltaX( beaker.size.width );
-    var volumeToHeightFunction = new LinearFunction( new Range( 0, beaker.volume ), new Range( 0, beaker.size.height ) );
     solution.volume.link( function( volume ) {
 
       // determine dimensions in model coordinates
-      var solutionHeight = volumeToHeightFunction.evaluate( volume );
+      var solutionHeight = linear( 0, 0, beaker.volume, beaker.size.height, volume ); // volume -> height
       if ( volume > 0 && solutionHeight < MIN_NONZERO_HEIGHT ) {
         // constrain non-zero volume to minimum height, so that the solution is visible to the user and detectable by the concentration probe
         solutionHeight = MIN_NONZERO_HEIGHT;
