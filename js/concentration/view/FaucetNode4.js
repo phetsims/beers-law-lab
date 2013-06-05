@@ -34,7 +34,7 @@ define( function( require ) {
 
   // constants
   var DEBUG_ORIGIN = false;
-  var SPOUT_OUTPUT_CENTER_X = 83; // center of spout, determined by inspecting image file
+  var SPOUT_OUTPUT_CENTER_X = 93; // center of spout, determined by inspecting image file
   var THUMB_SIZE = new Dimension2( 25, 35 );
   var THUMB_FILL_ENABLED = "rgb(50,145,184)";
   var THUMB_FILL_HIGHLIGHTED = "rgb(71,207,255)";
@@ -46,7 +46,7 @@ define( function( require ) {
     Node.call( thisNode );
 
     // mapping between value and track position
-    var valueToPosition = new LinearFunction( range, new Range( 0, trackSize.width ), true /* clamp */ );
+    var valueToPosition = new LinearFunction( range.min, 0, range.max, trackSize.width, true /* clamp */ );
 
     // track
     var track = new Rectangle( 0, 0, trackSize.width, trackSize.height,

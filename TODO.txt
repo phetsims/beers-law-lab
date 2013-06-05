@@ -12,7 +12,6 @@ HIGH
 - MovableDragHandler: cursor drifts slightly during drag, mvt is not the same as scenery's global coordinate frame
 
 MEDIUM
-- change to LinearFunction(a1,b1,a2,b2,clamp), support var f = LinearFunction(...), f(5), f.inverse(2), migrate to dot
 - make radio buttons on AT detector larger
 - disable (instead of hide) increment/decrement buttons for sliders (not supported by sun.Button)
 - improve drag handler for faucet lever
@@ -36,7 +35,6 @@ LOWEST
 
 MIGRATE TO COMMON
 FaucetNode + images
-LinearFunction
 MomentaryButton + ToggleButton + images
 HorizontalTiledNode
 WavelengthSlider

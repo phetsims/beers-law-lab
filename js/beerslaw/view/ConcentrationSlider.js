@@ -19,7 +19,6 @@ define( function( require ) {
   var LinearGradient = require( "SCENERY/util/LinearGradient" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
-  var Range = require( "DOT/Range" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
   var Shape = require( "KITE/Shape" );
   var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
@@ -57,11 +56,11 @@ define( function( require ) {
                     { cursor: "pointer", stroke: 'black', lineWidth: 1 } );
 
     // sync view with model
-    var viewToModel;
+    var positionToConcentration;
     solution.link( function( solution ) {
       // change the view-to-model function to match the solution's concentration range
       var concentrationRange = solution.concentrationRange;
-      viewToModel = new LinearFunction( new Range( 0, trackSize.width ), new Range( concentrationRange.min, concentrationRange.max ), true /* clamp */ );
+      positionToConcentration = new LinearFunction( 0, concentrationRange.min, trackSize.width, concentrationRange.max, true /* clamp */ );
 
       // fill with a gradient that matches the solution's color range
       thisNode.fill = new LinearGradient( 0, 0, trackSize.width, 0 )
@@ -72,7 +71,7 @@ define( function( require ) {
     // click in the track to change the value, continue dragging if desired
     var handleEvent = function( event ) {
       var x = thisNode.globalToLocalPoint( event.pointer.point ).x;
-      var concentration = viewToModel.evaluate( x );
+      var concentration = positionToConcentration.evaluate( x );
       solution.get().concentration.set( concentration );
     };
     thisNode.addInputListener( new SimpleDragHandler(
@@ -151,11 +150,11 @@ define( function( require ) {
       if ( dragHandler ) {
         thisNode.removeInputListener( dragHandler );
       }
-      dragHandler = new ThumbDragHandler( thisNode, solution.concentration, new LinearFunction( new Range( 0, trackSize.width ), solution.concentrationRange, true /* clamp */ ) );
+      dragHandler = new ThumbDragHandler( thisNode, solution.concentration, new LinearFunction( 0, solution.concentrationRange.min, trackSize.width, solution.concentrationRange.max, true /* clamp */ ) );
       thisNode.addInputListener( dragHandler );
 
       // linear mapping function with solution's concentration range
-      concentrationToPosition = new LinearFunction( solution.concentrationRange, new Range( 0, trackSize.width ), true /* clamp */ );
+      concentrationToPosition = new LinearFunction( solution.concentrationRange.min, 0, solution.concentrationRange.max, trackSize.width, true /* clamp */ );
     };
     setSolution( solution.get() );
 

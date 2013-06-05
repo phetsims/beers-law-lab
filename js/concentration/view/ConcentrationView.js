@@ -20,7 +20,7 @@ define( function( require ) {
   var DropperNode = require( "concentration/view/DropperNode" );
   var EvaporationControl = require( "concentration/view/EvaporationControl" );
   var FaucetFluidNode = require( "concentration/view/FaucetFluidNode" );
-  var FaucetNode = require( "concentration/view/FaucetNode1" );
+  var FaucetNode = require( "concentration/view/FaucetNode4" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var TabView = require( "JOIST/TabView" );

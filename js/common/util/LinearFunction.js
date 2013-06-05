@@ -12,31 +12,33 @@ define( function( require ) {
   var Util = require( "DOT/Util" );
 
   /**
-   * @param {Range} range1
-   * @param {Range} range2
+   * @param {Number} a1
+   * @param {Number} b1
+   * @param {Number} a2
+   * @param {Number} b2
    * @param {Boolean} clamp clamp the result to the provided ranges
    * @constructor
    */
-  function LinearFunction( range1, range2, clamp ) {
+  function LinearFunction( a1, b1, a2, b2, clamp ) {
 
     clamp = _.isUndefined( clamp ) ? false : clamp;
 
     var thisFunction = this;
 
-    // Maps from range1 to range2.
-    thisFunction.evaluate = function( value ) {
-      var output = -range1.min + value;
-      output = output * range2.getLength() / range1.getLength();
-      output = range2.min + output;
+    // Maps from a to b.
+    thisFunction.evaluate = function( a3 ) {
+      var b3 = Util.linear( a1, b1, a2, b2, a3 );
       if ( clamp ) {
-        output = Util.clamp( output, range2.min, range2.max );
+        var max = Math.max( b1, b2 );
+        var min = Math.min( b1, b2 );
+        b3 = Util.clamp( b3, min, max );
       }
-      return output;
+      return b3;
     };
 
-    // Maps from range2 to range1.
-    thisFunction.evaluateInverse = function( value ) {
-      return new LinearFunction( range2, range1, clamp ).evaluate( value );
+    // Maps from b to a.
+    thisFunction.evaluateInverse = function( b3 ) {
+      return new LinearFunction( b1, a1, b2, a2, clamp ).evaluate( b3 );
     };
   }
 

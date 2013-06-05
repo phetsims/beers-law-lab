@@ -16,7 +16,6 @@ define( function( require ) {
   var LinearFunction = require( "common/util/LinearFunction" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
-  var Range = require( "DOT/Range" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
   var Shape = require( "KITE/Shape" );
   var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
@@ -82,7 +81,7 @@ define( function( require ) {
     } );
 
     // mapping between value and track position
-    thisNode._valueToPosition = new LinearFunction( range, new Range( 0, trackSize.width ), true /* clamp */ );
+    thisNode._valueToPosition = new LinearFunction( range.min, 0, range.max, trackSize.width, true /* clamp */ );
 
     // move thumb when value changes
     value.link( function( value ) {

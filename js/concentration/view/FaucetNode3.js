@@ -47,7 +47,7 @@ define( function( require ) {
     Node.call( thisNode );
 
     // mapping between value and track position
-    var valueToPosition = new LinearFunction( range, new Range( 0, trackSize.width ), true /* clamp */ );
+    var valueToPosition = new LinearFunction( range.min, 0, range.max, trackSize.width, true /* clamp */ );
 
     // track
     var track = new Rectangle( 0, 0, trackSize.width, trackSize.height,
