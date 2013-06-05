@@ -20,7 +20,7 @@ define( function( require ) {
   function MovableDragHandler( movable, mvt ) {
 
     var startOffset; // where the drag started, relative to the movable's origin, in global view coordinates
-    var dragBounds = movable.dragBounds ? null : mvt.modelToViewBounds( movable.dragBounds ); // drag bounds in global view coordinates
+    var dragBounds = movable.dragBounds ? mvt.modelToViewBounds( movable.dragBounds ) : null; // drag bounds in global view coordinates
 
     SimpleDragHandler.call( this, {
 
