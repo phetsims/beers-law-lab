@@ -1,3 +1,4 @@
+6/4/13 MovableDragHandle: note offset when drag starts, compensate during drag (still a little off)
 6/4/13 integrate scenery.ButtonListener with MomentaryButton
 6/4/13 integrate scenery.ButtonListener with ToggleButton
 6/4/13 fix: selecting from "Solute" combo box also presses radio buttons behind it

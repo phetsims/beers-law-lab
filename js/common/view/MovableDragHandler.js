@@ -2,7 +2,6 @@
 
 /**
  * A drag handler for something that is movable and constrained to some bounds.
- * All values herein are in the view coordinate frame.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -20,12 +19,30 @@ define( function( require ) {
    * @constructor
    */
   function MovableDragHandler( movable, mvt ) {
-    var thisHandler = this;
+
+    var startXOffset, startYOffset; // where the drag started, relative to the movable's origin, in global view coordinates
+    var dragBounds = mvt.modelToViewBounds( movable.dragBounds ); // drag bounds in global view coordinates
+
     SimpleDragHandler.call( this, {
+
+      // note where the drag started
+      start: function( event ) {
+        var originGlobal = mvt.modelToViewPosition( movable.location.get() );
+        startXOffset = event.pointer.point.x - originGlobal.x;
+        startYOffset = event.pointer.point.y - originGlobal.y;
+      },
+
+      // adjust for starting offset, and constrain to drag bounds
+      drag: function( event ) {
+        var x = event.pointer.point.x - startXOffset;
+        var y = event.pointer.point.y - startYOffset;
+        if ( dragBounds.containsCoordinates( x, y ) ) {
+           movable.location.set( mvt.viewToModelPosition( new Vector2( x, y ) ) );
+        }
+      },
+
       translate: function( options ) {
-        var pModel = mvt.viewToModelPosition( options.position );
-        var pModelConstrained = thisHandler.constrainBounds( pModel, movable.dragBounds );
-        movable.location.set( pModelConstrained );
+        // override default behavior, do nothing
       }
     } );
   }
