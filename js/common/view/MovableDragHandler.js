@@ -27,11 +27,11 @@ define( function( require ) {
 
       // note where the drag started
       start: function( event ) {
-        var originGlobal = mvt.modelToViewPosition( movable.location.get() );
-        startOffset = event.pointer.point.minus( originGlobal );
+        var location = mvt.modelToViewPosition( movable.location.get() );
+        startOffset = event.pointer.point.minus( location );
       },
 
-      // adjust for starting offset, and constrain to drag bounds
+      // change the location, adjust for starting offset, constrain to drag bounds
       drag: function( event ) {
         var location = event.pointer.point.minus( startOffset );
         if ( dragBounds.containsPoint( location ) ) {
