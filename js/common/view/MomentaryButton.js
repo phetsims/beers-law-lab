@@ -11,6 +11,7 @@ define( function( require ) {
 
   // imports
   var BLLImages = require( "common/BLLImages" );
+  var ButtonListener = require( "SCENERY/input/ButtonListener" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
@@ -54,17 +55,17 @@ define( function( require ) {
       }
     } );
 
-    thisNode.addInputListener(
-        {
-          down: function( event ) {
-            on.set( true && enabled.get() );
-          },
-          //TODO this isn't fired if you roll off the node and release the mouse
-          up: function( event ) {
-            on.set( false );
-          }
-          //TODO cancel?
-        } );
+    thisNode.addInputListener( new ButtonListener( {
+      down: function( event ) {
+        on.set( true && enabled.get() );
+      },
+      up: function( event ) {
+        on.set( false );
+      },
+      over: function( event ) {
+        on.set( false );
+      }
+    } ) );
   }
 
   inherit( MomentaryButton, Node );
