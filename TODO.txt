@@ -9,7 +9,7 @@ BUGS
 
 HIGH
 - draw shaker particles directly to Canvas
-- add relativePressPoint to MovableDragHandler, so that mouse doesn't get away from drag target
+- MovableDragHandler: cursor drifts slightly during drag, something wrong with coordinate transforms
 
 MEDIUM
 - change to LinearFunction(a1,b1,a2,b2,clamp), support var f = LinearFunction(...), f(5), f.inverse(2), migrate to dot
