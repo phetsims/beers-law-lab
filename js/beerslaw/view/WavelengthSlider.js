@@ -12,14 +12,14 @@ define( function( require ) {
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
   var BLLFont = require( "common/BLLFont" );
   var BLLStrings = require( "common/BLLStrings" );
+  var clamp = require( "DOT/Util" ).clamp;
   var Button = require( "SUN/Button" );
   var Dimension2 = require( "DOT/Dimension2" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
-  var LinearFunction = require( "common/util/LinearFunction" );
+  var linear = require( "DOT/Util" ).linear;
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
-  var Range = require( "DOT/Range" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
   var Shape = require( "KITE/Shape" );
   var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
@@ -48,9 +48,8 @@ define( function( require ) {
     var context = canvas.getContext( '2d' );
     canvas.width = width;
     canvas.height = height;
-    var positionToWavelength = new LinearFunction( new Range( 0, width ), new Range( minWavelength, maxWavelength ) );
     for ( var i = 0; i < width; i++ ) {
-      var wavelength = positionToWavelength.evaluate( i );
+      var wavelength = clamp( linear( 0, minWavelength, width, maxWavelength, i ), minWavelength, maxWavelength );  // position -> wavelength
       context.fillStyle = VisibleColor.wavelengthToColor( wavelength ).toCSS();
       context.fillRect( i, 0, 1, 50 );
     }
@@ -179,15 +178,21 @@ define( function( require ) {
     minusButton.right = track.left - 3;
     minusButton.centerY = track.centerY;
 
+    // transforms between position and wavelength
+    var positionToWavelength = function( x ) {
+      return clamp( linear( 0, minWavelength, track.width, maxWavelength, x ), minWavelength, maxWavelength );
+    };
+    var wavelengthToPosition = function( wavelength ) {
+      return clamp( linear( minWavelength, 0, maxWavelength, track.width, wavelength ), 0, track.width );
+    };
+
     // track interactivity
     track.cursor = "pointer";
-    var positionToValue = new LinearFunction( new Range( 0, track.width ), new Range( minWavelength, maxWavelength ), true /* clamp */ );
     track.addInputListener(
         {
           down: function( event ) {
             var x = track.globalToParentPoint( event.pointer.point ).x;
-            var value = positionToValue.evaluate( x );
-            wavelength.set( value );
+            wavelength.set( positionToWavelength( x ) );
           }
         } );
 
@@ -201,7 +206,7 @@ define( function( require ) {
           },
           drag: function( event ) {
             var x = thumb.globalToParentPoint( event.pointer.point ).x - clickXOffset;
-            wavelength.set( positionToValue.evaluate( x ) );
+            wavelength.set( positionToWavelength( x ) );
           },
           translate: function() {
             // do nothing, override default behavior
@@ -211,7 +216,7 @@ define( function( require ) {
     // sync with model
     var updateUI = function( wavelength ) {
       // positions
-      var x = positionToValue.evaluateInverse( wavelength );
+      var x = wavelengthToPosition( wavelength );
       thumb.centerX = x;
       cursor.centerX = x;
       valueDisplay.centerX = x;

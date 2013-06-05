@@ -21,7 +21,6 @@ define( function( require ) {
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
   var RadioButton = require( "SUN/RadioButton" );
-  var Range = require( "DOT/Range" );
   var Shape = require( "KITE/Shape" );
   var StringUtils = require( "PHETCOMMON/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );

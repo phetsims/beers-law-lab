@@ -17,7 +17,6 @@ define( function( require ) {
   var linear = require( "DOT/Util" ).linear;
   var LinearGradient = require( "SCENERY/util/LinearGradient" );
   var Property = require( "PHETCOMMON/model/property/Property" );
-  var Range = require( "DOT/Range" );
   var Shape = require( "KITE/Shape" );
   var VisibleColor = require( "common/util/VisibleColor" );
 
