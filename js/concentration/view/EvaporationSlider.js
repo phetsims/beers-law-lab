@@ -17,6 +17,7 @@ define( function( require ) {
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
   var Range = require( "DOT/Range" );
+  var Rectangle = require( "SCENERY/nodes/Rectangle" );
   var Shape = require( "KITE/Shape" );
   var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
   var Text = require( "SCENERY/nodes/Text" );
@@ -53,13 +54,7 @@ define( function( require ) {
     thisNode.addChild( thisNode._ticksParent );
 
     // track
-    thisNode._track = new Path(
-        {
-          shape: Shape.rect( 0, 0, trackSize.width, trackSize.height ),
-          fill: "white",
-          stroke: "black",
-          lineWidth: 1
-        } );
+    thisNode._track = new Rectangle( 0, 0, trackSize.width, trackSize.height, { fill: "white", stroke: "black", lineWidth: 1 } );
     thisNode.addChild( thisNode._track );
 
     // thumb, points up

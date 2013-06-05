@@ -11,8 +11,7 @@ define( function( require ) {
 
   // imports
   var inherit = require( "PHET_CORE/inherit" );
-  var Path = require( "SCENERY/nodes/Path" );
-  var Shape = require( "KITE/Shape" );
+  var Rectangle = require( "SCENERY/nodes/Rectangle" );
 
   /**
    * @param {Faucet} faucet
@@ -24,7 +23,7 @@ define( function( require ) {
   function FaucetFluidNode( faucet, fluid, height, mvt ) {
 
     var thisNode = this;
-    Path.call( thisNode, { lineWidth: 1 } );
+    Rectangle.call( thisNode, 0, 0, 0, 0, { lineWidth: 1 } );
 
     /*
      * Set the color of the fluid coming out of the spout.
@@ -43,16 +42,16 @@ define( function( require ) {
     var viewHeight = mvt.modelToViewDeltaY( height );
     faucet.flowRate.link( function( flowRate ) {
       if ( flowRate === 0 ) {
-        thisNode.shape = new Shape();
+        thisNode.setRect( 0, 0, 0, 0 );
       }
       else {
         var viewWidth = mvt.modelToViewDeltaX( faucet.spoutWidth * flowRate / faucet.maxFlowRate );
-        thisNode.shape = Shape.rect( viewLocation.x - (viewWidth / 2), viewLocation.y, viewWidth, viewHeight );
+        thisNode.setRect( viewLocation.x - (viewWidth / 2), viewLocation.y, viewWidth, viewHeight );
       }
     } );
   }
 
-  inherit( FaucetFluidNode, Path );
+  inherit( FaucetFluidNode, Rectangle );
 
   return FaucetFluidNode;
 

@@ -1,3 +1,4 @@
+6/5/13 replace kite.Shape.rect with scenery.Rectangle
 6/5/13 replace some instances of LinearFunction with dot.Util.linear
 6/4/13 MovableDragHandle: note offset when drag starts, compensate during drag (still a little off)
 6/4/13 integrate scenery.ButtonListener with MomentaryButton

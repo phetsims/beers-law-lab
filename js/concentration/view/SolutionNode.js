@@ -12,9 +12,7 @@ define( function( require ) {
   // imports
   var inherit = require( "PHET_CORE/inherit" );
   var linear = require( "DOT/Util" ).linear;
-  var Path = require( "SCENERY/nodes/Path" );
-  var Range = require( "DOT/Range" );
-  var Shape = require( "KITE/Shape" );
+  var Rectangle = require( "SCENERY/nodes/Rectangle" );
 
   // constants
   var MIN_NONZERO_HEIGHT = 5; // minimum height for a solution with non-zero volume, set by visual inspection
@@ -28,9 +26,7 @@ define( function( require ) {
   function SolutionNode( solution, beaker, mvt ) {
 
     var thisNode = this;
-    Path.call( thisNode, {
-      lineWidth: 1
-    } );
+    Rectangle.call( thisNode, 0, 0, 1, 1, { lineWidth: 1 } );
 
     thisNode.solution = solution;
     thisNode.beaker = beaker;
@@ -61,11 +57,11 @@ define( function( require ) {
 
       // convert to view coordinates and create shape
       var viewHeight = mvt.modelToViewDeltaY( solutionHeight );
-      thisNode.setShape( Shape.rect( viewLocation.x - (viewWidth / 2), viewLocation.y - viewHeight, viewWidth, viewHeight ) );
+      thisNode.setRect( viewLocation.x - (viewWidth / 2), viewLocation.y - viewHeight, viewWidth, viewHeight );
     } );
   }
 
-  inherit( SolutionNode, Path );
+  inherit( SolutionNode, Rectangle );
 
   return SolutionNode;
 

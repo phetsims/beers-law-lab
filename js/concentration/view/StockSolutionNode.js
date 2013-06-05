@@ -13,7 +13,7 @@ define( function( require ) {
   var DropperNode = require( "concentration/view/DropperNode" );
   var inherit = require( "PHET_CORE/inherit" );
   var Path = require( "SCENERY/nodes/Path" );
-  var Shape = require( "KITE/Shape" );
+  var Rectangle = require( "SCENERY/nodes/Rectangle" );
 
   /**
    * @param {Solvent} solvent
@@ -28,18 +28,16 @@ define( function( require ) {
 
     var thisNode = this;
 
-    Path.call( thisNode, {
-      lineWidth: 1
-    } );
+    Rectangle.call( thisNode, 0, 0, 0, 0, { lineWidth: 1 } );
 
     // shape and location
     var updateShapeAndLocation = function() {
       // path
       if ( dropper.on.get() && !dropper.empty.get() ) {
-        thisNode.shape = Shape.rect( -tipWidth / 2, 0, tipWidth, beaker.location.y - dropper.location.get().y );
+        thisNode.setRect( -tipWidth / 2, 0, tipWidth, beaker.location.y - dropper.location.get().y );
       }
       else {
-        thisNode.shape = new Shape();
+        thisNode.setRect( 0, 0, 0, 0 );
       }
       // move this node to the dropper's location
       thisNode.translation = mvt.modelToViewPosition( dropper.location.get() );
@@ -61,7 +59,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( StockSolutionNode, Path );
+  inherit( StockSolutionNode, Rectangle );
 
   return StockSolutionNode;
 } );

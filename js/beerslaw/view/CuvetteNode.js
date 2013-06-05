@@ -95,7 +95,7 @@ define( function( require ) {
 
     // nodes
     var cuvetteNode = new Path( { stroke: "black", lineWidth: 3 } );
-    var solutionNode = new Path( { lineWidth: 0.5 } );
+    var solutionNode = new Rectangle( 0, 0, 1, 1, { lineWidth: 0.5 } );
     var arrowNode = new Path( { shape: arrowShape, fill: ARROW_FILL, stroke: "black", lineWidth: 1 } );
 
     // rendering order
@@ -108,7 +108,7 @@ define( function( require ) {
       var width = mvt.modelToViewDeltaX( cuvette.width.get() );
       var height = mvt.modelToViewDeltaY( cuvette.height );
       cuvetteNode.setShape( new Shape().moveTo( 0, 0 ).lineTo( 0, height ).lineTo( width, height ).lineTo( width, 0 ) );
-      solutionNode.setShape( Shape.rect( 0, 0, width, PERCENT_FULL * height ) );
+      solutionNode.setRect( 0, 0, width, PERCENT_FULL * height );
       solutionNode.left = cuvetteNode.left;
       solutionNode.bottom = cuvetteNode.bottom;
       arrowNode.x = cuvetteNode.right;
