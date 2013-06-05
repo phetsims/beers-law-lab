@@ -14,12 +14,12 @@ HIGH
 - buttons fire on 'up' event even if they haven't seen a 'down' event
 - dropper can be dragged by button, fix this without using event.handle
 - add relativePressPoint to MovableDragHandler, so that mouse doesn't get away from drag target
-- improve drag handler for faucet handles
 
 MEDIUM
 - change to LinearFunction(a1,b1,a2,b2,clamp), support var f = LinearFunction(...), f(5), f.inverse(2), migrate to dot
 - make radio buttons on AT detector larger
 - disable (instead of hide) increment/decrement buttons for sliders (not supported by sun.Button)
+- improve drag handler for faucet lever
 
 LOW
 - delete unused faucet variants and associated image files
