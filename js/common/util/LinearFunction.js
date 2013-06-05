@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * Function for doing a linear mapping between ranges.
+ * Function for doing a linear mapping between two domains ('a' and 'b').
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -37,7 +37,7 @@ define( function( require ) {
     };
 
     // Maps from b to a.
-    thisFunction.evaluateInverse = function( b3 ) {
+    thisFunction.inverse = function( b3 ) {
       return new LinearFunction( b1, a1, b2, a2, clamp ).evaluate( b3 );
     };
   }

@@ -101,7 +101,7 @@ define( function( require ) {
           drag: function( event ) {
             if ( enabled.get() ) {
               var x = thumb.globalToParentPoint( event.pointer.point ).x - clickXOffset;
-              value.set( thisNode._valueToPosition.evaluateInverse( x ) );
+              value.set( thisNode._valueToPosition.inverse( x ) );
             }
           },
           end: function() {

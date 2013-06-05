@@ -131,7 +131,7 @@ define( function( require ) {
       leverNode.x = pivotNode.centerX;
       leverNode.y = pivotNode.centerY - ( leverNode.height / 2 );
       // lever orientation matches flow rate
-      var orientation = orientationToFlowRate.evaluateInverse( flowRate );
+      var orientation = orientationToFlowRate.inverse( flowRate );
       leverNode.rotateAround( new Vector2( pivotNode.centerX, pivotNode.centerY ), orientation );
     } );
   }
