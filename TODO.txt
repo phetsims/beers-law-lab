@@ -31,11 +31,12 @@ LOW
 
 LOWEST
 - replace Property.set/get with Property.value
-- value in concentration meter jitters horizontally as value changes
 
 MIGRATE TO COMMON
 FaucetNode + images
+FillHighlighter
+HorizontalTiledNode
 LinearFunction
 MomentaryButton + ToggleButton + images
-HorizontalTiledNode
+VisibleColor
 WavelengthSlider
