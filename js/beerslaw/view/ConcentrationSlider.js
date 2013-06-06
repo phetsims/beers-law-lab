@@ -141,7 +141,7 @@ define( function( require ) {
     thisNode.addChild( centerLine );
 
     // interactivity
-    body.addInputListener( new FillHighlighter( body, THUMB_FILL_NORMAL, THUMB_FILL_HIGHLIGHT ) );
+    body.addInputListener( new FillHighlighter( THUMB_FILL_NORMAL, THUMB_FILL_HIGHLIGHT ) );
 
     // set the drag handler and mapping function for the selected solution
     var dragHandler, concentrationToPosition;

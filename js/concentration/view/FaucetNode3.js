@@ -79,7 +79,7 @@ define( function( require ) {
     } );
 
     // highlight on mouse enter
-    thumb.addInputListener( new FillHighlighter( thumb, THUMB_FILL_ENABLED, THUMB_FILL_HIGHLIGHTED, enabled ) );
+    thumb.addInputListener( new FillHighlighter( THUMB_FILL_ENABLED, THUMB_FILL_HIGHLIGHTED, enabled ) );
 
     // update value when thumb is dragged
     var clickXOffset = 0; // x-offset between initial click and thumb's origin

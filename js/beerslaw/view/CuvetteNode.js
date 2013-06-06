@@ -134,7 +134,7 @@ define( function( require ) {
     cuvetteNode.pickable = false;
     solutionNode.pickable = false;
     arrowNode.cursor = "pointer";
-    arrowNode.addInputListener( new FillHighlighter( arrowNode, ARROW_FILL, ARROW_FILL.brighterColor() ) );
+    arrowNode.addInputListener( new FillHighlighter( ARROW_FILL, ARROW_FILL.brighterColor() ) );
     arrowNode.addInputListener( new CuvetteDragHandler( thisNode, cuvette, mvt, snapInterval ) );
 
     // location of the cuvette
