@@ -50,7 +50,7 @@ define( function( require ) {
     thisNode.y = position.y;
   }
 
-  inherit( LightNode, Node );
+  inherit( Node, LightNode );
 
   return LightNode;
 } );

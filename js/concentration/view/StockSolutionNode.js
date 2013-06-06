@@ -59,7 +59,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( StockSolutionNode, Rectangle );
+  inherit( Rectangle, StockSolutionNode );
 
   return StockSolutionNode;
 } );

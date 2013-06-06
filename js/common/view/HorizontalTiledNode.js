@@ -65,7 +65,7 @@ define( function( require ) {
     thisNode.addChild( parentNode );
   }
 
-  inherit( HorizontalTiledNode, Node );
+  inherit( Node, HorizontalTiledNode );
 
   return HorizontalTiledNode;
 } );

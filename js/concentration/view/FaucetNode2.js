@@ -111,7 +111,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( FaucetNode2, Node );
+  inherit( Node, FaucetNode2 );
 
   return FaucetNode2;
 } );

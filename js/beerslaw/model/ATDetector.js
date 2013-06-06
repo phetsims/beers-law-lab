@@ -29,7 +29,7 @@ define( function( require ) {
     thisProbe.sensorDiameter = sensorDiameter;
   }
 
-  inherit( Probe, Movable );
+  inherit( Movable, Probe );
 
   Probe.prototype.getMinY = function() {
     return this.location.get().y - ( this.sensorDiameter / 2 );

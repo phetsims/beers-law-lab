@@ -44,7 +44,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( MovableDragHandler, SimpleDragHandler );
+  inherit( SimpleDragHandler, MovableDragHandler );
 
   return MovableDragHandler;
 } );

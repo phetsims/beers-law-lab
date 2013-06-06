@@ -38,7 +38,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( BeamNode, Path );
+  inherit( Path, BeamNode );
 
   return BeamNode;
 } );

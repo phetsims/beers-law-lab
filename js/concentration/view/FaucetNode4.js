@@ -109,7 +109,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( FaucetSlider, Node );
+  inherit( Node, FaucetSlider );
 
   /**
    * @param {Faucet} faucet
@@ -161,7 +161,7 @@ define( function( require ) {
     thisNode.y = location.y;
   }
 
-  inherit( FaucetNode4, Node );
+  inherit( Node, FaucetNode4 );
 
   return FaucetNode4;
 } );

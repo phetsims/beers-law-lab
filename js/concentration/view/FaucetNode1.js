@@ -136,7 +136,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( FaucetNode1, Node );
+  inherit( Node, FaucetNode1 );
 
   return FaucetNode1;
 } );

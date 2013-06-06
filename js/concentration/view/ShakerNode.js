@@ -81,7 +81,7 @@ define( function( require ) {
     thisNode.addInputListener( new MovableDragHandler( shaker, mvt ) );
   }
 
-  inherit( ShakerNode, Node );
+  inherit( Node, ShakerNode );
 
   return ShakerNode;
 } );

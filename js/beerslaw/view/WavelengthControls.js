@@ -94,7 +94,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( WavelengthControls, PanelNode );
+  inherit( PanelNode, WavelengthControls );
 
   return WavelengthControls;
 } );

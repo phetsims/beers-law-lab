@@ -42,7 +42,7 @@ define( function( require ) {
                     { xMargin: 20, yMargin: 20, fill: "#F0F0F0", stroke: "gray", lineWidth: 1, resize: false } );
   }
 
-  inherit( SolutionControls, PanelNode );
+  inherit( PanelNode, SolutionControls );
 
   return SolutionControls;
 } );

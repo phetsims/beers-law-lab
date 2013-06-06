@@ -72,7 +72,7 @@ define( function( require ) {
     };
   }
 
-  inherit( ConcentrationSolution, Fluid );
+  inherit( Fluid, ConcentrationSolution );
 
   // convenience function
   ConcentrationSolution.prototype.getSaturatedConcentration = function() {

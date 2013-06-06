@@ -102,7 +102,7 @@ define( function( require ) {
     thisNode.y = location.y;
   }
 
-  inherit( BeakerNode, Node );
+  inherit( Node, BeakerNode );
 
   return BeakerNode;
 } );

@@ -33,7 +33,7 @@ define( function( require ) {
     this.height = height;
   }
 
-  inherit( Ruler, Movable );
+  inherit( Movable, Ruler );
 
   return Ruler;
 } );

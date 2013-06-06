@@ -63,7 +63,7 @@ define( function( require ) {
     };
   }
 
-  inherit( Dropper, Movable );
+  inherit( Movable, Dropper );
 
   return Dropper;
 } );

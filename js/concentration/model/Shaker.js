@@ -57,7 +57,7 @@ define( function( require ) {
     };
   }
 
-  inherit( Shaker, Movable );
+  inherit( Movable, Shaker );
 
   // Sets the dispensing rate if the shaker is moving.
   Shaker.prototype.step = function() {

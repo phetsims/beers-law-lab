@@ -61,7 +61,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( SolutionNode, Rectangle );
+  inherit( Rectangle, SolutionNode );
 
   return SolutionNode;
 

@@ -146,7 +146,7 @@ define( function( require ) {
     thisNode.addInputListener( new MovableDragHandler( dropper, mvt ) );
   }
 
-  inherit( DropperNode, Node );
+  inherit( Node, DropperNode );
 
   DropperNode.prototype.getTipWidth = function() {
     return TIP_WIDTH;

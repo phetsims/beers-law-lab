@@ -40,7 +40,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( ShakerParticlesNode, Node );
+  inherit( Node, ShakerParticlesNode );
 
   return ShakerParticlesNode;
 } );

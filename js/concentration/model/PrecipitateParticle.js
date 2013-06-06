@@ -25,7 +25,7 @@ define( function( require ) {
     SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation );
   }
 
-  inherit( PrecipitateParticle, SoluteParticle );
+  inherit( SoluteParticle, PrecipitateParticle );
 
   return PrecipitateParticle;
 } );

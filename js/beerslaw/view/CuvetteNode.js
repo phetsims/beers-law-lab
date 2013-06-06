@@ -63,7 +63,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( CuvetteDragHandler, SimpleDragHandler );
+  inherit( SimpleDragHandler, CuvetteDragHandler );
 
   /**
    * @param {Cuvette} cuvette
@@ -143,7 +143,7 @@ define( function( require ) {
     thisNode.y = position.y;
   }
 
-  inherit( CuvetteNode, Node );
+  inherit( Node, CuvetteNode );
 
   return CuvetteNode;
 } );

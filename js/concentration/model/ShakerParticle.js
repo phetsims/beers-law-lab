@@ -34,7 +34,7 @@ define( function( require ) {
     this.acceleration = acceleration;
   }
 
-  inherit( ShakerParticle, SoluteParticle );
+  inherit( SoluteParticle, ShakerParticle );
 
   /**
    *  Propagates the particle to a new location.

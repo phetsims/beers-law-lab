@@ -68,7 +68,7 @@ define( function( require ) {
     } ) );
   }
 
-  inherit( MomentaryButton, Node );
+  inherit( Node, MomentaryButton );
 
   return MomentaryButton;
 

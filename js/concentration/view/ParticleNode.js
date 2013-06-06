@@ -37,7 +37,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( ParticleNode, Rectangle );
+  inherit( Rectangle, ParticleNode );
 
   return ParticleNode;
 } );

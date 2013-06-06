@@ -57,7 +57,7 @@ define( function( require ) {
     thisNode.addChild( new Image( canvas ) );
   }
 
-  inherit( Track, Node );
+  inherit( Node, Track );
 
   /**
    * The slider thumb (aka knob)
@@ -76,7 +76,7 @@ define( function( require ) {
     Path.call( this, { shape: shape, stroke: "black", lineWidth: 1, fill: "black" } );
   }
 
-  inherit( Thumb, Path );
+  inherit( Path, Thumb );
 
   /**
    * Displays the value and units.
@@ -93,7 +93,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( ValueDisplay, Text );
+  inherit( Text, ValueDisplay );
 
   /**
    * Rectangular "cursor" that appears in the track directly above the thumb. Origin is at top center of cursor.
@@ -105,7 +105,7 @@ define( function( require ) {
     Rectangle.call( this, -width / 2, 0, width, height, { stroke: "black", lineWidth: 1 } );
   }
 
-  inherit( Cursor, Rectangle );
+  inherit( Rectangle, Cursor );
 
 
   /**
@@ -253,7 +253,7 @@ define( function( require ) {
     }
   }
 
-  inherit( WavelengthSlider, Node );
+  inherit( Node, WavelengthSlider );
 
   return WavelengthSlider;
 } );

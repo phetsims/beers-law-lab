@@ -37,7 +37,7 @@ define( function( require ) {
     imageNode.centerY = textNode.centerY;
   }
 
-  inherit( TextAndIconNode, Node );
+  inherit( Node, TextAndIconNode );
 
   /**
    * @param {Shaker} shaker
@@ -70,7 +70,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( SoluteFormNode, Node );
+  inherit( Node, SoluteFormNode );
 
   return SoluteFormNode;
 } );

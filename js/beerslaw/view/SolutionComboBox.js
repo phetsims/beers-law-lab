@@ -45,7 +45,7 @@ define( function( require ) {
                      listParent: soluteListParent } );
   }
 
-  inherit( SolutionComboBox, ComboBox );
+  inherit( ComboBox, SolutionComboBox );
 
   /**
    * Creates a combo box item.

@@ -88,7 +88,7 @@ define( function( require ) {
         } ) );
   }
 
-  inherit( Track, Rectangle );
+  inherit( Rectangle, Track );
 
   /**
    * Vertical tick line.
@@ -98,7 +98,7 @@ define( function( require ) {
     Path.call( this, { shape: Shape.lineSegment( 0, 0, 0, TICK_LENGTH ), stroke: "black", lineWidth: 1 } );
   }
 
-  inherit( TickLine, Path );
+  inherit( Path, TickLine );
 
   /**
    * Tick label.
@@ -114,7 +114,7 @@ define( function( require ) {
     thisNode.setValue( value );
   }
 
-  inherit( TickLabel, Text );
+  inherit( Text, TickLabel );
 
   /**
    * The slider thumb, a rounded rectangle with a vertical line through its center.
@@ -174,7 +174,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( Thumb, Node );
+  inherit( Node, Thumb );
 
   /**
    * Drag handler for the slider thumb.
@@ -199,7 +199,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( ThumbDragHandler, SimpleDragHandler );
+  inherit( SimpleDragHandler, ThumbDragHandler );
 
   /**
    * @param {Property<BeersLawSolution>} solution
@@ -284,7 +284,7 @@ define( function( require ) {
 
   }
 
-  inherit( ConcentrationSlider, Node );
+  inherit( Node, ConcentrationSlider );
 
   return ConcentrationSlider;
 } );

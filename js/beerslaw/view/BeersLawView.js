@@ -75,7 +75,7 @@ define( function( require ) {
     }
   }
 
-  inherit( BeersLawView, TabView, { layoutBounds: new Bounds2( 0, 0, 1024, 700 ) } );
+  inherit( TabView, BeersLawView, { layoutBounds: new Bounds2( 0, 0, 1024, 700 ) } );
 
   return BeersLawView;
 } );

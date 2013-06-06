@@ -44,7 +44,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( PrecipitateNode, Node );
+  inherit( Node, PrecipitateNode );
 
   return PrecipitateNode;
 } );

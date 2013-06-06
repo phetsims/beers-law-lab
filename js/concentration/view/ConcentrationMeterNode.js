@@ -104,7 +104,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( BodyNode, Node );
+  inherit( Node, BodyNode );
 
   /**
    * Meter probe, origin at center of crosshairs.
@@ -158,7 +158,7 @@ define( function( require ) {
     };
   }
 
-  inherit( ProbeNode, Node );
+  inherit( Node, ProbeNode );
 
   /**
    * Wire that connects the body and probe.
@@ -200,7 +200,7 @@ define( function( require ) {
     probe.location.link( updateCurve );
   }
 
-  inherit( WireNode, Path );
+  inherit( Path, WireNode );
 
   /**
    * @param {ConcentrationMeter} meter
@@ -255,7 +255,7 @@ define( function( require ) {
     drainFaucet.flowRate.link( updateValue );
   }
 
-  inherit( ConcentrationMeterNode, Node );
+  inherit( Node, ConcentrationMeterNode );
 
   return ConcentrationMeterNode;
 } );

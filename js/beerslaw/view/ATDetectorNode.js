@@ -109,7 +109,7 @@ define( function( require ) {
     detector.mode.link( valueUpdater );
   }
 
-  inherit( BodyNode, Node );
+  inherit( Node, BodyNode );
 
   /**
    * The probe portion of the detector.
@@ -137,7 +137,7 @@ define( function( require ) {
     thisNode.addInputListener( new MovableDragHandler( probe, mvt ) );
   }
 
-  inherit( ProbeNode, Node );
+  inherit( Node, ProbeNode );
 
   /**
    * Wire that connects the body and probe.
@@ -180,7 +180,7 @@ define( function( require ) {
     probe.location.link( updateCurve );
   }
 
-  inherit( WireNode, Path );
+  inherit( Path, WireNode );
 
   /**
    * @param {ATDetector} detector
@@ -201,7 +201,7 @@ define( function( require ) {
     thisNode.addChild( probeNode );
   }
 
-  inherit( ATDetectorNode, Node );
+  inherit( Node, ATDetectorNode );
 
   return ATDetectorNode;
 } );

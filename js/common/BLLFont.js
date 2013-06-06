@@ -26,7 +26,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( BLLFont, Font );
+  inherit( Font, BLLFont );
 
   return BLLFont;
 } );

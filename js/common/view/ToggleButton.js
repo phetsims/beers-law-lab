@@ -63,7 +63,7 @@ define( function( require ) {
     } ) );
   }
 
-  inherit( ToggleButton, Node );
+  inherit( Node, ToggleButton );
 
   return ToggleButton;
 

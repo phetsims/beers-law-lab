@@ -120,7 +120,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( EvaporationSlider, Node );
+  inherit( Node, EvaporationSlider );
 
   /**
    * Adds a major tick mark.

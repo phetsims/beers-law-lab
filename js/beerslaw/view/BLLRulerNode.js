@@ -52,7 +52,7 @@ define( function( require ) {
     thisNode.addInputListener( new MovableDragHandler( ruler, mvt ) );
   }
 
-  inherit( BLLRulerNode, Node );
+  inherit( Node, BLLRulerNode );
 
   return BLLRulerNode;
 } );

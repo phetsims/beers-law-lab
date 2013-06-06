@@ -30,7 +30,7 @@ define( function( require ) {
     this.formula = formula;
   }
 
-  inherit( Solvent, Fluid );
+  inherit( Fluid, Solvent );
 
   Solvent.WATER_COLOR = new Color( 224, 255, 255 );
 
