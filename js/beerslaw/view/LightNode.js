@@ -14,7 +14,7 @@ define( function( require ) {
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
-  var Property = require( "PHETCOMMON/model/property/Property" );
+  var Property = require( "AXON/Property" );
   var ToggleButton = require( "common/view/ToggleButton" );
 
   /**

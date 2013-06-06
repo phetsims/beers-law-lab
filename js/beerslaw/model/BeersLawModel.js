@@ -16,7 +16,7 @@ define( function( require ) {
   var Bounds2 = require( "DOT/Bounds2" );
   var Cuvette = require( "beerslaw/model/Cuvette" );
   var Light = require( "beerslaw/model/Light" );
-  var Property = require( "PHETCOMMON/model/property/Property" );
+  var Property = require( "AXON/Property" );
   var Range = require( "DOT/Range" );
   var Ruler = require( "beerslaw/model/Ruler" );
   var Vector2 = require( "DOT/Vector2" );

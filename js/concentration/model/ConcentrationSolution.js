@@ -15,7 +15,7 @@ define( function( require ) {
   var Color = require( "SCENERY/util/Color" );
   var Fluid = require( "common/model/Fluid" );
   var inherit = require( "PHET_CORE/inherit" );
-  var Property = require( "PHETCOMMON/model/property/Property" );
+  var Property = require( "AXON/Property" );
   var Solvent = require( "common/model/Solvent" );
 
   /**

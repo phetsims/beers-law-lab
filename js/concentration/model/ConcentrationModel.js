@@ -18,7 +18,7 @@ define( function( require ) {
   var Evaporator = require( "concentration/model/Evaporator" );
   var Faucet = require( "concentration/model/Faucet" );
   var Precipitate = require( "concentration/model/Precipitate" );
-  var Property = require( "PHETCOMMON/model/property/Property" );
+  var Property = require( "AXON/Property" );
   var Range = require( "DOT/Range" );
   var Shaker = require( "concentration/model/Shaker" );
   var ShakerParticles = require( "concentration/model/ShakerParticles" );

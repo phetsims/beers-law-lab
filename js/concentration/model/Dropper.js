@@ -12,7 +12,7 @@ define( function( require ) {
   var callSuper = require( "PHET_CORE/callSuper" );
   var inherit = require( "PHET_CORE/inherit" );
   var Movable = require( "common/model/Movable" );
-  var Property = require( "PHETCOMMON/model/property/Property" );
+  var Property = require( "AXON/Property" );
 
   /**
    * @param {Vector2} location

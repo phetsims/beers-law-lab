@@ -15,7 +15,7 @@ define( function( require ) {
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var PanelNode = require( "SUN/PanelNode" );
-  var Property = require( "PHETCOMMON/model/property/Property" );
+  var Property = require( "AXON/Property" );
   var RadioButton = require( "SUN/RadioButton" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
   var StringUtils = require( "PHETCOMMON/util/StringUtils" );

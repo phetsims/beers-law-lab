@@ -12,7 +12,7 @@ define( function( require ) {
   // imports
   var inherit = require( "PHET_CORE/inherit" );
   var Movable = require( "common/model/Movable" );
-  var Property = require( "PHETCOMMON/model/property/Property" );
+  var Property = require( "AXON/Property" );
 
   /**
    * The probe, whose position indicates where the measurement is being made.

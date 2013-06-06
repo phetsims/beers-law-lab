@@ -9,7 +9,7 @@ define( function( require ) {
   "use strict";
 
   // imports
-  var Property = require( "PHETCOMMON/model/property/Property" );
+  var Property = require( "AXON/Property" );
 
   /**
    * @param {Number} maxEvaporationRate L/sec

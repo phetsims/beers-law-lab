@@ -22,7 +22,7 @@ define( function( require ) {
   var ConcentrationTransform = require( "beerslaw/model/ConcentrationTransform" );
   var linear = require( "DOT/Util" ).linear;
   var MolarAbsorptivityData = require( "beerslaw/model/MolarAbsorptivityData" );
-  var Property = require( "PHETCOMMON/model/property/Property" );
+  var Property = require( "AXON/Property" );
   var Range = require( "DOT/Range" );
   var Solvent = require( "common/model/Solvent" );
   var StringUtils = require( "PHETCOMMON/util/StringUtils" );

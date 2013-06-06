@@ -15,7 +15,7 @@ define( function( require ) {
 
   // imports
   var Movable = require( "common/model/Movable" );
-  var Property = require( "PHETCOMMON/model/property/Property" );
+  var Property = require( "AXON/Property" );
 
   /**
    * @param {Vector2} bodyLocation
