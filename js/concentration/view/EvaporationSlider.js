@@ -85,7 +85,7 @@ define( function( require ) {
 
     // move thumb when value changes
     value.link( function( value ) {
-      thumb.centerX = thisNode._valueToPosition.evaluate( value );
+      thumb.centerX = thisNode._valueToPosition( value );
     } );
 
     // highlight on mouse enter
@@ -116,7 +116,7 @@ define( function( require ) {
 
     // update thumb location when value changes
     value.link( function( value ) {
-      thumb.centerX = thisNode._valueToPosition.evaluate( value );
+      thumb.centerX = thisNode._valueToPosition( value );
     } );
   }
 
@@ -147,7 +147,7 @@ define( function( require ) {
    * @param {Node} label optional
    */
   EvaporationSlider.prototype._addTick = function( tickLength, value, label ) {
-    var labelX = this._valueToPosition.evaluate( value );
+    var labelX = this._valueToPosition( value );
     // ticks
     var tick = new Path(
         {

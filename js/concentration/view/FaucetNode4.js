@@ -105,7 +105,7 @@ define( function( require ) {
 
     // update thumb location when value changes
     value.link( function( value ) {
-      thumb.centerX = valueToPosition.evaluate( value );
+      thumb.centerX = valueToPosition( value );
     } );
   }
 

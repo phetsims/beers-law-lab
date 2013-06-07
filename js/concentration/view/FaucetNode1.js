@@ -108,8 +108,8 @@ define( function( require ) {
             if ( faucet.enabled.get() ) {
               var localPosition = leverNode.globalToParentPoint( event.pointer.point );
               var y = Util.clamp( localPosition.y, leverOffY, leverOnY );
-              var leverOrientation = yToOrientation.evaluate( y );
-              var flowRate = orientationToFlowRate.evaluate( leverOrientation );
+              var leverOrientation = yToOrientation( y );
+              var flowRate = orientationToFlowRate( leverOrientation );
               faucet.flowRate.set( flowRate );
             }
           },

@@ -71,7 +71,7 @@ define( function( require ) {
     // click in the track to change the value, continue dragging if desired
     var handleEvent = function( event ) {
       var x = thisNode.globalToLocalPoint( event.pointer.point ).x;
-      var concentration = positionToConcentration.evaluate( x );
+      var concentration = positionToConcentration( x );
       solution.get().concentration.set( concentration );
     };
     thisNode.addInputListener( new SimpleDragHandler(
@@ -160,7 +160,7 @@ define( function( require ) {
 
     // move the slider thumb to reflect the concentration value
     var concentrationObserver = function( concentration ) {
-      thisNode.x = concentrationToPosition.evaluate( concentration );
+      thisNode.x = concentrationToPosition( concentration );
     };
     solution.get().concentration.link( concentrationObserver );
 
@@ -191,7 +191,7 @@ define( function( require ) {
       },
       drag: function( event ) {
         var x = dragNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
-        concentration.set( positionToValue.evaluate( x ) );
+        concentration.set( positionToValue( x ) );
       },
       translate: function() {
         // do nothing, override default behavior
