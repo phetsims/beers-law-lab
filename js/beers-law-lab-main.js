@@ -5,26 +5,13 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-require(
-    [
-      "JOIST/Sim",
-      "PHETCOMMON/util/ImagesLoader",
-      "concentration/ConcentrationTab",
-      "beerslaw/BeersLawTab",
-      "SCENERY/util/Util",
-      "common/BLLStrings",
-      "common/BLLImages"
-    ],
-    function( Sim, ImagesLoader, ConcentrationTab, BeersLawTab, Util, BLLStrings, BLLImages ) {
-      "use strict";
+require( [ "JOIST/SimLauncher", "JOIST/Sim", "concentration/ConcentrationTab", "beerslaw/BeersLawTab", "common/BLLStrings", "common/BLLImages" ],
+  function( SimLauncher, Sim, ConcentrationTab, BeersLawTab, BLLStrings, BLLImages ) {
+    "use strict";
 
-      var loader = new ImagesLoader( function( loader ) {
-
-        BLLImages.getImage = loader.getImage;
-
-        new Sim( BLLStrings.beersLawLab,
-                 [ new ConcentrationTab(), new BeersLawTab() ],
-                 { showHomeScreen: false, tabIndex: 0 } )
-            .start();
-      } );
+    SimLauncher.launch( BLLImages, function() {
+      var sim = new Sim( BLLStrings.beersLawLab, [ new ConcentrationTab(), new BeersLawTab() ],
+        { showHomeScreen: false, tabIndex: 0 } );
+      sim.start();
     } );
+  } );
