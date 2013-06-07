@@ -60,7 +60,7 @@ define( function( require ) {
     solution.link( function( solution ) {
       // change the view-to-model function to match the solution's concentration range
       var concentrationRange = solution.concentrationRange;
-      positionToConcentration = new LinearFunction( 0, concentrationRange.min, trackSize.width, concentrationRange.max, true /* clamp */ );
+      positionToConcentration = new LinearFunction( 0, trackSize.width, concentrationRange.min, concentrationRange.max, true /* clamp */ );
 
       // fill with a gradient that matches the solution's color range
       thisNode.fill = new LinearGradient( 0, 0, trackSize.width, 0 )
@@ -150,11 +150,11 @@ define( function( require ) {
       if ( dragHandler ) {
         thisNode.removeInputListener( dragHandler );
       }
-      dragHandler = new ThumbDragHandler( thisNode, solution.concentration, new LinearFunction( 0, solution.concentrationRange.min, trackSize.width, solution.concentrationRange.max, true /* clamp */ ) );
+      dragHandler = new ThumbDragHandler( thisNode, solution.concentration, new LinearFunction( 0, trackSize.width, solution.concentrationRange.min, solution.concentrationRange.max, true /* clamp */ ) );
       thisNode.addInputListener( dragHandler );
 
       // linear mapping function with solution's concentration range
-      concentrationToPosition = new LinearFunction( solution.concentrationRange.min, 0, solution.concentrationRange.max, trackSize.width, true /* clamp */ );
+      concentrationToPosition = new LinearFunction( solution.concentrationRange.min, solution.concentrationRange.max, 0, trackSize.width, true /* clamp */ );
     };
     setSolution( solution.get() );
 

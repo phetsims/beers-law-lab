@@ -81,7 +81,7 @@ define( function( require ) {
     } );
 
     // mapping between value and track position
-    thisNode._valueToPosition = new LinearFunction( range.min, 0, range.max, trackSize.width, true /* clamp */ );
+    thisNode._valueToPosition = new LinearFunction( range.min, range.max, 0, trackSize.width, true /* clamp */ );
 
     // move thumb when value changes
     value.link( function( value ) {

@@ -8,6 +8,7 @@ BUGS
 - Desktop: HTMLText dragging lags on Mac+Firefox, eg label on shaker, joist#5
 
 HIGH
+- ConcentrationSlider.Thumb is flagged by IDEA editor with "Cyclic inheritance involving Thumb"
 - scrollbars on browser window, lots of blank space below navbar
 - draw shaker particles directly to Canvas
 - MovableDragHandler: cursor drifts slightly during drag, mvt is not the same as scenery's global coordinate frame

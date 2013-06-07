@@ -41,7 +41,7 @@ define( function( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
-    var orientationToFlowRate = new LinearFunction( HANDLE_ORIENTATION_RANGE.min, 0, HANDLE_ORIENTATION_RANGE.max, faucet.maxFlowRate );
+    var orientationToFlowRate = new LinearFunction( HANDLE_ORIENTATION_RANGE.min, HANDLE_ORIENTATION_RANGE.max, 0, faucet.maxFlowRate );
 
     // child nodes
     var leverNode = new Image( BLLImages.getImage( "faucet1_lever.png" ), {
@@ -98,7 +98,7 @@ define( function( require ) {
     // leave the lever in the off orientation
 
     // mapping from lever y-coordinate to orientation
-    var yToOrientation = new LinearFunction( leverOffY, HANDLE_ORIENTATION_RANGE.min, leverOnY, HANDLE_ORIENTATION_RANGE.max );
+    var yToOrientation = new LinearFunction( leverOffY, leverOnY, HANDLE_ORIENTATION_RANGE.min, HANDLE_ORIENTATION_RANGE.max );
 
     leverNode.addInputListener( new SimpleDragHandler(
         {
