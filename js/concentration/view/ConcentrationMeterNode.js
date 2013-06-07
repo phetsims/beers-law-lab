@@ -225,6 +225,14 @@ define( function( require ) {
     var probeNode = new ProbeNode( meter.probe, mvt, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode );
     var wireNode = new WireNode( meter.body, meter.probe, bodyNode, probeNode );
 
+    var DownUpListener = require( "SCENERY/input/DownUpListener" );
+    bodyNode.addInputListener( new DownUpListener( {
+       down: function() { console.log( "down" ); },
+       up: function() { console.log( "up" ); },
+       upInside: function() { console.log( "upInside" ); },
+       upOutside: function() { console.log( "upOutside" ); }
+    } ) );
+
     // rendering order
     thisNode.addChild( wireNode );
     thisNode.addChild( bodyNode );
