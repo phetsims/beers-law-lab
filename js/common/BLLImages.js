@@ -27,7 +27,7 @@ define( function() {
       "dropper-icon.png",
       "dropper_background.png",
       "dropper_foreground.png",
-      <!-- TODO delete all but one set of faucet images -->
+      //TODO delete all but one set of faucet images
       "faucet1_lever.png",
       "faucet1_pipe.png",
       "faucet1_pivot.png",
