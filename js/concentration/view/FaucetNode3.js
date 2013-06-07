@@ -19,7 +19,7 @@ define( function( require ) {
   var FillHighlighter = require( "common/view/FillHighlighter" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
-  var LinearFunction = require( "common/util/LinearFunction" );
+  var LinearFunction = require( "DOT/LinearFunction" );
   var Matrix3 = require( "DOT/Matrix3" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
