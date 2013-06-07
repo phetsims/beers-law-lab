@@ -11,8 +11,8 @@ define( function( require ) {
 
   // imports
   var inherit = require( "PHET_CORE/inherit" );
-  var linear = require( "DOT/Util" ).linear;
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
+  var Util = require( "DOT/Util" );
 
   // constants
   var MIN_NONZERO_HEIGHT = 5; // minimum height for a solution with non-zero volume, set by visual inspection
@@ -49,7 +49,7 @@ define( function( require ) {
     solution.volume.link( function( volume ) {
 
       // determine dimensions in model coordinates
-      var solutionHeight = linear( 0, 0, beaker.volume, beaker.size.height, volume ); // volume -> height
+      var solutionHeight = Util.linear( 0, 0, beaker.volume, beaker.size.height, volume ); // volume -> height
       if ( volume > 0 && solutionHeight < MIN_NONZERO_HEIGHT ) {
         // constrain non-zero volume to minimum height, so that the solution is visible to the user and detectable by the concentration probe
         solutionHeight = MIN_NONZERO_HEIGHT;

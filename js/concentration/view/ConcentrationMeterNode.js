@@ -26,13 +26,13 @@ define( function( require ) {
   var HorizontalTiledNode = require( "common/view/HorizontalTiledNode" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
-  var linear = require( "DOT/Util" ).linear;
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
   var Shape = require( "KITE/Shape" );
   var StringUtils = require( "PHETCOMMON/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
+  var Util = require( "DOT/Util" );
   var Vector2 = require( "DOT/Vector2" );
 
   // constants
@@ -187,7 +187,7 @@ define( function( require ) {
 
       // control points
       // The y coordinate of the body's control point varies with the x distance between the body and probe.
-      var c1Offset = new Vector2( 0, linear( 0, 0, 800, 200, bodyNode.centerX - probeNode.left ) ); // x distance -> y coordinate
+      var c1Offset = new Vector2( 0, Util.linear( 0, 0, 800, 200, bodyNode.centerX - probeNode.left ) ); // x distance -> y coordinate
       var c2Offset = new Vector2( 50, 0 );
       var c1 = new Vector2( bodyConnectionPoint.x + c1Offset.x, bodyConnectionPoint.y + c1Offset.y );
       var c2 = new Vector2( probeConnectionPoint.x + c2Offset.x, probeConnectionPoint.y + c2Offset.y );

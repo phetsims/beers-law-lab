@@ -12,12 +12,10 @@ define( function( require ) {
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
   var BLLFont = require( "common/BLLFont" );
   var BLLStrings = require( "common/BLLStrings" );
-  var clamp = require( "DOT/Util" ).clamp;
   var Button = require( "SUN/Button" );
   var Dimension2 = require( "DOT/Dimension2" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
-  var linear = require( "DOT/Util" ).linear;
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
@@ -25,6 +23,7 @@ define( function( require ) {
   var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
   var StringUtils = require( "PHETCOMMON/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
+  var Util = require( "DOT/Util" );
   var VisibleColor = require( "common/util/VisibleColor" );
 
   // features
@@ -49,7 +48,7 @@ define( function( require ) {
     canvas.width = width;
     canvas.height = height;
     for ( var i = 0; i < width; i++ ) {
-      var wavelength = clamp( linear( 0, minWavelength, width, maxWavelength, i ), minWavelength, maxWavelength );  // position -> wavelength
+      var wavelength = Util.clamp( Util.linear( 0, minWavelength, width, maxWavelength, i ), minWavelength, maxWavelength );  // position -> wavelength
       context.fillStyle = VisibleColor.wavelengthToColor( wavelength ).toCSS();
       context.fillRect( i, 0, 1, 50 );
     }
@@ -180,10 +179,10 @@ define( function( require ) {
 
     // transforms between position and wavelength
     var positionToWavelength = function( x ) {
-      return clamp( linear( 0, minWavelength, track.width, maxWavelength, x ), minWavelength, maxWavelength );
+      return Util.clamp( Util.linear( 0, minWavelength, track.width, maxWavelength, x ), minWavelength, maxWavelength );
     };
     var wavelengthToPosition = function( wavelength ) {
-      return clamp( linear( minWavelength, 0, maxWavelength, track.width, wavelength ), 0, track.width );
+      return Util.clamp( Util.linear( minWavelength, 0, maxWavelength, track.width, wavelength ), 0, track.width );
     };
 
     // track interactivity
