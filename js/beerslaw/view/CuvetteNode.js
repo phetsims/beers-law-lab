@@ -11,7 +11,7 @@ define( function( require ) {
   // imports
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
   var Color = require( "SCENERY/util/Color" );
-  var FillHighlighter = require( "SCENERY_PHET/input/FillHighlighter" );
+  var FillHighlightListener = require( "SCENERY_PHET/input/FillHighlightListener" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
@@ -134,7 +134,7 @@ define( function( require ) {
     cuvetteNode.pickable = false;
     solutionNode.pickable = false;
     arrowNode.cursor = "pointer";
-    arrowNode.addInputListener( new FillHighlighter( ARROW_FILL, ARROW_FILL.brighterColor() ) );
+    arrowNode.addInputListener( new FillHighlightListener( ARROW_FILL, ARROW_FILL.brighterColor() ) );
     arrowNode.addInputListener( new CuvetteDragHandler( thisNode, cuvette, mvt, snapInterval ) );
 
     // location of the cuvette

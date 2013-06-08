@@ -11,7 +11,7 @@ define( function( require ) {
 
   // imports
   var Dimension2 = require( "DOT/Dimension2" );
-  var FillHighlighter = require( "SCENERY_PHET/input/FillHighlighter" );
+  var FillHighlightListener = require( "SCENERY_PHET/input/FillHighlightListener" );
   var inherit = require( "PHET_CORE/inherit" );
   var LinearFunction = require( "DOT/LinearFunction" );
   var Node = require( "SCENERY/nodes/Node" );
@@ -89,7 +89,7 @@ define( function( require ) {
     } );
 
     // highlight on mouse enter
-    thumb.addInputListener( new FillHighlighter( THUMB_FILL_ENABLED, THUMB_FILL_HIGHLIGHTED, enabled ) );
+    thumb.addInputListener( new FillHighlightListener( THUMB_FILL_ENABLED, THUMB_FILL_HIGHLIGHTED, enabled ) );
 
     // update value when thumb is dragged
     var clickXOffset = 0; // x-offset between initial click and thumb's origin

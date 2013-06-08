@@ -13,7 +13,7 @@ define( function( require ) {
   var Button = require( "SUN/Button" );
   var Color = require( "SCENERY/util/Color" );
   var Dimension2 = require( "DOT/Dimension2" );
-  var FillHighlighter = require( "SCENERY_PHET/input/FillHighlighter" );
+  var FillHighlightListener = require( "SCENERY_PHET/input/FillHighlightListener" );
   var inherit = require( "PHET_CORE/inherit" );
   var LinearFunction = require( "DOT/LinearFunction" );
   var LinearGradient = require( "SCENERY/util/LinearGradient" );
@@ -141,7 +141,7 @@ define( function( require ) {
     thisNode.addChild( centerLine );
 
     // interactivity
-    body.addInputListener( new FillHighlighter( THUMB_FILL_NORMAL, THUMB_FILL_HIGHLIGHT ) );
+    body.addInputListener( new FillHighlightListener( THUMB_FILL_NORMAL, THUMB_FILL_HIGHLIGHT ) );
 
     // set the drag handler and mapping function for the selected solution
     var dragHandler, concentrationToPosition;
