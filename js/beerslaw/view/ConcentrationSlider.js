@@ -13,7 +13,7 @@ define( function( require ) {
   var Button = require( "SUN/Button" );
   var Color = require( "SCENERY/util/Color" );
   var Dimension2 = require( "DOT/Dimension2" );
-  var FillHighlighter = require( "common/view/FillHighlighter" );
+  var FillHighlighter = require( "SCENERY_PHET/input/FillHighlighter" );
   var inherit = require( "PHET_CORE/inherit" );
   var LinearFunction = require( "DOT/LinearFunction" );
   var LinearGradient = require( "SCENERY/util/LinearGradient" );

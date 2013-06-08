@@ -11,7 +11,7 @@ define( function( require ) {
   // imports
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
   var Color = require( "SCENERY/util/Color" );
-  var FillHighlighter = require( "common/view/FillHighlighter" );
+  var FillHighlighter = require( "SCENERY_PHET/input/FillHighlighter" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );

@@ -9,14 +9,13 @@ BUGS
 
 HIGH
 - ConcentrationSlider.Thumb is flagged by IDEA editor with "Cyclic inheritance involving Thumb"
-- scrollbars on browser window, lots of blank space below navbar
 - draw shaker particles directly to Canvas
 - MovableDragHandler: cursor drifts slightly during drag, mvt is not the same as scenery's global coordinate frame
 
 MEDIUM
 - make radio buttons on AT detector larger
 - disable (instead of hide) increment/decrement buttons for sliders (not supported by sun.Button)
-- improve drag handler for faucet lever
+- improve drag handler for faucet shooter
 
 LOW
 - delete unused faucet variants and associated image files
@@ -36,7 +35,6 @@ LOWEST
 
 MIGRATE TO COMMON
 FaucetNode + images
-FillHighlighter
 HorizontalTiledNode
 MomentaryButton + ToggleButton + images
 VisibleColor

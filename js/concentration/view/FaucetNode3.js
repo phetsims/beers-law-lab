@@ -16,7 +16,7 @@ define( function( require ) {
   var BLLImages = require( "common/BLLImages" );
   var Circle = require( "SCENERY/nodes/Circle" );
   var Dimension2 = require( "DOT/Dimension2" );
-  var FillHighlighter = require( "common/view/FillHighlighter" );
+  var FillHighlighter = require( "SCENERY_PHET/input/FillHighlighter" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
   var LinearFunction = require( "DOT/LinearFunction" );

@@ -11,7 +11,7 @@ define( function( require ) {
 
   // imports
   var Dimension2 = require( "DOT/Dimension2" );
-  var FillHighlighter = require( "common/view/FillHighlighter" );
+  var FillHighlighter = require( "SCENERY_PHET/input/FillHighlighter" );
   var inherit = require( "PHET_CORE/inherit" );
   var LinearFunction = require( "DOT/LinearFunction" );
   var Node = require( "SCENERY/nodes/Node" );
