@@ -17,11 +17,11 @@ define( function( require ) {
   var Circle = require( "SCENERY/nodes/Circle" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
+  var LinearFunction = require( "DOT/LinearFunction" );
   var Matrix3 = require( "DOT/Matrix3" );
   var Node = require( "SCENERY/nodes/Node" );
   var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
   var Transform3 = require( "DOT/Transform3" );
-  var Util = require( "DOT/Util" );
   var Vector2 = require( "DOT/Vector2" );
 
   // constants
@@ -84,13 +84,15 @@ define( function( require ) {
     thisNode.x = location.x;
     thisNode.y = location.y;
 
+    var offsetToFlowRate = new LinearFunction( SHOOTER_MIN_X_OFFSET, SHOOTER_MAX_X_OFFSET, 0, faucet.maxFlowRate, true /* clamp */ );
+
     shooterNode.addInputListener( new SimpleDragHandler(
         {
           // adjust the flow
           drag: function( event ) {
             if ( faucet.enabled.get() ) {
               var x = shooterNode.globalToParentPoint( event.pointer.point ).x + SHOOTER_MIN_X_OFFSET;
-              var flowRate = Util.clamp( Util.linear( SHOOTER_MIN_X_OFFSET, 0, SHOOTER_MAX_X_OFFSET, faucet.maxFlowRate, x ), 0, faucet.maxFlowRate );
+              var flowRate = offsetToFlowRate( x );
               faucet.flowRate.set( flowRate );
             }
           },
@@ -106,7 +108,7 @@ define( function( require ) {
         } ) );
 
     faucet.flowRate.link( function( flowRate ) {
-      var xOffset = Util.linear( 0, SHOOTER_MIN_X_OFFSET, faucet.maxFlowRate, SHOOTER_MAX_X_OFFSET, flowRate );
+      var xOffset = offsetToFlowRate.inverse( flowRate );
       shooterNode.x = spoutNode.left + xOffset;
     } );
   }

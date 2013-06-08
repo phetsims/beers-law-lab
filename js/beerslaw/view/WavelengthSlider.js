@@ -48,7 +48,7 @@ define( function( require ) {
     canvas.width = width;
     canvas.height = height;
     for ( var i = 0; i < width; i++ ) {
-      var wavelength = Util.clamp( Util.linear( 0, minWavelength, width, maxWavelength, i ), minWavelength, maxWavelength );  // position -> wavelength
+      var wavelength = Util.clamp( Util.linear( 0, width, minWavelength, maxWavelength, i ), minWavelength, maxWavelength );  // position -> wavelength
       context.fillStyle = VisibleColor.wavelengthToColor( wavelength ).toCSS();
       context.fillRect( i, 0, 1, 50 );
     }
@@ -179,10 +179,10 @@ define( function( require ) {
 
     // transforms between position and wavelength
     var positionToWavelength = function( x ) {
-      return Util.clamp( Util.linear( 0, minWavelength, track.width, maxWavelength, x ), minWavelength, maxWavelength );
+      return Util.clamp( Util.linear( 0, track.width, minWavelength, maxWavelength, x ), minWavelength, maxWavelength );
     };
     var wavelengthToPosition = function( wavelength ) {
-      return Util.clamp( Util.linear( minWavelength, 0, maxWavelength, track.width, wavelength ), 0, track.width );
+      return Util.clamp( Util.linear( minWavelength, maxWavelength, 0, track.width, wavelength ), 0, track.width );
     };
 
     // track interactivity
