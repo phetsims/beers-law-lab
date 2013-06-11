@@ -43,12 +43,12 @@ define( function( require ) {
     Node.call( thisNode );
 
     // child nodes
-    var shooterNode = new Image( BLLImages.getImage( "faucet2_shooter.png" ), {
+    var shooterNode = new Image( BLLImages.getImage( "faucet_shooter.png" ), {
       cursor: "pointer"
     } );
     shooterNode.scale( 1.4 ); //TODO get an image file that doesn't require scaling up
-    var pipeNode = new Image( BLLImages.getImage( "faucet2_pipe.png" ) );
-    var spoutNode = new Image( BLLImages.getImage( "faucet2_spout.png" ), { pickable: false } );
+    var pipeNode = new Image( BLLImages.getImage( "faucet_pipe.png" ) );
+    var spoutNode = new Image( BLLImages.getImage( "faucet_spout.png" ), { pickable: false } );
 
     // rendering order
     thisNode.addChild( pipeNode );
