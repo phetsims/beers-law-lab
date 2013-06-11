@@ -15,7 +15,6 @@ HIGH
 MEDIUM
 - make radio buttons on AT detector larger
 - disable (instead of hide) increment/decrement buttons for sliders (not supported by sun.Button)
-- improve drag handler for faucet shooter
 
 LOW
 - update to latest version of lib/ dependencies, including jQuery 2.x
