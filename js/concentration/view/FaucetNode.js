@@ -37,7 +37,7 @@ define( function( require ) {
    * @param {ModelViewTransform2} mvt
    * @constructor
    */
-  function FaucetNode2( faucet, mvt ) {
+  function FaucetNode( faucet, mvt ) {
 
     var thisNode = this;
     Node.call( thisNode );
@@ -113,7 +113,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( Node, FaucetNode2 );
+  inherit( Node, FaucetNode );
 
-  return FaucetNode2;
+  return FaucetNode;
 } );
