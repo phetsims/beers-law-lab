@@ -53,11 +53,16 @@ define( function( require ) {
     shaftNode.scale( 0.8, 1 );
     var knobNode = new Image( BLLImages.getImage( "faucet_knob.png" ) );
     knobNode.scale( 0.8 );
+    var knobDisabledNode = new Image( BLLImages.getImage( "faucet_knob_disabled.png" ) );
+    knobDisabledNode.scale( knobNode.getScaleVector() );
     var shooterNode = new Node();
     shooterNode.addChild( shaftNode );
     shooterNode.addChild( knobNode );
+    shooterNode.addChild( knobDisabledNode );
     knobNode.left = shaftNode.right - 2;
     knobNode.centerY = shaftNode.centerY;
+    knobDisabledNode.x = knobNode.x;
+    knobDisabledNode.y = knobNode.y;
 
     // other nodes
     var pipeNode = new Image( BLLImages.getImage( "faucet_pipe.png" ) );
@@ -132,6 +137,11 @@ define( function( require ) {
     faucet.flowRate.link( function( flowRate ) {
       var xOffset = offsetToFlowRate.inverse( flowRate );
       shooterNode.x = spoutNode.left + xOffset;
+    } );
+
+    faucet.enabled.link( function( enabled ) {
+      knobNode.visible = enabled;
+      knobDisabledNode.visible = !enabled;
     } );
   }
 

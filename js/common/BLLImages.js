@@ -28,6 +28,7 @@ define( function() {
       "dropper_background.png",
       "dropper_foreground.png",
       "faucet_knob.png",
+      "faucet_knob_disabled.png",
       "faucet_pipe.png",
       "faucet_shaft.png",
       "faucet_spout.png",
