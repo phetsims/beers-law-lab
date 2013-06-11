@@ -1,3 +1,4 @@
+6/11/13 integrate new faucet images for "pinball shooter" design
 6/11/13 delete unused faucet image files
 6/11/13 rename FaucetNode2 to FaucetNode (pinball shooter design)
 6/11/13 delete 3 versions of faucet that will not be used (FaucetNode1, FaucetNode3, FaucetNode4)

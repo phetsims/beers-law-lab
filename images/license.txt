@@ -11,8 +11,9 @@ concentration-meter-probe.png author=PhET notes=created by Noah P.
 dropper-icon.png author=PhET notes=scaled version of dropper_foreground.png
 dropper_background.png author=PhET notes=created by Noah P.
 dropper_foreground.png author=PhET notes=created by Noah P.
+faucet_knob.png author=PhET notes=created by Sharon Siman-Tov
 faucet_pipe.png author=PhET notes=created by Sharon Siman-Tov
-faucet_shooter.png author=PhET notes=created by Sharon Siman-Tov
+faucet_shaft.png author=PhET notes=created by Sharon Siman-Tov
 faucet_spout.png author=PhET notes=created by Sharon Siman-Tov
 light.png author=PhET notes=copied laser.png from bending-light
 momentary_button_pressed.png author=PhET notes=copied from Java piccolo-phet
