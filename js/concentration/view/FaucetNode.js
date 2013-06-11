@@ -31,8 +31,8 @@ define( function( require ) {
   var FAUCET_SCALE = 0.75; //TODO scale image files so that this is 1
   var SPOUT_OUTPUT_CENTER_X = 97; // center of spout, determined by inspecting image file
   var PIPE_Y_OFFSET = 28; // y-offset of pipe in spout image
-  var SHOOTER_MIN_X_OFFSET = 10; // x-offset of shooter's off position in spout image
-  var SHOOTER_MAX_X_OFFSET = 55; // x-offset of shooter's full-on position in spout image
+  var SHOOTER_MIN_X_OFFSET = 4; // x-offset of shooter's off position in spout image
+  var SHOOTER_MAX_X_OFFSET = 59; // x-offset of shooter's full-on position in spout image
   var SHOOTER_Y_OFFSET = 16; // y-offset of shooter's centerY in spout image
   var PIPE_X_OVERLAP = 5; // overlap between pipe and spout, so vertical seam is not visible
   var SHOOTER_WINDOW_BOUNDS = new Bounds2( 10, 10, 82, 25 ); // bounds of the window in the spout image, through which you see the shooter handle
@@ -50,7 +50,7 @@ define( function( require ) {
 
     // assemble the shooter
     var shaftNode = new Image( BLLImages.getImage( "faucet_shaft.png" ) );
-    shaftNode.scale( 0.75, 1 );
+    shaftNode.scale( 0.8, 1 );
     var knobNode = new Image( BLLImages.getImage( "faucet_knob.png" ) );
     knobNode.scale( 0.8 );
     var shooterNode = new Node();
