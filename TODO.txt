@@ -18,15 +18,12 @@ MEDIUM
 - improve drag handler for faucet shooter
 
 LOW
-- delete unused faucet variants and associated image files
 - update to latest version of lib/ dependencies, including jQuery 2.x
 - ComboBox: remove enableClickToDismissListener, workaround for scenery#58
 - generalize left/right arrow buttons for sliders
 - lighting on AT body is vertically flipped, graphic is not tall enough for larger radio buttons
 - nicer slider thumbs
-- split faucet_lever.png into 2 images, so that only the knob is interactive?
 - use scenery.Pattern to texture map input pipe in FaucetNode
-- get new images for faucet, faucet_pipe.png doesn't match up with faucet_spigot.png
 - Credits: Ariel (lead), Chris (dev), Noah P, Emily, Kathy, Julia
 - TODO items throughout code
 
