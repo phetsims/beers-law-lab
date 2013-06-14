@@ -1,3 +1,4 @@
+6/14/13 increase xMargin on arrow buttons, so they look like those in GFL design doc
 6/14/13 make radio buttons on AT detector larger, to match other radio buttons
 6/14/13 fix AT detector body images so that lighting is correct, and make it taller to fit larger buttons
 # 0.0.0-7 6/11/13

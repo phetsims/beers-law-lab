@@ -224,11 +224,11 @@ define( function( require ) {
     var plusButton = new Button( new Path( { fill: "black", shape: new Shape().moveTo( 0, 0 ).lineTo( arrowWidth, arrowHeight / 2 ).lineTo( 0, arrowHeight ).close() } ),
                                  function() {
                                    solution.get().concentration.set( solution.get().concentration.get() + solution.get().concentrationTransform.viewToModel( 1 ) );
-                                 }, { cornerRadius: 4 } );
+                                 }, { cornerRadius: 4, xMargin: 7 } );
     var minusButton = new Button( new Path( { fill: "black", shape: new Shape().moveTo( 0, arrowHeight / 2 ).lineTo( arrowWidth, 0 ).lineTo( arrowWidth, arrowHeight ).close() } ),
                                   function() {
                                     solution.get().concentration.set( solution.get().concentration.get() - solution.get().concentrationTransform.viewToModel( 1 ) );
-                                  }, { cornerRadius: 4 } );
+                                  }, { cornerRadius: 4, xMargin: 7 } );
 
     // rendering order
     thisNode.addChild( minTickLine );

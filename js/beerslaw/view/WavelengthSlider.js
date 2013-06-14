@@ -142,11 +142,11 @@ define( function( require ) {
     var plusButton = new Button( new Path( { fill: "black", shape: new Shape().moveTo( 0, 0 ).lineTo( arrowWidth, arrowHeight / 2 ).lineTo( 0, arrowHeight ).close() } ),
                                  function() {
                                    wavelength.set( wavelength.get() + 1 );
-                                 }, { cornerRadius: 4 } );
+                                 }, { cornerRadius: 4, xMargin: 7 } );
     var minusButton = new Button( new Path( { fill: "black", shape: new Shape().moveTo( 0, arrowHeight / 2 ).lineTo( arrowWidth, 0 ).lineTo( arrowWidth, arrowHeight ).close() } ),
                                   function() {
                                     wavelength.set( wavelength.get() - 1 );
-                                  }, { cornerRadius: 4 } );
+                                  }, { cornerRadius: 4, xMargin: 7 } );
 
     /*
      * Put a border around the track.
