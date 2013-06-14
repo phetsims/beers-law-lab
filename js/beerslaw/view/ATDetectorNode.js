@@ -51,8 +51,8 @@ define( function( require ) {
 
     // buttons for changing the detector "mode"
     var textOptions = { font: new BLLFont( 18 ), fill: "white" };
-    var transmittanceButton = new RadioButton( detector.mode, ATDetector.Mode.TRANSMITTANCE, new Text( BLLStrings.transmittance, textOptions ), { radius: 12 } );
-    var absorbanceButton = new RadioButton( detector.mode, ATDetector.Mode.ABSORBANCE, new Text( BLLStrings.absorbance, textOptions ), { radius: 12 } );
+    var transmittanceButton = new RadioButton( detector.mode, ATDetector.Mode.TRANSMITTANCE, new Text( BLLStrings.transmittance, textOptions ) );
+    var absorbanceButton = new RadioButton( detector.mode, ATDetector.Mode.ABSORBANCE, new Text( BLLStrings.absorbance, textOptions ) );
 
     // group the buttons
     var buttonGroup = new Node();

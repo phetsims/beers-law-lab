@@ -9,26 +9,20 @@ BUGS
 - text quality issues, beers-law-lab#1
 
 HIGH
-- ConcentrationSlider.Thumb, ToggleButton, MomentaryButton are flagged by IDEA editor with "Cyclic inheritance involving <type>"
 - draw shaker particles directly to Canvas
 - MovableDragHandler: cursor drifts slightly during drag, mvt is not the same as scenery's global coordinate frame
 
 MEDIUM
-- make radio buttons on AT detector larger
 - disable (instead of hide) increment/decrement buttons for sliders (not supported by sun.Button)
 
 LOW
 - update to latest version of lib/ dependencies, including jQuery 2.x
-- ComboBox: remove enableClickToDismissListener, workaround for scenery#58
 - generalize left/right arrow buttons for sliders
-- lighting on AT body is vertically flipped, graphic is not tall enough for larger radio buttons
-- nicer slider thumbs
 - use scenery.Pattern to texture map input pipe in FaucetNode
 - Credits: Ariel (lead), Chris (dev), Noah P, Emily, Kathy, Julia
 - TODO items throughout code
 
 LOWEST
-- replace Property.set/get with Property.value
 
 MIGRATE TO COMMON
 FaucetNode + images
