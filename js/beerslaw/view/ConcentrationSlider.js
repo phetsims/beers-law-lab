@@ -15,11 +15,13 @@ define( function( require ) {
   var Dimension2 = require( "DOT/Dimension2" );
   var FillHighlightListener = require( "SCENERY_PHET/input/FillHighlightListener" );
   var inherit = require( "PHET_CORE/inherit" );
+  var LeftArrowButton = require( "common/view/LeftArrowButton" );
   var LinearFunction = require( "DOT/LinearFunction" );
   var LinearGradient = require( "SCENERY/util/LinearGradient" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
+  var RightArrowButton = require( "common/view/RightArrowButton" );
   var Shape = require( "KITE/Shape" );
   var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
   var Text = require( "SCENERY/nodes/Text" );
@@ -221,14 +223,12 @@ define( function( require ) {
     // buttons for single-unit increments
     var arrowHeight = 20;
     var arrowWidth = arrowHeight * Math.sqrt( 3 ) / 2;
-    var plusButton = new Button( new Path( { fill: "black", shape: new Shape().moveTo( 0, 0 ).lineTo( arrowWidth, arrowHeight / 2 ).lineTo( 0, arrowHeight ).close() } ),
-                                 function() {
-                                   solution.get().concentration.set( solution.get().concentration.get() + solution.get().concentrationTransform.viewToModel( 1 ) );
-                                 }, { cornerRadius: 4, xMargin: 7 } );
-    var minusButton = new Button( new Path( { fill: "black", shape: new Shape().moveTo( 0, arrowHeight / 2 ).lineTo( arrowWidth, 0 ).lineTo( arrowWidth, arrowHeight ).close() } ),
-                                  function() {
-                                    solution.get().concentration.set( solution.get().concentration.get() - solution.get().concentrationTransform.viewToModel( 1 ) );
-                                  }, { cornerRadius: 4, xMargin: 7 } );
+    var plusButton = new LeftArrowButton( function() {
+      solution.get().concentration.set( solution.get().concentration.get() + solution.get().concentrationTransform.viewToModel( 1 ) );
+    } );
+    var minusButton = new RightArrowButton( function() {
+      solution.get().concentration.set( solution.get().concentration.get() - solution.get().concentrationTransform.viewToModel( 1 ) );
+    } );
 
     // rendering order
     thisNode.addChild( minTickLine );

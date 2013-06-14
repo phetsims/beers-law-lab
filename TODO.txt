@@ -17,7 +17,6 @@ MEDIUM
 
 LOW
 - update to latest version of lib/ dependencies, including jQuery 2.x
-- generalize left/right arrow buttons for sliders
 - use scenery.Pattern to texture map input pipe in FaucetNode
 - Credits: Ariel (lead), Chris (dev), Noah P, Emily, Kathy, Julia
 - TODO items throughout code
@@ -27,6 +26,7 @@ LOWEST
 MIGRATE TO COMMON
 FaucetNode + images
 HorizontalTiledNode
+LeftArrowButton, RightArrowButton
 MomentaryButton + ToggleButton + images
 VisibleColor
 WavelengthSlider
