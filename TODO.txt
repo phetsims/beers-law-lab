@@ -9,6 +9,7 @@ BUGS
 - text quality issues, beers-law-lab#1
 
 HIGH
+- combine LeftArrowButton and RightArrowButton, add enabledProperty
 - draw shaker particles directly to Canvas
 - MovableDragHandler: cursor drifts slightly during drag, mvt is not the same as scenery's global coordinate frame
 
