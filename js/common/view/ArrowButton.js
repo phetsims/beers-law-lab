@@ -44,6 +44,7 @@ define( function( require ) {
     thisButton.setEnabled = function( enabled ) {
       path.fill = enabled ? options.enabledFill : options.disabledFill;
       thisButton.pickable = enabled; //TODO workaround for lack of Button.enabled
+      //TODO change stroke of button rectangle
     };
     thisButton.setEnabled( true );
   }
