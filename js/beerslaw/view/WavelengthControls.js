@@ -45,7 +45,9 @@ define( function( require ) {
     content.addChild( label );
     content.addChild( valueDisplay );
     content.addChild( presetRadioButton );
-    content.addChild( variableRadioButton );
+    if ( !variableWavelength.get() ) { // opposite of initial state, so variableWavelength.link doesn't fail on add/removeChild
+      content.addChild( variableRadioButton );
+    }
     content.addChild( wavelengthSlider );
 
     // add a horizontal strut to prevent width changes
@@ -67,16 +69,11 @@ define( function( require ) {
 
     // When the radio button selection changes...
     variableWavelength.link( function( isVariable ) {
-      //TODO when bounds means "visible bounds", replace this if-else statement with: wavelengthSlider.visible = isVariable;
       if ( isVariable ) {
-        if ( !content.isChild( wavelengthSlider ) ) {
-           content.addChild( wavelengthSlider );
-        }
+        content.addChild( wavelengthSlider );
       }
       else {
-        if ( content.isChild( wavelengthSlider ) ) {
-          content.removeChild( wavelengthSlider );
-        }
+        content.removeChild( wavelengthSlider );
       }
       if ( !isVariable ) {
         // Set the light to the current solution's lambdaMax wavelength.
