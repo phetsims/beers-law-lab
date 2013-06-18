@@ -20,8 +20,8 @@ LOW
 - icons for homescreen and navbar
 - update to latest version of lib/ dependencies, including jQuery 2.x
 - use scenery.Pattern to texture map input pipe in FaucetNode (seams visible)
-- Credits: Ariel (lead), Chris (dev), Noah P, Emily, Kathy, Julia
-- TODO items throughout code
+- credits
+- TODO items in code
 
 LOWEST
 
