@@ -16,6 +16,7 @@ MEDIUM
 - use same (rectangle?) thumb for Evaporation and Concentration sliders
 
 LOW
+- icons for homescreen and navbar
 - update to latest version of lib/ dependencies, including jQuery 2.x
 - use scenery.Pattern to texture map input pipe in FaucetNode
 - Credits: Ariel (lead), Chris (dev), Noah P, Emily, Kathy, Julia
