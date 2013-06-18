@@ -12,6 +12,7 @@ dropper-icon.png author=PhET notes=scaled version of dropper_foreground.png
 dropper_background.png author=PhET notes=created by Noah P.
 dropper_foreground.png author=PhET notes=created by Noah P.
 faucet_knob.png author=PhET notes=created by Sharon Siman-Tov
+faucet_knob_disabled.png author=PhET notes=grayscale version of faucet_knob.png
 faucet_pipe.png author=PhET notes=created by Sharon Siman-Tov
 faucet_shaft.png author=PhET notes=created by Sharon Siman-Tov
 faucet_spout.png author=PhET notes=created by Sharon Siman-Tov
@@ -20,5 +21,5 @@ momentary_button_pressed.png author=PhET notes=copied from Java piccolo-phet
 momentary_button_pressed_disabled.png author=PhET notes=copied from Java piccolo-phet
 momentary_button_unpressed.png author=PhET notes=copied from Java piccolo-phet
 momentary_button_unpressed_disabled.png author=PhET notes=copied from Java piccolo-phet
-shaker-icon.png author=PhET
 shaker.png author=PhET notes=copied salt_micro.png from sugar-and-salt-solutions
+shaker-icon.png author=PhET
