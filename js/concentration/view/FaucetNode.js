@@ -5,6 +5,9 @@
  * Pulling out the shooter changes the flow rate.
  * Releasing the shooter sets the flow rate to zero.
  * When the faucet is disabled, the flow rate is set to zero and the shooter is disabled.
+ * <p>
+ * Assumes that this node's parent is in the same coordinate frame as the model-view transform.
+ * Scaling must be done via options parameter, eg: {scale: 0.75 }
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -28,7 +31,6 @@ define( function( require ) {
 
   // constants
   var DEBUG_ORIGIN = false;
-  var FAUCET_SCALE = 0.75; //TODO scale image files so that this is 1
   var SPOUT_OUTPUT_CENTER_X = 97; // center of spout, determined by inspecting image file
   var PIPE_Y_OFFSET = 28; // y-offset of pipe in spout image
   var SHOOTER_MIN_X_OFFSET = 4; // x-offset of shooter's off position in spout image
@@ -40,13 +42,15 @@ define( function( require ) {
   /**
    * @param {Faucet} faucet
    * @param {ModelViewTransform2} mvt
+   * @param {*} options
    * @constructor
    */
-  function FaucetNode( faucet, mvt ) {
+  function FaucetNode( faucet, mvt, options ) {
+
+    options = _.extend( { scale: 1 }, options );
 
     var thisNode = this;
     Node.call( thisNode );
-    thisNode.scale( FAUCET_SCALE );
 
     // assemble the shooter
     var shaftNode = new Image( BLLImages.getImage( "faucet_shaft.png" ) );
@@ -84,9 +88,9 @@ define( function( require ) {
 
     //TODO This is horizontally stretching the image, it might look better to tile a rectangle with a texture.
     // size the pipe
-    var pipeWidth = mvt.modelToViewDeltaX( faucet.location.x - faucet.pipeMinX ) - ( FAUCET_SCALE * SPOUT_OUTPUT_CENTER_X ) + ( FAUCET_SCALE * PIPE_X_OVERLAP );
+    var pipeWidth = mvt.modelToViewDeltaX( faucet.location.x - faucet.pipeMinX ) - ( options.scale * SPOUT_OUTPUT_CENTER_X ) + ( options.scale * PIPE_X_OVERLAP );
     assert && assert( pipeWidth > 0 );
-    pipeNode.setScaleMagnitude( pipeWidth / pipeNode.width / FAUCET_SCALE, 1 );
+    pipeNode.setScaleMagnitude( pipeWidth / pipeNode.width / options.scale, 1 );
 
     // layout
     {
@@ -144,6 +148,8 @@ define( function( require ) {
       knobNode.visible = enabled;
       knobDisabledNode.visible = !enabled;
     } );
+
+    thisNode.mutate( options );
   }
 
   inherit( Node, FaucetNode );

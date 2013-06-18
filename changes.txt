@@ -1,3 +1,4 @@
+6/18/13 move scaling out of FaucetNode, specify scale via options arg
 6/18/13 set 'allowTouchSnag: true' for all draggable objects
 6/18/13 disable (instead of hide) arrow buttons for sliders (not supported by sun.Button)
 6/18/13 combine LeftArrowButton and RightArrowButton

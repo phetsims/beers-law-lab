@@ -62,8 +62,8 @@ define( function( require ) {
     var stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.solute, model.dropper, model.beaker, dropperNode.getTipWidth(), mvt );
 
     // faucets
-    var solventFaucetNode = new FaucetNode( model.solventFaucet, mvt );
-    var drainFaucetNode = new FaucetNode( model.drainFaucet, mvt );
+    var solventFaucetNode = new FaucetNode( model.solventFaucet, mvt, { scale: 0.75 } );
+    var drainFaucetNode = new FaucetNode( model.drainFaucet, mvt, { scale: 0.75 } );
     var SOLVENT_FLUID_HEIGHT = model.beaker.location.y - model.solventFaucet.location.y;
     var DRAIN_FLUID_HEIGHT = 1000; // tall enough that resizing the play area is unlikely to show bottom of fluid
     var solventFluidNode = new FaucetFluidNode( model.solventFaucet, model.solution.solvent, SOLVENT_FLUID_HEIGHT, mvt );
