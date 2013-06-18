@@ -115,6 +115,7 @@ define( function( require ) {
     knobNode.cursor = "pointer";
     knobNode.addInputListener( new SimpleDragHandler(
         {
+          allowTouchSnag: true,
           // adjust the flow
           drag: function( event ) {
             if ( faucet.enabled.get() ) {

@@ -24,6 +24,8 @@ define( function( require ) {
 
     SimpleDragHandler.call( this, {
 
+      allowTouchSnag: true,
+
       // note where the drag started
       start: function( event ) {
         var location = mvt.modelToViewPosition( movable.location.get() );

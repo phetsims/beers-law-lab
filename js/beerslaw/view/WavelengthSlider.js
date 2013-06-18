@@ -199,6 +199,8 @@ define( function( require ) {
     var clickXOffset = 0; // x-offset between initial click and thumb's origin
     thumb.addInputListener( new SimpleDragHandler(
         {
+          allowTouchSnag: true,
+
           start: function( event ) {
             clickXOffset = thumb.globalToParentPoint( event.pointer.point ).x - thumb.x;
           },

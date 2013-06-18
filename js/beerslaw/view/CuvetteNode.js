@@ -43,6 +43,7 @@ define( function( require ) {
     var startWidth; // width of the cuvette when the drag started
 
     SimpleDragHandler.call( this, {
+      allowTouchSnag: true,
       start: function( event ) {
         startX = event.pointer.point.x;
         startWidth = cuvette.width.get();
