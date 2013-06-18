@@ -68,8 +68,14 @@ define( function( require ) {
     knobDisabledNode.x = knobNode.x;
     knobDisabledNode.y = knobNode.y;
 
-    // other nodes
+    //TODO A better implementation for the pipe is a Rectangle({fill: Pattern}), but that approach shows vertical seams in the Pattern.
+    // pipe, stretch the image horizontally
     var pipeNode = new Image( BLLImages.getImage( "faucet_pipe.png" ) );
+    var pipeWidth = mvt.modelToViewDeltaX( faucet.location.x - faucet.pipeMinX ) - ( options.scale * SPOUT_OUTPUT_CENTER_X ) + ( options.scale * PIPE_X_OVERLAP );
+    assert && assert( pipeWidth > 0 );
+    pipeNode.setScaleMagnitude( pipeWidth / pipeNode.width / options.scale, 1 );
+
+    // other nodes
     var spoutNode = new Image( BLLImages.getImage( "faucet_spout.png" ), { pickable: false } );
     var windowNode = new Rectangle( SHOOTER_WINDOW_BOUNDS.minX, SHOOTER_WINDOW_BOUNDS.minY,
       SHOOTER_WINDOW_BOUNDS.maxX - SHOOTER_WINDOW_BOUNDS.minX, SHOOTER_WINDOW_BOUNDS.maxY - SHOOTER_WINDOW_BOUNDS.minY,
@@ -85,12 +91,6 @@ define( function( require ) {
     if ( DEBUG_ORIGIN ) {
       thisNode.addChild( new Circle( { radius: 3, fill: 'red' } ) );
     }
-
-    //TODO This is horizontally stretching the image, it might look better to tile a rectangle with a texture.
-    // size the pipe
-    var pipeWidth = mvt.modelToViewDeltaX( faucet.location.x - faucet.pipeMinX ) - ( options.scale * SPOUT_OUTPUT_CENTER_X ) + ( options.scale * PIPE_X_OVERLAP );
-    assert && assert( pipeWidth > 0 );
-    pipeNode.setScaleMagnitude( pipeWidth / pipeNode.width / options.scale, 1 );
 
     // layout
     {
