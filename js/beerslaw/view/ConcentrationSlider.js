@@ -269,10 +269,6 @@ define( function( require ) {
       // center values below tick lines
       minTickLabel.centerX = minTickLine.centerX;
       maxTickLabel.centerX = maxTickLine.centerX;
-      //TODO better to disable these button than hide them, but not supported by sun.Button yet
-      // buttons
-      plusButton.visible = ( solution.concentration.get() < concentrationRange.max );
-      minusButton.visible = ( solution.concentration.get() > concentrationRange.min );
       // re-wire observer
       if ( oldSolution ) {
         oldSolution.concentration.unlink( concentrationObserver );
