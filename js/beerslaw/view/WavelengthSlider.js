@@ -9,6 +9,7 @@ define( function( require ) {
   "use strict";
 
   // imports
+  var ArrowButton = require( "common/view/ArrowButton" );
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
   var BLLFont = require( "common/BLLFont" );
   var BLLStrings = require( "common/BLLStrings" );
@@ -16,11 +17,9 @@ define( function( require ) {
   var Dimension2 = require( "DOT/Dimension2" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
-  var LeftArrowButton = require( "common/view/LeftArrowButton" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
-  var RightArrowButton = require( "common/view/RightArrowButton" );
   var Shape = require( "KITE/Shape" );
   var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
   var StringUtils = require( "PHETCOMMON/util/StringUtils" );
@@ -141,10 +140,10 @@ define( function( require ) {
     // buttons for single-unit increments
     var arrowHeight = 20;
     var arrowWidth = arrowHeight * Math.sqrt( 3 ) / 2;
-    var plusButton = new LeftArrowButton( function() {
+    var plusButton = new ArrowButton( ArrowButton.Direction.LEFT, function() {
       wavelength.set( wavelength.get() + 1 );
     } );
-    var minusButton = new RightArrowButton( function() {
+    var minusButton = new ArrowButton( ArrowButton.Direction.RIGHT, function() {
       wavelength.set( wavelength.get() - 1 );
     } );
 
@@ -222,9 +221,8 @@ define( function( require ) {
       // thumb color
       thumb.fill = VisibleColor.wavelengthToColor( wavelength );
       // plus and minus buttons
-      //TODO better to disable these button than hide them, but not supported by sun.Button yet
-      plusButton.visible = ( wavelength < maxWavelength );
-      minusButton.visible = ( wavelength > minWavelength );
+      plusButton.setEnabled( wavelength < maxWavelength );
+      minusButton.setEnabled( wavelength > minWavelength );
     };
     wavelength.link( function( wavelength ) {
       updateUI( wavelength );

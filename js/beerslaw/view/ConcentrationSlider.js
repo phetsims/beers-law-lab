@@ -9,19 +9,18 @@ define( function( require ) {
   "use strict";
 
   // imports
+  var ArrowButton = require( "common/view/ArrowButton" );
   var BLLFont = require( "common/BLLFont" );
   var Button = require( "SUN/Button" );
   var Color = require( "SCENERY/util/Color" );
   var Dimension2 = require( "DOT/Dimension2" );
   var FillHighlightListener = require( "SCENERY_PHET/input/FillHighlightListener" );
   var inherit = require( "PHET_CORE/inherit" );
-  var LeftArrowButton = require( "common/view/LeftArrowButton" );
   var LinearFunction = require( "DOT/LinearFunction" );
   var LinearGradient = require( "SCENERY/util/LinearGradient" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
-  var RightArrowButton = require( "common/view/RightArrowButton" );
   var Shape = require( "KITE/Shape" );
   var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
   var Text = require( "SCENERY/nodes/Text" );
@@ -223,10 +222,10 @@ define( function( require ) {
     // buttons for single-unit increments
     var arrowHeight = 20;
     var arrowWidth = arrowHeight * Math.sqrt( 3 ) / 2;
-    var plusButton = new LeftArrowButton( function() {
+    var plusButton = new ArrowButton( ArrowButton.Direction.LEFT, function() {
       solution.get().concentration.set( solution.get().concentration.get() + solution.get().concentrationTransform.viewToModel( 1 ) );
     } );
-    var minusButton = new RightArrowButton( function() {
+    var minusButton = new ArrowButton( ArrowButton.Direction.RIGHT, function() {
       solution.get().concentration.set( solution.get().concentration.get() - solution.get().concentrationTransform.viewToModel( 1 ) );
     } );
 
@@ -254,10 +253,9 @@ define( function( require ) {
     plusButton.bottom = track.bottom;
 
     var concentrationObserver = function( concentration ) {
-      //TODO better to disable these button than hide them, but not supported by sun.Button yet
       // buttons
-      plusButton.visible = ( concentration < solution.get().concentrationRange.max );
-      minusButton.visible = ( concentration > solution.get().concentrationRange.min );
+      plusButton.setEnabled( concentration < solution.get().concentrationRange.max );
+      minusButton.setEnabled( concentration > solution.get().concentrationRange.min );
     };
 
     // update the tick labels to match the solution

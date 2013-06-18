@@ -9,12 +9,10 @@ BUGS
 - text quality issues, beers-law-lab#1
 
 HIGH
-- combine LeftArrowButton and RightArrowButton, add enabledProperty
 - draw shaker particles directly to Canvas
 - MovableDragHandler: cursor drifts slightly during drag, mvt is not the same as scenery's global coordinate frame
 
 MEDIUM
-- disable (instead of hide) increment/decrement buttons for sliders (not supported by sun.Button)
 
 LOW
 - update to latest version of lib/ dependencies, including jQuery 2.x
@@ -25,9 +23,9 @@ LOW
 LOWEST
 
 MIGRATE TO COMMON
+ArrowButton
 FaucetNode + images
 HorizontalTiledNode
-LeftArrowButton, RightArrowButton
 MomentaryButton + ToggleButton + images
 VisibleColor
 WavelengthSlider

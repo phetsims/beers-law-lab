@@ -1,3 +1,5 @@
+6/18/13 disable (instead of hide) arrow buttons for sliders (not supported by sun.Button)
+6/18/13 combine LeftArrowButton and RightArrowButton
 6/14/13 generalize left/right arrow buttons for sliders
 6/14/13 increase xMargin on arrow buttons, so they look like those in GFL design doc
 6/14/13 make radio buttons on AT detector larger, to match other radio buttons
