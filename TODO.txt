@@ -13,6 +13,8 @@ HIGH
 - MovableDragHandler: cursor drifts slightly during drag, mvt is not the same as scenery's global coordinate frame
 
 MEDIUM
+- disable "Remove Solute" button when there is no solute in the beaker
+- should buttons highlight on mouseOver, or should slider thumbs not highlight?˚
 - usability of Evaporation slider, use same thumb as Concentration slider?
 - change stroke of ArrowButton when disabled
 
