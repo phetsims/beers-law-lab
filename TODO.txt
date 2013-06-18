@@ -13,7 +13,7 @@ HIGH
 - MovableDragHandler: cursor drifts slightly during drag, mvt is not the same as scenery's global coordinate frame
 
 MEDIUM
-- use same (rectangle?) thumb for Evaporation and Concentration sliders
+- usability of Evaporation slider, use same thumb as Concentration slider?
 - change stroke of ArrowButton when disabled
 
 LOW
