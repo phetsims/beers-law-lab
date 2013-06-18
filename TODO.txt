@@ -29,6 +29,6 @@ MIGRATE TO COMMON
 ArrowButton
 FaucetNode + images
 HorizontalTiledNode
-MomentaryButton + ToggleButton + images
+ToggleButton + images
 VisibleColor
 WavelengthSlider

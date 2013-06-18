@@ -17,11 +17,11 @@ define( function( require ) {
   var HTMLText = require( "SCENERY/nodes/HTMLText" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
-  var MomentaryButton = require( "common/view/MomentaryButton" );
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
   var Shape = require( "KITE/Shape" );
+  var ToggleButton = require( "common/view/ToggleButton" );
 
   // constants
   var DEBUG_ORIGIN = false;
@@ -77,7 +77,9 @@ define( function( require ) {
           lineWidth: 0
         } );
 
-    var button = new MomentaryButton( dropper.on, dropper.enabled );
+    var button = new ToggleButton(
+      BLLImages.getImage( "red_button_unpressed.png" ), BLLImages.getImage( "red_button_pressed.png" ), BLLImages.getImage( "red_button_disabled.png" ),
+      dropper.on, dropper.enabled, { onWhilePressed: true } );
     button.setScaleMagnitude( 0.3 );
 
     // rendering order

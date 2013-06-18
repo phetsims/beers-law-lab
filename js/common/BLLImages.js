@@ -33,10 +33,9 @@ define( function() {
       "faucet_shaft.png",
       "faucet_spout.png",
       "light.png",
-      "momentary_button_pressed.png",
-      "momentary_button_pressed_disabled.png",
-      "momentary_button_unpressed.png",
-      "momentary_button_unpressed_disabled.png",
+      "red_button_disabled.png",
+      "red_button_pressed.png",
+      "red_button_unpressed.png",
       "shaker.png",
       "shaker-icon.png"
     ]

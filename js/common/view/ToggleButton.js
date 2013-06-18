@@ -1,8 +1,8 @@
 // Copyright 2002-2013, University of Colorado
 
-//TODO lots in common with MomentaryButton
 /**
  * A toggle button changes it's on/off state when pressed.
+ * Can optionally be configured as a "momentary" button, which is on while pressed, off when released.
  * Origin is at the upper-left of the bounding rectangle.
  *
  * @author Chris Malley (PixelZoom, Inc.)
@@ -18,20 +18,20 @@ define( function( require ) {
   var Node = require( "SCENERY/nodes/Node" );
 
   /**
+   * @param unpressedImage
+   * @param pressedImage
+   * @param disabledImage
    * @param {Property<Boolean>} on
    * @param {Property<Boolean>} enabled
+   * @param {*} options
    * @constructor
    */
-  function ToggleButton( on, enabled ) {
+  function ToggleButton( unpressedImage, pressedImage, disabledImage, on, enabled, options ) {
+
+    options = _.extend( { onWhilePressed: false }, options );
 
     var thisNode = this;
     Node.call( this );
-
-    // images
-    var pressedImage = BLLImages.getImage( "momentary_button_pressed.png" );
-    var unpressedImage = BLLImages.getImage( "momentary_button_unpressed.png" );
-    var pressedDisabledImage = BLLImages.getImage( "momentary_button_pressed_disabled.png" );
-    var unpressedDisabledImage = BLLImages.getImage( "momentary_button_unpressed_disabled.png" );
 
     var imageNode = new Image( unpressedImage );
     thisNode.addChild( imageNode );
@@ -39,9 +39,6 @@ define( function( require ) {
     on.link( function( on ) {
       if ( enabled.get() ) {
         imageNode.setImage( on ? pressedImage : unpressedImage );
-      }
-      else {
-        imageNode.setImage( on ? pressedDisabledImage : unpressedDisabledImage );
       }
     } );
 
@@ -51,16 +48,33 @@ define( function( require ) {
         thisNode.cursor = "pointer";
       }
       else {
-        imageNode.setImage( on.get() ? pressedDisabledImage : unpressedDisabledImage );
+        imageNode.setImage( disabledImage );
         thisNode.cursor = "default";
       }
     } );
 
-    thisNode.addInputListener( new ButtonListener( {
-      fire: function() {
-        on.set( !on.get() && enabled.get() );
-      }
-    } ) );
+    if ( options.onWhilePressed ) {
+      // momentary button, on while pressed, off when released
+      thisNode.addInputListener( new ButtonListener( {
+        down: function( event ) {
+          on.set( enabled.get() );
+        },
+        up: function( event ) {
+          on.set( false );
+        },
+        over: function( event ) {
+          on.set( false );
+        }
+      } ) );
+    }
+    else {
+      // toggle button, changes its state when fired
+      thisNode.addInputListener( new ButtonListener( {
+        fire: function() {
+          on.set( !on.get() && enabled.get() );
+        }
+      } ) );
+    }
   }
 
   inherit( Node, ToggleButton );

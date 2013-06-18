@@ -29,7 +29,9 @@ define( function( require ) {
 
     // nodes
     var housing = new Image( BLLImages.getImage( "light.png" ) );
-    var button = new ToggleButton( light.on, new Property( true ) );
+    var button = new ToggleButton(
+      BLLImages.getImage( "red_button_unpressed.png" ), BLLImages.getImage( "red_button_pressed.png" ), BLLImages.getImage( "red_button_disabled.png" ),
+      light.on, new Property( true ) );
 
     // make the button fit in the housing
     button.setScaleMagnitude( 0.65 * housing.height / button.height );
