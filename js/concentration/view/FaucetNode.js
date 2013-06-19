@@ -24,6 +24,7 @@ define( function( require ) {
   var LinearFunction = require( "DOT/LinearFunction" );
   var Matrix3 = require( "DOT/Matrix3" );
   var Node = require( "SCENERY/nodes/Node" );
+  var Pattern = require( "SCENERY/util/Pattern" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
   var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
   var Transform3 = require( "DOT/Transform3" );
@@ -68,12 +69,11 @@ define( function( require ) {
     knobDisabledNode.x = knobNode.x;
     knobDisabledNode.y = knobNode.y;
 
-    //TODO A better implementation for the pipe is a Rectangle({fill: Pattern}), but that approach shows vertical seams in the Pattern.
-    // pipe, stretch the image horizontally
-    var pipeNode = new Image( BLLImages.getImage( "faucet_pipe.png" ) );
-    var pipeWidth = mvt.modelToViewDeltaX( faucet.location.x - faucet.pipeMinX ) - ( options.scale * SPOUT_OUTPUT_CENTER_X ) + ( options.scale * PIPE_X_OVERLAP );
+    // pipe, tiled horizontally
+    var pipeImage = BLLImages.getImage( "faucet_pipe.png" );
+    var pipeWidth = ( mvt.modelToViewDeltaX( faucet.location.x - faucet.pipeMinX ) / options.scale ) - SPOUT_OUTPUT_CENTER_X + PIPE_X_OVERLAP;
     assert && assert( pipeWidth > 0 );
-    pipeNode.setScaleMagnitude( pipeWidth / pipeNode.width / options.scale, 1 );
+    var pipeNode = new Rectangle( 0, 0, pipeWidth, pipeImage.height, { fill: new Pattern( pipeImage  )} );
 
     // other nodes
     var spoutNode = new Image( BLLImages.getImage( "faucet_spout.png" ), { pickable: false } );
