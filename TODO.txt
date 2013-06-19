@@ -9,6 +9,9 @@ BUGS
 - text quality issues, beers-law-lab#1
 
 HIGH
+- expand touchArea for slider thumbs
+- expand touchArea for faucet knobs
+- expand touchArea for cuvette handle
 - draw shaker particles directly to Canvas
 
 MEDIUM
