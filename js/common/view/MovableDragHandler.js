@@ -11,6 +11,7 @@ define( function( require ) {
   // imports
   var inherit = require( "PHET_CORE/inherit" );
   var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
+  var Vector2 = require( "DOT/Vector2" );
 
   /**
    * @param {Movable} movable
@@ -37,10 +38,10 @@ define( function( require ) {
 
       // change the location, adjust for starting offset, constrain to drag bounds
       drag: function( event ) {
-        var location = target.globalToParentPoint( event.pointer.point ).minus( startOffset );
-        if ( !dragBounds || dragBounds.containsPoint( location ) ) {
-           movable.location.set( mvt.viewToModelPosition( location ) );
-        }
+        var parentPoint = target.globalToParentPoint( event.pointer.point ).minus( startOffset );
+        var location = mvt.viewToModelPosition( parentPoint );
+        var constrainedLocation = MovableDragHandler._constrainBounds( location, movable.dragBounds );
+        movable.location.set( constrainedLocation );
       },
 
       translate: function( options ) {
@@ -50,6 +51,22 @@ define( function( require ) {
   }
 
   inherit( SimpleDragHandler, MovableDragHandler );
+
+  /**
+   * Constrains a point to some bounds.
+   * @param {Vector2} point
+   * @param {Bounds2} bounds
+   */
+  MovableDragHandler._constrainBounds = function( point, bounds ) {
+    if ( _.isUndefined( bounds ) || bounds.containsCoordinates( point.x, point.y ) ) {
+      return point;
+    }
+    else {
+      var xConstrained = Math.max( Math.min( point.x, bounds.maxX ), bounds.x );
+      var yConstrained = Math.max( Math.min( point.y, bounds.maxY ), bounds.y );
+      return new Vector2( xConstrained, yConstrained );
+    }
+  };
 
   return MovableDragHandler;
 } );
