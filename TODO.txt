@@ -15,8 +15,8 @@ HIGH
 MEDIUM
 - disable "Remove Solute" button when there is no solute in the beaker
 - should buttons highlight on mouseOver, or should slider thumbs not highlight?˚
-- usability of Evaporation slider, use same thumb as Concentration slider?
 - change stroke of ArrowButton when disabled
+- EvaporationSlider and ConcentrationSlider are different implementations of the same thing
 
 LOW
 - icons for homescreen and navbar
