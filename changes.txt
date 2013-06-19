@@ -1,3 +1,4 @@
+6/19/13 upgrade from lodash 1.2.1 to 1.3.1
 6/19/13 improve bounds constraint in MovableDragHandler
 6/19/13 use parent coordinate frame in MovableDragHandler, solves drag "drift" problem
 6/19/13 use scenery.Pattern to texture map input pipe in FaucetNode
