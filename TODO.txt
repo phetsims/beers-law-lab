@@ -10,7 +10,6 @@ BUGS
 
 HIGH
 - draw shaker particles directly to Canvas
-- MovableDragHandler: cursor drifts slightly during drag, mvt is not the same as scenery's global coordinate frame
 
 MEDIUM
 - disable "Remove Solute" button when there is no solute in the beaker
