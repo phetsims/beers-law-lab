@@ -30,7 +30,7 @@ define( function( require ) {
 
   // tick constants
   var MAJOR_TICK_LENGTH = 30;
-  var MINOR_TICK_LENGTH = 15;
+  var MINOR_TICK_LENGTH = 16;
 
   /**
    * @param {Range} range
@@ -57,20 +57,12 @@ define( function( require ) {
     thisNode.addChild( thisNode._track );
 
     // thumb, points up
-    var thumb = new Path(
-        {
-          cursor: "pointer",
-          shape: new Shape()/* clockwise from bottom left */
-              .moveTo( -THUMB_SIZE.width / 2, THUMB_SIZE.height )
-              .lineTo( THUMB_SIZE.width / 2, THUMB_SIZE.height )
-              .lineTo( THUMB_SIZE.width / 2, 0.35 * THUMB_SIZE.height )
-              .lineTo( 0, 0 )
-              .lineTo( -THUMB_SIZE.width / 2, 0.35 * THUMB_SIZE.height )
-              .close(),
-          fill: THUMB_FILL_ENABLED,
-          stroke: "black",
-          lineWidth: 1
-        } );
+    var arcWidth = 0.25 * THUMB_SIZE.width;
+    var thumb = new Rectangle( -THUMB_SIZE.width / 2, -THUMB_SIZE.height / 2, THUMB_SIZE.width, THUMB_SIZE.height, arcWidth, arcWidth,
+      { cursor: "pointer", fill: THUMB_FILL_ENABLED, stroke: "black", lineWidth: 1 } );
+    var centerLineYMargin = 3;
+    thumb.addChild( new Path( { shape: Shape.lineSegment( 0, -( THUMB_SIZE.height / 2 ) + centerLineYMargin, 0, ( THUMB_SIZE.height / 2 ) - centerLineYMargin ),
+                                     stroke: 'white' } ) );
     thumb.centerY = thisNode._track.centerY;
     thisNode.addChild( thumb );
 

@@ -37,7 +37,7 @@ define( function( require ) {
   var THUMB_CENTER_LINE_STROKE = Color.WHITE;
 
   // tick constants
-  var TICK_LENGTH = 14;
+  var TICK_LENGTH = 16;
   var TICK_FONT = new BLLFont( 16 );
   var TICK_DECIMAL_PLACES = 0;
 

@@ -1,3 +1,4 @@
+6/19/13 make Evaporation slider thumb look similar to Concentration slider
 6/18/13 merge MomentaryButton into ToggleButton, generalize, change image file names
 6/18/13 move scaling out of FaucetNode, specify scale via options arg
 6/18/13 set 'allowTouchSnag: true' for all draggable objects
