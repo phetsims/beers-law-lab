@@ -3,6 +3,9 @@ TODO list for beers-law-lab (HTML5 port)
 DESIGN ISSUES
 
 BUGS
+- iPad: crashes (repaints) when you drag concentration probe into solution as first action
+- iPad: crashes (repaints) when you select a Solute as first action
+- iPad: crashes (repaints) when you switch tabs as first action
 - Safari 5: text bounds are very wrong, scenery#61
 - Nexus: performance, usability
 - Desktop: HTMLText dragging lags on Mac+Firefox, eg label on shaker, joist#5
