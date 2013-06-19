@@ -1,4 +1,5 @@
 6/19/13 use scenery.Pattern to texture map input pipe in FaucetNode
+6/19/13 trim transparent pixels off left edge of faucet_pipe.png
 6/19/13 make Evaporation slider thumb look similar to Concentration slider
 6/18/13 merge MomentaryButton into ToggleButton, generalize, change image file names
 6/18/13 move scaling out of FaucetNode, specify scale via options arg
