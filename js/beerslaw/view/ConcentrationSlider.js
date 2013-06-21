@@ -221,8 +221,6 @@ define( function( require ) {
     var maxTickLabel = new TickLabel( 0 ); // correct value will be set when observer is registered
 
     // buttons for single-unit increments
-    var arrowHeight = 20;
-    var arrowWidth = arrowHeight * Math.sqrt( 3 ) / 2;
     var plusButton = new ArrowButton( ArrowButton.Direction.LEFT, function() {
       solution.get().concentration.set( solution.get().concentration.get() + solution.get().concentrationTransform.viewToModel( 1 ) );
     } );

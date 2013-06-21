@@ -138,8 +138,6 @@ define( function( require ) {
     var cursor = new Cursor( 3, track.height );
 
     // buttons for single-unit increments
-    var arrowHeight = 20;
-    var arrowWidth = arrowHeight * Math.sqrt( 3 ) / 2;
     var plusButton = new ArrowButton( ArrowButton.Direction.LEFT, function() {
       wavelength.set( wavelength.get() + 1 );
     } );
