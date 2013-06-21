@@ -18,7 +18,6 @@ HIGH
 
 MEDIUM
 - inset background on wavelength and concentration values
-- more horizontal space for arrow buttons on wavelength slider
 - support press-&-hold of arrow buttons
 - disable "Remove Solute" button when there is no solute in the beaker
 - should buttons highlight on mouseOver, or should slider thumbs not highlight?˚

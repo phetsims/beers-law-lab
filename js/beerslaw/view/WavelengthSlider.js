@@ -169,9 +169,9 @@ define( function( require ) {
     cursor.top = track.top;
     thumb.top = track.bottom;
     valueDisplay.bottom = track.top - 2;
-    plusButton.left = track.right + 3;
+    plusButton.left = track.right + 8;
     plusButton.centerY = track.centerY;
-    minusButton.right = track.left - 3;
+    minusButton.right = track.left - 8;
     minusButton.centerY = track.centerY;
 
     // transforms between position and wavelength
