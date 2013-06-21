@@ -6,9 +6,9 @@ BUGS
 - Safari 5: text bounds are very wrong, scenery#61
 - Nexus: performance, usability
 - Desktop: HTMLText dragging lags on Mac+Firefox, eg label on shaker, joist#5
-- text quality issues, beers-law-lab#1
 
 HIGH
+- text quality issues, try SVG, beers-law-lab#1
 - expand touchArea for slider thumbs
 - expand touchArea for faucet knobs
 - expand touchArea for cuvette handle
