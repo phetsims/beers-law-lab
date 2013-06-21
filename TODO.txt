@@ -8,17 +8,17 @@ BUGS
 - Desktop: HTMLText dragging lags on Mac+Firefox, eg label on shaker, joist#5
 
 HIGH
-- text quality issues, try SVG, beers-law-lab#1
+- inset background on wavelength and concentration values
+- support press-&-hold of arrow buttons
 - expand touchArea for slider thumbs
 - expand touchArea for faucet knobs
 - expand touchArea for cuvette handle
 - expand touchArea for light button
 - expand touchArea for probes
+- text quality issues, try SVG, beers-law-lab#1
 - draw shaker particles directly to Canvas
 
 MEDIUM
-- inset background on wavelength and concentration values
-- support press-&-hold of arrow buttons
 - disable "Remove Solute" button when there is no solute in the beaker
 - should buttons highlight on mouseOver, or should slider thumbs not highlight?˚
 - change stroke of ArrowButton when disabled
