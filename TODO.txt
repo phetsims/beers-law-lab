@@ -8,7 +8,7 @@ BUGS
 - Desktop: HTMLText dragging lags on Mac+Firefox, eg label on shaker, joist#5
 
 HIGH
-- inset background on wavelength and concentration values
+- add an inset background for wavelength and concentration values
 - make combo box items taller
 - support press-&-hold of arrow buttons
 - expand touchArea for slider thumbs
