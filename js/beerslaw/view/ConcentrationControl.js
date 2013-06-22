@@ -33,7 +33,7 @@ define( function( require ) {
     // nodes
     var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.concentration ), { font: FONT } );
     var slider = new ConcentrationSlider( solution );
-    var valueDisplay = new Text( "400 XXX", { font: FONT } );
+    var valueDisplay = new Text( "400 XXX", { font: FONT } ); //TODO too many assumptions here, and doesn't work for i18n
 
     // rendering order
     thisNode.addChild( label );
