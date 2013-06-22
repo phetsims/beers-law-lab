@@ -44,20 +44,20 @@ define( function( require ) {
     var width = mvt.modelToViewDeltaX( beaker.size.width );
     var height = mvt.modelToViewDeltaY( beaker.size.height );
     var outlineShape = new Shape()
-        .moveTo( -(width / 2 ) - RIM_OFFSET, -height - RIM_OFFSET )
-        .lineTo( -(width / 2), -height )
-        .lineTo( -(width / 2), 0 )
-        .lineTo( width / 2, 0 )
-        .lineTo( width / 2, -height )
-        .lineTo( (width / 2) + RIM_OFFSET, -height - RIM_OFFSET );
+      .moveTo( -(width / 2 ) - RIM_OFFSET, -height - RIM_OFFSET )
+      .lineTo( -(width / 2), -height )
+      .lineTo( -(width / 2), 0 )
+      .lineTo( width / 2, 0 )
+      .lineTo( width / 2, -height )
+      .lineTo( (width / 2) + RIM_OFFSET, -height - RIM_OFFSET );
     thisNode.addChild( new Path(
-        {
-          shape: outlineShape,
-          stroke: "black",
-          lineWidth: 3,
-          lineCap: "round",
-          lineJoin: "round"
-        } ) );
+      {
+        shape: outlineShape,
+        stroke: "black",
+        lineWidth: 3,
+        lineCap: "round",
+        lineJoin: "round"
+      } ) );
 
     // horizontal tick marks, left edge, from bottom up
     var ticksParent = new Node();
@@ -73,13 +73,13 @@ define( function( require ) {
       var rightX = leftX + ( isMajorTick ? MAJOR_TICK_LENGTH : MINOR_TICK_LENGTH );
       var tickShape = new Shape().moveTo( leftX, y ).lineTo( rightX, y );
       var tickPath = new Path(
-          {
-            shape: tickShape,
-            stroke: "black",
-            lineWidth: 2,
-            lineCap: "butt",
-            lineJoin: "bevel"
-          } );
+        {
+          shape: tickShape,
+          stroke: "black",
+          lineWidth: 2,
+          lineCap: "butt",
+          lineJoin: "bevel"
+        } );
       ticksParent.addChild( tickPath );
 
       // major tick label

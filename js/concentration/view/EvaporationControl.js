@@ -31,10 +31,10 @@ define( function( require ) {
     var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.evaporation ), { font: new BLLFont( 22 ) } );
 
     var slider = new EvaporationSlider( new Range( 0, evaporator.maxEvaporationRate ),
-                                        new Dimension2( 200, 6 ),
-                                        evaporator.evaporationRate,
-                                        evaporator.enabled,
-                                        true );
+      new Dimension2( 200, 6 ),
+      evaporator.evaporationRate,
+      evaporator.enabled,
+      true );
 
     var tickFont = new BLLFont( 16 );
     slider.addMajorTick( 0, new Text( BLLStrings.none, { font: tickFont } ) );
@@ -48,7 +48,7 @@ define( function( require ) {
     slider.centerY = label.centerY;
 
     PanelNode.call( thisNode, content,
-                    { xMargin: 20, yMargin: 10, fill: "#F0F0F0", stroke: "gray", lineWidth: 1, resize: false } );
+      { xMargin: 20, yMargin: 10, fill: "#F0F0F0", stroke: "gray", lineWidth: 1, resize: false } );
   }
 
   inherit( PanelNode, EvaporationControl );

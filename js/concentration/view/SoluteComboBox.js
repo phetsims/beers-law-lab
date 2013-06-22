@@ -29,7 +29,7 @@ define( function( require ) {
 
     // "Solute" label
     var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.solute ),
-                              { font: new BLLFont( 22 ) } );
+      { font: new BLLFont( 22 ) } );
 
     // items
     var items = [];
@@ -39,10 +39,10 @@ define( function( require ) {
     }
 
     ComboBox.call( this, items, selectedSolute,
-                   { labelNode: labelNode,
-                     listPosition: "below",
-                     itemHighlightFill: "rgb(218,255,255)",
-                     listParent: soluteListParent } );
+      { labelNode: labelNode,
+        listPosition: "below",
+        itemHighlightFill: "rgb(218,255,255)",
+        listParent: soluteListParent } );
   }
 
   inherit( ComboBox, SoluteComboBox, {

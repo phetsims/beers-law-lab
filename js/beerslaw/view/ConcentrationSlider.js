@@ -54,7 +54,7 @@ define( function( require ) {
 
     var thisNode = this;
     Rectangle.call( thisNode, 0, 0, trackSize.width, trackSize.height,
-                    { cursor: "pointer", stroke: 'black', lineWidth: 1 } );
+      { cursor: "pointer", stroke: 'black', lineWidth: 1 } );
 
     // sync view with model
     var positionToConcentration;
@@ -65,8 +65,8 @@ define( function( require ) {
 
       // fill with a gradient that matches the solution's color range
       thisNode.fill = new LinearGradient( 0, 0, trackSize.width, 0 )
-          .addColorStop( 0, solution.colorRange.min )
-          .addColorStop( 1, solution.colorRange.max );
+        .addColorStop( 0, solution.colorRange.min )
+        .addColorStop( 1, solution.colorRange.max );
     } );
 
     // click in the track to change the value, continue dragging if desired
@@ -76,17 +76,17 @@ define( function( require ) {
       solution.get().concentration.set( concentration );
     };
     thisNode.addInputListener( new SimpleDragHandler(
-        {
-          start: function( event ) {
-            handleEvent( event );
-          },
-          drag: function( event ) {
-            handleEvent( event );
-          },
-          translate: function() {
-            // do nothing, override default behavior
-          }
-        } ) );
+      {
+        start: function( event ) {
+          handleEvent( event );
+        },
+        drag: function( event ) {
+          handleEvent( event );
+        },
+        translate: function() {
+          // do nothing, override default behavior
+        }
+      } ) );
   }
 
   inherit( Rectangle, Track );
@@ -132,10 +132,10 @@ define( function( require ) {
     // nodes
     var arcWidth = 0.25 * thumbSize.width;
     var body = new Rectangle( -thumbSize.width / 2, -thumbSize.height / 2, thumbSize.width, thumbSize.height, arcWidth, arcWidth,
-                              { fill: THUMB_FILL_NORMAL, stroke: THUMB_STROKE, lineWidth: THUMB_LINE_WIDTH } );
+      { fill: THUMB_FILL_NORMAL, stroke: THUMB_STROKE, lineWidth: THUMB_LINE_WIDTH } );
     var centerLineYMargin = 3;
     var centerLine = new Path( { shape: Shape.lineSegment( 0, -( thumbSize.height / 2 ) + centerLineYMargin, 0, ( thumbSize.height / 2 ) - centerLineYMargin ),
-                                 stroke: THUMB_CENTER_LINE_STROKE } );
+      stroke: THUMB_CENTER_LINE_STROKE } );
 
     // rendering order
     thisNode.addChild( body );

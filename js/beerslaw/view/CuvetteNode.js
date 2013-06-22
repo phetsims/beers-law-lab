@@ -82,17 +82,17 @@ define( function( require ) {
     assert && assert( ARROW_HEAD_WIDTH > ARROW_TAIL_WIDTH );
     assert && assert( ARROW_LENGTH > 2 * ARROW_HEAD_LENGTH );
     var arrowShape = new Shape()
-        .moveTo( -ARROW_LENGTH / 2, 0 )
-        .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, -ARROW_HEAD_WIDTH / 2 )
-        .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, -ARROW_TAIL_WIDTH / 2 )
-        .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, -ARROW_TAIL_WIDTH / 2 )
-        .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, -ARROW_HEAD_WIDTH / 2 )
-        .lineTo( ARROW_LENGTH / 2, 0 )
-        .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, ARROW_HEAD_WIDTH / 2 )
-        .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, ARROW_TAIL_WIDTH / 2 )
-        .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, ARROW_TAIL_WIDTH / 2 )
-        .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, ARROW_HEAD_WIDTH / 2 )
-        .close();
+      .moveTo( -ARROW_LENGTH / 2, 0 )
+      .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, -ARROW_HEAD_WIDTH / 2 )
+      .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, -ARROW_TAIL_WIDTH / 2 )
+      .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, -ARROW_TAIL_WIDTH / 2 )
+      .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, -ARROW_HEAD_WIDTH / 2 )
+      .lineTo( ARROW_LENGTH / 2, 0 )
+      .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, ARROW_HEAD_WIDTH / 2 )
+      .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, ARROW_TAIL_WIDTH / 2 )
+      .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, ARROW_TAIL_WIDTH / 2 )
+      .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, ARROW_HEAD_WIDTH / 2 )
+      .close();
 
     // nodes
     var cuvetteNode = new Path( { stroke: "black", lineWidth: 3 } );

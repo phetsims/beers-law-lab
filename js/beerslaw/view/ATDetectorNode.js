@@ -68,9 +68,9 @@ define( function( require ) {
     // background image, sized to fit
     var bodyWidth = Math.max( buttonGroup.width, valueNode.width ) + ( 2 * BUTTONS_X_MARGIN );
     var backgroundNode = new HorizontalTiledNode( bodyWidth,
-                                                  new Image( BLLImages.getImage( "at-detector-body-left.png" ) ),
-                                                  new Image( BLLImages.getImage( "at-detector-body-center.png" ) ),
-                                                  new Image( BLLImages.getImage( "at-detector-body-right.png" ) ) );
+      new Image( BLLImages.getImage( "at-detector-body-left.png" ) ),
+      new Image( BLLImages.getImage( "at-detector-body-center.png" ) ),
+      new Image( BLLImages.getImage( "at-detector-body-right.png" ) ) );
 
     // rendering order
     thisNode.addChild( backgroundNode );
@@ -173,8 +173,8 @@ define( function( require ) {
 
       // cubic curve
       thisNode.shape = new Shape()
-          .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
-          .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
+        .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
+        .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
     };
     body.location.link( updateCurve );
     probe.location.link( updateCurve );

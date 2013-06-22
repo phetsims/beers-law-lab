@@ -42,7 +42,7 @@ define( function( require ) {
     soluteFormNode.top = soluteComboBox.bottom + 20;
 
     PanelNode.call( thisNode, contentNode,
-                    { xMargin: 20, yMargin: 20, fill: "#F0F0F0", stroke: "gray", lineWidth: 1 } );
+      { xMargin: 20, yMargin: 20, fill: "#F0F0F0", stroke: "gray", lineWidth: 1 } );
   }
 
   inherit( PanelNode, SoluteControlsNode );

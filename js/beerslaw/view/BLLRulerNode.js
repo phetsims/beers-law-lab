@@ -38,7 +38,7 @@ define( function( require ) {
     var width = mvt.modelToViewDeltaX( ruler.length );
     var height = mvt.modelToViewDeltaY( ruler.height );
     thisNode.addChild( new RulerNode( width, height, majorTickLabels, BLLStrings.units_centimeters,
-                                      { minorTicksPerMajorTick: 4 } ) );
+      { minorTicksPerMajorTick: 4 } ) );
 
     // sync with model
     ruler.location.link( function( location ) {

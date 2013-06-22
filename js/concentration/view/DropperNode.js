@@ -52,15 +52,15 @@ define( function( require ) {
 
     // fluid fills the glass portion of the dropper, shape is specific to the dropper image file
     var fluidShape = new Shape()
-        .moveTo( -TIP_WIDTH / 2, 0 )
-        .lineTo( -TIP_WIDTH / 2, -TIP_HEIGHT )
-        .lineTo( -GLASS_WIDTH / 2, -GLASS_Y_OFFSET )
-        .lineTo( -GLASS_WIDTH / 2, -GLASS_HEIGHT )
-        .lineTo( GLASS_WIDTH / 2, -GLASS_HEIGHT )
-        .lineTo( GLASS_WIDTH / 2, -GLASS_Y_OFFSET )
-        .lineTo( TIP_WIDTH / 2, -TIP_HEIGHT )
-        .lineTo( TIP_WIDTH / 2, 0 )
-        .close();
+      .moveTo( -TIP_WIDTH / 2, 0 )
+      .lineTo( -TIP_WIDTH / 2, -TIP_HEIGHT )
+      .lineTo( -GLASS_WIDTH / 2, -GLASS_Y_OFFSET )
+      .lineTo( -GLASS_WIDTH / 2, -GLASS_HEIGHT )
+      .lineTo( GLASS_WIDTH / 2, -GLASS_HEIGHT )
+      .lineTo( GLASS_WIDTH / 2, -GLASS_Y_OFFSET )
+      .lineTo( TIP_WIDTH / 2, -TIP_HEIGHT )
+      .lineTo( TIP_WIDTH / 2, 0 )
+      .close();
     var fluid = new Path( { shape: fluidShape } );
 
     // images
@@ -72,10 +72,10 @@ define( function( require ) {
 
     // label background, so the label shows up on various fluid colors
     var labelBackground = new Path(
-        {
-          fill: "rgba( 240, 240, 240, 0.6 )",
-          lineWidth: 0
-        } );
+      {
+        fill: "rgba( 240, 240, 240, 0.6 )",
+        lineWidth: 0
+      } );
 
     var button = new ToggleButton(
       BLLImages.getImage( "red_button_unpressed.png" ), BLLImages.getImage( "red_button_pressed.png" ), BLLImages.getImage( "red_button_disabled.png" ),

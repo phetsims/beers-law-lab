@@ -73,7 +73,7 @@ define( function( require ) {
     var pipeImage = BLLImages.getImage( "faucet_pipe.png" );
     var pipeWidth = ( mvt.modelToViewDeltaX( faucet.location.x - faucet.pipeMinX ) / options.scale ) - SPOUT_OUTPUT_CENTER_X + PIPE_X_OVERLAP;
     assert && assert( pipeWidth > 0 );
-    var pipeNode = new Rectangle( 0, 0, pipeWidth, pipeImage.height, { fill: new Pattern( pipeImage  )} );
+    var pipeNode = new Rectangle( 0, 0, pipeWidth, pipeImage.height, { fill: new Pattern( pipeImage )} );
 
     // other nodes
     var spoutNode = new Image( BLLImages.getImage( "faucet_spout.png" ), { pickable: false } );
@@ -118,26 +118,26 @@ define( function( require ) {
     // interactivity
     knobNode.cursor = "pointer";
     knobNode.addInputListener( new SimpleDragHandler(
-        {
-          allowTouchSnag: true,
-          // adjust the flow
-          drag: function( event ) {
-            if ( faucet.enabled.get() ) {
-              var x = shooterNode.globalToParentPoint( event.pointer.point ).x - SHOOTER_MIN_X_OFFSET;
-              var flowRate = offsetToFlowRate( x );
-              faucet.flowRate.set( flowRate );
-            }
-          },
-
-          // turn off the faucet when the handle is released
-          end: function() {
-            faucet.flowRate.set( 0 );
-          },
-
-          // prevent default behavior that translates the node
-          translate: function() {
+      {
+        allowTouchSnag: true,
+        // adjust the flow
+        drag: function( event ) {
+          if ( faucet.enabled.get() ) {
+            var x = shooterNode.globalToParentPoint( event.pointer.point ).x - SHOOTER_MIN_X_OFFSET;
+            var flowRate = offsetToFlowRate( x );
+            faucet.flowRate.set( flowRate );
           }
-        } ) );
+        },
+
+        // turn off the faucet when the handle is released
+        end: function() {
+          faucet.flowRate.set( 0 );
+        },
+
+        // prevent default behavior that translates the node
+        translate: function() {
+        }
+      } ) );
 
     faucet.flowRate.link( function( flowRate ) {
       var xOffset = offsetToFlowRate.inverse( flowRate );

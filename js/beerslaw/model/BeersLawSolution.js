@@ -102,75 +102,75 @@ define( function( require ) {
   //-------------------------------------------------------------------------------------------
 
   BeersLawSolution.DRINK_MIX = new BeersLawSolution(
-      BLLStrings.drinkMix,
-      BLLSymbols.DRINK_MIX,
-      MolarAbsorptivityData.DRINK_MIX,
-      new Range( 0, 0.400, 0.100 ),
-      ConcentrationTransform.mM,
-      new ColorRange( new Color( 255, 225, 225 ), Color.RED )
+    BLLStrings.drinkMix,
+    BLLSymbols.DRINK_MIX,
+    MolarAbsorptivityData.DRINK_MIX,
+    new Range( 0, 0.400, 0.100 ),
+    ConcentrationTransform.mM,
+    new ColorRange( new Color( 255, 225, 225 ), Color.RED )
   );
 
   BeersLawSolution.COBALT_II_NITRATE = new BeersLawSolution(
-      BLLStrings.cobaltIINitrate,
-      BLLSymbols.COBALT_II_NITRATE,
-      MolarAbsorptivityData.COBALT_II_NITRATE,
-      new Range( 0, 0.400, 0.100 ),
-      ConcentrationTransform.mM,
-      new ColorRange( new Color( 255, 225, 225 ), Color.RED ) );
+    BLLStrings.cobaltIINitrate,
+    BLLSymbols.COBALT_II_NITRATE,
+    MolarAbsorptivityData.COBALT_II_NITRATE,
+    new Range( 0, 0.400, 0.100 ),
+    ConcentrationTransform.mM,
+    new ColorRange( new Color( 255, 225, 225 ), Color.RED ) );
 
   BeersLawSolution.COBALT_CHLORIDE = new BeersLawSolution(
-      BLLStrings.cobaltChloride,
-      BLLSymbols.COBALT_CHLORIDE,
-      MolarAbsorptivityData.COBALT_CHLORIDE,
-      new Range( 0, 0.250, 0.100 ),
-      ConcentrationTransform.mM,
-      new ColorRange( new Color( 255, 242, 242 ), new Color( 255, 106, 106 ) )
+    BLLStrings.cobaltChloride,
+    BLLSymbols.COBALT_CHLORIDE,
+    MolarAbsorptivityData.COBALT_CHLORIDE,
+    new Range( 0, 0.250, 0.100 ),
+    ConcentrationTransform.mM,
+    new ColorRange( new Color( 255, 242, 242 ), new Color( 255, 106, 106 ) )
   );
 
   BeersLawSolution.POTASSIUM_DICHROMATE = new BeersLawSolution(
-      BLLStrings.potassiumDichromate,
-      BLLSymbols.POTASSIUM_DICHROMATE,
-      MolarAbsorptivityData.POTASSIUM_DICHROMATE,
-      new Range( 0, 0.000500, 0.000100 ),
-      ConcentrationTransform.uM,
-      new ColorRange( new Color( 255, 232, 210 ), new Color( 255, 127, 0 ) )
+    BLLStrings.potassiumDichromate,
+    BLLSymbols.POTASSIUM_DICHROMATE,
+    MolarAbsorptivityData.POTASSIUM_DICHROMATE,
+    new Range( 0, 0.000500, 0.000100 ),
+    ConcentrationTransform.uM,
+    new ColorRange( new Color( 255, 232, 210 ), new Color( 255, 127, 0 ) )
   );
 
   BeersLawSolution.POTASSIUM_CHROMATE = new BeersLawSolution(
-      BLLStrings.potassiumChromate,
-      BLLSymbols.POTASSIUM_CHROMATE,
-      MolarAbsorptivityData.POTASSIUM_CHROMATE,
-      new Range( 0, 0.000400, 0.000100 ),
-      ConcentrationTransform.uM,
-      new ColorRange( new Color( 255, 255, 199 ), new Color( 255, 255, 0 ) )
+    BLLStrings.potassiumChromate,
+    BLLSymbols.POTASSIUM_CHROMATE,
+    MolarAbsorptivityData.POTASSIUM_CHROMATE,
+    new Range( 0, 0.000400, 0.000100 ),
+    ConcentrationTransform.uM,
+    new ColorRange( new Color( 255, 255, 199 ), new Color( 255, 255, 0 ) )
   );
 
   BeersLawSolution.NICKEL_II_CHLORIDE = new BeersLawSolution(
-      BLLStrings.nickelIIChloride,
-      BLLSymbols.NICKEL_II_CHLORIDE,
-      MolarAbsorptivityData.NICKEL_II_CHLORIDE,
-      new Range( 0, 0.350, 0.100 ),
-      ConcentrationTransform.mM,
-      new ColorRange( new Color( 234, 244, 234 ), new Color( 0, 128, 0 ) )
+    BLLStrings.nickelIIChloride,
+    BLLSymbols.NICKEL_II_CHLORIDE,
+    MolarAbsorptivityData.NICKEL_II_CHLORIDE,
+    new Range( 0, 0.350, 0.100 ),
+    ConcentrationTransform.mM,
+    new ColorRange( new Color( 234, 244, 234 ), new Color( 0, 128, 0 ) )
   );
 
   BeersLawSolution.COPPER_SULFATE = new BeersLawSolution(
-      BLLStrings.copperSulfate,
-      BLLSymbols.COPPER_SULFATE,
-      MolarAbsorptivityData.COPPER_SULFATE,
-      new Range( 0, 0.200, 0.100 ),
-      ConcentrationTransform.mM,
-      new ColorRange( new Color( 222, 238, 255 ), new Color( 30, 144, 255 ) )
+    BLLStrings.copperSulfate,
+    BLLSymbols.COPPER_SULFATE,
+    MolarAbsorptivityData.COPPER_SULFATE,
+    new Range( 0, 0.200, 0.100 ),
+    ConcentrationTransform.mM,
+    new ColorRange( new Color( 222, 238, 255 ), new Color( 30, 144, 255 ) )
   );
 
   BeersLawSolution.POTASSIUM_PERMANGANATE = new BeersLawSolution(
-      BLLStrings.potassiumPermanganate,
-      BLLSymbols.POTASSIUM_PERMANGANATE,
-      MolarAbsorptivityData.POTASSIUM_PERMANGANATE,
-      new Range( 0, 0.000800, 0.000100 ),
-      ConcentrationTransform.uM,
-      new ColorRange( new Color( 255, 235, 255 ), new Color( 255, 0, 255 ) ),
-      new Color( 80, 0, 120 )  // has a special saturated color
+    BLLStrings.potassiumPermanganate,
+    BLLSymbols.POTASSIUM_PERMANGANATE,
+    MolarAbsorptivityData.POTASSIUM_PERMANGANATE,
+    new Range( 0, 0.000800, 0.000100 ),
+    ConcentrationTransform.uM,
+    new ColorRange( new Color( 255, 235, 255 ), new Color( 255, 0, 255 ) ),
+    new Color( 80, 0, 120 )  // has a special saturated color
   );
 
   return BeersLawSolution;

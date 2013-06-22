@@ -71,7 +71,7 @@ define( function( require ) {
 
     // Concentration meter
     var concentrationMeterNode = new ConcentrationMeterNode( model.concentrationMeter, model.solution, model.dropper, model.solventFaucet, model.drainFaucet,
-                                                             solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, mvt );
+      solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, mvt );
 
     // Solute controls
     var soluteListParent = new Node();
@@ -82,9 +82,9 @@ define( function( require ) {
 
     // Remove Solute button
     var removeSoluteButtonNode = new Button( new Text( BLLStrings.removeSolute, { font: new BLLFont( 22 ), fill: "black" } ),
-                                             function() {
-                                               model.solution.soluteAmount.set( 0 );
-                                             }, { xMargin: 10 } );
+      function() {
+        model.solution.soluteAmount.set( 0 );
+      }, { xMargin: 10 } );
 
     // Reset All button
     var resetAllButton = new ResetAllButton( function() {

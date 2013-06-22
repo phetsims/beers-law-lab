@@ -67,12 +67,12 @@ define( function( require ) {
    */
   function Thumb( width, height ) {
     var shape = new Shape()
-        .moveTo( 0, 0 )
-        .lineTo( 0.5 * width, 0.3 * height )
-        .lineTo( 0.5 * width, 1 * height )
-        .lineTo( -0.5 * width, 1 * height )
-        .lineTo( -0.5 * width, 0.3 * height )
-        .close();
+      .moveTo( 0, 0 )
+      .lineTo( 0.5 * width, 0.3 * height )
+      .lineTo( 0.5 * width, 1 * height )
+      .lineTo( -0.5 * width, 1 * height )
+      .lineTo( -0.5 * width, 0.3 * height )
+      .close();
     Path.call( this, { shape: shape, stroke: "black", lineWidth: 1, fill: "black" } );
   }
 
@@ -185,31 +185,31 @@ define( function( require ) {
     // track interactivity
     track.cursor = "pointer";
     track.addInputListener(
-        {
-          down: function( event ) {
-            var x = track.globalToParentPoint( event.pointer.point ).x;
-            wavelength.set( positionToWavelength( x ) );
-          }
-        } );
+      {
+        down: function( event ) {
+          var x = track.globalToParentPoint( event.pointer.point ).x;
+          wavelength.set( positionToWavelength( x ) );
+        }
+      } );
 
     // thumb interactivity
     thumb.cursor = "pointer";
     var clickXOffset = 0; // x-offset between initial click and thumb's origin
     thumb.addInputListener( new SimpleDragHandler(
-        {
-          allowTouchSnag: true,
+      {
+        allowTouchSnag: true,
 
-          start: function( event ) {
-            clickXOffset = thumb.globalToParentPoint( event.pointer.point ).x - thumb.x;
-          },
-          drag: function( event ) {
-            var x = thumb.globalToParentPoint( event.pointer.point ).x - clickXOffset;
-            wavelength.set( positionToWavelength( x ) );
-          },
-          translate: function() {
-            // do nothing, override default behavior
-          }
-        } ) );
+        start: function( event ) {
+          clickXOffset = thumb.globalToParentPoint( event.pointer.point ).x - thumb.x;
+        },
+        drag: function( event ) {
+          var x = thumb.globalToParentPoint( event.pointer.point ).x - clickXOffset;
+          wavelength.set( positionToWavelength( x ) );
+        },
+        translate: function() {
+          // do nothing, override default behavior
+        }
+      } ) );
 
     // sync with model
     var updateUI = function( wavelength ) {

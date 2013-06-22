@@ -39,10 +39,10 @@ define( function( require ) {
     }
 
     ComboBox.call( this, items, selectedSolution,
-                   { labelNode: label,
-                     listPosition: "above",
-                     itemHighlightFill: "rgb(218,255,255)",
-                     listParent: soluteListParent } );
+      { labelNode: label,
+        listPosition: "above",
+        itemHighlightFill: "rgb(218,255,255)",
+        listParent: soluteListParent } );
   }
 
   inherit( ComboBox, SolutionComboBox, {

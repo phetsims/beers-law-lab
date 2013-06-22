@@ -58,19 +58,19 @@ define( function( require ) {
 
     // text nodes
     var titleNode = new Text( BLLStrings.concentration,
-                              { font: new BLLFont( 18 ), fill: "white" } );
+      { font: new BLLFont( 18 ), fill: "white" } );
     var unitsNode = new Text( StringUtils.format( BLLStrings.pattern_parentheses_0text, BLLStrings.units_molesPerLiter ),
-                              { font: new BLLFont( 18 ), fill: "white" } );
+      { font: new BLLFont( 18 ), fill: "white" } );
     var valueNode = new Text( ( 1 ).toFixed( VALUE_DECIMALS ),
-                              { font: new BLLFont( 24 ), fill: "black" } );
+      { font: new BLLFont( 24 ), fill: "black" } );
 
     // create a background that fits the text
     var maxTextWidth = Math.max( titleNode.width, unitsNode.width );
     var bodyWidth = ( 2 * TEXT_X_MARGIN ) + maxTextWidth;
     var backgroundNode = new HorizontalTiledNode( bodyWidth,
-                                                  new Image( BLLImages.getImage( "concentration-meter-body-left.png" ) ),
-                                                  new Image( BLLImages.getImage( "concentration-meter-body-center.png" ) ),
-                                                  new Image( BLLImages.getImage( "concentration-meter-body-right.png" ) ) );
+      new Image( BLLImages.getImage( "concentration-meter-body-left.png" ) ),
+      new Image( BLLImages.getImage( "concentration-meter-body-center.png" ) ),
+      new Image( BLLImages.getImage( "concentration-meter-body-right.png" ) ) );
 
     // rendering order
     thisNode.addChild( backgroundNode );
@@ -193,8 +193,8 @@ define( function( require ) {
       var c2 = new Vector2( probeConnectionPoint.x + c2Offset.x, probeConnectionPoint.y + c2Offset.y );
 
       thisNode.shape = new Shape()
-          .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
-          .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
+        .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
+        .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
     };
     body.location.link( updateCurve );
     probe.location.link( updateCurve );

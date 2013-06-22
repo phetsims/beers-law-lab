@@ -72,9 +72,7 @@ define( function( require ) {
         var rightColor = baseColor.withAlpha( Util.linear( 0, 1, MIN_LIGHT_ALPHA, MAX_LIGHT_ALPHA, absorbance.getTransmittance() ) );
         var x = mvt.modelToViewPosition( cuvette.location ).x;
         var w = mvt.modelToViewDeltaX( cuvette.width.get() );
-        thisBeam.fill.set( new LinearGradient( x, 0, x + w, 0 )
-                               .addColorStop( 0, leftColor )
-                               .addColorStop( 1, rightColor ) );
+        thisBeam.fill.set( new LinearGradient( x, 0, x + w, 0 ).addColorStop( 0, leftColor ).addColorStop( 1, rightColor ) );
       }
     };
     light.wavelength.link( updateColor );
