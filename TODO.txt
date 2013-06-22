@@ -8,6 +8,7 @@ BUGS
 - Desktop: HTMLText dragging lags on Mac+Firefox, eg label on shaker, joist#5
 
 HIGH
+- new artwork for faucet knob
 - add an inset background for wavelength and concentration values
 - support press-&-hold of arrow buttons
 - expand touchArea for slider thumbs
