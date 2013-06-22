@@ -41,9 +41,11 @@ define( function( require ) {
     } );
   }
 
-  Faucet.prototype.reset = function() {
-    this.flowRate.reset();
-    this.enabled.reset();
+  Faucet.prototype = {
+    reset: function() {
+      this.flowRate.reset();
+      this.enabled.reset();
+    }
   };
 
   return Faucet;

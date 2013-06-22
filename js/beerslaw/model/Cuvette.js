@@ -30,8 +30,10 @@ define( function( require ) {
     this.height = height;
   }
 
-  Cuvette.prototype.reset = function() {
-    this.width.reset();
+  Cuvette.prototype = {
+    reset: function() {
+      this.width.reset();
+    }
   };
 
   return Cuvette;

@@ -47,31 +47,32 @@ define( function( require ) {
     };
     thisShaker.empty.link( observer );
     thisShaker.visible.link( observer );
-
-    thisShaker.reset = function() {
-      callSuper( Movable, "reset", thisShaker );
-      thisShaker.visible.reset();
-      thisShaker.empty.reset();
-      thisShaker.dispensingRate.reset();
-      thisShaker.previousLocation = this.location.get(); // to prevent shaker from dispensing solute when its location is reset
-    };
   }
 
-  inherit( Movable, Shaker );
+  inherit( Movable, Shaker, {
 
-  // Sets the dispensing rate if the shaker is moving.
-  Shaker.prototype.step = function() {
-    var thisShaker = this;
-    if ( thisShaker.visible.get() && !thisShaker.empty.get() ) {
-      if ( thisShaker.previousLocation.equals( thisShaker.location.get() ) ) {
-        thisShaker.dispensingRate.set( 0 ); // shaker is not moving, don't dispense anything
+    reset: function() {
+      callSuper( Movable, "reset", this );
+      this.visible.reset();
+      this.empty.reset();
+      this.dispensingRate.reset();
+      this.previousLocation = this.location.get(); // to prevent shaker from dispensing solute when its location is reset
+    },
+
+    // Sets the dispensing rate if the shaker is moving.
+    step: function() {
+      var thisShaker = this;
+      if ( thisShaker.visible.get() && !thisShaker.empty.get() ) {
+        if ( thisShaker.previousLocation.equals( thisShaker.location.get() ) ) {
+          thisShaker.dispensingRate.set( 0 ); // shaker is not moving, don't dispense anything
+        }
+        else {
+          thisShaker.dispensingRate.set( thisShaker.maxDispensingRate ); // max rate seems to work fine
+        }
       }
-      else {
-        thisShaker.dispensingRate.set( thisShaker.maxDispensingRate ); // max rate seems to work fine
-      }
+      thisShaker.previousLocation = thisShaker.location.get();
     }
-    thisShaker.previousLocation = thisShaker.location.get();
-  };
+  } );
 
   return Shaker;
 } );

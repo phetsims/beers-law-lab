@@ -62,24 +62,27 @@ define( function( require ) {
     this.beam = new Beam( thisModel.light, thisModel.cuvette, thisModel.detector, thisModel.absorbance, mvt );
   }
 
-  // Resets all model elements
-  BeersLawModel.prototype.reset = function() {
-    for ( var i = 0; i < this.solutions.length; i++ ) {
-      this.solutions[i].reset();
-    }
-    this.solution.reset();
-    this.light.reset();
-    this.cuvette.reset();
-    this.detector.reset();
-    this.ruler.reset();
-  };
+  BeersLawModel.prototype = {
 
-  /*
-   * Moves time forward by the specified amount.
-   * @param {Number} deltaSeconds clock time change, in seconds.
-   */
-  BeersLawModel.prototype.step = function( deltaSeconds ) {
-    // do nothing, nothing time-based in this model
+    // Resets all model elements
+    reset: function() {
+      for ( var i = 0; i < this.solutions.length; i++ ) {
+        this.solutions[i].reset();
+      }
+      this.solution.reset();
+      this.light.reset();
+      this.cuvette.reset();
+      this.detector.reset();
+      this.ruler.reset();
+    },
+
+    /*
+     * Moves time forward by the specified amount.
+     * @param {Number} deltaSeconds clock time change, in seconds.
+     */
+    step: function( deltaSeconds ) {
+      // do nothing, nothing time-based in this model
+    }
   };
 
   return BeersLawModel;

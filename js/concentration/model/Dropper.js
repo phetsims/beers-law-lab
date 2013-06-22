@@ -52,18 +52,18 @@ define( function( require ) {
         thisDropper.enabled.set( false );
       }
     } );
-
-    thisDropper.reset = function() {
-      callSuper( Movable, "reset", thisDropper );
-      thisDropper.visible.reset();
-      thisDropper.on.reset();
-      thisDropper.enabled.reset();
-      thisDropper.empty.reset();
-      thisDropper.flowRate.reset();
-    };
   }
 
-  inherit( Movable, Dropper );
+  inherit( Movable, Dropper, {
+    reset: function() {
+      callSuper( Movable, "reset", this );
+      this.visible.reset();
+      this.on.reset();
+      this.enabled.reset();
+      this.empty.reset();
+      this.flowRate.reset();
+    }
+  } );
 
   return Dropper;
 } );

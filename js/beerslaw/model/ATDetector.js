@@ -29,15 +29,16 @@ define( function( require ) {
     thisProbe.sensorDiameter = sensorDiameter;
   }
 
-  inherit( Movable, Probe );
+  inherit( Movable, Probe, {
 
-  Probe.prototype.getMinY = function() {
-    return this.location.get().y - ( this.sensorDiameter / 2 );
-  };
+    getMinY: function() {
+      return this.location.get().y - ( this.sensorDiameter / 2 );
+    },
 
-  Probe.prototype.getMaxY = function() {
-    return this.location.get().y + ( this.sensorDiameter / 2 );
-  };
+    getMaxY: function() {
+      return this.location.get().y + ( this.sensorDiameter / 2 );
+    }
+  } );
 
   /**
    * @param {Vector2} bodyLocation
@@ -87,18 +88,21 @@ define( function( require ) {
     absorbance.value.link( updateValue );
   }
 
-  ATDetector.prototype.reset = function() {
-    this.body.reset();
-    this.probe.reset();
-    this.mode.reset();
-  };
+  ATDetector.prototype = {
 
-  // Is the probe in some segment of the beam?
-  ATDetector.prototype.probeInBeam = function() {
-    return this.light.on.get() &&
-           ( this.probe.getMinY() < this.light.getMinY() ) &&
-           ( this.probe.getMaxY() > this.light.getMaxY() ) &&
-           ( this.probe.location.get().x > this.light.location.x );
+    reset: function() {
+      this.body.reset();
+      this.probe.reset();
+      this.mode.reset();
+    },
+
+    // Is the probe in some segment of the beam?
+    probeInBeam: function() {
+      return this.light.on.get() &&
+             ( this.probe.getMinY() < this.light.getMinY() ) &&
+             ( this.probe.getMaxY() > this.light.getMaxY() ) &&
+             ( this.probe.location.get().x > this.light.location.x );
+    }
   };
 
   // JavaScript's sorry excuse for enum

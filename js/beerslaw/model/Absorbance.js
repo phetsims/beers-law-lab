@@ -102,19 +102,22 @@ define( function( require ) {
     }
   }
 
-  // Gets absorbance for a specified path length.
-  Absorbance.prototype.getAbsorbanceAt = function( pathLength ) {
-    return Absorbance._getAbsorbance( this.molarAbsorptivity.get(), pathLength, this.concentration.get() );
-  };
+  Absorbance.prototype = {
 
-  // Gets transmittance for a specified path length.
-  Absorbance.prototype.getTransmittanceAt = function( pathLength ) {
-    return Absorbance._getTransmittance( this.getAbsorbanceAt( pathLength ) );
-  };
+    // Gets absorbance for a specified path length.
+    getAbsorbanceAt: function( pathLength ) {
+      return Absorbance._getAbsorbance( this.molarAbsorptivity.get(), pathLength, this.concentration.get() );
+    },
 
-  // Converts absorbance to transmittance.
-  Absorbance.prototype.getTransmittance = function() {
-    return Absorbance._getTransmittance( this.value.get() );
+    // Gets transmittance for a specified path length.
+    getTransmittanceAt: function( pathLength ) {
+      return Absorbance._getTransmittance( this.getAbsorbanceAt( pathLength ) );
+    },
+
+    // Converts absorbance to transmittance.
+    getTransmittance: function() {
+      return Absorbance._getTransmittance( this.value.get() );
+    }
   };
 
   /*

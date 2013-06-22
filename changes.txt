@@ -1,3 +1,4 @@
+6/21/13 model: provide prototype properties via inherit() instead of attaching to Type.prototype
 6/21/13 increase horizontal space between arrow buttons and wavelength slider
 6/19/13 upgrade from require 2.1.4 to 2.1.6
 6/19/13 upgrade from jquery 1.9.1 to 2.0.2

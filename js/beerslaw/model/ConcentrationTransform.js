@@ -28,22 +28,25 @@ define( function( require ) {
     this.units = units;
   }
 
-  /**
-   * Converts from model (M) to view (solution specific).
-   * @param {Number} modelConcentration
-   * @returns {number}
-   */
-  ConcentrationTransform.prototype.modelToView = function( modelConcentration ) {
-    return modelConcentration * this.scale;
-  };
+  ConcentrationTransform.prototype = {
 
-  /**
-   * Converts from view (solution specific) to model (M).
-   * @param {Number} viewConcentration
-   * @returns {number}
-   */
-  ConcentrationTransform.prototype.viewToModel = function( viewConcentration ) {
-    return viewConcentration / this.scale;
+    /**
+     * Converts from model (M) to view (solution specific).
+     * @param {Number} modelConcentration
+     * @returns {number}
+     */
+    modelToView: function( modelConcentration ) {
+      return modelConcentration * this.scale;
+    },
+
+    /**
+     * Converts from view (solution specific) to model (M).
+     * @param {Number} viewConcentration
+     * @returns {number}
+     */
+    viewToModel: function( viewConcentration ) {
+      return viewConcentration / this.scale;
+    }
   };
 
   ConcentrationTransform.M = new ConcentrationTransform( 1, BLLStrings.units_M );

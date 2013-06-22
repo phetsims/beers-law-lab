@@ -34,31 +34,32 @@ define( function( require ) {
     this.acceleration = acceleration;
   }
 
-  inherit( SoluteParticle, ShakerParticle );
+  inherit( SoluteParticle, ShakerParticle, {
 
-  /**
-   *  Propagates the particle to a new location.
-   *  @param {Number} deltaSeconds
-   *  @param {Beaker} beaker
-   */
-  ShakerParticle.prototype.step = function( deltaSeconds, beaker ) {
-
-    this.velocity = this.velocity.plus( this.acceleration.times( deltaSeconds ) );
-    var newLocation = this.location.get().plus( this.velocity.times( deltaSeconds ) );
-
-    /*
-     * Did the particle hit the left wall of the beaker? If so, change direction.
-     * Note that this is a very simplified model, and only deals with the left wall of the beaker,
-     * which is the only wall that the particles can hit in practice.
+    /**
+     *  Propagates the particle to a new location.
+     *  @param {Number} deltaSeconds
+     *  @param {Beaker} beaker
      */
-    var minX = beaker.getLeft() + this.solute.particleSize;
-    if ( newLocation.x <= minX ) {
-      newLocation = new Vector2( minX, newLocation.y );
-      this.velocity = new Vector2( Math.abs( this.velocity.x ), this.velocity.y );
-    }
+    step: function( deltaSeconds, beaker ) {
 
-    this.location.set( newLocation );
-  };
+      this.velocity = this.velocity.plus( this.acceleration.times( deltaSeconds ) );
+      var newLocation = this.location.get().plus( this.velocity.times( deltaSeconds ) );
+
+      /*
+       * Did the particle hit the left wall of the beaker? If so, change direction.
+       * Note that this is a very simplified model, and only deals with the left wall of the beaker,
+       * which is the only wall that the particles can hit in practice.
+       */
+      var minX = beaker.getLeft() + this.solute.particleSize;
+      if ( newLocation.x <= minX ) {
+        newLocation = new Vector2( minX, newLocation.y );
+        this.velocity = new Vector2( Math.abs( this.velocity.x ), this.velocity.y );
+      }
+
+      this.location.set( newLocation );
+    }
+  } );
 
   return ShakerParticle;
 } );

@@ -75,23 +75,26 @@ define( function( require ) {
     } );
   }
 
-  BeersLawSolution.prototype.reset = function() {
-    this.concentration.reset();
-  };
+  BeersLawSolution.prototype = {
 
-  BeersLawSolution.prototype.getDisplayName = function() {
-    if ( this.formula === this.name ) {
-      return this.name;
+    reset: function() {
+      this.concentration.reset();
+    },
+
+    getDisplayName: function() {
+      if ( this.formula === this.name ) {
+        return this.name;
+      }
+      return StringUtils.format( BLLStrings.pattern_0formula_1name, this.formula, this.name );
+    },
+
+    getViewValue: function() {
+      return this.concentrationTransform.modelToView( this.concentration.get() );
+    },
+
+    getViewUnits: function() {
+      return this.concentrationTransform.units;
     }
-    return StringUtils.format( BLLStrings.pattern_0formula_1name, this.formula, this.name );
-  };
-
-  BeersLawSolution.prototype.getViewValue = function() {
-    return this.concentrationTransform.modelToView( this.concentration.get() );
-  };
-
-  BeersLawSolution.prototype.getViewUnits = function() {
-    return this.concentrationTransform.units;
   };
 
   //-------------------------------------------------------------------------------------------

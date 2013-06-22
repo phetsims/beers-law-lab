@@ -72,28 +72,29 @@ define( function( require ) {
     };
   }
 
-  inherit( Fluid, ConcentrationSolution );
+  inherit( Fluid, ConcentrationSolution, {
 
-  // convenience function
-  ConcentrationSolution.prototype.getSaturatedConcentration = function() {
-    return this.solute.get().getSaturatedConcentration();
-  };
+    // convenience function
+    getSaturatedConcentration: function() {
+      return this.solute.get().getSaturatedConcentration();
+    },
 
-  ConcentrationSolution.prototype.isSaturated = function() {
-    var saturated = false;
-    if ( this.volume.get() > 0 ) {
-      saturated = ( this.soluteAmount.get() / this.volume.get() ) > this.getSaturatedConcentration();
+    isSaturated: function() {
+      var saturated = false;
+      if ( this.volume.get() > 0 ) {
+        saturated = ( this.soluteAmount.get() / this.volume.get() ) > this.getSaturatedConcentration();
+      }
+      return saturated;
+    },
+
+    getNumberOfPrecipitateParticles: function() {
+      var numberOfParticles = Math.round( this.solute.get().particlesPerMole * this.precipitateAmount.get() );
+      if ( numberOfParticles === 0 && this.precipitateAmount.get() > 0 ) {
+        numberOfParticles = 1;
+      }
+      return numberOfParticles;
     }
-    return saturated;
-  };
-
-  ConcentrationSolution.prototype.getNumberOfPrecipitateParticles = function() {
-    var numberOfParticles = Math.round( this.solute.get().particlesPerMole * this.precipitateAmount.get() );
-    if ( numberOfParticles === 0 && this.precipitateAmount.get() > 0 ) {
-      numberOfParticles = 1;
-    }
-    return numberOfParticles;
-  };
+  } );
 
   /*
    * Creates a color that corresponds to the solution's concentration.

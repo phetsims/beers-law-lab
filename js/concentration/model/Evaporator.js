@@ -37,9 +37,11 @@ define( function( require ) {
     } );
   }
 
-  Evaporator.prototype.reset = function() {
-    this.evaporationRate.reset();
-    this.enabled.reset();
+  Evaporator.prototype = {
+    reset: function() {
+      this.evaporationRate.reset();
+      this.enabled.reset();
+    }
   };
 
   return Evaporator;

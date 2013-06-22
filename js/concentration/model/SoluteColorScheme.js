@@ -31,23 +31,26 @@ define( function( require ) {
     this.maxConcentration = maxConcentration;
   }
 
-  /**
-   * Converts a concentration value to a Color, using a linear interpolation of RGB colors.
-   * @param {Number} concentration moles (M)
-   * @return {Color} color
-   */
-  SoluteColorScheme.prototype.concentrationToColor = function( concentration ) {
-    if ( concentration >= this.maxConcentration ) {
-      return this.maxColor;
-    }
-    else if ( concentration <= this.minConcentration ) {
-      return this.minColor;
-    }
-    else if ( concentration <= this.midConcentration ) {
-      return interpolateRBGA( this.minColor, this.midColor, ( concentration - this.minConcentration ) / ( this.midConcentration - this.minConcentration ) );
-    }
-    else {
-      return interpolateRBGA( this.midColor, this.maxColor, ( concentration - this.midConcentration ) / ( this.maxConcentration - this.midConcentration ) );
+  SoluteColorScheme.prototype = {
+
+    /**
+     * Converts a concentration value to a Color, using a linear interpolation of RGB colors.
+     * @param {Number} concentration moles (M)
+     * @return {Color} color
+     */
+    concentrationToColor: function( concentration ) {
+      if ( concentration >= this.maxConcentration ) {
+        return this.maxColor;
+      }
+      else if ( concentration <= this.minConcentration ) {
+        return this.minColor;
+      }
+      else if ( concentration <= this.midConcentration ) {
+        return interpolateRBGA( this.minColor, this.midColor, ( concentration - this.minConcentration ) / ( this.midConcentration - this.minConcentration ) );
+      }
+      else {
+        return interpolateRBGA( this.midColor, this.maxColor, ( concentration - this.midConcentration ) / ( this.maxConcentration - this.midConcentration ) );
+      }
     }
   };
 

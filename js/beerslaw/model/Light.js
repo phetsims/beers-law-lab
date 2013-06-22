@@ -34,16 +34,19 @@ define( function( require ) {
     } );
   }
 
-  Light.prototype.getMinY = function() {
-    return this.location.y - ( this.lensDiameter / 2 );
-  };
+  Light.prototype = {
 
-  Light.prototype.getMaxY = function() {
-    return this.location.y + ( this.lensDiameter / 2 );
-  };
+    reset: function() {
+      this.on.reset();
+    },
 
-  Light.prototype.reset = function() {
-    this.on.reset();
+    getMinY: function() {
+      return this.location.y - ( this.lensDiameter / 2 );
+    },
+
+    getMaxY: function() {
+      return this.location.y + ( this.lensDiameter / 2 );
+    }
   };
 
   return Light;

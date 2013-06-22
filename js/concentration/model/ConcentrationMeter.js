@@ -30,10 +30,12 @@ define( function( require ) {
     this.probe = new Movable( probeLocation, probeDragBounds );
   }
 
-  ConcentrationMeter.prototype.reset = function() {
-    this.value.reset();
-    this.body.reset();
-    this.probe.reset();
+  ConcentrationMeter.prototype = {
+    reset: function() {
+      this.value.reset();
+      this.body.reset();
+      this.probe.reset();
+    }
   };
 
   return ConcentrationMeter;
