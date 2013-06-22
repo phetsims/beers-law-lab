@@ -41,6 +41,7 @@ define( function( require ) {
     ComboBox.call( this, items, selectedSolute,
       { labelNode: labelNode,
         listPosition: "below",
+        itemYMargin: 12,
         itemHighlightFill: "rgb(218,255,255)",
         listParent: soluteListParent } );
   }

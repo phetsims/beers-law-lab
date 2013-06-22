@@ -9,7 +9,6 @@ BUGS
 
 HIGH
 - add an inset background for wavelength and concentration values
-- make combo box items taller
 - support press-&-hold of arrow buttons
 - expand touchArea for slider thumbs
 - expand touchArea for faucet knobs
