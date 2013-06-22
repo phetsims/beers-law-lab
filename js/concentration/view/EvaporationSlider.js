@@ -62,7 +62,7 @@ define( function( require ) {
       { cursor: "pointer", fill: THUMB_FILL_ENABLED, stroke: "black", lineWidth: 1 } );
     var centerLineYMargin = 3;
     thumb.addChild( new Path( { shape: Shape.lineSegment( 0, -( THUMB_SIZE.height / 2 ) + centerLineYMargin, 0, ( THUMB_SIZE.height / 2 ) - centerLineYMargin ),
-                                     stroke: 'white' } ) );
+      stroke: 'white' } ) );
     thumb.centerY = thisNode._track.centerY;
     thisNode.addChild( thumb );
 
@@ -86,25 +86,25 @@ define( function( require ) {
     // update value when thumb is dragged
     var clickXOffset = 0; // x-offset between initial click and thumb's origin
     thumb.addInputListener( new SimpleDragHandler(
-        {
-          allowTouchSnag: true,
-          start: function( event ) {
-            clickXOffset = thumb.globalToParentPoint( event.pointer.point ).x - thumb.x;
-          },
-          drag: function( event ) {
-            if ( enabled.get() ) {
-              var x = thumb.globalToParentPoint( event.pointer.point ).x - clickXOffset;
-              value.set( thisNode._valueToPosition.inverse( x ) );
-            }
-          },
-          end: function() {
-            if ( snapToMinWhenReleased ) {
-              value.set( range.min );
-            }
-          },
-          translate: function() {
+      {
+        allowTouchSnag: true,
+        start: function( event ) {
+          clickXOffset = thumb.globalToParentPoint( event.pointer.point ).x - thumb.x;
+        },
+        drag: function( event ) {
+          if ( enabled.get() ) {
+            var x = thumb.globalToParentPoint( event.pointer.point ).x - clickXOffset;
+            value.set( thisNode._valueToPosition.inverse( x ) );
           }
-        } )
+        },
+        end: function() {
+          if ( snapToMinWhenReleased ) {
+            value.set( range.min );
+          }
+        },
+        translate: function() {
+        }
+      } )
     );
 
     // update thumb location when value changes
@@ -113,51 +113,52 @@ define( function( require ) {
     } );
   }
 
-  inherit( Node, EvaporationSlider );
+  inherit( Node, EvaporationSlider, {
 
-  /**
-   * Adds a major tick mark.
-   * @param {Number} value
-   * @param {Node} label optional
-   */
-  EvaporationSlider.prototype.addMajorTick = function( value, label ) {
-    this._addTick( MAJOR_TICK_LENGTH, value, label );
-  };
+    /**
+     * Adds a major tick mark.
+     * @param {Number} value
+     * @param {Node} label optional
+     */
+    addMajorTick: function( value, label ) {
+      this._addTick( MAJOR_TICK_LENGTH, value, label );
+    },
 
-  /**
-   * Adds a minor tick mark.
-   * @param {Number} value
-   * @param {Node} label optional
-   */
-  EvaporationSlider.prototype.addMinorTick = function( value, label ) {
-    this._addTick( MINOR_TICK_LENGTH, value, label );
-  };
+    /**
+     * Adds a minor tick mark.
+     * @param {Number} value
+     * @param {Node} label optional
+     */
+    addMinorTick: function( value, label ) {
+      this._addTick( MINOR_TICK_LENGTH, value, label );
+    },
 
-  /*
-   * Adds a tick mark above the track.
-   * @param {Number} tickLength
-   * @param {Number} value
-   * @param {Node} label optional
-   */
-  EvaporationSlider.prototype._addTick = function( tickLength, value, label ) {
-    var labelX = this._valueToPosition( value );
-    // ticks
-    var tick = new Path(
+    /*
+     * Adds a tick mark above the track.
+     * @param {Number} tickLength
+     * @param {Number} value
+     * @param {Node} label optional
+     */
+    _addTick: function( tickLength, value, label ) {
+      var labelX = this._valueToPosition( value );
+      // ticks
+      var tick = new Path(
         {
           shape: new Shape()
-              .moveTo( labelX, this._track.top )
-              .lineTo( labelX, this._track.bottom - tickLength ),
+            .moveTo( labelX, this._track.top )
+            .lineTo( labelX, this._track.bottom - tickLength ),
           lineWidth: 1,
           stroke: "black"
         } );
-    this._ticksParent.addChild( tick );
-    // label
-    if ( label ) {
-      this._ticksParent.addChild( label );
-      label.centerX = tick.centerX;
-      label.bottom = tick.top - 6;
+      this._ticksParent.addChild( tick );
+      // label
+      if ( label ) {
+        this._ticksParent.addChild( label );
+        label.centerX = tick.centerX;
+        label.bottom = tick.top - 6;
+      }
     }
-  };
+  } );
 
   return EvaporationSlider;
 } );

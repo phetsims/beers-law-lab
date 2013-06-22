@@ -45,26 +45,27 @@ define( function( require ) {
                      listParent: soluteListParent } );
   }
 
-  inherit( ComboBox, SoluteComboBox );
+  inherit( ComboBox, SoluteComboBox, {
 
-  /**
-   * Creates an item for the combo box.
-   * @param solute
-   * @returns {*|{node: *, value: *}}
-   */
-  SoluteComboBox.prototype._createItem = function( solute ) {
+    /**
+     * Creates an item for the combo box.
+     * @param solute
+     * @returns {*|{node: *, value: *}}
+     */
+    _createItem: function( solute ) {
 
-    // node
-    var node = new Node();
-    var colorNode = new Rectangle( 0, 0, 20, 20, { fill: solute.colorScheme.maxColor, stroke: solute.colorScheme.maxColor.darkerColor() } );
-    var textNode = new Text( solute.name, { font: new BLLFont( 20 ) } );
-    node.addChild( colorNode );
-    node.addChild( textNode );
-    textNode.left = colorNode.right + 5;
-    textNode.centerY = colorNode.centerY;
+      // node
+      var node = new Node();
+      var colorNode = new Rectangle( 0, 0, 20, 20, { fill: solute.colorScheme.maxColor, stroke: solute.colorScheme.maxColor.darkerColor() } );
+      var textNode = new Text( solute.name, { font: new BLLFont( 20 ) } );
+      node.addChild( colorNode );
+      node.addChild( textNode );
+      textNode.left = colorNode.right + 5;
+      textNode.centerY = colorNode.centerY;
 
-    return ComboBox.createItem( node, solute );
-  };
+      return ComboBox.createItem( node, solute );
+    }
+  } );
 
   return SoluteComboBox;
 } );

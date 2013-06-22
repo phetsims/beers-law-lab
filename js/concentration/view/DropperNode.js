@@ -148,11 +148,11 @@ define( function( require ) {
     thisNode.addInputListener( new MovableDragHandler( dropper, mvt ) );
   }
 
-  inherit( Node, DropperNode );
-
-  DropperNode.prototype.getTipWidth = function() {
-    return TIP_WIDTH;
-  };
+  inherit( Node, DropperNode, {
+    getTipWidth: function() {
+      return TIP_WIDTH;
+    }
+  } );
 
   return DropperNode;
 } );
