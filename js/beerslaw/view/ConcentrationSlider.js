@@ -273,8 +273,6 @@ define( function( require ) {
       }
       solution.concentration.link( concentrationObserver );
     } );
-
-
   }
 
   inherit( Node, ConcentrationSlider );
