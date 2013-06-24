@@ -11,7 +11,7 @@ require( [ "JOIST/SimLauncher", "JOIST/Sim", "concentration/ConcentrationTab", "
 
     var simOptions = {};
     if ( window.phetcommon.getQueryParameter( "dev" ) ) {
-      simOptions = _.extend( { showHomeScreen: false, tabIndex: 0 }, simOptions );
+      simOptions = _.extend( { showHomeScreen: false, tabIndex: 1 }, simOptions );
     }
 
     SimLauncher.launch( BLLImages, function() {

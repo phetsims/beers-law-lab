@@ -10,6 +10,7 @@ define( function( require ) {
 
   // imports
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
+  var Bounds2 = require( "DOT/Bounds2" );
   var Color = require( "SCENERY/util/Color" );
   var FillHighlightListener = require( "SCENERY_PHET/input/FillHighlightListener" );
   var inherit = require( "PHET_CORE/inherit" );
@@ -137,6 +138,12 @@ define( function( require ) {
     arrowNode.cursor = "pointer";
     arrowNode.addInputListener( new FillHighlightListener( ARROW_FILL, ARROW_FILL.brighterColor() ) );
     arrowNode.addInputListener( new CuvetteDragHandler( thisNode, cuvette, mvt, snapInterval ) );
+
+    // adjust touch area for the arrow
+    var arrowBounds = arrowShape.computeBounds().copy();
+    var dx = 0.25 * arrowBounds.width;
+    var dy = 1 * arrowBounds.height;
+    arrowNode.touchArea = Shape.rectangle( arrowBounds.minX - dx, arrowBounds.minY - dy, arrowBounds.width + ( 2 * dx ), arrowBounds.height + ( 2 * dy ) );
 
     // location of the cuvette
     var position = mvt.modelToViewPosition( cuvette.location );
