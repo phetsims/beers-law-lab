@@ -135,6 +135,11 @@ define( function( require ) {
     // interactivity
     thisNode.cursor = "pointer";
     thisNode.addInputListener( new MovableDragHandler( probe, mvt ) );
+
+    // touch area
+    var dx = 0.5 * imageNode.width;
+    var dy = 0 * imageNode.height;
+    thisNode.touchArea = Shape.rectangle( imageNode.x - dx, imageNode.y - dy, imageNode.width + dx + dx, imageNode.height + dy + dy );
   }
 
   inherit( Node, ProbeNode );
