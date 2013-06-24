@@ -26,6 +26,7 @@ define( function( require ) {
   var Node = require( "SCENERY/nodes/Node" );
   var Pattern = require( "SCENERY/util/Pattern" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
+  var Shape = require( "KITE/Shape" );
   var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
   var Transform3 = require( "DOT/Transform3" );
   var Vector2 = require( "DOT/Vector2" );
@@ -57,6 +58,9 @@ define( function( require ) {
     var shaftNode = new Image( BLLImages.getImage( "faucet_shaft.png" ) );
     shaftNode.scale( 0.8, 1 );
     var knobNode = new Image( BLLImages.getImage( "faucet_knob.png" ) );
+    var dx = 0.25 * knobNode.width;
+    var dy = 0.25 * knobNode.height;
+    knobNode.mouseArea = Shape.rectangle( -dx, -dy, knobNode.width + dx + dx, knobNode.height + dy + dy ); // before scaling!
     knobNode.scale( 0.8 );
     var knobDisabledNode = new Image( BLLImages.getImage( "faucet_knob_disabled.png" ) );
     knobDisabledNode.scale( knobNode.getScaleVector() );
