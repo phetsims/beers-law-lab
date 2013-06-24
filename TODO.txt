@@ -11,7 +11,6 @@ HIGH
 - new artwork for faucet knob
 - add an inset background for wavelength and concentration values
 - support press-&-hold of arrow buttons
-- expand touchArea for slider thumbs
 - text quality issues, try SVG, beers-law-lab#1
 - draw shaker particles directly to Canvas
 

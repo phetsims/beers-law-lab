@@ -66,6 +66,11 @@ define( function( require ) {
     thumb.centerY = thisNode._track.centerY;
     thisNode.addChild( thumb );
 
+    // thumb touch area
+    var dx = 0.25 * thumb.width;
+    var dy = 0.25 * thumb.height;
+    thumb.thumbArea = Shape.rectangle( ( -thumb.width / 2 ) - dx, ( -thumb.height / 2 ) - dy, thumb.width + dx + dx, thumb.height + dy + dy );
+
     // enable/disable thumb
     enabled.link( function( enabled ) {
       thumb.fill = enabled ? THUMB_FILL_ENABLED : THUMB_FILL_DISABLED;
