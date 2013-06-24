@@ -147,7 +147,7 @@ define( function( require ) {
     // touch area
     var dx = 0.25 * thisNode.width;
     var dy = 0.25 * thisNode.height;
-    thisNode.mouseArea = Shape.rectangle( ( -thisNode.width / 2 ) - dx, ( -thisNode.height / 2 ) - dy, thisNode.width + dx + dx, thisNode.height + dy + dy );
+    thisNode.touchArea = Shape.rectangle( ( -thisNode.width / 2 ) - dx, ( -thisNode.height / 2 ) - dy, thisNode.width + dx + dx, thisNode.height + dy + dy );
 
     // set the drag handler and mapping function for the selected solution
     var dragHandler, concentrationToPosition;
