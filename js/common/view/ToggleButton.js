@@ -11,7 +11,6 @@ define( function( require ) {
   "use strict";
 
   // imports
-  var BLLImages = require( "common/BLLImages" );
   var ButtonListener = require( "SCENERY/input/ButtonListener" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
