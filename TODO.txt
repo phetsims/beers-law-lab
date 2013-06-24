@@ -18,6 +18,7 @@ MEDIUM
 - change stroke of ArrowButton when disabled
 
 LOW
+- consolidate faucet assets (faucet_components.ai, faucet_knobs.ai)
 - icons for homescreen and navbar
 - credits
 - TODO items in code
