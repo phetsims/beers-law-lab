@@ -8,7 +8,6 @@ BUGS
 - Desktop: HTMLText dragging lags on Mac+Firefox, eg label on shaker, joist#5
 
 HIGH
-- flange on faucet knob is not vertically centered
 - support press-&-hold of arrow buttons
 - text quality issues, try SVG, beers-law-lab#1
 - draw shaker particles directly to Canvas
@@ -16,6 +15,7 @@ HIGH
 MEDIUM
 - disable "Remove Solute" button when there is no solute in the beaker
 - change stroke of ArrowButton when disabled
+- flange on faucet knob is not vertically centered
 
 LOW
 - consolidate faucet assets (faucet_components.ai, faucet_knobs.ai)
