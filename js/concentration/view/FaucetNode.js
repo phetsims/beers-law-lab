@@ -60,7 +60,7 @@ define( function( require ) {
     var knobNode = new Image( BLLImages.getImage( "faucet_knob.png" ) );
     var dx = 0.25 * knobNode.width;
     var dy = 0.25 * knobNode.height;
-    knobNode.mouseArea = Shape.rectangle( -dx, -dy, knobNode.width + dx + dx, knobNode.height + dy + dy ); // before scaling!
+    knobNode.touchArea = Shape.rectangle( -dx, -dy, knobNode.width + dx + dx, knobNode.height + dy + dy ); // before scaling!
     knobNode.scale( 0.8 );
     var knobDisabledNode = new Image( BLLImages.getImage( "faucet_knob_disabled.png" ) );
     knobDisabledNode.scale( knobNode.getScaleVector() );
