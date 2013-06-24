@@ -79,7 +79,7 @@ define( function( require ) {
     var bounds = shape.computeBounds().copy();
     var dx = 0.5 * bounds.width;
     var dy = 0.25 * bounds.height;
-    this.mouseArea = Shape.rectangle( bounds.minX - dx, bounds.minY, bounds.width + dx + dx, bounds.height + dy + dy );
+    this.touchArea = Shape.rectangle( bounds.minX - dx, bounds.minY, bounds.width + dx + dx, bounds.height + dy + dy );
   }
 
   inherit( Path, Thumb );
