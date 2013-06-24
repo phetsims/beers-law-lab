@@ -14,12 +14,12 @@ define( function( require ) {
   var ConcentrationSlider = require( "beerslaw/view/ConcentrationSlider" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
+  var Rectangle = require( "SCENERY/nodes/Rectangle" );
   var StringUtils = require( "PHETCOMMON/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
 
   // constants
   var FONT = new BLLFont( 20 );
-  var DECIMAL_PLACES = 0;
 
   /**
    * @param {Property<BeersLawSolution>} solution
@@ -34,25 +34,29 @@ define( function( require ) {
     var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.concentration ), { font: FONT } );
     var slider = new ConcentrationSlider( solution );
     var valueDisplay = new Text( "400 XXX", { font: FONT } ); //TODO too many assumptions here, and doesn't work for i18n
+    var xMargin = 0.1 * valueDisplay.width;
+    var yMargin = 0.1 * valueDisplay.height;
+    var valueBackground = new Rectangle( 0, 0, valueDisplay.width + xMargin + xMargin, valueDisplay.height + yMargin + yMargin,
+      { fill: "white", stroke: "lightGray" } );
 
     // rendering order
     thisNode.addChild( label );
     thisNode.addChild( slider );
+    thisNode.addChild( valueBackground );
     thisNode.addChild( valueDisplay );
 
     // layout
-    valueDisplay.left = label.right + 3;
+    valueBackground.left = label.right + 3;
+    valueDisplay.right = valueBackground.right - xMargin; // right aligned
     valueDisplay.y = label.y; // align baselines
-    valueDisplay.centerY = label.centerY;
+    valueBackground.centerY = valueDisplay.centerY;
     slider.left = valueDisplay.right + 20;
     slider.centerY = valueDisplay.centerY;
 
     // update the value display when concentration changes
     var concentrationObserver = function() {
-      var valueString = solution.get().getViewValue().toFixed( DECIMAL_PLACES );
-      var units = solution.get().getViewUnits();
-      valueDisplay.text = StringUtils.format( BLLStrings.pattern_0value_1units, valueString, units );
-      valueDisplay.right = slider.left - 20;
+      valueDisplay.text = thisNode.formatConcentration( solution.get().getViewValue(), solution.get().getViewUnits() );
+      valueDisplay.right = valueBackground.right - xMargin; // right aligned
     };
     solution.get().concentration.link( concentrationObserver );
 
@@ -65,7 +69,11 @@ define( function( require ) {
     } );
   }
 
-  inherit( Node, ConcentrationControl );
+  inherit( Node, ConcentrationControl, {
+    formatConcentration: function( concentration, units ) {
+      return StringUtils.format( BLLStrings.pattern_0value_1units, concentration.toFixed( 0 ), units );
+    }
+  } );
 
   return ConcentrationControl;
 } );

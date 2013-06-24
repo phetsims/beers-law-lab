@@ -34,8 +34,12 @@ define( function( require ) {
     var variableWavelength = new Property( false ); // is the wavelength variable or fixed?
 
     // nodes
-    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.wavelength ), { font: new BLLFont( 22 ), fill: "black" } );
-    var valueDisplay = new Text( "?", { font: "22px Arial", fill: "black" } );
+    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.wavelength ), { font: new BLLFont( 20 ), fill: "black" } );
+    var valueDisplay = new Text( thisNode.formatWavelength( light.wavelength.get() ), { font: new BLLFont( 20 ), fill: "black" } );
+    var xMargin = 0.1 * valueDisplay.width;
+    var yMargin = 0.1 * valueDisplay.height;
+    var valueBackground = new Rectangle( 0, 0, valueDisplay.width + xMargin + xMargin, valueDisplay.height + yMargin + yMargin,
+      { fill: "white", stroke: "lightGray" } );
     var presetRadioButton = new RadioButton( variableWavelength, false, new Text( BLLStrings.preset, { font: new BLLFont( 18 ), fill: "black" } ) );
     var variableRadioButton = new RadioButton( variableWavelength, true, new Text( BLLStrings.variable, { font: new BLLFont( 18 ), fill: "black" } ) );
     var wavelengthSlider = new WavelengthSlider( light.wavelength, { trackWidth: 150, trackHeight: 30 } );
@@ -43,6 +47,7 @@ define( function( require ) {
     // rendering order
     var content = new Node();
     content.addChild( label );
+    content.addChild( valueBackground );
     content.addChild( valueDisplay );
     content.addChild( presetRadioButton );
     if ( !variableWavelength.get() ) { // opposite of initial state, so variableWavelength.link doesn't fail on add/removeChild
@@ -55,8 +60,10 @@ define( function( require ) {
 
     // layout
     var ySpacing = 20;
-    valueDisplay.left = label.right + 10;
+    valueBackground.left = label.right + 10;
+    valueDisplay.right = valueBackground.right - xMargin; // right aligned
     valueDisplay.y = label.y; // align baselines
+    valueBackground.centerY = valueDisplay.centerY;
     presetRadioButton.left = label.left;
     presetRadioButton.top = label.bottom + ySpacing;
     variableRadioButton.left = presetRadioButton.right + 15;
@@ -87,11 +94,16 @@ define( function( require ) {
 
     // sync displayed value with model
     light.wavelength.link( function( wavelength ) {
-      valueDisplay.text = StringUtils.format( BLLStrings.pattern_0value_1units, wavelength.toFixed( 0 ), BLLStrings.units_nm );
+      valueDisplay.text = thisNode.formatWavelength( wavelength );
+      valueDisplay.right = valueBackground.right - xMargin; // right aligned
     } );
   }
 
-  inherit( PanelNode, WavelengthControls );
+  inherit( PanelNode, WavelengthControls, {
+    formatWavelength: function( wavelength ) {
+      return StringUtils.format( BLLStrings.pattern_0value_1units, wavelength.toFixed( 0 ), BLLStrings.units_nm );
+    }
+  } );
 
   return WavelengthControls;
 } );
