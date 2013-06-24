@@ -74,6 +74,12 @@ define( function( require ) {
       .lineTo( -0.5 * width, 0.3 * height )
       .close();
     Path.call( this, { shape: shape, stroke: "black", lineWidth: 1, fill: "black" } );
+
+    // touch area, don't extend above so that we don't encroach on slider track
+    var bounds = shape.computeBounds().copy();
+    var dx = 0.5 * bounds.width;
+    var dy = 0.25 * bounds.height;
+    this.mouseArea = Shape.rectangle( bounds.minX - dx, bounds.minY, bounds.width + dx + dx, bounds.height + dy + dy );
   }
 
   inherit( Path, Thumb );
