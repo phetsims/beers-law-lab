@@ -9,7 +9,13 @@ require( [ "JOIST/SimLauncher", "JOIST/Sim", "concentration/ConcentrationTab", "
   function( SimLauncher, Sim, ConcentrationTab, BeersLawTab, BLLStrings, BLLImages ) {
     "use strict";
 
-    var simOptions = {};
+    var simOptions = {
+      credits: "PhET Development Team -\n" +
+               "Lead Design: Julia Chamberlain\n" +
+               "Software Development: Chris Malley\n" +
+               "Design Team: Kelly Lancaster, Emily B. Moore, Ariel Paul, Kathy Perkins"
+    };
+
     if ( window.phetcommon.getQueryParameter( "dev" ) ) {
       simOptions = _.extend( { showHomeScreen: false, tabIndex: 1 }, simOptions );
     }
