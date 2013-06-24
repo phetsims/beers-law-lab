@@ -9,6 +9,7 @@ require( [ "JOIST/SimLauncher", "JOIST/Sim", "concentration/ConcentrationTab", "
   function( SimLauncher, Sim, ConcentrationTab, BeersLawTab, BLLStrings, BLLImages ) {
     "use strict";
 
+    //TODO i18n?
     var simOptions = {
       credits: "PhET Development Team -\n" +
                "Lead Design: Julia Chamberlain\n" +
