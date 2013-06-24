@@ -1,3 +1,4 @@
+6/24/13 configure sim options via "dev" query parameter
 6/21/13 make combo box items taller, to improve usability on tablets
 6/21/13 reformat code
 6/21/13 view: provide prototype properties via inherit() instead of attaching to Type.prototype

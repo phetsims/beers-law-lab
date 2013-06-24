@@ -9,9 +9,13 @@ require( [ "JOIST/SimLauncher", "JOIST/Sim", "concentration/ConcentrationTab", "
   function( SimLauncher, Sim, ConcentrationTab, BeersLawTab, BLLStrings, BLLImages ) {
     "use strict";
 
+    var simOptions = {};
+    if ( window.phetcommon.getQueryParameter( "dev" ) ) {
+      simOptions = _.extend( { showHomeScreen: false, tabIndex: 0 }, simOptions );
+    }
+
     SimLauncher.launch( BLLImages, function() {
-      var sim = new Sim( BLLStrings.beersLawLab, [ new ConcentrationTab(), new BeersLawTab() ],
-        { showHomeScreen: false, tabIndex: 0 } );
+      var sim = new Sim( BLLStrings.beersLawLab, [ new ConcentrationTab(), new BeersLawTab() ], simOptions );
       sim.start();
     } );
   } );
