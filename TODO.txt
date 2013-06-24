@@ -1,4 +1,4 @@
-TODO list for beers-law-lab (HTML5 port)
+TODO list for beers-law-lab (HTML port)
 
 DESIGN ISSUES
 
