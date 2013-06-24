@@ -15,6 +15,7 @@ define( function( require ) {
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Property = require( "AXON/Property" );
+  var Shape = require( "KITE/Shape" );
   var ToggleButton = require( "common/view/ToggleButton" );
 
   /**
@@ -32,6 +33,9 @@ define( function( require ) {
     var button = new ToggleButton(
       BLLImages.getImage( "red_button_unpressed.png" ), BLLImages.getImage( "red_button_pressed.png" ), BLLImages.getImage( "red_button_disabled.png" ),
       light.on, new Property( true ) );
+
+    // expand touch area for button. Do this before scaling the button!
+    button.touchArea = Shape.circle( button.width/2, button.height/2, 1.0 * button.width /* radius */ );
 
     // make the button fit in the housing
     button.setScaleMagnitude( 0.65 * housing.height / button.height );

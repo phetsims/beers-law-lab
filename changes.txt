@@ -1,3 +1,4 @@
+6/24/13 expand touchArea for light button
 6/24/13 expand touchArea for cuvette handle
 6/24/13 configure sim options via "dev" query parameter
 6/21/13 make combo box items taller, to improve usability on tablets
