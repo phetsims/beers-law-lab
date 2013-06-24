@@ -1,3 +1,4 @@
+6/24/13 expand touchArea for Concentration meter probe
 6/24/13 expand touchArea for AT detector probe
 6/24/13 expand touchArea for light button
 6/24/13 expand touchArea for cuvette handle

@@ -13,7 +13,6 @@ HIGH
 - support press-&-hold of arrow buttons
 - expand touchArea for slider thumbs
 - expand touchArea for faucet knobs
-- expand touchArea for probes
 - text quality issues, try SVG, beers-law-lab#1
 - draw shaker particles directly to Canvas
 
