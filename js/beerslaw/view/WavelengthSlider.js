@@ -78,7 +78,7 @@ define( function( require ) {
     // touch area, don't extend above so that we don't encroach on slider track
     var bounds = shape.computeBounds().copy();
     var dx = 0.5 * bounds.width;
-    var dy = 0.25 * bounds.height;
+    var dy = 0.5 * bounds.height;
     this.touchArea = Shape.rectangle( bounds.minX - dx, bounds.minY, bounds.width + dx + dx, bounds.height + dy + dy );
   }
 

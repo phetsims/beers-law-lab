@@ -67,9 +67,9 @@ define( function( require ) {
     thisNode.addChild( thumb );
 
     // thumb touch area
-    var dx = 0.25 * thumb.width;
+    var dx = 0.5 * thumb.width;
     var dy = 0.25 * thumb.height;
-    thumb.thumbArea = Shape.rectangle( ( -thumb.width / 2 ) - dx, ( -thumb.height / 2 ) - dy, thumb.width + dx + dx, thumb.height + dy + dy );
+    thumb.touchArea = Shape.rectangle( ( -thumb.width / 2 ) - dx, ( -thumb.height / 2 ) - dy, thumb.width + dx + dx, thumb.height + dy + dy );
 
     // enable/disable thumb
     enabled.link( function( enabled ) {

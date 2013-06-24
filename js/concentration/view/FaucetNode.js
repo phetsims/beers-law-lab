@@ -58,8 +58,8 @@ define( function( require ) {
     var shaftNode = new Image( BLLImages.getImage( "faucet_shaft.png" ) );
     shaftNode.scale( 0.8, 1 );
     var knobNode = new Image( BLLImages.getImage( "faucet_knob.png" ) );
-    var dx = 0.25 * knobNode.width;
-    var dy = 0.25 * knobNode.height;
+    var dx = 0.5 * knobNode.width;
+    var dy = 0.5 * knobNode.height;
     knobNode.touchArea = Shape.rectangle( -dx, -dy, knobNode.width + dx + dx, knobNode.height + dy + dy ); // before scaling!
     knobNode.scale( 0.8 );
     var knobDisabledNode = new Image( BLLImages.getImage( "faucet_knob_disabled.png" ) );
