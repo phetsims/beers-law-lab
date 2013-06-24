@@ -1,3 +1,4 @@
+6/24/13 expand touchArea for concentration slider thumb
 6/24/13 expand touchArea for wavelength slider thumb
 6/24/13 expand touchArea for faucet knobs
 6/24/13 expand touchArea for Concentration meter probe

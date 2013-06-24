@@ -144,6 +144,11 @@ define( function( require ) {
     // interactivity
     body.addInputListener( new FillHighlightListener( THUMB_FILL_NORMAL, THUMB_FILL_HIGHLIGHT ) );
 
+    // touch area
+    var dx = 0.25 * thisNode.width;
+    var dy = 0.25 * thisNode.height;
+    thisNode.mouseArea = Shape.rectangle( ( -thisNode.width / 2 ) - dx, ( -thisNode.height / 2 ) - dy, thisNode.width + dx + dx, thisNode.height + dy + dy );
+
     // set the drag handler and mapping function for the selected solution
     var dragHandler, concentrationToPosition;
     var setSolution = function( solution ) {
