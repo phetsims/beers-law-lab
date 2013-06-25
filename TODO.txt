@@ -15,6 +15,7 @@ HIGH
 - draw shaker particles directly to Canvas
 
 MEDIUM
+- vertically center play area for tab 2
 - disable "Remove Solute" button when there is no solute in the beaker
 - change stroke of ArrowButton when disabled
 
