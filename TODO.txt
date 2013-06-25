@@ -19,6 +19,7 @@ MEDIUM
 - change stroke of ArrowButton when disabled
 
 LOW
+- add '_' prefix to private fields
 - consolidate faucet assets (faucet_components.ai, faucet_knobs.ai)
 - icons for homescreen and navbar
 - TODO items in code
