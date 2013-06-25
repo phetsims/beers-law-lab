@@ -54,21 +54,26 @@ define( function( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
-    // assemble the shooter
+    // shaft
     var shaftNode = new Image( BLLImages.getImage( "faucet_shaft.png" ) );
-    shaftNode.scale( 0.8, 1 );
+    var shaftDisabledNode = new Image( BLLImages.getImage( "faucet_shaft_disabled.png" ) );
+
+    // knob
     var knobNode = new Image( BLLImages.getImage( "faucet_knob.png" ) );
     var dx = 0.5 * knobNode.width;
     var dy = 0.5 * knobNode.height;
     knobNode.touchArea = Shape.rectangle( -dx, -dy, knobNode.width + dx + dx, knobNode.height + dy + dy ); // before scaling!
-    knobNode.scale( 0.8 );
+    knobNode.scale( 1.15 ); //TODO get a larger image so we aren't scaling up
     var knobDisabledNode = new Image( BLLImages.getImage( "faucet_knob_disabled.png" ) );
     knobDisabledNode.scale( knobNode.getScaleVector() );
+
+    // assemble the shooter
     var shooterNode = new Node();
     shooterNode.addChild( shaftNode );
+    shooterNode.addChild( shaftDisabledNode );
     shooterNode.addChild( knobNode );
     shooterNode.addChild( knobDisabledNode );
-    knobNode.left = shaftNode.right - 2;
+    knobNode.left = shaftNode.right - 4;
     knobNode.centerY = shaftNode.centerY;
     knobDisabledNode.x = knobNode.x;
     knobDisabledNode.y = knobNode.y;
@@ -151,6 +156,8 @@ define( function( require ) {
     faucet.enabled.link( function( enabled ) {
       knobNode.visible = enabled;
       knobDisabledNode.visible = !enabled;
+      shaftNode.visible = enabled;
+      shaftDisabledNode.visible = !enabled;
     } );
 
     thisNode.mutate( options );

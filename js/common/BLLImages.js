@@ -31,6 +31,7 @@ define( function() {
       "faucet_knob_disabled.png",
       "faucet_pipe.png",
       "faucet_shaft.png",
+      "faucet_shaft_disabled.png",
       "faucet_spout.png",
       "light.png",
       "red_button_disabled.png",
