@@ -38,7 +38,7 @@ define( function( require ) {
     var lightNode = new LightNode( model.light, mvt );
     var cuvetteNode = new CuvetteNode( model.cuvette, model.solution, mvt, 0.1 /* snapInterval, cm */ );
     var beamNode = new BeamNode( model.beam );
-    var detectorNode = new ATDetectorNode( model.detector, mvt );
+    var detectorNode = new ATDetectorNode( model.detector, model.light, mvt );
     var wavelengthControls = new WavelengthControls( model.solution, model.light );
     var rulerNode = new BLLRulerNode( model.ruler, mvt );
     var solutionListParent = new Node();

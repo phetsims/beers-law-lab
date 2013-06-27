@@ -114,10 +114,11 @@ define( function( require ) {
   /**
    * The probe portion of the detector.
    * @param {Movable} probe
+   * @param {Light} light
    * @param {ModelViewTransform2} mvt
    * @constructor
    */
-  function ProbeNode( probe, mvt ) {
+  function ProbeNode( probe, light, mvt ) {
 
     var thisNode = this;
     Node.call( thisNode );
@@ -134,7 +135,15 @@ define( function( require ) {
 
     // interactivity
     thisNode.cursor = "pointer";
-    thisNode.addInputListener( new MovableDragHandler( probe, mvt ) );
+    thisNode.addInputListener( new MovableDragHandler( probe, mvt, {
+      endDrag: function() {
+        // If the light is on and the probe is close enough to the beam...
+        if ( light.on.get() && ( probe.location.get().x >= light.location.x ) && ( Math.abs( probe.location.get().y - light.location.y ) <= 0.5 * light.lensDiameter ) ) {
+           // ... snap the probe to the center of beam.
+          probe.location.set( new Vector2( probe.location.get().x, light.location.y ) );
+        }
+      }
+    } ) );
 
     // touch area
     var dx = 0.25 * imageNode.width;
@@ -189,16 +198,17 @@ define( function( require ) {
 
   /**
    * @param {ATDetector} detector
+   * @param {Light} light
    * @param {ModelViewTransform2} mvt
    * @constructor
    */
-  function ATDetectorNode( detector, mvt ) {
+  function ATDetectorNode( detector, light, mvt ) {
 
     var thisNode = this;
     Node.call( thisNode );
 
     var bodyNode = new BodyNode( detector, mvt );
-    var probeNode = new ProbeNode( detector.probe, mvt );
+    var probeNode = new ProbeNode( detector.probe, light, mvt );
     var wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
 
     thisNode.addChild( wireNode );

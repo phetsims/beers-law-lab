@@ -16,9 +16,14 @@ define( function( require ) {
   /**
    * @param {Movable} movable
    * @param {ModelViewTransform2} mvt
+   * @param {*} options
    * @constructor
    */
-  function MovableDragHandler( movable, mvt ) {
+  function MovableDragHandler( movable, mvt, options ) {
+
+    options = _.extend( {
+      endDrag: function() { /* do nothing */ }  // use this to do things at the end of dragging, like "snapping"
+    }, options );
 
     var startOffset; // where the drag started, relative to the movable's origin, in parent view coordinates
     var dragBounds = movable.dragBounds ? mvt.modelToViewBounds( movable.dragBounds ) : null; // drag bounds in parent view coordinates
@@ -42,6 +47,10 @@ define( function( require ) {
         var location = mvt.viewToModelPosition( parentPoint );
         var constrainedLocation = MovableDragHandler._constrainBounds( location, movable.dragBounds );
         movable.location.set( constrainedLocation );
+      },
+
+      end: function( event ) {
+         options.endDrag();
       },
 
       translate: function( options ) {
