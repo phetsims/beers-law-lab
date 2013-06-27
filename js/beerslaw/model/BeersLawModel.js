@@ -43,20 +43,22 @@ define( function( require ) {
 
     thisModel.solution = new Property( thisModel.solutions[0] );
 
-    thisModel.cuvette = new Cuvette( new Vector2( 3, 0.8 ), new Range( 0.5, 2.0, 1.0 ), 3 );
+    thisModel.cuvette = new Cuvette( new Vector2( 3, 0.6 ), new Range( 0.5, 2.0, 1.0 ), 3 );
 
     thisModel.light = new Light( new Vector2( thisModel.cuvette.location.x - 1.5, thisModel.cuvette.location.y + ( thisModel.cuvette.height / 2 ) ),
       false, 0.45, thisModel.solution );
 
     var rulerWidth = 2; // cm
     thisModel.ruler = new Ruler( rulerWidth, 0.1, 0.35,
-      new Vector2( 0.4, 4.9 ),
+      new Vector2( thisModel.cuvette.location.x - 2.6, thisModel.cuvette.location.y + 4 ),
       new Bounds2( 0, 0, 6, 5 ) );
 
     this.absorbance = new Absorbance( thisModel.light, thisModel.solution, thisModel.cuvette );
 
-    this.detector = new ATDetector( new Vector2( 6, 0.5 ), new Bounds2( 0, 0, 7.9, 5.25 ),
-      new Vector2( 6, thisModel.light.location.y ), new Bounds2( 0, 0, 7.9, 5.25 ),
+    this.detector = new ATDetector( new Vector2( thisModel.cuvette.location.x + 3, thisModel.cuvette.location.y - 0.3 ),
+      new Bounds2( 0, 0, 7.9, 5.25 ),
+      new Vector2( thisModel.cuvette.location.x + 3, thisModel.light.location.y ),
+      new Bounds2( 0, 0, 7.9, 5.25 ),
       thisModel.light, thisModel.cuvette, thisModel.absorbance );
 
     this.beam = new Beam( thisModel.light, thisModel.cuvette, thisModel.detector, thisModel.absorbance, mvt );

@@ -1,3 +1,5 @@
+6/27/13 adjust cuvette y-coordinate to vertically center everything (approximately) in the play area
+6/27/13 make all locations in BeersLawModel relative to cuvette location
 6/27/13 increase length of input faucet pipe so it's fills MacBook and Nexus7 screens
 6/27/13 adjust dropper's drag bounds, limit to horizontal dragging, prevent overlap with faucet and solute control panel
 6/27/13 lower the dropper
