@@ -49,7 +49,7 @@ define( function( require ) {
       false, 0.45, thisModel.solution );
 
     var rulerWidth = 2; // cm
-    thisModel.ruler = new Ruler( rulerWidth, 0.1, 0.5,
+    thisModel.ruler = new Ruler( rulerWidth, 0.1, 0.35,
       new Vector2( 0.4, 4.9 ),
       new Bounds2( 0, 0, 6, 5 ) );
 
