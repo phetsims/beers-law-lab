@@ -10,7 +10,12 @@ BUGS
 HIGH
 - faucet images
 - make AT probe snap to light beam when half of beam is in the probe
-- support press-&-hold of arrow buttons
+- support press-&-hold of arrow buttons (use timers temporarily?)
+- make zero tick optional on RulerNode
+- increase touch area (height) of ruler
+- increase touch area (width) of dropper
+- move dropper down, top aligned with solute control panel
+- increase length of input faucet pipe so it's fills MacBook and Nexus7 screens
 - text quality issues, try SVG, beers-law-lab#1
 - draw shaker particles directly to Canvas
 
