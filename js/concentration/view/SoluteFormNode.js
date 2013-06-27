@@ -1,4 +1,4 @@
-// Copyright 2002-2013, University of Colorado
+// Copyright 2002-2013, University of Colorado Boulder
 
 /**
  * Radio buttons that select the solution form, either solid (shaker) or stock solution (dropper).

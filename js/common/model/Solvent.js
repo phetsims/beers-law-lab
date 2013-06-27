@@ -1,4 +1,4 @@
-// Copyright 2002-2013, University of Colorado
+// Copyright 2002-2013, University of Colorado Boulder
 
 /**
  *  A solvent (in this case a liquid) that dissolves another liquid (the solute) to create a solution.

@@ -1,4 +1,4 @@
-// Copyright 2002-2013, University of Colorado
+// Copyright 2002-2013, University of Colorado Boulder
 
 /**
  * Model for computing the absorbance (and transmittance) of light passing through a solution in a cuvette.

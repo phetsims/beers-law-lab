@@ -1,4 +1,4 @@
-// Copyright 2002-2012, University of Colorado
+// Copyright 2002-2013, University of Colorado Boulder
 
 /**
  * Container for molar absorptivity data for the visible spectrum of light.

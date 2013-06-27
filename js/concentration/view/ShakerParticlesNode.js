@@ -1,4 +1,4 @@
-// Copyright 2002-2013, University of Colorado
+// Copyright 2002-2013, University of Colorado Boulder
 
 /**
  * Manages the solid solute particles as they travel between the shaker and their inevitable demise in the beaker.
