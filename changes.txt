@@ -1,3 +1,5 @@
+6/27/13 adjust dropper's drag bounds, limit to horizontal dragging, prevent overlap with faucet and solute control panel
+6/27/13 lower the dropper
 6/27/13 reduce height of ruler to be same as Java sim (0.35cm)
 6/25/13 integrate new faucet images, still not quite right
 # 0.0.0-9 6/24/13

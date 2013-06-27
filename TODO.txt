@@ -14,7 +14,6 @@ HIGH
 - make zero tick optional on RulerNode
 - increase touch area (height) of ruler
 - increase touch area (width) of dropper
-- move dropper down, top aligned with solute control panel
 - increase length of input faucet pipe so it's fills MacBook and Nexus7 screens
 - text quality issues, try SVG, beers-law-lab#1
 - draw shaker particles directly to Canvas

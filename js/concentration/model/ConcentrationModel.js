@@ -59,7 +59,7 @@ define( function( require ) {
     thisModel.precipitate = new Precipitate( thisModel.solution, thisModel.beaker );
     thisModel.shaker = new Shaker( new Vector2( thisModel.beaker.location.x, 170 ), new Bounds2( 225, 50, 625, 210 ), 0.75 * Math.PI, thisModel.solute, SHAKER_MAX_DISPENSING_RATE, true );
     thisModel.shakerParticles = new ShakerParticles( thisModel.shaker, thisModel.solution, thisModel.beaker );
-    thisModel.dropper = new Dropper( new Vector2( thisModel.beaker.location.x, 210 ), new Bounds2( 230, 205, 630, 235 ), thisModel.solute, DROPPER_FLOW_RATE, false );
+    thisModel.dropper = new Dropper( new Vector2( thisModel.beaker.location.x, 225 ), new Bounds2( 250, 225, 570, 225 ), thisModel.solute, DROPPER_FLOW_RATE, false );
     thisModel.evaporator = new Evaporator( MAX_EVAPORATION_RATE, thisModel.solution );
     thisModel.solventFaucet = new Faucet( new Vector2( 150, 220 ), -100, 40, MAX_INPUT_FLOW_RATE );
     thisModel.drainFaucet = new Faucet( new Vector2( 800, 607 ), thisModel.beaker.getRight(), 40, MAX_OUTPUT_FLOW_RATE );
