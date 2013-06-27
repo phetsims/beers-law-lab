@@ -1,3 +1,4 @@
+6/27/13 increase length of input faucet pipe so it's fills MacBook and Nexus7 screens
 6/27/13 adjust dropper's drag bounds, limit to horizontal dragging, prevent overlap with faucet and solute control panel
 6/27/13 lower the dropper
 6/27/13 reduce height of ruler to be same as Java sim (0.35cm)
