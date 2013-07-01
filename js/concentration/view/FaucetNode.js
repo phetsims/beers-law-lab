@@ -34,11 +34,11 @@ define( function( require ) {
   // constants
   var DEBUG_ORIGIN = false;
   var SPOUT_OUTPUT_CENTER_X = 97; // center of spout, determined by inspecting image file
-  var PIPE_Y_OFFSET = 28; // y-offset of pipe in spout image
+  var PIPE_Y_OFFSET = 32; // y-offset of pipe in spout image
   var SHOOTER_MIN_X_OFFSET = 4; // x-offset of shooter's off position in spout image
-  var SHOOTER_MAX_X_OFFSET = 59; // x-offset of shooter's full-on position in spout image
-  var SHOOTER_Y_OFFSET = 16; // y-offset of shooter's centerY in spout image
-  var PIPE_X_OVERLAP = 5; // overlap between pipe and spout, so vertical seam is not visible
+  var SHOOTER_MAX_X_OFFSET = 66; // x-offset of shooter's full-on position in spout image
+  var SHOOTER_Y_OFFSET = 18; // y-offset of shooter's centerY in spout image
+  var PIPE_X_OVERLAP = 1; // overlap between pipe and spout, so vertical seam is not visible
   var SHOOTER_WINDOW_BOUNDS = new Bounds2( 10, 10, 82, 25 ); // bounds of the window in the spout image, through which you see the shooter handle
 
   /**
@@ -56,25 +56,40 @@ define( function( require ) {
 
     // shaft
     var shaftNode = new Image( BLLImages.getImage( "faucet_shaft.png" ) );
-    var shaftDisabledNode = new Image( BLLImages.getImage( "faucet_shaft_disabled.png" ) );
+    shaftNode.setScaleMagnitude( 0.55, 1 );
+
+    // flange
+    var flangeNode = new Image( BLLImages.getImage( "faucet_flange.png" ) );
+    var flangeDisabledNode = new Image( BLLImages.getImage( "faucet_flange_disabled.png" ) );
+
+    // stop
+    var stopNode = new Image( BLLImages.getImage( "faucet_stop.png" ) );
 
     // knob
     var knobNode = new Image( BLLImages.getImage( "faucet_knob.png" ) );
     var dx = 0.5 * knobNode.width;
     var dy = 0.5 * knobNode.height;
     knobNode.touchArea = Shape.rectangle( -dx, -dy, knobNode.width + dx + dx, knobNode.height + dy + dy ); // before scaling!
-    knobNode.scale( 1.15 ); //TODO get a larger image so we aren't scaling up
+    knobNode.scale( 0.5 );
     var knobDisabledNode = new Image( BLLImages.getImage( "faucet_knob_disabled.png" ) );
     knobDisabledNode.scale( knobNode.getScaleVector() );
 
     // assemble the shooter
     var shooterNode = new Node();
     shooterNode.addChild( shaftNode );
-    shooterNode.addChild( shaftDisabledNode );
+    shooterNode.addChild( stopNode );
+    shooterNode.addChild( flangeNode );
+    shooterNode.addChild( flangeDisabledNode );
     shooterNode.addChild( knobNode );
     shooterNode.addChild( knobDisabledNode );
-    knobNode.left = shaftNode.right - 4;
-    knobNode.centerY = shaftNode.centerY;
+    stopNode.x = shaftNode.x + 12;
+    stopNode.centerY = shaftNode.centerY;
+    flangeNode.left = shaftNode.right;
+    flangeNode.centerY = shaftNode.centerY + 1;
+    flangeDisabledNode.x = flangeNode.x;
+    flangeDisabledNode.y = flangeNode.y;
+    knobNode.left = flangeNode.right - 4;
+    knobNode.centerY = flangeNode.centerY;
     knobDisabledNode.x = knobNode.x;
     knobDisabledNode.y = knobNode.y;
 
@@ -156,8 +171,8 @@ define( function( require ) {
     faucet.enabled.link( function( enabled ) {
       knobNode.visible = enabled;
       knobDisabledNode.visible = !enabled;
-      shaftNode.visible = enabled;
-      shaftDisabledNode.visible = !enabled;
+      flangeNode.visible = enabled;
+      flangeDisabledNode.visible = !enabled;
     } );
 
     thisNode.mutate( options );

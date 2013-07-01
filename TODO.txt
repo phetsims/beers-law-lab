@@ -9,7 +9,6 @@ BUGS
 
 HIGH
 - test length of input pipe on Nexus7
-- faucet images
 - support press-&-hold of arrow buttons (use timers temporarily?)
 - make zero tick optional on RulerNode
 - increase touch area (height) of ruler

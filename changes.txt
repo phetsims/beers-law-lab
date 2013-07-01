@@ -1,3 +1,4 @@
+6/30/13 new faucet images (pipe is a little darker than spout)
 6/27/13 update copyright
 6/27/13 make AT probe snap to light beam when at least half of beam is in the probe
 6/27/13 adjust cuvette y-coordinate to vertically center everything (approximately) in the play area
