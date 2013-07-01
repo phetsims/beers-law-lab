@@ -44,7 +44,7 @@ define( function( require ) {
     // touch area
     var dx = 0.05 * thisNode.width;
     var dy = 0.5 * thisNode.height;
-    thisNode.mouseArea = Shape.rectangle( -dx, -dy, thisNode.width + dx + dx, thisNode.height + dy + dy );
+    thisNode.touchArea = Shape.rectangle( -dx, -dy, thisNode.width + dx + dx, thisNode.height + dy + dy );
 
     // sync with model
     ruler.location.link( function( location ) {
