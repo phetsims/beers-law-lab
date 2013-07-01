@@ -144,6 +144,11 @@ define( function( require ) {
       fluid.fill = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
     } );
 
+    // touch area
+    var dx = 0.25 * foreground.width;
+    var dy = 0.1 * foreground.height;
+    thisNode.mouseArea = Shape.rectangle( -( ( foreground.width / 2 ) + dx ), -( foreground.height + dy ), foreground.width + dx + dx, foreground.height + dy + dy );
+
     // drag handler
     thisNode.addInputListener( new MovableDragHandler( dropper, mvt ) );
   }
