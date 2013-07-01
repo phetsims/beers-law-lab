@@ -33,7 +33,7 @@ define( function( require ) {
 
   // constants
   var DEBUG_ORIGIN = false;
-  var SPOUT_OUTPUT_CENTER_X = 97; // center of spout, determined by inspecting image file
+  var SPOUT_OUTPUT_CENTER_X = 112; // center of spout, determined by inspecting image file
   var PIPE_Y_OFFSET = 32; // y-offset of pipe in spout image
   var SHOOTER_MIN_X_OFFSET = 4; // x-offset of shooter's off position in spout image
   var SHOOTER_MAX_X_OFFSET = 66; // x-offset of shooter's full-on position in spout image
@@ -144,11 +144,12 @@ define( function( require ) {
     knobNode.addInputListener( new SimpleDragHandler(
       {
         allowTouchSnag: true,
+
         // adjust the flow
         drag: function( event ) {
           if ( faucet.enabled.get() ) {
-            var x = shooterNode.globalToParentPoint( event.pointer.point ).x - SHOOTER_MIN_X_OFFSET;
-            var flowRate = offsetToFlowRate( x );
+            var xOffset = knobNode.globalToParentPoint( event.pointer.point ).x;
+            var flowRate = offsetToFlowRate( xOffset );
             faucet.flowRate.set( flowRate );
           }
         },
