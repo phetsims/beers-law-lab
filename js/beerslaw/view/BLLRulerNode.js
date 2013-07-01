@@ -16,6 +16,7 @@ define( function( require ) {
   var Node = require( "SCENERY/nodes/Node" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
   var RulerNode = require( "SCENERY_PHET/RulerNode" );
+  var Shape = require( "KITE/Shape" );
 
   /**
    * @param {Ruler} ruler
@@ -39,6 +40,11 @@ define( function( require ) {
     var height = mvt.modelToViewDeltaY( ruler.height );
     thisNode.addChild( new RulerNode( width, height, majorTickLabels, BLLStrings.units_centimeters,
       { minorTicksPerMajorTick: 4 } ) );
+
+    // touch area
+    var dx = 0.05 * thisNode.width;
+    var dy = 0.5 * thisNode.height;
+    thisNode.mouseArea = Shape.rectangle( -dx, -dy, thisNode.width + dx + dx, thisNode.height + dy + dy );
 
     // sync with model
     ruler.location.link( function( location ) {
