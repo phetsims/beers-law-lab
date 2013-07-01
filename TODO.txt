@@ -18,7 +18,6 @@ MEDIUM
 - change stroke of ArrowButton when disabled
 
 LOW
-- add '_' prefix to private fields
 - icons for homescreen and navbar
 - TODO items in code
 
