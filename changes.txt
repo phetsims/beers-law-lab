@@ -1,3 +1,5 @@
+7/1/13 increase diameter of faucet fluid so that it matches new spout image
+7/1/13 move solvent faucet slightly to the right
 7/1/13 adjust FaucetNode.SPOUT_OUTPUT_CENTER_X so that fluid comes out of spout's center
 6/30/13 increase touch area of dropper
 6/30/13 increase touch area of ruler
