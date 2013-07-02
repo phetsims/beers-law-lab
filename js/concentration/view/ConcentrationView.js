@@ -10,8 +10,6 @@ define( function( require ) {
 
   // imports
   var BeakerNode = require( "concentration/view/BeakerNode" );
-  var BLLFont = require( "common/BLLFont" );
-  var BLLStrings = require( "common/BLLStrings" );
   var Bounds2 = require( "DOT/Bounds2" );
   var Button = require( "SUN/Button" );
   var ConcentrationMeterNode = require( "concentration/view/ConcentrationMeterNode" );
@@ -26,6 +24,7 @@ define( function( require ) {
   var TabView = require( "JOIST/TabView" );
   var PrecipitateNode = require( "concentration/view/PrecipitateNode" );
   var Range = require( "DOT/Range" );
+  var RemoveSoluteButton = require( "concentration/view/RemoveSoluteButton" );
   var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
   var SaturatedIndicator = require( "concentration/view/SaturatedIndicator" );
   var Scene = require( "SCENERY/Scene" );
@@ -35,7 +34,6 @@ define( function( require ) {
   var SoluteControls = require( "concentration/view/SoluteControls" );
   var SolutionNode = require( "concentration/view/SolutionNode" );
   var StockSolutionNode = require( "concentration/view/StockSolutionNode" );
-  var Text = require( "SCENERY/nodes/Text" );
 
   /**
    * @param {ConcentrationModel} model
@@ -81,10 +79,7 @@ define( function( require ) {
     var evaporationControl = new EvaporationControl( model.evaporator );
 
     // Remove Solute button
-    var removeSoluteButton = new Button( new Text( BLLStrings.removeSolute, { font: new BLLFont( 22 ), fill: "black" } ),
-      function() {
-        model.solution.soluteAmount.set( 0 );
-      }, { xMargin: 10 } );
+    var removeSoluteButton = new RemoveSoluteButton( model.solution );
 
     // Reset All button
     var resetAllButton = new ResetAllButton( function() {

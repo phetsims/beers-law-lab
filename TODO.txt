@@ -13,7 +13,6 @@ HIGH
 - draw shaker particles directly to Canvas
 
 MEDIUM
-- disable "Remove Solute" button when there is no solute in the beaker
 - change stroke of ArrowButton when disabled
 
 LOW
