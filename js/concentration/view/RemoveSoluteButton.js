@@ -33,7 +33,7 @@ define( function( require ) {
     solution.soluteAmount.link( function( soluteAmount ) {
       var enabled = ( soluteAmount > 0 );
       textNode.fill = enabled ? "black" : "rgb(175,175,175)";
-      thisButton.cursor = enabled ? "pointer" : "default";
+      thisButton.pickable = enabled; //TODO workaround for lack of Button.enabled
     } );
   }
 
