@@ -139,16 +139,26 @@ define( function( require ) {
 
     var offsetToFlowRate = new LinearFunction( SHOOTER_MIN_X_OFFSET, SHOOTER_MAX_X_OFFSET, 0, faucet.maxFlowRate, true /* clamp */ );
 
-    // interactivity
+    // encourage dragging by the blue parts, but make the entire shooter draggable
     knobNode.cursor = "pointer";
-    knobNode.addInputListener( new SimpleDragHandler(
+    flangeNode.cursor = "pointer";
+    shooterNode.addInputListener( new SimpleDragHandler(
       {
+        target: null, // save target, because event.currentTarget is null for drag.
+        startXOffset: 0, // where the drag started, relative to the target's origin, in parent view coordinates
+
         allowTouchSnag: true,
+
+        start: function( event ) {
+          this.target = event.currentTarget;
+          this.startXOffset = this.target.globalToParentPoint( event.pointer.point ).x;
+        },
 
         // adjust the flow
         drag: function( event ) {
           if ( faucet.enabled.get() ) {
-            var xOffset = knobNode.globalToParentPoint( event.pointer.point ).x;
+            var xParent = this.target.globalToParentPoint( event.pointer.point ).x;
+            var xOffset = xParent - this.startXOffset;
             var flowRate = offsetToFlowRate( xOffset );
             faucet.flowRate.set( flowRate );
           }
@@ -157,6 +167,7 @@ define( function( require ) {
         // turn off the faucet when the handle is released
         end: function() {
           faucet.flowRate.set( 0 );
+          this.target = null;
         },
 
         // prevent default behavior that translates the node

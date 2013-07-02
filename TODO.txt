@@ -8,7 +8,6 @@ BUGS
 - Desktop: HTMLText dragging lags on Mac+Firefox, eg label on shaker (joist#5)
 
 HIGH
-- improve drag handler for faucet knob
 - support press-&-hold of arrow buttons (use timers temporarily?)
 - text quality issues, try SVG (beers-law-lab#1, scenery#78)
 - draw shaker particles directly to Canvas
