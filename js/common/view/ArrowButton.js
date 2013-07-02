@@ -1,11 +1,12 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
+//TODO generalize this so that any node can be put on the button
 //TODO Handle press-and-hold feature in Sim.animationLoop instead of using timers.
 //TODO This implementation should eventually use sun.Button
 /**
  * Button with an arrow that points left or right.
- * Pressing and releasing the button fires the callback once.
- * Pressing and holding the button continuously fires the callback.
+ * Press and release immediately and the button fires on 'up'.
+ * Press and hold for M milliseconds and the button will fire repeatedly every N milliseconds until released.
  *
  * @author Chris Malley (PixelZoom, Inc)
  */
@@ -44,7 +45,9 @@ define( function( require ) {
         enabledFill: 'black',
         disabledFill: 'rgb(175,175,175)',
         enabledStroke: 'black',
-        disabledStroke: 'rgb(175,175,175)'
+        disabledStroke: 'rgb(175,175,175)',
+        timerDelay: 500, // start to fire continuously after pressing for this long (milliseconds)
+        intervalDelay: 100 // fire continuously at this frequency (milliseconds)
       },
       options );
 
@@ -102,8 +105,8 @@ define( function( require ) {
             if ( enabled ) {
               callback();
             }
-          }, 100 );
-        }, 500 );
+          }, options.intervalDelay );
+        }, options.timerDelay );
       },
 
       up: function() {
