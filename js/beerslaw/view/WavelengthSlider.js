@@ -182,10 +182,10 @@ define( function( require ) {
 
     // transforms between position and wavelength
     var positionToWavelength = function( x ) {
-      return Util.clamp( Util.linear( 0, track.width, minWavelength, maxWavelength, x ), minWavelength, maxWavelength );
+      return Math.floor( Util.clamp( Util.linear( 0, track.width, minWavelength, maxWavelength, x ), minWavelength, maxWavelength ) );
     };
     var wavelengthToPosition = function( wavelength ) {
-      return Util.clamp( Util.linear( minWavelength, maxWavelength, 0, track.width, wavelength ), 0, track.width );
+      return Math.floor( Util.clamp( Util.linear( minWavelength, maxWavelength, 0, track.width, wavelength ), 0, track.width ) );
     };
 
     // track interactivity

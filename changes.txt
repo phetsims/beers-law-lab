@@ -1,3 +1,6 @@
+7/1/13 gray out the stroke of arrow button when it's disabled
+7/1/13 temporary support for "press and hold" feature of arrow buttons, using JS timer and interval
+7/1/13 fix problem with how arrow buttons were enabled/disabled, was causing exception at min/max values, and showing -0 for concentration
 7/1/13 change the cursor when the "Remove Solute" button is disabled
 7/1/13 disable the "Remove Solute" button when there is no solute in the solution
 7/1/13 fix drag handler for faucet knob, make it continuous instead of on/off
