@@ -88,7 +88,7 @@ define( function( require ) {
       }
     } );
 
-    this.reset = function() {
+    thisNode.reset = function() {
       variableWavelength.reset();
     };
 

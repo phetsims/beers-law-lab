@@ -35,7 +35,7 @@ define( function( require ) {
     var items = [];
     for ( var i = 0; i < solutions.length; i++ ) {
       var solution = solutions[i];
-      items[i] = this._createItem( solution );
+      items[i] = createItem( solution );
     }
 
     ComboBox.call( this, items, selectedSolution,
@@ -46,29 +46,28 @@ define( function( require ) {
         listParent: soluteListParent } );
   }
 
-  inherit( ComboBox, SolutionComboBox, {
+  inherit( ComboBox, SolutionComboBox );
 
-    /**
-     * Creates a combo box item.
-     * @param {Solution} solution
-     * @returns {{node: *, value: *}}
-     * @private
-     */
-    _createItem: function( solution ) {
+  /**
+   * Creates a combo box item.
+   * @param {Solution} solution
+   * @returns {{node: *, value: *}}
+   * @private
+   */
+  var createItem = function( solution ) {
 
-      // node
-      var node = new Node();
-      var colorSquare = new Rectangle( 0, 0, 20, 20,
-        { fill: solution.saturatedColor, stroke: solution.saturatedColor.darkerColor() } );
-      var solutionName = new HTMLText( solution.getDisplayName(), { font: new BLLFont( 20 ) } );
-      node.addChild( colorSquare );
-      node.addChild( solutionName );
-      solutionName.left = colorSquare.right + 5;
-      solutionName.centerY = colorSquare.centerY;
+    // node
+    var node = new Node();
+    var colorSquare = new Rectangle( 0, 0, 20, 20,
+      { fill: solution.saturatedColor, stroke: solution.saturatedColor.darkerColor() } );
+    var solutionName = new HTMLText( solution.getDisplayName(), { font: new BLLFont( 20 ) } );
+    node.addChild( colorSquare );
+    node.addChild( solutionName );
+    solutionName.left = colorSquare.right + 5;
+    solutionName.centerY = colorSquare.centerY;
 
-      return ComboBox.createItem( node, solution );
-    }
-  } );
+    return ComboBox.createItem( node, solution );
+  };
 
   return SolutionComboBox;
 } );

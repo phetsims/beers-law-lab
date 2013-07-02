@@ -204,16 +204,15 @@ define( function( require ) {
    */
   function ATDetectorNode( detector, light, mvt ) {
 
-    var thisNode = this;
-    Node.call( thisNode );
+    Node.call( this );
 
     var bodyNode = new BodyNode( detector, mvt );
     var probeNode = new ProbeNode( detector.probe, light, mvt );
     var wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
 
-    thisNode.addChild( wireNode );
-    thisNode.addChild( bodyNode );
-    thisNode.addChild( probeNode );
+    this.addChild( wireNode );
+    this.addChild( bodyNode );
+    this.addChild( probeNode );
   }
 
   inherit( Node, ATDetectorNode );

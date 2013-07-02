@@ -23,8 +23,6 @@ define( function( require ) {
    */
   function SolutionControls( solutions, currentSolution, solutionListParent ) {
 
-    var thisNode = this;
-
     // nodes
     var comboBox = new SolutionComboBox( solutions, currentSolution, solutionListParent );
     var concentrationControl = new ConcentrationControl( currentSolution );
@@ -38,7 +36,7 @@ define( function( require ) {
     concentrationControl.left = comboBox.left;
     concentrationControl.top = comboBox.bottom + 20;
 
-    PanelNode.call( thisNode, contentNode,
+    PanelNode.call( this, contentNode,
       { xMargin: 20, yMargin: 20, fill: "#F0F0F0", stroke: "gray", lineWidth: 1, resize: false } );
   }
 

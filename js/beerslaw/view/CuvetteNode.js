@@ -44,21 +44,26 @@ define( function( require ) {
     var startWidth; // width of the cuvette when the drag started
 
     SimpleDragHandler.call( this, {
+
       allowTouchSnag: true,
+
       start: function( event ) {
         startX = event.pointer.point.x;
         startWidth = cuvette.width.get();
       },
+
       drag: function( event, trail ) {
         var dragX = event.pointer.point.x;
         var deltaWidth = mvt.viewToModelDeltaX( dragX - startX );
         var cuvetteWidth = Util.clamp( startWidth + deltaWidth, cuvette.widthRange.min, cuvette.widthRange.max );
         cuvette.width.set( cuvetteWidth );
       },
+
       end: function( event ) {
         var numberOfIntervals = Math.floor( ( cuvette.width.get() + ( snapInterval / 2 ) ) / snapInterval );
         cuvette.width.set( numberOfIntervals * snapInterval );
       },
+
       translate: function() {
         // override default behavior, do nothing
       }

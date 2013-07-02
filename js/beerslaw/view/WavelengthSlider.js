@@ -40,8 +40,7 @@ define( function( require ) {
    */
   function Track( width, height, minWavelength, maxWavelength ) {
 
-    var thisNode = this;
-    Node.call( thisNode );
+    Node.call( this );
 
     // Draw the spectrum directly to a canvas, to improve performance.
     var canvas = document.createElement( 'canvas' );
@@ -54,7 +53,7 @@ define( function( require ) {
       context.fillRect( i, 0, 1, 50 );
     }
 
-    thisNode.addChild( new Image( canvas ) );
+    this.addChild( new Image( canvas ) );
   }
 
   inherit( Node, Track );
@@ -208,10 +207,12 @@ define( function( require ) {
         start: function( event ) {
           clickXOffset = thumb.globalToParentPoint( event.pointer.point ).x - thumb.x;
         },
+
         drag: function( event ) {
           var x = thumb.globalToParentPoint( event.pointer.point ).x - clickXOffset;
           wavelength.set( positionToWavelength( x ) );
         },
+
         translate: function() {
           // do nothing, override default behavior
         }
