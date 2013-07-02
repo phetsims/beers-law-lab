@@ -56,7 +56,7 @@ define( function( require ) {
 
     // shaft
     var shaftNode = new Image( BLLImages.getImage( "faucet_shaft.png" ) );
-    shaftNode.setScaleMagnitude( 0.55, 1 );
+    shaftNode.setScaleMagnitude( 0.55, 1 ); //TODO scale image file?
 
     // flange
     var flangeNode = new Image( BLLImages.getImage( "faucet_flange.png" ) );
@@ -70,7 +70,7 @@ define( function( require ) {
     var dx = 0.5 * knobNode.width;
     var dy = 0.5 * knobNode.height;
     knobNode.touchArea = Shape.rectangle( -dx, -dy, knobNode.width + dx + dx, knobNode.height + dy + dy ); // before scaling!
-    knobNode.scale( 0.5 );
+    knobNode.scale( 0.4 ); //TODO scale image file?
     var knobDisabledNode = new Image( BLLImages.getImage( "faucet_knob_disabled.png" ) );
     knobDisabledNode.scale( knobNode.getScaleVector() );
 
@@ -88,7 +88,7 @@ define( function( require ) {
     flangeNode.centerY = shaftNode.centerY + 1;
     flangeDisabledNode.x = flangeNode.x;
     flangeDisabledNode.y = flangeNode.y;
-    knobNode.left = flangeNode.right - 4;
+    knobNode.left = flangeNode.right - 8;
     knobNode.centerY = flangeNode.centerY;
     knobDisabledNode.x = knobNode.x;
     knobDisabledNode.y = knobNode.y;
