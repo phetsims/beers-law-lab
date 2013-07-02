@@ -81,7 +81,7 @@ define( function( require ) {
     var evaporationControl = new EvaporationControl( model.evaporator );
 
     // Remove Solute button
-    var removeSoluteButtonNode = new Button( new Text( BLLStrings.removeSolute, { font: new BLLFont( 22 ), fill: "black" } ),
+    var removeSoluteButton = new Button( new Text( BLLStrings.removeSolute, { font: new BLLFont( 22 ), fill: "black" } ),
       function() {
         model.solution.soluteAmount.set( 0 );
       }, { xMargin: 10 } );
@@ -107,7 +107,7 @@ define( function( require ) {
     thisView.addChild( concentrationMeterNode );
     thisView.addChild( evaporationControl );
     // Add anything containing interactive DOM elements last, or they will not receive events.
-    thisView.addChild( removeSoluteButtonNode );
+    thisView.addChild( removeSoluteButton );
     thisView.addChild( resetAllButton );
     thisView.addChild( soluteControls );
     thisView.addChild( soluteListParent ); // last, so that combo box list is on top
@@ -127,8 +127,8 @@ define( function( require ) {
       evaporationControl.left = mvt.modelToViewPosition( model.beaker.location ).x - mvt.modelToViewDeltaX( model.beaker.size.width / 2 );
       evaporationControl.top = beakerNode.bottom + 30;
       // left of evaporation control
-      removeSoluteButtonNode.left = evaporationControl.right + 30;
-      removeSoluteButtonNode.centerY = evaporationControl.centerY;
+      removeSoluteButton.left = evaporationControl.right + 30;
+      removeSoluteButton.centerY = evaporationControl.centerY;
       // lower right
       resetAllButton.left = drainFaucetNode.right + 10;
       resetAllButton.top = drainFaucetNode.bottom + 5;
