@@ -12,7 +12,7 @@ define( function( require ) {
   var BLLImages = require( "common/BLLImages" );
   var BLLStrings = require( "common/BLLStrings" );
   var ConcentrationModel = require( "concentration/model/ConcentrationModel" );
-  var ConcentrationView = require( "concentration/view/ConcentrationView" );
+  var ConcentrationTabView = require( "concentration/view/ConcentrationTabView" );
   var Image = require( "SCENERY/nodes/Image" );
   var ModelViewTransform2 = require( "PHETCOMMON/view/ModelViewTransform2" );
   var Vector2 = require( "DOT/Vector2" );
@@ -30,7 +30,7 @@ define( function( require ) {
     };
 
     this.createView = function( model ) {
-      return new ConcentrationView( model, mvt );
+      return new ConcentrationTabView( model, mvt );
     };
   }
 

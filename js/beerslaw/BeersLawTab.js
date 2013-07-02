@@ -12,7 +12,7 @@ define( function( require ) {
   var BLLImages = require( "common/BLLImages" );
   var BLLStrings = require( "common/BLLStrings" );
   var BeersLawModel = require( "beerslaw/model/BeersLawModel" );
-  var BeersLawView = require( "beerslaw/view/BeersLawView" );
+  var BeersLawTabView = require( "beerslaw/view/BeersLawTabView" );
   var Image = require( "SCENERY/nodes/Image" );
   var ModelViewTransform2 = require( "PHETCOMMON/view/ModelViewTransform2" );
   var Vector2 = require( "DOT/Vector2" );
@@ -31,7 +31,7 @@ define( function( require ) {
     };
 
     this.createView = function( model ) {
-      return new BeersLawView( model, mvt );
+      return new BeersLawTabView( model, mvt );
     };
   }
 
