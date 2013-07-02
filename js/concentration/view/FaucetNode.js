@@ -34,7 +34,7 @@ define( function( require ) {
   // constants
   var DEBUG_ORIGIN = false;
   var SPOUT_OUTPUT_CENTER_X = 112; // center of spout, determined by inspecting image file
-  var PIPE_Y_OFFSET = 32; // y-offset of pipe in spout image
+  var PIPE_Y_OFFSET = 31; // y-offset of pipe in spout image
   var SHOOTER_MIN_X_OFFSET = 4; // x-offset of shooter's off position in spout image
   var SHOOTER_MAX_X_OFFSET = 66; // x-offset of shooter's full-on position in spout image
   var SHOOTER_Y_OFFSET = 16; // y-offset of shooter's centerY in spout image

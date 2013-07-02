@@ -1,3 +1,4 @@
+7/2/13 new faucet_spout.png, to match color of faucet_pipe.png
 7/2/13 switch to svg renderer to improve text quality
 # 0.0.0-11 7/1/13
 7/1/13 expand touch area for arrow buttons
