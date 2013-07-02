@@ -23,8 +23,10 @@ define( function( require ) {
     this.dragBounds = dragBounds;
   }
 
-  Movable.prototype.reset = function() {
-    this.location.reset();
+  Movable.prototype = {
+    reset: function() {
+      this.location.reset();
+    }
   };
 
   return Movable;

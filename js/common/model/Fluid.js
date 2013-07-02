@@ -19,8 +19,10 @@ define( function( require ) {
     this.color = new Property( color );
   }
 
-  Fluid.prototype.reset = function() {
-    this.color.reset();
+  Fluid.prototype = {
+    reset: function() {
+      this.color.reset();
+    }
   };
 
   return Fluid;

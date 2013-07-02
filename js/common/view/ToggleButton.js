@@ -29,11 +29,11 @@ define( function( require ) {
 
     options = _.extend( { onWhilePressed: false }, options );
 
-    var thisNode = this;
+    var thisButton = this;
     Node.call( this );
 
     var imageNode = new Image( unpressedImage );
-    thisNode.addChild( imageNode );
+    thisButton.addChild( imageNode );
 
     on.link( function( on ) {
       if ( enabled.get() ) {
@@ -44,17 +44,17 @@ define( function( require ) {
     enabled.link( function( enabled ) {
       if ( enabled ) {
         imageNode.setImage( on.get() ? pressedImage : unpressedImage );
-        thisNode.cursor = "pointer";
+        thisButton.cursor = "pointer";
       }
       else {
         imageNode.setImage( disabledImage );
-        thisNode.cursor = "default";
+        thisButton.cursor = "default";
       }
     } );
 
     if ( options.onWhilePressed ) {
       // momentary button, on while pressed, off when released
-      thisNode.addInputListener( new ButtonListener( {
+      thisButton.addInputListener( new ButtonListener( {
         down: function( event ) {
           on.set( enabled.get() );
         },
@@ -68,7 +68,7 @@ define( function( require ) {
     }
     else {
       // toggle button, changes its state when fired
-      thisNode.addInputListener( new ButtonListener( {
+      thisButton.addInputListener( new ButtonListener( {
         fire: function() {
           on.set( !on.get() && enabled.get() );
         }

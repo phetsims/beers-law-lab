@@ -45,7 +45,7 @@ define( function( require ) {
       drag: function( event ) {
         var parentPoint = target.globalToParentPoint( event.pointer.point ).minus( startOffset );
         var location = mvt.viewToModelPosition( parentPoint );
-        var constrainedLocation = MovableDragHandler._constrainBounds( location, movable.dragBounds );
+        var constrainedLocation = constrainBounds( location, movable.dragBounds );
         movable.location.set( constrainedLocation );
       },
 
@@ -66,7 +66,7 @@ define( function( require ) {
    * @param {Vector2} point
    * @param {Bounds2} bounds
    */
-  MovableDragHandler._constrainBounds = function( point, bounds ) {
+  var constrainBounds = function( point, bounds ) {
     if ( _.isUndefined( bounds ) || bounds.containsCoordinates( point.x, point.y ) ) {
       return point;
     }
