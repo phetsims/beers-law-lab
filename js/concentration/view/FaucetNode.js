@@ -56,7 +56,7 @@ define( function( require ) {
 
     // shaft
     var shaftNode = new Image( BLLImages.getImage( "faucet_shaft.png" ) );
-    shaftNode.setScaleMagnitude( 0.55, 1 ); //TODO scale image file?
+    shaftNode.setScaleMagnitude( 0.58, 1 ); //TODO scale image file?
 
     // flange
     var flangeNode = new Image( BLLImages.getImage( "faucet_flange.png" ) );
