@@ -67,6 +67,7 @@ define( function( require ) {
     arrowNode.centerY = background.centerY;
 
     // interactivity
+    thisButton.cursor = "pointer";
     var enabled = true;
     var fired = false;
     var timeoutID = null;
