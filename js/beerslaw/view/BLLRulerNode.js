@@ -30,16 +30,17 @@ define( function( require ) {
 
     // Compute tick labels, 1 major tick for every 0.5 unit of length, labels on the ticks that correspond to integer values.
     var majorTickLabels = [];
-    var numberOfTicks = ( 2 * ruler.length ) + 1;
+    var numberOfTicks = Math.floor( ruler.length / 0.5 ) + 1;
     for ( var i = 0; i < numberOfTicks; i++ ) {
-      majorTickLabels[i] = ( i % 2 === 0 ) ? ( i / 2 ).toFixed( 0 ) : "";
+      majorTickLabels[i] = ( i % 2 === 0 ) ? ( i / 2 ) : "";
     }
 
     // use the common ruler node
     var width = mvt.modelToViewDeltaX( ruler.length );
     var height = mvt.modelToViewDeltaY( ruler.height );
-    thisNode.addChild( new RulerNode( width, height, majorTickLabels, BLLStrings.units_centimeters,
-      { minorTicksPerMajorTick: 4 } ) );
+    var majorTickWidth = mvt.modelToViewDeltaX( 0.5 );
+    thisNode.addChild( new RulerNode( width, height, majorTickWidth, majorTickLabels, BLLStrings.units_centimeters,
+      { minorTicksPerMajorTick: 4, insetsWidth: 0 } ) );
 
     // touch area
     var dx = 0.05 * thisNode.width;

@@ -14,7 +14,7 @@ define( function( require ) {
   var Movable = require( "common/model/Movable" );
 
   /**
-   * @param {Number} length cm, must be integer units
+   * @param {Number} length cm
    * @param {Number} insets cm, the horizontal insets at the ends of the ruler
    * @param {Number} height cm
    * @param {Vector2} location
@@ -22,8 +22,6 @@ define( function( require ) {
    * @constructor
    */
   function Ruler( length, insets, height, location, dragBounds ) {
-
-    assert && assert( length % 1 === 0 ); // length is an integer
 
     var thisRuler = this;
     Movable.call( thisRuler, location, dragBounds );

@@ -48,8 +48,7 @@ define( function( require ) {
     thisModel.light = new Light( new Vector2( thisModel.cuvette.location.x - 1.5, thisModel.cuvette.location.y + ( thisModel.cuvette.height / 2 ) ),
       false, 0.45, thisModel.solution );
 
-    var rulerWidth = 2; // cm
-    thisModel.ruler = new Ruler( rulerWidth, 0.1, 0.35,
+    thisModel.ruler = new Ruler( 2.1, 0.1, 0.35,
       new Vector2( thisModel.cuvette.location.x - 2.6, thisModel.cuvette.location.y + 4 ),
       new Bounds2( 0, 0, 6, 5 ) );
 

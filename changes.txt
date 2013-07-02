@@ -1,3 +1,4 @@
+7/1/13 support for ruler with zero insets and minor ticks to the right of last major tick
 7/1/13 show a bit more of the faucet shaft in the "off" position
 7/1/13 make faucet knob 20% smaller
 7/1/13 make slider knobs narrower (similar to Java version)
