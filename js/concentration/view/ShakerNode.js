@@ -31,9 +31,7 @@ define( function( require ) {
   function ShakerNode( shaker, mvt ) {
 
     var thisNode = this;
-    Node.call( thisNode, {
-      cursor: "pointer"
-    } );
+    Node.call( thisNode );
 
     // shaker image
     var imageNode = new Image( BLLImages.getImage( "shaker.png" ) );
@@ -77,7 +75,8 @@ define( function( require ) {
       labelNode.centerY = imageNode.centerY;
     } );
 
-    // drag handler
+    // interactivity
+    thisNode.cursor = "pointer";
     thisNode.addInputListener( new MovableDragHandler( shaker, mvt ) );
   }
 

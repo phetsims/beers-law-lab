@@ -25,8 +25,6 @@ define( function( require ) {
    */
   function SoluteControlsNode( solutes, currentSolute, shaker, dropper, soluteListParent ) {
 
-    var thisNode = this;
-
     // solute combo box
     var soluteComboBox = new SoluteComboBox( solutes, currentSolute, soluteListParent );
 
@@ -41,7 +39,7 @@ define( function( require ) {
     soluteFormNode.left = soluteComboBox.left;
     soluteFormNode.top = soluteComboBox.bottom + 20;
 
-    PanelNode.call( thisNode, contentNode,
+    PanelNode.call( this, contentNode,
       { xMargin: 20, yMargin: 20, fill: "#F0F0F0", stroke: "gray", lineWidth: 1 } );
   }
 

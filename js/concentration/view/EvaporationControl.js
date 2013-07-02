@@ -26,7 +26,7 @@ define( function( require ) {
    */
   function EvaporationControl( evaporator ) {
 
-    var thisNode = this;
+    var thisControl = this;
 
     var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.evaporation ), { font: new BLLFont( 22 ) } );
 
@@ -47,7 +47,7 @@ define( function( require ) {
     slider.left = label.right + 10;
     slider.centerY = label.centerY;
 
-    PanelNode.call( thisNode, content,
+    PanelNode.call( thisControl, content,
       { xMargin: 20, yMargin: 10, fill: "#F0F0F0", stroke: "gray", lineWidth: 1, resize: false } );
   }
 

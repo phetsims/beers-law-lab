@@ -27,12 +27,11 @@ define( function( require ) {
    * @constructor
    */
   function TextAndIconNode( text, textOptions, image, xSpacing ) {
-    var thisNode = this;
-    Node.call( thisNode );
+    Node.call( this );
     var textNode = new Text( text, textOptions );
     var imageNode = new Image( image );
-    thisNode.addChild( textNode );
-    thisNode.addChild( imageNode );
+    this.addChild( textNode );
+    this.addChild( imageNode );
     imageNode.left = textNode.right + xSpacing;
     imageNode.centerY = textNode.centerY;
   }
@@ -46,8 +45,7 @@ define( function( require ) {
    */
   function SoluteFormNode( shaker, dropper ) {
 
-    var thisNode = this;
-    Node.call( thisNode );
+    Node.call( this );
 
     var TEXT_OPTIONS = { font: new BLLFont( 22 ), fill: "black" };
     var X_SPACING = 10;
@@ -55,8 +53,8 @@ define( function( require ) {
     var dropperButton = new RadioButton( dropper.visible, true, new TextAndIconNode( BLLStrings.solution, TEXT_OPTIONS, BLLImages.getImage( "dropper-icon.png" ), X_SPACING ) );
 
     // rendering order
-    thisNode.addChild( shakerButton );
-    thisNode.addChild( dropperButton );
+    this.addChild( shakerButton );
+    this.addChild( dropperButton );
 
     // layout
     dropperButton.left = shakerButton.right + 40;

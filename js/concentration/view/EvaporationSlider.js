@@ -45,16 +45,16 @@ define( function( require ) {
     // defaults
     snapToMinWhenReleased = _.isUndefined( snapToMinWhenReleased ) ? false : snapToMinWhenReleased;
 
-    var thisNode = this;
-    Node.call( thisNode );
+    var thisSlider = this;
+    Node.call( thisSlider );
 
     // ticks are added to this parent, so they are behind knob
-    thisNode._ticksParent = new Node();
-    thisNode.addChild( thisNode._ticksParent );
+    thisSlider._ticksParent = new Node();
+    thisSlider.addChild( thisSlider._ticksParent );
 
     // track
-    thisNode._track = new Rectangle( 0, 0, trackSize.width, trackSize.height, { fill: "white", stroke: "black", lineWidth: 1 } );
-    thisNode.addChild( thisNode._track );
+    thisSlider._track = new Rectangle( 0, 0, trackSize.width, trackSize.height, { fill: "white", stroke: "black", lineWidth: 1 } );
+    thisSlider.addChild( thisSlider._track );
 
     // thumb, points up
     var arcWidth = 0.25 * THUMB_SIZE.width;
@@ -63,8 +63,8 @@ define( function( require ) {
     var centerLineYMargin = 3;
     thumb.addChild( new Path( { shape: Shape.lineSegment( 0, -( THUMB_SIZE.height / 2 ) + centerLineYMargin, 0, ( THUMB_SIZE.height / 2 ) - centerLineYMargin ),
       stroke: 'white' } ) );
-    thumb.centerY = thisNode._track.centerY;
-    thisNode.addChild( thumb );
+    thumb.centerY = thisSlider._track.centerY;
+    thisSlider.addChild( thumb );
 
     // thumb touch area
     var dx = 0.5 * thumb.width;
@@ -78,11 +78,11 @@ define( function( require ) {
     } );
 
     // mapping between value and track position
-    thisNode._valueToPosition = new LinearFunction( range.min, range.max, 0, trackSize.width, true /* clamp */ );
+    thisSlider._valueToPosition = new LinearFunction( range.min, range.max, 0, trackSize.width, true /* clamp */ );
 
     // move thumb when value changes
     value.link( function( value ) {
-      thumb.centerX = thisNode._valueToPosition( value );
+      thumb.centerX = thisSlider._valueToPosition( value );
     } );
 
     // highlight on mouse enter
@@ -99,7 +99,7 @@ define( function( require ) {
         drag: function( event ) {
           if ( enabled.get() ) {
             var x = thumb.globalToParentPoint( event.pointer.point ).x - clickXOffset;
-            value.set( thisNode._valueToPosition.inverse( x ) );
+            value.set( thisSlider._valueToPosition.inverse( x ) );
           }
         },
         end: function() {
@@ -114,7 +114,7 @@ define( function( require ) {
 
     // update thumb location when value changes
     value.link( function( value ) {
-      thumb.centerX = thisNode._valueToPosition( value );
+      thumb.centerX = thisSlider._valueToPosition( value );
     } );
   }
 
