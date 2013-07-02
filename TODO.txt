@@ -13,7 +13,6 @@ HIGH
 
 MEDIUM
 - use Sim.animationLoop for ArrowButton "press and hold" feature
-- change stroke of ArrowButton when disabled
 
 LOW
 - icons for homescreen and navbar
