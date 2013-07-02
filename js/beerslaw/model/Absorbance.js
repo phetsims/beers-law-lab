@@ -87,7 +87,7 @@ define( function( require ) {
     // compute absorbance: A = abC
     {
       var computeAbsorbance = function() {
-        return Absorbance._getAbsorbance( thisAbsorbance.molarAbsorptivity.get(), thisAbsorbance.pathLength.get(), thisAbsorbance.concentration.get() );
+        return getAbsorbance( thisAbsorbance.molarAbsorptivity.get(), thisAbsorbance.pathLength.get(), thisAbsorbance.concentration.get() );
       };
 
       thisAbsorbance.value = new Property( computeAbsorbance() );
@@ -106,17 +106,17 @@ define( function( require ) {
 
     // Gets absorbance for a specified path length.
     getAbsorbanceAt: function( pathLength ) {
-      return Absorbance._getAbsorbance( this.molarAbsorptivity.get(), pathLength, this.concentration.get() );
+      return getAbsorbance( this.molarAbsorptivity.get(), pathLength, this.concentration.get() );
     },
 
     // Gets transmittance for a specified path length.
     getTransmittanceAt: function( pathLength ) {
-      return Absorbance._getTransmittance( this.getAbsorbanceAt( pathLength ) );
+      return getTransmittance( this.getAbsorbanceAt( pathLength ) );
     },
 
     // Converts absorbance to transmittance.
     getTransmittance: function() {
-      return Absorbance._getTransmittance( this.value.get() );
+      return getTransmittance( this.value.get() );
     }
   };
 
@@ -127,7 +127,7 @@ define( function( require ) {
    * @param {Number} concentration
    * @return {Number}
    */
-  Absorbance._getAbsorbance = function( molarAbsorptivity, pathLength, concentration ) {
+  var getAbsorbance = function( molarAbsorptivity, pathLength, concentration ) {
     return molarAbsorptivity * pathLength * concentration;
   };
 
@@ -136,7 +136,7 @@ define( function( require ) {
    * @param {Number} absorbance
    * @return {Number}
    */
-  Absorbance._getTransmittance = function( absorbance ) {
+  var getTransmittance = function( absorbance ) {
     return Math.pow( 10, -absorbance );
   };
 
