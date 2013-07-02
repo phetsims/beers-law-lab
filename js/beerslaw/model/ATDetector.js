@@ -105,7 +105,7 @@ define( function( require ) {
     }
   };
 
-  // JavaScript's sorry excuse for enum
+  // Modes for the detector
   ATDetector.Mode = {
     "TRANSMITTANCE": 0,
     "ABSORBANCE": 1
