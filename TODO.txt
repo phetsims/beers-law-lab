@@ -4,7 +4,7 @@ DESIGN ISSUES
 
 BUGS
 - Safari 5: text bounds are wrong, text is small (scenery#61)
-- Nexus: performance, usability
+- Nexus: crashing after switching tabs?
 - Desktop: HTMLText dragging lags on Mac+Firefox, eg label on shaker (joist#5)
 
 HIGH
