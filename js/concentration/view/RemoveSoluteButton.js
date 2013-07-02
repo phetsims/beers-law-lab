@@ -15,25 +15,25 @@ define( function( require ) {
   var inherit = require( "PHET_CORE/inherit" );
   var Text = require( "SCENERY/nodes/Text" );
 
-  // constants
-  var FILL_ENABLED = "black";
-  var FILL_DISABLED = "rgb(175,175,175)";
-
   /**
    * @param {ConcentrationSolution} solution
    * @constructor
    */
   function RemoveSoluteButton( solution ) {
 
+    var thisButton = this;
+
     var textNode = new Text( BLLStrings.removeSolute, { font: new BLLFont( 22 ) } );
 
-    Button.call( this, textNode, function() {
+    Button.call( thisButton, textNode, function() {
       solution.soluteAmount.set( 0 );
     }, { xMargin: 10 } );
 
     // change the text fill to indicate whether the button is enabled
     solution.soluteAmount.link( function( soluteAmount ) {
-      textNode.fill = ( soluteAmount > 0 ) ? FILL_ENABLED : FILL_DISABLED;
+      var enabled = ( soluteAmount > 0 );
+      textNode.fill = enabled ? "black" : "rgb(175,175,175)";
+      thisButton.cursor = enabled ? "pointer" : "default";
     } );
   }
 
