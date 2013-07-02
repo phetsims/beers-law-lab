@@ -125,7 +125,7 @@ define( function( require ) {
       }
       arrowNode.fill = enabled ? options.enabledFill : options.disabledFill;
       background.stroke = enabled ? options.enabledStroke : options.disabledStroke;
-      thisButton.pickable = enabled; //TODO workaround for lack of Button.enabled
+      thisButton.pickable = enabled;
     };
     thisButton.setEnabled( true );
   }
