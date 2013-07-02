@@ -93,7 +93,7 @@ define( function( require ) {
     thisView.addChild( drainFaucetNode );
     thisView.addChild( stockSolutionNode );
     thisView.addChild( solutionNode );
-    thisView.addChild( beakerNode.mutate( { layerSplit: true } ) ); //TODO experiment to put static nodes in their own layer
+    thisView.addChild( beakerNode.mutate( { layerSplit: true } ) ); //TODO experiment with putting static nodes in their own layer
     thisView.addChild( precipitateNode );
     thisView.addChild( saturatedIndicator );
     thisView.addChild( shakerParticlesNode );
