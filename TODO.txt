@@ -3,15 +3,15 @@ TODO list for beers-law-lab (HTML port)
 DESIGN ISSUES
 
 BUGS
-- Safari 5: text bounds are very wrong, scenery#61
+- Safari 5: text bounds are wrong, text is small (scenery#61)
 - Nexus: performance, usability
-- Desktop: HTMLText dragging lags on Mac+Firefox, eg label on shaker, joist#5
+- Desktop: HTMLText dragging lags on Mac+Firefox, eg label on shaker (joist#5)
 
 HIGH
 - improve drag handler for faucet knob
 - support press-&-hold of arrow buttons (use timers temporarily?)
 - make zero tick optional on RulerNode
-- text quality issues, try SVG, beers-law-lab#1
+- text quality issues, try SVG (beers-law-lab#1)
 - draw shaker particles directly to Canvas
 
 MEDIUM
