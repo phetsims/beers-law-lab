@@ -8,7 +8,6 @@ BUGS
 - Desktop: HTMLText dragging lags on Mac+Firefox, eg label on shaker, joist#5
 
 HIGH
-- make slider knobs narrower
 - make faucet knob 20% smaller
 - improve drag handler for faucet knob
 - support press-&-hold of arrow buttons (use timers temporarily?)

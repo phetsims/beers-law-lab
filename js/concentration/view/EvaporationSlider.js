@@ -23,7 +23,7 @@ define( function( require ) {
   var Util = require( "DOT/Util" );
 
   // thumb constants
-  var THUMB_SIZE = new Dimension2( 30, 45 );
+  var THUMB_SIZE = new Dimension2( 22, 45 );
   var THUMB_FILL_ENABLED = "rgb(50,145,184)";
   var THUMB_FILL_HIGHLIGHTED = "rgb(71,207,255)";
   var THUMB_FILL_DISABLED = "#F0F0F0";

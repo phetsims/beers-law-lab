@@ -29,7 +29,7 @@ define( function( require ) {
   var TRACK_SIZE = new Dimension2( 200, 15 );
 
   // thumb constants
-  var THUMB_SIZE = new Dimension2( 30, 45 );
+  var THUMB_SIZE = new Dimension2( 22, 45 );
   var THUMB_LINE_WIDTH = 1;
   var THUMB_FILL_NORMAL = new Color( 89, 156, 212 );
   var THUMB_FILL_HIGHLIGHT = THUMB_FILL_NORMAL.brighterColor();
