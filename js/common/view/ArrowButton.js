@@ -66,6 +66,11 @@ define( function( require ) {
     arrowNode.centerX = background.centerX;
     arrowNode.centerY = background.centerY;
 
+    // touch area
+    var dx = 0.25 * thisButton.width;
+    var dy = 0.25 * thisButton.height;
+    thisButton.touchArea = Shape.rectangle( -dx, -dy, thisButton.width + dx + dx, thisButton.height + dy + dy );
+
     // interactivity
     thisButton.cursor = "pointer";
     var enabled = true;
