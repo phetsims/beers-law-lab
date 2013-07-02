@@ -35,14 +35,14 @@ define( function( require ) {
       },
       options );
 
-    var shape = ( direction === ArrowButton.Direction.LEFT ) ?
+    var arrowShape = ( direction === ArrowButton.Direction.LEFT ) ?
                 new Shape().moveTo( 0, 0 ).lineTo( options.arrowWidth, options.arrowHeight / 2 ).lineTo( 0, options.arrowHeight ).close() :
                 new Shape().moveTo( 0, options.arrowHeight / 2 ).lineTo( options.arrowWidth, 0 ).lineTo( options.arrowWidth, options.arrowHeight ).close();
-    var path = new Path( { fill: options.enabledFill, shape: shape } );
-    Button.call( this, path, callback, options );
+    var arrowNode = new Path( { fill: options.enabledFill, shape: arrowShape } );
+    Button.call( this, arrowNode, callback, options );
 
     thisButton.setEnabled = function( enabled ) {
-      path.fill = enabled ? options.enabledFill : options.disabledFill;
+      arrowNode.fill = enabled ? options.enabledFill : options.disabledFill;
       thisButton.pickable = enabled; //TODO workaround for lack of Button.enabled
       //TODO change stroke of button rectangle
     };
