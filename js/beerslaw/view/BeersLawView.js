@@ -33,7 +33,7 @@ define( function( require ) {
   function BeersLawView( model, mvt ) {
 
     var thisView = this;
-    TabView.call( thisView );
+    TabView.call( thisView, { renderer: 'svg' } );
 
     var lightNode = new LightNode( model.light, mvt );
     var cuvetteNode = new CuvetteNode( model.cuvette, model.solution, mvt, 0.1 /* snapInterval, cm */ );

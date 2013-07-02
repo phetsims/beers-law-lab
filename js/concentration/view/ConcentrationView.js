@@ -43,7 +43,7 @@ define( function( require ) {
   function ConcentrationView( model, mvt ) {
 
     var thisView = this;
-    TabView.call( thisView );
+    TabView.call( thisView, { renderer: 'svg' } );
 
     // Beaker and stuff inside it
     var beakerNode = new BeakerNode( model.beaker, mvt );

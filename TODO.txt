@@ -8,7 +8,6 @@ BUGS
 - Desktop: HTMLText dragging lags on Mac+Firefox, eg label on shaker (joist#5)
 
 HIGH
-- text quality issues, try SVG (beers-law-lab#1, scenery#78)
 - draw shaker particles directly to Canvas
 
 MEDIUM
