@@ -101,7 +101,6 @@ define( function( require ) {
     thisView.addChild( dropperNode );
     thisView.addChild( concentrationMeterNode );
     thisView.addChild( evaporationControl );
-    // Add anything containing interactive DOM elements last, or they will not receive events.
     thisView.addChild( removeSoluteButton );
     thisView.addChild( resetAllButton );
     thisView.addChild( soluteControls );
