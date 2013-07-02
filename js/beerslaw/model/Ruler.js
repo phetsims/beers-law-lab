@@ -23,8 +23,7 @@ define( function( require ) {
    */
   function Ruler( length, insets, height, location, dragBounds ) {
 
-    var thisRuler = this;
-    Movable.call( thisRuler, location, dragBounds );
+    Movable.call( this, location, dragBounds );
 
     this.length = length;
     this.insets = insets;
