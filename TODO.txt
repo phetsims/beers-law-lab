@@ -14,6 +14,8 @@ HIGH
 - feedback for "Reset All" button
 
 MEDIUM
+- round corners on faucet part that the shaft fits into
+- fix symmetry problem in faucet flange and knob
 - use the correct font family in BLLFont
 - draw shaker particles directly to Canvas
 - use Sim.animationLoop for ArrowButton "press and hold" feature
