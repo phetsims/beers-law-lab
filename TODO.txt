@@ -8,9 +8,15 @@ BUGS
 - Desktop: HTMLText dragging lags on Mac+Firefox, eg label on shaker (joist#5)
 
 HIGH
-- draw shaker particles directly to Canvas
+- use the correct font family in BLLFont
+- highlight faucet knob on mouseOver
+- highlight dropper button on mouseOver
+- highlight light button on mouseOver
+- use a color for "Remove Solute" button, highlight on mouseOver, saturate on pressed
+- feedback for "Reset All" button
 
 MEDIUM
+- draw shaker particles directly to Canvas
 - use Sim.animationLoop for ArrowButton "press and hold" feature
 
 LOW
