@@ -7,9 +7,6 @@ BUGS
 - Nexus7: crashing after switching tabs?
 
 HIGH
-- highlight faucet knob on mouseOver
-- highlight dropper button on mouseOver
-- highlight light button on mouseOver
 - use a color for "Remove Solute" button, highlight on mouseOver, saturate on pressed
 - feedback for "Reset All" button
 
