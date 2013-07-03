@@ -82,13 +82,13 @@ define( function( require ) {
     shooterNode.addChild( flangeDisabledNode );
     shooterNode.addChild( knobNode );
     shooterNode.addChild( knobDisabledNode );
-    stopNode.x = shaftNode.x + 12; //TODO this overlap depends on knob scale
+    stopNode.x = shaftNode.x + 12;
     stopNode.centerY = shaftNode.centerY;
     flangeNode.left = shaftNode.right;
     flangeNode.centerY = shaftNode.centerY;
     flangeDisabledNode.x = flangeNode.x;
     flangeDisabledNode.y = flangeNode.y;
-    knobNode.left = flangeNode.right - 8;
+    knobNode.left = flangeNode.right - 8; //TODO this overlap depends on knob scale
     knobNode.centerY = flangeNode.centerY;
     knobDisabledNode.x = knobNode.x;
     knobDisabledNode.y = knobNode.y;
