@@ -85,7 +85,7 @@ define( function( require ) {
     stopNode.x = shaftNode.x + 12;
     stopNode.centerY = shaftNode.centerY;
     flangeNode.left = shaftNode.right;
-    flangeNode.centerY = shaftNode.centerY + 1; //TODO this +1 should not be needed, image file is off
+    flangeNode.centerY = shaftNode.centerY;
     flangeDisabledNode.x = flangeNode.x;
     flangeDisabledNode.y = flangeNode.y;
     knobNode.left = flangeNode.right - 8;
