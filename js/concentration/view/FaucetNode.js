@@ -37,7 +37,7 @@ define( function( require ) {
   var PIPE_Y_OFFSET = 31; // y-offset of pipe in spout image
   var SHOOTER_MIN_X_OFFSET = 4; // x-offset of shooter's off position in spout image
   var SHOOTER_MAX_X_OFFSET = 66; // x-offset of shooter's full-on position in spout image
-  var SHOOTER_Y_OFFSET = 16; // y-offset of shooter's centerY in spout image
+  var SHOOTER_Y_OFFSET = 17; // y-offset of shooter's centerY in spout image
   var PIPE_X_OVERLAP = 1; // overlap between pipe and spout, so vertical seam is not visible
   var SHOOTER_WINDOW_BOUNDS = new Bounds2( 10, 10, 90, 25 ); // bounds of the window in the spout image, through which you see the shooter handle
 
@@ -85,7 +85,7 @@ define( function( require ) {
     stopNode.x = shaftNode.x + 12;
     stopNode.centerY = shaftNode.centerY;
     flangeNode.left = shaftNode.right;
-    flangeNode.centerY = shaftNode.centerY + 1;
+    flangeNode.centerY = shaftNode.centerY + 1; //TODO this +1 should not be needed, image file is off
     flangeDisabledNode.x = flangeNode.x;
     flangeDisabledNode.y = flangeNode.y;
     knobNode.left = flangeNode.right - 8;
