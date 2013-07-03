@@ -48,7 +48,7 @@ define( function( require ) {
     slider.centerY = label.centerY;
 
     PanelNode.call( thisControl, content,
-      { xMargin: 20, yMargin: 10, fill: "#F0F0F0", stroke: "gray", lineWidth: 1, resize: false } );
+      { xMargin: 15, yMargin: 8, fill: "#F0F0F0", stroke: "gray", lineWidth: 1, resize: false } );
   }
 
   inherit( PanelNode, EvaporationControl );

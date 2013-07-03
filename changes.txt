@@ -1,3 +1,4 @@
+7/3/13 adjust margins and spacing of control panels
 7/2/13 new faucet_spout.png, to match color of faucet_pipe.png
 7/2/13 switch to svg renderer to improve text quality
 # 0.0.0-11 7/1/13

@@ -34,10 +34,10 @@ define( function( require ) {
 
     // layout
     concentrationControl.left = comboBox.left;
-    concentrationControl.top = comboBox.bottom + 20;
+    concentrationControl.top = comboBox.bottom + 15;
 
     PanelNode.call( this, contentNode,
-      { xMargin: 20, yMargin: 20, fill: "#F0F0F0", stroke: "gray", lineWidth: 1, resize: false } );
+      { xMargin: 15, yMargin: 15, fill: "#F0F0F0", stroke: "gray", lineWidth: 1, resize: false } );
   }
 
   inherit( PanelNode, SolutionControls );
