@@ -5,7 +5,6 @@ DESIGN ISSUES
 BUGS
 - Safari 5: text bounds are wrong, text is small (scenery#61)
 - Nexus7: crashing after switching tabs?
-- Desktop: HTMLText dragging lags on Mac+Firefox, eg label on shaker (joist#5)
 
 HIGH
 - use the correct font family in BLLFont
