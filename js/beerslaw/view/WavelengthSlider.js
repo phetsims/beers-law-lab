@@ -13,7 +13,6 @@ define( function( require ) {
   var assert = require( "ASSERT/assert" )( "beers-law-lab" );
   var BLLFont = require( "common/BLLFont" );
   var BLLStrings = require( "common/BLLStrings" );
-  var Button = require( "SUN/Button" );
   var Dimension2 = require( "DOT/Dimension2" );
   var Image = require( "SCENERY/nodes/Image" );
   var inherit = require( "PHET_CORE/inherit" );
