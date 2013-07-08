@@ -11,7 +11,7 @@ define( function( require ) {
   // imports
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
-  var PanelNode = require( "SUN/PanelNode" );
+  var Panel = require( "SUN/Panel" );
   var SoluteComboBox = require( "concentration/view/SoluteComboBox" );
   var SoluteFormNode = require( "concentration/view/SoluteFormNode" );
 
@@ -39,11 +39,11 @@ define( function( require ) {
     soluteFormNode.left = soluteComboBox.left;
     soluteFormNode.top = soluteComboBox.bottom + 15;
 
-    PanelNode.call( this, contentNode,
+    Panel.call( this, contentNode,
       { xMargin: 15, yMargin: 15, fill: "#F0F0F0", stroke: "gray", lineWidth: 1 } );
   }
 
-  inherit( PanelNode, SoluteControlsNode );
+  inherit( Panel, SoluteControlsNode );
 
   return SoluteControlsNode;
 } );

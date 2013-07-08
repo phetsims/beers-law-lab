@@ -14,7 +14,7 @@ define( function( require ) {
   var Dimension2 = require( "DOT/Dimension2" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
-  var PanelNode = require( "SUN/PanelNode" );
+  var Panel = require( "SUN/Panel" );
   var Property = require( "AXON/Property" );
   var RadioButton = require( "SUN/RadioButton" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
@@ -71,7 +71,7 @@ define( function( require ) {
     wavelengthSlider.left = presetRadioButton.left;
     wavelengthSlider.top = presetRadioButton.bottom + ySpacing;
 
-    PanelNode.call( thisNode, content,
+    Panel.call( thisNode, content,
       { xMargin: 20, yMargin: 20, fill: "#F0F0F0", stroke: "gray", lineWidth: 1 } );
 
     // When the radio button selection changes...
@@ -99,7 +99,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( PanelNode, WavelengthControls, {
+  inherit( Panel, WavelengthControls, {
     formatWavelength: function( wavelength ) {
       return StringUtils.format( BLLStrings.pattern_0value_1units, wavelength.toFixed( 0 ), BLLStrings.units_nm );
     }

@@ -14,7 +14,7 @@ define( function( require ) {
   var Dimension2 = require( "DOT/Dimension2" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
-  var PanelNode = require( "SUN/PanelNode" );
+  var Panel = require( "SUN/Panel" );
   var Range = require( "DOT/Range" );
   var EvaporationSlider = require( "concentration/view/EvaporationSlider" );
   var StringUtils = require( "PHETCOMMON/util/StringUtils" );
@@ -47,11 +47,11 @@ define( function( require ) {
     slider.left = label.right + 10;
     slider.centerY = label.centerY;
 
-    PanelNode.call( thisControl, content,
+    Panel.call( thisControl, content,
       { xMargin: 15, yMargin: 8, fill: "#F0F0F0", stroke: "gray", lineWidth: 1, resize: false } );
   }
 
-  inherit( PanelNode, EvaporationControl );
+  inherit( Panel, EvaporationControl );
 
   return EvaporationControl;
 } );

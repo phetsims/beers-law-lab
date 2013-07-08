@@ -12,7 +12,7 @@ define( function( require ) {
   var ConcentrationControl = require( "beerslaw/view/ConcentrationControl" );
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
-  var PanelNode = require( "SUN/PanelNode" );
+  var Panel = require( "SUN/Panel" );
   var SolutionComboBox = require( "beerslaw/view/SolutionComboBox" );
 
   /**
@@ -36,11 +36,11 @@ define( function( require ) {
     concentrationControl.left = comboBox.left;
     concentrationControl.top = comboBox.bottom + 15;
 
-    PanelNode.call( this, contentNode,
+    Panel.call( this, contentNode,
       { xMargin: 15, yMargin: 15, fill: "#F0F0F0", stroke: "gray", lineWidth: 1, resize: false } );
   }
 
-  inherit( PanelNode, SolutionControls );
+  inherit( Panel, SolutionControls );
 
   return SolutionControls;
 } );
