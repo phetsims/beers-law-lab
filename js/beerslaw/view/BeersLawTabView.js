@@ -68,7 +68,7 @@ define( function( require ) {
       wavelengthControls.top = lightNode.bottom + 20;
       // below cuvette
       solutionControls.left = cuvetteNode.left;
-      solutionControls.top = cuvetteNode.bottom + 35;
+      solutionControls.top = cuvetteNode.bottom + 60;
       // bottom left
       resetAllButton.left = solutionControls.right + 20;
       resetAllButton.bottom = solutionControls.bottom;

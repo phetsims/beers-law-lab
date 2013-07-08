@@ -11,7 +11,6 @@ HIGH
 - feedback for "Reset All" button
 
 MEDIUM
-- change layout so that there is space for ruler below beaker
 - round corners on faucet part that the shaft fits into
 - fix symmetry problem in faucet flange and knob
 - use the correct font family in BLLFont
