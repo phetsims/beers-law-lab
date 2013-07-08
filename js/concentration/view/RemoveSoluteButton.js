@@ -27,11 +27,15 @@ define( function( require ) {
 
     Button.call( thisButton, textNode, function() {
       solution.soluteAmount.set( 0 );
-    }, { xMargin: 10 } );
+    }, {
+      xMargin: 10,
+      disabledFill: 'white'
+    } );
 
     // change the text fill to indicate whether the button is enabled
     solution.soluteAmount.link( function( soluteAmount ) {
       var enabled = ( soluteAmount > 0 );
+      thisButton.enabled = enabled;
       textNode.fill = enabled ? "black" : "rgb(175,175,175)";
       thisButton.pickable = enabled; //TODO workaround for lack of Button.enabled
     } );

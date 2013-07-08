@@ -1,3 +1,4 @@
+7/7/13 gray out the outline of the "Remove Solute" button when it's disabled, now supported by sun
 # 0.0.0-12 7/7/13
 7/7/13 reduce timer delay from 500 to 400 ms for arrow buttons
 7/7/13 change layout so that there is space for ruler below beaker
