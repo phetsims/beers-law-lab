@@ -16,7 +16,7 @@ define( function( require ) {
   var inherit = require( "PHET_CORE/inherit" );
   var Node = require( "SCENERY/nodes/Node" );
   var Property = require( "AXON/Property" );
-  var RadioButton = require( "SUN/RadioButton" );
+  var AquaRadioButton = require( "SUN/AquaRadioButton" );
   var Text = require( "SCENERY/nodes/Text" );
 
   /**
@@ -49,8 +49,8 @@ define( function( require ) {
 
     var TEXT_OPTIONS = { font: new BLLFont( 22 ), fill: "black" };
     var X_SPACING = 10;
-    var shakerButton = new RadioButton( shaker.visible, true, new TextAndIconNode( BLLStrings.solid, TEXT_OPTIONS, BLLImages.getImage( "shaker-icon.png" ), X_SPACING ) );
-    var dropperButton = new RadioButton( dropper.visible, true, new TextAndIconNode( BLLStrings.solution, TEXT_OPTIONS, BLLImages.getImage( "dropper-icon.png" ), X_SPACING ) );
+    var shakerButton = new AquaRadioButton( shaker.visible, true, new TextAndIconNode( BLLStrings.solid, TEXT_OPTIONS, BLLImages.getImage( "shaker-icon.png" ), X_SPACING ) );
+    var dropperButton = new AquaRadioButton( dropper.visible, true, new TextAndIconNode( BLLStrings.solution, TEXT_OPTIONS, BLLImages.getImage( "dropper-icon.png" ), X_SPACING ) );
 
     // rendering order
     this.addChild( shakerButton );

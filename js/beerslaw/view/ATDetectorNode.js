@@ -19,7 +19,7 @@ define( function( require ) {
   var MovableDragHandler = require( "common/view/MovableDragHandler" );
   var Node = require( "SCENERY/nodes/Node" );
   var Path = require( "SCENERY/nodes/Path" );
-  var RadioButton = require( "SUN/RadioButton" );
+  var AquaRadioButton = require( "SUN/AquaRadioButton" );
   var Shape = require( "KITE/Shape" );
   var StringUtils = require( "PHETCOMMON/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
@@ -51,8 +51,8 @@ define( function( require ) {
 
     // buttons for changing the detector "mode"
     var textOptions = { font: new BLLFont( 18 ), fill: "white" };
-    var transmittanceButton = new RadioButton( detector.mode, ATDetector.Mode.TRANSMITTANCE, new Text( BLLStrings.transmittance, textOptions ) );
-    var absorbanceButton = new RadioButton( detector.mode, ATDetector.Mode.ABSORBANCE, new Text( BLLStrings.absorbance, textOptions ) );
+    var transmittanceButton = new AquaRadioButton( detector.mode, ATDetector.Mode.TRANSMITTANCE, new Text( BLLStrings.transmittance, textOptions ) );
+    var absorbanceButton = new AquaRadioButton( detector.mode, ATDetector.Mode.ABSORBANCE, new Text( BLLStrings.absorbance, textOptions ) );
 
     // group the buttons
     var buttonGroup = new Node();

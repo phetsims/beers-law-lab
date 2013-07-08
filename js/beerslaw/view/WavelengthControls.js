@@ -16,7 +16,7 @@ define( function( require ) {
   var Node = require( "SCENERY/nodes/Node" );
   var Panel = require( "SUN/Panel" );
   var Property = require( "AXON/Property" );
-  var RadioButton = require( "SUN/RadioButton" );
+  var AquaRadioButton = require( "SUN/AquaRadioButton" );
   var Rectangle = require( "SCENERY/nodes/Rectangle" );
   var StringUtils = require( "PHETCOMMON/util/StringUtils" );
   var Text = require( "SCENERY/nodes/Text" );
@@ -40,8 +40,8 @@ define( function( require ) {
     var yMargin = 0.1 * valueDisplay.height;
     var valueBackground = new Rectangle( 0, 0, valueDisplay.width + xMargin + xMargin, valueDisplay.height + yMargin + yMargin,
       { fill: "white", stroke: "lightGray" } );
-    var presetRadioButton = new RadioButton( variableWavelength, false, new Text( BLLStrings.preset, { font: new BLLFont( 18 ), fill: "black" } ) );
-    var variableRadioButton = new RadioButton( variableWavelength, true, new Text( BLLStrings.variable, { font: new BLLFont( 18 ), fill: "black" } ) );
+    var presetRadioButton = new AquaRadioButton( variableWavelength, false, new Text( BLLStrings.preset, { font: new BLLFont( 18 ), fill: "black" } ) );
+    var variableRadioButton = new AquaRadioButton( variableWavelength, true, new Text( BLLStrings.variable, { font: new BLLFont( 18 ), fill: "black" } ) );
     var wavelengthSlider = new WavelengthSlider( light.wavelength, { trackWidth: 150, trackHeight: 30 } );
 
     // rendering order
