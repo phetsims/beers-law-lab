@@ -46,7 +46,7 @@ define( function( require ) {
         disabledFill: 'rgb(175,175,175)',
         enabledStroke: 'black',
         disabledStroke: 'rgb(175,175,175)',
-        timerDelay: 500, // start to fire continuously after pressing for this long (milliseconds)
+        timerDelay: 400, // start to fire continuously after pressing for this long (milliseconds)
         intervalDelay: 100 // fire continuously at this frequency (milliseconds)
       },
       options );
