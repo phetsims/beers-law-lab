@@ -7,6 +7,7 @@ BUGS
 - Nexus7: crashing after switching tabs?
 
 HIGH
+- get new faucet_pipe.png, the old one doesn't line up
 - use a color for "Remove Solute" button, highlight on mouseOver, saturate on pressed
 - feedback for "Reset All" button
 
