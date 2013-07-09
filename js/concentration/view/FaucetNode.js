@@ -34,10 +34,10 @@ define( function( require ) {
   // constants
   var DEBUG_ORIGIN = false;
   var SPOUT_OUTPUT_CENTER_X = 112; // center of spout, determined by inspecting image file
-  var PIPE_Y_OFFSET = 31; // y-offset of pipe in spout image
+  var PIPE_Y_OFFSET = 29; // y-offset of pipe in spout image
   var SHOOTER_MIN_X_OFFSET = 4; // x-offset of shooter's off position in spout image
   var SHOOTER_MAX_X_OFFSET = 66; // x-offset of shooter's full-on position in spout image
-  var SHOOTER_Y_OFFSET = 17; // y-offset of shooter's centerY in spout image
+  var SHOOTER_Y_OFFSET = 15; // y-offset of shooter's centerY in spout image
   var PIPE_X_OVERLAP = 1; // overlap between pipe and spout, so vertical seam is not visible
   var SHOOTER_WINDOW_BOUNDS = new Bounds2( 10, 10, 90, 25 ); // bounds of the window in the spout image, through which you see the shooter handle
 

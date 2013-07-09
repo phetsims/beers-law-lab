@@ -1,7 +1,8 @@
-7/7/13 gray out the outline of the "Remove Solute" button when it's disabled, now supported by sun
-# 0.0.0-12 7/7/13
-7/7/13 reduce timer delay from 500 to 400 ms for arrow buttons
-7/7/13 change layout so that there is space for ruler below beaker
+7/9/13 move drain faucet down, so that it's flush with bottom of beaker
+7/8/13 gray out the outline of the "Remove Solute" button when it's disabled, now supported by sun
+# 0.0.0-12 7/8/13
+7/8/13 reduce timer delay from 500 to 400 ms for arrow buttons
+7/8/13 change layout so that there is space for ruler below beaker
 7/3/13 new "stop" image for faucet (faucet_stop.png)
 7/3/13 adjust margins and spacing of control panels
 7/2/13 new faucet_spout.png, to match color of faucet_pipe.png
