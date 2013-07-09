@@ -11,7 +11,7 @@ define( function( require ) {
   // imports
   var BLLFont = require( "common/BLLFont" );
   var BLLStrings = require( "common/BLLStrings" );
-  var Button = require( "SUN/Button" );
+  var RectangleButton = require( "SUN/RectangleButton" );
   var inherit = require( "PHET_CORE/inherit" );
   var Text = require( "SCENERY/nodes/Text" );
 
@@ -25,7 +25,7 @@ define( function( require ) {
 
     var textNode = new Text( BLLStrings.removeSolute, { font: new BLLFont( 22 ) } );
 
-    Button.call( thisButton, textNode, function() {
+    RectangleButton.call( thisButton, textNode, function() {
       solution.soluteAmount.set( 0 );
     }, {
       xMargin: 10,
@@ -41,7 +41,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( Button, RemoveSoluteButton );
+  inherit( RectangleButton, RemoveSoluteButton );
 
   return RemoveSoluteButton;
 } );

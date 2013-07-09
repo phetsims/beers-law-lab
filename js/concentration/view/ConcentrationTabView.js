@@ -11,7 +11,6 @@ define( function( require ) {
   // imports
   var BeakerNode = require( "concentration/view/BeakerNode" );
   var Bounds2 = require( "DOT/Bounds2" );
-  var Button = require( "SUN/Button" );
   var ConcentrationMeterNode = require( "concentration/view/ConcentrationMeterNode" );
   var DOM = require( "SCENERY/nodes/DOM" );
   var Dimension2 = require( "DOT/Dimension2" );
@@ -127,6 +126,33 @@ define( function( require ) {
       resetAllButton.left = drainFaucetNode.right + 10;
       resetAllButton.top = drainFaucetNode.bottom + 5;
     }
+
+//    var Rectangle = require( "SCENERY/nodes/Rectangle" );
+//    var button = new Rectangle( 0, 0, 200, 100, { fill: 'red', x: 25, y: 25 } );
+//    thisView.addChild( button );
+//    var ButtonListener = require( "SCENERY/input/ButtonListener" );
+//    button.addInputListener( new ButtonListener( {
+//
+//        up: function( event, oldState ) {
+//           console.log( "up oldState=" + oldState );
+//        },
+//
+//        over: function( event, oldState ) {
+//          console.log( "over oldState=" + oldState );
+//        },
+//
+//        down: function( event, oldState ) {
+//          console.log( "down oldState=" + oldState );
+//        },
+//
+//        out: function( event, oldState ) {
+//          console.log( "out oldState=" + oldState );
+//        },
+//
+//        fire: function( event ) {
+//          console.log( "fire" );
+//        }
+//    } ) );
   }
 
   inherit( TabView, ConcentrationView, { layoutBounds: new Bounds2( 0, 0, 1024, 700 ) } );

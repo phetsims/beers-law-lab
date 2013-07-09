@@ -12,7 +12,6 @@ define( function( require ) {
   // imports
   var ArrowButton = require( "common/view/ArrowButton" );
   var BLLFont = require( "common/BLLFont" );
-  var Button = require( "SUN/Button" );
   var Color = require( "SCENERY/util/Color" );
   var Dimension2 = require( "DOT/Dimension2" );
   var FillHighlightListener = require( "SCENERY_PHET/input/FillHighlightListener" );
