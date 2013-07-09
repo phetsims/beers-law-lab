@@ -11,9 +11,8 @@ define( function( require ) {
   // imports
   var BLLFont = require( "common/BLLFont" );
   var BLLStrings = require( "common/BLLStrings" );
-  var RectangleButton = require( "SUN/RectangleButton" );
   var inherit = require( "PHET_CORE/inherit" );
-  var Text = require( "SCENERY/nodes/Text" );
+  var TextButton = require( "SUN/TextButton" );
 
   /**
    * @param {ConcentrationSolution} solution
@@ -23,25 +22,23 @@ define( function( require ) {
 
     var thisButton = this;
 
-    var textNode = new Text( BLLStrings.removeSolute, { font: new BLLFont( 22 ) } );
-
-    RectangleButton.call( thisButton, textNode, function() {
+    TextButton.call( thisButton, BLLStrings.removeSolute, function() {
       solution.soluteAmount.set( 0 );
     }, {
-      xMargin: 10,
-      disabledFill: 'white'
+      font: new BLLFont( 22 ),
+      textFill: "black",
+      textFillDisabled: "rgb(175,175,175)",
+      rectangleXMargin: 10,
+      rectangleFillDisabled: "white"
     } );
 
     // change the text fill to indicate whether the button is enabled
     solution.soluteAmount.link( function( soluteAmount ) {
-      var enabled = ( soluteAmount > 0 );
-      thisButton.enabled = enabled;
-      textNode.fill = enabled ? "black" : "rgb(175,175,175)";
-      thisButton.pickable = enabled; //TODO workaround for lack of Button.enabled
+      thisButton.enabled = ( soluteAmount > 0 );
     } );
   }
 
-  inherit( RectangleButton, RemoveSoluteButton );
+  inherit( TextButton, RemoveSoluteButton );
 
   return RemoveSoluteButton;
 } );
