@@ -7,7 +7,6 @@ BUGS
 
 HIGH
 - drain pipe doesn't line up with spout (water faucet is ok)
-- use a color for "Remove Solute" button, highlight on mouseOver, saturate on pressed
 - feedback for "Reset All" button
 
 MEDIUM

@@ -28,6 +28,7 @@ define( function( require ) {
       font: new BLLFont( 22 ),
       textFill: "black",
       textFillDisabled: "rgb(175,175,175)",
+      rectangleFill: "orange",
       rectangleXMargin: 10,
       rectangleFillDisabled: "white"
     } );
