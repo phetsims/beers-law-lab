@@ -4,10 +4,9 @@ DESIGN ISSUES
 
 BUGS
 - Safari 5: text bounds are wrong, text is small (scenery#61)
-- Nexus7: crashing after switching tabs?
 
 HIGH
-- get new faucet_pipe.png, the old one doesn't line up
+- drain pipe doesn't line up with spout (water faucet is ok)
 - use a color for "Remove Solute" button, highlight on mouseOver, saturate on pressed
 - feedback for "Reset All" button
 

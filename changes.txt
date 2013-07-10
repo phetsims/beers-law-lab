@@ -1,3 +1,4 @@
+7/10/13 tested thoroughly on Nexus7, working well, performance OK, no longer seems to be hanging when switching tabs
 7/10/13 new faucet images for spout and pipe
 7/9/13 integrate new faucet images (pipe missing)
 7/9/13 move drain faucet down, so that it's flush with bottom of beaker
