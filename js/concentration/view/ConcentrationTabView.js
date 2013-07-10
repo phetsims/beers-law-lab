@@ -92,7 +92,7 @@ define( function( require ) {
     thisView.addChild( drainFaucetNode );
     thisView.addChild( stockSolutionNode );
     thisView.addChild( solutionNode );
-    thisView.addChild( beakerNode.mutate( { layerSplit: true } ) ); //TODO experiment with putting static nodes in their own layer
+    thisView.addChild( beakerNode.mutate( { layerSplit: true } ) ); // beaker is static, put in its own layer
     thisView.addChild( precipitateNode );
     thisView.addChild( saturatedIndicator );
     thisView.addChild( shakerParticlesNode );
@@ -126,33 +126,6 @@ define( function( require ) {
       resetAllButton.left = drainFaucetNode.right + 10;
       resetAllButton.top = drainFaucetNode.bottom + 5;
     }
-
-//    var Rectangle = require( "SCENERY/nodes/Rectangle" );
-//    var button = new Rectangle( 0, 0, 200, 100, { fill: 'red', x: 25, y: 25 } );
-//    thisView.addChild( button );
-//    var ButtonListener = require( "SCENERY/input/ButtonListener" );
-//    button.addInputListener( new ButtonListener( {
-//
-//        up: function( event, oldState ) {
-//           console.log( "up oldState=" + oldState );
-//        },
-//
-//        over: function( event, oldState ) {
-//          console.log( "over oldState=" + oldState );
-//        },
-//
-//        down: function( event, oldState ) {
-//          console.log( "down oldState=" + oldState );
-//        },
-//
-//        out: function( event, oldState ) {
-//          console.log( "out oldState=" + oldState );
-//        },
-//
-//        fire: function( event ) {
-//          console.log( "fire" );
-//        }
-//    } ) );
   }
 
   inherit( TabView, ConcentrationView, { layoutBounds: new Bounds2( 0, 0, 1024, 700 ) } );
