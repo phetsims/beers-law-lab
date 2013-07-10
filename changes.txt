@@ -1,4 +1,5 @@
-7/9/13 integrate new faucet images
+7/10/13 new faucet images for spout and pipe
+7/9/13 integrate new faucet images (pipe missing)
 7/9/13 move drain faucet down, so that it's flush with bottom of beaker
 7/8/13 gray out the outline of the "Remove Solute" button when it's disabled, now supported by sun
 # 0.0.0-12 7/8/13
