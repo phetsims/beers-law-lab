@@ -7,11 +7,9 @@ BUGS
 
 HIGH
 - drain pipe doesn't line up with spout (water faucet is ok)
-- feedback for "Reset All" button
 
 MEDIUM
 - use the correct font family in BLLFont
-- use Sim.animationLoop for ArrowButton "press and hold" feature
 
 LOW
 - icons for homescreen and navbar
