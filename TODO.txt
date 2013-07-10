@@ -12,7 +12,6 @@ HIGH
 
 MEDIUM
 - use the correct font family in BLLFont
-- draw shaker particles directly to Canvas
 - use Sim.animationLoop for ArrowButton "press and hold" feature
 
 LOW
