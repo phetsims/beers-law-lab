@@ -6,12 +6,12 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var assert = require( "ASSERT/assert" )( "beers-law-lab" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Movable = require( "common/model/Movable" );
+  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Movable = require( 'common/model/Movable' );
 
   /**
    * @param {Number} length cm

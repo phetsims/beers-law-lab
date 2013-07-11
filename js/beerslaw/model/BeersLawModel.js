@@ -1,25 +1,25 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Model container for the "Beer's Law" tab.
+ * Model container for the 'Beer's Law' tab.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var Absorbance = require( "beerslaw/model/Absorbance" );
-  var ATDetector = require( "beerslaw/model/ATDetector" );
-  var Beam = require( "beerslaw/model/Beam" );
-  var BeersLawSolution = require( "beerslaw/model/BeersLawSolution" );
-  var Bounds2 = require( "DOT/Bounds2" );
-  var Cuvette = require( "beerslaw/model/Cuvette" );
-  var Light = require( "beerslaw/model/Light" );
-  var Property = require( "AXON/Property" );
-  var Range = require( "DOT/Range" );
-  var Ruler = require( "beerslaw/model/Ruler" );
-  var Vector2 = require( "DOT/Vector2" );
+  var Absorbance = require( 'beerslaw/model/Absorbance' );
+  var ATDetector = require( 'beerslaw/model/ATDetector' );
+  var Beam = require( 'beerslaw/model/Beam' );
+  var BeersLawSolution = require( 'beerslaw/model/BeersLawSolution' );
+  var Bounds2 = require( 'DOT/Bounds2' );
+  var Cuvette = require( 'beerslaw/model/Cuvette' );
+  var Light = require( 'beerslaw/model/Light' );
+  var Property = require( 'AXON/Property' );
+  var Range = require( 'DOT/Range' );
+  var Ruler = require( 'beerslaw/model/Ruler' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   /**
    * @param {ModelViewTransform2} mvt

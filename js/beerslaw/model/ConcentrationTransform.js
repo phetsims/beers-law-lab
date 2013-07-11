@@ -13,10 +13,10 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var BLLStrings = require( "common/BLLStrings" );
+  var BLLStrings = require( 'common/BLLStrings' );
 
   /**
    * @param {Number} scale scale factor used to convert model units (Moles, M) to view units

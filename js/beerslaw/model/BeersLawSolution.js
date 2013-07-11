@@ -12,20 +12,20 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var BLLStrings = require( "common/BLLStrings" );
-  var BLLSymbols = require( "common/BLLSymbols" );
-  var Color = require( "SCENERY/util/Color" );
-  var ColorRange = require( "common/model/ColorRange" );
-  var ConcentrationTransform = require( "beerslaw/model/ConcentrationTransform" );
-  var MolarAbsorptivityData = require( "beerslaw/model/MolarAbsorptivityData" );
-  var Property = require( "AXON/Property" );
-  var Range = require( "DOT/Range" );
-  var Solvent = require( "common/model/Solvent" );
-  var StringUtils = require( "PHETCOMMON/util/StringUtils" );
-  var Util = require( "DOT/Util" );
+  var BLLStrings = require( 'common/BLLStrings' );
+  var BLLSymbols = require( 'common/BLLSymbols' );
+  var Color = require( 'SCENERY/util/Color' );
+  var ColorRange = require( 'common/model/ColorRange' );
+  var ConcentrationTransform = require( 'beerslaw/model/ConcentrationTransform' );
+  var MolarAbsorptivityData = require( 'beerslaw/model/MolarAbsorptivityData' );
+  var Property = require( 'AXON/Property' );
+  var Range = require( 'DOT/Range' );
+  var Solvent = require( 'common/model/Solvent' );
+  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var Util = require( 'DOT/Util' );
 
   /**
    * @param {String} name

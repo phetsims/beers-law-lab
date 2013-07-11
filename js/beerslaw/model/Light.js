@@ -7,10 +7,10 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var Property = require( "AXON/Property" );
+  var Property = require( 'AXON/Property' );
 
   /**
    * @param {Vector2} location cm

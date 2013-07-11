@@ -9,11 +9,11 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var assert = require( "ASSERT/assert" )( "beers-law-lab" );
-  var VisibleColor = require( "common/util/VisibleColor" );
+  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
+  var VisibleColor = require( 'common/util/VisibleColor' );
 
   /**
    * @param {Array<Number>} molarAbsorptivity

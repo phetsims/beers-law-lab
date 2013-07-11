@@ -7,12 +7,12 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var inherit = require( "PHET_CORE/inherit" );
-  var Movable = require( "common/model/Movable" );
-  var Property = require( "AXON/Property" );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Movable = require( 'common/model/Movable' );
+  var Property = require( 'AXON/Property' );
 
   /**
    * The probe, whose position indicates where the measurement is being made.
@@ -107,8 +107,8 @@ define( function( require ) {
 
   // Modes for the detector
   ATDetector.Mode = {
-    "TRANSMITTANCE": 0,
-    "ABSORBANCE": 1
+    'TRANSMITTANCE': 0,
+    'ABSORBANCE': 1
   };
 
   return ATDetector;
