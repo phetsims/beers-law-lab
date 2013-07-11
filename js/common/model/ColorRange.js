@@ -6,11 +6,11 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var assert = require( "ASSERT/assert" )( "beers-law-lab" );
-  var Color = require( "SCENERY/util/Color" );
+  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
+  var Color = require( 'SCENERY/util/Color' );
 
   /**
    * @param {Color} min

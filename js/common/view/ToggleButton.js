@@ -2,19 +2,19 @@
 
 /**
  * A toggle button changes it's on/off state when pressed.
- * Can optionally be configured as a "momentary" button, which is on while pressed, off when released.
+ * Can optionally be configured as a 'momentary' button, which is on while pressed, off when released.
  * Origin is at the upper-left of the bounding rectangle.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var ButtonListener = require( "SCENERY/input/ButtonListener" );
-  var Image = require( "SCENERY/nodes/Image" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Node = require( "SCENERY/nodes/Node" );
+  var ButtonListener = require( 'SCENERY/input/ButtonListener' );
+  var Image = require( 'SCENERY/nodes/Image' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
 
   /**
    * @param unpressedImage
@@ -44,11 +44,11 @@ define( function( require ) {
     enabled.link( function( enabled ) {
       if ( enabled ) {
         imageNode.setImage( on.get() ? pressedImage : unpressedImage );
-        thisButton.cursor = "pointer";
+        thisButton.cursor = 'pointer';
       }
       else {
         imageNode.setImage( disabledImage );
-        thisButton.cursor = "default";
+        thisButton.cursor = 'default';
       }
     } );
 

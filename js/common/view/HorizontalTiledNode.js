@@ -2,19 +2,19 @@
 
 /**
  * A node that is created for a specific width by horizontally tiling a set of nodes.
- * The left and right nodes can be thought of as "book ends", with the center node tiled to fill the space in the middle.
+ * The left and right nodes can be thought of as 'book ends', with the center node tiled to fill the space in the middle.
  * This allows us to create (for example) control panels that have 3D-looking backgrounds, but can adjust to fit i18n.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var assert = require( "ASSERT/assert" )( "beers-law-lab" );
-  var Image = require( "SCENERY/nodes/Image" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Node = require( "SCENERY/nodes/Node" );
+  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
+  var Image = require( 'SCENERY/nodes/Image' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
 
   // constants
   var X_OVERLAP = 1; // overlap between tiles, to hide seams

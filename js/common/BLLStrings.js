@@ -7,6 +7,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
-  return require( "i18n!../../nls/beers-law-lab-strings" );
+  'use strict';
+  return require( 'i18n!../../nls/beers-law-lab-strings' );
 } );

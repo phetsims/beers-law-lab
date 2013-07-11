@@ -74,7 +74,7 @@ define( function( require ) {
     thisButton.touchArea = Shape.rectangle( -dx, -dy, thisButton.width + dx + dx, thisButton.height + dy + dy );
 
     // interactivity
-    thisButton.cursor = "pointer";
+    thisButton.cursor = 'pointer';
     var enabled = true;
     var fired = false;
     var timeoutID = null;

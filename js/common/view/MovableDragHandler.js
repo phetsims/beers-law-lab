@@ -6,12 +6,12 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var inherit = require( "PHET_CORE/inherit" );
-  var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
-  var Vector2 = require( "DOT/Vector2" );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   /**
    * @param {Movable} movable
@@ -22,7 +22,7 @@ define( function( require ) {
   function MovableDragHandler( movable, mvt, options ) {
 
     options = _.extend( {
-      endDrag: function() { /* do nothing */ }  // use this to do things at the end of dragging, like "snapping"
+      endDrag: function() { /* do nothing */ }  // use this to do things at the end of dragging, like 'snapping'
     }, options );
 
     var startOffset; // where the drag started, relative to the movable's origin, in parent view coordinates

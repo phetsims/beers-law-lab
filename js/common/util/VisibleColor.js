@@ -5,11 +5,11 @@
  * If the wavelength is not in the visible spectrum, null is returned.
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var assert = require( "ASSERT/assert" )( "beers-law-lab" );
-  var Color = require( "SCENERY/util/Color" );
+  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
+  var Color = require( 'SCENERY/util/Color' );
 
   var colorTable = []; // populated on demand
 
