@@ -119,7 +119,7 @@ define( function( require ) {
       solutionNode.left = cuvetteNode.left;
       solutionNode.bottom = cuvetteNode.bottom;
       arrowNode.x = cuvetteNode.right;
-      arrowNode.y = 0.85 * cuvetteNode.bottom;
+      arrowNode.bottom = cuvetteNode.bottom - 10;
     } );
 
     // when the fluid color changes ...
