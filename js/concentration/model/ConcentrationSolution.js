@@ -1,22 +1,22 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Solution model for the "Concentration" tab.
+ * Solution model for the 'Concentration' tab.
  * This tab has a single solution that is mutated by changing the solute, solute amount, and volume.
  * Concentration is derived via M=mol/L.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var callSuper = require( "PHET_CORE/callSuper" );
-  var Color = require( "SCENERY/util/Color" );
-  var Fluid = require( "common/model/Fluid" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Property = require( "AXON/Property" );
-  var Solvent = require( "common/model/Solvent" );
+  var callSuper = require( 'PHET_CORE/callSuper' );
+  var Color = require( 'SCENERY/util/Color' );
+  var Fluid = require( 'common/model/Fluid' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Property = require( 'AXON/Property' );
+  var Solvent = require( 'common/model/Solvent' );
 
   /**
    * @param {Property<Solute>} solute
@@ -65,7 +65,7 @@ define( function( require ) {
 
     // reset
     thisSolution.reset = function() {
-      callSuper( Fluid, "reset", this );
+      callSuper( Fluid, 'reset', this );
       thisSolution.soluteAmount.reset();
       thisSolution.volume.reset();
       updateColor(); // because we provided a bogus initial color to Fluid constructor

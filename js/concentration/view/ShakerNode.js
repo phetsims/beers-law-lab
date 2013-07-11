@@ -6,18 +6,18 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var BLLFont = require( "common/BLLFont" );
-  var BLLImages = require( "common/BLLImages" );
-  var Circle = require( "SCENERY/nodes/Circle" );
-  var Image = require( "SCENERY/nodes/Image" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var MovableDragHandler = require( "common/view/MovableDragHandler" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var HTMLText = require( "SCENERY/nodes/HTMLText" );
-  var Vector2 = require( "DOT/Vector2" );
+  var BLLFont = require( 'common/BLLFont' );
+  var BLLImages = require( 'common/BLLImages' );
+  var Circle = require( 'SCENERY/nodes/Circle' );
+  var Image = require( 'SCENERY/nodes/Image' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var MovableDragHandler = require( 'common/view/MovableDragHandler' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var HTMLText = require( 'SCENERY/nodes/HTMLText' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   // constants
   var DEBUG_ORIGIN = false;
@@ -34,11 +34,11 @@ define( function( require ) {
     Node.call( thisNode );
 
     // shaker image
-    var imageNode = new Image( BLLImages.getImage( "shaker.png" ) );
+    var imageNode = new Image( BLLImages.getImage( 'shaker.png' ) );
     imageNode.setScaleMagnitude( 0.75 );
 
     // label
-    var labelNode = new HTMLText( shaker.solute.formula, { font: new BLLFont( 22, "bold" ), fill: "black" } );
+    var labelNode = new HTMLText( shaker.solute.formula, { font: new BLLFont( 22, 'bold' ), fill: 'black' } );
 
     // common parent, to simplify rotation and label alignment.
     var parentNode = new Node();
@@ -76,7 +76,7 @@ define( function( require ) {
     } );
 
     // interactivity
-    thisNode.cursor = "pointer";
+    thisNode.cursor = 'pointer';
     thisNode.addInputListener( new MovableDragHandler( shaker, mvt ) );
   }
 

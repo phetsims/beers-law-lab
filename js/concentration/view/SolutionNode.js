@@ -7,12 +7,12 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var inherit = require( "PHET_CORE/inherit" );
-  var Rectangle = require( "SCENERY/nodes/Rectangle" );
-  var Util = require( "DOT/Util" );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var Util = require( 'DOT/Util' );
 
   // constants
   var MIN_NONZERO_HEIGHT = 5; // minimum height for a solution with non-zero volume, set by visual inspection

@@ -6,13 +6,13 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var BLLFont = require( "common/BLLFont" );
-  var BLLStrings = require( "common/BLLStrings" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var TextButton = require( "SUN/TextButton" );
+  var BLLFont = require( 'common/BLLFont' );
+  var BLLStrings = require( 'common/BLLStrings' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var TextButton = require( 'SUN/TextButton' );
 
   /**
    * @param {ConcentrationSolution} solution
@@ -26,11 +26,11 @@ define( function( require ) {
       solution.soluteAmount.set( 0 );
     }, {
       font: new BLLFont( 22 ),
-      textFill: "black",
-      textFillDisabled: "rgb(175,175,175)",
-      rectangleFill: "orange",
+      textFill: 'black',
+      textFillDisabled: 'rgb(175,175,175)',
+      rectangleFill: 'orange',
       rectangleXMargin: 10,
-      rectangleFillDisabled: "white"
+      rectangleFillDisabled: 'white'
     } );
 
     // change the text fill to indicate whether the button is enabled

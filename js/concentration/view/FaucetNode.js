@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Faucet with a pinball machine "shooter".
+ * Faucet with a pinball machine 'shooter'.
  * Pulling out the shooter changes the flow rate.
  * Releasing the shooter sets the flow rate to zero.
  * When the faucet is disabled, the flow rate is set to zero and the shooter is disabled.
@@ -12,24 +12,24 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var assert = require( "ASSERT/assert" )( "beers-law-lab" );
-  var BLLImages = require( "common/BLLImages" );
-  var Bounds2 = require( "DOT/Bounds2" );
-  var Circle = require( "SCENERY/nodes/Circle" );
-  var Image = require( "SCENERY/nodes/Image" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var LinearFunction = require( "DOT/LinearFunction" );
-  var Matrix3 = require( "DOT/Matrix3" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Pattern = require( "SCENERY/util/Pattern" );
-  var Rectangle = require( "SCENERY/nodes/Rectangle" );
-  var Shape = require( "KITE/Shape" );
-  var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
-  var Transform3 = require( "DOT/Transform3" );
-  var Vector2 = require( "DOT/Vector2" );
+  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
+  var BLLImages = require( 'common/BLLImages' );
+  var Bounds2 = require( 'DOT/Bounds2' );
+  var Circle = require( 'SCENERY/nodes/Circle' );
+  var Image = require( 'SCENERY/nodes/Image' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var LinearFunction = require( 'DOT/LinearFunction' );
+  var Matrix3 = require( 'DOT/Matrix3' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Pattern = require( 'SCENERY/util/Pattern' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var Shape = require( 'KITE/Shape' );
+  var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
+  var Transform3 = require( 'DOT/Transform3' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   // constants
   var DEBUG_ORIGIN = false;
@@ -55,23 +55,23 @@ define( function( require ) {
     Node.call( thisNode );
 
     // shaft
-    var shaftNode = new Image( BLLImages.getImage( "faucet_shaft.png" ) );
+    var shaftNode = new Image( BLLImages.getImage( 'faucet_shaft.png' ) );
     shaftNode.setScaleMagnitude( 0.58, 1 ); //TODO scale image file?
 
     // flange
-    var flangeNode = new Image( BLLImages.getImage( "faucet_flange.png" ) );
-    var flangeDisabledNode = new Image( BLLImages.getImage( "faucet_flange_disabled.png" ) );
+    var flangeNode = new Image( BLLImages.getImage( 'faucet_flange.png' ) );
+    var flangeDisabledNode = new Image( BLLImages.getImage( 'faucet_flange_disabled.png' ) );
 
     // stop
-    var stopNode = new Image( BLLImages.getImage( "faucet_stop.png" ) );
+    var stopNode = new Image( BLLImages.getImage( 'faucet_stop.png' ) );
 
     // knob
-    var knobNode = new Image( BLLImages.getImage( "faucet_knob.png" ) );
+    var knobNode = new Image( BLLImages.getImage( 'faucet_knob.png' ) );
     var dx = 0.5 * knobNode.width;
     var dy = 0.5 * knobNode.height;
     knobNode.touchArea = Shape.rectangle( -dx, -dy, knobNode.width + dx + dx, knobNode.height + dy + dy ); // before scaling!
     knobNode.scale( 0.4 ); //TODO scale image file?
-    var knobDisabledNode = new Image( BLLImages.getImage( "faucet_knob_disabled.png" ) );
+    var knobDisabledNode = new Image( BLLImages.getImage( 'faucet_knob_disabled.png' ) );
     knobDisabledNode.scale( knobNode.getScaleVector() );
 
     // assemble the shooter
@@ -94,13 +94,13 @@ define( function( require ) {
     knobDisabledNode.y = knobNode.y;
 
     // pipe, tiled horizontally
-    var pipeImage = BLLImages.getImage( "faucet_pipe.png" );
+    var pipeImage = BLLImages.getImage( 'faucet_pipe.png' );
     var pipeWidth = ( mvt.modelToViewDeltaX( faucet.location.x - faucet.pipeMinX ) / options.scale ) - SPOUT_OUTPUT_CENTER_X + PIPE_X_OVERLAP;
     assert && assert( pipeWidth > 0 );
     var pipeNode = new Rectangle( 0, 0, pipeWidth, pipeImage.height, { fill: new Pattern( pipeImage )} );
 
     // other nodes
-    var spoutNode = new Image( BLLImages.getImage( "faucet_spout.png" ), { pickable: false } );
+    var spoutNode = new Image( BLLImages.getImage( 'faucet_spout.png' ), { pickable: false } );
     var windowNode = new Rectangle( SHOOTER_WINDOW_BOUNDS.minX, SHOOTER_WINDOW_BOUNDS.minY,
       SHOOTER_WINDOW_BOUNDS.maxX - SHOOTER_WINDOW_BOUNDS.minX, SHOOTER_WINDOW_BOUNDS.maxY - SHOOTER_WINDOW_BOUNDS.minY,
       { fill: 'rgb(107,107,107)' } );
@@ -140,8 +140,8 @@ define( function( require ) {
     var offsetToFlowRate = new LinearFunction( SHOOTER_MIN_X_OFFSET, SHOOTER_MAX_X_OFFSET, 0, faucet.maxFlowRate, true /* clamp */ );
 
     // encourage dragging by the blue parts, but make the entire shooter draggable
-    knobNode.cursor = "pointer";
-    flangeNode.cursor = "pointer";
+    knobNode.cursor = 'pointer';
+    flangeNode.cursor = 'pointer';
     shooterNode.addInputListener( new SimpleDragHandler(
       {
         target: null, // save target, because event.currentTarget is null for drag.

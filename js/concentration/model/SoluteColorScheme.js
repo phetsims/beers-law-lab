@@ -3,15 +3,15 @@
 /**
  * Color scheme for relating concentration to color.
  * The scheme also defines the concentration range for the solute, where maxConcentration
- * is synonymous with "saturated".
+ * is synonymous with 'saturated'.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var interpolateRBGA = require( "SCENERY/util/Color" ).interpolateRBGA;
+  var interpolateRBGA = require( 'SCENERY/util/Color' ).interpolateRBGA;
 
   /**
    * @param {Number} minConcentration

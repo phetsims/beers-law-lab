@@ -6,19 +6,19 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var BLLFont = require( "common/BLLFont" );
-  var BLLStrings = require( "common/BLLStrings" );
-  var Dimension2 = require( "DOT/Dimension2" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Panel = require( "SUN/Panel" );
-  var Range = require( "DOT/Range" );
-  var EvaporationSlider = require( "concentration/view/EvaporationSlider" );
-  var StringUtils = require( "PHETCOMMON/util/StringUtils" );
-  var Text = require( "SCENERY/nodes/Text" );
+  var BLLFont = require( 'common/BLLFont' );
+  var BLLStrings = require( 'common/BLLStrings' );
+  var Dimension2 = require( 'DOT/Dimension2' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Panel = require( 'SUN/Panel' );
+  var Range = require( 'DOT/Range' );
+  var EvaporationSlider = require( 'concentration/view/EvaporationSlider' );
+  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   /**
    * @param {Evaporator} evaporator
@@ -48,7 +48,7 @@ define( function( require ) {
     slider.centerY = label.centerY;
 
     Panel.call( thisControl, content,
-      { xMargin: 15, yMargin: 8, fill: "#F0F0F0", stroke: "gray", lineWidth: 1, resize: false } );
+      { xMargin: 15, yMargin: 8, fill: '#F0F0F0', stroke: 'gray', lineWidth: 1, resize: false } );
   }
 
   inherit( Panel, EvaporationControl );

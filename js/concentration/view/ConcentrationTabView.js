@@ -1,38 +1,38 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * View for the "Concentration" tab.
+ * View for the 'Concentration' tab.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var BeakerNode = require( "concentration/view/BeakerNode" );
-  var Bounds2 = require( "DOT/Bounds2" );
-  var ConcentrationMeterNode = require( "concentration/view/ConcentrationMeterNode" );
-  var DOM = require( "SCENERY/nodes/DOM" );
-  var Dimension2 = require( "DOT/Dimension2" );
-  var DropperNode = require( "concentration/view/DropperNode" );
-  var EvaporationControl = require( "concentration/view/EvaporationControl" );
-  var FaucetFluidNode = require( "concentration/view/FaucetFluidNode" );
-  var FaucetNode = require( "concentration/view/FaucetNode" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var TabView = require( "JOIST/TabView" );
-  var PrecipitateNode = require( "concentration/view/PrecipitateNode" );
-  var Range = require( "DOT/Range" );
-  var RemoveSoluteButton = require( "concentration/view/RemoveSoluteButton" );
-  var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
-  var SaturatedIndicator = require( "concentration/view/SaturatedIndicator" );
-  var Scene = require( "SCENERY/Scene" );
-  var ShakerNode = require( "concentration/view/ShakerNode" );
-  var ShakerParticlesNode = require( "concentration/view/ShakerParticlesNode" );
-  var Solute = require( "concentration/model/Solute" );
-  var SoluteControls = require( "concentration/view/SoluteControls" );
-  var SolutionNode = require( "concentration/view/SolutionNode" );
-  var StockSolutionNode = require( "concentration/view/StockSolutionNode" );
+  var BeakerNode = require( 'concentration/view/BeakerNode' );
+  var Bounds2 = require( 'DOT/Bounds2' );
+  var ConcentrationMeterNode = require( 'concentration/view/ConcentrationMeterNode' );
+  var DOM = require( 'SCENERY/nodes/DOM' );
+  var Dimension2 = require( 'DOT/Dimension2' );
+  var DropperNode = require( 'concentration/view/DropperNode' );
+  var EvaporationControl = require( 'concentration/view/EvaporationControl' );
+  var FaucetFluidNode = require( 'concentration/view/FaucetFluidNode' );
+  var FaucetNode = require( 'concentration/view/FaucetNode' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var TabView = require( 'JOIST/TabView' );
+  var PrecipitateNode = require( 'concentration/view/PrecipitateNode' );
+  var Range = require( 'DOT/Range' );
+  var RemoveSoluteButton = require( 'concentration/view/RemoveSoluteButton' );
+  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
+  var SaturatedIndicator = require( 'concentration/view/SaturatedIndicator' );
+  var Scene = require( 'SCENERY/Scene' );
+  var ShakerNode = require( 'concentration/view/ShakerNode' );
+  var ShakerParticlesNode = require( 'concentration/view/ShakerParticlesNode' );
+  var Solute = require( 'concentration/model/Solute' );
+  var SoluteControls = require( 'concentration/view/SoluteControls' );
+  var SolutionNode = require( 'concentration/view/SolutionNode' );
+  var StockSolutionNode = require( 'concentration/view/StockSolutionNode' );
 
   /**
    * @param {ConcentrationModel} model

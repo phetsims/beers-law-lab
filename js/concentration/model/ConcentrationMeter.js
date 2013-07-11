@@ -11,11 +11,11 @@
  */
 
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var Movable = require( "common/model/Movable" );
-  var Property = require( "AXON/Property" );
+  var Movable = require( 'common/model/Movable' );
+  var Property = require( 'AXON/Property' );
 
   /**
    * @param {Vector2} bodyLocation

@@ -1,29 +1,29 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Model container for the "Concentration" tab.
+ * Model container for the 'Concentration' tab.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var Beaker = require( "concentration/model/Beaker" );
-  var Bounds2 = require( "DOT/Bounds2" );
-  var ConcentrationMeter = require( "concentration/model/ConcentrationMeter" );
-  var ConcentrationSolution = require( "concentration/model/ConcentrationSolution" );
-  var Dimension2 = require( "DOT/Dimension2" );
-  var Dropper = require( "concentration/model/Dropper" );
-  var Evaporator = require( "concentration/model/Evaporator" );
-  var Faucet = require( "concentration/model/Faucet" );
-  var Precipitate = require( "concentration/model/Precipitate" );
-  var Property = require( "AXON/Property" );
-  var Range = require( "DOT/Range" );
-  var Shaker = require( "concentration/model/Shaker" );
-  var ShakerParticles = require( "concentration/model/ShakerParticles" );
-  var Solute = require( "concentration/model/Solute" );
-  var Vector2 = require( "DOT/Vector2" );
+  var Beaker = require( 'concentration/model/Beaker' );
+  var Bounds2 = require( 'DOT/Bounds2' );
+  var ConcentrationMeter = require( 'concentration/model/ConcentrationMeter' );
+  var ConcentrationSolution = require( 'concentration/model/ConcentrationSolution' );
+  var Dimension2 = require( 'DOT/Dimension2' );
+  var Dropper = require( 'concentration/model/Dropper' );
+  var Evaporator = require( 'concentration/model/Evaporator' );
+  var Faucet = require( 'concentration/model/Faucet' );
+  var Precipitate = require( 'concentration/model/Precipitate' );
+  var Property = require( 'AXON/Property' );
+  var Range = require( 'DOT/Range' );
+  var Shaker = require( 'concentration/model/Shaker' );
+  var ShakerParticles = require( 'concentration/model/ShakerParticles' );
+  var Solute = require( 'concentration/model/Solute' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   // constants
   var BEAKER_VOLUME = 1; // L

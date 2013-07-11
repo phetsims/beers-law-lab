@@ -6,13 +6,13 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var callSuper = require( "PHET_CORE/callSuper" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Movable = require( "common/model/Movable" );
-  var Property = require( "AXON/Property" );
+  var callSuper = require( 'PHET_CORE/callSuper' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Movable = require( 'common/model/Movable' );
+  var Property = require( 'AXON/Property' );
 
   /**
    * @param {Vector2} location
@@ -56,7 +56,7 @@ define( function( require ) {
 
   inherit( Movable, Dropper, {
     reset: function() {
-      callSuper( Movable, "reset", this );
+      callSuper( Movable, 'reset', this );
       this.visible.reset();
       this.on.reset();
       this.enabled.reset();

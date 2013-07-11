@@ -7,11 +7,11 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var PrecipitateParticle = require( "concentration/model/PrecipitateParticle" );
-  var Vector2 = require( "DOT/Vector2" );
+  var PrecipitateParticle = require( 'concentration/model/PrecipitateParticle' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   /**
    * @param {ConcentrationSolution} solution

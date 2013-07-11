@@ -6,14 +6,14 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var inherit = require( "PHET_CORE/inherit" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Panel = require( "SUN/Panel" );
-  var SoluteComboBox = require( "concentration/view/SoluteComboBox" );
-  var SoluteFormNode = require( "concentration/view/SoluteFormNode" );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Panel = require( 'SUN/Panel' );
+  var SoluteComboBox = require( 'concentration/view/SoluteComboBox' );
+  var SoluteFormNode = require( 'concentration/view/SoluteFormNode' );
 
   /**
    * @param {Array<Solute>} solutes
@@ -40,7 +40,7 @@ define( function( require ) {
     soluteFormNode.top = soluteComboBox.bottom + 15;
 
     Panel.call( this, contentNode,
-      { xMargin: 15, yMargin: 15, fill: "#F0F0F0", stroke: "gray", lineWidth: 1 } );
+      { xMargin: 15, yMargin: 15, fill: '#F0F0F0', stroke: 'gray', lineWidth: 1 } );
   }
 
   inherit( Panel, SoluteControlsNode );

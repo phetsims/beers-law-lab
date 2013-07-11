@@ -6,18 +6,18 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var assert = require( "ASSERT/assert" )( "beers-law-lab" );
-  var BLLFont = require( "common/BLLFont" );
-  var BLLStrings = require( "common/BLLStrings" );
-  var ComboBox = require( "SUN/ComboBox" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Rectangle = require( "SCENERY/nodes/Rectangle" );
-  var StringUtils = require( "PHETCOMMON/util/StringUtils" );
-  var Text = require( "SCENERY/nodes/Text" );
+  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
+  var BLLFont = require( 'common/BLLFont' );
+  var BLLStrings = require( 'common/BLLStrings' );
+  var ComboBox = require( 'SUN/ComboBox' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   /**
    * @param {Array<Solute>} solutes
@@ -27,7 +27,7 @@ define( function( require ) {
    */
   function SoluteComboBox( solutes, selectedSolute, soluteListParent ) {
 
-    // "Solute" label
+    // 'Solute' label
     var labelNode = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.solute ),
       { font: new BLLFont( 22 ) } );
 
@@ -40,9 +40,9 @@ define( function( require ) {
 
     ComboBox.call( this, items, selectedSolute,
       { labelNode: labelNode,
-        listPosition: "below",
+        listPosition: 'below',
         itemYMargin: 12,
-        itemHighlightFill: "rgb(218,255,255)",
+        itemHighlightFill: 'rgb(218,255,255)',
         listParent: soluteListParent } );
   }
 

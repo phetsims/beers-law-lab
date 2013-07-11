@@ -7,17 +7,17 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var BLLFont = require( "common/BLLFont" );
-  var BLLStrings = require( "common/BLLStrings" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Path = require( "SCENERY/nodes/Path" );
-  var Shape = require( "KITE/Shape" );
-  var StringUtils = require( "PHETCOMMON/util/StringUtils" );
-  var Text = require( "SCENERY/nodes/Text" );
+  var BLLFont = require( 'common/BLLFont' );
+  var BLLStrings = require( 'common/BLLStrings' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Path = require( 'SCENERY/nodes/Path' );
+  var Shape = require( 'KITE/Shape' );
+  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   // constants
   var MAX_VOLUME = 1;
@@ -27,7 +27,7 @@ define( function( require ) {
   var MAJOR_TICK_LENGTH = 30;
   var MINOR_TICK_LENGTH = 15;
   var TICK_LABEL_X_SPACING = 8;
-  var MAJOR_TICK_LABELS = new Array( "\u00bd", "1" ); // 1/2, 1
+  var MAJOR_TICK_LABELS = new Array( '\u00bd', '1' ); // 1/2, 1
 
   /**
    * Constructor
@@ -53,10 +53,10 @@ define( function( require ) {
     thisNode.addChild( new Path(
       {
         shape: outlineShape,
-        stroke: "black",
+        stroke: 'black',
         lineWidth: 3,
-        lineCap: "round",
-        lineJoin: "round"
+        lineCap: 'round',
+        lineJoin: 'round'
       } ) );
 
     // horizontal tick marks, left edge, from bottom up
@@ -75,10 +75,10 @@ define( function( require ) {
       var tickPath = new Path(
         {
           shape: tickShape,
-          stroke: "black",
+          stroke: 'black',
           lineWidth: 2,
-          lineCap: "butt",
-          lineJoin: "bevel"
+          lineCap: 'butt',
+          lineJoin: 'bevel'
         } );
       ticksParent.addChild( tickPath );
 
@@ -89,7 +89,7 @@ define( function( require ) {
           var label = StringUtils.format( BLLStrings.pattern_0value_1units, MAJOR_TICK_LABELS[labelIndex], BLLStrings.units_liters );
           ticksParent.addChild( new Text( label, {
             font: new BLLFont( 24 ),
-            fill: "black",
+            fill: 'black',
             x: rightX + TICK_LABEL_X_SPACING,
             centerY: tickPath.centerY
           } ) );

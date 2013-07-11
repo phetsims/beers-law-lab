@@ -7,26 +7,26 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var Dimension2 = require( "DOT/Dimension2" );
-  var FillHighlightListener = require( "SCENERY_PHET/input/FillHighlightListener" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var LinearFunction = require( "DOT/LinearFunction" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Path = require( "SCENERY/nodes/Path" );
-  var Rectangle = require( "SCENERY/nodes/Rectangle" );
-  var Shape = require( "KITE/Shape" );
-  var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
-  var Text = require( "SCENERY/nodes/Text" );
-  var Util = require( "DOT/Util" );
+  var Dimension2 = require( 'DOT/Dimension2' );
+  var FillHighlightListener = require( 'SCENERY_PHET/input/FillHighlightListener' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var LinearFunction = require( 'DOT/LinearFunction' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Path = require( 'SCENERY/nodes/Path' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var Shape = require( 'KITE/Shape' );
+  var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
+  var Text = require( 'SCENERY/nodes/Text' );
+  var Util = require( 'DOT/Util' );
 
   // thumb constants
   var THUMB_SIZE = new Dimension2( 22, 45 );
-  var THUMB_FILL_ENABLED = "rgb(50,145,184)";
-  var THUMB_FILL_HIGHLIGHTED = "rgb(71,207,255)";
-  var THUMB_FILL_DISABLED = "#F0F0F0";
+  var THUMB_FILL_ENABLED = 'rgb(50,145,184)';
+  var THUMB_FILL_HIGHLIGHTED = 'rgb(71,207,255)';
+  var THUMB_FILL_DISABLED = '#F0F0F0';
 
   // tick constants
   var MAJOR_TICK_LENGTH = 30;
@@ -53,13 +53,13 @@ define( function( require ) {
     thisSlider.addChild( thisSlider._ticksParent );
 
     // track
-    thisSlider._track = new Rectangle( 0, 0, trackSize.width, trackSize.height, { fill: "white", stroke: "black", lineWidth: 1 } );
+    thisSlider._track = new Rectangle( 0, 0, trackSize.width, trackSize.height, { fill: 'white', stroke: 'black', lineWidth: 1 } );
     thisSlider.addChild( thisSlider._track );
 
     // thumb, points up
     var arcWidth = 0.25 * THUMB_SIZE.width;
     var thumb = new Rectangle( -THUMB_SIZE.width / 2, -THUMB_SIZE.height / 2, THUMB_SIZE.width, THUMB_SIZE.height, arcWidth, arcWidth,
-      { cursor: "pointer", fill: THUMB_FILL_ENABLED, stroke: "black", lineWidth: 1 } );
+      { cursor: 'pointer', fill: THUMB_FILL_ENABLED, stroke: 'black', lineWidth: 1 } );
     var centerLineYMargin = 3;
     thumb.addChild( new Path( { shape: Shape.lineSegment( 0, -( THUMB_SIZE.height / 2 ) + centerLineYMargin, 0, ( THUMB_SIZE.height / 2 ) - centerLineYMargin ),
       stroke: 'white' } ) );
@@ -74,7 +74,7 @@ define( function( require ) {
     // enable/disable thumb
     enabled.link( function( enabled ) {
       thumb.fill = enabled ? THUMB_FILL_ENABLED : THUMB_FILL_DISABLED;
-      thumb.cursor = enabled ? "pointer" : "default";
+      thumb.cursor = enabled ? 'pointer' : 'default';
     } );
 
     // mapping between value and track position
@@ -153,7 +153,7 @@ define( function( require ) {
             .moveTo( labelX, this._track.top )
             .lineTo( labelX, this._track.bottom - tickLength ),
           lineWidth: 1,
-          stroke: "black"
+          stroke: 'black'
         } );
       this._ticksParent.addChild( tick );
       // label

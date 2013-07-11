@@ -6,18 +6,18 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var BLLFont = require( "common/BLLFont" );
-  var BLLImages = require( "common/BLLImages" );
-  var BLLStrings = require( "common/BLLStrings" );
-  var Image = require( "SCENERY/nodes/Image" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Property = require( "AXON/Property" );
-  var AquaRadioButton = require( "SUN/AquaRadioButton" );
-  var Text = require( "SCENERY/nodes/Text" );
+  var BLLFont = require( 'common/BLLFont' );
+  var BLLImages = require( 'common/BLLImages' );
+  var BLLStrings = require( 'common/BLLStrings' );
+  var Image = require( 'SCENERY/nodes/Image' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Property = require( 'AXON/Property' );
+  var AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   /**
    * @param {String} text
@@ -47,10 +47,10 @@ define( function( require ) {
 
     Node.call( this );
 
-    var TEXT_OPTIONS = { font: new BLLFont( 22 ), fill: "black" };
+    var TEXT_OPTIONS = { font: new BLLFont( 22 ), fill: 'black' };
     var X_SPACING = 10;
-    var shakerButton = new AquaRadioButton( shaker.visible, true, new TextAndIconNode( BLLStrings.solid, TEXT_OPTIONS, BLLImages.getImage( "shaker-icon.png" ), X_SPACING ) );
-    var dropperButton = new AquaRadioButton( dropper.visible, true, new TextAndIconNode( BLLStrings.solution, TEXT_OPTIONS, BLLImages.getImage( "dropper-icon.png" ), X_SPACING ) );
+    var shakerButton = new AquaRadioButton( shaker.visible, true, new TextAndIconNode( BLLStrings.solid, TEXT_OPTIONS, BLLImages.getImage( 'shaker-icon.png' ), X_SPACING ) );
+    var dropperButton = new AquaRadioButton( dropper.visible, true, new TextAndIconNode( BLLStrings.solution, TEXT_OPTIONS, BLLImages.getImage( 'dropper-icon.png' ), X_SPACING ) );
 
     // rendering order
     this.addChild( shakerButton );

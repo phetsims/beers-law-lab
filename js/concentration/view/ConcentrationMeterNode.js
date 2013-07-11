@@ -11,33 +11,33 @@
  * <li>output of the dropper
  * </ul>
  * <p/>
- * Rather than trying to model the shapes of all of these fluids, we handle "probe is in fluid"
+ * Rather than trying to model the shapes of all of these fluids, we handle 'probe is in fluid'
  * herein via intersection of node shapes.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var BLLFont = require( "common/BLLFont" );
-  var BLLImages = require( "common/BLLImages" );
-  var BLLStrings = require( "common/BLLStrings" );
-  var HorizontalTiledNode = require( "common/view/HorizontalTiledNode" );
-  var Image = require( "SCENERY/nodes/Image" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var MovableDragHandler = require( "common/view/MovableDragHandler" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Path = require( "SCENERY/nodes/Path" );
-  var Shape = require( "KITE/Shape" );
-  var StringUtils = require( "PHETCOMMON/util/StringUtils" );
-  var Text = require( "SCENERY/nodes/Text" );
-  var Util = require( "DOT/Util" );
-  var Vector2 = require( "DOT/Vector2" );
+  var BLLFont = require( 'common/BLLFont' );
+  var BLLImages = require( 'common/BLLImages' );
+  var BLLStrings = require( 'common/BLLStrings' );
+  var HorizontalTiledNode = require( 'common/view/HorizontalTiledNode' );
+  var Image = require( 'SCENERY/nodes/Image' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var MovableDragHandler = require( 'common/view/MovableDragHandler' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Path = require( 'SCENERY/nodes/Path' );
+  var Shape = require( 'KITE/Shape' );
+  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var Text = require( 'SCENERY/nodes/Text' );
+  var Util = require( 'DOT/Util' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   // constants
   var VALUE_DECIMALS = 3;
-  var NO_VALUE = "-";
+  var NO_VALUE = '-';
   var TITLE_TOP = 12; // specific to bodyCenterImage
   var TEXT_X_MARGIN = 25;  // specific to bodyCenterImage
   var VALUE_X_MARGIN = 30; // specific to bodyCenterImage
@@ -58,19 +58,19 @@ define( function( require ) {
 
     // text nodes
     var titleNode = new Text( BLLStrings.concentration,
-      { font: new BLLFont( 18 ), fill: "white" } );
+      { font: new BLLFont( 18 ), fill: 'white' } );
     var unitsNode = new Text( StringUtils.format( BLLStrings.pattern_parentheses_0text, BLLStrings.units_molesPerLiter ),
-      { font: new BLLFont( 18 ), fill: "white" } );
+      { font: new BLLFont( 18 ), fill: 'white' } );
     var valueNode = new Text( ( 1 ).toFixed( VALUE_DECIMALS ),
-      { font: new BLLFont( 24 ), fill: "black" } );
+      { font: new BLLFont( 24 ), fill: 'black' } );
 
     // create a background that fits the text
     var maxTextWidth = Math.max( titleNode.width, unitsNode.width );
     var bodyWidth = ( 2 * TEXT_X_MARGIN ) + maxTextWidth;
     var backgroundNode = new HorizontalTiledNode( bodyWidth,
-      new Image( BLLImages.getImage( "concentration-meter-body-left.png" ) ),
-      new Image( BLLImages.getImage( "concentration-meter-body-center.png" ) ),
-      new Image( BLLImages.getImage( "concentration-meter-body-right.png" ) ) );
+      new Image( BLLImages.getImage( 'concentration-meter-body-left.png' ) ),
+      new Image( BLLImages.getImage( 'concentration-meter-body-center.png' ) ),
+      new Image( BLLImages.getImage( 'concentration-meter-body-right.png' ) ) );
 
     // rendering order
     thisNode.addChild( backgroundNode );
@@ -120,10 +120,10 @@ define( function( require ) {
 
     var thisNode = this;
     Node.call( thisNode, {
-      cursor: "pointer"
+      cursor: 'pointer'
     } );
 
-    var imageNode = new Image( BLLImages.getImage( "concentration-meter-probe.png" ) );
+    var imageNode = new Image( BLLImages.getImage( 'concentration-meter-probe.png' ) );
     thisNode.addChild( imageNode );
     var radius = imageNode.height / 2; // assumes that image height defines the radius
     imageNode.x = -radius;
@@ -178,10 +178,10 @@ define( function( require ) {
     var thisNode = this;
     Path.call( thisNode, {
       shape: new Shape(),
-      stroke: "gray",
+      stroke: 'gray',
       lineWidth: 8,
-      lineCap: "square",
-      lineJoin: "round"
+      lineCap: 'square',
+      lineJoin: 'round'
     } );
 
     var updateCurve = function() {

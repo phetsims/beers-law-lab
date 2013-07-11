@@ -6,14 +6,14 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var callSuper = require( "PHET_CORE/callSuper" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Movable = require( "common/model/Movable" );
-  var Property = require( "AXON/Property" );
-  var Vector2 = require( "DOT/Vector2" );
+  var callSuper = require( 'PHET_CORE/callSuper' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Movable = require( 'common/model/Movable' );
+  var Property = require( 'AXON/Property' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   /**
    * Constructor
@@ -52,7 +52,7 @@ define( function( require ) {
   inherit( Movable, Shaker, {
 
     reset: function() {
-      callSuper( Movable, "reset", this );
+      callSuper( Movable, 'reset', this );
       this.visible.reset();
       this.empty.reset();
       this.dispensingRate.reset();

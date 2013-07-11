@@ -8,11 +8,11 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var inherit = require( "PHET_CORE/inherit" );
-  var SoluteParticle = require( "concentration/model/SoluteParticle" );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var SoluteParticle = require( 'concentration/model/SoluteParticle' );
 
   /**
    * Constructor

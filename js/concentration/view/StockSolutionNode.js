@@ -6,14 +6,14 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var ConcentrationSolution = require( "concentration/model/ConcentrationSolution" );
-  var DropperNode = require( "concentration/view/DropperNode" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Path = require( "SCENERY/nodes/Path" );
-  var Rectangle = require( "SCENERY/nodes/Rectangle" );
+  var ConcentrationSolution = require( 'concentration/model/ConcentrationSolution' );
+  var DropperNode = require( 'concentration/view/DropperNode' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Path = require( 'SCENERY/nodes/Path' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
 
   /**
    * @param {Solvent} solvent
