@@ -6,20 +6,20 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var assert = require( "ASSERT/assert" )( "beers-law-lab" );
-  var Bounds2 = require( "DOT/Bounds2" );
-  var Color = require( "SCENERY/util/Color" );
-  var FillHighlightListener = require( "SCENERY_PHET/input/FillHighlightListener" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Path = require( "SCENERY/nodes/Path" );
-  var Rectangle = require( "SCENERY/nodes/Rectangle" );
-  var Shape = require( "KITE/Shape" );
-  var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
-  var Util = require( "DOT/Util" );
+  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
+  var Bounds2 = require( 'DOT/Bounds2' );
+  var Color = require( 'SCENERY/util/Color' );
+  var FillHighlightListener = require( 'SCENERY_PHET/input/FillHighlightListener' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Path = require( 'SCENERY/nodes/Path' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var Shape = require( 'KITE/Shape' );
+  var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
+  var Util = require( 'DOT/Util' );
 
   // constants
   var PERCENT_FULL = 0.92;
@@ -101,9 +101,9 @@ define( function( require ) {
       .close();
 
     // nodes
-    var cuvetteNode = new Path( { stroke: "black", lineWidth: 3 } );
+    var cuvetteNode = new Path( { stroke: 'black', lineWidth: 3 } );
     var solutionNode = new Rectangle( 0, 0, 1, 1, { lineWidth: 0.5 } );
-    var arrowNode = new Path( { shape: arrowShape, fill: ARROW_FILL, stroke: "black", lineWidth: 1 } );
+    var arrowNode = new Path( { shape: arrowShape, fill: ARROW_FILL, stroke: 'black', lineWidth: 1 } );
 
     // rendering order
     thisNode.addChild( solutionNode );
@@ -140,7 +140,7 @@ define( function( require ) {
     // interactivity
     cuvetteNode.pickable = false;
     solutionNode.pickable = false;
-    arrowNode.cursor = "pointer";
+    arrowNode.cursor = 'pointer';
     arrowNode.addInputListener( new FillHighlightListener( ARROW_FILL, ARROW_FILL.brighterColor() ) );
     arrowNode.addInputListener( new CuvetteDragHandler( thisNode, cuvette, mvt, snapInterval ) );
 

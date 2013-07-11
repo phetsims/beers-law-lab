@@ -6,25 +6,25 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var ArrowButton = require( "common/view/ArrowButton" );
-  var assert = require( "ASSERT/assert" )( "beers-law-lab" );
-  var BLLFont = require( "common/BLLFont" );
-  var BLLStrings = require( "common/BLLStrings" );
-  var Dimension2 = require( "DOT/Dimension2" );
-  var Image = require( "SCENERY/nodes/Image" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Path = require( "SCENERY/nodes/Path" );
-  var Rectangle = require( "SCENERY/nodes/Rectangle" );
-  var Shape = require( "KITE/Shape" );
-  var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
-  var StringUtils = require( "PHETCOMMON/util/StringUtils" );
-  var Text = require( "SCENERY/nodes/Text" );
-  var Util = require( "DOT/Util" );
-  var VisibleColor = require( "common/util/VisibleColor" );
+  var ArrowButton = require( 'common/view/ArrowButton' );
+  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
+  var BLLFont = require( 'common/BLLFont' );
+  var BLLStrings = require( 'common/BLLStrings' );
+  var Dimension2 = require( 'DOT/Dimension2' );
+  var Image = require( 'SCENERY/nodes/Image' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Path = require( 'SCENERY/nodes/Path' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var Shape = require( 'KITE/Shape' );
+  var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
+  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var Text = require( 'SCENERY/nodes/Text' );
+  var Util = require( 'DOT/Util' );
+  var VisibleColor = require( 'common/util/VisibleColor' );
 
   // features
   var SHOW_VALUE = false;
@@ -71,7 +71,7 @@ define( function( require ) {
       .lineTo( -0.5 * width, 1 * height )
       .lineTo( -0.5 * width, 0.3 * height )
       .close();
-    Path.call( this, { shape: shape, stroke: "black", lineWidth: 1, fill: "black" } );
+    Path.call( this, { shape: shape, stroke: 'black', lineWidth: 1, fill: 'black' } );
 
     // touch area, don't extend above so that we don't encroach on slider track
     var bounds = shape.computeBounds().copy();
@@ -91,7 +91,7 @@ define( function( require ) {
    */
   function ValueDisplay( property, font, fill ) {
     var thisNode = this;
-    Text.call( this, "?", { font: font, fill: fill } );
+    Text.call( this, '?', { font: font, fill: fill } );
     property.link( function( value ) {
       thisNode.text = StringUtils.format( BLLStrings.pattern_0value_1units, value.toFixed( 0 ), BLLStrings.units_nm );
     } );
@@ -100,13 +100,13 @@ define( function( require ) {
   inherit( Text, ValueDisplay );
 
   /**
-   * Rectangular "cursor" that appears in the track directly above the thumb. Origin is at top center of cursor.
+   * Rectangular 'cursor' that appears in the track directly above the thumb. Origin is at top center of cursor.
    * @param {Number} width
    * @param {Number} height
    * @constructor
    */
   function Cursor( width, height ) {
-    Rectangle.call( this, -width / 2, 0, width, height, { stroke: "black", lineWidth: 1 } );
+    Rectangle.call( this, -width / 2, 0, width, height, { stroke: 'black', lineWidth: 1 } );
   }
 
   inherit( Rectangle, Cursor );
@@ -134,7 +134,7 @@ define( function( require ) {
     var thumbWidth = options.thumbWidth || 35;
     var thumbHeight = options.thumbHeight || 45;
     var valueFont = options.valueFont || new BLLFont( 20 );
-    var valueFill = options.valueFill || "black";
+    var valueFill = options.valueFill || 'black';
 
     var thumb = new Thumb( thumbWidth, thumbHeight );
     var valueDisplay = new ValueDisplay( wavelength, valueFont, valueFill );
@@ -156,7 +156,7 @@ define( function( require ) {
      * Having a separate border also gives subclasses a place to add markings (eg, tick marks)
      * without affecting the track's bounds.
      */
-    var trackBorder = new Rectangle( 0, 0, track.width, track.height, { stroke: "black", lineWidth: 1, pickable: false } );
+    var trackBorder = new Rectangle( 0, 0, track.width, track.height, { stroke: 'black', lineWidth: 1, pickable: false } );
 
     // rendering order
     thisNode.addChild( track );
@@ -187,7 +187,7 @@ define( function( require ) {
     };
 
     // track interactivity
-    track.cursor = "pointer";
+    track.cursor = 'pointer';
     track.addInputListener(
       {
         down: function( event ) {
@@ -197,7 +197,7 @@ define( function( require ) {
       } );
 
     // thumb interactivity
-    thumb.cursor = "pointer";
+    thumb.cursor = 'pointer';
     var clickXOffset = 0; // x-offset between initial click and thumb's origin
     thumb.addInputListener( new SimpleDragHandler(
       {

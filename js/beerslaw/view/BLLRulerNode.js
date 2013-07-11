@@ -7,16 +7,16 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var BLLStrings = require( "common/BLLStrings" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var MovableDragHandler = require( "common/view/MovableDragHandler" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Rectangle = require( "SCENERY/nodes/Rectangle" );
-  var RulerNode = require( "SCENERY_PHET/RulerNode" );
-  var Shape = require( "KITE/Shape" );
+  var BLLStrings = require( 'common/BLLStrings' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var MovableDragHandler = require( 'common/view/MovableDragHandler' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var RulerNode = require( 'SCENERY_PHET/RulerNode' );
+  var Shape = require( 'KITE/Shape' );
 
   /**
    * @param {Ruler} ruler
@@ -32,7 +32,7 @@ define( function( require ) {
     var majorTickLabels = [];
     var numberOfTicks = Math.floor( ruler.length / 0.5 ) + 1;
     for ( var i = 0; i < numberOfTicks; i++ ) {
-      majorTickLabels[i] = ( i % 2 === 0 ) ? ( i / 2 ) : "";
+      majorTickLabels[i] = ( i % 2 === 0 ) ? ( i / 2 ) : '';
     }
 
     // use the common ruler node
@@ -55,7 +55,7 @@ define( function( require ) {
     } );
 
     // interactivity
-    thisNode.cursor = "pointer";
+    thisNode.cursor = 'pointer';
     thisNode.addInputListener( new MovableDragHandler( ruler, mvt ) );
   }
 

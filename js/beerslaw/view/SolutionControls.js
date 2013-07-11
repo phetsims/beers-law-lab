@@ -6,14 +6,14 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var ConcentrationControl = require( "beerslaw/view/ConcentrationControl" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Panel = require( "SUN/Panel" );
-  var SolutionComboBox = require( "beerslaw/view/SolutionComboBox" );
+  var ConcentrationControl = require( 'beerslaw/view/ConcentrationControl' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Panel = require( 'SUN/Panel' );
+  var SolutionComboBox = require( 'beerslaw/view/SolutionComboBox' );
 
   /**
    * @param {Array<BeersLawSolution>} solutions
@@ -37,7 +37,7 @@ define( function( require ) {
     concentrationControl.top = comboBox.bottom + 15;
 
     Panel.call( this, contentNode,
-      { xMargin: 15, yMargin: 15, fill: "#F0F0F0", stroke: "gray", lineWidth: 1, resize: false } );
+      { xMargin: 15, yMargin: 15, fill: '#F0F0F0', stroke: 'gray', lineWidth: 1, resize: false } );
   }
 
   inherit( Panel, SolutionControls );

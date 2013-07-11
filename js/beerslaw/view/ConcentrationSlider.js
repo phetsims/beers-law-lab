@@ -7,23 +7,23 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var ArrowButton = require( "common/view/ArrowButton" );
-  var BLLFont = require( "common/BLLFont" );
-  var Color = require( "SCENERY/util/Color" );
-  var Dimension2 = require( "DOT/Dimension2" );
-  var FillHighlightListener = require( "SCENERY_PHET/input/FillHighlightListener" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var LinearFunction = require( "DOT/LinearFunction" );
-  var LinearGradient = require( "SCENERY/util/LinearGradient" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Path = require( "SCENERY/nodes/Path" );
-  var Rectangle = require( "SCENERY/nodes/Rectangle" );
-  var Shape = require( "KITE/Shape" );
-  var SimpleDragHandler = require( "SCENERY/input/SimpleDragHandler" );
-  var Text = require( "SCENERY/nodes/Text" );
+  var ArrowButton = require( 'common/view/ArrowButton' );
+  var BLLFont = require( 'common/BLLFont' );
+  var Color = require( 'SCENERY/util/Color' );
+  var Dimension2 = require( 'DOT/Dimension2' );
+  var FillHighlightListener = require( 'SCENERY_PHET/input/FillHighlightListener' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var LinearFunction = require( 'DOT/LinearFunction' );
+  var LinearGradient = require( 'SCENERY/util/LinearGradient' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Path = require( 'SCENERY/nodes/Path' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var Shape = require( 'KITE/Shape' );
+  var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   // track constants
   var TRACK_SIZE = new Dimension2( 200, 15 );
@@ -54,7 +54,7 @@ define( function( require ) {
 
     var thisNode = this;
     Rectangle.call( thisNode, 0, 0, trackSize.width, trackSize.height,
-      { cursor: "pointer", stroke: 'black', lineWidth: 1 } );
+      { cursor: 'pointer', stroke: 'black', lineWidth: 1 } );
 
     // sync view with model
     var positionToConcentration;
@@ -96,7 +96,7 @@ define( function( require ) {
    * @constructor
    */
   function TickLine() {
-    Path.call( this, { shape: Shape.lineSegment( 0, 0, 0, TICK_LENGTH ), stroke: "black", lineWidth: 1 } );
+    Path.call( this, { shape: Shape.lineSegment( 0, 0, 0, TICK_LENGTH ), stroke: 'black', lineWidth: 1 } );
   }
 
   inherit( Path, TickLine );
@@ -108,7 +108,7 @@ define( function( require ) {
    */
   function TickLabel( value ) {
     var thisNode = this;
-    Text.call( thisNode, "?", { font: TICK_FONT, fill: "black" } );
+    Text.call( thisNode, '?', { font: TICK_FONT, fill: 'black' } );
     thisNode.setValue = function( value ) {
       thisNode.text = value.toFixed( TICK_DECIMAL_PLACES );
     };
@@ -127,7 +127,7 @@ define( function( require ) {
   function Thumb( thumbSize, trackSize, solution ) {
 
     var thisNode = this;
-    Node.call( thisNode, { cursor: "pointer" } );
+    Node.call( thisNode, { cursor: 'pointer' } );
 
     // nodes
     var arcWidth = 0.25 * thumbSize.width;

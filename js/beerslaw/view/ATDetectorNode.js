@@ -6,25 +6,25 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var ATDetector = require( "beerslaw/model/ATDetector" );
-  var BLLFont = require( "common/BLLFont" );
-  var BLLImages = require( "common/BLLImages" );
-  var BLLStrings = require( "common/BLLStrings" );
-  var HorizontalTiledNode = require( "common/view/HorizontalTiledNode" );
-  var Image = require( "SCENERY/nodes/Image" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var MovableDragHandler = require( "common/view/MovableDragHandler" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Path = require( "SCENERY/nodes/Path" );
-  var AquaRadioButton = require( "SUN/AquaRadioButton" );
-  var Shape = require( "KITE/Shape" );
-  var StringUtils = require( "PHETCOMMON/util/StringUtils" );
-  var Text = require( "SCENERY/nodes/Text" );
-  var Util = require( "DOT/Util" );
-  var Vector2 = require( "DOT/Vector2" );
+  var ATDetector = require( 'beerslaw/model/ATDetector' );
+  var BLLFont = require( 'common/BLLFont' );
+  var BLLImages = require( 'common/BLLImages' );
+  var BLLStrings = require( 'common/BLLStrings' );
+  var HorizontalTiledNode = require( 'common/view/HorizontalTiledNode' );
+  var Image = require( 'SCENERY/nodes/Image' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var MovableDragHandler = require( 'common/view/MovableDragHandler' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Path = require( 'SCENERY/nodes/Path' );
+  var AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  var Shape = require( 'KITE/Shape' );
+  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var Text = require( 'SCENERY/nodes/Text' );
+  var Util = require( 'DOT/Util' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   // constants
   var BUTTONS_X_MARGIN = 25; // specific to image files
@@ -33,7 +33,7 @@ define( function( require ) {
   var VALUE_CENTER_Y = 24; // specific to image files
   var ABSORBANCE_DECIMAL_PLACES = 2;
   var TRANSMITTANCE_DECIMAL_PLACES = 2;
-  var NO_VALUE = "-";
+  var NO_VALUE = '-';
   var PROBE_CENTER_Y_OFFSET = 55; // specific to image file
 
   /**
@@ -49,8 +49,8 @@ define( function( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
-    // buttons for changing the detector "mode"
-    var textOptions = { font: new BLLFont( 18 ), fill: "white" };
+    // buttons for changing the detector 'mode'
+    var textOptions = { font: new BLLFont( 18 ), fill: 'white' };
     var transmittanceButton = new AquaRadioButton( detector.mode, ATDetector.Mode.TRANSMITTANCE, new Text( BLLStrings.transmittance, textOptions ) );
     var absorbanceButton = new AquaRadioButton( detector.mode, ATDetector.Mode.ABSORBANCE, new Text( BLLStrings.absorbance, textOptions ) );
 
@@ -68,9 +68,9 @@ define( function( require ) {
     // background image, sized to fit
     var bodyWidth = Math.max( buttonGroup.width, valueNode.width ) + ( 2 * BUTTONS_X_MARGIN );
     var backgroundNode = new HorizontalTiledNode( bodyWidth,
-      new Image( BLLImages.getImage( "at-detector-body-left.png" ) ),
-      new Image( BLLImages.getImage( "at-detector-body-center.png" ) ),
-      new Image( BLLImages.getImage( "at-detector-body-right.png" ) ) );
+      new Image( BLLImages.getImage( 'at-detector-body-left.png' ) ),
+      new Image( BLLImages.getImage( 'at-detector-body-center.png' ) ),
+      new Image( BLLImages.getImage( 'at-detector-body-right.png' ) ) );
 
     // rendering order
     thisNode.addChild( backgroundNode );
@@ -123,7 +123,7 @@ define( function( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
-    var imageNode = new Image( BLLImages.getImage( "at-detector-probe.png" ) );
+    var imageNode = new Image( BLLImages.getImage( 'at-detector-probe.png' ) );
     thisNode.addChild( imageNode );
     imageNode.x = -imageNode.width / 2;
     imageNode.y = -PROBE_CENTER_Y_OFFSET;
@@ -134,7 +134,7 @@ define( function( require ) {
     } );
 
     // interactivity
-    thisNode.cursor = "pointer";
+    thisNode.cursor = 'pointer';
     thisNode.addInputListener( new MovableDragHandler( probe, mvt, {
       endDrag: function() {
         // If the light is on and the probe is close enough to the beam...
@@ -166,10 +166,10 @@ define( function( require ) {
     var thisNode = this;
     Path.call( this, {
       shape: new Shape(),
-      stroke: "gray",
+      stroke: 'gray',
       lineWidth: 8,
-      lineCap: "square",
-      lineJoin: "round"
+      lineCap: 'square',
+      lineJoin: 'round'
     } );
 
     var updateCurve = function() {

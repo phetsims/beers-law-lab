@@ -6,21 +6,21 @@
  * @author Chris Malley (PixelZoom, Inc)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var BLLFont = require( "common/BLLFont" );
-  var BLLStrings = require( "common/BLLStrings" );
-  var Dimension2 = require( "DOT/Dimension2" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Panel = require( "SUN/Panel" );
-  var Property = require( "AXON/Property" );
-  var AquaRadioButton = require( "SUN/AquaRadioButton" );
-  var Rectangle = require( "SCENERY/nodes/Rectangle" );
-  var StringUtils = require( "PHETCOMMON/util/StringUtils" );
-  var Text = require( "SCENERY/nodes/Text" );
-  var WavelengthSlider = require( "beerslaw/view/WavelengthSlider" );
+  var BLLFont = require( 'common/BLLFont' );
+  var BLLStrings = require( 'common/BLLStrings' );
+  var Dimension2 = require( 'DOT/Dimension2' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Panel = require( 'SUN/Panel' );
+  var Property = require( 'AXON/Property' );
+  var AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var Text = require( 'SCENERY/nodes/Text' );
+  var WavelengthSlider = require( 'beerslaw/view/WavelengthSlider' );
 
   /**
    * @param {Property<BeersLawSolution>} solution
@@ -34,14 +34,14 @@ define( function( require ) {
     var variableWavelength = new Property( false ); // is the wavelength variable or fixed?
 
     // nodes
-    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.wavelength ), { font: new BLLFont( 20 ), fill: "black" } );
-    var valueDisplay = new Text( thisNode.formatWavelength( light.wavelength.get() ), { font: new BLLFont( 20 ), fill: "black" } );
+    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.wavelength ), { font: new BLLFont( 20 ), fill: 'black' } );
+    var valueDisplay = new Text( thisNode.formatWavelength( light.wavelength.get() ), { font: new BLLFont( 20 ), fill: 'black' } );
     var xMargin = 0.1 * valueDisplay.width;
     var yMargin = 0.1 * valueDisplay.height;
     var valueBackground = new Rectangle( 0, 0, valueDisplay.width + xMargin + xMargin, valueDisplay.height + yMargin + yMargin,
-      { fill: "white", stroke: "lightGray" } );
-    var presetRadioButton = new AquaRadioButton( variableWavelength, false, new Text( BLLStrings.preset, { font: new BLLFont( 18 ), fill: "black" } ) );
-    var variableRadioButton = new AquaRadioButton( variableWavelength, true, new Text( BLLStrings.variable, { font: new BLLFont( 18 ), fill: "black" } ) );
+      { fill: 'white', stroke: 'lightGray' } );
+    var presetRadioButton = new AquaRadioButton( variableWavelength, false, new Text( BLLStrings.preset, { font: new BLLFont( 18 ), fill: 'black' } ) );
+    var variableRadioButton = new AquaRadioButton( variableWavelength, true, new Text( BLLStrings.variable, { font: new BLLFont( 18 ), fill: 'black' } ) );
     var wavelengthSlider = new WavelengthSlider( light.wavelength, { trackWidth: 150, trackHeight: 30 } );
 
     // rendering order
@@ -72,7 +72,7 @@ define( function( require ) {
     wavelengthSlider.top = presetRadioButton.bottom + ySpacing;
 
     Panel.call( thisNode, content,
-      { xMargin: 20, yMargin: 20, fill: "#F0F0F0", stroke: "gray", lineWidth: 1 } );
+      { xMargin: 20, yMargin: 20, fill: '#F0F0F0', stroke: 'gray', lineWidth: 1 } );
 
     // When the radio button selection changes...
     variableWavelength.link( function( isVariable ) {

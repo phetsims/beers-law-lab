@@ -6,19 +6,19 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var assert = require( "ASSERT/assert" )( "beers-law-lab" );
-  var BLLFont = require( "common/BLLFont" );
-  var BLLStrings = require( "common/BLLStrings" );
-  var ComboBox = require( "SUN/ComboBox" );
-  var HTMLText = require( "SCENERY/nodes/HTMLText" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Rectangle = require( "SCENERY/nodes/Rectangle" );
-  var StringUtils = require( "PHETCOMMON/util/StringUtils" );
-  var Text = require( "SCENERY/nodes/Text" );
+  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
+  var BLLFont = require( 'common/BLLFont' );
+  var BLLStrings = require( 'common/BLLStrings' );
+  var ComboBox = require( 'SUN/ComboBox' );
+  var HTMLText = require( 'SCENERY/nodes/HTMLText' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   /**
    * @param {Array<BeersLawSolution>} solutions
@@ -28,7 +28,7 @@ define( function( require ) {
    */
   function SolutionComboBox( solutions, selectedSolution, soluteListParent ) {
 
-    // "Solution" label
+    // 'Solution' label
     var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.solution ), { font: new BLLFont( 20 ) } );
 
     // items
@@ -40,9 +40,9 @@ define( function( require ) {
 
     ComboBox.call( this, items, selectedSolution,
       { labelNode: label,
-        listPosition: "above",
+        listPosition: 'above',
         itemYMargin: 12,
-        itemHighlightFill: "rgb(218,255,255)",
+        itemHighlightFill: 'rgb(218,255,255)',
         listParent: soluteListParent } );
   }
 

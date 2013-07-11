@@ -2,21 +2,21 @@
 
 /**
  * Visual representation of the light in the Beer's Law tab.
- * Origin is at the right center, where the light comes out of the "housing".
+ * Origin is at the right center, where the light comes out of the 'housing'.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var BLLImages = require( "common/BLLImages" );
-  var Image = require( "SCENERY/nodes/Image" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Property = require( "AXON/Property" );
-  var Shape = require( "KITE/Shape" );
-  var ToggleButton = require( "common/view/ToggleButton" );
+  var BLLImages = require( 'common/BLLImages' );
+  var Image = require( 'SCENERY/nodes/Image' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Property = require( 'AXON/Property' );
+  var Shape = require( 'KITE/Shape' );
+  var ToggleButton = require( 'common/view/ToggleButton' );
 
   /**
    * @param {Light} light
@@ -29,9 +29,9 @@ define( function( require ) {
     Node.call( this );
 
     // nodes
-    var housing = new Image( BLLImages.getImage( "light.png" ) );
+    var housing = new Image( BLLImages.getImage( 'light.png' ) );
     var button = new ToggleButton(
-      BLLImages.getImage( "red_button_unpressed.png" ), BLLImages.getImage( "red_button_pressed.png" ), BLLImages.getImage( "red_button_disabled.png" ),
+      BLLImages.getImage( 'red_button_unpressed.png' ), BLLImages.getImage( 'red_button_pressed.png' ), BLLImages.getImage( 'red_button_disabled.png' ),
       light.on, new Property( true ) );
 
     // expand touch area for button. Do this before scaling the button!

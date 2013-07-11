@@ -6,17 +6,17 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var BLLFont = require( "common/BLLFont" );
-  var BLLStrings = require( "common/BLLStrings" );
-  var ConcentrationSlider = require( "beerslaw/view/ConcentrationSlider" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var Rectangle = require( "SCENERY/nodes/Rectangle" );
-  var StringUtils = require( "PHETCOMMON/util/StringUtils" );
-  var Text = require( "SCENERY/nodes/Text" );
+  var BLLFont = require( 'common/BLLFont' );
+  var BLLStrings = require( 'common/BLLStrings' );
+  var ConcentrationSlider = require( 'beerslaw/view/ConcentrationSlider' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   // constants
   var FONT = new BLLFont( 20 );
@@ -33,11 +33,11 @@ define( function( require ) {
     // nodes
     var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.concentration ), { font: FONT } );
     var slider = new ConcentrationSlider( solution );
-    var valueDisplay = new Text( "400 XXX", { font: FONT } ); //TODO too many assumptions here, and doesn't work for i18n
+    var valueDisplay = new Text( '400 XXX', { font: FONT } ); //TODO too many assumptions here, and doesn't work for i18n
     var xMargin = 0.1 * valueDisplay.width;
     var yMargin = 0.1 * valueDisplay.height;
     var valueBackground = new Rectangle( 0, 0, valueDisplay.width + xMargin + xMargin, valueDisplay.height + yMargin + yMargin,
-      { fill: "white", stroke: "lightGray" } );
+      { fill: 'white', stroke: 'lightGray' } );
 
     // rendering order
     thisNode.addChild( label );

@@ -1,29 +1,29 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Scene graph for the "Beer's Law" tab.
+ * Scene graph for the 'Beer's Law' tab.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
-  "use strict";
+  'use strict';
 
   // imports
-  var ATDetectorNode = require( "beerslaw/view/ATDetectorNode" );
-  var BeamNode = require( "beerslaw/view/BeamNode" );
-  var BLLRulerNode = require( "beerslaw/view/BLLRulerNode" );
-  var BLLStrings = require( "common/BLLStrings" );
-  var Bounds2 = require( "DOT/Bounds2" );
-  var CuvetteNode = require( "beerslaw/view/CuvetteNode" );
-  var inherit = require( "PHET_CORE/inherit" );
-  var LightNode = require( "beerslaw/view/LightNode" );
-  var Node = require( "SCENERY/nodes/Node" );
-  var ResetAllButton = require( "SCENERY_PHET/ResetAllButton" );
-  var Scene = require( "SCENERY/Scene" );
-  var SolutionControls = require( "beerslaw/view/SolutionControls" );
-  var TabView = require( "JOIST/TabView" );
-  var Text = require( "SCENERY/nodes/Text" );
-  var WavelengthControls = require( "beerslaw/view/WavelengthControls" );
+  var ATDetectorNode = require( 'beerslaw/view/ATDetectorNode' );
+  var BeamNode = require( 'beerslaw/view/BeamNode' );
+  var BLLRulerNode = require( 'beerslaw/view/BLLRulerNode' );
+  var BLLStrings = require( 'common/BLLStrings' );
+  var Bounds2 = require( 'DOT/Bounds2' );
+  var CuvetteNode = require( 'beerslaw/view/CuvetteNode' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var LightNode = require( 'beerslaw/view/LightNode' );
+  var Node = require( 'SCENERY/nodes/Node' );
+  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
+  var Scene = require( 'SCENERY/Scene' );
+  var SolutionControls = require( 'beerslaw/view/SolutionControls' );
+  var TabView = require( 'JOIST/TabView' );
+  var Text = require( 'SCENERY/nodes/Text' );
+  var WavelengthControls = require( 'beerslaw/view/WavelengthControls' );
 
   /**
    * @param {BeersLawModel} model
