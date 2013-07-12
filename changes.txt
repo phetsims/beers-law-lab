@@ -1,3 +1,4 @@
+7/11/13 add vertical separator between radio buttons in solute control panel
 7/11/13 add this.mutate(options) to end of ArrowButton constructor, #10
 7/11/13 migrate HorizontalTiledNode to scenery-phet
 7/11/13 use scenery.Pattern to implement HorizontalTiledNode, #12

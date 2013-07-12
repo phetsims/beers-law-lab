@@ -9,14 +9,16 @@ define( function( require ) {
   'use strict';
 
   // imports
+  var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var BLLFont = require( 'common/BLLFont' );
   var BLLImages = require( 'common/BLLImages' );
   var BLLStrings = require( 'common/BLLStrings' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
+  var Path = require( 'SCENERY/nodes/Path' );
   var Property = require( 'AXON/Property' );
-  var AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  var Shape = require( 'KITE/Shape' );
   var Text = require( 'SCENERY/nodes/Text' );
 
   /**
@@ -51,13 +53,18 @@ define( function( require ) {
     var X_SPACING = 10;
     var shakerButton = new AquaRadioButton( shaker.visible, true, new TextAndIconNode( BLLStrings.solid, TEXT_OPTIONS, BLLImages.getImage( 'shaker-icon.png' ), X_SPACING ) );
     var dropperButton = new AquaRadioButton( dropper.visible, true, new TextAndIconNode( BLLStrings.solution, TEXT_OPTIONS, BLLImages.getImage( 'dropper-icon.png' ), X_SPACING ) );
+    var separator = new Path( { shape: Shape.lineSegment( 0, 0, 0, shakerButton.height ), stroke: 'rgb(150,150,150)', lineWidth: 0.5 } );
 
     // rendering order
     this.addChild( shakerButton );
+    this.addChild( separator );
     this.addChild( dropperButton );
 
     // layout
-    dropperButton.left = shakerButton.right + 40;
+    var X_SPACING = 30;
+    separator.left = shakerButton.right + X_SPACING;
+    separator.centerY = shakerButton.centerY;
+    dropperButton.left = separator.right + X_SPACING;
 
     // ensure mutual exclusivity
     shaker.visible.link( function( visible ) {
