@@ -123,6 +123,7 @@ define( function( require ) {
       }
     } ) );
 
+    //TODO consider adding this to the prototype. Would need to convert several local vars to fields, and cleanupTimer gets a little complicated.
     thisButton.setEnabled = function( value ) {
       enabled = value;
       if ( !enabled ) {
