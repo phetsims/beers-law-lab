@@ -24,6 +24,7 @@ define( function( require ) {
 
   // constants
   var DEBUG_ORIGIN = false;
+  var SHOW_ARROWS = true;
   var ARROW_LENGTH = 40;
   var ARROW_HEAD_LENGTH = 30;
   var ARROW_HEAD_WIDTH = 40;
@@ -105,6 +106,8 @@ define( function( require ) {
     var downArrowNode = new Path( { shape: downArrowShape, fill: ARROW_FILL, stroke: ARROW_STROKE } );
     downArrowNode.top = imageNode.bottom + 4;
     downArrowNode.centerX = imageNode.centerX;
+    downArrowNode.pickable = false;
+    downArrowNode.visible = false;
 
     var upArrowShape = new Shape()
       .moveTo( 0, 0 )
@@ -118,15 +121,18 @@ define( function( require ) {
     var upArrowNode = new Path( { shape: upArrowShape, fill: ARROW_FILL, stroke: ARROW_STROKE } );
     upArrowNode.bottom = imageNode.top - 4;
     upArrowNode.centerX = imageNode.centerX;
-    upArrowNode.visible = downArrowNode.visible = false; // invisible until the user interacts with the shaker
+    upArrowNode.pickable = false;
+    upArrowNode.visible = false;
 
     // common parent, to simplify rotation and label alignment.
     var parentNode = new Node();
     thisNode.addChild( parentNode );
     parentNode.addChild( imageNode );
     parentNode.addChild( labelNode );
-    parentNode.addChild( upArrowNode );
-    parentNode.addChild( downArrowNode );
+    if ( SHOW_ARROWS ) {
+      parentNode.addChild( upArrowNode );
+      parentNode.addChild( downArrowNode );
+    }
     parentNode.rotate( shaker.orientation - Math.PI ); // assumes that shaker points to the left in the image file
 
     // Manually adjust these values until the origin is in the middle hole of the shaker.
