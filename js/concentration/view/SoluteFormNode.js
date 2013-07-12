@@ -61,10 +61,10 @@ define( function( require ) {
     this.addChild( dropperButton );
 
     // layout
-    var X_SPACING = 30;
-    separator.left = shakerButton.right + X_SPACING;
+    var SEPARATOR_SPACING = 30;
+    separator.left = shakerButton.right + SEPARATOR_SPACING;
     separator.centerY = shakerButton.centerY;
-    dropperButton.left = separator.right + X_SPACING;
+    dropperButton.left = separator.right + SEPARATOR_SPACING;
 
     // ensure mutual exclusivity
     shaker.visible.link( function( visible ) {
