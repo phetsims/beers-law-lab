@@ -133,6 +133,8 @@ define( function( require ) {
       thisButton.pickable = enabled;
     };
     thisButton.setEnabled( true );
+
+    thisButton.mutate( options );
   }
 
   inherit( Node, ArrowButton );
