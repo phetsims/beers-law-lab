@@ -20,7 +20,6 @@ LOWEST
 MIGRATE TO COMMON
 ArrowButton
 FaucetNode + images
-HorizontalTiledNode
 ToggleButton + images
 VisibleColor
 WavelengthSlider

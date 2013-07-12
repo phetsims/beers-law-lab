@@ -23,7 +23,7 @@ define( function( require ) {
   var BLLFont = require( 'common/BLLFont' );
   var BLLImages = require( 'common/BLLImages' );
   var BLLStrings = require( 'common/BLLStrings' );
-  var HorizontalTiledNode = require( 'common/view/HorizontalTiledNode' );
+  var HorizontalTiledNode = require( 'SCENERY_PHET/HorizontalTiledNode' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MovableDragHandler = require( 'common/view/MovableDragHandler' );
