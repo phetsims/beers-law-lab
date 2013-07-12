@@ -36,6 +36,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // constants
+  var BODY_IS_DRAGGABLE = true;
   var VALUE_DECIMALS = 3;
   var NO_VALUE = '-';
   var TITLE_TOP = 12; // specific to bodyCenterImage
@@ -54,7 +55,9 @@ define( function( require ) {
   function BodyNode( meter, mvt ) {
 
     var thisNode = this;
-    Node.call( thisNode );
+    Node.call( thisNode, {
+      cursor: 'pointer'
+    } );
 
     // text nodes
     var titleNode = new Text( BLLStrings.concentration,
@@ -85,6 +88,10 @@ define( function( require ) {
     unitsNode.top = titleNode.bottom + 5;
     valueNode.right = backgroundNode.right - VALUE_X_MARGIN; // right justified
     valueNode.centerY = VALUE_CENTER_Y;
+
+    if ( BODY_IS_DRAGGABLE ) {
+      thisNode.addInputListener( new MovableDragHandler( meter.body, mvt ) );
+    }
 
     // body location
     meter.body.location.link( function( location ) {
