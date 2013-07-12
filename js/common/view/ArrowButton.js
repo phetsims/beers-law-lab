@@ -137,11 +137,5 @@ define( function( require ) {
 
   inherit( Node, ArrowButton );
 
-  // direction that the arrow points
-  ArrowButton.Direction = {
-    'LEFT': 0,
-    'RIGHT': 1
-  };
-
   return ArrowButton;
 } );
