@@ -6,7 +6,6 @@ BUGS
 - Safari 5: text bounds are wrong, text is small (scenery#61)
 
 HIGH
-- make Concentration meter body temporarily movable
 - add arrows to shaker, visible on mouseOver (or pressed?) until the shaker is dragged for the first time
 - add RSC "thank you" to About dialog
 - drain pipe doesn't line up with spout (water faucet is ok)
