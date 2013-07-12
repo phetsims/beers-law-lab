@@ -1,3 +1,4 @@
+7/11/13 add arrows to shaker
 7/11/13 make Concentration meter body temporarily movable (allow team to experiment with position)
 7/11/13 add vertical separator between radio buttons in solute control panel
 7/11/13 add this.mutate(options) to end of ArrowButton constructor, #10
