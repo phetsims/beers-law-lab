@@ -68,9 +68,9 @@ define( function( require ) {
     var maxTextWidth = Math.max( titleNode.width, unitsNode.width );
     var bodyWidth = ( 2 * TEXT_X_MARGIN ) + maxTextWidth;
     var backgroundNode = new HorizontalTiledNode( bodyWidth,
-      new Image( BLLImages.getImage( 'concentration-meter-body-left.png' ) ),
-      new Image( BLLImages.getImage( 'concentration-meter-body-center.png' ) ),
-      new Image( BLLImages.getImage( 'concentration-meter-body-right.png' ) ) );
+      BLLImages.getImage( 'concentration-meter-body-left.png' ),
+      BLLImages.getImage( 'concentration-meter-body-center.png' ),
+      BLLImages.getImage( 'concentration-meter-body-right.png' ) );
 
     // rendering order
     thisNode.addChild( backgroundNode );

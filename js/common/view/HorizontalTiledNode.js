@@ -15,54 +15,41 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
+  var Pattern = require( 'SCENERY/util/Pattern' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
 
   // constants
   var X_OVERLAP = 1; // overlap between tiles, to hide seams
 
   /**
    * @param {Number} totalWidth
-   * @param {Node} leftNode
-   * @param {Node} centerNode
-   * @param {Node} rightNode
+   * @param {Node} leftImage
+   * @param {Node} centerImage
+   * @param {Node} rightImage
    * @constructor
    */
-  function HorizontalTiledNode( totalWidth, leftNode, centerNode, rightNode ) {
+  function HorizontalTiledNode( totalWidth, leftImage, centerImage, rightImage ) {
 
-    assert && assert( leftNode.height === centerNode.height && centerNode.height === rightNode.height );
-    assert && assert( ( leftNode.width + centerNode.width + rightNode.width ) <= totalWidth );
+    assert && assert( leftImage.height === centerImage.height && centerImage.height === rightImage.height );
+    assert && assert( ( leftImage.width + rightImage.width ) <= totalWidth );  // center may be unused
 
     var thisNode = this;
     Node.call( thisNode );
 
-    // compute the number of tiles required to fill the center
-    var tiledWidth = totalWidth - leftNode.width - rightNode.width + ( 2 * X_OVERLAP );
-
-    var parentNode = new Node();
-
     // left
-    parentNode.addChild( leftNode );
+    var leftNode = new Image( leftImage );
+    thisNode.addChild( leftNode );
 
     // right
-    parentNode.addChild( rightNode );
-    rightNode.x = totalWidth - rightNode.width;
+    var rightNode = new Image( rightImage );
+    rightNode.right = totalWidth;
+    thisNode.addChild( rightNode );
 
     // tile the center, with overlap between tiles to hide seams
-    var previousNode = leftNode;
-    while ( tiledWidth > 0 ) {
-      // scenery allows nodes to be in the graph multiple times, but not as siblings, so create a parent.
-      var tileNode = new Node();
-      tileNode.addChild( centerNode );
-      parentNode.addChild( tileNode );
-      tileNode.x = previousNode.right - X_OVERLAP;
-      // If tile extends too far into right side, shift the tile to the left.
-      if ( tileNode.getRight() > rightNode.getLeft() + X_OVERLAP ) {
-        tileNode.x = rightNode.left + X_OVERLAP - tileNode.width;
-      }
-      tiledWidth = tiledWidth - centerNode.width + X_OVERLAP;
-      previousNode = tileNode;
-    }
-
-    thisNode.addChild( parentNode );
+    var tiledWidth = totalWidth - leftNode.width - rightNode.width + ( 2 * X_OVERLAP );
+    var centerNode = new Rectangle( 0, 0, tiledWidth, centerImage.height, { fill: new Pattern( centerImage ) } );
+    centerNode.left = leftNode.right - X_OVERLAP;
+    thisNode.addChild( centerNode );
   }
 
   inherit( Node, HorizontalTiledNode );

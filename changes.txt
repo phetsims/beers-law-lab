@@ -1,3 +1,4 @@
+7/11/13 use scenery.Pattern to implement HorizontalTiledNode, #12
 7/11/13 fix: sematics of 'left' and 'right' were reversed for ArrowButton direction, #8
 7/11/13 use strings instead of enum for ArrowButton direction, #9
 7/11/13 remove jquery shim from config.js

@@ -68,9 +68,9 @@ define( function( require ) {
     // background image, sized to fit
     var bodyWidth = Math.max( buttonGroup.width, valueNode.width ) + ( 2 * BUTTONS_X_MARGIN );
     var backgroundNode = new HorizontalTiledNode( bodyWidth,
-      new Image( BLLImages.getImage( 'at-detector-body-left.png' ) ),
-      new Image( BLLImages.getImage( 'at-detector-body-center.png' ) ),
-      new Image( BLLImages.getImage( 'at-detector-body-right.png' ) ) );
+      BLLImages.getImage( 'at-detector-body-left.png' ),
+      BLLImages.getImage( 'at-detector-body-center.png' ),
+      BLLImages.getImage( 'at-detector-body-right.png' ) );
 
     // rendering order
     thisNode.addChild( backgroundNode );
