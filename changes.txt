@@ -1,10 +1,11 @@
+# 0.0.0-13 7/8/13
 7/11/13 add arrows to shaker
 7/11/13 make Concentration meter body temporarily movable (allow team to experiment with position)
 7/11/13 add vertical separator between radio buttons in solute control panel
 7/11/13 add this.mutate(options) to end of ArrowButton constructor, #10
 7/11/13 migrate HorizontalTiledNode to scenery-phet
 7/11/13 use scenery.Pattern to implement HorizontalTiledNode, #12
-7/11/13 fix: sematics of 'left' and 'right' were reversed for ArrowButton direction, #8
+7/11/13 fix: semantics of 'left' and 'right' were reversed for ArrowButton direction, #8
 7/11/13 use strings instead of enum for ArrowButton direction, #9
 7/11/13 remove jquery shim from config.js
 7/11/13 change request: move cuvette handle down
