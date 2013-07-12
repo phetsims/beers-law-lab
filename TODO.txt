@@ -6,6 +6,7 @@ BUGS
 - Safari 5: text bounds are wrong, text is small (scenery#61)
 
 HIGH
+- add RSC "thank you" to About dialog
 - drain pipe doesn't line up with spout (water faucet is ok)
 
 MEDIUM
