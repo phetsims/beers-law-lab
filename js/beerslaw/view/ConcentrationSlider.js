@@ -226,10 +226,10 @@ define( function( require ) {
     var maxTickLabel = new TickLabel( 0 ); // correct value will be set when observer is registered
 
     // buttons for single-unit increments
-    var plusButton = new ArrowButton( ArrowButton.Direction.LEFT, function() {
+    var plusButton = new ArrowButton( 'right', function() {
       solution.get().concentration.set( Math.min( solution.get().concentration.get() + solution.get().concentrationTransform.viewToModel( 1 ), solution.get().concentrationRange.max ) );
     } );
-    var minusButton = new ArrowButton( ArrowButton.Direction.RIGHT, function() {
+    var minusButton = new ArrowButton( 'left', function() {
       solution.get().concentration.set( Math.max( solution.get().concentration.get() - solution.get().concentrationTransform.viewToModel( 1 ), solution.get().concentrationRange.min ) );
     } );
 

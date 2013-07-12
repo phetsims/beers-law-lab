@@ -1,3 +1,5 @@
+7/11/13 fix: sematics of 'left' and 'right' were reversed for ArrowButton direction, #8
+7/11/13 use strings instead of enum for ArrowButton direction, #9
 7/11/13 remove jquery shim from config.js
 7/11/13 change request: move cuvette handle down
 7/11/13 change double quotes (") to single quotes (') throughout, #3

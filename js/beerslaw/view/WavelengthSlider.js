@@ -142,10 +142,10 @@ define( function( require ) {
     var cursor = new Cursor( 3, track.height );
 
     // buttons for single-unit increments
-    var plusButton = new ArrowButton( ArrowButton.Direction.LEFT, function() {
+    var plusButton = new ArrowButton( 'right', function() {
       wavelength.set( wavelength.get() + 1 );
     } );
-    var minusButton = new ArrowButton( ArrowButton.Direction.RIGHT, function() {
+    var minusButton = new ArrowButton( 'left', function() {
       wavelength.set( wavelength.get() - 1 );
     } );
 

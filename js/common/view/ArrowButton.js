@@ -14,6 +14,7 @@ define( function( require ) {
   'use strict';
 
   // imports
+  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
   var ButtonListener = require( 'SCENERY/input/ButtonListener' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -22,12 +23,14 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
 
   /**
-   * @param {ArrowButton.Direction} direction
+   * @param {String} direction 'left' or 'right'
    * @param callback
    * @param options
    * @constructor
    */
   function ArrowButton( direction, callback, options ) {
+
+    assert && assert( direction === 'left' || direction === 'right' );
 
     var thisButton = this;
 
@@ -53,7 +56,7 @@ define( function( require ) {
     Node.call( thisButton );
 
     // nodes
-    var arrowShape = ( direction === ArrowButton.Direction.LEFT ) ?
+    var arrowShape = ( direction === 'right' ) ?
                      new Shape().moveTo( 0, 0 ).lineTo( options.arrowWidth, options.arrowHeight / 2 ).lineTo( 0, options.arrowHeight ).close() :
                      new Shape().moveTo( 0, options.arrowHeight / 2 ).lineTo( options.arrowWidth, 0 ).lineTo( options.arrowWidth, options.arrowHeight ).close();
     var arrowNode = new Path( { fill: options.enabledFill, shape: arrowShape } );
