@@ -12,15 +12,24 @@ define( function( require ) {
   var BLLFont = require( 'common/BLLFont' );
   var BLLImages = require( 'common/BLLImages' );
   var Circle = require( 'SCENERY/nodes/Circle' );
+  var HTMLText = require( 'SCENERY/nodes/HTMLText' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MovableDragHandler = require( 'common/view/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var HTMLText = require( 'SCENERY/nodes/HTMLText' );
+  var Path = require( 'SCENERY/nodes/Path' );
+  var Shape = require( 'KITE/Shape' );
+  var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // constants
   var DEBUG_ORIGIN = false;
+  var ARROW_LENGTH = 110;
+  var ARROW_HEAD_LENGTH = 38;
+  var ARROW_HEAD_WIDTH = 45;
+  var ARROW_TAIL_WIDTH = 23;
+  var ARROW_FILL = 'yellow';
+  var ARROW_STROKE = 'black';
 
   /**
    * Constructor
@@ -40,11 +49,21 @@ define( function( require ) {
     // label
     var labelNode = new HTMLText( shaker.solute.formula, { font: new BLLFont( 22, 'bold' ), fill: 'black' } );
 
+    // arrows
+    var downArrowNode = new Path( { shape: new Shape().moveTo( 0, 0 ).lineTo( 20, -20 ).lineTo( -20, -20 ).close(), fill: ARROW_FILL, stroke: ARROW_STROKE } );
+    downArrowNode.top = imageNode.bottom + 10;
+    downArrowNode.centerX = imageNode.centerX;
+    var upArrowNode = new Path( { shape: new Shape().moveTo( 0, 0 ).lineTo( 20, 20 ).lineTo( -20, 20 ).close(), fill: ARROW_FILL, stroke: ARROW_STROKE } );
+    upArrowNode.bottom = imageNode.top - 10;
+    upArrowNode.centerX = imageNode.centerX;
+
     // common parent, to simplify rotation and label alignment.
     var parentNode = new Node();
     thisNode.addChild( parentNode );
     parentNode.addChild( imageNode );
     parentNode.addChild( labelNode );
+    parentNode.addChild( upArrowNode );
+    parentNode.addChild( downArrowNode );
     parentNode.rotate( shaker.orientation - Math.PI ); // assumes that shaker points to the left in the image file
 
     // Manually adjust these values until the origin is in the middle hole of the shaker.
@@ -78,6 +97,19 @@ define( function( require ) {
     // interactivity
     thisNode.cursor = 'pointer';
     thisNode.addInputListener( new MovableDragHandler( shaker, mvt ) );
+
+    upArrowNode.visible = downArrowNode.visible = false;
+    thisNode.addInputListener( new SimpleDragHandler( {
+      start: function() {
+        console.log( "start" );//XXX
+        upArrowNode.visible = downArrowNode.visible = true;
+      },
+      end: function() {
+        console.log( "end" );//XXX
+        upArrowNode.visible = downArrowNode.visible = false;
+      },
+      translate: function() {}
+    } ) );
   }
 
   inherit( Node, ShakerNode );
