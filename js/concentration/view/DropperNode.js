@@ -10,7 +10,6 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLFont = require( 'common/BLLFont' );
   var BLLImages = require( 'common/BLLImages' );
   var Circle = require( 'SCENERY/nodes/Circle' );
   var ConcentrationSolution = require( 'concentration/model/ConcentrationSolution' );
@@ -20,6 +19,7 @@ define( function( require ) {
   var MovableDragHandler = require( 'common/view/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Shape = require( 'KITE/Shape' );
   var ToggleButton = require( 'common/view/ToggleButton' );
 
@@ -68,7 +68,7 @@ define( function( require ) {
     var background = new Image( BLLImages.getImage( 'dropper_background.png' ) );
 
     // label
-    var label = new HTMLText( dropper.solute.formula, { font: new BLLFont( 18, 'bold' ), fill: 'black' } );
+    var label = new HTMLText( dropper.solute.formula, { font: new PhetFont( 18, 'bold' ), fill: 'black' } );
 
     // label background, so the label shows up on various fluid colors
     var labelBackground = new Path(

@@ -10,7 +10,6 @@ define( function( require ) {
 
   // imports
   var ATDetector = require( 'beerslaw/model/ATDetector' );
-  var BLLFont = require( 'common/BLLFont' );
   var BLLImages = require( 'common/BLLImages' );
   var BLLStrings = require( 'common/BLLStrings' );
   var HorizontalTiledNode = require( 'SCENERY_PHET/HorizontalTiledNode' );
@@ -19,6 +18,7 @@ define( function( require ) {
   var MovableDragHandler = require( 'common/view/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var Shape = require( 'KITE/Shape' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
@@ -50,7 +50,7 @@ define( function( require ) {
     Node.call( thisNode );
 
     // buttons for changing the detector 'mode'
-    var textOptions = { font: new BLLFont( 18 ), fill: 'white' };
+    var textOptions = { font: new PhetFont( 18 ), fill: 'white' };
     var transmittanceButton = new AquaRadioButton( detector.mode, ATDetector.Mode.TRANSMITTANCE, new Text( BLLStrings.transmittance, textOptions ) );
     var absorbanceButton = new AquaRadioButton( detector.mode, ATDetector.Mode.ABSORBANCE, new Text( BLLStrings.absorbance, textOptions ) );
 
@@ -63,7 +63,7 @@ define( function( require ) {
 
     // value display
     var maxValue = 100;
-    var valueNode = new Text( maxValue.toFixed( ABSORBANCE_DECIMAL_PLACES ), { font: new BLLFont( 24 ) } );
+    var valueNode = new Text( maxValue.toFixed( ABSORBANCE_DECIMAL_PLACES ), { font: new PhetFont( 24 ) } );
 
     // background image, sized to fit
     var bodyWidth = Math.max( buttonGroup.width, valueNode.width ) + ( 2 * BUTTONS_X_MARGIN );

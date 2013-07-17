@@ -9,17 +9,17 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLFont = require( 'common/BLLFont' );
   var BLLStrings = require( 'common/BLLStrings' );
   var ConcentrationSlider = require( 'beerslaw/view/ConcentrationSlider' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
 
   // constants
-  var FONT = new BLLFont( 20 );
+  var FONT = new PhetFont( 20 );
 
   /**
    * @param {Property<BeersLawSolution>} solution

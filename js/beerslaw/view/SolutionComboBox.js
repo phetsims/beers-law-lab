@@ -10,12 +10,12 @@ define( function( require ) {
 
   // imports
   var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
-  var BLLFont = require( 'common/BLLFont' );
   var BLLStrings = require( 'common/BLLStrings' );
   var ComboBox = require( 'SUN/ComboBox' );
   var HTMLText = require( 'SCENERY/nodes/HTMLText' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -29,7 +29,7 @@ define( function( require ) {
   function SolutionComboBox( solutions, selectedSolution, soluteListParent ) {
 
     // 'Solution' label
-    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.solution ), { font: new BLLFont( 20 ) } );
+    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.solution ), { font: new PhetFont( 20 ) } );
 
     // items
     var items = [];
@@ -60,7 +60,7 @@ define( function( require ) {
     var node = new Node();
     var colorSquare = new Rectangle( 0, 0, 20, 20,
       { fill: solution.saturatedColor, stroke: solution.saturatedColor.darkerColor() } );
-    var solutionName = new HTMLText( solution.getDisplayName(), { font: new BLLFont( 20 ) } );
+    var solutionName = new HTMLText( solution.getDisplayName(), { font: new PhetFont( 20 ) } );
     node.addChild( colorSquare );
     node.addChild( solutionName );
     solutionName.left = colorSquare.right + 5;

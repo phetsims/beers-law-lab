@@ -11,7 +11,6 @@ define( function( require ) {
 
   // imports
   var ArrowButton = require( 'common/view/ArrowButton' );
-  var BLLFont = require( 'common/BLLFont' );
   var Color = require( 'SCENERY/util/Color' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var FillHighlightListener = require( 'SCENERY_PHET/input/FillHighlightListener' );
@@ -20,6 +19,7 @@ define( function( require ) {
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Shape = require( 'KITE/Shape' );
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
@@ -38,7 +38,7 @@ define( function( require ) {
 
   // tick constants
   var TICK_LENGTH = 16;
-  var TICK_FONT = new BLLFont( 16 );
+  var TICK_FONT = new PhetFont( 16 );
   var TICK_DECIMAL_PLACES = 0;
 
   /**

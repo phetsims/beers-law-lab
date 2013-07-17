@@ -11,13 +11,13 @@ define( function( require ) {
   // imports
   var ArrowButton = require( 'common/view/ArrowButton' );
   var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
-  var BLLFont = require( 'common/BLLFont' );
   var BLLStrings = require( 'common/BLLStrings' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Shape = require( 'KITE/Shape' );
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
@@ -133,7 +133,7 @@ define( function( require ) {
     var trackHeight = options.trackHeight || 30;
     var thumbWidth = options.thumbWidth || 35;
     var thumbHeight = options.thumbHeight || 45;
-    var valueFont = options.valueFont || new BLLFont( 20 );
+    var valueFont = options.valueFont || new PhetFont( 20 );
     var valueFill = options.valueFill || 'black';
 
     var thumb = new Thumb( thumbWidth, thumbHeight );

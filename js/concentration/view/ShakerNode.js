@@ -9,7 +9,6 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLFont = require( 'common/BLLFont' );
   var BLLImages = require( 'common/BLLImages' );
   var Circle = require( 'SCENERY/nodes/Circle' );
   var DownUpListener = require( 'SCENERY/input/DownUpListener' );
@@ -19,6 +18,7 @@ define( function( require ) {
   var MovableDragHandler = require( 'common/view/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Shape = require( 'KITE/Shape' );
   var Vector2 = require( 'DOT/Vector2' );
 
@@ -91,7 +91,7 @@ define( function( require ) {
     imageNode.setScaleMagnitude( 0.75 );
 
     // label
-    var labelNode = new HTMLText( shaker.solute.formula, { font: new BLLFont( 22, 'bold' ), fill: 'black' } );
+    var labelNode = new HTMLText( shaker.solute.formula, { font: new PhetFont( 22, 'bold' ), fill: 'black' } );
 
     // arrows
     var downArrowShape = new Shape()

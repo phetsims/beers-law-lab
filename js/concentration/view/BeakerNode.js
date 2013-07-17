@@ -10,11 +10,11 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLFont = require( 'common/BLLFont' );
   var BLLStrings = require( 'common/BLLStrings' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Shape = require( 'KITE/Shape' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -88,7 +88,7 @@ define( function( require ) {
         if ( labelIndex < MAJOR_TICK_LABELS.length ) {
           var label = StringUtils.format( BLLStrings.pattern_0value_1units, MAJOR_TICK_LABELS[labelIndex], BLLStrings.units_liters );
           ticksParent.addChild( new Text( label, {
-            font: new BLLFont( 24 ),
+            font: new PhetFont( 24 ),
             fill: 'black',
             x: rightX + TICK_LABEL_X_SPACING,
             centerY: tickPath.centerY

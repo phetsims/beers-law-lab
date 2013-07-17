@@ -9,9 +9,9 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLFont = require( 'common/BLLFont' );
   var BLLStrings = require( 'common/BLLStrings' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var TextButton = require( 'SUN/TextButton' );
 
   /**
@@ -25,7 +25,7 @@ define( function( require ) {
     TextButton.call( thisButton, BLLStrings.removeSolute, function() {
       solution.soluteAmount.set( 0 );
     }, {
-      font: new BLLFont( 22 ),
+      font: new PhetFont( 22 ),
       textFill: 'black',
       textFillDisabled: 'rgb(175,175,175)',
       rectangleFill: 'orange',
