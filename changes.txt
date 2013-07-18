@@ -1,3 +1,4 @@
+7/17/13 migrate ArrowButton to scenery-phet
 7/17/13 replace BLLFont with PhetFont
 # 0.0.0-13 7/8/13
 7/11/13 add arrows to shaker

@@ -18,7 +18,6 @@ LOW
 LOWEST
 
 MIGRATE TO COMMON
-ArrowButton
 FaucetNode + images
 ToggleButton + images
 VisibleColor

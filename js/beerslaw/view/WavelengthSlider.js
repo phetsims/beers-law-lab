@@ -9,7 +9,7 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var ArrowButton = require( 'common/view/ArrowButton' );
+  var ArrowButton = require( 'SCENERY_PHET/ArrowButton' );
   var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
   var BLLStrings = require( 'common/BLLStrings' );
   var Dimension2 = require( 'DOT/Dimension2' );
