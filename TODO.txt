@@ -1,21 +1,8 @@
 TODO list for beers-law-lab (HTML port)
 
-DESIGN ISSUES
-
-BUGS
-- Safari 5: text bounds are wrong, text is small (scenery#61)
-
-HIGH
 - drain pipe doesn't line up with spout (water faucet is ok)
-
-MEDIUM
-- use the correct font family in BLLFont
-
-LOW
-- icons for homescreen and navbar
+- icons for home screen and navbar
 - TODO items in code
-
-LOWEST
 
 MIGRATE TO COMMON
 FaucetNode + images
