@@ -4,7 +4,7 @@
 //TODO Handle press-and-hold feature in Sim.animationLoop instead of using timers.
 //TODO This implementation should eventually use sun.Button
 /**
- * Button with an arrow that points left or right.
+ * Button with an arrow that points up, down, left or right.
  * Press and release immediately and the button fires on 'up'.
  * Press and hold for M milliseconds and the button will fire repeatedly every N milliseconds until released.
  *
@@ -14,7 +14,6 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
   var ButtonListener = require( 'SCENERY/input/ButtonListener' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -23,14 +22,12 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
 
   /**
-   * @param {String} direction 'left' or 'right'
+   * @param {String} direction 'up'|'down'|'left'|'right'
    * @param callback
    * @param options
    * @constructor
    */
   function ArrowButton( direction, callback, options ) {
-
-    assert && assert( direction === 'left' || direction === 'right' );
 
     var thisButton = this;
 
@@ -56,9 +53,22 @@ define( function( require ) {
     Node.call( thisButton );
 
     // nodes
-    var arrowShape = ( direction === 'right' ) ?
-                     new Shape().moveTo( 0, 0 ).lineTo( options.arrowWidth, options.arrowHeight / 2 ).lineTo( 0, options.arrowHeight ).close() :
-                     new Shape().moveTo( 0, options.arrowHeight / 2 ).lineTo( options.arrowWidth, 0 ).lineTo( options.arrowWidth, options.arrowHeight ).close();
+    var arrowShape
+    if ( direction === 'up' ) {
+      arrowShape = new Shape().moveTo( options.arrowWidth / 2, 0 ).lineTo( options.arrowWidth, options.arrowHeight ).lineTo( 0, options.arrowHeight ).close();
+    }
+    else if ( direction === 'down' ) {
+      arrowShape = new Shape().moveTo( 0, 0 ).lineTo( options.arrowWidth, 0 ).lineTo( options.arrowWidth / 2, options.arrowHeight ).close();
+    }
+    else if ( direction === 'left' ) {
+       arrowShape = new Shape().moveTo( 0, options.arrowHeight / 2 ).lineTo( options.arrowWidth, 0 ).lineTo( options.arrowWidth, options.arrowHeight ).close();
+    }
+    else if ( direction === 'right' ) {
+       arrowShape = new Shape().moveTo( 0, 0 ).lineTo( options.arrowWidth, options.arrowHeight / 2 ).lineTo( 0, options.arrowHeight ).close();
+    }
+    else {
+      throw new Error( "unsupported direction: " + direction );
+    }
     var arrowNode = new Path( { fill: options.enabledFill, shape: arrowShape } );
     var background = new Rectangle( 0, 0, arrowNode.width + ( 2 * options.xMargin ), arrowNode.height + ( 2 * options.yMargin ), options.cornerRadius, options.cornerRadius,
       {stroke: options.stroke, lineWidth: options.lineWidth, fill: options.fill } );
