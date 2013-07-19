@@ -19,7 +19,7 @@ require( [ 'JOIST/SimLauncher', 'JOIST/Sim', 'concentration/ConcentrationTab', '
               'Conversation of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
     };
 
-    // Adding '?dev' to the URL will enable developer-only features.
+    // Appending '?dev' to the URL will enable developer-only features.
     if ( window.phetcommon.getQueryParameter( 'dev' ) ) {
       simOptions = _.extend( {
         // add dev-specific options here
