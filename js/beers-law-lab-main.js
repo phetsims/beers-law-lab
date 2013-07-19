@@ -15,12 +15,17 @@ require( [ 'JOIST/SimLauncher', 'JOIST/Sim', 'concentration/ConcentrationTab', '
                'Lead Design: Julia Chamberlain\n' +
                'Software Development: Chris Malley\n' +
                'Design Team: Kelly Lancaster, Emily B. Moore, Ariel Paul, Kathy Perkins',
-      thanks:  'Thanks -\n'+
-               'Conversation of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
+      thanks: 'Thanks -\n' +
+              'Conversation of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
     };
 
+    // Adding '?dev' to the URL will enable developer-only features.
     if ( window.phetcommon.getQueryParameter( 'dev' ) ) {
-      simOptions = _.extend( { showHomeScreen: false, tabIndex: 0 }, simOptions );
+      simOptions = _.extend( {
+        // add dev-specific options here
+        showHomeScreen: false,
+        tabIndex: 0
+      }, simOptions );
     }
 
     SimLauncher.launch( BLLImages, function() {
