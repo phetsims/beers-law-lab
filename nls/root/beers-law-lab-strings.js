@@ -33,7 +33,6 @@ define(
     "units_centimeters": "cm",
     "units_liters": "L",
     "units_molesPerLiter": "mol/L",
-    "units_M": "M",
     "units_mM": "mM",
     "units_uM": "\u00b5M",
     "units_nm": "nm",

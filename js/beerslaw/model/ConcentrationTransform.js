@@ -49,7 +49,6 @@ define( function( require ) {
     }
   };
 
-  ConcentrationTransform.M = new ConcentrationTransform( 1, BLLStrings.units_M );
   ConcentrationTransform.mM = new ConcentrationTransform( 1000, BLLStrings.units_mM );
   ConcentrationTransform.uM = new ConcentrationTransform( 1000000, BLLStrings.units_uM );
 
