@@ -46,7 +46,7 @@ define( function( require ) {
     thisNode.addChild( valueDisplay );
 
     // layout
-    valueBackground.left = label.right + 3;
+    valueBackground.left = label.right + 6;
     valueDisplay.right = valueBackground.right - xMargin; // right aligned
     valueDisplay.y = label.y; // align baselines
     valueBackground.centerY = valueDisplay.centerY;

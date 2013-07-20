@@ -1,3 +1,4 @@
+7/19/13 add a bit more space between Concentration label and value
 7/19/13 delete unused view units (BLLStrings.units_M)
 7/19/13 add knobScale option to FaucetNode, scale image files
 7/19/13 cleanup and doc use of 'dev' query param
