@@ -54,9 +54,18 @@ define( function( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
+    // knob
+    var knobNode = new Image( BLLImages.getImage( 'faucet_knob.png' ) );
+    var dx = 0.5 * knobNode.width;
+    var dy = 0.5 * knobNode.height;
+    knobNode.touchArea = Shape.rectangle( -dx, -dy, knobNode.width + dx + dx, knobNode.height + dy + dy ); // before scaling!
+    knobNode.scale( 0.4 ); //TODO scale of the knob should be an option
+    var knobDisabledNode = new Image( BLLImages.getImage( 'faucet_knob_disabled.png' ) );
+    knobDisabledNode.scale( knobNode.getScaleVector() );
+
     // shaft
     var shaftNode = new Image( BLLImages.getImage( 'faucet_shaft.png' ) );
-    shaftNode.setScaleMagnitude( 0.58, 1 ); //TODO scale image file?
+    shaftNode.setScaleMagnitude( 0.58, 1 ); //TODO scale of the shaft should be computed based on scale of the knob
 
     // flange
     var flangeNode = new Image( BLLImages.getImage( 'faucet_flange.png' ) );
@@ -64,15 +73,6 @@ define( function( require ) {
 
     // stop
     var stopNode = new Image( BLLImages.getImage( 'faucet_stop.png' ) );
-
-    // knob
-    var knobNode = new Image( BLLImages.getImage( 'faucet_knob.png' ) );
-    var dx = 0.5 * knobNode.width;
-    var dy = 0.5 * knobNode.height;
-    knobNode.touchArea = Shape.rectangle( -dx, -dy, knobNode.width + dx + dx, knobNode.height + dy + dy ); // before scaling!
-    knobNode.scale( 0.4 ); //TODO scale image file?
-    var knobDisabledNode = new Image( BLLImages.getImage( 'faucet_knob_disabled.png' ) );
-    knobDisabledNode.scale( knobNode.getScaleVector() );
 
     // assemble the shooter
     var shooterNode = new Node();
