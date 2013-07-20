@@ -1,3 +1,4 @@
+7/19/13 add knobScale option to FaucetNode, scale image files
 7/19/13 cleanup and doc use of 'dev' query param
 7/17/13 migrate ArrowButton to scenery-phet
 7/17/13 replace BLLFont with PhetFont
