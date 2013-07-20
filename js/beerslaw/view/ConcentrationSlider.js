@@ -1,8 +1,10 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
-//TODO This has some things in common with EvaporationSlider, but also subtle differences. Probably more trouble than it's worth to factor out a base class.
 /**
  * Slider for changing a solution's concentration.
+ * <p>
+ * Note that this slider has some things in common with EvaporationSlider, but also subtle differences.
+ * So it's probably more trouble than it's worth to factor out a base class.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
