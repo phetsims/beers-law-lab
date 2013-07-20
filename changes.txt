@@ -1,3 +1,4 @@
+7/19/13 VisibleColor: eagerly compute color table, as requested in REVIEW comments
 7/19/13 add a bit more space between Concentration label and value
 7/19/13 delete unused view units (BLLStrings.units_M)
 7/19/13 add knobScale option to FaucetNode, scale image files

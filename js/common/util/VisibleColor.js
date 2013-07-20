@@ -11,21 +11,19 @@ define( function( require ) {
   var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
   var Color = require( 'SCENERY/util/Color' );
 
-  var colorTable = []; // populated on demand
+  function VisibleColor() {}
 
-  function VisibleColor() {
-  }
-
+  // public constants
   VisibleColor.MIN_WAVELENGTH = 380;
   VisibleColor.MAX_WAVELENGTH = 780;
 
   /**
-   * Initializes a color table, used to map between Color and wavelength.
-   * This method is called only once, when a Color is first needed.
+   * Creates a table that is used to map wavelength to Color.
+   * @return {Array<Color>}
    */
-  var initColorTable = function() {
+  var createColorTable = function() {
 
-    assert && assert( colorTable.length === 0 ); // call this function exactly once
+    var colorTable = [];
 
     // Allocate the color-lookup array.
     var numWavelengths = Math.floor( VisibleColor.MAX_WAVELENGTH - VisibleColor.MIN_WAVELENGTH + 1 );
@@ -89,7 +87,12 @@ define( function( require ) {
       // Add the color to the lookup array.
       colorTable[i] = new Color( red, green, blue, alpha );
     }
+
+    return colorTable;
   };
+
+  // Eagerly create the color table.
+  var COLOR_TABLE = createColorTable();
 
   /**
    * Converts a wavelength to a visible color.
@@ -97,17 +100,12 @@ define( function( require ) {
    * @return {Number|null} null if wavelength is not in the visible spectrum
    */
   VisibleColor.wavelengthToColor = function( wavelength ) {
-    var color;
     if ( wavelength < VisibleColor.MIN_WAVELENGTH || wavelength > VisibleColor.MAX_WAVELENGTH ) {
-      // Wavelength is not visible.
-      color = null;
+      return null; // Wavelength is not visible.
     }
     else {
-      // Look up the color.
-      if ( colorTable.length === 0 ) { initColorTable(); }
-      color = colorTable[ Math.round( wavelength ) - VisibleColor.MIN_WAVELENGTH ];
+      return COLOR_TABLE[ Math.round( wavelength ) - VisibleColor.MIN_WAVELENGTH ];
     }
-    return color;
   };
 
   return VisibleColor;
