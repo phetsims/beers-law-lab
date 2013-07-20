@@ -1,8 +1,9 @@
 TODO list for beers-law-lab (HTML port)
 
-- address scenery#66, so that workaround can be removed in MovableDragHandler
-- drain pipe doesn't line up with spout (water faucet is ok)
 - icons for home screen and navbar
+- ConcentrationControl: compute the width required to display the concentration value
+- MovableDragHandler: address scenery#66, so that workaround can be removed
+- FaucetNode: drain pipe doesn't line up with spout (water faucet is ok)
 - TODO items in code
 
 MIGRATE TO COMMON
