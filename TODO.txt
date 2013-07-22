@@ -1,6 +1,5 @@
 TODO list for beers-law-lab (HTML port)
 
-- icons for home screen and navbar
 - #6: consider using PropertySet throughout the models
 - ConcentrationControl: compute the width required to display the concentration value
 - MovableDragHandler: address scenery#66, so that workaround can be removed
