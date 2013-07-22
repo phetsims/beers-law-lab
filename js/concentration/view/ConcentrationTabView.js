@@ -123,8 +123,8 @@ define( function( require ) {
       removeSoluteButton.left = evaporationControl.right + 30;
       removeSoluteButton.centerY = evaporationControl.centerY;
       // lower right
-      resetAllButton.left = drainFaucetNode.right + 10;
-      resetAllButton.top = drainFaucetNode.bottom + 5;
+      resetAllButton.left = drainFaucetNode.right + 50;
+      resetAllButton.centerY = removeSoluteButton.centerY;
     }
   }
 
