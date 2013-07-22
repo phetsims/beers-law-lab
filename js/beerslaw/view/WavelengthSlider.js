@@ -24,7 +24,7 @@ define( function( require ) {
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
-  var VisibleColor = require( 'common/util/VisibleColor' );
+  var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   // features
   var SHOW_VALUE = false;

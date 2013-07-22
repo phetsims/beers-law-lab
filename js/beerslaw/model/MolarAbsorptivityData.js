@@ -13,7 +13,7 @@ define( function( require ) {
 
   // imports
   var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
-  var VisibleColor = require( 'common/util/VisibleColor' );
+  var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   /**
    * @param {Array<Number>} molarAbsorptivity

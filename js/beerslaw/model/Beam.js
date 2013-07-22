@@ -21,7 +21,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var Shape = require( 'KITE/Shape' );
   var Util = require( 'DOT/Util' );
-  var VisibleColor = require( 'common/util/VisibleColor' );
+  var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   // constants
   var MAX_LIGHT_WIDTH = 50; // cm, wide enough to be way off the right edge of the play area

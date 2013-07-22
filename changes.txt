@@ -1,3 +1,4 @@
+7/22/13 move VisibleColor to scenery-phet
 7/22/13 new icons for home screen and navbar
 7/22/13 tweak position of "Reset All" button in "Concentration" tab
 7/19/13 VisibleColor: eagerly compute color table, as requested in REVIEW comments
