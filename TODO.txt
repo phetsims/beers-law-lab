@@ -1,10 +1,14 @@
 TODO list for beers-law-lab (HTML port)
 
+HIGH:
+- scenery#80: artifacts left by slider thumbs
+- scenery#85: text on "Remove Solute" button resizes
+
+LOW:
 - #6: consider using PropertySet throughout the models
 - ConcentrationControl: compute the width required to display the concentration value
 - MovableDragHandler: address scenery#66, so that workaround can be removed
 - FaucetNode: drain pipe doesn't line up with spout (water faucet is ok)
-- scenery#80: artifacts left by slider thumbs
 - TODO items in code
 
 MIGRATE TO COMMON
