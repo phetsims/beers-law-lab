@@ -10,4 +10,4 @@ TODO list for beers-law-lab (HTML port)
 MIGRATE TO COMMON
 FaucetNode + images
 ToggleButton + images, #13
-WavelengthSlider
+WavelengthSlider (requires common strings)
