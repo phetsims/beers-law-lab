@@ -111,7 +111,6 @@ define( function( require ) {
 
   inherit( Rectangle, Cursor );
 
-
   /**
    * @param {Property<Number>} wavelength
    * @param {object} options
@@ -119,26 +118,29 @@ define( function( require ) {
    */
   function WavelengthSlider( wavelength, options ) {
 
+    // options that are specific to this type
+    options = _.extend( {
+      minWavelength: VisibleColor.MIN_WAVELENGTH,
+      maxWavelength: VisibleColor.MAX_WAVELENGTH,
+      trackWidth: 150,
+      trackHeight: 30,
+      thumbWidth: 35,
+      thumbHeight: 45,
+      valueFont: new PhetFont( 20 ),
+      valueFill: 'black'
+    }, options );
+
+    // validate wavelengths
+    assert && assert( options.minWavelength < options.maxWavelength );
+    assert && assert( options.minWavelength >= VisibleColor.MIN_WAVELENGTH && options.minWavelength <= VisibleColor.MAX_WAVELENGTH );
+    assert && assert( options.maxWavelength >= VisibleColor.MIN_WAVELENGTH && options.maxWavelength <= VisibleColor.MAX_WAVELENGTH );
+
     var thisNode = this;
     Node.call( thisNode, options );
 
-    // options
-    options = options || {};
-    var minWavelength = options.minWavelength || VisibleColor.MIN_WAVELENGTH;
-    var maxWavelength = options.maxWavelength || VisibleColor.MAX_WAVELENGTH;
-    assert && assert( minWavelength < maxWavelength );
-    assert && assert( minWavelength >= VisibleColor.MIN_WAVELENGTH && minWavelength <= VisibleColor.MAX_WAVELENGTH );
-    assert && assert( maxWavelength >= VisibleColor.MIN_WAVELENGTH && maxWavelength <= VisibleColor.MAX_WAVELENGTH );
-    var trackWidth = options.trackWidth || 150;
-    var trackHeight = options.trackHeight || 30;
-    var thumbWidth = options.thumbWidth || 35;
-    var thumbHeight = options.thumbHeight || 45;
-    var valueFont = options.valueFont || new PhetFont( 20 );
-    var valueFill = options.valueFill || 'black';
-
-    var thumb = new Thumb( thumbWidth, thumbHeight );
-    var valueDisplay = new ValueDisplay( wavelength, valueFont, valueFill );
-    var track = new Track( trackWidth, trackHeight, minWavelength, maxWavelength );
+    var thumb = new Thumb( options.thumbWidth, options.thumbHeight );
+    var valueDisplay = new ValueDisplay( wavelength, options.valueFont, options.valueFill );
+    var track = new Track( options.trackWidth, options.trackHeight, options.minWavelength, options.maxWavelength );
     var cursor = new Cursor( 3, track.height );
 
     // buttons for single-unit increments
@@ -180,10 +182,10 @@ define( function( require ) {
 
     // transforms between position and wavelength
     var positionToWavelength = function( x ) {
-      return Math.floor( Util.clamp( Util.linear( 0, track.width, minWavelength, maxWavelength, x ), minWavelength, maxWavelength ) );
+      return Math.floor( Util.clamp( Util.linear( 0, track.width, options.minWavelength, options.maxWavelength, x ), options.minWavelength, options.maxWavelength ) );
     };
     var wavelengthToPosition = function( wavelength ) {
-      return Math.floor( Util.clamp( Util.linear( minWavelength, maxWavelength, 0, track.width, wavelength ), 0, track.width ) );
+      return Math.floor( Util.clamp( Util.linear( options.minWavelength, options.maxWavelength, 0, track.width, wavelength ), 0, track.width ) );
     };
 
     // track interactivity
@@ -227,8 +229,8 @@ define( function( require ) {
       // thumb color
       thumb.fill = VisibleColor.wavelengthToColor( wavelength );
       // plus and minus buttons
-      plusButton.setEnabled( wavelength < maxWavelength );
-      minusButton.setEnabled( wavelength > minWavelength );
+      plusButton.setEnabled( wavelength < options.maxWavelength );
+      minusButton.setEnabled( wavelength > options.minWavelength );
     };
     wavelength.link( function( wavelength ) {
       updateUI( wavelength );
@@ -241,9 +243,9 @@ define( function( require ) {
      */
     {
       // determine bounds at min and max wavelength settings
-      updateUI( minWavelength );
+      updateUI( options.minWavelength );
       var minX = thisNode.left;
-      updateUI( maxWavelength );
+      updateUI( options.maxWavelength );
       var maxX = thisNode.right;
 
       // restore the wavelength
@@ -256,7 +258,5 @@ define( function( require ) {
     }
   }
 
-  inherit( Node, WavelengthSlider );
-
-  return WavelengthSlider;
+  return inherit( Node, WavelengthSlider );
 } );
