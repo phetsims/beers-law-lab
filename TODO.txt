@@ -3,6 +3,7 @@ TODO list for beers-law-lab (HTML port)
 HIGH:
 - scenery#80: artifacts left by slider thumbs
 - scenery#85: text on "Remove Solute" button resizes
+- move concentration probe and body in from of other things
 
 LOW:
 - #6: consider using PropertySet throughout the models
