@@ -98,11 +98,11 @@ define( function( require ) {
     thisView.addChild( shakerParticlesNode );
     thisView.addChild( shakerNode );
     thisView.addChild( dropperNode );
-    thisView.addChild( concentrationMeterNode );
     thisView.addChild( evaporationControl );
     thisView.addChild( removeSoluteButton );
     thisView.addChild( resetAllButton );
     thisView.addChild( soluteControls );
+    thisView.addChild( concentrationMeterNode );
     thisView.addChild( soluteListParent ); // last, so that combo box list is on top
 
     // Layout for things that don't have a location in the model.

@@ -1,3 +1,4 @@
+7/23/13 adjust rendering order so that meter probes can't be lost behind control panels
 7/22/13 use _.extends to specify options in WavelengthSlider
 7/22/13 move VisibleColor to scenery-phet
 7/22/13 new icons for home screen and navbar
