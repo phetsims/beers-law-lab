@@ -1,6 +1,7 @@
 TODO list for beers-law-lab (HTML port)
 
 HIGH:
+- redo screenshots with new Reset All button
 - scenery#80: artifacts left by slider thumbs
 - scenery#85: text on "Remove Solute" button resizes
 - implement shaker particles directly in canvas
