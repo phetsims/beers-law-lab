@@ -44,7 +44,7 @@ define( function( require ) {
     thisModel.solution = new Property( thisModel.solutions[0] );
 
     //NOTE: All locations are relative to the location of the cuvette.
-    thisModel.cuvette = new Cuvette( new Vector2( 3, 0.5 ), new Range( 0.5, 2.0, 1.0 ), 3 );
+    thisModel.cuvette = new Cuvette( new Vector2( 3.3, 0.5 ), new Range( 0.5, 2.0, 1.0 ), 3 );
 
     thisModel.light = new Light( new Vector2( thisModel.cuvette.location.x - 1.5, thisModel.cuvette.location.y + ( thisModel.cuvette.height / 2 ) ),
       false, 0.45, thisModel.solution );

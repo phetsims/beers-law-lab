@@ -128,7 +128,7 @@ define( function( require ) {
     }
   }
 
-  inherit( TabView, ConcentrationView, { layoutBounds: new Bounds2( 0, 0, 1024, 700 ) } );
+  inherit( TabView, ConcentrationView, { layoutBounds: new Bounds2( 0, 0, 1100, 700 ) } );
 
   return ConcentrationView;
 } );
