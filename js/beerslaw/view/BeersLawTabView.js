@@ -52,12 +52,12 @@ define( function( require ) {
 
     // Rendering order
     thisView.addChild( wavelengthControls );
-    thisView.addChild( beamNode );
-    thisView.addChild( lightNode );
     thisView.addChild( resetAllButton );
     thisView.addChild( solutionControls );
     thisView.addChild( detectorNode );
     thisView.addChild( cuvetteNode );
+    thisView.addChild( beamNode );
+    thisView.addChild( lightNode );
     thisView.addChild( rulerNode );
     thisView.addChild( solutionListParent ); // last, so that combo box list is on top
 
