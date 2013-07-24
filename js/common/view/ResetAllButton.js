@@ -8,17 +8,17 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLImages = require( 'common/BLLImages' );
+  var imageLoader = require( 'common/BLLImages' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var PushButton = require( 'SUN/PushButton' );
 
   function ResetAllButton( callback, options ) {
     PushButton.call( this,
-      new Image( BLLImages.getImage( 'reset_button_up.png' ) ),
-      new Image( BLLImages.getImage( 'reset_button_over.png' ) ),
-      new Image( BLLImages.getImage( 'reset_button_down.png' ) ),
-      new Image( BLLImages.getImage( 'reset_button_disabled.png' ) ),
+      new Image( imageLoader.getImage( 'reset_button_up.png' ) ),
+      new Image( imageLoader.getImage( 'reset_button_over.png' ) ),
+      new Image( imageLoader.getImage( 'reset_button_down.png' ) ),
+      new Image( imageLoader.getImage( 'reset_button_disabled.png' ) ),
       callback, options );
   }
 
