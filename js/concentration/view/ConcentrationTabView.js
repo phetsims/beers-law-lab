@@ -24,7 +24,7 @@ define( function( require ) {
   var PrecipitateNode = require( 'concentration/view/PrecipitateNode' );
   var Range = require( 'DOT/Range' );
   var RemoveSoluteButton = require( 'concentration/view/RemoveSoluteButton' );
-  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
+  var ResetAllButton = require( 'common/view/ResetAllButton' );
   var SaturatedIndicator = require( 'concentration/view/SaturatedIndicator' );
   var Scene = require( 'SCENERY/Scene' );
   var ShakerNode = require( 'concentration/view/ShakerNode' );

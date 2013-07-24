@@ -1,5 +1,6 @@
+7/24/13 add local copy of new ResetAllButton and associated images
 # 0.0.0-15 7/24/13
-7/23/13 fix rendering order so that AT probe is behind light beam
+7/24/13 fix rendering order so that AT probe is behind light beam
 # 0.0.0-14 7/23/13
 7/23/13 adjust rendering order so that meter probes can't be lost behind control panels
 7/22/13 use _.extends to specify options in WavelengthSlider

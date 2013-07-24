@@ -23,5 +23,9 @@ light.png author=PhET notes=copied laser.png from bending-light
 red_button_disabled.png author=PhET notes=copied from Java piccolo-phet
 red_button_pressed.png author=PhET notes=copied from Java piccolo-phet
 red_button_unpressed.png author=PhET notes=copied from Java piccolo-phet
+reset_button_disabled.png source=PhET author=Sharon
+reset_button_down.png source=PhET author=Sharon
+reset_button_over.png source=PhET author=Sharon
+reset_button_up.png source=PhET author=Sharon
 shaker.png author=PhET notes=copied salt_micro.png from sugar-and-salt-solutions
 shaker-icon.png author=PhET
