@@ -9,10 +9,9 @@ define( function( require ) {
   'use strict';
 
   // imports
+  var Bounds2 = require( 'DOT/Bounds2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
-  var ParticleNode = require( 'concentration/view/ParticleNode' );
-  var Bounds2 = require( 'DOT/Bounds2' );
   var Vector2 = require( 'DOT/Vector2' );
 
   /**
