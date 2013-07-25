@@ -53,7 +53,7 @@ define( function( require ) {
         wrapper.setFillStyle( particles[0].color );
         wrapper.setStrokeStyle( particles[0].color.darkerColor() );
         wrapper.setLineWidth( 1 );
-        halfViewSize = this.mvt.modelToViewDeltaX( particles[0].size ) / 2;
+        halfViewSize = this.mvt.modelToViewDeltaX( particles[0].size ) * Math.SQRT2 / 2;
         context.beginPath();
       }
       
