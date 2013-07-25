@@ -84,7 +84,7 @@ define( function( require ) {
   function ShakerNode( shaker, mvt ) {
 
     var thisNode = this;
-    Node.call( thisNode );
+    Node.call( thisNode, { renderer: 'svg', rendererOptions: { cssTransform: true } } );
 
     // shaker image
     var imageNode = new Image( BLLImages.getImage( 'shaker.png' ) );
