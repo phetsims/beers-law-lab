@@ -37,6 +37,7 @@ define( function( require ) {
     thisParticles.particles = []; // ShakerParticle
     thisParticles.addedCallbacks = [];  // function(ShakerParticle)
     thisParticles.removedCallbacks = []; // function(ShakerParticle)
+    thisParticles.changedCallbacks = []; // function(ShakerParticle)
 
     // when the solute changes, remove all particles
     solution.solute.link( function() {
@@ -69,12 +70,21 @@ define( function( require ) {
       this.removedCallbacks.push( callback );
     },
 
+    /**
+     * Registers a callback that will be notified when at least one is added, removed, or moved
+     * @param {ShakerParticles~Callback} callback
+     */
+    registerParticleChangedCallback: function( callback ) {
+      this.changedCallbacks.push( callback );
+    },
+
     // Particle animation and delivery to the solution, called when the simulation clock ticks.
     step: function( deltaSeconds ) {
 
       var beaker = this.beaker;
       var shaker = this.shaker;
       var solution = this.solution;
+      var changed = this.particles.length > 0;
 
       // propagate existing particles
       for ( var i = 0; i < this.particles.length; i++ ) {
@@ -98,6 +108,12 @@ define( function( require ) {
           this._addParticle( new ShakerParticle( solution.solute.get(), getRandomLocation( this.shaker.location.get() ), getRandomOrientation(),
             this._getInitialVelocity(), this._getGravitationalAcceleration() ) );
         }
+      }
+      
+      changed = changed || this.particles.length > 0;
+      
+      if ( changed ) {
+        this._fireParticlesChanged();
       }
     },
 
@@ -126,6 +142,7 @@ define( function( require ) {
       for ( var i = 0; i < particles.length; i++ ) {
         this._removeParticle( particles[i] );
       }
+      this._fireParticlesChanged();
     },
 
     // Notify that a {ShakerParticle} particle was added.
@@ -141,6 +158,14 @@ define( function( require ) {
       var removedCallbacks = this.removedCallbacks.slice( 0 );
       for ( var i = 0; i < removedCallbacks.length; i++ ) {
         removedCallbacks[i]( particle );
+      }
+    },
+
+    // Notify that at least one particle was added, removed, or moved
+    _fireParticlesChanged: function() {
+      var changedCallbacks = this.changedCallbacks.slice( 0 );
+      for ( var i = 0; i < changedCallbacks.length; i++ ) {
+        changedCallbacks[i]();
       }
     }
   };

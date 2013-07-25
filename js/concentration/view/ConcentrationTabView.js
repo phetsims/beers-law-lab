@@ -52,7 +52,7 @@ define( function( require ) {
 
     // Shaker
     var shakerNode = new ShakerNode( model.shaker, mvt );
-    var shakerParticlesNode = new ShakerParticlesNode( model.shakerParticles, mvt );
+    var shakerParticlesNode = new ShakerParticlesNode( model.shakerParticles, thisView.layoutBounds, model.beaker.getLeft(), model.beaker.getRight(), mvt );
 
     // Dropper
     var dropperNode = new DropperNode( model.dropper, model.solution.solvent, model.solution.solute, mvt );

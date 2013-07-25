@@ -10,37 +10,76 @@ define( function( require ) {
 
   // imports
   var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
+  var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
   var ParticleNode = require( 'concentration/view/ParticleNode' );
+  var Bounds2 = require( 'DOT/Bounds2' );
+  var Vector2 = require( 'DOT/Vector2' );
 
   /**
    * @param {ShakerParticles} shakerParticles
    * @param {ModelViewTransform2} mvt
    * @constructor
    */
-  function ShakerParticlesNode( shakerParticles, mvt ) {
+  function ShakerParticlesNode( shakerParticles, layoutBounds, left, right, mvt ) {
 
     var thisNode = this;
-
-    Node.call( thisNode );
-
-    shakerParticles.registerParticleAddedCallback( function( particle ) {
-      thisNode.addChild( new ParticleNode( particle, mvt ) );
-    } );
-
-    shakerParticles.registerParticleRemovedCallback( function( particle ) {
-      // Not a good general approach, but OK because we have a small number of particles.
-      var children = thisNode.getChildren();
-      for ( var i = 0; i < children.length; i++ ) {
-        if ( children[i].particle === particle ) {
-          thisNode.removeChild( children[i] );
-          break;
-        }
-      }
+    
+    this.shakerParticles = shakerParticles;
+    this.mvt = mvt;
+    
+    // Find an approximate minimum bounding box for our particles (smaller for speed), assumes that the MVT doesn't rotate
+    var activeBounds = new Bounds2( mvt.modelToViewPosition( new Vector2( left, 0 ) ).x, layoutBounds.minY,
+                                    mvt.modelToViewPosition( new Vector2( right, 0 ) ).x, layoutBounds.maxY );
+    
+    // Initialize with a self-bounds of activeBounds
+    CanvasNode.call( thisNode, { pickable: false, canvasBounds: activeBounds } );
+    
+    // if during a step we change, then trigger a repaint
+    shakerParticles.registerParticleChangedCallback( function() {
+      thisNode.invalidatePaint();
     } );
   }
 
-  inherit( Node, ShakerParticlesNode );
+  inherit( CanvasNode, ShakerParticlesNode, {
+    paintCanvas: function( wrapper ) {
+      var context = wrapper.context;
+      
+      var particles = this.shakerParticles.particles;
+      var halfViewSize;
+      var length = particles.length;
+      
+      // set and compute static properties that should be shared by all of the particles, and start the path
+      if ( length ) {
+        wrapper.setFillStyle( particles[0].color );
+        wrapper.setStrokeStyle( particles[0].color.darkerColor() );
+        wrapper.setLineWidth( 1 );
+        halfViewSize = this.mvt.modelToViewDeltaX( particles[0].size ) / 2;
+        context.beginPath();
+      }
+      
+      // draw into one big path
+      for ( var i = 0; i < length; i++ ) {
+        var particle = particles[i];
+        
+        var position = this.mvt.modelToViewPosition( particle.location.get() );
+        var x = position.x;
+        var y = position.y;
+        var cos = Math.cos( particle.orientation ) * halfViewSize;
+        var sin = Math.sin( particle.orientation ) * halfViewSize;
+        context.moveTo( x + cos, y + sin );
+        context.lineTo( x - sin, y + cos );
+        context.lineTo( x - cos, y - sin );
+        context.lineTo( x + sin, y - cos );
+        context.closePath();
+      }
+      
+      // fill and stroke the entire path
+      if ( length ) {
+        context.fill();
+        context.stroke();
+      }
+    }
+  } );
 
   return ShakerParticlesNode;
 } );
