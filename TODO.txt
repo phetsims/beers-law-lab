@@ -2,7 +2,6 @@ TODO list for beers-law-lab (HTML port)
 
 HIGH:
 - redo tab icons with new Reset All button
-- beers-law-lab#16: performance of particles on iPad3
 - scenery#80: artifacts left by slider thumbs
 - scenery#85: text on "Remove Solute" button resizes
 
