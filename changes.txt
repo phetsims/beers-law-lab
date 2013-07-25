@@ -1,3 +1,4 @@
+# 0.0.0-16 7/25/13
 7/25/13 make some non-interactive things pickable:false, minor performance improvement
 7/25/13 merge 'performance' branch with JO's performance enhancements for shaker particles, #16
 7/24/13 #15: fix the TabView.layoutBounds so that all object are inside the play area bounds
