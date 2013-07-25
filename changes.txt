@@ -1,4 +1,4 @@
-7/26/13 move "Reset All" button slightly to the right in "Concentration" tab
+7/25/13 move "Reset All" button slightly to the right in "Concentration" tab
 # 0.0.0-16 7/25/13
 7/25/13 make some non-interactive things pickable:false, minor performance improvement
 7/25/13 merge 'performance' branch with JO's performance enhancements for shaker particles, #16
