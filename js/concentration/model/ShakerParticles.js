@@ -35,8 +35,6 @@ define( function( require ) {
     thisParticles.solution = solution;
     thisParticles.beaker = beaker;
     thisParticles.particles = []; // ShakerParticle
-    thisParticles.addedCallbacks = [];  // function(ShakerParticle)
-    thisParticles.removedCallbacks = []; // function(ShakerParticle)
     thisParticles.changedCallbacks = []; // function(ShakerParticle)
 
     // when the solute changes, remove all particles
@@ -55,23 +53,7 @@ define( function( require ) {
   ShakerParticles.prototype = {
 
     /**
-     * Registers a callback that will be notified when a particle is added.
-     * @param {ShakerParticles~Callback} callback, has a {Particle} parameter
-     */
-    registerParticleAddedCallback: function( callback ) {
-      this.addedCallbacks.push( callback );
-    },
-
-    /**
-     * Registers a callback that will be notified when a particle is removed.
-     * @param {ShakerParticles~Callback} callback
-     */
-    registerParticleRemovedCallback: function( callback ) {
-      this.removedCallbacks.push( callback );
-    },
-
-    /**
-     * Registers a callback that will be notified when at least one is added, removed, or moved
+     * Registers a callback that will be notified when particles move, or when all particles are removed.
      * @param {ShakerParticles~Callback} callback
      */
     registerParticleChangedCallback: function( callback ) {
@@ -87,7 +69,7 @@ define( function( require ) {
       var changed = this.particles.length > 0;
 
       // propagate existing particles
-      for ( var i = 0; i < this.particles.length; i++ ) {
+      for ( var i = this.particles.length - 1; i >= 0; i-- ) {
 
         var particle = this.particles[i];
         particle.step( deltaSeconds, beaker );
@@ -129,12 +111,10 @@ define( function( require ) {
 
     _addParticle: function( particle ) {
       this.particles.push( particle );
-      this._fireParticleAdded( particle );
     },
 
     _removeParticle: function( particle ) {
       this.particles.splice( this.particles.indexOf( particle ), 1 );
-      this._fireParticleRemoved( particle );
     },
 
     _removeAllParticles: function() {
@@ -143,22 +123,6 @@ define( function( require ) {
         this._removeParticle( particles[i] );
       }
       this._fireParticlesChanged();
-    },
-
-    // Notify that a {ShakerParticle} particle was added.
-    _fireParticleAdded: function( particle ) {
-      var addedCallbacks = this.addedCallbacks.slice( 0 );
-      for ( var i = 0; i < addedCallbacks.length; i++ ) {
-        addedCallbacks[i]( particle );
-      }
-    },
-
-    // Notify that a {ShakerParticle} particle was removed.
-    _fireParticleRemoved: function( particle ) {
-      var removedCallbacks = this.removedCallbacks.slice( 0 );
-      for ( var i = 0; i < removedCallbacks.length; i++ ) {
-        removedCallbacks[i]( particle );
-      }
     },
 
     // Notify that at least one particle was added, removed, or moved
