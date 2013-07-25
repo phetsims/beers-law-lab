@@ -1,3 +1,4 @@
+# 0.0.0-17 7/25/13
 7/25/13 move "Reset All" button slightly to the right in "Concentration" tab
 # 0.0.0-16 7/25/13
 7/25/13 make some non-interactive things pickable:false, minor performance improvement
