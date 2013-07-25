@@ -40,6 +40,8 @@ define( function( require ) {
   }
 
   inherit( CanvasNode, ShakerParticlesNode, {
+
+    // @param {CanvasContextWrapper} wrapper
     paintCanvas: function( wrapper ) {
       var context = wrapper.context;
       
@@ -47,7 +49,8 @@ define( function( require ) {
       var halfViewSize;
       var length = particles.length;
       
-      // set and compute static properties that should be shared by all of the particles, and start the path
+      // Set and compute static properties that should be shared by all of the particles, and start the path.
+      // Assumes that all particles are the same color and size.
       if ( length ) {
         wrapper.setFillStyle( particles[0].color );
         wrapper.setStrokeStyle( particles[0].color.darkerColor() );
