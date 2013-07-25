@@ -169,7 +169,8 @@ define( function( require ) {
       stroke: 'gray',
       lineWidth: 8,
       lineCap: 'square',
-      lineJoin: 'round'
+      lineJoin: 'round',
+      pickable: false
     } );
 
     var updateCurve = function() {

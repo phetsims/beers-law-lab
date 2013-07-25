@@ -96,7 +96,7 @@ define( function( require ) {
     knobDisabledNode.y = knobNode.y;
 
     // pipe, tiled horizontally
-    var pipeImage = BLLImages.getImage( 'faucet_pipe.png' );
+    var pipeImage = BLLImages.getImage( 'faucet_pipe.png', { pickable: false } );
     var pipeWidth = ( mvt.modelToViewDeltaX( faucet.location.x - faucet.pipeMinX ) / options.scale ) - SPOUT_OUTPUT_CENTER_X + PIPE_X_OVERLAP;
     assert && assert( pipeWidth > 0 );
     var pipeNode = new Rectangle( 0, 0, pipeWidth, pipeImage.height, { fill: new Pattern( pipeImage )} );

@@ -20,7 +20,7 @@ define( function( require ) {
   function BeamNode( beam ) {
 
     var thisNode = this;
-    Path.call( this, { stroke: 'rgba( 192, 192, 192, 0.8 )', lineWidth: 0.5 } );
+    Path.call( this, { stroke: 'rgba( 192, 192, 192, 0.8 )', lineWidth: 0.5, pickable: false } );
 
     // shape
     beam.shape.link( function( shape ) {

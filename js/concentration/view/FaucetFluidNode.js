@@ -23,7 +23,7 @@ define( function( require ) {
   function FaucetFluidNode( faucet, fluid, height, mvt ) {
 
     var thisNode = this;
-    Rectangle.call( thisNode, 0, 0, 0, 0, { lineWidth: 1 } );
+    Rectangle.call( thisNode, 0, 0, 0, 0, { lineWidth: 1, pickable: false } );
 
     /*
      * Set the color of the fluid coming out of the spout.

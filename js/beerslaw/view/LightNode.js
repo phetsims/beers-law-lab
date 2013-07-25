@@ -29,7 +29,7 @@ define( function( require ) {
     Node.call( this );
 
     // nodes
-    var housing = new Image( BLLImages.getImage( 'light.png' ) );
+    var housing = new Image( BLLImages.getImage( 'light.png' ), { pickable: false } );
     var button = new ToggleButton(
       BLLImages.getImage( 'red_button_unpressed.png' ), BLLImages.getImage( 'red_button_pressed.png' ), BLLImages.getImage( 'red_button_disabled.png' ),
       light.on, new Property( true ) );
