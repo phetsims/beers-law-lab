@@ -42,9 +42,9 @@ define( function( require ) {
      *  @param {Beaker} beaker
      */
     step: function( deltaSeconds, beaker ) {
-
-      this.velocity = this.velocity.plus( this.acceleration.times( deltaSeconds ) );
-      var newLocation = this.location.get().plus( this.velocity.times( deltaSeconds ) );
+      // mutable calls added to remove the number of new objects we create
+      this.velocity = this.acceleration.times( deltaSeconds ).add( this.velocity );
+      var newLocation = this.velocity.times( deltaSeconds ).add( this.location.get() );
 
       /*
        * Did the particle hit the left wall of the beaker? If so, change direction.
@@ -53,8 +53,8 @@ define( function( require ) {
        */
       var minX = beaker.getLeft() + this.solute.particleSize;
       if ( newLocation.x <= minX ) {
-        newLocation = new Vector2( minX, newLocation.y );
-        this.velocity = new Vector2( Math.abs( this.velocity.x ), this.velocity.y );
+        newLocation.setX( minX );
+        this.velocity.setX( Math.abs( this.velocity.x ) );
       }
 
       this.location.set( newLocation );
