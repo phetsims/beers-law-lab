@@ -188,7 +188,8 @@ define( function( require ) {
       stroke: 'gray',
       lineWidth: 8,
       lineCap: 'square',
-      lineJoin: 'round'
+      lineJoin: 'round',
+      pickable: false // no need to drag the wire, and we don't want to do cubic-curve intersection here, or have it get in the way
     } );
 
     var updateCurve = function() {

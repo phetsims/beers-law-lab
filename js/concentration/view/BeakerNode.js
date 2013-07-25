@@ -38,7 +38,7 @@ define( function( require ) {
   function BeakerNode( beaker, mvt ) {
 
     var thisNode = this;
-    Node.call( thisNode );
+    Node.call( thisNode, { pickable: false } );
 
     // outline of the beaker, starting from upper left
     var width = mvt.modelToViewDeltaX( beaker.size.width );

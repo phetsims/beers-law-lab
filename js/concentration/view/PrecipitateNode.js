@@ -24,7 +24,7 @@ define( function( require ) {
   function PrecipitateNode( precipitate, beaker, mvt ) {
 
     var thisNode = this;
-    Node.call( thisNode );
+    Node.call( thisNode, { pickable: false } );
 
     thisNode.translation = beaker.location;
 
