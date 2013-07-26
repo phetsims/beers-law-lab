@@ -1,3 +1,4 @@
+7/26/13 fix up package.json to work with build.sh changes (chipper#12)
 7/26/13 new home screen icons, focused on specific elements of each tab instead of complete play area screenshots
 7/26/13 fix: concentration meter doesn't update when dropper stream stops, #22
 7/26/13 fix: shaker appears behind dropper if you resize the window (scenery#91)
