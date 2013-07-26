@@ -218,8 +218,6 @@ define( function( require ) {
   /**
    * @param {ConcentrationMeter} meter
    * @param {ConcentrationSolution} solution
-   * @param {Faucet} solventFaucet
-   * @param {Faucet} drainFaucet
    * @param {Dropper} dropper
    * @param {Node} solutionNode
    * @param {Node} stockSolutionNode
@@ -229,7 +227,7 @@ define( function( require ) {
    * @param strings
    * @constructor
    */
-  function ConcentrationMeterNode( meter, solution, dropper, solventFaucet, drainFaucet, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, mvt, strings ) {
+  function ConcentrationMeterNode( meter, solution, dropper, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, mvt, strings ) {
 
     var thisNode = this;
     Node.call( thisNode );
@@ -244,6 +242,7 @@ define( function( require ) {
     thisNode.addChild( probeNode );
 
     var updateValue = function() {
+      console.log( "ConcentrationMeterNode.updateValue" );//XXX
       if ( probeNode.isInSolution() ) {
         meter.value.set( solution.concentration.get() );
       }
@@ -262,10 +261,11 @@ define( function( require ) {
     };
     meter.probe.location.link( updateValue );
     solution.solute.link( updateValue );
-    solution.volume.link( updateValue );
     solution.concentration.link( updateValue );
-    solventFaucet.flowRate.link( updateValue );
-    drainFaucet.flowRate.link( updateValue );
+    solutionNode.addEventListener( 'bounds', updateValue );
+    stockSolutionNode.addEventListener( 'bounds', updateValue );
+    solventFluidNode.addEventListener( 'bounds', updateValue );
+    drainFluidNode.addEventListener( 'bounds', updateValue );
   }
 
   inherit( Node, ConcentrationMeterNode );

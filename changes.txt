@@ -1,3 +1,4 @@
+7/26/13 fix: concentration meter doesn't update when dropper stream stops, #22
 7/26/13 fix: shaker appears behind dropper if you resize the window (scenery#91)
 # 0.0.0-17 7/25/13
 7/25/13 move "Reset All" button slightly to the right in "Concentration" tab
