@@ -242,7 +242,6 @@ define( function( require ) {
     thisNode.addChild( probeNode );
 
     var updateValue = function() {
-      console.log( "ConcentrationMeterNode.updateValue" );//XXX
       if ( probeNode.isInSolution() ) {
         meter.value.set( solution.concentration.get() );
       }
