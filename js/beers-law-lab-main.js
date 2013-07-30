@@ -16,7 +16,7 @@ require( [ 'JOIST/SimLauncher', 'JOIST/Sim', 'concentration/ConcentrationTab', '
                'Software Development: Chris Malley\n' +
                'Design Team: Kelly Lancaster, Emily B. Moore, Ariel Paul, Kathy Perkins',
       thanks: 'Thanks -\n' +
-              'Conversation of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
+              'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
     };
 
     // Appending '?dev' to the URL will enable developer-only features.
