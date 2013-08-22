@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Scene graph for the 'Beer's Law' tab.
+ * Scene graph for the 'Beer's Law' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -20,8 +20,8 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var ResetAllButton = require( 'common/view/ResetAllButton' );
   var Scene = require( 'SCENERY/Scene' );
+  var ScreenView = require( 'JOIST/ScreenView' );
   var SolutionControls = require( 'beerslaw/view/SolutionControls' );
-  var TabView = require( 'JOIST/TabView' );
   var Text = require( 'SCENERY/nodes/Text' );
   var WavelengthControls = require( 'beerslaw/view/WavelengthControls' );
 
@@ -33,7 +33,7 @@ define( function( require ) {
   function BeersLawView( model, mvt ) {
 
     var thisView = this;
-    TabView.call( thisView, { renderer: 'svg' } );
+    ScreenView.call( thisView, { renderer: 'svg' } );
 
     var lightNode = new LightNode( model.light, mvt );
     var cuvetteNode = new CuvetteNode( model.cuvette, model.solution, mvt, 0.1 /* snapInterval, cm */ );
@@ -75,7 +75,7 @@ define( function( require ) {
     }
   }
 
-  inherit( TabView, BeersLawView, { layoutBounds: new Bounds2( 0, 0, 1140, 700 ) } );
+  inherit( ScreenView, BeersLawView, { layoutBounds: new Bounds2( 0, 0, 1140, 700 ) } );
 
   return BeersLawView;
 } );

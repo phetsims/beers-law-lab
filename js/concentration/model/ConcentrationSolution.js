@@ -1,8 +1,8 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Solution model for the 'Concentration' tab.
- * This tab has a single solution that is mutated by changing the solute, solute amount, and volume.
+ * Solution model for the 'Concentration' screen.
+ * This screen has a single solution that is mutated by changing the solute, solute amount, and volume.
  * Concentration is derived via M=mol/L.
  *
  * @author Chris Malley (PixelZoom, Inc.)

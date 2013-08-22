@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * View for the 'Concentration' tab.
+ * View for the 'Concentration' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -20,13 +20,13 @@ define( function( require ) {
   var FaucetNode = require( 'concentration/view/FaucetNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var TabView = require( 'JOIST/TabView' );
   var PrecipitateNode = require( 'concentration/view/PrecipitateNode' );
   var Range = require( 'DOT/Range' );
   var RemoveSoluteButton = require( 'concentration/view/RemoveSoluteButton' );
   var ResetAllButton = require( 'common/view/ResetAllButton' );
   var SaturatedIndicator = require( 'concentration/view/SaturatedIndicator' );
   var Scene = require( 'SCENERY/Scene' );
+  var ScreenView = require( 'JOIST/ScreenView' );
   var ShakerNode = require( 'concentration/view/ShakerNode' );
   var ShakerParticlesNode = require( 'concentration/view/ShakerParticlesNode' );
   var Solute = require( 'concentration/model/Solute' );
@@ -42,7 +42,7 @@ define( function( require ) {
   function ConcentrationView( model, mvt ) {
 
     var thisView = this;
-    TabView.call( thisView, { renderer: 'svg' } );
+    ScreenView.call( thisView, { renderer: 'svg' } );
 
     // Beaker and stuff inside it
     var beakerNode = new BeakerNode( model.beaker, mvt );
@@ -128,7 +128,7 @@ define( function( require ) {
     }
   }
 
-  inherit( TabView, ConcentrationView, { layoutBounds: new Bounds2( 0, 0, 1100, 700 ) } );
+  inherit( ScreenView, ConcentrationView, { layoutBounds: new Bounds2( 0, 0, 1100, 700 ) } );
 
   return ConcentrationView;
 } );

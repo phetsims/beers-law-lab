@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * The 'Beer's Law' tab. Conforms to the contract specified in joist/Tab.
+ * The 'Beer's Law' screen. Conforms to the contract specified in joist/Screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -12,12 +12,12 @@ define( function( require ) {
   var BLLImages = require( 'common/BLLImages' );
   var BLLStrings = require( 'common/BLLStrings' );
   var BeersLawModel = require( 'beerslaw/model/BeersLawModel' );
-  var BeersLawTabView = require( 'beerslaw/view/BeersLawTabView' );
+  var BeersLawView = require( 'beerslaw/view/BeersLawView' );
   var Image = require( 'SCENERY/nodes/Image' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Vector2 = require( 'DOT/Vector2' );
 
-  function BeersLawTab() {
+  function BeersLawScreen() {
 
     this.name = BLLStrings.beersLaw;
     this.icon = new Image( BLLImages.getImage( 'Beers-Law-icon.jpg' ) );
@@ -31,9 +31,9 @@ define( function( require ) {
     };
 
     this.createView = function( model ) {
-      return new BeersLawTabView( model, mvt );
+      return new BeersLawView( model, mvt );
     };
   }
 
-  return BeersLawTab;
+  return BeersLawScreen;
 } );

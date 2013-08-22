@@ -5,8 +5,8 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-require( [ 'JOIST/SimLauncher', 'JOIST/Sim', 'concentration/ConcentrationTab', 'beerslaw/BeersLawTab', 'common/BLLStrings', 'common/BLLImages' ],
-  function( SimLauncher, Sim, ConcentrationTab, BeersLawTab, BLLStrings, BLLImages ) {
+require( [ 'JOIST/SimLauncher', 'JOIST/Sim', 'concentration/ConcentrationScreen', 'beerslaw/BeersLawScreen', 'common/BLLStrings', 'common/BLLImages' ],
+  function( SimLauncher, Sim, ConcentrationScreen, BeersLawScreen, BLLStrings, BLLImages ) {
     'use strict';
 
     //TODO i18n?
@@ -29,7 +29,7 @@ require( [ 'JOIST/SimLauncher', 'JOIST/Sim', 'concentration/ConcentrationTab', '
     }
 
     SimLauncher.launch( BLLImages, function() {
-      var sim = new Sim( BLLStrings.beersLawLab, [ new ConcentrationTab(), new BeersLawTab() ], simOptions );
+      var sim = new Sim( BLLStrings.beersLawLab, [ new ConcentrationScreen(), new BeersLawScreen() ], simOptions );
       sim.start();
     } );
   } );

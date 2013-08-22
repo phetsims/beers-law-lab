@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Model container for the 'Beer's Law' tab.
+ * Model container for the 'Beer's Law' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

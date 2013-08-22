@@ -1,12 +1,12 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
 /**
- * Solution model for the Beer's Law tab.
+ * Solution model for the Beer's Law screen.
  * <p/>
  * The numeric values for specific solutions were arrived at by running lab experiments,
  * and are documented in doc/Beers-Law-Lab-design.pdf and doc/BeersLawLabData.xlsx.
  * <p/>
- * Note that this model does not use the Solute model from the Concentration tab, because
+ * Note that this model does not use the Solute model from the Concentration screen, because
  * we have very different needs wrt color scheme, properties, etc.
  *
  * @author Chris Malley (PixelZoom, Inc.)
