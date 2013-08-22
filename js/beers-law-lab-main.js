@@ -24,7 +24,7 @@ require( [ 'JOIST/SimLauncher', 'JOIST/Sim', 'concentration/ConcentrationScreen'
       simOptions = _.extend( {
         // add dev-specific options here
         showHomeScreen: false,
-        tabIndex: 0
+        screenIndex: 0
       }, simOptions );
     }
 
