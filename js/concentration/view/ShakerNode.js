@@ -91,7 +91,7 @@ define( function( require ) {
     imageNode.setScaleMagnitude( 0.75 );
 
     // label
-    var labelNode = new HTMLText( shaker.solute.formula, { font: new PhetFont( 22, 'bold' ), fill: 'black' } );
+    var labelNode = new HTMLText( shaker.solute.formula, { font: new PhetFont( { size: 22, weight: 'bold' } ), fill: 'black' } );
 
     // arrows
     var downArrowShape = new Shape()
