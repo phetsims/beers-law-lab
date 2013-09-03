@@ -114,6 +114,9 @@ define( function( require ) {
     // Visibility
     dropper.visible.link( function( visible ) {
       thisNode.setVisible( visible );
+      if ( !visible ) {
+        dropper.flowRate.set( 0 );
+      }
     } );
 
     // Make the background visible only when the dropper is empty
