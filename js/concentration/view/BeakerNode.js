@@ -50,9 +50,8 @@ define( function( require ) {
       .lineTo( width / 2, 0 )
       .lineTo( width / 2, -height )
       .lineTo( (width / 2) + RIM_OFFSET, -height - RIM_OFFSET );
-    thisNode.addChild( new Path(
+    thisNode.addChild( new Path(outlineShape,
       {
-        shape: outlineShape,
         stroke: 'black',
         lineWidth: 3,
         lineCap: 'round',
@@ -72,9 +71,8 @@ define( function( require ) {
       var leftX = -width / 2;
       var rightX = leftX + ( isMajorTick ? MAJOR_TICK_LENGTH : MINOR_TICK_LENGTH );
       var tickShape = new Shape().moveTo( leftX, y ).lineTo( rightX, y );
-      var tickPath = new Path(
+      var tickPath = new Path(tickShape,
         {
-          shape: tickShape,
           stroke: 'black',
           lineWidth: 2,
           lineCap: 'butt',

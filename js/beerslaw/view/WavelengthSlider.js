@@ -71,7 +71,7 @@ define( function( require ) {
       .lineTo( -0.5 * width, 1 * height )
       .lineTo( -0.5 * width, 0.3 * height )
       .close();
-    Path.call( this, { shape: shape, stroke: 'black', lineWidth: 1, fill: 'black' } );
+    Path.call( this, shape, { stroke: 'black', lineWidth: 1, fill: 'black' } );
 
     // touch area, don't extend above so that we don't encroach on slider track
     var bounds = shape.computeBounds().copy();

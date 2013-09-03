@@ -103,7 +103,7 @@ define( function( require ) {
       .lineTo( ARROW_TAIL_WIDTH / 2, -ARROW_HEAD_LENGTH )
       .lineTo( ARROW_HEAD_WIDTH / 2, -ARROW_HEAD_LENGTH )
       .close();
-    var downArrowNode = new Path( { shape: downArrowShape, fill: ARROW_FILL, stroke: ARROW_STROKE } );
+    var downArrowNode = new Path( downArrowShape,{fill: ARROW_FILL, stroke: ARROW_STROKE } );
     downArrowNode.top = imageNode.bottom + 4;
     downArrowNode.centerX = imageNode.centerX;
     downArrowNode.pickable = false;
@@ -118,7 +118,7 @@ define( function( require ) {
       .lineTo( ARROW_TAIL_WIDTH / 2, ARROW_HEAD_LENGTH )
       .lineTo( ARROW_HEAD_WIDTH / 2, ARROW_HEAD_LENGTH )
       .close();
-    var upArrowNode = new Path( { shape: upArrowShape, fill: ARROW_FILL, stroke: ARROW_STROKE } );
+    var upArrowNode = new Path( upArrowShape, { fill: ARROW_FILL, stroke: ARROW_STROKE } );
     upArrowNode.bottom = imageNode.top - 4;
     upArrowNode.centerX = imageNode.centerX;
     upArrowNode.pickable = false;

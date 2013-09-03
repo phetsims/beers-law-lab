@@ -61,8 +61,7 @@ define( function( require ) {
     var thumb = new Rectangle( -THUMB_SIZE.width / 2, -THUMB_SIZE.height / 2, THUMB_SIZE.width, THUMB_SIZE.height, arcWidth, arcWidth,
       { cursor: 'pointer', fill: THUMB_FILL_ENABLED, stroke: 'black', lineWidth: 1 } );
     var centerLineYMargin = 3;
-    thumb.addChild( new Path( { shape: Shape.lineSegment( 0, -( THUMB_SIZE.height / 2 ) + centerLineYMargin, 0, ( THUMB_SIZE.height / 2 ) - centerLineYMargin ),
-      stroke: 'white' } ) );
+    thumb.addChild( new Path( Shape.lineSegment( 0, -( THUMB_SIZE.height / 2 ) + centerLineYMargin, 0, ( THUMB_SIZE.height / 2 ) - centerLineYMargin ), { stroke: 'white' } ) );
     thumb.centerY = thisSlider._track.centerY;
     thisSlider.addChild( thumb );
 
@@ -148,10 +147,10 @@ define( function( require ) {
       var labelX = this._valueToPosition( value );
       // ticks
       var tick = new Path(
+        new Shape()
+          .moveTo( labelX, this._track.top )
+          .lineTo( labelX, this._track.bottom - tickLength ),
         {
-          shape: new Shape()
-            .moveTo( labelX, this._track.top )
-            .lineTo( labelX, this._track.bottom - tickLength ),
           lineWidth: 1,
           stroke: 'black'
         } );

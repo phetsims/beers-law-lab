@@ -139,7 +139,7 @@ define( function( require ) {
       endDrag: function() {
         // If the light is on and the probe is close enough to the beam...
         if ( light.on.get() && ( probe.location.get().x >= light.location.x ) && ( Math.abs( probe.location.get().y - light.location.y ) <= 0.5 * light.lensDiameter ) ) {
-           // ... snap the probe to the center of beam.
+          // ... snap the probe to the center of beam.
           probe.location.set( new Vector2( probe.location.get().x, light.location.y ) );
         }
       }
@@ -164,8 +164,7 @@ define( function( require ) {
   function WireNode( body, probe, bodyNode, probeNode ) {
 
     var thisNode = this;
-    Path.call( this, {
-      shape: new Shape(),
+    Path.call( this, new Shape(), {
       stroke: 'gray',
       lineWidth: 8,
       lineCap: 'square',

@@ -53,7 +53,7 @@ define( function( require ) {
     var X_SPACING = 10;
     var shakerButton = new AquaRadioButton( shaker.visible, true, new TextAndIconNode( BLLStrings.solid, TEXT_OPTIONS, BLLImages.getImage( 'shaker-icon.png' ), X_SPACING ) );
     var dropperButton = new AquaRadioButton( dropper.visible, true, new TextAndIconNode( BLLStrings.solution, TEXT_OPTIONS, BLLImages.getImage( 'dropper-icon.png' ), X_SPACING ) );
-    var separator = new Path( { shape: Shape.lineSegment( 0, 0, 0, shakerButton.height ), stroke: 'rgb(150,150,150)', lineWidth: 0.5 } );
+    var separator = new Path( Shape.lineSegment( 0, 0, 0, shakerButton.height ),{ stroke: 'rgb(150,150,150)', lineWidth: 0.5 } );
 
     // rendering order
     this.addChild( shakerButton );

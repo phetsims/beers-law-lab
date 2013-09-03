@@ -98,7 +98,7 @@ define( function( require ) {
    * @constructor
    */
   function TickLine() {
-    Path.call( this, { shape: Shape.lineSegment( 0, 0, 0, TICK_LENGTH ), stroke: 'black', lineWidth: 1 } );
+    Path.call( this, Shape.lineSegment( 0, 0, 0, TICK_LENGTH ), { stroke: 'black', lineWidth: 1 } );
   }
 
   inherit( Path, TickLine );
@@ -136,8 +136,7 @@ define( function( require ) {
     var body = new Rectangle( -thumbSize.width / 2, -thumbSize.height / 2, thumbSize.width, thumbSize.height, arcWidth, arcWidth,
       { fill: THUMB_FILL_NORMAL, stroke: THUMB_STROKE, lineWidth: THUMB_LINE_WIDTH } );
     var centerLineYMargin = 3;
-    var centerLine = new Path( { shape: Shape.lineSegment( 0, -( thumbSize.height / 2 ) + centerLineYMargin, 0, ( thumbSize.height / 2 ) - centerLineYMargin ),
-      stroke: THUMB_CENTER_LINE_STROKE } );
+    var centerLine = new Path( Shape.lineSegment( 0, -( thumbSize.height / 2 ) + centerLineYMargin, 0, ( thumbSize.height / 2 ) - centerLineYMargin ), { stroke: THUMB_CENTER_LINE_STROKE } );
 
     // rendering order
     thisNode.addChild( body );

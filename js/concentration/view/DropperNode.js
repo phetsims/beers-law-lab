@@ -61,7 +61,7 @@ define( function( require ) {
       .lineTo( TIP_WIDTH / 2, -TIP_HEIGHT )
       .lineTo( TIP_WIDTH / 2, 0 )
       .close();
-    var fluid = new Path( { shape: fluidShape } );
+    var fluid = new Path( fluidShape );
 
     // images
     var foreground = new Image( BLLImages.getImage( 'dropper_foreground.png' ) );
@@ -71,7 +71,7 @@ define( function( require ) {
     var label = new HTMLText( dropper.solute.formula, { font: new PhetFont( { size: 18, weight: 'bold' } ), fill: 'black' } );
 
     // label background, so the label shows up on various fluid colors
-    var labelBackground = new Path(
+    var labelBackground = new Path(null,
       {
         fill: 'rgba( 240, 240, 240, 0.6 )',
         lineWidth: 0

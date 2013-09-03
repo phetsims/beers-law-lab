@@ -183,8 +183,7 @@ define( function( require ) {
   function WireNode( body, probe, bodyNode, probeNode ) {
 
     var thisNode = this;
-    Path.call( thisNode, {
-      shape: new Shape(),
+    Path.call( thisNode, new Shape(), {
       stroke: 'gray',
       lineWidth: 8,
       lineCap: 'square',
