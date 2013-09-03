@@ -26,7 +26,6 @@ define( function( require ) {
     }, options );
 
     var startOffset; // where the drag started, relative to the movable's origin, in parent view coordinates
-    var dragBounds = movable.dragBounds ? mvt.modelToViewBounds( movable.dragBounds ) : null; // drag bounds in parent view coordinates
 
     var target = null; // workaround for scenery#66 (currentTarget is null in drag function)
 
