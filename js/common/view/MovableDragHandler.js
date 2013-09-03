@@ -27,22 +27,19 @@ define( function( require ) {
 
     var startOffset; // where the drag started, relative to the movable's origin, in parent view coordinates
 
-    var target = null; // workaround for scenery#66 (currentTarget is null in drag function)
-
     SimpleDragHandler.call( this, {
 
       allowTouchSnag: true,
 
       // note where the drag started
       start: function( event ) {
-        target = event.currentTarget; // save drag target, since it's null in drag()
         var location = mvt.modelToViewPosition( movable.location.get() );
-        startOffset = target.globalToParentPoint( event.pointer.point ).minus( location );
+        startOffset = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( location );
       },
 
       // change the location, adjust for starting offset, constrain to drag bounds
       drag: function( event ) {
-        var parentPoint = target.globalToParentPoint( event.pointer.point ).minus( startOffset );
+        var parentPoint = event.currentTarget.globalToParentPoint( event.pointer.point ).minus( startOffset );
         var location = mvt.viewToModelPosition( parentPoint );
         var constrainedLocation = constrainBounds( location, movable.dragBounds );
         movable.location.set( constrainedLocation );
