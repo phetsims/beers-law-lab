@@ -51,15 +51,8 @@ define( function( require ) {
     thisSolution.colorRange = colorRange;
     thisSolution.saturatedColor = saturatedColor || colorRange.max;
 
-    /*
-     * Creates a color that corresponds to the solution's concentration.
-     * @param {Number} concentration
-     * @param {Range} concentrationRange
-     * @param {ColorRange} colorRange
-     * @param {Solvent} solvent
-     * @return Color
-     */
-    var createFluidColor = function( concentration, concentrationRange, colorRange, solvent ) {
+    // Creates a color that corresponds to a concentration value.
+    var createFluidColor = function( concentration ) {
       var color = thisSolution.solvent.color.get();
       if ( concentration > 0 ) {
         var distance = Util.linear( thisSolution.concentrationRange.min, thisSolution.concentrationRange.max, 0, 1, concentration );
