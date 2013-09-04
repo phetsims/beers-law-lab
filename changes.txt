@@ -1,3 +1,4 @@
+9/3/13 #41, set initial width of concentration value in a way that supports i18n
 9/3/13 move formatting of concentration value to BeersLawSolution
 9/3/13 #27, when the Evaporation slider is disabled, end the drag sequence
 9/3/13 #42, remove workaround for SimpleDragHandler, event.currentTarget now returns the drag node

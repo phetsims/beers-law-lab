@@ -33,7 +33,7 @@ define( function( require ) {
     // nodes
     var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.concentration ), { font: FONT } );
     var slider = new ConcentrationSlider( solution );
-    var valueDisplay = new Text( '400 XXX', { font: FONT } ); //TODO too many assumptions here, and doesn't work for i18n
+    var valueDisplay = new Text( ' ' + solution.get().getDisplayConcentration( solution.get().concentrationRange.max ), { font: FONT } );
     var xMargin = 0.1 * valueDisplay.width;
     var yMargin = 0.1 * valueDisplay.height;
     var valueBackground = new Rectangle( 0, 0, valueDisplay.width + xMargin + xMargin, valueDisplay.height + yMargin + yMargin,
