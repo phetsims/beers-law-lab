@@ -88,12 +88,9 @@ define( function( require ) {
       return StringUtils.format( BLLStrings.pattern_0formula_1name, this.formula, this.name );
     },
 
-    getViewValue: function() {
-      return this.concentrationTransform.modelToView( this.concentration.get() );
-    },
-
-    getViewUnits: function() {
-      return this.concentrationTransform.units;
+    getDisplayConcentration: function( concentration ) {
+      return StringUtils.format( BLLStrings.pattern_0value_1units,
+        this.concentrationTransform.modelToView( this.concentration.get() ).toFixed( 0 ), this.concentrationTransform.units );
     }
   };
 

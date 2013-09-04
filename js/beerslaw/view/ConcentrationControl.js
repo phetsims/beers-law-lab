@@ -54,8 +54,8 @@ define( function( require ) {
     slider.centerY = valueDisplay.centerY;
 
     // update the value display when concentration changes
-    var concentrationObserver = function() {
-      valueDisplay.text = thisNode.formatConcentration( solution.get().getViewValue(), solution.get().getViewUnits() );
+    var concentrationObserver = function( concentration ) {
+      valueDisplay.text = solution.get().getDisplayConcentration( concentration );
       valueDisplay.right = valueBackground.right - xMargin; // right aligned
     };
     solution.get().concentration.link( concentrationObserver );
@@ -69,11 +69,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( Node, ConcentrationControl, {
-    formatConcentration: function( concentration, units ) {
-      return StringUtils.format( BLLStrings.pattern_0value_1units, concentration.toFixed( 0 ), units );
-    }
-  } );
+  inherit( Node, ConcentrationControl );
 
   return ConcentrationControl;
 } );

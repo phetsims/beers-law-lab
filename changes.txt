@@ -1,3 +1,4 @@
+9/3/13 move formatting of concentration value to BeersLawSolution
 9/3/13 #27, when the Evaporation slider is disabled, end the drag sequence
 9/3/13 #42, remove workaround for SimpleDragHandler, event.currentTarget now returns the drag node
 9/3/13 #28, turn off the dropper when it becomes invisible
