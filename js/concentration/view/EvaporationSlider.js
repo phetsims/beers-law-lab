@@ -72,12 +72,6 @@ define( function( require ) {
     var dy = 0.25 * thumb.height;
     thumb.touchArea = Shape.rectangle( ( -thumb.width / 2 ) - dx, ( -thumb.height / 2 ) - dy, thumb.width + dx + dx, thumb.height + dy + dy );
 
-    // enable/disable thumb
-    enabled.link( function( enabled ) {
-      thumb.fill = enabled ? THUMB_FILL_ENABLED : THUMB_FILL_DISABLED;
-      thumb.cursor = enabled ? 'pointer' : 'default';
-    } );
-
     // mapping between value and track position
     thisSlider._valueToPosition = new LinearFunction( range.min, range.max, 0, trackSize.width, true /* clamp */ );
 
@@ -86,27 +80,35 @@ define( function( require ) {
 
     // update value when thumb is dragged
     var clickXOffset = 0; // x-offset between initial click and thumb's origin
-    thumb.addInputListener( new SimpleDragHandler(
-      {
-        allowTouchSnag: true,
-        start: function( event ) {
-          clickXOffset = thumb.globalToParentPoint( event.pointer.point ).x - thumb.x;
-        },
-        drag: function( event ) {
-          if ( enabled.get() ) {
-            var x = thumb.globalToParentPoint( event.pointer.point ).x - clickXOffset;
-            value.set( thisSlider._valueToPosition.inverse( x ) );
-          }
-        },
-        end: function() {
-          if ( options.snapToMinWhenReleased ) {
-            value.set( range.min );
-          }
-        },
-        translate: function() {
+    var dragHandler = new SimpleDragHandler( {
+      allowTouchSnag: true,
+      start: function( event ) {
+        clickXOffset = thumb.globalToParentPoint( event.pointer.point ).x - thumb.x;
+      },
+      drag: function( event ) {
+        if ( enabled.get() ) {
+          var x = thumb.globalToParentPoint( event.pointer.point ).x - clickXOffset;
+          value.set( thisSlider._valueToPosition.inverse( x ) );
         }
-      } )
-    );
+      },
+      end: function() {
+        if ( options.snapToMinWhenReleased ) {
+          value.set( range.min );
+        }
+      },
+      translate: function() {
+      }
+    } );
+    thumb.addInputListener( dragHandler );
+
+    // enable/disable thumb
+    enabled.link( function( enabled ) {
+      thumb.fill = enabled ? THUMB_FILL_ENABLED : THUMB_FILL_DISABLED;
+      thumb.cursor = enabled ? 'pointer' : 'default';
+      if ( !enabled && dragHandler.dragging ) {
+        dragHandler.endDrag();
+      }
+    } );
 
     // update thumb location when value changes
     value.link( function( value ) {
