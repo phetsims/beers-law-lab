@@ -81,11 +81,6 @@ define( function( require ) {
     // mapping between value and track position
     thisSlider._valueToPosition = new LinearFunction( range.min, range.max, 0, trackSize.width, true /* clamp */ );
 
-    // move thumb when value changes
-    value.link( function( value ) {
-      thumb.centerX = thisSlider._valueToPosition( value );
-    } );
-
     // highlight on mouse enter
     thumb.addInputListener( new FillHighlightListener( THUMB_FILL_ENABLED, THUMB_FILL_HIGHLIGHTED, enabled ) );
 
