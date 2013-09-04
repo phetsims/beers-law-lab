@@ -2,6 +2,7 @@
 9/3/13 #42, remove workaround for SimpleDragHandler, event.currentTarget now returns the drag node
 9/3/13 #28, turn off the dropper when it becomes invisible
 8/22/13 joist#35, terminology change: tab -> screen
+8/13/13 branch '1.0' created
 # 1.0.0-0 7/29/13
 7/29/13 fixed typo in RSC credits, #29
 7/29/13 add google-analytics.js to html and package.json
