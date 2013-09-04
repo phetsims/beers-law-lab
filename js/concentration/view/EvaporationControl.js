@@ -33,8 +33,7 @@ define( function( require ) {
     var slider = new EvaporationSlider( new Range( 0, evaporator.maxEvaporationRate ),
       new Dimension2( 200, 6 ),
       evaporator.evaporationRate,
-      evaporator.enabled,
-      true );
+      evaporator.enabled );
 
     var tickFont = new PhetFont( 16 );
     slider.addMajorTick( 0, new Text( BLLStrings.none, { font: tickFont } ) );

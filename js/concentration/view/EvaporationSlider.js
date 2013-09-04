@@ -37,13 +37,15 @@ define( function( require ) {
    * @param {Dimension2} trackSize
    * @param {Property<Number>} value
    * @param {Property<Boolean>} enabled
-   * @param {Boolean} snapToMinWhenReleased
+   * @param {*} options
    * @constructor
    */
-  function EvaporationSlider( range, trackSize, value, enabled, snapToMinWhenReleased ) {
+  function EvaporationSlider( range, trackSize, value, enabled, options ) {
 
-    // defaults
-    snapToMinWhenReleased = _.isUndefined( snapToMinWhenReleased ) ? false : snapToMinWhenReleased;
+    // options
+    options = _.extend( {
+      snapToMinWhenReleased: true
+    }, options );
 
     var thisSlider = this;
     Node.call( thisSlider );
@@ -102,7 +104,7 @@ define( function( require ) {
           }
         },
         end: function() {
-          if ( snapToMinWhenReleased ) {
+          if ( options.snapToMinWhenReleased ) {
             value.set( range.min );
           }
         },
