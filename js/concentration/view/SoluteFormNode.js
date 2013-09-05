@@ -10,8 +10,8 @@ define( function( require ) {
 
   // imports
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
-  var BLLImages = require( 'common/BLLImages' );
-  var BLLStrings = require( 'common/BLLStrings' );
+  var BLLImages = require( 'BEERS_LAW_LAB/common/BLLImages' );
+  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -53,7 +53,7 @@ define( function( require ) {
     var X_SPACING = 10;
     var shakerButton = new AquaRadioButton( shaker.visible, true, new TextAndIconNode( BLLStrings.solid, TEXT_OPTIONS, BLLImages.getImage( 'shaker-icon.png' ), X_SPACING ) );
     var dropperButton = new AquaRadioButton( dropper.visible, true, new TextAndIconNode( BLLStrings.solution, TEXT_OPTIONS, BLLImages.getImage( 'dropper-icon.png' ), X_SPACING ) );
-    var separator = new Path( Shape.lineSegment( 0, 0, 0, shakerButton.height ),{ stroke: 'rgb(150,150,150)', lineWidth: 0.5 } );
+    var separator = new Path( Shape.lineSegment( 0, 0, 0, shakerButton.height ), { stroke: 'rgb(150,150,150)', lineWidth: 0.5 } );
 
     // rendering order
     this.addChild( shakerButton );

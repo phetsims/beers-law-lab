@@ -12,8 +12,8 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Panel = require( 'SUN/Panel' );
-  var SoluteComboBox = require( 'concentration/view/SoluteComboBox' );
-  var SoluteFormNode = require( 'concentration/view/SoluteFormNode' );
+  var SoluteComboBox = require( 'BEERS_LAW_LAB/concentration/view/SoluteComboBox' );
+  var SoluteFormNode = require( 'BEERS_LAW_LAB/concentration/view/SoluteFormNode' );
 
   /**
    * @param {Array<Solute>} solutes

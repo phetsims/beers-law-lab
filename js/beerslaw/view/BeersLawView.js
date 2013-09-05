@@ -9,21 +9,21 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var ATDetectorNode = require( 'beerslaw/view/ATDetectorNode' );
-  var BeamNode = require( 'beerslaw/view/BeamNode' );
-  var BLLRulerNode = require( 'beerslaw/view/BLLRulerNode' );
-  var BLLStrings = require( 'common/BLLStrings' );
+  var ATDetectorNode = require( 'BEERS_LAW_LAB/beerslaw/view/ATDetectorNode' );
+  var BeamNode = require( 'BEERS_LAW_LAB/beerslaw/view/BeamNode' );
+  var BLLRulerNode = require( 'BEERS_LAW_LAB/beerslaw/view/BLLRulerNode' );
+  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var Bounds2 = require( 'DOT/Bounds2' );
-  var CuvetteNode = require( 'beerslaw/view/CuvetteNode' );
+  var CuvetteNode = require( 'BEERS_LAW_LAB/beerslaw/view/CuvetteNode' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var LightNode = require( 'beerslaw/view/LightNode' );
+  var LightNode = require( 'BEERS_LAW_LAB/beerslaw/view/LightNode' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var ResetAllButton = require( 'common/view/ResetAllButton' );
+  var ResetAllButton = require( 'BEERS_LAW_LAB/common/view/ResetAllButton' );
   var Scene = require( 'SCENERY/Scene' );
   var ScreenView = require( 'JOIST/ScreenView' );
-  var SolutionControls = require( 'beerslaw/view/SolutionControls' );
+  var SolutionControls = require( 'BEERS_LAW_LAB/beerslaw/view/SolutionControls' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var WavelengthControls = require( 'beerslaw/view/WavelengthControls' );
+  var WavelengthControls = require( 'BEERS_LAW_LAB/beerslaw/view/WavelengthControls' );
 
   /**
    * @param {BeersLawModel} model

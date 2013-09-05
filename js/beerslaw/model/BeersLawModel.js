@@ -9,16 +9,16 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var Absorbance = require( 'beerslaw/model/Absorbance' );
-  var ATDetector = require( 'beerslaw/model/ATDetector' );
-  var Beam = require( 'beerslaw/model/Beam' );
-  var BeersLawSolution = require( 'beerslaw/model/BeersLawSolution' );
+  var Absorbance = require( 'BEERS_LAW_LAB/beerslaw/model/Absorbance' );
+  var ATDetector = require( 'BEERS_LAW_LAB/beerslaw/model/ATDetector' );
+  var Beam = require( 'BEERS_LAW_LAB/beerslaw/model/Beam' );
+  var BeersLawSolution = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolution' );
   var Bounds2 = require( 'DOT/Bounds2' );
-  var Cuvette = require( 'beerslaw/model/Cuvette' );
-  var Light = require( 'beerslaw/model/Light' );
+  var Cuvette = require( 'BEERS_LAW_LAB/beerslaw/model/Cuvette' );
+  var Light = require( 'BEERS_LAW_LAB/beerslaw/model/Light' );
   var Property = require( 'AXON/Property' );
   var Range = require( 'DOT/Range' );
-  var Ruler = require( 'beerslaw/model/Ruler' );
+  var Ruler = require( 'BEERS_LAW_LAB/beerslaw/model/Ruler' );
   var Vector2 = require( 'DOT/Vector2' );
 
   /**

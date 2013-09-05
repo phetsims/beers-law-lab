@@ -8,7 +8,7 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var imageLoader = require( 'common/BLLImages' );
+  var imageLoader = require( 'BEERS_LAW_LAB/common/BLLImages' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var PushButton = require( 'SUN/PushButton' );
@@ -30,6 +30,7 @@ define( function( require ) {
   function ResetAllImage( image ) {
     Image.call( this, image );
   }
+
   inherit( Image, ResetAllImage, {
     containsPointSelf: function( point ) {
       return point.distanceSquared( center ) <= radiusSquared;

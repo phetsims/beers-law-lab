@@ -10,13 +10,13 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLImages = require( 'common/BLLImages' );
+  var BLLImages = require( 'BEERS_LAW_LAB/common/BLLImages' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Property = require( 'AXON/Property' );
   var Shape = require( 'KITE/Shape' );
-  var ToggleButton = require( 'common/view/ToggleButton' );
+  var ToggleButton = require( 'BEERS_LAW_LAB/common/view/ToggleButton' );
 
   /**
    * @param {Light} light

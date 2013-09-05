@@ -16,7 +16,7 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLStrings = require( 'common/BLLStrings' );
+  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
 
   /**
    * @param {Number} scale scale factor used to convert model units (Moles, M) to view units

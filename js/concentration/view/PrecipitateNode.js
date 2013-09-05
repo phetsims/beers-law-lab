@@ -13,7 +13,7 @@ define( function( require ) {
   // imports
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var ParticleNode = require( 'concentration/view/ParticleNode' );
+  var ParticleNode = require( 'BEERS_LAW_LAB/concentration/view/ParticleNode' );
 
   /**
    * @param {Precipitate} precipitate

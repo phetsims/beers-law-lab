@@ -9,14 +9,14 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLStrings = require( 'common/BLLStrings' );
+  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Panel = require( 'SUN/Panel' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Range = require( 'DOT/Range' );
-  var EvaporationSlider = require( 'concentration/view/EvaporationSlider' );
+  var EvaporationSlider = require( 'BEERS_LAW_LAB/concentration/view/EvaporationSlider' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
 

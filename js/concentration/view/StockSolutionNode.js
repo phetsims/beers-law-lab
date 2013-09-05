@@ -9,8 +9,8 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var ConcentrationSolution = require( 'concentration/model/ConcentrationSolution' );
-  var DropperNode = require( 'concentration/view/DropperNode' );
+  var ConcentrationSolution = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationSolution' );
+  var DropperNode = require( 'BEERS_LAW_LAB/concentration/view/DropperNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Path = require( 'SCENERY/nodes/Path' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );

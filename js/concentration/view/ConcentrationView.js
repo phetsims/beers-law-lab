@@ -9,30 +9,30 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BeakerNode = require( 'concentration/view/BeakerNode' );
+  var BeakerNode = require( 'BEERS_LAW_LAB/concentration/view/BeakerNode' );
   var Bounds2 = require( 'DOT/Bounds2' );
-  var ConcentrationMeterNode = require( 'concentration/view/ConcentrationMeterNode' );
+  var ConcentrationMeterNode = require( 'BEERS_LAW_LAB/concentration/view/ConcentrationMeterNode' );
   var DOM = require( 'SCENERY/nodes/DOM' );
   var Dimension2 = require( 'DOT/Dimension2' );
-  var DropperNode = require( 'concentration/view/DropperNode' );
-  var EvaporationControl = require( 'concentration/view/EvaporationControl' );
-  var FaucetFluidNode = require( 'concentration/view/FaucetFluidNode' );
-  var FaucetNode = require( 'concentration/view/FaucetNode' );
+  var DropperNode = require( 'BEERS_LAW_LAB/concentration/view/DropperNode' );
+  var EvaporationControl = require( 'BEERS_LAW_LAB/concentration/view/EvaporationControl' );
+  var FaucetFluidNode = require( 'BEERS_LAW_LAB/concentration/view/FaucetFluidNode' );
+  var FaucetNode = require( 'BEERS_LAW_LAB/concentration/view/FaucetNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var PrecipitateNode = require( 'concentration/view/PrecipitateNode' );
+  var PrecipitateNode = require( 'BEERS_LAW_LAB/concentration/view/PrecipitateNode' );
   var Range = require( 'DOT/Range' );
-  var RemoveSoluteButton = require( 'concentration/view/RemoveSoluteButton' );
-  var ResetAllButton = require( 'common/view/ResetAllButton' );
-  var SaturatedIndicator = require( 'concentration/view/SaturatedIndicator' );
+  var RemoveSoluteButton = require( 'BEERS_LAW_LAB/concentration/view/RemoveSoluteButton' );
+  var ResetAllButton = require( 'BEERS_LAW_LAB/common/view/ResetAllButton' );
+  var SaturatedIndicator = require( 'BEERS_LAW_LAB/concentration/view/SaturatedIndicator' );
   var Scene = require( 'SCENERY/Scene' );
   var ScreenView = require( 'JOIST/ScreenView' );
-  var ShakerNode = require( 'concentration/view/ShakerNode' );
-  var ShakerParticlesNode = require( 'concentration/view/ShakerParticlesNode' );
-  var Solute = require( 'concentration/model/Solute' );
-  var SoluteControls = require( 'concentration/view/SoluteControls' );
-  var SolutionNode = require( 'concentration/view/SolutionNode' );
-  var StockSolutionNode = require( 'concentration/view/StockSolutionNode' );
+  var ShakerNode = require( 'BEERS_LAW_LAB/concentration/view/ShakerNode' );
+  var ShakerParticlesNode = require( 'BEERS_LAW_LAB/concentration/view/ShakerParticlesNode' );
+  var Solute = require( 'BEERS_LAW_LAB/concentration/model/Solute' );
+  var SoluteControls = require( 'BEERS_LAW_LAB/concentration/view/SoluteControls' );
+  var SolutionNode = require( 'BEERS_LAW_LAB/concentration/view/SolutionNode' );
+  var StockSolutionNode = require( 'BEERS_LAW_LAB/concentration/view/StockSolutionNode' );
 
   /**
    * @param {ConcentrationModel} model

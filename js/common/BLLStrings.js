@@ -8,5 +8,5 @@
  */
 define( function( require ) {
   'use strict';
-  return require( 'i18n!../../nls/beers-law-lab-strings' );
+  return require( 'i18n!BEERS_LAW_LAB/../nls/beers-law-lab-strings' );
 } );

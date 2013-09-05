@@ -9,11 +9,11 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var ConcentrationControl = require( 'beerslaw/view/ConcentrationControl' );
+  var ConcentrationControl = require( 'BEERS_LAW_LAB/beerslaw/view/ConcentrationControl' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Panel = require( 'SUN/Panel' );
-  var SolutionComboBox = require( 'beerslaw/view/SolutionComboBox' );
+  var SolutionComboBox = require( 'BEERS_LAW_LAB/beerslaw/view/SolutionComboBox' );
 
   /**
    * @param {Array<BeersLawSolution>} solutions

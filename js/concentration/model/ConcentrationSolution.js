@@ -13,10 +13,10 @@ define( function( require ) {
   // imports
   var callSuper = require( 'PHET_CORE/callSuper' );
   var Color = require( 'SCENERY/util/Color' );
-  var Fluid = require( 'common/model/Fluid' );
+  var Fluid = require( 'BEERS_LAW_LAB/common/model/Fluid' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
-  var Solvent = require( 'common/model/Solvent' );
+  var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
 
   /**
    * @param {Property<Solute>} solute

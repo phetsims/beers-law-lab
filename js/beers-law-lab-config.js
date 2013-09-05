@@ -33,7 +33,10 @@ require.config( {
     PHETCOMMON: '../../phetcommon/js',
     SCENERY: '../../scenery/js',
     SCENERY_PHET: '../../scenery-phet/js',
-    SUN: '../../sun/js'
+    SUN: '../../sun/js',
+
+    //Sim code
+    BEERS_LAW_LAB: "../../beers-law-lab/js"
   },
 
   //TODO remove this before deploy
