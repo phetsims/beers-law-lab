@@ -38,12 +38,12 @@ define( function( require ) {
       items[i] = createItem( solution );
     }
 
-    ComboBox.call( this, items, selectedSolution,
-      { labelNode: label,
-        listPosition: 'above',
-        itemYMargin: 12,
-        itemHighlightFill: 'rgb(218,255,255)',
-        listParent: soluteListParent } );
+    ComboBox.call( this, items, selectedSolution, soluteListParent, {
+      labelNode: label,
+      listPosition: 'above',
+      itemYMargin: 12,
+      itemHighlightFill: 'rgb(218,255,255)'
+    } );
   }
 
   inherit( ComboBox, SolutionComboBox );
