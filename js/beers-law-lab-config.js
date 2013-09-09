@@ -39,6 +39,5 @@ require.config( {
     BEERS_LAW_LAB: "../../beers-law-lab/js"
   },
 
-  //TODO remove this before deploy
   urlArgs: new Date().getTime()  // cache buster to make browser refresh load all included scripts
 } );
