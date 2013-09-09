@@ -28,9 +28,7 @@ require( [ 'JOIST/SimLauncher', 'JOIST/Sim', 'BEERS_LAW_LAB/concentration/Concen
       }, simOptions );
     }
 
-    SimLauncher.launch( [
-      {name: 'beers-law-lab', imageLoader: BLLImages}
-    ], function() {
+    SimLauncher.launch( BLLImages, function() {
       var sim = new Sim( BLLStrings.beersLawLab, [ new ConcentrationScreen(), new BeersLawScreen() ], simOptions );
       sim.start();
     } );
