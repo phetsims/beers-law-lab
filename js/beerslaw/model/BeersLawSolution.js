@@ -15,15 +15,15 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLStrings = require( 'common/BLLStrings' );
-  var BLLSymbols = require( 'common/BLLSymbols' );
+  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
+  var BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
   var Color = require( 'SCENERY/util/Color' );
-  var ColorRange = require( 'common/model/ColorRange' );
-  var ConcentrationTransform = require( 'beerslaw/model/ConcentrationTransform' );
-  var MolarAbsorptivityData = require( 'beerslaw/model/MolarAbsorptivityData' );
+  var ColorRange = require( 'BEERS_LAW_LAB/common/model/ColorRange' );
+  var ConcentrationTransform = require( 'BEERS_LAW_LAB/beerslaw/model/ConcentrationTransform' );
+  var MolarAbsorptivityData = require( 'BEERS_LAW_LAB/beerslaw/model/MolarAbsorptivityData' );
   var Property = require( 'AXON/Property' );
   var Range = require( 'DOT/Range' );
-  var Solvent = require( 'common/model/Solvent' );
+  var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Util = require( 'DOT/Util' );
 

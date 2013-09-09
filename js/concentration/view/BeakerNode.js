@@ -10,7 +10,7 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLStrings = require( 'common/BLLStrings' );
+  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
@@ -50,7 +50,7 @@ define( function( require ) {
       .lineTo( width / 2, 0 )
       .lineTo( width / 2, -height )
       .lineTo( (width / 2) + RIM_OFFSET, -height - RIM_OFFSET );
-    thisNode.addChild( new Path(outlineShape,
+    thisNode.addChild( new Path( outlineShape,
       {
         stroke: 'black',
         lineWidth: 3,
@@ -71,7 +71,7 @@ define( function( require ) {
       var leftX = -width / 2;
       var rightX = leftX + ( isMajorTick ? MAJOR_TICK_LENGTH : MINOR_TICK_LENGTH );
       var tickShape = new Shape().moveTo( leftX, y ).lineTo( rightX, y );
-      var tickPath = new Path(tickShape,
+      var tickPath = new Path( tickShape,
         {
           stroke: 'black',
           lineWidth: 2,

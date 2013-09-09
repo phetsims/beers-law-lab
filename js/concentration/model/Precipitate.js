@@ -10,7 +10,7 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var PrecipitateParticle = require( 'concentration/model/PrecipitateParticle' );
+  var PrecipitateParticle = require( 'BEERS_LAW_LAB/concentration/model/PrecipitateParticle' );
   var Vector2 = require( 'DOT/Vector2' );
 
   /**

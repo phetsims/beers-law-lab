@@ -9,13 +9,13 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var ATDetector = require( 'beerslaw/model/ATDetector' );
-  var BLLImages = require( 'common/BLLImages' );
-  var BLLStrings = require( 'common/BLLStrings' );
+  var ATDetector = require( 'BEERS_LAW_LAB/beerslaw/model/ATDetector' );
+  var BLLImages = require( 'BEERS_LAW_LAB/common/BLLImages' );
+  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var HorizontalTiledNode = require( 'SCENERY_PHET/HorizontalTiledNode' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var MovableDragHandler = require( 'common/view/MovableDragHandler' );
+  var MovableDragHandler = require( 'BEERS_LAW_LAB/common/view/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );

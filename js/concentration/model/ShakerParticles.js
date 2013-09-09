@@ -10,7 +10,7 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var ShakerParticle = require( 'concentration/model/ShakerParticle' );
+  var ShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticle' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // Units for speed and acceleration are not meaningful here, adjust these so that it looks good.
@@ -91,9 +91,9 @@ define( function( require ) {
             this._getInitialVelocity(), this._getGravitationalAcceleration() ) );
         }
       }
-      
+
       changed = changed || this.particles.length > 0;
-      
+
       if ( changed ) {
         this._fireParticlesChanged();
       }

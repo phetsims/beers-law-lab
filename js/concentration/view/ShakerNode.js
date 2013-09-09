@@ -9,13 +9,13 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLImages = require( 'common/BLLImages' );
+  var BLLImages = require( 'BEERS_LAW_LAB/common/BLLImages' );
   var Circle = require( 'SCENERY/nodes/Circle' );
   var DownUpListener = require( 'SCENERY/input/DownUpListener' );
   var HTMLText = require( 'SCENERY/nodes/HTMLText' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var MovableDragHandler = require( 'common/view/MovableDragHandler' );
+  var MovableDragHandler = require( 'BEERS_LAW_LAB/common/view/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -50,7 +50,7 @@ define( function( require ) {
 
     DownUpListener.call( this, {
       down: function() {
-          thisListener._isDown = true;
+        thisListener._isDown = true;
       },
       up: function() {
         thisListener._isDown = false;
@@ -103,7 +103,7 @@ define( function( require ) {
       .lineTo( ARROW_TAIL_WIDTH / 2, -ARROW_HEAD_LENGTH )
       .lineTo( ARROW_HEAD_WIDTH / 2, -ARROW_HEAD_LENGTH )
       .close();
-    var downArrowNode = new Path( downArrowShape,{fill: ARROW_FILL, stroke: ARROW_STROKE } );
+    var downArrowNode = new Path( downArrowShape, {fill: ARROW_FILL, stroke: ARROW_STROKE } );
     downArrowNode.top = imageNode.bottom + 4;
     downArrowNode.centerX = imageNode.centerX;
     downArrowNode.pickable = false;

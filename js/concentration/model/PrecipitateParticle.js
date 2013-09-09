@@ -12,7 +12,7 @@ define( function( require ) {
 
   // imports
   var inherit = require( 'PHET_CORE/inherit' );
-  var SoluteParticle = require( 'concentration/model/SoluteParticle' );
+  var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
 
   /**
    * Constructor

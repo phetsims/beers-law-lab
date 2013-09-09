@@ -9,7 +9,7 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLStrings = require( 'common/BLLStrings' );
+  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -20,7 +20,7 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var WavelengthSlider = require( 'beerslaw/view/WavelengthSlider' );
+  var WavelengthSlider = require( 'BEERS_LAW_LAB/beerslaw/view/WavelengthSlider' );
 
   /**
    * @param {Property<BeersLawSolution>} solution

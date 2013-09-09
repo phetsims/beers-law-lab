@@ -10,18 +10,18 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLImages = require( 'common/BLLImages' );
+  var BLLImages = require( 'BEERS_LAW_LAB/common/BLLImages' );
   var Circle = require( 'SCENERY/nodes/Circle' );
-  var ConcentrationSolution = require( 'concentration/model/ConcentrationSolution' );
+  var ConcentrationSolution = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationSolution' );
   var HTMLText = require( 'SCENERY/nodes/HTMLText' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var MovableDragHandler = require( 'common/view/MovableDragHandler' );
+  var MovableDragHandler = require( 'BEERS_LAW_LAB/common/view/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Shape = require( 'KITE/Shape' );
-  var ToggleButton = require( 'common/view/ToggleButton' );
+  var ToggleButton = require( 'BEERS_LAW_LAB/common/view/ToggleButton' );
 
   // constants
   var DEBUG_ORIGIN = false;
@@ -71,7 +71,7 @@ define( function( require ) {
     var label = new HTMLText( dropper.solute.formula, { font: new PhetFont( { size: 18, weight: 'bold' } ), fill: 'black' } );
 
     // label background, so the label shows up on various fluid colors
-    var labelBackground = new Path(null,
+    var labelBackground = new Path( null,
       {
         fill: 'rgba( 240, 240, 240, 0.6 )',
         lineWidth: 0

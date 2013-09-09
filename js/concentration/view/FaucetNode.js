@@ -16,7 +16,7 @@ define( function( require ) {
 
   // imports
   var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
-  var BLLImages = require( 'common/BLLImages' );
+  var BLLImages = require( 'BEERS_LAW_LAB/common/BLLImages' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var Circle = require( 'SCENERY/nodes/Circle' );
   var Image = require( 'SCENERY/nodes/Image' );

@@ -9,10 +9,10 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLImages = require( 'common/BLLImages' );
-  var BLLStrings = require( 'common/BLLStrings' );
-  var BeersLawModel = require( 'beerslaw/model/BeersLawModel' );
-  var BeersLawView = require( 'beerslaw/view/BeersLawView' );
+  var BLLImages = require( 'BEERS_LAW_LAB/common/BLLImages' );
+  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
+  var BeersLawModel = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawModel' );
+  var BeersLawView = require( 'BEERS_LAW_LAB/beerslaw/view/BeersLawView' );
   var Image = require( 'SCENERY/nodes/Image' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Vector2 = require( 'DOT/Vector2' );

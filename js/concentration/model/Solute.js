@@ -9,11 +9,11 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLStrings = require( 'common/BLLStrings' );
-  var BLLSymbols = require( 'common/BLLSymbols' );
+  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
+  var BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
   var Color = require( 'SCENERY/util/Color' );
-  var SoluteColorScheme = require( 'concentration/model/SoluteColorScheme' );
-  var Solvent = require( 'common/model/Solvent' );
+  var SoluteColorScheme = require( 'BEERS_LAW_LAB/concentration/model/SoluteColorScheme' );
+  var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
 
   /**
    * Constructor.

@@ -9,11 +9,11 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLSymbols = require( 'common/BLLSymbols' );
+  var BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
   var Color = require( 'SCENERY/util/Color' );
-  var Fluid = require( 'common/model/Fluid' );
+  var Fluid = require( 'BEERS_LAW_LAB/common/model/Fluid' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var BLLStrings = require( 'common/BLLStrings' );
+  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
 
   /**
    * Constructor.

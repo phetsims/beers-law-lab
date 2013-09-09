@@ -9,20 +9,20 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var Beaker = require( 'concentration/model/Beaker' );
+  var Beaker = require( 'BEERS_LAW_LAB/concentration/model/Beaker' );
   var Bounds2 = require( 'DOT/Bounds2' );
-  var ConcentrationMeter = require( 'concentration/model/ConcentrationMeter' );
-  var ConcentrationSolution = require( 'concentration/model/ConcentrationSolution' );
+  var ConcentrationMeter = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationMeter' );
+  var ConcentrationSolution = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationSolution' );
   var Dimension2 = require( 'DOT/Dimension2' );
-  var Dropper = require( 'concentration/model/Dropper' );
-  var Evaporator = require( 'concentration/model/Evaporator' );
-  var Faucet = require( 'concentration/model/Faucet' );
-  var Precipitate = require( 'concentration/model/Precipitate' );
+  var Dropper = require( 'BEERS_LAW_LAB/concentration/model/Dropper' );
+  var Evaporator = require( 'BEERS_LAW_LAB/concentration/model/Evaporator' );
+  var Faucet = require( 'BEERS_LAW_LAB/concentration/model/Faucet' );
+  var Precipitate = require( 'BEERS_LAW_LAB/concentration/model/Precipitate' );
   var Property = require( 'AXON/Property' );
   var Range = require( 'DOT/Range' );
-  var Shaker = require( 'concentration/model/Shaker' );
-  var ShakerParticles = require( 'concentration/model/ShakerParticles' );
-  var Solute = require( 'concentration/model/Solute' );
+  var Shaker = require( 'BEERS_LAW_LAB/concentration/model/Shaker' );
+  var ShakerParticles = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticles' );
+  var Solute = require( 'BEERS_LAW_LAB/concentration/model/Solute' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // constants

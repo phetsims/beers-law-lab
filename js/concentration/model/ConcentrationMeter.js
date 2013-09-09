@@ -14,7 +14,7 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var Movable = require( 'common/model/Movable' );
+  var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
 
   /**
