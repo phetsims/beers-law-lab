@@ -16,7 +16,7 @@ define( function( require ) {
   var Panel = require( 'SUN/Panel' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Range = require( 'DOT/Range' );
-  var EvaporationSlider = require( 'BEERS_LAW_LAB/concentration/view/EvaporationSlider' );
+  var HSlider = require( 'SUN/HSlider' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
 
@@ -30,7 +30,7 @@ define( function( require ) {
 
     var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.evaporation ), { font: new PhetFont( 22 ) } );
 
-    var slider = new EvaporationSlider( new Range( 0, evaporator.maxEvaporationRate ),
+    var slider = new HSlider( new Range( 0, evaporator.maxEvaporationRate ),
       new Dimension2( 200, 6 ),
       evaporator.evaporationRate,
       evaporator.enabled );
