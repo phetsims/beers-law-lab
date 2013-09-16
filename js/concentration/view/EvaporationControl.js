@@ -30,11 +30,10 @@ define( function( require ) {
 
     var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.evaporation ), { font: new PhetFont( 22 ) } );
 
-    var slider = new HSlider( new Range( 0, evaporator.maxEvaporationRate ),
-      new Dimension2( 200, 6 ),
-      evaporator.evaporationRate,
-      evaporator.enabled,
-      { endDrag: function() { evaporator.evaporationRate.set( 0 ); } } ); // at end of drag, snap evaporation rate back to zero
+    var slider = new HSlider( evaporator.evaporationRate, new Range( 0, evaporator.maxEvaporationRate ), evaporator.enabled, {
+      trackSize: new Dimension2( 200, 6 ),
+      endDrag: function() { evaporator.evaporationRate.set( 0 ); }  // at end of drag, snap evaporation rate back to zero
+    } );
 
     var tickFont = new PhetFont( 16 );
     slider.addMajorTick( 0, new Text( BLLStrings.none, { font: tickFont } ) );
