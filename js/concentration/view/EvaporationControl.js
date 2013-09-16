@@ -34,7 +34,7 @@ define( function( require ) {
       new Dimension2( 200, 6 ),
       evaporator.evaporationRate,
       evaporator.enabled,
-      { snapToMinWhenReleased: true } );
+      { endDrag: function() { evaporator.evaporationRate.set( 0 ); } } ); // at end of drag, snap evaporation rate back to zero
 
     var tickFont = new PhetFont( 16 );
     slider.addMajorTick( 0, new Text( BLLStrings.none, { font: tickFont } ) );
