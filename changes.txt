@@ -1,3 +1,4 @@
+9/15/13 EvaporationSlider moved to sun.HSlider by SR, #46
 9/9/13 added namespace BEERS_LAW_LAB (merged into master by SR)
 9/6/13 sun#20, ComboBox: make listParent a required constructor parameter, fix moveList
 9/3/13 #41, set initial width of concentration value in a way that supports i18n
