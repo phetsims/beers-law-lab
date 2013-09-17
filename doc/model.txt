@@ -34,7 +34,7 @@ solutes for the following reasons:
 Regarding this latter point, it reduces to a pair of coupled equations:
 molesDissolved = f(volume) and volume = f(molesDissolved)
 
-For additional details, consult the class files in package edu.colorado.phet.beerslawlab.concentration.model.
+For additional details, consult the class files in js/concentration/model.
 
 ----
 
@@ -57,4 +57,4 @@ Transmittance model: T = 10^A
 Transmittance varies between 0 (fully absorbed) and 1 (fully transmitted.)
 Multiplying by 100 gives percent transmittance (%T).
 
-For additional details, consult the class files in package edu.colorado.phet.beerslawlab.beerslaw.model.
+For additional details, consult source files in js/beerslaw/model/.
