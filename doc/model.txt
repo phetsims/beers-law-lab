@@ -34,7 +34,7 @@ solutes for the following reasons:
 Regarding this latter point, it reduces to a pair of coupled equations:
 molesDissolved = f(volume) and volume = f(molesDissolved)
 
-For additional details, consult the source files in js/concentration/model.
+For additional details, consult the source files in js/concentration/model/.
 
 ----
 
