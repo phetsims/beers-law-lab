@@ -1,4 +1,4 @@
-Concentration tab:
+Concentration screen:
 
 Concentration of a solution is:
 
@@ -38,7 +38,7 @@ For additional details, consult the class files in js/concentration/model.
 
 ----
 
-Beer's Law tab:
+Beer's Law screen:
 
 Molar absorptivity (a) is in units of 1/(cm*M), and varies with solution and wavelength.
 For the solutions in this sim, we measured molar absorptivity for visible wavelengths in the laboratory.
