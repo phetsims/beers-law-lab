@@ -1,3 +1,4 @@
+9/19/13 Updated to use sherpa, lodash-2.0.0, jquery-2.0.3.js and i18n-2.0.4
 9/15/13 sun#9, change HSlider {Boolean} options.snapToMinWhenReleased to {Function} options.endDrag
 9/15/13 EvaporationSlider moved to sun.HSlider by SR, #46
 9/9/13 added namespace BEERS_LAW_LAB (merged into master by SR)
