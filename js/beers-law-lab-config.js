@@ -35,8 +35,8 @@ require.config( {
     SCENERY_PHET: '../../scenery-phet/js',
     SUN: '../../sun/js',
 
-    //Sim code
-    BEERS_LAW_LAB: "../../beers-law-lab/js"
+    // this sim
+    BEERS_LAW_LAB: "."
   },
 
   urlArgs: new Date().getTime()  // cache buster to make browser refresh load all included scripts
