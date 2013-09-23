@@ -10,3 +10,9 @@ how much light they absorb and transmit using a virtual spectrophotometer!
 NOTE: This repository has dependency on other repositories. Those repositories
 much be checked out as siblings to this repository in your directory structure.
 See js/*config.js for a list of dependencies.
+
+Third Party Dependencies
+=============
+
+This simulation uses a number of third party libraries, which are enumerated in package.json.
+The dependencies and corresponding license are available in: https://github.com/phetsims/sherpa
