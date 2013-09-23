@@ -16,7 +16,6 @@ define( function( require ) {
 
   // imports
   var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
-  var BLLImages = require( 'BEERS_LAW_LAB/common/BLLImages' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var Circle = require( 'SCENERY/nodes/Circle' );
   var Image = require( 'SCENERY/nodes/Image' );
@@ -30,6 +29,16 @@ define( function( require ) {
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var Transform3 = require( 'DOT/Transform3' );
   var Vector2 = require( 'DOT/Vector2' );
+
+  // images
+  var knobImage = require( 'image!BEERS_LAW_LAB/../images/faucet_knob.png' );
+  var knobDisabledImage = require( 'image!BEERS_LAW_LAB/../images/faucet_knob_disabled.png' );
+  var shaftImage = require( 'image!BEERS_LAW_LAB/../images/faucet_shaft.png' );
+  var flangeImage = require( 'image!BEERS_LAW_LAB/../images/faucet_flange.png' );
+  var flangeDisabledImage = require( 'image!BEERS_LAW_LAB/../images/faucet_flange_disabled.png' );
+  var stopImage = require( 'image!BEERS_LAW_LAB/../images/faucet_stop.png' );
+  var pipeImage = require( 'image!BEERS_LAW_LAB/../images/faucet_pipe.png' );
+  var spoutImage = require( 'image!BEERS_LAW_LAB/../images/faucet_spout.png' );
 
   // constants
   var DEBUG_ORIGIN = false;
@@ -58,23 +67,23 @@ define( function( require ) {
     Node.call( thisNode );
 
     // knob
-    var knobNode = new Image( BLLImages.getImage( 'faucet_knob.png' ) );
+    var knobNode = new Image( knobImage );
     var dx = 0.5 * knobNode.width;
     var dy = 0.5 * knobNode.height;
     knobNode.touchArea = Shape.rectangle( -dx, -dy, knobNode.width + dx + dx, knobNode.height + dy + dy ); // before scaling!
     knobNode.scale( options.knobScale );
-    var knobDisabledNode = new Image( BLLImages.getImage( 'faucet_knob_disabled.png' ) );
+    var knobDisabledNode = new Image( knobDisabledImage );
     knobDisabledNode.scale( knobNode.getScaleVector() );
 
     // shaft
-    var shaftNode = new Image( BLLImages.getImage( 'faucet_shaft.png' ) );
+    var shaftNode = new Image( shaftImage );
 
     // flange
-    var flangeNode = new Image( BLLImages.getImage( 'faucet_flange.png' ) );
-    var flangeDisabledNode = new Image( BLLImages.getImage( 'faucet_flange_disabled.png' ) );
+    var flangeNode = new Image( flangeImage );
+    var flangeDisabledNode = new Image( flangeDisabledImage );
 
     // stop
-    var stopNode = new Image( BLLImages.getImage( 'faucet_stop.png' ) );
+    var stopNode = new Image( stopImage );
 
     // assemble the shooter
     var shooterNode = new Node();
@@ -96,13 +105,12 @@ define( function( require ) {
     knobDisabledNode.y = knobNode.y;
 
     // pipe, tiled horizontally
-    var pipeImage = BLLImages.getImage( 'faucet_pipe.png', { pickable: false } );
     var pipeWidth = ( mvt.modelToViewDeltaX( faucet.location.x - faucet.pipeMinX ) / options.scale ) - SPOUT_OUTPUT_CENTER_X + PIPE_X_OVERLAP;
     assert && assert( pipeWidth > 0 );
     var pipeNode = new Rectangle( 0, 0, pipeWidth, pipeImage.height, { fill: new Pattern( pipeImage )} );
 
     // other nodes
-    var spoutNode = new Image( BLLImages.getImage( 'faucet_spout.png' ), { pickable: false } );
+    var spoutNode = new Image( spoutImage, { pickable: false } );
     var windowNode = new Rectangle( SHOOTER_WINDOW_BOUNDS.minX, SHOOTER_WINDOW_BOUNDS.minY,
       SHOOTER_WINDOW_BOUNDS.maxX - SHOOTER_WINDOW_BOUNDS.minX, SHOOTER_WINDOW_BOUNDS.maxY - SHOOTER_WINDOW_BOUNDS.minY,
       { fill: 'rgb(107,107,107)' } );

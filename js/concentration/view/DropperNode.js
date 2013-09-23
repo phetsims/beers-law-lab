@@ -10,7 +10,6 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLImages = require( 'BEERS_LAW_LAB/common/BLLImages' );
   var Circle = require( 'SCENERY/nodes/Circle' );
   var ConcentrationSolution = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationSolution' );
   var HTMLText = require( 'SCENERY/nodes/HTMLText' );
@@ -22,6 +21,13 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Shape = require( 'KITE/Shape' );
   var ToggleButton = require( 'BEERS_LAW_LAB/common/view/ToggleButton' );
+
+  // images
+  var dropperForegroundImage = require( 'image!BEERS_LAW_LAB/../images/dropper_foreground.png' );
+  var dropperBackgroundImage = require( 'image!BEERS_LAW_LAB/../images/dropper_background.png' );
+  var buttonPressedImage = require( 'image!BEERS_LAW_LAB/../images/red_button_pressed.png' );
+  var buttonUnpressedImage = require( 'image!BEERS_LAW_LAB/../images/red_button_unpressed.png' );
+  var buttonDisabledImage = require( 'image!BEERS_LAW_LAB/../images/red_button_disabled.png' );
 
   // constants
   var DEBUG_ORIGIN = false;
@@ -64,8 +70,8 @@ define( function( require ) {
     var fluid = new Path( fluidShape );
 
     // images
-    var foreground = new Image( BLLImages.getImage( 'dropper_foreground.png' ) );
-    var background = new Image( BLLImages.getImage( 'dropper_background.png' ) );
+    var foreground = new Image( dropperForegroundImage );
+    var background = new Image( dropperBackgroundImage );
 
     // label
     var label = new HTMLText( dropper.solute.formula, { font: new PhetFont( { size: 18, weight: 'bold' } ), fill: 'black' } );
@@ -77,8 +83,7 @@ define( function( require ) {
         lineWidth: 0
       } );
 
-    var button = new ToggleButton(
-      BLLImages.getImage( 'red_button_unpressed.png' ), BLLImages.getImage( 'red_button_pressed.png' ), BLLImages.getImage( 'red_button_disabled.png' ),
+    var button = new ToggleButton( buttonUnpressedImage, buttonPressedImage, buttonDisabledImage,
       dropper.on, dropper.enabled, { onWhilePressed: true } );
     button.setScaleMagnitude( 0.3 );
 

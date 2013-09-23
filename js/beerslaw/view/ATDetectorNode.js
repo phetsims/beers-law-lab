@@ -10,7 +10,6 @@ define( function( require ) {
 
   // imports
   var ATDetector = require( 'BEERS_LAW_LAB/beerslaw/model/ATDetector' );
-  var BLLImages = require( 'BEERS_LAW_LAB/common/BLLImages' );
   var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var HorizontalTiledNode = require( 'SCENERY_PHET/HorizontalTiledNode' );
   var Image = require( 'SCENERY/nodes/Image' );
@@ -25,6 +24,12 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
   var Vector2 = require( 'DOT/Vector2' );
+
+  // images
+  var bodyLeftImage = require( 'image!BEERS_LAW_LAB/../images/at-detector-body-left.png' );
+  var bodyCenterImage = require( 'image!BEERS_LAW_LAB/../images/at-detector-body-center.png' );
+  var bodyRightImage = require( 'image!BEERS_LAW_LAB/../images/at-detector-body-right.png' );
+  var probeImage = require( 'image!BEERS_LAW_LAB/../images/at-detector-probe.png' );
 
   // constants
   var BUTTONS_X_MARGIN = 25; // specific to image files
@@ -67,10 +72,7 @@ define( function( require ) {
 
     // background image, sized to fit
     var bodyWidth = Math.max( buttonGroup.width, valueNode.width ) + ( 2 * BUTTONS_X_MARGIN );
-    var backgroundNode = new HorizontalTiledNode( bodyWidth,
-      BLLImages.getImage( 'at-detector-body-left.png' ),
-      BLLImages.getImage( 'at-detector-body-center.png' ),
-      BLLImages.getImage( 'at-detector-body-right.png' ) );
+    var backgroundNode = new HorizontalTiledNode( bodyWidth, bodyLeftImage, bodyCenterImage, bodyRightImage );
 
     // rendering order
     thisNode.addChild( backgroundNode );
@@ -123,7 +125,7 @@ define( function( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
-    var imageNode = new Image( BLLImages.getImage( 'at-detector-probe.png' ) );
+    var imageNode = new Image( probeImage );
     thisNode.addChild( imageNode );
     imageNode.x = -imageNode.width / 2;
     imageNode.y = -PROBE_CENTER_Y_OFFSET;

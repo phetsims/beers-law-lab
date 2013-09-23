@@ -10,7 +10,6 @@ define( function( require ) {
 
   // imports
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
-  var BLLImages = require( 'BEERS_LAW_LAB/common/BLLImages' );
   var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -20,6 +19,10 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var Shape = require( 'KITE/Shape' );
   var Text = require( 'SCENERY/nodes/Text' );
+
+  // images
+  var shakerIconImage = require( 'image!BEERS_LAW_LAB/../images/shaker-icon.png' );
+  var dropperIconImage = require( 'image!BEERS_LAW_LAB/../images/dropper-icon.png' );
 
   /**
    * @param {String} text
@@ -51,8 +54,8 @@ define( function( require ) {
 
     var TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
     var X_SPACING = 10;
-    var shakerButton = new AquaRadioButton( shaker.visible, true, new TextAndIconNode( BLLStrings.solid, TEXT_OPTIONS, BLLImages.getImage( 'shaker-icon.png' ), X_SPACING ) );
-    var dropperButton = new AquaRadioButton( dropper.visible, true, new TextAndIconNode( BLLStrings.solution, TEXT_OPTIONS, BLLImages.getImage( 'dropper-icon.png' ), X_SPACING ) );
+    var shakerButton = new AquaRadioButton( shaker.visible, true, new TextAndIconNode( BLLStrings.solid, TEXT_OPTIONS, shakerIconImage, X_SPACING ) );
+    var dropperButton = new AquaRadioButton( dropper.visible, true, new TextAndIconNode( BLLStrings.solution, TEXT_OPTIONS, dropperIconImage, X_SPACING ) );
     var separator = new Path( Shape.lineSegment( 0, 0, 0, shakerButton.height ), { stroke: 'rgb(150,150,150)', lineWidth: 0.5 } );
 
     // rendering order

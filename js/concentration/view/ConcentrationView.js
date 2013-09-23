@@ -23,7 +23,7 @@ define( function( require ) {
   var PrecipitateNode = require( 'BEERS_LAW_LAB/concentration/view/PrecipitateNode' );
   var Range = require( 'DOT/Range' );
   var RemoveSoluteButton = require( 'BEERS_LAW_LAB/concentration/view/RemoveSoluteButton' );
-  var ResetAllButton = require( 'BEERS_LAW_LAB/common/view/ResetAllButton' );
+  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
   var SaturatedIndicator = require( 'BEERS_LAW_LAB/concentration/view/SaturatedIndicator' );
   var Scene = require( 'SCENERY/Scene' );
   var ScreenView = require( 'JOIST/ScreenView' );

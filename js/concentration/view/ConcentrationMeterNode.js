@@ -20,7 +20,6 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLImages = require( 'BEERS_LAW_LAB/common/BLLImages' );
   var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var HorizontalTiledNode = require( 'SCENERY_PHET/HorizontalTiledNode' );
   var Image = require( 'SCENERY/nodes/Image' );
@@ -34,6 +33,12 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
   var Vector2 = require( 'DOT/Vector2' );
+
+  // images
+  var bodyLeftImage = require( 'image!BEERS_LAW_LAB/../images/concentration-meter-body-left.png' );
+  var bodyCenterImage = require( 'image!BEERS_LAW_LAB/../images/concentration-meter-body-center.png' );
+  var bodyRightImage = require( 'image!BEERS_LAW_LAB/../images/concentration-meter-body-right.png' );
+  var probeImage = require( 'image!BEERS_LAW_LAB/../images/concentration-meter-probe.png' );
 
   // constants
   var BODY_IS_DRAGGABLE = true;
@@ -70,10 +75,7 @@ define( function( require ) {
     // create a background that fits the text
     var maxTextWidth = Math.max( titleNode.width, unitsNode.width );
     var bodyWidth = ( 2 * TEXT_X_MARGIN ) + maxTextWidth;
-    var backgroundNode = new HorizontalTiledNode( bodyWidth,
-      BLLImages.getImage( 'concentration-meter-body-left.png' ),
-      BLLImages.getImage( 'concentration-meter-body-center.png' ),
-      BLLImages.getImage( 'concentration-meter-body-right.png' ) );
+    var backgroundNode = new HorizontalTiledNode( bodyWidth, bodyLeftImage, bodyCenterImage, bodyRightImage );
 
     // rendering order
     thisNode.addChild( backgroundNode );
@@ -130,7 +132,7 @@ define( function( require ) {
       cursor: 'pointer'
     } );
 
-    var imageNode = new Image( BLLImages.getImage( 'concentration-meter-probe.png' ) );
+    var imageNode = new Image( probeImage );
     thisNode.addChild( imageNode );
     var radius = imageNode.height / 2; // assumes that image height defines the radius
     imageNode.x = -radius;

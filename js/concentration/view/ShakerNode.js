@@ -9,7 +9,6 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLImages = require( 'BEERS_LAW_LAB/common/BLLImages' );
   var Circle = require( 'SCENERY/nodes/Circle' );
   var DownUpListener = require( 'SCENERY/input/DownUpListener' );
   var HTMLText = require( 'SCENERY/nodes/HTMLText' );
@@ -21,6 +20,9 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Shape = require( 'KITE/Shape' );
   var Vector2 = require( 'DOT/Vector2' );
+
+  // images
+  var shakerImage = require( 'image!BEERS_LAW_LAB/../images/shaker.png' );
 
   // constants
   var DEBUG_ORIGIN = false;
@@ -87,7 +89,7 @@ define( function( require ) {
     Node.call( thisNode, { renderer: 'svg', rendererOptions: { cssTransform: true } } );
 
     // shaker image
-    var imageNode = new Image( BLLImages.getImage( 'shaker.png' ) );
+    var imageNode = new Image( shakerImage );
     imageNode.setScaleMagnitude( 0.75 );
 
     // label
