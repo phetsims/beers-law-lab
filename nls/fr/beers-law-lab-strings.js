@@ -1,3 +1,0 @@
-define( {
-  "concentration": "Concentration (French)"
-} );
