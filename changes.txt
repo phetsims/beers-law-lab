@@ -1,3 +1,4 @@
+9/24/13 replace phet-core.callSuper with Supertype.prototype.method.call( this,...)
 9/24/13 delete bogus French translation
 9/23/13 convert to use chipper 'image' plug-in, and scenery-phet.ResetAllButton
 9/19/13 changes required by merge of chipper 'single-file' branch into master

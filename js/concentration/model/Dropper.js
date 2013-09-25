@@ -9,7 +9,6 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var callSuper = require( 'PHET_CORE/callSuper' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
@@ -56,7 +55,7 @@ define( function( require ) {
 
   inherit( Movable, Dropper, {
     reset: function() {
-      callSuper( Movable, 'reset', this );
+      Movable.prototype.reset.call( this );
       this.visible.reset();
       this.on.reset();
       this.enabled.reset();

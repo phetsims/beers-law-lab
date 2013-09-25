@@ -11,7 +11,6 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var callSuper = require( 'PHET_CORE/callSuper' );
   var Color = require( 'SCENERY/util/Color' );
   var Fluid = require( 'BEERS_LAW_LAB/common/model/Fluid' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -65,7 +64,7 @@ define( function( require ) {
 
     // reset
     thisSolution.reset = function() {
-      callSuper( Fluid, 'reset', this );
+      Fluid.prototype.reset.call( this );
       thisSolution.soluteAmount.reset();
       thisSolution.volume.reset();
       updateColor(); // because we provided a bogus initial color to Fluid constructor
