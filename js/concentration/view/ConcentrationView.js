@@ -17,7 +17,7 @@ define( function( require ) {
   var DropperNode = require( 'BEERS_LAW_LAB/concentration/view/DropperNode' );
   var EvaporationControl = require( 'BEERS_LAW_LAB/concentration/view/EvaporationControl' );
   var FaucetFluidNode = require( 'BEERS_LAW_LAB/concentration/view/FaucetFluidNode' );
-  var FaucetNode = require( 'BEERS_LAW_LAB/concentration/view/FaucetNode' );
+  var FaucetNode = require( 'SCENERY_PHET/FaucetNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PrecipitateNode = require( 'BEERS_LAW_LAB/concentration/view/PrecipitateNode' );
