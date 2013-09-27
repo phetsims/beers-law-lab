@@ -35,49 +35,6 @@ define( function( require ) {
   var ARROW_STROKE = 'rgb(160,160,160)';
 
   /**
-   * Shows the arrows until the user has successfully dragged the shaker.
-   * @param upArrowNode
-   * @param downArrowNode
-   * @constructor
-   */
-  function ArrowListener( upArrowNode, downArrowNode ) {
-
-    var thisListener = this;
-
-    thisListener._upArrowNode = upArrowNode;
-    thisListener._downArrowNode = downArrowNode;
-
-    thisListener._wasDragged = false;
-    thisListener._isDown = false;
-
-    DownUpListener.call( this, {
-      down: function() {
-        thisListener._isDown = true;
-      },
-      up: function() {
-        thisListener._isDown = false;
-      }
-    } );
-  }
-
-  inherit( DownUpListener, ArrowListener, {
-    enter: function() {
-      if ( !this._wasDragged ) {
-        this._upArrowNode.visible = this._downArrowNode.visible = true;
-      }
-    },
-    exit: function() {
-      this._upArrowNode.visible = this._downArrowNode.visible = false;
-    },
-    move: function() {
-      if ( this._isDown ) {
-        this._wasDragged = true;
-        this._upArrowNode.visible = this._downArrowNode.visible = false;
-      }
-    }
-  } );
-
-  /**
    * Constructor
    * @param {Shaker} shaker
    * @param {ModelViewTransform2} mvt
@@ -146,17 +103,21 @@ define( function( require ) {
     }
 
     // sync location with model
-    shaker.location.link( function updateLocation( location ) {
+    var shakerWasMoved = false;
+    shaker.location.link( function( location ) {
       thisNode.translation = mvt.modelToViewPosition( location );
+      shakerWasMoved = true;
+      upArrowNode.visible = downArrowNode.visible = false;
     } );
+    shakerWasMoved = false; // reset to false, because function is fired when link is performed
 
     // sync visibility with model
-    shaker.visible.link( function updateVisibility( visible ) {
+    shaker.visible.link( function( visible ) {
       thisNode.setVisible( visible );
     } );
 
     // sync solute with model
-    shaker.solute.link( function updateSolute( solute ) {
+    shaker.solute.link( function( solute ) {
       // label the shaker with the solute formula
       labelNode.setText( solute.formula );
       // center the label on the shaker
@@ -168,7 +129,15 @@ define( function( require ) {
     // interactivity
     thisNode.cursor = 'pointer';
     thisNode.addInputListener( new MovableDragHandler( shaker, mvt ) );
-    thisNode.addInputListener( new ArrowListener( upArrowNode, downArrowNode ) );
+    thisNode.addInputListener( {
+        enter: function() {
+          upArrowNode.visible = downArrowNode.visible = !shakerWasMoved;
+        },
+        exit: function() {
+          upArrowNode.visible = downArrowNode.visible = false;
+        }
+      }
+    );
   }
 
   inherit( Node, ShakerNode );
