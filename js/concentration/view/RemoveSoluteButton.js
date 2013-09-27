@@ -9,9 +9,9 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var inherit = require( 'PHET_CORE/inherit' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
   var TextButton = require( 'SUN/TextButton' );
 
   /**
@@ -22,7 +22,7 @@ define( function( require ) {
 
     var thisButton = this;
 
-    TextButton.call( thisButton, BLLStrings.removeSolute, function() {
+    TextButton.call( thisButton, strings.removeSolute, function() {
       solution.soluteAmount.set( 0 );
     }, {
       font: new PhetFont( 22 ),

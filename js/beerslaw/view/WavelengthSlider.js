@@ -11,7 +11,6 @@ define( function( require ) {
   // imports
   var ArrowButton = require( 'SCENERY_PHET/ArrowButton' );
   var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
-  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' ); //TODO requires common-code strings before this can be migrated to scenery-phet
   var Dimension2 = require( 'DOT/Dimension2' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -21,6 +20,7 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Shape = require( 'KITE/Shape' );
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
+  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' ); //TODO requires common-code strings before this can be migrated to scenery-phet
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
@@ -93,7 +93,7 @@ define( function( require ) {
     var thisNode = this;
     Text.call( this, '?', { font: font, fill: fill } );
     property.link( function( value ) {
-      thisNode.text = StringUtils.format( BLLStrings.pattern_0value_1units, value.toFixed( 0 ), BLLStrings.units_nm );
+      thisNode.text = StringUtils.format( strings.pattern_0value_1units, value.toFixed( 0 ), strings.units_nm );
     } );
   }
 

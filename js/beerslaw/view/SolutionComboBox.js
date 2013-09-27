@@ -10,13 +10,13 @@ define( function( require ) {
 
   // imports
   var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
-  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var ComboBox = require( 'SUN/ComboBox' );
   var HTMLText = require( 'SCENERY/nodes/HTMLText' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
 
@@ -29,7 +29,7 @@ define( function( require ) {
   function SolutionComboBox( solutions, selectedSolution, soluteListParent ) {
 
     // 'Solution' label
-    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.solution ), { font: new PhetFont( 20 ) } );
+    var label = new Text( StringUtils.format( strings.pattern_0label, strings.solution ), { font: new PhetFont( 20 ) } );
 
     // items
     var items = [];

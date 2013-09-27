@@ -9,11 +9,11 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var BeersLawModel = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawModel' );
   var BeersLawView = require( 'BEERS_LAW_LAB/beerslaw/view/BeersLawView' );
   var Image = require( 'SCENERY/nodes/Image' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
+  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // images
@@ -21,7 +21,7 @@ define( function( require ) {
 
   function BeersLawScreen() {
 
-    this.name = BLLStrings.beersLaw;
+    this.name = strings.beersLaw;
     this.icon = new Image( beersLawImage );
     this.backgroundColor = 'white';
 

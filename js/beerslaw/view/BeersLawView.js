@@ -12,7 +12,6 @@ define( function( require ) {
   var ATDetectorNode = require( 'BEERS_LAW_LAB/beerslaw/view/ATDetectorNode' );
   var BeamNode = require( 'BEERS_LAW_LAB/beerslaw/view/BeamNode' );
   var BLLRulerNode = require( 'BEERS_LAW_LAB/beerslaw/view/BLLRulerNode' );
-  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var CuvetteNode = require( 'BEERS_LAW_LAB/beerslaw/view/CuvetteNode' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -22,6 +21,7 @@ define( function( require ) {
   var Scene = require( 'SCENERY/Scene' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var SolutionControls = require( 'BEERS_LAW_LAB/beerslaw/view/SolutionControls' );
+  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
   var Text = require( 'SCENERY/nodes/Text' );
   var WavelengthControls = require( 'BEERS_LAW_LAB/beerslaw/view/WavelengthControls' );
 

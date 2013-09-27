@@ -9,7 +9,6 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -18,6 +17,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
   var WavelengthSlider = require( 'BEERS_LAW_LAB/beerslaw/view/WavelengthSlider' );
@@ -34,14 +34,14 @@ define( function( require ) {
     var variableWavelength = new Property( false ); // is the wavelength variable or fixed?
 
     // nodes
-    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.wavelength ), { font: new PhetFont( 20 ), fill: 'black' } );
+    var label = new Text( StringUtils.format( strings.pattern_0label, strings.wavelength ), { font: new PhetFont( 20 ), fill: 'black' } );
     var valueDisplay = new Text( thisNode.formatWavelength( light.wavelength.get() ), { font: new PhetFont( 20 ), fill: 'black' } );
     var xMargin = 0.1 * valueDisplay.width;
     var yMargin = 0.1 * valueDisplay.height;
     var valueBackground = new Rectangle( 0, 0, valueDisplay.width + xMargin + xMargin, valueDisplay.height + yMargin + yMargin,
       { fill: 'white', stroke: 'lightGray' } );
-    var presetRadioButton = new AquaRadioButton( variableWavelength, false, new Text( BLLStrings.preset, { font: new PhetFont( 18 ), fill: 'black' } ) );
-    var variableRadioButton = new AquaRadioButton( variableWavelength, true, new Text( BLLStrings.variable, { font: new PhetFont( 18 ), fill: 'black' } ) );
+    var presetRadioButton = new AquaRadioButton( variableWavelength, false, new Text( strings.preset, { font: new PhetFont( 18 ), fill: 'black' } ) );
+    var variableRadioButton = new AquaRadioButton( variableWavelength, true, new Text( strings.variable, { font: new PhetFont( 18 ), fill: 'black' } ) );
     var wavelengthSlider = new WavelengthSlider( light.wavelength, { trackWidth: 150, trackHeight: 30 } );
 
     // rendering order
@@ -101,7 +101,7 @@ define( function( require ) {
 
   inherit( Panel, WavelengthControls, {
     formatWavelength: function( wavelength ) {
-      return StringUtils.format( BLLStrings.pattern_0value_1units, wavelength.toFixed( 0 ), BLLStrings.units_nm );
+      return StringUtils.format( strings.pattern_0value_1units, wavelength.toFixed( 0 ), strings.units_nm );
     }
   } );
 

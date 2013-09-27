@@ -10,13 +10,13 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MovableDragHandler = require( 'BEERS_LAW_LAB/common/view/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var RulerNode = require( 'SCENERY_PHET/RulerNode' );
   var Shape = require( 'KITE/Shape' );
+  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
 
   /**
    * @param {Ruler} ruler
@@ -39,7 +39,7 @@ define( function( require ) {
     var width = mvt.modelToViewDeltaX( ruler.length );
     var height = mvt.modelToViewDeltaY( ruler.height );
     var majorTickWidth = mvt.modelToViewDeltaX( 0.5 );
-    thisNode.addChild( new RulerNode( width, height, majorTickWidth, majorTickLabels, BLLStrings.units_centimeters,
+    thisNode.addChild( new RulerNode( width, height, majorTickWidth, majorTickLabels, strings.units_centimeters,
       { minorTicksPerMajorTick: 4, insetsWidth: 0 } ) );
 
     // touch area

@@ -16,7 +16,7 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
+  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
 
   /**
    * @param {Number} scale scale factor used to convert model units (Moles, M) to view units
@@ -49,8 +49,8 @@ define( function( require ) {
     }
   };
 
-  ConcentrationTransform.mM = new ConcentrationTransform( 1000, BLLStrings.units_mM );
-  ConcentrationTransform.uM = new ConcentrationTransform( 1000000, BLLStrings.units_uM );
+  ConcentrationTransform.mM = new ConcentrationTransform( 1000, strings.units_mM );
+  ConcentrationTransform.uM = new ConcentrationTransform( 1000000, strings.units_uM );
 
   return ConcentrationTransform;
 } );

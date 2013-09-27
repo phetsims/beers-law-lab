@@ -10,7 +10,6 @@ define( function( require ) {
 
   // imports
   var ATDetector = require( 'BEERS_LAW_LAB/beerslaw/model/ATDetector' );
-  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MeterBodyNode = require( 'SCENERY_PHET/MeterBodyNode' );
@@ -20,6 +19,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var Shape = require( 'KITE/Shape' );
+  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
@@ -56,8 +56,8 @@ define( function( require ) {
 
     // buttons for changing the detector 'mode'
     var textOptions = { font: new PhetFont( 18 ), fill: 'white' };
-    var transmittanceButton = new AquaRadioButton( detector.mode, ATDetector.Mode.TRANSMITTANCE, new Text( BLLStrings.transmittance, textOptions ) );
-    var absorbanceButton = new AquaRadioButton( detector.mode, ATDetector.Mode.ABSORBANCE, new Text( BLLStrings.absorbance, textOptions ) );
+    var transmittanceButton = new AquaRadioButton( detector.mode, ATDetector.Mode.TRANSMITTANCE, new Text( strings.transmittance, textOptions ) );
+    var absorbanceButton = new AquaRadioButton( detector.mode, ATDetector.Mode.ABSORBANCE, new Text( strings.absorbance, textOptions ) );
 
     // group the buttons
     var buttonGroup = new Node();
@@ -99,7 +99,7 @@ define( function( require ) {
       }
       else {
         if ( detector.mode.get() === ATDetector.Mode.TRANSMITTANCE ) {
-          valueNode.text = StringUtils.format( BLLStrings.pattern_0percent, value.toFixed( TRANSMITTANCE_DECIMAL_PLACES ) );
+          valueNode.text = StringUtils.format( strings.pattern_0percent, value.toFixed( TRANSMITTANCE_DECIMAL_PLACES ) );
         }
         else {
           valueNode.text = value.toFixed( ABSORBANCE_DECIMAL_PLACES );

@@ -20,7 +20,6 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MeterBodyNode = require( 'SCENERY_PHET/MeterBodyNode' );
@@ -29,6 +28,7 @@ define( function( require ) {
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Shape = require( 'KITE/Shape' );
+  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
@@ -65,9 +65,9 @@ define( function( require ) {
     } );
 
     // text nodes
-    var titleNode = new Text( BLLStrings.concentration,
+    var titleNode = new Text( strings.concentration,
       { font: new PhetFont( 18 ), fill: 'white' } );
-    var unitsNode = new Text( StringUtils.format( BLLStrings.pattern_parentheses_0text, BLLStrings.units_molesPerLiter ),
+    var unitsNode = new Text( StringUtils.format( strings.pattern_parentheses_0text, strings.units_molesPerLiter ),
       { font: new PhetFont( 18 ), fill: 'white' } );
     var valueNode = new Text( ( 1 ).toFixed( VALUE_DECIMALS ),
       { font: new PhetFont( 24 ), fill: 'black' } );

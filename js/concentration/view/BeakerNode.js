@@ -10,12 +10,12 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Shape = require( 'KITE/Shape' );
+  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
 
@@ -84,7 +84,7 @@ define( function( require ) {
       if ( isMajorTick ) {
         var labelIndex = ( i / MINOR_TICKS_PER_MAJOR_TICK ) - 1;
         if ( labelIndex < MAJOR_TICK_LABELS.length ) {
-          var label = StringUtils.format( BLLStrings.pattern_0value_1units, MAJOR_TICK_LABELS[labelIndex], BLLStrings.units_liters );
+          var label = StringUtils.format( strings.pattern_0value_1units, MAJOR_TICK_LABELS[labelIndex], strings.units_liters );
           ticksParent.addChild( new Text( label, {
             font: new PhetFont( 24 ),
             fill: 'black',

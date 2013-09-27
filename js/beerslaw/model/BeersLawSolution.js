@@ -15,7 +15,6 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
   var Color = require( 'SCENERY/util/Color' );
   var ColorRange = require( 'BEERS_LAW_LAB/common/model/ColorRange' );
@@ -24,6 +23,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var Range = require( 'DOT/Range' );
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
+  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Util = require( 'DOT/Util' );
 
@@ -78,11 +78,11 @@ define( function( require ) {
       if ( this.formula === this.name ) {
         return this.name;
       }
-      return StringUtils.format( BLLStrings.pattern_0formula_1name, this.formula, this.name );
+      return StringUtils.format( strings.pattern_0formula_1name, this.formula, this.name );
     },
 
     getDisplayConcentration: function( concentration ) {
-      return StringUtils.format( BLLStrings.pattern_0value_1units,
+      return StringUtils.format( strings.pattern_0value_1units,
         this.concentrationTransform.modelToView( concentration ).toFixed( 0 ), this.concentrationTransform.units );
     }
   };
@@ -92,7 +92,7 @@ define( function( require ) {
   //-------------------------------------------------------------------------------------------
 
   BeersLawSolution.DRINK_MIX = new BeersLawSolution(
-    BLLStrings.drinkMix,
+    strings.drinkMix,
     BLLSymbols.DRINK_MIX,
     MolarAbsorptivityData.DRINK_MIX,
     new Range( 0, 0.400, 0.100 ),
@@ -101,7 +101,7 @@ define( function( require ) {
   );
 
   BeersLawSolution.COBALT_II_NITRATE = new BeersLawSolution(
-    BLLStrings.cobaltIINitrate,
+    strings.cobaltIINitrate,
     BLLSymbols.COBALT_II_NITRATE,
     MolarAbsorptivityData.COBALT_II_NITRATE,
     new Range( 0, 0.400, 0.100 ),
@@ -109,7 +109,7 @@ define( function( require ) {
     new ColorRange( new Color( 255, 225, 225 ), Color.RED ) );
 
   BeersLawSolution.COBALT_CHLORIDE = new BeersLawSolution(
-    BLLStrings.cobaltChloride,
+    strings.cobaltChloride,
     BLLSymbols.COBALT_CHLORIDE,
     MolarAbsorptivityData.COBALT_CHLORIDE,
     new Range( 0, 0.250, 0.100 ),
@@ -118,7 +118,7 @@ define( function( require ) {
   );
 
   BeersLawSolution.POTASSIUM_DICHROMATE = new BeersLawSolution(
-    BLLStrings.potassiumDichromate,
+    strings.potassiumDichromate,
     BLLSymbols.POTASSIUM_DICHROMATE,
     MolarAbsorptivityData.POTASSIUM_DICHROMATE,
     new Range( 0, 0.000500, 0.000100 ),
@@ -127,7 +127,7 @@ define( function( require ) {
   );
 
   BeersLawSolution.POTASSIUM_CHROMATE = new BeersLawSolution(
-    BLLStrings.potassiumChromate,
+    strings.potassiumChromate,
     BLLSymbols.POTASSIUM_CHROMATE,
     MolarAbsorptivityData.POTASSIUM_CHROMATE,
     new Range( 0, 0.000400, 0.000100 ),
@@ -136,7 +136,7 @@ define( function( require ) {
   );
 
   BeersLawSolution.NICKEL_II_CHLORIDE = new BeersLawSolution(
-    BLLStrings.nickelIIChloride,
+    strings.nickelIIChloride,
     BLLSymbols.NICKEL_II_CHLORIDE,
     MolarAbsorptivityData.NICKEL_II_CHLORIDE,
     new Range( 0, 0.350, 0.100 ),
@@ -145,7 +145,7 @@ define( function( require ) {
   );
 
   BeersLawSolution.COPPER_SULFATE = new BeersLawSolution(
-    BLLStrings.copperSulfate,
+    strings.copperSulfate,
     BLLSymbols.COPPER_SULFATE,
     MolarAbsorptivityData.COPPER_SULFATE,
     new Range( 0, 0.200, 0.100 ),
@@ -154,7 +154,7 @@ define( function( require ) {
   );
 
   BeersLawSolution.POTASSIUM_PERMANGANATE = new BeersLawSolution(
-    BLLStrings.potassiumPermanganate,
+    strings.potassiumPermanganate,
     BLLSymbols.POTASSIUM_PERMANGANATE,
     MolarAbsorptivityData.POTASSIUM_PERMANGANATE,
     new Range( 0, 0.000800, 0.000100 ),

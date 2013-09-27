@@ -9,14 +9,14 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var Dimension2 = require( 'DOT/Dimension2' );
+  var HSlider = require( 'SUN/HSlider' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Panel = require( 'SUN/Panel' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Range = require( 'DOT/Range' );
-  var HSlider = require( 'SUN/HSlider' );
+  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
 
@@ -28,7 +28,7 @@ define( function( require ) {
 
     var thisControl = this;
 
-    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.evaporation ), { font: new PhetFont( 22 ) } );
+    var label = new Text( StringUtils.format( strings.pattern_0label, strings.evaporation ), { font: new PhetFont( 22 ) } );
 
     var slider = new HSlider( evaporator.evaporationRate, new Range( 0, evaporator.maxEvaporationRate ), {
       trackSize: new Dimension2( 200, 6 ),
@@ -37,8 +37,8 @@ define( function( require ) {
     } );
 
     var tickFont = new PhetFont( 16 );
-    slider.addMajorTick( 0, new Text( BLLStrings.none, { font: tickFont } ) );
-    slider.addMajorTick( evaporator.maxEvaporationRate, new Text( BLLStrings.lots, { font: tickFont } ) );
+    slider.addMajorTick( 0, new Text( strings.none, { font: tickFont } ) );
+    slider.addMajorTick( evaporator.maxEvaporationRate, new Text( strings.lots, { font: tickFont } ) );
 
     var content = new Node();
     content.addChild( label );

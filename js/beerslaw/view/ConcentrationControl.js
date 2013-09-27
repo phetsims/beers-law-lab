@@ -9,12 +9,12 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
   var ConcentrationSlider = require( 'BEERS_LAW_LAB/beerslaw/view/ConcentrationSlider' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
 
@@ -31,7 +31,7 @@ define( function( require ) {
     Node.call( thisNode );
 
     // nodes
-    var label = new Text( StringUtils.format( BLLStrings.pattern_0label, BLLStrings.concentration ), { font: FONT } );
+    var label = new Text( StringUtils.format( strings.pattern_0label, strings.concentration ), { font: FONT } );
     var slider = new ConcentrationSlider( solution );
     var valueDisplay = new Text( ' ' + solution.get().getDisplayConcentration( solution.get().concentrationRange.max ), { font: FONT } );
     var xMargin = 0.1 * valueDisplay.width;
