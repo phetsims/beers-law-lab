@@ -1,3 +1,4 @@
+9/27/13 #40, migrate WavelengthSlider and associated strings to scenery-phet
 9/27/13 move BLLStrings.js to beers-law-lab-strings.js
 9/27/13 change implementation of meter bodies to workaround tiling problem, see concentration#2
 9/24/13 replace phet-core.callSuper with Supertype.prototype.method.call( this,...)

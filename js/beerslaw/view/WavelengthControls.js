@@ -20,7 +20,7 @@ define( function( require ) {
   var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var WavelengthSlider = require( 'BEERS_LAW_LAB/beerslaw/view/WavelengthSlider' );
+  var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
 
   /**
    * @param {Property<BeersLawSolution>} solution
