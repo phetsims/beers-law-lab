@@ -21,9 +21,9 @@ define( function( require ) {
 
   // imports
   var BLLStrings = require( 'BEERS_LAW_LAB/common/BLLStrings' );
-  var HorizontalTiledNode = require( 'SCENERY_PHET/HorizontalTiledNode' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var MeterBodyNode = require( 'SCENERY_PHET/MeterBodyNode' );
   var MovableDragHandler = require( 'BEERS_LAW_LAB/common/view/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
@@ -75,7 +75,7 @@ define( function( require ) {
     // create a background that fits the text
     var maxTextWidth = Math.max( titleNode.width, unitsNode.width );
     var bodyWidth = ( 2 * TEXT_X_MARGIN ) + maxTextWidth;
-    var backgroundNode = new HorizontalTiledNode( bodyWidth, bodyLeftImage, bodyCenterImage, bodyRightImage );
+    var backgroundNode = new MeterBodyNode( bodyWidth, bodyLeftImage, bodyCenterImage, bodyRightImage );
 
     // rendering order
     thisNode.addChild( backgroundNode );
