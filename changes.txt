@@ -1,3 +1,4 @@
+9/27/13 #49, fixed algorithm for random distribution of precipitate particles on bottom of beaker
 9/27/13 #50, yellow arrows appear and disappear on iPad
 9/27/13 #39, migrate FaucetNode and associated images to scenery-phet
 9/27/13 #40, migrate WavelengthSlider and associated strings to scenery-phet

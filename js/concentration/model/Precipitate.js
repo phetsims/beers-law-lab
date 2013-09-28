@@ -110,16 +110,15 @@ define( function( require ) {
       }
     },
 
-    // Gets a random location, relative to the coordinate frame of the beaker.
+    // Gets a random location, relative to the coordinate frame of the beaker. Bottom-center of the beaker is at (0,0).
     _getRandomOffset: function() {
       var particleSize = this.solution.solute.get().particleSize;
+      // particles are square, largest margin required is the diagonal length
+      var margin = Math.sqrt( particleSize * particleSize );
       // x offset
-      var xMargin = particleSize;
-      var width = this.beaker.size.width - particleSize - ( 2 * xMargin );
-      var x = xMargin + ( Math.random() * width ) - ( this.beaker.size.width / 2 );
+      var x = -( this.beaker.size.width / 2 ) + margin + ( Math.random() * ( this.beaker.size.width - ( 2 * margin ) ) );
       // y offset
-      var yMargin = particleSize;
-      var y = -yMargin;
+      var y = -margin; // this was tweaked based on the lineWidth used to stroke the beaker
       // offset
       return new Vector2( x, y );
     }
