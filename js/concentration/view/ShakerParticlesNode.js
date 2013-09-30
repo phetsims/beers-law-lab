@@ -24,8 +24,8 @@ define( function( require ) {
 
     var thisNode = this;
     
-    this.shakerParticles = shakerParticles;
-    this.mvt = mvt;
+    thisNode.shakerParticles = shakerParticles;
+    thisNode.mvt = mvt;
     
     // Find an approximate minimum bounding box for our particles (smaller for speed), assumes that the MVT doesn't rotate
     var activeBounds = new Bounds2( mvt.modelToViewPosition( new Vector2( left, 0 ) ).x, layoutBounds.minY,
