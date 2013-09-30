@@ -47,7 +47,7 @@ define( function( require ) {
     // Beaker and stuff inside it
     var beakerNode = new BeakerNode( model.beaker, mvt );
     var solutionNode = new SolutionNode( model.solution, model.beaker, mvt );
-    var precipitateNode = new PrecipitateNode( model.precipitate, model.beaker, mvt );
+    var precipitateNode = new PrecipitateNode( model.precipitate, mvt );
     var saturatedIndicator = new SaturatedIndicator( model.solution );
 
     // Shaker

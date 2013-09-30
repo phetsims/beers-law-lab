@@ -17,34 +17,42 @@ define( function( require ) {
 
   /**
    * @param {Precipitate} precipitate
-   * @param {Beaker} beaker
    * @param {ModelViewTransform2} mvt
    * @constructor
    */
-  function PrecipitateNode( precipitate, beaker, mvt ) {
+  function PrecipitateNode( precipitate, mvt ) {
 
     var thisNode = this;
     Node.call( thisNode, { pickable: false } );
 
-    thisNode.translation = beaker.location;
+    var particlesParent = new Node();
+    thisNode.addChild( particlesParent );
 
-    precipitate.registerParticleAddedCallback( function( particle ) {
-      thisNode.addChild( new ParticleNode( particle, mvt ) );
-    } );
-
-    precipitate.registerParticleRemovedCallback( function( particle ) {
-      // Not a good general approach, but OK because we have a small number of particles.
-      var children = thisNode.getChildren();
-      for ( var i = 0; i < children.length; i++ ) {
-        if ( children[i].particle === particle ) {
-          thisNode.removeChild( children[i] );
-          break;
+    precipitate.registerChangedCallback( function( precipitate ) {
+      var numberOfParticles =  precipitate.particles.length;
+      var numberOfNodes = particlesParent.getChildrenCount();
+      if ( numberOfParticles === numberOfNodes ) {
+        return;
+      }
+      else if ( numberOfParticles === 0 ) {
+        particlesParent.removeAllChildren();
+      }
+      else if ( numberOfParticles > numberOfNodes ) {
+        // add nodes
+        var index = particlesParent.getChildrenCount();
+        while ( index < numberOfParticles ) {
+          particlesParent.addChild( new ParticleNode( precipitate.particles[index], mvt ) );
+          index++;
+        }
+      }
+      else {
+        // remove nodes
+        while ( particlesParent.getChildrenCount() > numberOfParticles ) {
+          particlesParent.removeChildAt( particlesParent.getChildrenCount() - 1 );
         }
       }
     } );
   }
 
-  inherit( Node, PrecipitateNode );
-
-  return PrecipitateNode;
+  return inherit( Node, PrecipitateNode );
 } );
