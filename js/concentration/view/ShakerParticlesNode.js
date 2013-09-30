@@ -4,6 +4,7 @@
  * Manages the solid solute particles as they travel between the shaker and their inevitable demise in the beaker.
  *
  * @author Chris Malley (PixelZoom, Inc.)
+ * @author Jonathan Olson
  */
 define( function( require ) {
   'use strict';
