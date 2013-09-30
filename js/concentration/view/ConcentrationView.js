@@ -52,7 +52,12 @@ define( function( require ) {
 
     // Shaker
     var shakerNode = new ShakerNode( model.shaker, mvt );
-    var shakerParticlesNode = new ShakerParticlesNode( model.shakerParticles, thisView.layoutBounds, model.beaker.getLeft(), model.beaker.getRight(), mvt );
+
+    // Shaker particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
+    var shakerParticlesBounds = new Bounds2(
+      mvt.modelToViewX( model.beaker.getLeft() ), thisView.layoutBounds.minY,
+      mvt.modelToViewX( model.beaker.getRight() ), mvt.modelToViewY( model.beaker.location.y ) );
+    var shakerParticlesNode = new ShakerParticlesNode( model.shakerParticles, mvt, shakerParticlesBounds );
 
     // Dropper
     var dropperNode = new DropperNode( model.dropper, model.solution.solvent, model.solution.solute, mvt );

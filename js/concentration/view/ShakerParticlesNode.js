@@ -2,6 +2,7 @@
 
 /**
  * Manages the solid solute particles as they travel between the shaker and their inevitable demise in the beaker.
+ * Rendered directly to canvas for performance.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  * @author Jonathan Olson
@@ -18,21 +19,18 @@ define( function( require ) {
   /**
    * @param {ShakerParticles} shakerParticles
    * @param {ModelViewTransform2} mvt
+   * @param {Bounds2} canvasBounds
    * @constructor
    */
-  function ShakerParticlesNode( shakerParticles, layoutBounds, left, right, mvt ) {
+  function ShakerParticlesNode( shakerParticles, mvt, canvasBounds ) {
 
     var thisNode = this;
     
     thisNode.shakerParticles = shakerParticles;
     thisNode.mvt = mvt;
     
-    // Find an approximate minimum bounding box for our particles (smaller for speed), assumes that the MVT doesn't rotate
-    var activeBounds = new Bounds2( mvt.modelToViewPosition( new Vector2( left, 0 ) ).x, layoutBounds.minY,
-                                    mvt.modelToViewPosition( new Vector2( right, 0 ) ).x, layoutBounds.maxY );
-    
     // Initialize with a self-bounds of activeBounds
-    CanvasNode.call( thisNode, { pickable: false, canvasBounds: activeBounds } );
+    CanvasNode.call( thisNode, { pickable: false, canvasBounds: canvasBounds } );
     
     // if during a step we change, then trigger a repaint
     shakerParticles.registerParticleChangedCallback( function() {
