@@ -26,7 +26,7 @@ define( function( require ) {
     thisPrecipitate.solution = solution;
     thisPrecipitate.beaker = beaker;
     thisPrecipitate.particles = []; // PrecipitateParticle
-    thisPrecipitate.changedCallbacks = []; // function(Precipitate)
+    thisPrecipitate.changedCallbacks = []; // function(Precipitate), private
 
     // when the saturation changes, update the number of precipitate particles
     thisPrecipitate.solution.precipitateAmount.link( function() {
@@ -49,7 +49,11 @@ define( function( require ) {
       this.changedCallbacks.push( callback );
     },
 
-    // Adds/removes particles to match the model
+    /*
+     * Adds/removes particles to match the model.
+     * To optimize performance, clients who register for the 'change' callback will assume that
+     * particles are added/removed from the end of the 'particles' array.  See #48.
+     */
     _updateParticles: function() {
       var numberOfParticles = this.solution.getNumberOfPrecipitateParticles(); // number of particles desired after this update
       if ( numberOfParticles === this.particles.length ) {
@@ -79,7 +83,7 @@ define( function( require ) {
       this.particles = [];
     },
 
-    // Notify that a {PrecipitateParticle} particle was added.
+    // Notify that the precipitate has changed.
     _fireChanged: function() {
       var changedCallbacks = this.changedCallbacks.slice( 0 ); // copy to prevent concurrent modification
       for ( var i = 0; i < changedCallbacks.length; i++ ) {
@@ -87,16 +91,14 @@ define( function( require ) {
       }
     },
 
-    // Gets a random location.
+    // Gets a random location, in global model coordinate frame.
     _getRandomOffset: function() {
       var particleSize = this.solution.solute.get().particleSize;
       // particles are square, largest margin required is the diagonal length
       var margin = Math.sqrt( particleSize * particleSize );
-      // x offset
-      var x = this.beaker.location.x - ( this.beaker.size.width / 2 ) + margin + ( Math.random() * ( this.beaker.size.width - ( 2 * margin ) ) );
-      // y offset
-      var y = this.beaker.location.y - margin; // this was tweaked based on the lineWidth used to stroke the beaker
       // offset
+      var x = this.beaker.location.x - ( this.beaker.size.width / 2 ) + margin + ( Math.random() * ( this.beaker.size.width - ( 2 * margin ) ) );
+      var y = this.beaker.location.y - margin; // this was tweaked based on the lineWidth used to stroke the beaker
       return new Vector2( x, y );
     }
   };

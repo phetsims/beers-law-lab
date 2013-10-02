@@ -28,6 +28,10 @@ define( function( require ) {
     var particlesParent = new Node();
     thisNode.addChild( particlesParent );
 
+    /**
+     * NOTE: To optimize performance, this algorithm assumes that Precipitate
+     * adds/removes particles from the end of its 'particles' array. See #48.
+     */
     precipitate.registerChangedCallback( function( precipitate ) {
       var numberOfParticles =  precipitate.particles.length;
       var numberOfNodes = particlesParent.getChildrenCount();
