@@ -1,3 +1,4 @@
+10/1/13 #48, delete PrecipitateCanvasNode, we're going with the solution that looks better
 9/30/13 #48, demonstration of canvas-based precipitate (PrecipitateCanvasNode)
 9/30/13 #48, faster version of scenery-based precipitate (PrecipitateNode)
 9/30/13 #53, wrong bounds for canvas in ShakerParticlesNode
