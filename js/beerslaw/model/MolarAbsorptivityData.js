@@ -12,7 +12,6 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var assert = require( 'ASSERT/assert' )( 'beers-law-lab' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   /**

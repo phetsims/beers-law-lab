@@ -10,7 +10,6 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var assert = require( 'ASSERT/assert' )( 'graphing-lines' );
   var PrecipitateParticle = require( 'BEERS_LAW_LAB/concentration/model/PrecipitateParticle' );
   var Vector2 = require( 'DOT/Vector2' );
 
