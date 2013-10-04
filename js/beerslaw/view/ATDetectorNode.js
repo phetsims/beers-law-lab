@@ -26,7 +26,7 @@ define( function( require ) {
 
   //strings
   var absorbanceString = require( 'string!BEERS_LAW_LAB/absorbance' );
-  var pattern_0percentString = require( 'string!BEERS_LAW_LAB/pattern_0percent' );
+  var pattern_0percentString = require( 'string!BEERS_LAW_LAB/pattern.0percent' );
   var transmittanceString = require( 'string!BEERS_LAW_LAB/transmittance' );
 
   // images

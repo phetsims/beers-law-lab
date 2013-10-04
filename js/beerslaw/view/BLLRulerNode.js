@@ -18,7 +18,7 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
 
   // strings
-  var units_centimetersString = require( 'string!BEERS_LAW_LAB/units_centimeters' );
+  var units_centimetersString = require( 'string!BEERS_LAW_LAB/units.centimeters' );
 
   /**
    * @param {Ruler} ruler

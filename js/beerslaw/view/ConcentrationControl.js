@@ -20,7 +20,7 @@ define( function( require ) {
 
   // strings
   var concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
-  var pattern_0labelString = require( 'string!BEERS_LAW_LAB/pattern_0label' );
+  var pattern_0labelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
 
   // constants
   var FONT = new PhetFont( 20 );

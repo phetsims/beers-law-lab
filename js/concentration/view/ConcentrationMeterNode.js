@@ -35,8 +35,8 @@ define( function( require ) {
 
   // strings
   var concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
-  var pattern_parentheses_0textString = require( 'string!BEERS_LAW_LAB/pattern_parentheses_0text' );
-  var units_molesPerLiterString = require( 'string!BEERS_LAW_LAB/units_molesPerLiter' );
+  var pattern_parentheses_0textString = require( 'string!BEERS_LAW_LAB/pattern.parentheses.0text' );
+  var units_molesPerLiterString = require( 'string!BEERS_LAW_LAB/units.molesPerLiter' );
 
   // images
   var bodyLeftImage = require( 'image!BEERS_LAW_LAB/../images/concentration-meter-body-left.png' );

@@ -18,7 +18,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
 
   // strings
-  var pattern_0labelString = require( 'string!BEERS_LAW_LAB/pattern_0label' );
+  var pattern_0labelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
   var soluteString = require( 'string!BEERS_LAW_LAB/solute' );
 
   /**

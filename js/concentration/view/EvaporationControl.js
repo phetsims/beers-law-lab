@@ -23,7 +23,7 @@ define( function( require ) {
   var evaporationString = require( 'string!BEERS_LAW_LAB/evaporation' );
   var lotsString = require( 'string!BEERS_LAW_LAB/lots' );
   var noneString = require( 'string!BEERS_LAW_LAB/none' );
-  var pattern_0labelString = require( 'string!BEERS_LAW_LAB/pattern_0label' );
+  var pattern_0labelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
 
   /**
    * @param {Evaporator} evaporator

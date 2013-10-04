@@ -1,3 +1,4 @@
+10/4/13 replace '_' with '.' in English string file, to match Java string file
 10/4/13 reorganize string imports
 10/4/13 converted to use json string plugin (SR)
 10/3/13 remove assert imports, assert is now a global

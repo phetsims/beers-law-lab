@@ -22,10 +22,10 @@ define( function( require ) {
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
 
   // strings
-  var pattern_0labelString = require( 'string!BEERS_LAW_LAB/pattern_0label' );
-  var pattern_0value_1unitsString = require( 'string!BEERS_LAW_LAB/pattern_0value_1units' );
+  var pattern_0labelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
+  var pattern_0value1unitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
   var presetString = require( 'string!BEERS_LAW_LAB/preset' );
-  var units_nmString = require( 'string!BEERS_LAW_LAB/units_nm' );
+  var units_nmString = require( 'string!BEERS_LAW_LAB/units.nm' );
   var variableString = require( 'string!BEERS_LAW_LAB/variable' );
   var wavelengthString = require( 'string!BEERS_LAW_LAB/wavelength' );
 
@@ -108,7 +108,7 @@ define( function( require ) {
 
   inherit( Panel, WavelengthControls, {
     formatWavelength: function( wavelength ) {
-      return StringUtils.format( pattern_0value_1unitsString, wavelength.toFixed( 0 ), units_nmString );
+      return StringUtils.format( pattern_0value1unitsString, wavelength.toFixed( 0 ), units_nmString );
     }
   } );
 

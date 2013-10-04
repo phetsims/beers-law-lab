@@ -19,8 +19,8 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
 
   //strings
-  var pattern_0value_1unitsString = require( 'string!BEERS_LAW_LAB/pattern_0value_1units' );
-  var units_litersString = require( 'string!BEERS_LAW_LAB/units_liters' );
+  var pattern_0value_1unitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
+  var units_litersString = require( 'string!BEERS_LAW_LAB/units.liters' );
 
   // constants
   var MAX_VOLUME = 1;

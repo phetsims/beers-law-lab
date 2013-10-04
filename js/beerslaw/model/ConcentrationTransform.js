@@ -16,8 +16,8 @@ define( function( require ) {
   'use strict';
 
   // strings
-  var units_mMString = require( 'string!BEERS_LAW_LAB/units_mM' );
-  var units_uMString = require( 'string!BEERS_LAW_LAB/units_uM' );
+  var units_mMString = require( 'string!BEERS_LAW_LAB/units.mM' );
+  var units_uMString = require( 'string!BEERS_LAW_LAB/units.uM' );
 
   /**
    * @param {Number} scale scale factor used to convert model units (Moles, M) to view units
