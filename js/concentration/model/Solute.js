@@ -13,13 +13,15 @@ define( function( require ) {
   var Color = require( 'SCENERY/util/Color' );
   var SoluteColorScheme = require( 'BEERS_LAW_LAB/concentration/model/SoluteColorScheme' );
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
-  var drinkMixString = require( 'string!BEERS_LAW_LAB/drinkMix' );
-  var cobaltIINitrateString = require( 'string!BEERS_LAW_LAB/cobaltIINitrate' );
+
+  // strings
   var cobaltChlorideString = require( 'string!BEERS_LAW_LAB/cobaltChloride' );
-  var potassiumDichromateString = require( 'string!BEERS_LAW_LAB/potassiumDichromate' );
-  var potassiumChromateString = require( 'string!BEERS_LAW_LAB/potassiumChromate' );
-  var nickelIIChlorideString = require( 'string!BEERS_LAW_LAB/nickelIIChloride' );
+  var cobaltIINitrateString = require( 'string!BEERS_LAW_LAB/cobaltIINitrate' );
   var copperSulfateString = require( 'string!BEERS_LAW_LAB/copperSulfate' );
+  var drinkMixString = require( 'string!BEERS_LAW_LAB/drinkMix' );
+  var nickelIIChlorideString = require( 'string!BEERS_LAW_LAB/nickelIIChloride' );
+  var potassiumChromateString = require( 'string!BEERS_LAW_LAB/potassiumChromate' );
+  var potassiumDichromateString = require( 'string!BEERS_LAW_LAB/potassiumDichromate' );
   var potassiumPermanganateString = require( 'string!BEERS_LAW_LAB/potassiumPermanganate' );
 
   /**

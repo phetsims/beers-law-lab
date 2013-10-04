@@ -13,6 +13,8 @@ define( function( require ) {
   var Color = require( 'SCENERY/util/Color' );
   var Fluid = require( 'BEERS_LAW_LAB/common/model/Fluid' );
   var inherit = require( 'PHET_CORE/inherit' );
+
+  // strings
   var waterString = require( 'string!BEERS_LAW_LAB/water' );
 
   /**

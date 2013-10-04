@@ -13,11 +13,13 @@ define( function( require ) {
   var ConcentrationView = require( 'BEERS_LAW_LAB/concentration/view/ConcentrationView' );
   var Image = require( 'SCENERY/nodes/Image' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // images
   var concentrationImage = require( 'image!BEERS_LAW_LAB/../images/Concentration-icon.jpg' );
+
+  // strings
+  var concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
 
   function ConcentrationScreen() {
 

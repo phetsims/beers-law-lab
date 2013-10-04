@@ -15,7 +15,7 @@
 define( function( require ) {
   'use strict';
 
-  // imports
+  // strings
   var units_mMString = require( 'string!BEERS_LAW_LAB/units_mM' );
   var units_uMString = require( 'string!BEERS_LAW_LAB/units_uM' );
 

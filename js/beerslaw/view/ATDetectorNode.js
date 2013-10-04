@@ -25,9 +25,9 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   //strings
-  var transmittanceString = require( 'string!BEERS_LAW_LAB/transmittance' );
   var absorbanceString = require( 'string!BEERS_LAW_LAB/absorbance' );
   var pattern_0percentString = require( 'string!BEERS_LAW_LAB/pattern_0percent' );
+  var transmittanceString = require( 'string!BEERS_LAW_LAB/transmittance' );
 
   // images
   var bodyLeftImage = require( 'image!BEERS_LAW_LAB/../images/at-detector-body-left.png' );

@@ -10,6 +10,8 @@ define( function( require ) {
 
   // imports
   var toSubscript = require( 'NITROGLYCERIN/ChemUtils' ).toSubscript;
+
+  // strings
   var drinkMixString = require( 'string!BEERS_LAW_LAB/drinkMix' );
 
   return {

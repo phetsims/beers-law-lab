@@ -16,6 +16,8 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var RulerNode = require( 'SCENERY_PHET/RulerNode' );
   var Shape = require( 'KITE/Shape' );
+
+  // strings
   var units_centimetersString = require( 'string!BEERS_LAW_LAB/units_centimeters' );
 
   /**

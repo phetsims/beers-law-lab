@@ -14,10 +14,13 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var pattern_0labelString = require( 'string!BEERS_LAW_LAB/pattern_0label' );
-  var concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
+
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
+
+  // strings
+  var concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
+  var pattern_0labelString = require( 'string!BEERS_LAW_LAB/pattern_0label' );
 
   // constants
   var FONT = new PhetFont( 20 );

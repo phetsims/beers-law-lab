@@ -17,9 +17,11 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Property = require( 'AXON/Property' );
   var Shape = require( 'KITE/Shape' );
+  var Text = require( 'SCENERY/nodes/Text' );
+
+  // strings
   var solidString = require( 'string!BEERS_LAW_LAB/solid' );
   var solutionString = require( 'string!BEERS_LAW_LAB/solution' );
-  var Text = require( 'SCENERY/nodes/Text' );
 
   // images
   var shakerIconImage = require( 'image!BEERS_LAW_LAB/../images/shaker-icon.png' );

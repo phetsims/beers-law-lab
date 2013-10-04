@@ -11,8 +11,10 @@ define( function( require ) {
   // imports
   var inherit = require( 'PHET_CORE/inherit' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var removeSoluteString = require( 'string!BEERS_LAW_LAB/removeSolute' );
   var TextButton = require( 'SUN/TextButton' );
+
+  // strings
+  var removeSoluteString = require( 'string!BEERS_LAW_LAB/removeSolute' );
 
   /**
    * @param {ConcentrationSolution} solution

@@ -16,12 +16,14 @@ define( function( require ) {
   var Panel = require( 'SUN/Panel' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Range = require( 'DOT/Range' );
-  var pattern_0labelString = require( 'string!BEERS_LAW_LAB/pattern_0label' );
-  var evaporationString = require( 'string!BEERS_LAW_LAB/evaporation' );
-  var noneString = require( 'string!BEERS_LAW_LAB/none' );
-  var lotsString = require( 'string!BEERS_LAW_LAB/lots' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
+
+  // strings
+  var evaporationString = require( 'string!BEERS_LAW_LAB/evaporation' );
+  var lotsString = require( 'string!BEERS_LAW_LAB/lots' );
+  var noneString = require( 'string!BEERS_LAW_LAB/none' );
+  var pattern_0labelString = require( 'string!BEERS_LAW_LAB/pattern_0label' );
 
   /**
    * @param {Evaporator} evaporator

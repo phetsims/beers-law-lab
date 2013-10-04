@@ -17,15 +17,17 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var pattern_0labelString = require( 'string!BEERS_LAW_LAB/pattern_0label' );
-  var wavelengthString = require( 'string!BEERS_LAW_LAB/wavelength' );
-  var presetString = require( 'string!BEERS_LAW_LAB/preset' );
-  var variableString = require( 'string!BEERS_LAW_LAB/variable' );
-  var pattern_0value_1unitsString = require( 'string!BEERS_LAW_LAB/pattern_0value_1units' );
-  var units_nmString = require( 'string!BEERS_LAW_LAB/units_nm' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
+
+  // strings
+  var pattern_0labelString = require( 'string!BEERS_LAW_LAB/pattern_0label' );
+  var pattern_0value_1unitsString = require( 'string!BEERS_LAW_LAB/pattern_0value_1units' );
+  var presetString = require( 'string!BEERS_LAW_LAB/preset' );
+  var units_nmString = require( 'string!BEERS_LAW_LAB/units_nm' );
+  var variableString = require( 'string!BEERS_LAW_LAB/variable' );
+  var wavelengthString = require( 'string!BEERS_LAW_LAB/wavelength' );
 
   /**
    * @param {Property<BeersLawSolution>} solution

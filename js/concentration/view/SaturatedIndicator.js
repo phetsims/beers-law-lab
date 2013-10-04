@@ -14,8 +14,10 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var saturatedString = require( 'string!BEERS_LAW_LAB/saturated' );
   var Text = require( 'SCENERY/nodes/Text' );
+
+  // strings
+  var saturatedString = require( 'string!BEERS_LAW_LAB/saturated' );
 
   /**
    * @param {ConcentrationSolution} solution

@@ -23,18 +23,20 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var Range = require( 'DOT/Range' );
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
-  var pattern_0formula_1nameString = require( 'string!BEERS_LAW_LAB/pattern_0formula_1name' );
-  var pattern_0value_1unitsString = require( 'string!BEERS_LAW_LAB/pattern_0value_1units' );
-  var drinkMixString = require( 'string!BEERS_LAW_LAB/drinkMix' );
-  var cobaltIINitrateString = require( 'string!BEERS_LAW_LAB/cobaltIINitrate' );
-  var cobaltChlorideString = require( 'string!BEERS_LAW_LAB/cobaltChloride' );
-  var potassiumDichromateString = require( 'string!BEERS_LAW_LAB/potassiumDichromate' );
-  var potassiumChromateString = require( 'string!BEERS_LAW_LAB/potassiumChromate' );
-  var nickelIIChlorideString = require( 'string!BEERS_LAW_LAB/nickelIIChloride' );
-  var copperSulfateString = require( 'string!BEERS_LAW_LAB/copperSulfate' );
-  var potassiumPermanganateString = require( 'string!BEERS_LAW_LAB/potassiumPermanganate' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Util = require( 'DOT/Util' );
+
+  // strings
+  var cobaltChlorideString = require( 'string!BEERS_LAW_LAB/cobaltChloride' );
+  var cobaltIINitrateString = require( 'string!BEERS_LAW_LAB/cobaltIINitrate' );
+  var copperSulfateString = require( 'string!BEERS_LAW_LAB/copperSulfate' );
+  var drinkMixString = require( 'string!BEERS_LAW_LAB/drinkMix' );
+  var nickelIIChlorideString = require( 'string!BEERS_LAW_LAB/nickelIIChloride' );
+  var pattern_0formula_1nameString = require( 'string!BEERS_LAW_LAB/pattern_0formula_1name' );
+  var pattern_0value_1unitsString = require( 'string!BEERS_LAW_LAB/pattern_0value_1units' );
+  var potassiumChromateString = require( 'string!BEERS_LAW_LAB/potassiumChromate' );
+  var potassiumDichromateString = require( 'string!BEERS_LAW_LAB/potassiumDichromate' );
+  var potassiumPermanganateString = require( 'string!BEERS_LAW_LAB/potassiumPermanganate' );
 
   /**
    * @param {String} name

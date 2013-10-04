@@ -13,10 +13,12 @@ define( function( require ) {
   var BeersLawView = require( 'BEERS_LAW_LAB/beerslaw/view/BeersLawView' );
   var Image = require( 'SCENERY/nodes/Image' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var beersLawString = require( 'string!BEERS_LAW_LAB/beersLaw' );
   var Vector2 = require( 'DOT/Vector2' );
 
-  // images
+  // strings
+  var beersLawString = require( 'string!BEERS_LAW_LAB/beersLaw' );
+
+  // image
   var beersLawImage = require( 'image!BEERS_LAW_LAB/../images/Beers-Law-icon.jpg' );
 
   function BeersLawScreen() {
