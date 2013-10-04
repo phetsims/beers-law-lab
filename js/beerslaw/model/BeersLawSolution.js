@@ -23,7 +23,16 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var Range = require( 'DOT/Range' );
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
-  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
+  var pattern_0formula_1nameString = require( 'string!BEERS_LAW_LAB/pattern_0formula_1name' );
+  var pattern_0value_1unitsString = require( 'string!BEERS_LAW_LAB/pattern_0value_1units' );
+  var drinkMixString = require( 'string!BEERS_LAW_LAB/drinkMix' );
+  var cobaltIINitrateString = require( 'string!BEERS_LAW_LAB/cobaltIINitrate' );
+  var cobaltChlorideString = require( 'string!BEERS_LAW_LAB/cobaltChloride' );
+  var potassiumDichromateString = require( 'string!BEERS_LAW_LAB/potassiumDichromate' );
+  var potassiumChromateString = require( 'string!BEERS_LAW_LAB/potassiumChromate' );
+  var nickelIIChlorideString = require( 'string!BEERS_LAW_LAB/nickelIIChloride' );
+  var copperSulfateString = require( 'string!BEERS_LAW_LAB/copperSulfate' );
+  var potassiumPermanganateString = require( 'string!BEERS_LAW_LAB/potassiumPermanganate' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Util = require( 'DOT/Util' );
 
@@ -78,11 +87,11 @@ define( function( require ) {
       if ( this.formula === this.name ) {
         return this.name;
       }
-      return StringUtils.format( strings.pattern_0formula_1name, this.formula, this.name );
+      return StringUtils.format( pattern_0formula_1nameString, this.formula, this.name );
     },
 
     getDisplayConcentration: function( concentration ) {
-      return StringUtils.format( strings.pattern_0value_1units,
+      return StringUtils.format( pattern_0value_1unitsString,
         this.concentrationTransform.modelToView( concentration ).toFixed( 0 ), this.concentrationTransform.units );
     }
   };
@@ -92,7 +101,7 @@ define( function( require ) {
   //-------------------------------------------------------------------------------------------
 
   BeersLawSolution.DRINK_MIX = new BeersLawSolution(
-    strings.drinkMix,
+    drinkMixString,
     BLLSymbols.DRINK_MIX,
     MolarAbsorptivityData.DRINK_MIX,
     new Range( 0, 0.400, 0.100 ),
@@ -101,7 +110,7 @@ define( function( require ) {
   );
 
   BeersLawSolution.COBALT_II_NITRATE = new BeersLawSolution(
-    strings.cobaltIINitrate,
+    cobaltIINitrateString,
     BLLSymbols.COBALT_II_NITRATE,
     MolarAbsorptivityData.COBALT_II_NITRATE,
     new Range( 0, 0.400, 0.100 ),
@@ -109,7 +118,7 @@ define( function( require ) {
     new ColorRange( new Color( 255, 225, 225 ), Color.RED ) );
 
   BeersLawSolution.COBALT_CHLORIDE = new BeersLawSolution(
-    strings.cobaltChloride,
+    cobaltChlorideString,
     BLLSymbols.COBALT_CHLORIDE,
     MolarAbsorptivityData.COBALT_CHLORIDE,
     new Range( 0, 0.250, 0.100 ),
@@ -118,7 +127,7 @@ define( function( require ) {
   );
 
   BeersLawSolution.POTASSIUM_DICHROMATE = new BeersLawSolution(
-    strings.potassiumDichromate,
+    potassiumDichromateString,
     BLLSymbols.POTASSIUM_DICHROMATE,
     MolarAbsorptivityData.POTASSIUM_DICHROMATE,
     new Range( 0, 0.000500, 0.000100 ),
@@ -127,7 +136,7 @@ define( function( require ) {
   );
 
   BeersLawSolution.POTASSIUM_CHROMATE = new BeersLawSolution(
-    strings.potassiumChromate,
+    potassiumChromateString,
     BLLSymbols.POTASSIUM_CHROMATE,
     MolarAbsorptivityData.POTASSIUM_CHROMATE,
     new Range( 0, 0.000400, 0.000100 ),
@@ -136,7 +145,7 @@ define( function( require ) {
   );
 
   BeersLawSolution.NICKEL_II_CHLORIDE = new BeersLawSolution(
-    strings.nickelIIChloride,
+    nickelIIChlorideString,
     BLLSymbols.NICKEL_II_CHLORIDE,
     MolarAbsorptivityData.NICKEL_II_CHLORIDE,
     new Range( 0, 0.350, 0.100 ),
@@ -145,7 +154,7 @@ define( function( require ) {
   );
 
   BeersLawSolution.COPPER_SULFATE = new BeersLawSolution(
-    strings.copperSulfate,
+    copperSulfateString,
     BLLSymbols.COPPER_SULFATE,
     MolarAbsorptivityData.COPPER_SULFATE,
     new Range( 0, 0.200, 0.100 ),
@@ -154,7 +163,7 @@ define( function( require ) {
   );
 
   BeersLawSolution.POTASSIUM_PERMANGANATE = new BeersLawSolution(
-    strings.potassiumPermanganate,
+    potassiumPermanganateString,
     BLLSymbols.POTASSIUM_PERMANGANATE,
     MolarAbsorptivityData.POTASSIUM_PERMANGANATE,
     new Range( 0, 0.000800, 0.000100 ),

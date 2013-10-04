@@ -33,7 +33,7 @@ define( function( require ) {
      * adds/removes particles from the end of its 'particles' array. See #48.
      */
     precipitate.registerChangedCallback( function( precipitate ) {
-      var numberOfParticles =  precipitate.particles.length;
+      var numberOfParticles = precipitate.particles.length;
       var numberOfNodes = particlesParent.getChildrenCount();
       if ( numberOfParticles === numberOfNodes ) {
         return;

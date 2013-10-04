@@ -13,7 +13,7 @@ define( function( require ) {
   var BeersLawView = require( 'BEERS_LAW_LAB/beerslaw/view/BeersLawView' );
   var Image = require( 'SCENERY/nodes/Image' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
+  var beersLawString = require( 'string!BEERS_LAW_LAB/beersLaw' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // images
@@ -21,7 +21,7 @@ define( function( require ) {
 
   function BeersLawScreen() {
 
-    this.name = strings.beersLaw;
+    this.name = beersLawString;
     this.icon = new Image( beersLawImage );
     this.backgroundColor = 'white';
 

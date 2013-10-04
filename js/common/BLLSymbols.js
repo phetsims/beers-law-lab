@@ -10,13 +10,13 @@ define( function( require ) {
 
   // imports
   var toSubscript = require( 'NITROGLYCERIN/ChemUtils' ).toSubscript;
-  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
+  var drinkMixString = require( 'string!BEERS_LAW_LAB/drinkMix' );
 
   return {
     COBALT_II_NITRATE: toSubscript( 'Co(NO3)2' ),
     COBALT_CHLORIDE: toSubscript( 'CoCl2' ),
     COPPER_SULFATE: toSubscript( 'CuSO4' ),
-    DRINK_MIX: strings.drinkMix,
+    DRINK_MIX: drinkMixString,
     NICKEL_II_CHLORIDE: toSubscript( 'NiCl2' ),
     POTASSIUM_CHROMATE: toSubscript( 'K2CrO4' ),
     POTASSIUM_DICHROMATE: toSubscript( 'K2Cr2O7' ),

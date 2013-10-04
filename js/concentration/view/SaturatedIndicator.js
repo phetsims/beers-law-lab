@@ -14,7 +14,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
+  var saturatedString = require( 'string!BEERS_LAW_LAB/saturated' );
   var Text = require( 'SCENERY/nodes/Text' );
 
   /**
@@ -26,7 +26,7 @@ define( function( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
-    var label = new Text( strings.saturated, { font: new PhetFont( 20 ) } );
+    var label = new Text( saturatedString, { font: new PhetFont( 20 ) } );
 
     // translucent light-gray background, so this shows up on all solution colors
     var background = new Rectangle( 0, 0, 1.2 * label.width, 1.2 * label.height, 8, 8,

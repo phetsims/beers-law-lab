@@ -1,6 +1,4 @@
-// Copyright 2002-2013, University of Colorado
-
-define( {
+{
   "absorbance": "Absorbance",
   "beersLaw": "Beer's Law",
   "beersLawLab": "Beer's Law Lab",
@@ -39,4 +37,4 @@ define( {
   "variable": "variable",
   "water": "water",
   "wavelength": "Wavelength"
-} );
+}

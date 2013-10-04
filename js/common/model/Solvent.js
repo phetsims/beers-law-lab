@@ -13,7 +13,7 @@ define( function( require ) {
   var Color = require( 'SCENERY/util/Color' );
   var Fluid = require( 'BEERS_LAW_LAB/common/model/Fluid' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
+  var waterString = require( 'string!BEERS_LAW_LAB/water' );
 
   /**
    * Constructor.
@@ -34,7 +34,7 @@ define( function( require ) {
 
   Solvent.WATER_COLOR = new Color( 224, 255, 255 );
 
-  Solvent.WATER = new Solvent( strings.water, BLLSymbols.WATER, Solvent.WATER_COLOR );
+  Solvent.WATER = new Solvent( waterString, BLLSymbols.WATER, Solvent.WATER_COLOR );
 
   return Solvent;
 } );

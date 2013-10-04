@@ -46,7 +46,7 @@ define( function( require ) {
       },
 
       end: function( event ) {
-         options.endDrag();
+        options.endDrag();
       },
 
       translate: function( options ) {

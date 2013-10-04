@@ -11,19 +11,15 @@ require.config( {
 
   deps: ['beers-law-lab-main'],
 
-  config: {
-    i18n: {
-      locale: 'en_us'
-    }
-  },
-
   paths: {
 
     // third-party libs
+    text: '../../sherpa/text',
     i18n: '../../sherpa/i18n-2.0.4',
 
     // PhET plugins
     image: '../../chipper/requirejs-plugins/image',
+    string: '../../chipper/requirejs-plugins/string',
 
     // PhET libs, uppercase names to identify them in require.js imports
     ASSERT: '../../assert/js',

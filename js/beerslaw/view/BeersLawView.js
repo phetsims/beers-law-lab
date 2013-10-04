@@ -21,7 +21,6 @@ define( function( require ) {
   var Scene = require( 'SCENERY/Scene' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var SolutionControls = require( 'BEERS_LAW_LAB/beerslaw/view/SolutionControls' );
-  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
   var Text = require( 'SCENERY/nodes/Text' );
   var WavelengthControls = require( 'BEERS_LAW_LAB/beerslaw/view/WavelengthControls' );
 

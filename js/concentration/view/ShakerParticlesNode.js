@@ -25,13 +25,13 @@ define( function( require ) {
   function ShakerParticlesNode( shakerParticles, mvt, canvasBounds ) {
 
     var thisNode = this;
-    
+
     thisNode.shakerParticles = shakerParticles;
     thisNode.mvt = mvt;
-    
+
     // Initialize with a self-bounds of activeBounds
     CanvasNode.call( thisNode, { pickable: false, canvasBounds: canvasBounds } );
-    
+
     // if during a step we change, then trigger a repaint
     shakerParticles.registerParticleChangedCallback( function() {
       thisNode.invalidatePaint();
@@ -43,11 +43,11 @@ define( function( require ) {
     // @param {CanvasContextWrapper} wrapper
     paintCanvas: function( wrapper ) {
       var context = wrapper.context;
-      
+
       var particles = this.shakerParticles.particles;
       var halfViewSize;
       var length = particles.length;
-      
+
       // Set and compute static properties that should be shared by all of the particles, and start the path.
       // Assumes that all particles are the same color and size.
       if ( length ) {
@@ -57,11 +57,11 @@ define( function( require ) {
         halfViewSize = this.mvt.modelToViewDeltaX( particles[0].size ) * Math.SQRT2 / 2;
         context.beginPath();
       }
-      
+
       // draw into one big path
       for ( var i = 0; i < length; i++ ) {
         var particle = particles[i];
-        
+
         var position = this.mvt.modelToViewPosition( particle.location.get() );
         var x = position.x;
         var y = position.y;
@@ -73,7 +73,7 @@ define( function( require ) {
         context.lineTo( x + sin, y - cos );
         context.closePath();
       }
-      
+
       // fill and stroke the entire path
       if ( length ) {
         context.fill();

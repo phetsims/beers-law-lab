@@ -28,11 +28,15 @@ define( function( require ) {
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Shape = require( 'KITE/Shape' );
-  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
   var Vector2 = require( 'DOT/Vector2' );
+
+  // strings
+  var concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
+  var pattern_parentheses_0textString = require( 'string!BEERS_LAW_LAB/pattern_parentheses_0text' );
+  var units_molesPerLiterString = require( 'string!BEERS_LAW_LAB/units_molesPerLiter' );
 
   // images
   var bodyLeftImage = require( 'image!BEERS_LAW_LAB/../images/concentration-meter-body-left.png' );
@@ -65,9 +69,9 @@ define( function( require ) {
     } );
 
     // text nodes
-    var titleNode = new Text( strings.concentration,
+    var titleNode = new Text( concentrationString,
       { font: new PhetFont( 18 ), fill: 'white' } );
-    var unitsNode = new Text( StringUtils.format( strings.pattern_parentheses_0text, strings.units_molesPerLiter ),
+    var unitsNode = new Text( StringUtils.format( pattern_parentheses_0textString, units_molesPerLiterString ),
       { font: new PhetFont( 18 ), fill: 'white' } );
     var valueNode = new Text( ( 1 ).toFixed( VALUE_DECIMALS ),
       { font: new PhetFont( 24 ), fill: 'black' } );
@@ -225,15 +229,14 @@ define( function( require ) {
    * @param {Node} solventFluidNode
    * @param {Node} drainFluidNode
    * @param {ModelViewTransform2} mvt
-   * @param strings
    * @constructor
    */
-  function ConcentrationMeterNode( meter, solution, dropper, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, mvt, strings ) {
+  function ConcentrationMeterNode( meter, solution, dropper, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, mvt ) {
 
     var thisNode = this;
     Node.call( thisNode );
 
-    var bodyNode = new BodyNode( meter, mvt, strings );
+    var bodyNode = new BodyNode( meter, mvt );
     var probeNode = new ProbeNode( meter.probe, mvt, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode );
     var wireNode = new WireNode( meter.body, meter.probe, bodyNode, probeNode );
 

@@ -17,7 +17,8 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Property = require( 'AXON/Property' );
   var Shape = require( 'KITE/Shape' );
-  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
+  var solidString = require( 'string!BEERS_LAW_LAB/solid' );
+  var solutionString = require( 'string!BEERS_LAW_LAB/solution' );
   var Text = require( 'SCENERY/nodes/Text' );
 
   // images
@@ -54,8 +55,8 @@ define( function( require ) {
 
     var TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
     var X_SPACING = 10;
-    var shakerButton = new AquaRadioButton( shaker.visible, true, new TextAndIconNode( strings.solid, TEXT_OPTIONS, shakerIconImage, X_SPACING ) );
-    var dropperButton = new AquaRadioButton( dropper.visible, true, new TextAndIconNode( strings.solution, TEXT_OPTIONS, dropperIconImage, X_SPACING ) );
+    var shakerButton = new AquaRadioButton( shaker.visible, true, new TextAndIconNode( solidString, TEXT_OPTIONS, shakerIconImage, X_SPACING ) );
+    var dropperButton = new AquaRadioButton( dropper.visible, true, new TextAndIconNode( solutionString, TEXT_OPTIONS, dropperIconImage, X_SPACING ) );
     var separator = new Path( Shape.lineSegment( 0, 0, 0, shakerButton.height ), { stroke: 'rgb(150,150,150)', lineWidth: 0.5 } );
 
     // rendering order

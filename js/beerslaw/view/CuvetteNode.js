@@ -100,7 +100,7 @@ define( function( require ) {
       .close();
 
     // nodes
-    var cuvetteNode = new Path( null,{ stroke: 'black', lineWidth: 3 } );
+    var cuvetteNode = new Path( null, { stroke: 'black', lineWidth: 3 } );
     var solutionNode = new Rectangle( 0, 0, 1, 1, { lineWidth: 0.5 } );
     var arrowNode = new Path( arrowShape, {fill: ARROW_FILL, stroke: 'black', lineWidth: 1 } );
 

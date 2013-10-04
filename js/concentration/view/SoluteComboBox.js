@@ -14,7 +14,8 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
+  var pattern_0labelString = require( 'string!BEERS_LAW_LAB/pattern_0label' );
+  var soluteString = require( 'string!BEERS_LAW_LAB/solute' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
 
@@ -27,7 +28,7 @@ define( function( require ) {
   function SoluteComboBox( solutes, selectedSolute, soluteListParent ) {
 
     // 'Solute' label
-    var labelNode = new Text( StringUtils.format( strings.pattern_0label, strings.solute ),
+    var labelNode = new Text( StringUtils.format( pattern_0labelString, soluteString ),
       { font: new PhetFont( 22 ) } );
 
     // items

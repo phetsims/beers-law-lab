@@ -1,3 +1,4 @@
+10/4/13 converted to use json string plugin
 10/3/13 remove assert imports, assert is now a global
 # 1.1.0-dev.1 10/2/13
 10/2/13 #48, document performance improvements to precipitate

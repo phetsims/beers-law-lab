@@ -16,7 +16,7 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var RulerNode = require( 'SCENERY_PHET/RulerNode' );
   var Shape = require( 'KITE/Shape' );
-  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
+  var units_centimetersString = require( 'string!BEERS_LAW_LAB/units_centimeters' );
 
   /**
    * @param {Ruler} ruler
@@ -39,7 +39,7 @@ define( function( require ) {
     var width = mvt.modelToViewDeltaX( ruler.length );
     var height = mvt.modelToViewDeltaY( ruler.height );
     var majorTickWidth = mvt.modelToViewDeltaX( 0.5 );
-    thisNode.addChild( new RulerNode( width, height, majorTickWidth, majorTickLabels, strings.units_centimeters,
+    thisNode.addChild( new RulerNode( width, height, majorTickWidth, majorTickLabels, units_centimetersString,
       { minorTicksPerMajorTick: 4, insetsWidth: 0 } ) );
 
     // touch area

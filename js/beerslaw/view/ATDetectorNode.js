@@ -19,11 +19,15 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var Shape = require( 'KITE/Shape' );
-  var strings = require( 'BEERS_LAW_LAB/beers-law-lab-strings' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
   var Vector2 = require( 'DOT/Vector2' );
+
+  //strings
+  var transmittanceString = require( 'string!BEERS_LAW_LAB/transmittance' );
+  var absorbanceString = require( 'string!BEERS_LAW_LAB/absorbance' );
+  var pattern_0percentString = require( 'string!BEERS_LAW_LAB/pattern_0percent' );
 
   // images
   var bodyLeftImage = require( 'image!BEERS_LAW_LAB/../images/at-detector-body-left.png' );
@@ -56,8 +60,8 @@ define( function( require ) {
 
     // buttons for changing the detector 'mode'
     var textOptions = { font: new PhetFont( 18 ), fill: 'white' };
-    var transmittanceButton = new AquaRadioButton( detector.mode, ATDetector.Mode.TRANSMITTANCE, new Text( strings.transmittance, textOptions ) );
-    var absorbanceButton = new AquaRadioButton( detector.mode, ATDetector.Mode.ABSORBANCE, new Text( strings.absorbance, textOptions ) );
+    var transmittanceButton = new AquaRadioButton( detector.mode, ATDetector.Mode.TRANSMITTANCE, new Text( transmittanceString, textOptions ) );
+    var absorbanceButton = new AquaRadioButton( detector.mode, ATDetector.Mode.ABSORBANCE, new Text( absorbanceString, textOptions ) );
 
     // group the buttons
     var buttonGroup = new Node();
@@ -99,7 +103,7 @@ define( function( require ) {
       }
       else {
         if ( detector.mode.get() === ATDetector.Mode.TRANSMITTANCE ) {
-          valueNode.text = StringUtils.format( strings.pattern_0percent, value.toFixed( TRANSMITTANCE_DECIMAL_PLACES ) );
+          valueNode.text = StringUtils.format( pattern_0percentString, value.toFixed( TRANSMITTANCE_DECIMAL_PLACES ) );
         }
         else {
           valueNode.text = value.toFixed( ABSORBANCE_DECIMAL_PLACES );
