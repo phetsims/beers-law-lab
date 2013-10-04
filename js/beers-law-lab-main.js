@@ -6,7 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 require( [ 'JOIST/SimLauncher', 'JOIST/Sim', 'BEERS_LAW_LAB/concentration/ConcentrationScreen', 'BEERS_LAW_LAB/beerslaw/BeersLawScreen',
-  'string!BEERS_LAW_LAB/beersLawLab'],
+  'string!BEERS_LAW_LAB/beers-law-lab.name'],
   function( SimLauncher, Sim, ConcentrationScreen, BeersLawScreen, titleString ) {
     'use strict';
 

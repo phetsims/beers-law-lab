@@ -24,7 +24,7 @@ define( function( require ) {
   // strings
   var pattern_0labelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
   var pattern_0value1unitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
-  var presetString = require( 'string!BEERS_LAW_LAB/preset' );
+  var fixedString = require( 'string!BEERS_LAW_LAB/fixed' );
   var units_nmString = require( 'string!BEERS_LAW_LAB/units.nm' );
   var variableString = require( 'string!BEERS_LAW_LAB/variable' );
   var wavelengthString = require( 'string!BEERS_LAW_LAB/wavelength' );
@@ -47,7 +47,7 @@ define( function( require ) {
     var yMargin = 0.1 * valueDisplay.height;
     var valueBackground = new Rectangle( 0, 0, valueDisplay.width + xMargin + xMargin, valueDisplay.height + yMargin + yMargin,
       { fill: 'white', stroke: 'lightGray' } );
-    var presetRadioButton = new AquaRadioButton( variableWavelength, false, new Text( presetString, { font: new PhetFont( 18 ), fill: 'black' } ) );
+    var presetRadioButton = new AquaRadioButton( variableWavelength, false, new Text( fixedString, { font: new PhetFont( 18 ), fill: 'black' } ) );
     var variableRadioButton = new AquaRadioButton( variableWavelength, true, new Text( variableString, { font: new PhetFont( 18 ), fill: 'black' } ) );
     var wavelengthSlider = new WavelengthSlider( light.wavelength, { trackWidth: 150, trackHeight: 30 } );
 

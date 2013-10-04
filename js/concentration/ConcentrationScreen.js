@@ -19,7 +19,7 @@ define( function( require ) {
   var concentrationImage = require( 'image!BEERS_LAW_LAB/../images/Concentration-icon.jpg' );
 
   // strings
-  var concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
+  var concentrationString = require( 'string!BEERS_LAW_LAB/tab.concentration' );
 
   function ConcentrationScreen() {
 
