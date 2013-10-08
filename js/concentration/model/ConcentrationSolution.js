@@ -37,19 +37,14 @@ define( function( require ) {
     thisSolution.concentration = new Property( 0 );
     var updatePrecipitateAmount = function() {
 
-      // derive amount of precipitate (moles)
       var volume = thisSolution.volume.get();
-      if ( volume > 0 ) {
-        thisSolution.precipitateAmount.set( Math.max( 0, thisSolution.soluteAmount.get() - ( volume  * thisSolution.getSaturatedConcentration() ) ) );
-      }
-      else {
-        thisSolution.precipitateAmount.set( thisSolution.soluteAmount.get() );
-      }
-
-      // derive concentration (M)
       var soluteAmount = thisSolution.soluteAmount.get();
-      var concentration = ( volume > 0 ) ? Math.min( thisSolution.getSaturatedConcentration(), soluteAmount / volume ) : 0; // M = mol/L
-      thisSolution.concentration.set( concentration );
+
+      // derive amount of precipitate (moles)
+      thisSolution.precipitateAmount.set( Math.max( 0, soluteAmount - ( volume * thisSolution.getSaturatedConcentration() ) ) );
+
+      // derive concentration (M = mol/L)
+      thisSolution.concentration.set( ( volume > 0 ) ? Math.min( thisSolution.getSaturatedConcentration(), soluteAmount / volume ) : 0 );
     };
     thisSolution.solute.link( updatePrecipitateAmount );
     thisSolution.soluteAmount.link( updatePrecipitateAmount );
