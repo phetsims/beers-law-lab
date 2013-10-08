@@ -177,7 +177,7 @@ define( function( require ) {
       }
     },
 
-    // Adds solvent to the solution. Returns the amount actually added.
+    // Adds solute to the solution. Returns the amount actually added.
     _addSolute: function( deltaAmount ) {
       if ( deltaAmount > 0 ) {
         var amountBefore = this.solution.soluteAmount.get();
@@ -189,7 +189,7 @@ define( function( require ) {
       }
     },
 
-    // Removes solvent from the solution. Returns the amount actually removed.
+    // Removes solute from the solution. Returns the amount actually removed.
     _removeSolute: function( deltaAmount ) {
       if ( deltaAmount > 0 ) {
         var amountBefore = this.solution.soluteAmount.get();
