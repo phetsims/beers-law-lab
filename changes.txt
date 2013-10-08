@@ -1,3 +1,4 @@
+10/8/13 fix touchArea for dropper and concentration probe
 10/8/13 simplify derivation of concentration and precipitateAmount in ConcentrationSolution
 10/7/13 concentration#1, simplify the equation for precipitate amount
 10/4/13 revert other English string keys to what was used in Java

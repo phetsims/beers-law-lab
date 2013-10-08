@@ -150,7 +150,7 @@ define( function( require ) {
     // touch area
     var dx = 0.25 * imageNode.width;
     var dy = 0.25 * imageNode.height;
-    thisNode.mouseArea = Shape.rectangle( imageNode.x - dx, imageNode.y - dy, imageNode.width + dx + dx, imageNode.height + dy + dy );
+    thisNode.touchArea = Shape.rectangle( imageNode.x - dx, imageNode.y - dy, imageNode.width + dx + dx, imageNode.height + dy + dy );
 
     // drag handler
     thisNode.addInputListener( new MovableDragHandler( probe, mvt ) );
