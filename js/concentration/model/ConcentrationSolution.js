@@ -40,7 +40,7 @@ define( function( require ) {
       // derive amount of precipitate (moles)
       var volume = thisSolution.volume.get();
       if ( volume > 0 ) {
-        thisSolution.precipitateAmount.set( Math.max( 0, volume * ( ( thisSolution.soluteAmount.get() / volume ) - thisSolution.getSaturatedConcentration() ) ) );
+        thisSolution.precipitateAmount.set( Math.max( 0, thisSolution.soluteAmount.get() - ( volume  * thisSolution.getSaturatedConcentration() ) ) );
       }
       else {
         thisSolution.precipitateAmount.set( thisSolution.soluteAmount.get() );
