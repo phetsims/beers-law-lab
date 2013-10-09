@@ -30,10 +30,10 @@ define( function( require ) {
   var transmittanceString = require( 'string!BEERS_LAW_LAB/transmittance' );
 
   // images
-  var bodyLeftImage = require( 'image!BEERS_LAW_LAB/../images/at-detector-body-left.png' );
-  var bodyCenterImage = require( 'image!BEERS_LAW_LAB/../images/at-detector-body-center.png' );
-  var bodyRightImage = require( 'image!BEERS_LAW_LAB/../images/at-detector-body-right.png' );
-  var probeImage = require( 'image!BEERS_LAW_LAB/../images/at-detector-probe.png' );
+  var bodyLeftImage = require( 'image!BEERS_LAW_LAB/at-detector-body-left.png' );
+  var bodyCenterImage = require( 'image!BEERS_LAW_LAB/at-detector-body-center.png' );
+  var bodyRightImage = require( 'image!BEERS_LAW_LAB/at-detector-body-right.png' );
+  var probeImage = require( 'image!BEERS_LAW_LAB/at-detector-probe.png' );
 
   // constants
   var BUTTONS_X_MARGIN = 25; // specific to image files

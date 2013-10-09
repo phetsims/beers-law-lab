@@ -23,11 +23,11 @@ define( function( require ) {
   var ToggleButton = require( 'BEERS_LAW_LAB/common/view/ToggleButton' );
 
   // images
-  var dropperForegroundImage = require( 'image!BEERS_LAW_LAB/../images/dropper_foreground.png' );
-  var dropperBackgroundImage = require( 'image!BEERS_LAW_LAB/../images/dropper_background.png' );
-  var buttonPressedImage = require( 'image!BEERS_LAW_LAB/../images/red_button_pressed.png' );
-  var buttonUnpressedImage = require( 'image!BEERS_LAW_LAB/../images/red_button_unpressed.png' );
-  var buttonDisabledImage = require( 'image!BEERS_LAW_LAB/../images/red_button_disabled.png' );
+  var dropperForegroundImage = require( 'image!BEERS_LAW_LAB/dropper_foreground.png' );
+  var dropperBackgroundImage = require( 'image!BEERS_LAW_LAB/dropper_background.png' );
+  var buttonPressedImage = require( 'image!BEERS_LAW_LAB/red_button_pressed.png' );
+  var buttonUnpressedImage = require( 'image!BEERS_LAW_LAB/red_button_unpressed.png' );
+  var buttonDisabledImage = require( 'image!BEERS_LAW_LAB/red_button_disabled.png' );
 
   // constants
   var DEBUG_ORIGIN = false;

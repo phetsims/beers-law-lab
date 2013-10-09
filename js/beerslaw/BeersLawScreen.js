@@ -19,7 +19,7 @@ define( function( require ) {
   var beersLawString = require( 'string!BEERS_LAW_LAB/tab.beersLaw' );
 
   // image
-  var beersLawImage = require( 'image!BEERS_LAW_LAB/../images/Beers-Law-icon.jpg' );
+  var beersLawImage = require( 'image!BEERS_LAW_LAB/Beers-Law-icon.jpg' );
 
   function BeersLawScreen() {
 

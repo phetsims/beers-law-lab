@@ -24,8 +24,8 @@ define( function( require ) {
   var solutionString = require( 'string!BEERS_LAW_LAB/solution' );
 
   // images
-  var shakerIconImage = require( 'image!BEERS_LAW_LAB/../images/shaker-icon.png' );
-  var dropperIconImage = require( 'image!BEERS_LAW_LAB/../images/dropper-icon.png' );
+  var shakerIconImage = require( 'image!BEERS_LAW_LAB/shaker-icon.png' );
+  var dropperIconImage = require( 'image!BEERS_LAW_LAB/dropper-icon.png' );
 
   /**
    * @param {String} text

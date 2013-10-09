@@ -22,7 +22,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // images
-  var shakerImage = require( 'image!BEERS_LAW_LAB/../images/shaker.png' );
+  var shakerImage = require( 'image!BEERS_LAW_LAB/shaker.png' );
 
   // constants
   var DEBUG_ORIGIN = false;

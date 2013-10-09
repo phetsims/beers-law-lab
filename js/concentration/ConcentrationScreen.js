@@ -16,7 +16,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // images
-  var concentrationImage = require( 'image!BEERS_LAW_LAB/../images/Concentration-icon.jpg' );
+  var concentrationImage = require( 'image!BEERS_LAW_LAB/Concentration-icon.jpg' );
 
   // strings
   var concentrationString = require( 'string!BEERS_LAW_LAB/tab.concentration' );

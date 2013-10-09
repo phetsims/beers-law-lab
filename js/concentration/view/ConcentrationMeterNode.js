@@ -39,10 +39,10 @@ define( function( require ) {
   var units_molesPerLiterString = require( 'string!BEERS_LAW_LAB/units.molesPerLiter' );
 
   // images
-  var bodyLeftImage = require( 'image!BEERS_LAW_LAB/../images/concentration-meter-body-left.png' );
-  var bodyCenterImage = require( 'image!BEERS_LAW_LAB/../images/concentration-meter-body-center.png' );
-  var bodyRightImage = require( 'image!BEERS_LAW_LAB/../images/concentration-meter-body-right.png' );
-  var probeImage = require( 'image!BEERS_LAW_LAB/../images/concentration-meter-probe.png' );
+  var bodyLeftImage = require( 'image!BEERS_LAW_LAB/concentration-meter-body-left.png' );
+  var bodyCenterImage = require( 'image!BEERS_LAW_LAB/concentration-meter-body-center.png' );
+  var bodyRightImage = require( 'image!BEERS_LAW_LAB/concentration-meter-body-right.png' );
+  var probeImage = require( 'image!BEERS_LAW_LAB/concentration-meter-probe.png' );
 
   // constants
   var BODY_IS_DRAGGABLE = true;
