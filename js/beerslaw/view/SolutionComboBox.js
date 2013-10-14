@@ -19,7 +19,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
 
   // strings
-  var pattern_0labelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
+  var pattern_0label = require( 'string!BEERS_LAW_LAB/pattern.0label' );
   var solutionString = require( 'string!BEERS_LAW_LAB/solution' );
 
   /**
@@ -31,7 +31,7 @@ define( function( require ) {
   function SolutionComboBox( solutions, selectedSolution, soluteListParent ) {
 
     // 'Solution' label
-    var label = new Text( StringUtils.format( pattern_0labelString, solutionString ), { font: new PhetFont( 20 ) } );
+    var label = new Text( StringUtils.format( pattern_0label, solutionString ), { font: new PhetFont( 20 ) } );
 
     // items
     var items = [];

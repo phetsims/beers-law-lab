@@ -26,7 +26,7 @@ define( function( require ) {
 
   //strings
   var absorbanceString = require( 'string!BEERS_LAW_LAB/absorbance' );
-  var pattern_0percentString = require( 'string!BEERS_LAW_LAB/pattern.0percent' );
+  var pattern_0percent = require( 'string!BEERS_LAW_LAB/pattern.0percent' );
   var transmittanceString = require( 'string!BEERS_LAW_LAB/transmittance' );
 
   // images
@@ -103,7 +103,7 @@ define( function( require ) {
       }
       else {
         if ( detector.mode.get() === ATDetector.Mode.TRANSMITTANCE ) {
-          valueNode.text = StringUtils.format( pattern_0percentString, value.toFixed( TRANSMITTANCE_DECIMAL_PLACES ) );
+          valueNode.text = StringUtils.format( pattern_0percent, value.toFixed( TRANSMITTANCE_DECIMAL_PLACES ) );
         }
         else {
           valueNode.text = value.toFixed( ABSORBANCE_DECIMAL_PLACES );

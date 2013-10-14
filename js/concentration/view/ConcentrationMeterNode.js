@@ -35,7 +35,7 @@ define( function( require ) {
 
   // strings
   var concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
-  var pattern_parentheses_0textString = require( 'string!BEERS_LAW_LAB/pattern.parentheses.0text' );
+  var pattern_parentheses_0text = require( 'string!BEERS_LAW_LAB/pattern.parentheses.0text' );
   var units_molesPerLiterString = require( 'string!BEERS_LAW_LAB/units.molesPerLiter' );
 
   // images
@@ -71,7 +71,7 @@ define( function( require ) {
     // text nodes
     var titleNode = new Text( concentrationString,
       { font: new PhetFont( 18 ), fill: 'white' } );
-    var unitsNode = new Text( StringUtils.format( pattern_parentheses_0textString, units_molesPerLiterString ),
+    var unitsNode = new Text( StringUtils.format( pattern_parentheses_0text, units_molesPerLiterString ),
       { font: new PhetFont( 18 ), fill: 'white' } );
     var valueNode = new Text( ( 1 ).toFixed( VALUE_DECIMALS ),
       { font: new PhetFont( 24 ), fill: 'black' } );

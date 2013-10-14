@@ -22,8 +22,8 @@ define( function( require ) {
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
 
   // strings
-  var pattern_0labelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
-  var pattern_0value1unitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
+  var pattern_0label = require( 'string!BEERS_LAW_LAB/pattern.0label' );
+  var pattern_0value1units = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
   var fixedString = require( 'string!BEERS_LAW_LAB/fixed' );
   var units_nmString = require( 'string!BEERS_LAW_LAB/units.nm' );
   var variableString = require( 'string!BEERS_LAW_LAB/variable' );
@@ -41,7 +41,7 @@ define( function( require ) {
     var variableWavelength = new Property( false ); // is the wavelength variable or fixed?
 
     // nodes
-    var label = new Text( StringUtils.format( pattern_0labelString, wavelengthString ), { font: new PhetFont( 20 ), fill: 'black' } );
+    var label = new Text( StringUtils.format( pattern_0label, wavelengthString ), { font: new PhetFont( 20 ), fill: 'black' } );
     var valueDisplay = new Text( thisNode.formatWavelength( light.wavelength.get() ), { font: new PhetFont( 20 ), fill: 'black' } );
     var xMargin = 0.1 * valueDisplay.width;
     var yMargin = 0.1 * valueDisplay.height;
@@ -108,7 +108,7 @@ define( function( require ) {
 
   inherit( Panel, WavelengthControls, {
     formatWavelength: function( wavelength ) {
-      return StringUtils.format( pattern_0value1unitsString, wavelength.toFixed( 0 ), units_nmString );
+      return StringUtils.format( pattern_0value1units, wavelength.toFixed( 0 ), units_nmString );
     }
   } );
 

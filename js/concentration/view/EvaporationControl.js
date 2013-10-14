@@ -23,7 +23,7 @@ define( function( require ) {
   var evaporationString = require( 'string!BEERS_LAW_LAB/evaporation' );
   var lotsString = require( 'string!BEERS_LAW_LAB/lots' );
   var noneString = require( 'string!BEERS_LAW_LAB/none' );
-  var pattern_0labelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
+  var pattern_0label = require( 'string!BEERS_LAW_LAB/pattern.0label' );
 
   /**
    * @param {Evaporator} evaporator
@@ -33,7 +33,7 @@ define( function( require ) {
 
     var thisControl = this;
 
-    var label = new Text( StringUtils.format( pattern_0labelString, evaporationString ), { font: new PhetFont( 22 ) } );
+    var label = new Text( StringUtils.format( pattern_0label, evaporationString ), { font: new PhetFont( 22 ) } );
 
     var slider = new HSlider( evaporator.evaporationRate, new Range( 0, evaporator.maxEvaporationRate ), {
       trackSize: new Dimension2( 200, 6 ),
