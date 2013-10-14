@@ -48,7 +48,7 @@ define( function( require ) {
   var BODY_IS_DRAGGABLE = true;
   var VALUE_DECIMALS = 3;
   var NO_VALUE = '-';
-  var TITLE_TOP = 12; // specific to bodyCenterImage
+  var TITLE_TOP = 10; // specific to bodyCenterImage
   var TEXT_X_MARGIN = 25;  // specific to bodyCenterImage
   var VALUE_X_MARGIN = 30; // specific to bodyCenterImage
   var VALUE_CENTER_Y = 84; // specific to bodyCenterImage
