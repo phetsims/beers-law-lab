@@ -10,6 +10,7 @@ define( function( require ) {
 
   // imports
   var BeakerNode = require( 'BEERS_LAW_LAB/concentration/view/BeakerNode' );
+  var BLLFaucetNode = require( 'BEERS_LAW_LAB/concentration/view/BLLFaucetNode' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var ConcentrationMeterNode = require( 'BEERS_LAW_LAB/concentration/view/ConcentrationMeterNode' );
   var DOM = require( 'SCENERY/nodes/DOM' );
@@ -17,7 +18,6 @@ define( function( require ) {
   var DropperNode = require( 'BEERS_LAW_LAB/concentration/view/DropperNode' );
   var EvaporationControl = require( 'BEERS_LAW_LAB/concentration/view/EvaporationControl' );
   var FaucetFluidNode = require( 'BEERS_LAW_LAB/concentration/view/FaucetFluidNode' );
-  var FaucetNode = require( 'SCENERY_PHET/FaucetNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PrecipitateNode = require( 'BEERS_LAW_LAB/concentration/view/PrecipitateNode' );
@@ -64,8 +64,8 @@ define( function( require ) {
     var stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.solute, model.dropper, model.beaker, dropperNode.getTipWidth(), mvt );
 
     // faucets
-    var solventFaucetNode = new FaucetNode( model.solventFaucet, mvt, { scale: 0.75 } );
-    var drainFaucetNode = new FaucetNode( model.drainFaucet, mvt, { scale: 0.75 } );
+    var solventFaucetNode = new BLLFaucetNode( model.solventFaucet, mvt );
+    var drainFaucetNode = new BLLFaucetNode( model.drainFaucet, mvt );
     var SOLVENT_FLUID_HEIGHT = model.beaker.location.y - model.solventFaucet.location.y;
     var DRAIN_FLUID_HEIGHT = 1000; // tall enough that resizing the play area is unlikely to show bottom of fluid
     var solventFluidNode = new FaucetFluidNode( model.solventFaucet, model.solution.solvent, SOLVENT_FLUID_HEIGHT, mvt );
