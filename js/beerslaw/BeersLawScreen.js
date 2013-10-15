@@ -19,12 +19,12 @@ define( function( require ) {
   var beersLawString = require( 'string!BEERS_LAW_LAB/tab.beersLaw' );
 
   // image
-  var beersLawImage = require( 'image!BEERS_LAW_LAB/Beers-Law-icon.jpg' );
+  var screenIcon = require( 'image!BEERS_LAW_LAB/BeersLaw-screen-icon.jpg' );
 
   function BeersLawScreen() {
 
     this.name = beersLawString;
-    this.icon = new Image( beersLawImage );
+    this.icon = new Image( screenIcon );
     this.backgroundColor = 'white';
 
     // No offset, scale 125x when going from model to view (1cm == 125 pixels)

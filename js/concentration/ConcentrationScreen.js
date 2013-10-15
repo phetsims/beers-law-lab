@@ -15,16 +15,16 @@ define( function( require ) {
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Vector2 = require( 'DOT/Vector2' );
 
-  // images
-  var concentrationImage = require( 'image!BEERS_LAW_LAB/Concentration-icon.jpg' );
-
   // strings
   var concentrationString = require( 'string!BEERS_LAW_LAB/tab.concentration' );
+
+  // images
+  var screenIcon = require( 'image!BEERS_LAW_LAB/Concentration-screen-icon.jpg' );
 
   function ConcentrationScreen() {
 
     this.name = concentrationString;
-    this.icon = new Image( concentrationImage );
+    this.icon = new Image( screenIcon );
     this.backgroundColor = 'white';
 
     var mvt = ModelViewTransform2.createIdentity();

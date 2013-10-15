@@ -1,3 +1,4 @@
+10/14/13 rename screen-icon images
 10/8/13 fix touchArea for dropper and concentration probe
 10/8/13 simplify derivation of concentration and precipitateAmount in ConcentrationSolution
 10/7/13 concentration#1, simplify the equation for precipitate amount
