@@ -84,9 +84,6 @@ define( function( require ) {
         },
         drag: function( event ) {
           handleEvent( event );
-        },
-        translate: function() {
-          // do nothing, override default behavior
         }
       } ) );
   }
@@ -200,9 +197,6 @@ define( function( require ) {
       drag: function( event ) {
         var x = dragNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
         concentration.set( positionToValue( x ) );
-      },
-      translate: function() {
-        // do nothing, override default behavior
       }
     } );
   }

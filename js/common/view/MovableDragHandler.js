@@ -47,10 +47,6 @@ define( function( require ) {
 
       end: function( event ) {
         options.endDrag();
-      },
-
-      translate: function( options ) {
-        // override default behavior, do nothing
       }
     } );
   }

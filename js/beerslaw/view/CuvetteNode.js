@@ -61,10 +61,6 @@ define( function( require ) {
       end: function( event ) {
         var numberOfIntervals = Math.floor( ( cuvette.width.get() + ( snapInterval / 2 ) ) / snapInterval );
         cuvette.width.set( numberOfIntervals * snapInterval );
-      },
-
-      translate: function() {
-        // override default behavior, do nothing
       }
     } );
   }
