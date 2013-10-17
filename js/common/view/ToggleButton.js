@@ -50,6 +50,7 @@ define( function( require ) {
       else {
         imageNode.setImage( disabledImage );
         thisButton.cursor = 'default';
+        on.set( false );
       }
     } );
 
