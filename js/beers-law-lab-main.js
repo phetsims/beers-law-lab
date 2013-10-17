@@ -10,7 +10,7 @@ require( [ 'JOIST/SimLauncher', 'JOIST/Sim', 'BEERS_LAW_LAB/concentration/Concen
   function( SimLauncher, Sim, ConcentrationScreen, BeersLawScreen, titleString ) {
     'use strict';
 
-    //TODO i18n?
+    //TODO i18n, see joist#66
     var simOptions = {
       credits: 'PhET Development Team -\n' +
                'Lead Design: Julia Chamberlain\n' +
