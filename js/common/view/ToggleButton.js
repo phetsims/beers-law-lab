@@ -12,6 +12,7 @@ define( function( require ) {
 
   // imports
   var ButtonListener = require( 'SCENERY/input/ButtonListener' );
+  var DownUpListener = require( 'SCENERY/input/DownUpListener' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -54,14 +55,11 @@ define( function( require ) {
 
     if ( options.onWhilePressed ) {
       // momentary button, on while pressed, off when released
-      thisButton.addInputListener( new ButtonListener( {
+      thisButton.addInputListener( new DownUpListener( {
         down: function( event ) {
           on.set( enabled.get() );
         },
         up: function( event ) {
-          on.set( false );
-        },
-        over: function( event ) {
           on.set( false );
         }
       } ) );
