@@ -85,7 +85,7 @@ define( function( require ) {
 
     var button = new ToggleButton( buttonUnpressedImage, buttonPressedImage, buttonDisabledImage,
       dropper.on, dropper.enabled, { onWhilePressed: true } );
-    button.touchArea = Shape.circle( button.width / 2, button.height / 2, ( button.width / 2 ) + 20 );
+    button.touchArea = Shape.circle( button.width / 2, button.height / 2, ( button.width / 2 ) + 30 );
     button.setScaleMagnitude( 0.3 );
 
     // rendering order
