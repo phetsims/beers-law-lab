@@ -12,7 +12,9 @@ define( function( require ) {
   var BeersLawModel = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawModel' );
   var BeersLawView = require( 'BEERS_LAW_LAB/beerslaw/view/BeersLawView' );
   var Image = require( 'SCENERY/nodes/Image' );
+  var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
+  var Screen = require( 'JOIST/Screen' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // strings
@@ -23,21 +25,16 @@ define( function( require ) {
 
   function BeersLawScreen() {
 
-    this.name = beersLawString;
-    this.icon = new Image( screenIcon );
-    this.backgroundColor = 'white';
-
     // No offset, scale 125x when going from model to view (1cm == 125 pixels)
     var mvt = ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 125 );
 
-    this.createModel = function() {
-      return new BeersLawModel( mvt );
-    };
-
-    this.createView = function( model ) {
-      return new BeersLawView( model, mvt );
-    };
+    Screen.call( this,
+      beersLawString,
+      new Image( screenIcon ),
+      function() { return new BeersLawModel( mvt ); },
+      function( model ) { return new BeersLawView( model, mvt ); }
+    );
   }
 
-  return BeersLawScreen;
+  return inherit( Screen, BeersLawScreen );
 } );

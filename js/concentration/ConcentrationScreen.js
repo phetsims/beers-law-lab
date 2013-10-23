@@ -12,7 +12,9 @@ define( function( require ) {
   var ConcentrationModel = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationModel' );
   var ConcentrationView = require( 'BEERS_LAW_LAB/concentration/view/ConcentrationView' );
   var Image = require( 'SCENERY/nodes/Image' );
+  var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
+  var Screen = require( 'JOIST/Screen' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // strings
@@ -23,20 +25,15 @@ define( function( require ) {
 
   function ConcentrationScreen() {
 
-    this.name = concentrationString;
-    this.icon = new Image( screenIcon );
-    this.backgroundColor = 'white';
-
     var mvt = ModelViewTransform2.createIdentity();
 
-    this.createModel = function() {
-      return new ConcentrationModel();
-    };
-
-    this.createView = function( model ) {
-      return new ConcentrationView( model, mvt );
-    };
+    Screen.call( this,
+      concentrationString,
+      new Image( screenIcon ),
+      function() { return new ConcentrationModel(); },
+      function( model ) { return new ConcentrationView( model, mvt ); }
+    );
   }
 
-  return ConcentrationScreen;
+  return inherit( Screen, ConcentrationScreen );
 } );
