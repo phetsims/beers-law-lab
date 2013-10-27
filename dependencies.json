@@ -1,6 +1,6 @@
 {
   "chipper": {
-    "sha": "d00b7ced7fe999aa9c32f2e3dca8c3b16492028f",
+    "sha": "db1e44f353f8c6ea967866118b2e9d898eca15a3",
     "branch": "master"
   },
   "sherpa": {
@@ -12,7 +12,7 @@
     "branch": "master"
   },
   "scenery-phet": {
-    "sha": "db0e557e2187069345dd2592a5aaacf22c893097",
+    "sha": "00269854ebbb03dd34348e667732a6432408f12b",
     "branch": "master"
   },
   "scenery": {
@@ -40,7 +40,7 @@
     "branch": "master"
   },
   "dot": {
-    "sha": "4b96ee3a859e8512e0c36c9731312d05d3bae7be",
+    "sha": "15d9ede7cc6901b76738406c957fe40b35fad466",
     "branch": "master"
   },
   "axon": {
@@ -52,8 +52,8 @@
     "branch": "master"
   },
   "beers-law-lab": {
-    "sha": "6cc8c6966733e115081d7db45a623d785811c48c",
+    "sha": "a2e0ae460f444aa010c90a614b285cdd05108f2e",
     "branch": "1.1"
   },
-  "comment": "# beers-law-lab 1.1.0-rc.1 Thu Oct 24 2013 13:53:25 GMT-0600 (MDT)"
+  "comment": "# beers-law-lab 1.1.0-rc.2 Sat Oct 26 2013 18:49:49 GMT-0600 (MDT)"
 }
