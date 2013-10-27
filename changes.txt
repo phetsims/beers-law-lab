@@ -1,3 +1,5 @@
+# 1.1.0-rc.2 10/26/13
+10/26/13 scenery#18, workaround for intermittent problem with Reset All button
 # 1.1.0-rc.1 10/24/13
 10/14/13 scenery-phet#15: corrected problems in scenery-phet.FaucetNode, added beers-law-lab.BLLFaucetNode adapter
 10/14/13 rename screen-icon images
