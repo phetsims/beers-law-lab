@@ -1,3 +1,4 @@
+10/28/13 scenery-phet#17: add 'vertical pipe length' feature to FaucetNode
 10/14/13 scenery-phet#15: corrected problems in scenery-phet.FaucetNode, added beers-law-lab.BLLFaucetNode adapter
 10/14/13 rename screen-icon images
 10/8/13 fix touchArea for dropper and concentration probe

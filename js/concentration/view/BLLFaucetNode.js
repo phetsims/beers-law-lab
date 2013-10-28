@@ -20,8 +20,8 @@ define( function( require ) {
    */
   function BLLFaucetNode( faucet, mvt ) {
     var scale = 0.75;
-    var pipeLength = mvt.modelToViewX( faucet.location.x - faucet.pipeMinX ) / scale;
-    FaucetNode.call( this, faucet.maxFlowRate, faucet.flowRate, faucet.enabled, pipeLength, { scale: scale } );
+    var horizontalPipeLength = mvt.modelToViewX( faucet.location.x - faucet.pipeMinX ) / scale;
+    FaucetNode.call( this, faucet.maxFlowRate, faucet.flowRate, faucet.enabled, { horizontalPipeLength: horizontalPipeLength, scale: scale } );
     this.translation = mvt.modelToViewPosition( faucet.location );
   }
 
