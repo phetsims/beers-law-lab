@@ -17,14 +17,13 @@ define( function( require ) {
   // strings
   var simTitle = require( 'string!BEERS_LAW_LAB/beers-law-lab.name' );
 
-  //TODO i18n, see joist#66
   var simOptions = {
-    credits: 'PhET Development Team -\n' +
-             'Lead Design: Julia Chamberlain\n' +
-             'Software Development: Chris Malley\n' +
-             'Design Team: Kelly Lancaster, Emily B. Moore, Ariel Paul, Kathy Perkins',
-    thanks: 'Thanks -\n' +
-            'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
+    credits: {
+      leadDesign: 'Julia Chamberlain',
+      softwareDevelopment: 'Chris Malley',
+      designTeam: 'Kelly Lancaster, Emily B. Moore, Ariel Paul, Kathy Perkins',
+      thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
+    }
   };
 
   // Appending '?dev' to the URL will enable developer-only features.
