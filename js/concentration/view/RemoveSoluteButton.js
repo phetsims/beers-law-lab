@@ -11,7 +11,7 @@ define( function( require ) {
   // imports
   var inherit = require( 'PHET_CORE/inherit' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var TextButton = require( 'SUN/TextButton' );
+  var TextPushButton = require( 'SUN/TextPushButton' );
 
   // strings
   var removeSoluteString = require( 'string!BEERS_LAW_LAB/removeSolute' );
@@ -24,7 +24,7 @@ define( function( require ) {
 
     var thisButton = this;
 
-    TextButton.call( thisButton, removeSoluteString, {
+    TextPushButton.call( thisButton, removeSoluteString, {
       font: new PhetFont( 22 ),
       textFill: 'black',
       textFillDisabled: 'rgb(175,175,175)',
@@ -42,7 +42,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( TextButton, RemoveSoluteButton );
+  inherit( TextPushButton, RemoveSoluteButton );
 
   return RemoveSoluteButton;
 } );
