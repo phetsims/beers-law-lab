@@ -24,14 +24,16 @@ define( function( require ) {
 
     var thisButton = this;
 
-    TextButton.call( thisButton, removeSoluteString, function() {
-      solution.soluteAmount.set( 0 );
-    }, {
+    TextButton.call( thisButton, removeSoluteString, {
       font: new PhetFont( 22 ),
       textFill: 'black',
       textFillDisabled: 'rgb(175,175,175)',
       rectangleXMargin: 10,
       rectangleFillDisabled: 'white'
+    } );
+
+    this.addListener( function() {
+      solution.soluteAmount.set( 0 );
     } );
 
     // change the text fill to indicate whether the button is enabled
