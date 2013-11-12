@@ -23,7 +23,6 @@ define( function( require ) {
   var units_litersString = require( 'string!BEERS_LAW_LAB/units.liters' );
 
   // constants
-  var MAX_VOLUME = 1;
   var RIM_OFFSET = 20;
   var MINOR_TICK_SPACING = 0.1; // L
   var MINOR_TICKS_PER_MAJOR_TICK = 5;
@@ -64,7 +63,7 @@ define( function( require ) {
     // horizontal tick marks, left edge, from bottom up
     var ticksParent = new Node();
     thisNode.addChild( ticksParent );
-    var numberOfTicks = Math.round( MAX_VOLUME / MINOR_TICK_SPACING );
+    var numberOfTicks = Math.round( beaker.volume / MINOR_TICK_SPACING );
     var deltaY = height / numberOfTicks;
     for ( var i = 1; i <= numberOfTicks; i++ ) {
 
