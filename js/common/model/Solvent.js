@@ -25,18 +25,14 @@ define( function( require ) {
    * @constructor
    */
   function Solvent( name, formula, color ) {
-
     Fluid.call( this, color );
-
     this.name = name;
     this.formula = formula;
   }
-
-  inherit( Fluid, Solvent );
 
   Solvent.WATER_COLOR = new Color( 224, 255, 255 );
 
   Solvent.WATER = new Solvent( waterString, BLLSymbols.WATER, Solvent.WATER_COLOR );
 
-  return Solvent;
+  return inherit( Fluid, Solvent );
 } );
