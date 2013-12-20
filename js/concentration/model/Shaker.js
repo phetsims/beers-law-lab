@@ -55,21 +55,21 @@ define( function( require ) {
       this.visible.reset();
       this.empty.reset();
       this.dispensingRate.reset();
-      this.previousLocation = this.location.get(); // to prevent shaker from dispensing solute when its location is reset
+      this.previousLocation = this.locationProperty.get(); // to prevent shaker from dispensing solute when its location is reset
     },
 
     // Sets the dispensing rate if the shaker is moving.
     step: function() {
       var thisShaker = this;
       if ( thisShaker.visible.get() && !thisShaker.empty.get() ) {
-        if ( thisShaker.previousLocation.equals( thisShaker.location.get() ) ) {
+        if ( thisShaker.previousLocation.equals( thisShaker.locationProperty.get() ) ) {
           thisShaker.dispensingRate.set( 0 ); // shaker is not moving, don't dispense anything
         }
         else {
           thisShaker.dispensingRate.set( thisShaker.maxDispensingRate ); // max rate seems to work fine
         }
       }
-      thisShaker.previousLocation = thisShaker.location.get();
+      thisShaker.previousLocation = thisShaker.locationProperty.get();
     }
   } );
 

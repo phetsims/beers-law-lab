@@ -44,7 +44,7 @@ define( function( require ) {
     step: function( deltaSeconds, beaker ) {
       // mutable calls added to remove the number of new objects we create
       this.velocity = this.acceleration.times( deltaSeconds ).add( this.velocity );
-      var newLocation = this.velocity.times( deltaSeconds ).add( this.location.get() );
+      var newLocation = this.velocity.times( deltaSeconds ).add( this.locationProperty.get() );
 
       /*
        * Did the particle hit the left wall of the beaker? If so, change direction.
@@ -57,7 +57,7 @@ define( function( require ) {
         this.velocity.setX( Math.abs( this.velocity.x ) );
       }
 
-      this.location.set( newLocation );
+      this.locationProperty.set( newLocation );
     }
   } );
 

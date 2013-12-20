@@ -62,7 +62,7 @@ define( function( require ) {
       for ( var i = 0; i < length; i++ ) {
         var particle = particles[i];
 
-        var position = this.mvt.modelToViewPosition( particle.location.get() );
+        var position = this.mvt.modelToViewPosition( particle.locationProperty.get() );
         var x = position.x;
         var y = position.y;
         var cos = Math.cos( particle.orientation ) * halfViewSize;

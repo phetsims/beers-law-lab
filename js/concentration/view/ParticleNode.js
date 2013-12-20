@@ -32,8 +32,8 @@ define( function( require ) {
     thisNode.particle = particle;
     thisNode.rotation = particle.orientation;
 
-    particle.location.link( function() {
-      thisNode.translation = mvt.modelToViewPosition( particle.location.get() );
+    particle.locationProperty.link( function() {
+      thisNode.translation = mvt.modelToViewPosition( particle.locationProperty.get() );
     } );
   }
 

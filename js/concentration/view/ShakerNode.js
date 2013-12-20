@@ -14,7 +14,7 @@ define( function( require ) {
   var HTMLText = require( 'SCENERY/nodes/HTMLText' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var MovableDragHandler = require( 'BEERS_LAW_LAB/common/view/MovableDragHandler' );
+  var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -104,7 +104,7 @@ define( function( require ) {
 
     // sync location with model
     var shakerWasMoved = false;
-    shaker.location.link( function( location ) {
+    shaker.locationProperty.link( function( location ) {
       thisNode.translation = mvt.modelToViewPosition( location );
       shakerWasMoved = true;
       upArrowNode.visible = downArrowNode.visible = false;

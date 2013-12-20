@@ -13,7 +13,7 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MeterBodyNode = require( 'SCENERY_PHET/MeterBodyNode' );
-  var MovableDragHandler = require( 'BEERS_LAW_LAB/common/view/MovableDragHandler' );
+  var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -90,7 +90,7 @@ define( function( require ) {
     valueNode.top = VALUE_CENTER_Y;
 
     // body location
-    detector.body.location.link( function( location ) {
+    detector.body.locationProperty.link( function( location ) {
       thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
@@ -135,7 +135,7 @@ define( function( require ) {
     imageNode.y = -PROBE_CENTER_Y_OFFSET;
 
     // location
-    probe.location.link( function( location ) {
+    probe.locationProperty.link( function( location ) {
       thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
@@ -144,9 +144,9 @@ define( function( require ) {
     thisNode.addInputListener( new MovableDragHandler( probe, mvt, {
       endDrag: function() {
         // If the light is on and the probe is close enough to the beam...
-        if ( light.on.get() && ( probe.location.get().x >= light.location.x ) && ( Math.abs( probe.location.get().y - light.location.y ) <= 0.5 * light.lensDiameter ) ) {
+        if ( light.on.get() && ( probe.locationProperty.get().x >= light.location.x ) && ( Math.abs( probe.locationProperty.get().y - light.location.y ) <= 0.5 * light.lensDiameter ) ) {
           // ... snap the probe to the center of beam.
-          probe.location.set( new Vector2( probe.location.get().x, light.location.y ) );
+          probe.locationProperty.set( new Vector2( probe.locationProperty.get().x, light.location.y ) );
         }
       }
     } ) );
@@ -196,8 +196,8 @@ define( function( require ) {
         .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
         .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
     };
-    body.location.link( updateCurve );
-    probe.location.link( updateCurve );
+    body.locationProperty.link( updateCurve );
+    probe.locationProperty.link( updateCurve );
   }
 
   inherit( Path, WireNode );

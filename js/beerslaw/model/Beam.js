@@ -55,13 +55,13 @@ define( function( require ) {
       if ( thisBeam.visible.get() ) {
         var x = mvt.modelToViewPosition( light.location ).x;
         var y = mvt.modelToViewPosition( light.location ).y - mvt.modelToViewDeltaY( light.lensDiameter / 2 );
-        var w = mvt.modelToViewDeltaX( detector.probeInBeam() ? detector.probe.location.get().x - light.location.x : MAX_LIGHT_WIDTH );
+        var w = mvt.modelToViewDeltaX( detector.probeInBeam() ? detector.probe.locationProperty.get().x - light.location.x : MAX_LIGHT_WIDTH );
         var h = mvt.modelToViewDeltaY( light.lensDiameter );
         thisBeam.shape.set( Shape.rect( x, y, w, h ) );
       }
     };
     cuvette.width.link( updateShape );
-    detector.probe.location.link( updateShape );
+    detector.probe.locationProperty.link( updateShape );
     thisBeam.visible.link( updateShape );
 
     // update color of beam, a left-to-right linear gradient that transitions inside the solution

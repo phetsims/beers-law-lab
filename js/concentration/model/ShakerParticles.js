@@ -77,7 +77,7 @@ define( function( require ) {
         // If the particle hits the solution surface or bottom of the beaker, delete it, and add a corresponding amount of solute to the solution.
         var percentFull = solution.volume.get() / beaker.volume;
         var solutionSurfaceY = beaker.location.y - ( percentFull * beaker.size.height ) - solution.solute.get().particleSize;
-        if ( particle.location.get().y > solutionSurfaceY ) {
+        if ( particle.locationProperty.get().y > solutionSurfaceY ) {
           this._removeParticle( particle );
           solution.soluteAmount.set( solution.soluteAmount.get() + ( 1 / solution.solute.get().particlesPerMole ) );
         }
@@ -87,7 +87,7 @@ define( function( require ) {
       if ( shaker.dispensingRate.get() > 0 ) {
         var numberOfParticles = Math.round( Math.max( 1, shaker.dispensingRate.get() * solution.solute.get().particlesPerMole * deltaSeconds ) );
         for ( var j = 0; j < numberOfParticles; j++ ) {
-          this._addParticle( new ShakerParticle( solution.solute.get(), getRandomLocation( this.shaker.location.get() ), getRandomOrientation(),
+          this._addParticle( new ShakerParticle( solution.solute.get(), getRandomLocation( this.shaker.locationProperty.get() ), getRandomOrientation(),
             this._getInitialVelocity(), this._getGravitationalAcceleration() ) );
         }
       }

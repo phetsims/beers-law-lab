@@ -32,11 +32,11 @@ define( function( require ) {
   inherit( Movable, Probe, {
 
     getMinY: function() {
-      return this.location.get().y - ( this.sensorDiameter / 2 );
+      return this.locationProperty.get().y - ( this.sensorDiameter / 2 );
     },
 
     getMaxY: function() {
-      return this.location.get().y + ( this.sensorDiameter / 2 );
+      return this.locationProperty.get().y + ( this.sensorDiameter / 2 );
     }
   } );
 
@@ -64,7 +64,7 @@ define( function( require ) {
       var value = NaN;
       if ( thisDetector.probeInBeam() ) {
         // path length is between 0 and cuvette width
-        var pathLength = Math.min( Math.max( 0, thisDetector.probe.location.get().x - cuvette.location.x ), cuvette.width.get() );
+        var pathLength = Math.min( Math.max( 0, thisDetector.probe.locationProperty.get().x - cuvette.location.x ), cuvette.width.get() );
         if ( thisDetector.mode.get() === ATDetector.Mode.ABSORBANCE ) {
           value = absorbance.getAbsorbanceAt( pathLength );
         }
@@ -81,9 +81,9 @@ define( function( require ) {
     var updateValue = function() {
       thisDetector.value.set( computeValue() );
     };
-    thisDetector.probe.location.link( updateValue );
+    thisDetector.probe.locationProperty.link( updateValue );
     thisDetector.light.on.link( updateValue );
-    thisDetector.probe.location.link( updateValue );
+    thisDetector.probe.locationProperty.link( updateValue );
     thisDetector.mode.link( updateValue );
     absorbance.value.link( updateValue );
   }
@@ -101,7 +101,7 @@ define( function( require ) {
       return this.light.on.get() &&
              ( this.probe.getMinY() < this.light.getMinY() ) &&
              ( this.probe.getMaxY() > this.light.getMaxY() ) &&
-             ( this.probe.location.get().x > this.light.location.x );
+             ( this.probe.locationProperty.get().x > this.light.location.x );
     }
   };
 

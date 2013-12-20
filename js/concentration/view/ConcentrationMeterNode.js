@@ -23,7 +23,7 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MeterBodyNode = require( 'SCENERY_PHET/MeterBodyNode' );
-  var MovableDragHandler = require( 'BEERS_LAW_LAB/common/view/MovableDragHandler' );
+  var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -100,7 +100,7 @@ define( function( require ) {
     }
 
     // body location
-    meter.body.location.link( function( location ) {
+    meter.body.locationProperty.link( function( location ) {
       thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
@@ -143,7 +143,7 @@ define( function( require ) {
     imageNode.y = -radius;
 
     // probe location
-    probe.location.link( function( location ) {
+    probe.locationProperty.link( function( location ) {
       thisNode.translation = mvt.modelToViewPosition( location );
     } );
 
@@ -156,7 +156,7 @@ define( function( require ) {
     thisNode.addInputListener( new MovableDragHandler( probe, mvt ) );
 
     var isInNode = function( node ) {
-      return node.getBounds().containsPoint( probe.location.get() );
+      return node.getBounds().containsPoint( probe.locationProperty.get() );
     };
 
     thisNode.isInSolution = function() {
@@ -214,8 +214,8 @@ define( function( require ) {
         .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
         .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
     };
-    body.location.link( updateCurve );
-    probe.location.link( updateCurve );
+    body.locationProperty.link( updateCurve );
+    probe.locationProperty.link( updateCurve );
   }
 
   inherit( Path, WireNode );
@@ -262,7 +262,7 @@ define( function( require ) {
         meter.value.set( NaN );
       }
     };
-    meter.probe.location.link( updateValue );
+    meter.probe.locationProperty.link( updateValue );
     solution.solute.link( updateValue );
     solution.concentration.link( updateValue );
     solutionNode.addEventListener( 'bounds', updateValue );

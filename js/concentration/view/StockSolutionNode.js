@@ -34,15 +34,15 @@ define( function( require ) {
     var updateShapeAndLocation = function() {
       // path
       if ( dropper.on.get() && !dropper.empty.get() ) {
-        thisNode.setRect( -tipWidth / 2, 0, tipWidth, beaker.location.y - dropper.location.get().y );
+        thisNode.setRect( -tipWidth / 2, 0, tipWidth, beaker.location.y - dropper.locationProperty.get().y );
       }
       else {
         thisNode.setRect( 0, 0, 0, 0 );
       }
       // move this node to the dropper's location
-      thisNode.translation = mvt.modelToViewPosition( dropper.location.get() );
+      thisNode.translation = mvt.modelToViewPosition( dropper.locationProperty.get() );
     };
-    dropper.location.link( updateShapeAndLocation );
+    dropper.locationProperty.link( updateShapeAndLocation );
     dropper.on.link( updateShapeAndLocation );
     dropper.empty.link( updateShapeAndLocation );
 

@@ -11,7 +11,7 @@ define( function( require ) {
 
   // imports
   var inherit = require( 'PHET_CORE/inherit' );
-  var MovableDragHandler = require( 'BEERS_LAW_LAB/common/view/MovableDragHandler' );
+  var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var RulerNode = require( 'SCENERY_PHET/RulerNode' );
@@ -50,7 +50,7 @@ define( function( require ) {
     thisNode.touchArea = Shape.rectangle( -dx, -dy, thisNode.width + dx + dx, thisNode.height + dy + dy );
 
     // sync with model
-    ruler.location.link( function( location ) {
+    ruler.locationProperty.link( function( location ) {
       var position = mvt.modelToViewPosition( location );
       thisNode.x = position.x;
       thisNode.y = position.y;
