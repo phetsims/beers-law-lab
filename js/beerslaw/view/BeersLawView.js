@@ -74,7 +74,5 @@ define( function( require ) {
     }
   }
 
-  inherit( ScreenView, BeersLawView, { layoutBounds: new Bounds2( 0, 0, 1140, 700 ) } );
-
-  return BeersLawView;
+  return inherit( ScreenView, BeersLawView, { layoutBounds: new Bounds2( 0, 0, 1140, 700 ) } );
 } );

@@ -106,11 +106,9 @@ define( function( require ) {
     } );
   }
 
-  inherit( Panel, WavelengthControls, {
+  return inherit( Panel, WavelengthControls, {
     formatWavelength: function( wavelength ) {
       return StringUtils.format( pattern_0value1units, wavelength.toFixed( 0 ), units_nmString );
     }
   } );
-
-  return WavelengthControls;
 } );

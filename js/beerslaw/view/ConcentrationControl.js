@@ -73,7 +73,5 @@ define( function( require ) {
     } );
   }
 
-  inherit( Node, ConcentrationControl );
-
-  return ConcentrationControl;
+  return inherit( Node, ConcentrationControl );
 } );

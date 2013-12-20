@@ -48,7 +48,7 @@ define( function( require ) {
     thisShaker.visible.link( observer );
   }
 
-  inherit( Movable, Shaker, {
+  return inherit( Movable, Shaker, {
 
     reset: function() {
       Movable.prototype.reset.call( this );
@@ -72,6 +72,4 @@ define( function( require ) {
       thisShaker.previousLocation = thisShaker.locationProperty.get();
     }
   } );
-
-  return Shaker;
 } );

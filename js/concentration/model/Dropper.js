@@ -53,7 +53,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( Movable, Dropper, {
+  return inherit( Movable, Dropper, {
     reset: function() {
       Movable.prototype.reset.call( this );
       this.visible.reset();
@@ -63,6 +63,4 @@ define( function( require ) {
       this.flowRate.reset();
     }
   } );
-
-  return Dropper;
 } );

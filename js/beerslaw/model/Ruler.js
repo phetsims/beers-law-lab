@@ -29,7 +29,5 @@ define( function( require ) {
     this.height = height;
   }
 
-  inherit( Movable, Ruler );
-
-  return Ruler;
+  return inherit( Movable, Ruler );
 } );

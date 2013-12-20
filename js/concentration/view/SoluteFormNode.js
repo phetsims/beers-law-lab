@@ -81,7 +81,5 @@ define( function( require ) {
     } );
   }
 
-  inherit( Node, SoluteFormNode );
-
-  return SoluteFormNode;
+  return inherit( Node, SoluteFormNode );
 } );

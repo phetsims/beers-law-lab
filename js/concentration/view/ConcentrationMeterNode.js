@@ -271,7 +271,5 @@ define( function( require ) {
     drainFluidNode.addEventListener( 'bounds', updateValue );
   }
 
-  inherit( Node, ConcentrationMeterNode );
-
-  return ConcentrationMeterNode;
+  return inherit( Node, ConcentrationMeterNode );
 } );

@@ -140,7 +140,5 @@ define( function( require ) {
     );
   }
 
-  inherit( Node, ShakerNode );
-
-  return ShakerNode;
+  return inherit( Node, ShakerNode );
 } );

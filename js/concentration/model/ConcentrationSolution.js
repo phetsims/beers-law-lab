@@ -66,7 +66,7 @@ define( function( require ) {
     };
   }
 
-  inherit( Fluid, ConcentrationSolution, {
+  return inherit( Fluid, ConcentrationSolution, {
 
     // convenience function
     getSaturatedConcentration: function() {
@@ -88,21 +88,21 @@ define( function( require ) {
       }
       return numberOfParticles;
     }
-  } );
+  }, {
+    // static
 
-  /*
-   * Creates a color that corresponds to the solution's concentration.
-   * @param {Solvent) solvent
-   * @param {Solute} solute
-   * @param {Number} concentration
-   */
-  ConcentrationSolution.createColor = function( solvent, solute, concentration ) {
-    var color = solvent.color.get();
-    if ( concentration > 0 ) {
-      color = solute.colorScheme.concentrationToColor( concentration );
+    /*
+     * Creates a color that corresponds to the solution's concentration.
+     * @param {Solvent) solvent
+     * @param {Solute} solute
+     * @param {Number} concentration
+     */
+    createColor: function( solvent, solute, concentration ) {
+      var color = solvent.color.get();
+      if ( concentration > 0 ) {
+        color = solute.colorScheme.concentrationToColor( concentration );
+      }
+      return color;
     }
-    return color;
-  };
-
-  return ConcentrationSolution;
+  } );
 } );

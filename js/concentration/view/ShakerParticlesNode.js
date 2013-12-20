@@ -38,7 +38,7 @@ define( function( require ) {
     } );
   }
 
-  inherit( CanvasNode, ShakerParticlesNode, {
+  return inherit( CanvasNode, ShakerParticlesNode, {
 
     // @param {CanvasContextWrapper} wrapper
     paintCanvas: function( wrapper ) {
@@ -81,6 +81,4 @@ define( function( require ) {
       }
     }
   } );
-
-  return ShakerParticlesNode;
 } );

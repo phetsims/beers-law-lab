@@ -133,7 +133,5 @@ define( function( require ) {
     }
   }
 
-  inherit( ScreenView, ConcentrationView, { layoutBounds: new Bounds2( 0, 0, 1100, 700 ) } );
-
-  return ConcentrationView;
+  return inherit( ScreenView, ConcentrationView, { layoutBounds: new Bounds2( 0, 0, 1100, 700 ) } );
 } );

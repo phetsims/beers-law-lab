@@ -75,8 +75,5 @@ define( function( require ) {
     }
   }
 
-  inherit( Node, ToggleButton );
-
-  return ToggleButton;
-
+  return inherit( Node, ToggleButton );
 } );

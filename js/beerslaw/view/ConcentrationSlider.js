@@ -275,7 +275,5 @@ define( function( require ) {
     } );
   }
 
-  inherit( Node, ConcentrationSlider );
-
-  return ConcentrationSlider;
+  return inherit( Node, ConcentrationSlider );
 } );

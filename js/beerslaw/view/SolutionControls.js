@@ -40,7 +40,5 @@ define( function( require ) {
       { xMargin: 15, yMargin: 15, fill: '#F0F0F0', stroke: 'gray', lineWidth: 1, resize: false } );
   }
 
-  inherit( Panel, SolutionControls );
-
-  return SolutionControls;
+  return inherit( Panel, SolutionControls );
 } );

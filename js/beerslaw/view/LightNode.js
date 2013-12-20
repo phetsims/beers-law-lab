@@ -59,7 +59,5 @@ define( function( require ) {
     thisNode.y = position.y;
   }
 
-  inherit( Node, LightNode );
-
-  return LightNode;
+  return inherit( Node, LightNode );
 } );

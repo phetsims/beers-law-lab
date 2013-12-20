@@ -42,7 +42,5 @@ define( function( require ) {
     } );
   }
 
-  inherit( TextPushButton, RemoveSoluteButton );
-
-  return RemoveSoluteButton;
+  return inherit( TextPushButton, RemoveSoluteButton );
 } );

@@ -221,7 +221,5 @@ define( function( require ) {
     this.addChild( probeNode );
   }
 
-  inherit( Node, ATDetectorNode );
-
-  return ATDetectorNode;
+  return inherit( Node, ATDetectorNode );
 } );

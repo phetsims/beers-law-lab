@@ -56,7 +56,5 @@ define( function( require ) {
       { xMargin: 15, yMargin: 8, fill: '#F0F0F0', stroke: 'gray', lineWidth: 1, resize: false } );
   }
 
-  inherit( Panel, EvaporationControl );
-
-  return EvaporationControl;
+  return inherit( Panel, EvaporationControl );
 } );

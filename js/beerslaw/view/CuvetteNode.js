@@ -151,7 +151,5 @@ define( function( require ) {
     thisNode.y = position.y;
   }
 
-  inherit( Node, CuvetteNode );
-
-  return CuvetteNode;
+  return inherit( Node, CuvetteNode );
 } );
