@@ -9,20 +9,20 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var toSubscript = require( 'NITROGLYCERIN/ChemUtils' ).toSubscript;
+  var ChemUtils = require( 'NITROGLYCERIN/ChemUtils' );
 
   // strings
   var drinkMixString = require( 'string!BEERS_LAW_LAB/drinkMix' );
 
   return {
-    COBALT_II_NITRATE: toSubscript( 'Co(NO3)2' ),
-    COBALT_CHLORIDE: toSubscript( 'CoCl2' ),
-    COPPER_SULFATE: toSubscript( 'CuSO4' ),
+    COBALT_II_NITRATE: ChemUtils.toSubscript( 'Co(NO3)2' ),
+    COBALT_CHLORIDE: ChemUtils.toSubscript( 'CoCl2' ),
+    COPPER_SULFATE: ChemUtils.toSubscript( 'CuSO4' ),
     DRINK_MIX: drinkMixString,
-    NICKEL_II_CHLORIDE: toSubscript( 'NiCl2' ),
-    POTASSIUM_CHROMATE: toSubscript( 'K2CrO4' ),
-    POTASSIUM_DICHROMATE: toSubscript( 'K2Cr2O7' ),
-    POTASSIUM_PERMANGANATE: toSubscript( 'KMnO4' ),
-    WATER: toSubscript( 'H2O' )
+    NICKEL_II_CHLORIDE: ChemUtils.toSubscript( 'NiCl2' ),
+    POTASSIUM_CHROMATE: ChemUtils.toSubscript( 'K2CrO4' ),
+    POTASSIUM_DICHROMATE: ChemUtils.toSubscript( 'K2Cr2O7' ),
+    POTASSIUM_PERMANGANATE: ChemUtils.toSubscript( 'KMnO4' ),
+    WATER: ChemUtils.toSubscript( 'H2O' )
   };
 } );
