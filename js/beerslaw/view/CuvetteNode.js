@@ -9,7 +9,6 @@ define( function( require ) {
   'use strict';
 
   // imports
-  var Bounds2 = require( 'DOT/Bounds2' );
   var Color = require( 'SCENERY/util/Color' );
   var FillHighlightListener = require( 'SCENERY_PHET/input/FillHighlightListener' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -51,14 +50,14 @@ define( function( require ) {
         startWidth = cuvette.width.get();
       },
 
-      drag: function( event, trail ) {
+      drag: function( event ) {
         var dragX = event.pointer.point.x;
         var deltaWidth = mvt.viewToModelDeltaX( dragX - startX );
         var cuvetteWidth = Util.clamp( startWidth + deltaWidth, cuvette.widthRange.min, cuvette.widthRange.max );
         cuvette.width.set( cuvetteWidth );
       },
 
-      end: function( event ) {
+      end: function() {
         var numberOfIntervals = Math.floor( ( cuvette.width.get() + ( snapInterval / 2 ) ) / snapInterval );
         cuvette.width.set( numberOfIntervals * snapInterval );
       }

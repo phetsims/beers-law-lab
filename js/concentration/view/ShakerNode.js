@@ -10,7 +10,6 @@ define( function( require ) {
 
   // imports
   var Circle = require( 'SCENERY/nodes/Circle' );
-  var DownUpListener = require( 'SCENERY/input/DownUpListener' );
   var HTMLText = require( 'SCENERY/nodes/HTMLText' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -19,7 +18,6 @@ define( function( require ) {
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Shape = require( 'KITE/Shape' );
-  var Vector2 = require( 'DOT/Vector2' );
 
   // images
   var shakerImage = require( 'image!BEERS_LAW_LAB/shaker.png' );

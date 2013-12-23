@@ -57,10 +57,10 @@ define( function( require ) {
     if ( options.onWhilePressed ) {
       // momentary button, on while pressed, off when released
       thisButton.addInputListener( new DownUpListener( {
-        down: function( event ) {
+        down: function() {
           on.set( enabled.get() );
         },
-        up: function( event ) {
+        up: function() {
           on.set( false );
         }
       } ) );

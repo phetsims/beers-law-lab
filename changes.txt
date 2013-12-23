@@ -1,3 +1,4 @@
+12/23/13 remove unused imports, identified by adding 'unused: true' to jshint-options.js
 12/20/13 remove import pattern that has proven to make refactoring more difficult
 12/20/13 use 'return inherit(...)' style throughout
 12/20/13 migrate MovableDragHandler to scenery-phet, change Movable.location to locationProperty

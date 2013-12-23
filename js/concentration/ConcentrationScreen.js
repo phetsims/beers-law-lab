@@ -15,7 +15,6 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Screen = require( 'JOIST/Screen' );
-  var Vector2 = require( 'DOT/Vector2' );
 
   // strings
   var concentrationString = require( 'string!BEERS_LAW_LAB/tab.concentration' );

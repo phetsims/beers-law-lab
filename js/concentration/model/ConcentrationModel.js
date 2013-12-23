@@ -67,7 +67,7 @@ define( function( require ) {
       new Vector2( 750, 370 ), new Bounds2( 30, 150, 966, 680 ) );
 
     // Things to do when the solute is changed.
-    thisModel.solute.link( function( solute ) {
+    thisModel.solute.link( function() {
       thisModel.solution.soluteAmount.set( 0 );
     } );
 
