@@ -76,14 +76,6 @@ define( function( require ) {
       this.cuvette.reset();
       this.detector.reset();
       this.ruler.reset();
-    },
-
-    /*
-     * Moves time forward by the specified amount.
-     * @param {Number} deltaSeconds clock time change, in seconds.
-     */
-    step: function( deltaSeconds ) {
-      // do nothing, nothing time-based in this model
     }
   };
 
