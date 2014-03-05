@@ -1,5 +1,6 @@
 // Copyright 2002-2013, University of Colorado Boulder
 
+//TODO merge into sun.ToggleButton, see https://github.com/phetsims/sun/issues/32
 /**
  * A toggle button changes it's on/off state when pressed.
  * Can optionally be configured as a 'momentary' button, which is on while pressed, off when released.
@@ -21,12 +22,12 @@ define( function( require ) {
    * @param unpressedImage
    * @param pressedImage
    * @param disabledImage
-   * @param {Property<Boolean>} on
-   * @param {Property<Boolean>} enabled
+   * @param {Property<Boolean>} onProperty
+   * @param {Property<Boolean>} enabledProperty
    * @param {*} options
    * @constructor
    */
-  function ToggleButton( unpressedImage, pressedImage, disabledImage, on, enabled, options ) {
+  function ToggleButton( unpressedImage, pressedImage, disabledImage, onProperty, enabledProperty, options ) {
 
     options = _.extend( { onWhilePressed: false }, options );
 
@@ -36,21 +37,21 @@ define( function( require ) {
     var imageNode = new Image( unpressedImage );
     thisButton.addChild( imageNode );
 
-    on.link( function( on ) {
-      if ( enabled.get() ) {
+    onProperty.link( function( on ) {
+      if ( enabledProperty.get() ) {
         imageNode.setImage( on ? pressedImage : unpressedImage );
       }
     } );
 
-    enabled.link( function( enabled ) {
+    enabledProperty.link( function( enabled ) {
       if ( enabled ) {
-        imageNode.setImage( on.get() ? pressedImage : unpressedImage );
+        imageNode.setImage( onProperty.get() ? pressedImage : unpressedImage );
         thisButton.cursor = 'pointer';
       }
       else {
         imageNode.setImage( disabledImage );
         thisButton.cursor = 'default';
-        on.set( false );
+        onProperty.set( false );
       }
     } );
 
@@ -58,10 +59,10 @@ define( function( require ) {
       // momentary button, on while pressed, off when released
       thisButton.addInputListener( new DownUpListener( {
         down: function() {
-          on.set( enabled.get() );
+          onProperty.set( enabledProperty.get() );
         },
         up: function() {
-          on.set( false );
+          onProperty.set( false );
         }
       } ) );
     }
@@ -69,7 +70,7 @@ define( function( require ) {
       // toggle button, changes its state when fired
       thisButton.addInputListener( new ButtonListener( {
         fire: function() {
-          on.set( !on.get() && enabled.get() );
+          onProperty.set( !onProperty.get() && enabledProperty.get() );
         }
       } ) );
     }

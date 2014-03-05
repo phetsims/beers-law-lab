@@ -1,3 +1,4 @@
+3/4/14 rename constructor parameters in ToggleButton to conform to 'Property' suffix convention, so that this is now identical to ph-scale.ToggleButton (see sun#32)
 1/28/14 remove BeersLawModel.step 'do nothing' function, since screen.model.step is now optional in joist.Sim.animationLoop
 12/23/13 remove unused imports, identified by adding 'unused: true' to jshint-options.js
 12/20/13 remove import pattern that has proven to make refactoring more difficult
