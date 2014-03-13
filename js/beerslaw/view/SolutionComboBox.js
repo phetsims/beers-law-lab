@@ -10,12 +10,12 @@ define( function( require ) {
 
   // imports
   var ComboBox = require( 'SUN/ComboBox' );
-  var HTMLText = require( 'SCENERY/nodes/HTMLText' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var SubSupText = require( 'SCENERY_PHET/SubSupText' );
   var Text = require( 'SCENERY/nodes/Text' );
 
   // strings
@@ -60,7 +60,7 @@ define( function( require ) {
     var node = new Node();
     var colorSquare = new Rectangle( 0, 0, 20, 20,
       { fill: solution.saturatedColor, stroke: solution.saturatedColor.darkerColor() } );
-    var solutionName = new HTMLText( solution.getDisplayName(), { font: new PhetFont( 20 ) } );
+    var solutionName = new SubSupText( solution.getDisplayName(), { font: new PhetFont( 20 ) } );
     node.addChild( colorSquare );
     node.addChild( solutionName );
     solutionName.left = colorSquare.right + 5;

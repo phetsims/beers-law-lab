@@ -12,7 +12,6 @@ define( function( require ) {
   // imports
   var Circle = require( 'SCENERY/nodes/Circle' );
   var ConcentrationSolution = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationSolution' );
-  var HTMLText = require( 'SCENERY/nodes/HTMLText' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
@@ -20,6 +19,7 @@ define( function( require ) {
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Shape = require( 'KITE/Shape' );
+  var SubSupText = require( 'SCENERY_PHET/SubSupText' );
   var ToggleButton = require( 'BEERS_LAW_LAB/common/view/ToggleButton' );
 
   // images
@@ -74,7 +74,7 @@ define( function( require ) {
     var background = new Image( dropperBackgroundImage );
 
     // label
-    var label = new HTMLText( dropper.solute.formula, { font: new PhetFont( { size: 18, weight: 'bold' } ), fill: 'black' } );
+    var label = new SubSupText( dropper.solute.formula, { font: new PhetFont( { size: 18, weight: 'bold' } ), fill: 'black' } );
 
     // label background, so the label shows up on various fluid colors
     var labelBackground = new Path( null,

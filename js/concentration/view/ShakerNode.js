@@ -10,7 +10,6 @@ define( function( require ) {
 
   // imports
   var Circle = require( 'SCENERY/nodes/Circle' );
-  var HTMLText = require( 'SCENERY/nodes/HTMLText' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
@@ -18,6 +17,7 @@ define( function( require ) {
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Shape = require( 'KITE/Shape' );
+  var SubSupText = require( 'SCENERY_PHET/SubSupText' );
 
   // images
   var shakerImage = require( 'image!BEERS_LAW_LAB/shaker.png' );
@@ -48,7 +48,7 @@ define( function( require ) {
     imageNode.setScaleMagnitude( 0.75 );
 
     // label
-    var labelNode = new HTMLText( shaker.solute.formula, { font: new PhetFont( { size: 22, weight: 'bold' } ), fill: 'black' } );
+    var labelNode = new SubSupText( shaker.solute.formula, { font: new PhetFont( { size: 22, weight: 'bold' } ), fill: 'black' } );
 
     // arrows
     var downArrowShape = new Shape()
