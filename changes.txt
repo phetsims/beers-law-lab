@@ -36,7 +36,7 @@
 9/24/13 delete bogus French translation
 9/23/13 convert to use chipper 'image' plug-in, and scenery-phet.ResetAllButton
 9/19/13 changes required by merge of chipper 'single-file' branch into master
-9/19/13 move dependencies to sherpa, update to lodash-2.0.0, jquery-2.0.3, i18n-2.0.4, require-2.1.8
+9/19/13 move dependencies to sherpa, update to lodash-2.0.0, jquery-2.1.0, i18n-2.0.4, require-2.1.8
 9/15/13 sun#9, change HSlider {Boolean} options.snapToMinWhenReleased to {Function} options.endDrag
 9/15/13 EvaporationSlider moved to sun.HSlider by SR, #46
 9/9/13 added namespace BEERS_LAW_LAB (merged into master by SR)
