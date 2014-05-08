@@ -20,7 +20,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var PrecipitateNode = require( 'BEERS_LAW_LAB/concentration/view/PrecipitateNode' );
   var RemoveSoluteButton = require( 'BEERS_LAW_LAB/concentration/view/RemoveSoluteButton' );
-  var ResetAllButtonDeprecated = require( 'SCENERY_PHET/ResetAllButtonDeprecated' );
+  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
   var SaturatedIndicator = require( 'BEERS_LAW_LAB/concentration/view/SaturatedIndicator' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var ShakerNode = require( 'BEERS_LAW_LAB/concentration/view/ShakerNode' );
@@ -81,9 +81,11 @@ define( function( require ) {
     var removeSoluteButton = new RemoveSoluteButton( model.solution );
 
     // Reset All button
-    var resetAllButton = new ResetAllButtonDeprecated( function() {
-      model.reset();
-    } );
+    var resetAllButton = new ResetAllButton(
+      {
+        listener: function() { model.reset(); },
+        scale: 1.32
+      } );
 
     // Rendering order
     thisView.addChild( solventFluidNode );

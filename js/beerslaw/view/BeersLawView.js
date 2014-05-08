@@ -17,7 +17,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var LightNode = require( 'BEERS_LAW_LAB/beerslaw/view/LightNode' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var ResetAllButtonDeprecated = require( 'SCENERY_PHET/ResetAllButtonDeprecated' );
+  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var SolutionControls = require( 'BEERS_LAW_LAB/beerslaw/view/SolutionControls' );
   var WavelengthControls = require( 'BEERS_LAW_LAB/beerslaw/view/WavelengthControls' );
@@ -42,10 +42,14 @@ define( function( require ) {
     var solutionControls = new SolutionControls( model.solutions, model.solution, foregroundNode );
 
     // Reset All button
-    var resetAllButton = new ResetAllButtonDeprecated( function() {
-      model.reset();
-      wavelengthControls.reset();
-    } );
+    var resetAllButton = new ResetAllButton(
+      {
+        listener: function() {
+          model.reset();
+          wavelengthControls.reset();
+        },
+        scale: 1.32
+      } );
 
     // Rendering order
     thisView.addChild( wavelengthControls );
