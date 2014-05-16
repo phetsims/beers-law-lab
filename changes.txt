@@ -1,3 +1,4 @@
+5/16/14 replace sun.TextPushButtonDeprecated with sun.buttons.TextPushButton
 3/13/14 #63 replace HTMLText with SubSupText to address out-of-memory problem caused by joist changes
 3/4/14 rename constructor parameters in ToggleButton to conform to 'Property' suffix convention, so that this is now identical to ph-scale.ToggleButton (see sun#32)
 1/28/14 remove BeersLawModel.step 'do nothing' function, since screen.model.step is now optional in joist.Sim.animationLoop
