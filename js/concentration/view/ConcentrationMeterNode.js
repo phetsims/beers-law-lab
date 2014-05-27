@@ -19,7 +19,7 @@
 define( function( require ) {
   'use strict';
 
-  // imports
+  // modules
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MeterBodyNode = require( 'SCENERY_PHET/MeterBodyNode' );

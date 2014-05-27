@@ -21,7 +21,7 @@
 define( function( require ) {
   'use strict';
 
-  // imports
+  // modules
   var Property = require( 'AXON/Property' );
 
   /**

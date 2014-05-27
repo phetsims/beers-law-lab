@@ -8,7 +8,7 @@
 define( function( require ) {
   'use strict';
 
-  // imports
+  // modules
   var Beaker = require( 'BEERS_LAW_LAB/concentration/model/Beaker' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var ConcentrationMeter = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationMeter' );

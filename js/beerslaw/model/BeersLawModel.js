@@ -8,7 +8,7 @@
 define( function( require ) {
   'use strict';
 
-  // imports
+  // modules
   var Absorbance = require( 'BEERS_LAW_LAB/beerslaw/model/Absorbance' );
   var ATDetector = require( 'BEERS_LAW_LAB/beerslaw/model/ATDetector' );
   var Beam = require( 'BEERS_LAW_LAB/beerslaw/model/Beam' );

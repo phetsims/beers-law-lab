@@ -10,7 +10,7 @@
 define( function( require ) {
   'use strict';
 
-  // imports
+  // modules
   var interpolateRBGA = require( 'SCENERY/util/Color' ).interpolateRBGA;
 
   /**

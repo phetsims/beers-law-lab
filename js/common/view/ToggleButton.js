@@ -11,7 +11,7 @@
 define( function( require ) {
   'use strict';
 
-  // imports
+  // modules
   var ButtonListener = require( 'SCENERY/input/ButtonListener' );
   var DownUpListener = require( 'SCENERY/input/DownUpListener' );
   var Image = require( 'SCENERY/nodes/Image' );

@@ -11,7 +11,7 @@
 define( function( require ) {
   'use strict';
 
-  // imports
+  // modules
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   /**
