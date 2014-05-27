@@ -1,3 +1,4 @@
+5/27/14 hide value in WavelengthSlider, since it's now visible by default
 5/27/14 change 'imports' to 'modules' in require comments
 5/16/14 replace sun.TextPushButtonDeprecated with sun.buttons.TextPushButton
 3/13/14 #63 replace HTMLText with SubSupText to address out-of-memory problem caused by joist changes

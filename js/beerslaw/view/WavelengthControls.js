@@ -48,7 +48,7 @@ define( function( require ) {
       { fill: 'white', stroke: 'lightGray' } );
     var presetRadioButton = new AquaRadioButton( variableWavelength, false, new Text( fixedString, { font: new PhetFont( 18 ), fill: 'black' } ) );
     var variableRadioButton = new AquaRadioButton( variableWavelength, true, new Text( variableString, { font: new PhetFont( 18 ), fill: 'black' } ) );
-    var wavelengthSlider = new WavelengthSlider( light.wavelength, { trackWidth: 150, trackHeight: 30 } );
+    var wavelengthSlider = new WavelengthSlider( light.wavelength, { trackWidth: 150, trackHeight: 30, valueVisible: false } );
 
     // rendering order
     var content = new Node();
