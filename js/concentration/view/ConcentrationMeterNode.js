@@ -156,7 +156,9 @@ define( function( require ) {
     thisNode.addInputListener( new MovableDragHandler( probe, mvt ) );
 
     var isInNode = function( node ) {
-      return node.getBounds().containsPoint( probe.locationProperty.get() );
+      var localPoint = node.parentToLocalPoint( probe.locationProperty.get() );
+      var nodeShape = node.getShape();
+      return nodeShape.computeBounds().hasNonzeroArea() && nodeShape.containsPoint( localPoint ); // see issue #65
     };
 
     thisNode.isInSolution = function() {
