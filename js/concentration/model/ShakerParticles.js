@@ -41,13 +41,6 @@ define( function( require ) {
     solution.solute.link( function() {
       thisParticles._removeAllParticles();
     } );
-
-    // remove all particles if the solute amount goes to zero.
-    solution.soluteAmount.link( function( amount ) {
-      if ( amount === 0 ) {
-        thisParticles._removeAllParticles();
-      }
-    } );
   }
 
   ShakerParticles.prototype = {
