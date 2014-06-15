@@ -158,7 +158,8 @@ define( function( require ) {
     var isInNode = function( node ) {
       var localPoint = node.parentToLocalPoint( probe.locationProperty.get() );
       var nodeShape = node.getShape();
-      return nodeShape.computeBounds().hasNonzeroArea() && nodeShape.containsPoint( localPoint ); // see issue #65
+      var shapeBounds = nodeShape.bounds;
+      return shapeBounds.getWidth() > 0 && shapeBounds.getHeight() > 0 && nodeShape.containsPoint( localPoint ); // see issue #65
     };
 
     thisNode.isInSolution = function() {
