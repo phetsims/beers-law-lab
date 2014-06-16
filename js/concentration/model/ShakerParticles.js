@@ -39,7 +39,7 @@ define( function( require ) {
 
     // when the solute changes, remove all particles
     solution.solute.link( function() {
-      thisParticles._removeAllParticles();
+      thisParticles.removeAllParticles();
     } );
   }
 
@@ -110,7 +110,7 @@ define( function( require ) {
       this.particles.splice( this.particles.indexOf( particle ), 1 );
     },
 
-    _removeAllParticles: function() {
+    removeAllParticles: function() {
       var particles = this.particles.slice( 0 );
       for ( var i = 0; i < particles.length; i++ ) {
         this._removeParticle( particles[i] );

@@ -18,9 +18,10 @@ define( function( require ) {
 
   /**
    * @param {ConcentrationSolution} solution
+   * @param {ShakerParticles} shakerParticles
    * @constructor
    */
-  function RemoveSoluteButton( solution ) {
+  function RemoveSoluteButton( solution, shakerParticles ) {
 
     var thisButton = this;
 
@@ -33,6 +34,7 @@ define( function( require ) {
 
     this.addListener( function() {
       solution.soluteAmount.set( 0 );
+      shakerParticles.removeAllParticles();
     } );
 
     // change the text fill to indicate whether the button is enabled

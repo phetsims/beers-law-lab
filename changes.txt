@@ -1,3 +1,4 @@
+6/16/14 #68 delete shaker particles that are in mid-air when 'Remove Solute' button is pressed
 6/14/14 #65 remove dependency on new dot.Bounds.hasNonzeroArea, since this fix is done in a release-candidate branch
 6/14/14 #66 don't delete shaker particles that are in mid-air when the amount of solute in solution goes to zero
 6/10/14 fix #65: concentration probe reads 0.000 when solution is empty

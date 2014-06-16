@@ -78,7 +78,7 @@ define( function( require ) {
     var evaporationControl = new EvaporationControl( model.evaporator );
 
     // Remove Solute button
-    var removeSoluteButton = new RemoveSoluteButton( model.solution );
+    var removeSoluteButton = new RemoveSoluteButton( model.solution, model.shakerParticles );
 
     // Reset All button
     var resetAllButton = new ResetAllButton(
