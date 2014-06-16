@@ -1,4 +1,10 @@
 6/16/14 #68 delete shaker particles that are in mid-air when 'Remove Solute' button is pressed
+6/14/14 check in dependencies.json for 1.2.0-rc.2
+# 1.2.0-rc.2 6/14/14
+6/14/14 #65 remove dependency on new dot.Bounds.hasNonzeroArea, since this fix is done in a release-candidate branch
+6/14/14 check in dependencies.json for 1.2.0-rc.1 (grabbed it from spot:dev, forgot to do it earlier)
+6/14/14 #66 don't delete shaker particles that are in mid-air when the amount of solute in solution goes to zero
+6/10/14 fix #65: concentration probe reads 0.000 when solution is empty
 # 1.2.0-rc.1 6/9/14
 6/9/14 branch 1.2 created
 5/27/14 hide value in WavelengthSlider, since it's now visible by default
