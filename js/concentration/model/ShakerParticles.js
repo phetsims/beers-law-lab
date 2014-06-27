@@ -71,7 +71,7 @@ define( function( require ) {
         var percentFull = solution.volume.get() / beaker.volume;
         var solutionSurfaceY = beaker.location.y - ( percentFull * beaker.size.height ) - solution.solute.get().particleSize;
         if ( particle.locationProperty.get().y > solutionSurfaceY ) {
-          this._removeParticle( particle );
+          this.removeParticle( particle );
           solution.soluteAmount.set( solution.soluteAmount.get() + ( 1 / solution.solute.get().particlesPerMole ) );
         }
       }
@@ -80,46 +80,48 @@ define( function( require ) {
       if ( shaker.dispensingRate.get() > 0 ) {
         var numberOfParticles = Math.round( Math.max( 1, shaker.dispensingRate.get() * solution.solute.get().particlesPerMole * deltaSeconds ) );
         for ( var j = 0; j < numberOfParticles; j++ ) {
-          this._addParticle( new ShakerParticle( solution.solute.get(), getRandomLocation( this.shaker.locationProperty.get() ), getRandomOrientation(),
-            this._getInitialVelocity(), this._getGravitationalAcceleration() ) );
+          this.addParticle( new ShakerParticle( solution.solute.get(), getRandomLocation( this.shaker.locationProperty.get() ), getRandomOrientation(),
+            this.getInitialVelocity(), this.getGravitationalAcceleration() ) );
         }
       }
 
       changed = changed || this.particles.length > 0;
 
       if ( changed ) {
-        this._fireParticlesChanged();
+        this.fireParticlesChanged();
       }
     },
 
-    // Computes an initial velocity for the particle.
-    _getInitialVelocity: function() {
+    // @private Computes an initial velocity for the particle.
+    getInitialVelocity: function() {
       return Vector2.createPolar( INITIAL_SPEED, this.shaker.orientation ); // in the direction the shaker is pointing
     },
 
-    // Gravitational acceleration is in the downward direction.
-    _getGravitationalAcceleration: function() {
+    // @private Gravitational acceleration is in the downward direction.
+    getGravitationalAcceleration: function() {
       return new Vector2( 0, GRAVITATIONAL_ACCELERATION_MAGNITUDE );
     },
 
-    _addParticle: function( particle ) {
+    // @private
+    addParticle: function( particle ) {
       this.particles.push( particle );
     },
 
-    _removeParticle: function( particle ) {
+    // @private
+    removeParticle: function( particle ) {
       this.particles.splice( this.particles.indexOf( particle ), 1 );
     },
 
     removeAllParticles: function() {
       var particles = this.particles.slice( 0 );
       for ( var i = 0; i < particles.length; i++ ) {
-        this._removeParticle( particles[i] );
+        this.removeParticle( particles[i] );
       }
-      this._fireParticlesChanged();
+      this.fireParticlesChanged();
     },
 
-    // Notify that at least one particle was added, removed, or moved
-    _fireParticlesChanged: function() {
+    // @private Notify that at least one particle was added, removed, or moved
+    fireParticlesChanged: function() {
       var changedCallbacks = this.changedCallbacks.slice( 0 );
       for ( var i = 0; i < changedCallbacks.length; i++ ) {
         changedCallbacks[i]();

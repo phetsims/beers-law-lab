@@ -29,13 +29,13 @@ define( function( require ) {
 
     // when the saturation changes, update the number of precipitate particles
     thisPrecipitate.solution.precipitateAmount.link( function() {
-      thisPrecipitate._updateParticles();
+      thisPrecipitate.updateParticles();
     } );
 
     // when the solute changes, remove all particles and create new particles for the solute
     thisPrecipitate.solution.solute.link( function() {
-      thisPrecipitate._removeAllParticles();
-      thisPrecipitate._updateParticles();
+      thisPrecipitate.removeAllParticles();
+      thisPrecipitate.updateParticles();
     } );
   }
 
@@ -49,11 +49,12 @@ define( function( require ) {
     },
 
     /*
+     * @private
      * Adds/removes particles to match the model.
      * To optimize performance, clients who register for the 'change' callback will assume that
      * particles are added/removed from the end of the 'particles' array.  See #48.
      */
-    _updateParticles: function() {
+    updateParticles: function() {
       var numberOfParticles = this.solution.getNumberOfPrecipitateParticles(); // number of particles desired after this update
       if ( numberOfParticles === this.particles.length ) {
         // no change, do nothing
@@ -61,7 +62,7 @@ define( function( require ) {
       }
       else if ( numberOfParticles === 0 ) {
         // remove all particles
-        this._removeAllParticles();
+        this.removeAllParticles();
       }
       else if ( numberOfParticles < this.particles.length ) {
         // remove some particles
@@ -71,27 +72,28 @@ define( function( require ) {
       else {
         // add some particles
         while ( numberOfParticles > this.particles.length ) {
-          this.particles.push( new PrecipitateParticle( this.solution.solute.get(), this._getRandomOffset(), getRandomOrientation() ) );
+          this.particles.push( new PrecipitateParticle( this.solution.solute.get(), this.getRandomOffset(), getRandomOrientation() ) );
         }
       }
       assert && assert( this.particles.length === numberOfParticles );
-      this._fireChanged();
+      this.fireChanged();
     },
 
-    _removeAllParticles: function() {
+    // @private
+    removeAllParticles: function() {
       this.particles = [];
     },
 
-    // Notify that the precipitate has changed.
-    _fireChanged: function() {
+    // @private Notify that the precipitate has changed.
+    fireChanged: function() {
       var changedCallbacks = this.changedCallbacks.slice( 0 ); // copy to prevent concurrent modification
       for ( var i = 0; i < changedCallbacks.length; i++ ) {
         changedCallbacks[i]( this );
       }
     },
 
-    // Gets a random location, in global model coordinate frame.
-    _getRandomOffset: function() {
+    // @private Gets a random location, in global model coordinate frame.
+    getRandomOffset: function() {
       var particleSize = this.solution.solute.get().particleSize;
       // particles are square, largest margin required is the diagonal length
       var margin = Math.sqrt( particleSize * particleSize );

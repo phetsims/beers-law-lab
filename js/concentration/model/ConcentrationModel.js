@@ -106,55 +106,55 @@ define( function( require ) {
      * @param deltaSeconds clock time change, in seconds.
      */
     step: function( deltaSeconds ) {
-      this._addSolventFromInputFaucet( deltaSeconds );
-      this._drainSolutionFromOutputFaucet( deltaSeconds );
-      this._addStockSolutionFromDropper( deltaSeconds );
-      this._evaporateSolvent( deltaSeconds );
-      this._propagateShakerParticles( deltaSeconds );
-      this._createShakerParticles();
+      this.addSolventFromInputFaucet( deltaSeconds );
+      this.drainSolutionFromOutputFaucet( deltaSeconds );
+      this.addStockSolutionFromDropper( deltaSeconds );
+      this.evaporateSolvent( deltaSeconds );
+      this.propagateShakerParticles( deltaSeconds );
+      this.createShakerParticles();
     },
 
-    // Add solvent from the input faucet
-    _addSolventFromInputFaucet: function( deltaSeconds ) {
-      this._addSolvent( this.solventFaucet.flowRate.get() * deltaSeconds );
+    // @private Add solvent from the input faucet
+    addSolventFromInputFaucet: function( deltaSeconds ) {
+      this.addSolvent( this.solventFaucet.flowRate.get() * deltaSeconds );
     },
 
-    // Drain solution from the output faucet
-    _drainSolutionFromOutputFaucet: function( deltaSeconds ) {
+    // @private Drain solution from the output faucet
+    drainSolutionFromOutputFaucet: function( deltaSeconds ) {
       var drainVolume = this.drainFaucet.flowRate.get() * deltaSeconds;
       if ( drainVolume > 0 ) {
         var concentration = this.solution.concentration.get(); // get concentration before changing volume
-        var volumeRemoved = this._removeSolvent( drainVolume );
-        this._removeSolute( concentration * volumeRemoved );
+        var volumeRemoved = this.removeSolvent( drainVolume );
+        this.removeSolute( concentration * volumeRemoved );
       }
     },
 
-    // Add stock solution from dropper
-    _addStockSolutionFromDropper: function( deltaSeconds ) {
+    // @private Add stock solution from dropper
+    addStockSolutionFromDropper: function( deltaSeconds ) {
       var dropperVolume = this.dropper.flowRate.get() * deltaSeconds;
       if ( dropperVolume > 0 ) {
-        var volumeAdded = this._addSolvent( dropperVolume );
-        this._addSolute( this.solution.solute.get().stockSolutionConcentration * volumeAdded );
+        var volumeAdded = this.addSolvent( dropperVolume );
+        this.addSolute( this.solution.solute.get().stockSolutionConcentration * volumeAdded );
       }
     },
 
-    // Evaporate solvent
-    _evaporateSolvent: function( deltaSeconds ) {
-      this._removeSolvent( this.evaporator.evaporationRate.get() * deltaSeconds );
+    // @private Evaporate solvent
+    evaporateSolvent: function( deltaSeconds ) {
+      this.removeSolvent( this.evaporator.evaporationRate.get() * deltaSeconds );
     },
 
-    // Propagate solid solute that came out of the shaker
-    _propagateShakerParticles: function( deltaSeconds ) {
+    // @private Propagates solid solute that came out of the shaker
+    propagateShakerParticles: function( deltaSeconds ) {
       this.shakerParticles.step( deltaSeconds );
     },
 
-    // Create new solute particles when the shaker is shaken.
-    _createShakerParticles: function() {
+    // @private Creates new solute particles when the shaker is shaken.
+    createShakerParticles: function() {
       this.shaker.step();
     },
 
-    // Adds solvent to the solution. Returns the amount actually added.
-    _addSolvent: function( deltaVolume ) {
+    // @private Adds solvent to the solution. Returns the amount actually added.
+    addSolvent: function( deltaVolume ) {
       if ( deltaVolume > 0 ) {
         var volumeBefore = this.solution.volume.get();
         this.solution.volume.set( Math.min( SOLUTION_VOLUME_RANGE.max, this.solution.volume.get() + deltaVolume ) );
@@ -165,8 +165,8 @@ define( function( require ) {
       }
     },
 
-    // Removes solvent from the solution. Returns the amount actually removed.
-    _removeSolvent: function( deltaVolume ) {
+    // @private Removes solvent from the solution. Returns the amount actually removed.
+    removeSolvent: function( deltaVolume ) {
       if ( deltaVolume > 0 ) {
         var volumeBefore = this.solution.volume.get();
         this.solution.volume.set( Math.max( SOLUTION_VOLUME_RANGE.min, this.solution.volume.get() - deltaVolume ) );
@@ -177,8 +177,8 @@ define( function( require ) {
       }
     },
 
-    // Adds solute to the solution. Returns the amount actually added.
-    _addSolute: function( deltaAmount ) {
+    // @private Adds solute to the solution. Returns the amount actually added.
+    addSolute: function( deltaAmount ) {
       if ( deltaAmount > 0 ) {
         var amountBefore = this.solution.soluteAmount.get();
         this.solution.soluteAmount.set( Math.min( SOLUTE_AMOUNT.max, this.solution.soluteAmount.get() + deltaAmount ) );
@@ -189,8 +189,8 @@ define( function( require ) {
       }
     },
 
-    // Removes solute from the solution. Returns the amount actually removed.
-    _removeSolute: function( deltaAmount ) {
+    // @private Removes solute from the solution. Returns the amount actually removed.
+    removeSolute: function( deltaAmount ) {
       if ( deltaAmount > 0 ) {
         var amountBefore = this.solution.soluteAmount.get();
         this.solution.soluteAmount.set( Math.max( SOLUTE_AMOUNT.min, this.solution.soluteAmount.get() - deltaAmount ) );
