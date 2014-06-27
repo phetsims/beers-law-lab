@@ -26,13 +26,13 @@ define( function( require ) {
   function BeersLawScreen() {
 
     // No offset, scale 125x when going from model to view (1cm == 125 pixels)
-    var mvt = ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 125 );
+    var modelViewTransform = ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 125 );
 
     Screen.call( this,
       beersLawString,
       new Image( screenIcon ),
-      function() { return new BeersLawModel( mvt ); },
-      function( model ) { return new BeersLawView( model, mvt ); }
+      function() { return new BeersLawModel( modelViewTransform ); },
+      function( model ) { return new BeersLawView( model, modelViewTransform ); }
     );
   }
 

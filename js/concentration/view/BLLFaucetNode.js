@@ -15,14 +15,14 @@ define( function( require ) {
 
   /**
    * @param {Faucet} faucet
-   * @param {ModelViewTransform2} mvt
+   * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function BLLFaucetNode( faucet, mvt ) {
+  function BLLFaucetNode( faucet, modelViewTransform ) {
     var scale = 0.75;
-    var horizontalPipeLength = mvt.modelToViewX( faucet.location.x - faucet.pipeMinX ) / scale;
+    var horizontalPipeLength = modelViewTransform.modelToViewX( faucet.location.x - faucet.pipeMinX ) / scale;
     FaucetNode.call( this, faucet.maxFlowRate, faucet.flowRate, faucet.enabled, { horizontalPipeLength: horizontalPipeLength, scale: scale } );
-    this.translation = mvt.modelToViewPosition( faucet.location );
+    this.translation = modelViewTransform.modelToViewPosition( faucet.location );
   }
 
   return inherit( FaucetNode, BLLFaucetNode );

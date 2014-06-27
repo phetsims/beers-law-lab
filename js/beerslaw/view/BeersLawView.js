@@ -24,20 +24,20 @@ define( function( require ) {
 
   /**
    * @param {BeersLawModel} model
-   * @param {ModelViewTransform2} mvt
+   * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function BeersLawView( model, mvt ) {
+  function BeersLawView( model, modelViewTransform ) {
 
     var thisView = this;
     ScreenView.call( thisView, { renderer: 'svg' } );
 
-    var lightNode = new LightNode( model.light, mvt );
-    var cuvetteNode = new CuvetteNode( model.cuvette, model.solution, mvt, 0.1 /* snapInterval, cm */ );
+    var lightNode = new LightNode( model.light, modelViewTransform );
+    var cuvetteNode = new CuvetteNode( model.cuvette, model.solution, modelViewTransform, 0.1 /* snapInterval, cm */ );
     var beamNode = new BeamNode( model.beam );
-    var detectorNode = new ATDetectorNode( model.detector, model.light, mvt );
+    var detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform );
     var wavelengthControls = new WavelengthControls( model.solution, model.light );
-    var rulerNode = new BLLRulerNode( model.ruler, mvt );
+    var rulerNode = new BLLRulerNode( model.ruler, modelViewTransform );
     var foregroundNode = new Node();
     var solutionControls = new SolutionControls( model.solutions, model.solution, foregroundNode );
 

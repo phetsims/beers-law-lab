@@ -45,10 +45,10 @@ define( function( require ) {
    * @param {Dropper} dropper
    * @param {Solvent} solvent
    * @param {Property<Solute>} solute
-   * @param {ModelViewTransform2} mvt
+   * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function DropperNode( dropper, solvent, solute, mvt ) {
+  function DropperNode( dropper, solvent, solute, modelViewTransform ) {
 
     var thisNode = this;
 
@@ -114,7 +114,7 @@ define( function( require ) {
 
     // Update location
     dropper.locationProperty.link( function( location ) {
-      thisNode.translation = mvt.modelToViewPosition( location );
+      thisNode.translation = modelViewTransform.modelToViewPosition( location );
     } );
 
     // Visibility
@@ -159,7 +159,7 @@ define( function( require ) {
     thisNode.touchArea = Shape.rectangle( -( ( foreground.width / 2 ) + dx ), -( foreground.height + dy ), foreground.width + dx + dx, foreground.height + dy + dy );
 
     // drag handler
-    thisNode.addInputListener( new MovableDragHandler( dropper, mvt ) );
+    thisNode.addInputListener( new MovableDragHandler( dropper, modelViewTransform ) );
   }
 
   return inherit( Node, DropperNode, {

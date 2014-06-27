@@ -50,10 +50,10 @@ define( function( require ) {
    * Note that while the body is a Movable, we have currently decided not to allow it to be moved,
    * so it has no drag handler
    * @param {ATDetector} detector
-   * @param {ModelViewTransform2} mvt
+   * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function BodyNode( detector, mvt ) {
+  function BodyNode( detector, modelViewTransform ) {
 
     var thisNode = this;
     Node.call( thisNode );
@@ -91,7 +91,7 @@ define( function( require ) {
 
     // body location
     detector.body.locationProperty.link( function( location ) {
-      thisNode.translation = mvt.modelToViewPosition( location );
+      thisNode.translation = modelViewTransform.modelToViewPosition( location );
     } );
 
     // update the value display
@@ -121,10 +121,10 @@ define( function( require ) {
    * The probe portion of the detector.
    * @param {Movable} probe
    * @param {Light} light
-   * @param {ModelViewTransform2} mvt
+   * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function ProbeNode( probe, light, mvt ) {
+  function ProbeNode( probe, light, modelViewTransform ) {
 
     var thisNode = this;
     Node.call( thisNode );
@@ -136,12 +136,12 @@ define( function( require ) {
 
     // location
     probe.locationProperty.link( function( location ) {
-      thisNode.translation = mvt.modelToViewPosition( location );
+      thisNode.translation = modelViewTransform.modelToViewPosition( location );
     } );
 
     // interactivity
     thisNode.cursor = 'pointer';
-    thisNode.addInputListener( new MovableDragHandler( probe, mvt, {
+    thisNode.addInputListener( new MovableDragHandler( probe, modelViewTransform, {
       endDrag: function() {
         // If the light is on and the probe is close enough to the beam...
         if ( light.on.get() && ( probe.locationProperty.get().x >= light.location.x ) && ( Math.abs( probe.locationProperty.get().y - light.location.y ) <= 0.5 * light.lensDiameter ) ) {
@@ -205,15 +205,15 @@ define( function( require ) {
   /**
    * @param {ATDetector} detector
    * @param {Light} light
-   * @param {ModelViewTransform2} mvt
+   * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function ATDetectorNode( detector, light, mvt ) {
+  function ATDetectorNode( detector, light, modelViewTransform ) {
 
     Node.call( this );
 
-    var bodyNode = new BodyNode( detector, mvt );
-    var probeNode = new ProbeNode( detector.probe, light, mvt );
+    var bodyNode = new BodyNode( detector, modelViewTransform );
+    var probeNode = new ProbeNode( detector.probe, light, modelViewTransform );
     var wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
 
     this.addChild( wireNode );

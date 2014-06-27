@@ -21,10 +21,10 @@ define( function( require ) {
 
   /**
    * @param {Ruler} ruler
-   * @param {ModelViewTransform2} mvt
+   * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function BLLRulerNode( ruler, mvt ) {
+  function BLLRulerNode( ruler, modelViewTransform ) {
 
     var thisNode = this;
     Node.call( thisNode );
@@ -37,9 +37,9 @@ define( function( require ) {
     }
 
     // use the common ruler node
-    var width = mvt.modelToViewDeltaX( ruler.length );
-    var height = mvt.modelToViewDeltaY( ruler.height );
-    var majorTickWidth = mvt.modelToViewDeltaX( 0.5 );
+    var width = modelViewTransform.modelToViewDeltaX( ruler.length );
+    var height = modelViewTransform.modelToViewDeltaY( ruler.height );
+    var majorTickWidth = modelViewTransform.modelToViewDeltaX( 0.5 );
     thisNode.addChild( new RulerNode( width, height, majorTickWidth, majorTickLabels, units_centimetersString,
       { minorTicksPerMajorTick: 4, insetsWidth: 0 } ) );
 
@@ -50,14 +50,14 @@ define( function( require ) {
 
     // sync with model
     ruler.locationProperty.link( function( location ) {
-      var position = mvt.modelToViewPosition( location );
+      var position = modelViewTransform.modelToViewPosition( location );
       thisNode.x = position.x;
       thisNode.y = position.y;
     } );
 
     // interactivity
     thisNode.cursor = 'pointer';
-    thisNode.addInputListener( new MovableDragHandler( ruler, mvt ) );
+    thisNode.addInputListener( new MovableDragHandler( ruler, modelViewTransform ) );
   }
 
   return inherit( Node, BLLRulerNode );

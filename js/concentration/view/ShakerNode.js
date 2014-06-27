@@ -35,10 +35,10 @@ define( function( require ) {
   /**
    * Constructor
    * @param {Shaker} shaker
-   * @param {ModelViewTransform2} mvt
+   * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function ShakerNode( shaker, mvt ) {
+  function ShakerNode( shaker, modelViewTransform ) {
 
     var thisNode = this;
     Node.call( thisNode, { renderer: 'svg', rendererOptions: { cssTransform: true } } );
@@ -103,7 +103,7 @@ define( function( require ) {
     // sync location with model
     var shakerWasMoved = false;
     shaker.locationProperty.link( function( location ) {
-      thisNode.translation = mvt.modelToViewPosition( location );
+      thisNode.translation = modelViewTransform.modelToViewPosition( location );
       shakerWasMoved = true;
       upArrowNode.visible = downArrowNode.visible = false;
     } );
@@ -126,7 +126,7 @@ define( function( require ) {
 
     // interactivity
     thisNode.cursor = 'pointer';
-    thisNode.addInputListener( new MovableDragHandler( shaker, mvt ) );
+    thisNode.addInputListener( new MovableDragHandler( shaker, modelViewTransform ) );
     thisNode.addInputListener( {
         enter: function() {
           upArrowNode.visible = downArrowNode.visible = !shakerWasMoved;

@@ -32,11 +32,11 @@ define( function( require ) {
    * Handler that is attached to the cuvette's drag handle.
    * @param {Node} cuvetteNode
    * @param {Cuvette} cuvette
-   * @param {ModelViewTransform2} mvt
+   * @param {ModelViewTransform2} modelViewTransform
    * @param {Number} snapInterval
    * @constructor
    */
-  function CuvetteDragHandler( cuvetteNode, cuvette, mvt, snapInterval ) {
+  function CuvetteDragHandler( cuvetteNode, cuvette, modelViewTransform, snapInterval ) {
 
     var startX; // x coordinate of mouse click
     var startWidth; // width of the cuvette when the drag started
@@ -52,7 +52,7 @@ define( function( require ) {
 
       drag: function( event ) {
         var dragX = event.pointer.point.x;
-        var deltaWidth = mvt.viewToModelDeltaX( dragX - startX );
+        var deltaWidth = modelViewTransform.viewToModelDeltaX( dragX - startX );
         var cuvetteWidth = Util.clamp( startWidth + deltaWidth, cuvette.widthRange.min, cuvette.widthRange.max );
         cuvette.width.set( cuvetteWidth );
       },
@@ -69,11 +69,11 @@ define( function( require ) {
   /**
    * @param {Cuvette} cuvette
    * @param {Property<BeersLawSolution>} solution
-   * @param {ModelViewTransform2} mvt
+   * @param {ModelViewTransform2} modelViewTransform
    * @param {Number} snapInterval
    * @constructor
    */
-  function CuvetteNode( cuvette, solution, mvt, snapInterval ) {
+  function CuvetteNode( cuvette, solution, modelViewTransform, snapInterval ) {
 
     var thisNode = this;
     Node.call( this );
@@ -106,8 +106,8 @@ define( function( require ) {
 
     // when the cuvette width changes ...
     cuvette.width.link( function() {
-      var width = mvt.modelToViewDeltaX( cuvette.width.get() );
-      var height = mvt.modelToViewDeltaY( cuvette.height );
+      var width = modelViewTransform.modelToViewDeltaX( cuvette.width.get() );
+      var height = modelViewTransform.modelToViewDeltaY( cuvette.height );
       cuvetteNode.setShape( new Shape().moveTo( 0, 0 ).lineTo( 0, height ).lineTo( width, height ).lineTo( width, 0 ) );
       solutionNode.setRect( 0, 0, width, PERCENT_FULL * height );
       solutionNode.left = cuvetteNode.left;
@@ -136,7 +136,7 @@ define( function( require ) {
     solutionNode.pickable = false;
     arrowNode.cursor = 'pointer';
     arrowNode.addInputListener( new FillHighlightListener( ARROW_FILL, ARROW_FILL.brighterColor() ) );
-    arrowNode.addInputListener( new CuvetteDragHandler( thisNode, cuvette, mvt, snapInterval ) );
+    arrowNode.addInputListener( new CuvetteDragHandler( thisNode, cuvette, modelViewTransform, snapInterval ) );
 
     // adjust touch area for the arrow
     var arrowBounds = arrowShape.computeBounds().copy();
@@ -145,7 +145,7 @@ define( function( require ) {
     arrowNode.touchArea = Shape.rectangle( arrowBounds.minX - dx, arrowBounds.minY - dy, arrowBounds.width + ( 2 * dx ), arrowBounds.height + ( 2 * dy ) );
 
     // location of the cuvette
-    var position = mvt.modelToViewPosition( cuvette.location );
+    var position = modelViewTransform.modelToViewPosition( cuvette.location );
     thisNode.x = position.x;
     thisNode.y = position.y;
   }

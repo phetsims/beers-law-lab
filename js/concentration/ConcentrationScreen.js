@@ -24,13 +24,13 @@ define( function( require ) {
 
   function ConcentrationScreen() {
 
-    var mvt = ModelViewTransform2.createIdentity();
+    var modelViewTransform = ModelViewTransform2.createIdentity();
 
     Screen.call( this,
       concentrationString,
       new Image( screenIcon ),
       function() { return new ConcentrationModel(); },
-      function( model ) { return new ConcentrationView( model, mvt ); }
+      function( model ) { return new ConcentrationView( model, modelViewTransform ); }
     );
   }
 

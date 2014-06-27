@@ -16,16 +16,16 @@ define( function( require ) {
 
   /**
    * @param {ShakerParticles} shakerParticles
-   * @param {ModelViewTransform2} mvt
+   * @param {ModelViewTransform2} modelViewTransform
    * @param {Bounds2} canvasBounds
    * @constructor
    */
-  function ShakerParticlesNode( shakerParticles, mvt, canvasBounds ) {
+  function ShakerParticlesNode( shakerParticles, modelViewTransform, canvasBounds ) {
 
     var thisNode = this;
 
     thisNode.shakerParticles = shakerParticles;
-    thisNode.mvt = mvt;
+    thisNode.modelViewTransform = modelViewTransform;
 
     // Initialize with a self-bounds of activeBounds
     CanvasNode.call( thisNode, { pickable: false, canvasBounds: canvasBounds } );
@@ -52,7 +52,7 @@ define( function( require ) {
         wrapper.setFillStyle( particles[0].color );
         wrapper.setStrokeStyle( particles[0].color.darkerColor() );
         wrapper.setLineWidth( 1 );
-        halfViewSize = this.mvt.modelToViewDeltaX( particles[0].size ) * Math.SQRT2 / 2;
+        halfViewSize = this.modelViewTransform.modelToViewDeltaX( particles[0].size ) * Math.SQRT2 / 2;
         context.beginPath();
       }
 
@@ -60,7 +60,7 @@ define( function( require ) {
       for ( var i = 0; i < length; i++ ) {
         var particle = particles[i];
 
-        var position = this.mvt.modelToViewPosition( particle.locationProperty.get() );
+        var position = this.modelViewTransform.modelToViewPosition( particle.locationProperty.get() );
         var x = position.x;
         var y = position.y;
         var cos = Math.cos( particle.orientation ) * halfViewSize;

@@ -31,44 +31,44 @@ define( function( require ) {
 
   /**
    * @param {ConcentrationModel} model
-   * @param {ModelViewTransform2} mvt
+   * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function ConcentrationView( model, mvt ) {
+  function ConcentrationView( model, modelViewTransform ) {
 
     var thisView = this;
     ScreenView.call( thisView, { renderer: 'svg' } );
 
     // Beaker and stuff inside it
-    var beakerNode = new BeakerNode( model.beaker, mvt );
-    var solutionNode = new SolutionNode( model.solution, model.beaker, mvt );
-    var precipitateNode = new PrecipitateNode( model.precipitate, mvt );
+    var beakerNode = new BeakerNode( model.beaker, modelViewTransform );
+    var solutionNode = new SolutionNode( model.solution, model.beaker, modelViewTransform );
+    var precipitateNode = new PrecipitateNode( model.precipitate, modelViewTransform );
     var saturatedIndicator = new SaturatedIndicator( model.solution );
 
     // Shaker
-    var shakerNode = new ShakerNode( model.shaker, mvt );
+    var shakerNode = new ShakerNode( model.shaker, modelViewTransform );
 
     // Shaker particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
     var shakerParticlesBounds = new Bounds2(
-      mvt.modelToViewX( model.beaker.getLeft() ), thisView.layoutBounds.minY,
-      mvt.modelToViewX( model.beaker.getRight() ), mvt.modelToViewY( model.beaker.location.y ) );
-    var shakerParticlesNode = new ShakerParticlesNode( model.shakerParticles, mvt, shakerParticlesBounds );
+      modelViewTransform.modelToViewX( model.beaker.getLeft() ), thisView.layoutBounds.minY,
+      modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.location.y ) );
+    var shakerParticlesNode = new ShakerParticlesNode( model.shakerParticles, modelViewTransform, shakerParticlesBounds );
 
     // Dropper
-    var dropperNode = new DropperNode( model.dropper, model.solution.solvent, model.solution.solute, mvt );
-    var stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.solute, model.dropper, model.beaker, dropperNode.getTipWidth(), mvt );
+    var dropperNode = new DropperNode( model.dropper, model.solution.solvent, model.solution.solute, modelViewTransform );
+    var stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.solute, model.dropper, model.beaker, dropperNode.getTipWidth(), modelViewTransform );
 
     // faucets
-    var solventFaucetNode = new BLLFaucetNode( model.solventFaucet, mvt );
-    var drainFaucetNode = new BLLFaucetNode( model.drainFaucet, mvt );
+    var solventFaucetNode = new BLLFaucetNode( model.solventFaucet, modelViewTransform );
+    var drainFaucetNode = new BLLFaucetNode( model.drainFaucet, modelViewTransform );
     var SOLVENT_FLUID_HEIGHT = model.beaker.location.y - model.solventFaucet.location.y;
     var DRAIN_FLUID_HEIGHT = 1000; // tall enough that resizing the play area is unlikely to show bottom of fluid
-    var solventFluidNode = new FaucetFluidNode( model.solventFaucet, model.solution.solvent, SOLVENT_FLUID_HEIGHT, mvt );
-    var drainFluidNode = new FaucetFluidNode( model.drainFaucet, model.solution, DRAIN_FLUID_HEIGHT, mvt );
+    var solventFluidNode = new FaucetFluidNode( model.solventFaucet, model.solution.solvent, SOLVENT_FLUID_HEIGHT, modelViewTransform );
+    var drainFluidNode = new FaucetFluidNode( model.drainFaucet, model.solution, DRAIN_FLUID_HEIGHT, modelViewTransform );
 
     // Concentration meter
     var concentrationMeterNode = new ConcentrationMeterNode( model.concentrationMeter, model.solution, model.dropper,
-      solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, mvt );
+      solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, modelViewTransform );
 
     // Solute controls
     var soluteListParent = new Node();
@@ -119,7 +119,7 @@ define( function( require ) {
       soluteControls.right = concentrationMeterNode.right + 100;
       soluteControls.top = 20;
       // left-aligned below beaker
-      evaporationControl.left = mvt.modelToViewPosition( model.beaker.location ).x - mvt.modelToViewDeltaX( model.beaker.size.width / 2 );
+      evaporationControl.left = modelViewTransform.modelToViewPosition( model.beaker.location ).x - modelViewTransform.modelToViewDeltaX( model.beaker.size.width / 2 );
       evaporationControl.top = beakerNode.bottom + 30;
       // left of evaporation control
       removeSoluteButton.left = evaporationControl.right + 30;

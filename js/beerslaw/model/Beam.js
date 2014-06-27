@@ -33,10 +33,10 @@ define( function( require ) {
    * @param {Cuvette} cuvette
    * @param {ATDetector} detector
    * @param {Absorbance} absorbance
-   * @param {ModelViewTransform2} mvt
+   * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function Beam( light, cuvette, detector, absorbance, mvt ) {
+  function Beam( light, cuvette, detector, absorbance, modelViewTransform ) {
 
     var thisBeam = this;
 
@@ -53,10 +53,10 @@ define( function( require ) {
     // update shape of the beam
     var updateShape = function() {
       if ( thisBeam.visible.get() ) {
-        var x = mvt.modelToViewPosition( light.location ).x;
-        var y = mvt.modelToViewPosition( light.location ).y - mvt.modelToViewDeltaY( light.lensDiameter / 2 );
-        var w = mvt.modelToViewDeltaX( detector.probeInBeam() ? detector.probe.locationProperty.get().x - light.location.x : MAX_LIGHT_WIDTH );
-        var h = mvt.modelToViewDeltaY( light.lensDiameter );
+        var x = modelViewTransform.modelToViewPosition( light.location ).x;
+        var y = modelViewTransform.modelToViewPosition( light.location ).y - modelViewTransform.modelToViewDeltaY( light.lensDiameter / 2 );
+        var w = modelViewTransform.modelToViewDeltaX( detector.probeInBeam() ? detector.probe.locationProperty.get().x - light.location.x : MAX_LIGHT_WIDTH );
+        var h = modelViewTransform.modelToViewDeltaY( light.lensDiameter );
         thisBeam.shape.set( Shape.rect( x, y, w, h ) );
       }
     };
@@ -70,8 +70,8 @@ define( function( require ) {
         var baseColor = VisibleColor.wavelengthToColor( light.wavelength.get() );
         var leftColor = baseColor.withAlpha( MAX_LIGHT_ALPHA );
         var rightColor = baseColor.withAlpha( Util.linear( 0, 1, MIN_LIGHT_ALPHA, MAX_LIGHT_ALPHA, absorbance.getTransmittance() ) );
-        var x = mvt.modelToViewPosition( cuvette.location ).x;
-        var w = mvt.modelToViewDeltaX( cuvette.width.get() );
+        var x = modelViewTransform.modelToViewPosition( cuvette.location ).x;
+        var w = modelViewTransform.modelToViewDeltaX( cuvette.width.get() );
         thisBeam.fill.set( new LinearGradient( x, 0, x + w, 0 ).addColorStop( 0, leftColor ).addColorStop( 1, rightColor ) );
       }
     };

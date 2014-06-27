@@ -22,10 +22,10 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   /**
-   * @param {ModelViewTransform2} mvt
+   * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function BeersLawModel( mvt ) {
+  function BeersLawModel( modelViewTransform ) {
 
     var thisModel = this;
 
@@ -61,7 +61,7 @@ define( function( require ) {
       new Bounds2( 0, 0, 7.9, 5.25 ),
       thisModel.light, thisModel.cuvette, thisModel.absorbance );
 
-    this.beam = new Beam( thisModel.light, thisModel.cuvette, thisModel.detector, thisModel.absorbance, mvt );
+    this.beam = new Beam( thisModel.light, thisModel.cuvette, thisModel.detector, thisModel.absorbance, modelViewTransform );
   }
 
   BeersLawModel.prototype = {

@@ -17,10 +17,10 @@ define( function( require ) {
 
   /**
    * @param {Precipitate} precipitate
-   * @param {ModelViewTransform2} mvt
+   * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function PrecipitateNode( precipitate, mvt ) {
+  function PrecipitateNode( precipitate, modelViewTransform ) {
 
     var thisNode = this;
     Node.call( thisNode, { pickable: false } );
@@ -45,7 +45,7 @@ define( function( require ) {
         // add nodes
         var index = particlesParent.getChildrenCount();
         while ( index < numberOfParticles ) {
-          particlesParent.addChild( new ParticleNode( precipitate.particles[index], mvt ) );
+          particlesParent.addChild( new ParticleNode( precipitate.particles[index], modelViewTransform ) );
           index++;
         }
       }
