@@ -1,3 +1,4 @@
+7/29/14 check in beers-law-lab-128.png (website thumbnail)
 6/26/14 #69 replace underscore with @private for private fields
 6/26/14 #71 change mvt to modelViewTransform
 6/16/14 #68 delete shaker particles that are in mid-air when 'Remove Solute' button is pressed
