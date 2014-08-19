@@ -11,8 +11,8 @@ define( function( require ) {
   // modules
   var ATDetectorNode = require( 'BEERS_LAW_LAB/beerslaw/view/ATDetectorNode' );
   var BeamNode = require( 'BEERS_LAW_LAB/beerslaw/view/BeamNode' );
+  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var BLLRulerNode = require( 'BEERS_LAW_LAB/beerslaw/view/BLLRulerNode' );
-  var Bounds2 = require( 'DOT/Bounds2' );
   var CuvetteNode = require( 'BEERS_LAW_LAB/beerslaw/view/CuvetteNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LightNode = require( 'BEERS_LAW_LAB/beerslaw/view/LightNode' );
@@ -30,7 +30,7 @@ define( function( require ) {
   function BeersLawView( model, modelViewTransform ) {
 
     var thisView = this;
-    ScreenView.call( thisView, { renderer: 'svg', layoutBounds: new Bounds2( 0, 0, 1140, 700 ) } );
+    ScreenView.call( thisView, BLLConstants.SCREEN_VIEW_OPTIONS );
 
     var lightNode = new LightNode( model.light, modelViewTransform );
     var cuvetteNode = new CuvetteNode( model.cuvette, model.solution, modelViewTransform, 0.1 /* snapInterval, cm */ );

@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var BeakerNode = require( 'BEERS_LAW_LAB/concentration/view/BeakerNode' );
+  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var BLLFaucetNode = require( 'BEERS_LAW_LAB/concentration/view/BLLFaucetNode' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var ConcentrationMeterNode = require( 'BEERS_LAW_LAB/concentration/view/ConcentrationMeterNode' );
@@ -37,7 +38,7 @@ define( function( require ) {
   function ConcentrationView( model, modelViewTransform ) {
 
     var thisView = this;
-    ScreenView.call( thisView, { renderer: 'svg', layoutBounds: new Bounds2( 0, 0, 1140, 700 ) } );
+    ScreenView.call( thisView, BLLConstants.SCREEN_VIEW_OPTIONS );
 
     // Beaker and stuff inside it
     var beakerNode = new BeakerNode( model.beaker, modelViewTransform );
