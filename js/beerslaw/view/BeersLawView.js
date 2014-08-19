@@ -30,7 +30,7 @@ define( function( require ) {
   function BeersLawView( model, modelViewTransform ) {
 
     var thisView = this;
-    ScreenView.call( thisView, { renderer: 'svg' } );
+    ScreenView.call( thisView, { renderer: 'svg', layoutBounds: new Bounds2( 0, 0, 1140, 700 ) } );
 
     var lightNode = new LightNode( model.light, modelViewTransform );
     var cuvetteNode = new CuvetteNode( model.cuvette, model.solution, modelViewTransform, 0.1 /* snapInterval, cm */ );
@@ -76,5 +76,5 @@ define( function( require ) {
     }
   }
 
-  return inherit( ScreenView, BeersLawView, { layoutBounds: new Bounds2( 0, 0, 1140, 700 ) } );
+  return inherit( ScreenView, BeersLawView );
 } );

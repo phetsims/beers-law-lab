@@ -37,7 +37,7 @@ define( function( require ) {
   function ConcentrationView( model, modelViewTransform ) {
 
     var thisView = this;
-    ScreenView.call( thisView, { renderer: 'svg' } );
+    ScreenView.call( thisView, { renderer: 'svg', layoutBounds: new Bounds2( 0, 0, 1140, 700 ) } );
 
     // Beaker and stuff inside it
     var beakerNode = new BeakerNode( model.beaker, modelViewTransform );
@@ -130,5 +130,5 @@ define( function( require ) {
     }
   }
 
-  return inherit( ScreenView, ConcentrationView, { layoutBounds: new Bounds2( 0, 0, 1100, 700 ) } );
+  return inherit( ScreenView, ConcentrationView );
 } );
