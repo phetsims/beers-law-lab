@@ -1,3 +1,4 @@
+8/25/14 #74 check in spreadsheet with revised data for KMnO4
 8/19/14 specify common ScreenView options in BLLConstants.SCREEN_VIEW_OPTIONS
 7/29/14 check in beers-law-lab-128.png (website thumbnail)
 6/26/14 #69 replace underscore with @private for private fields
