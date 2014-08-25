@@ -53,6 +53,7 @@ define( function( require ) {
     }
   } );
 
+  // specific transforms
   ConcentrationTransform.mM = new ConcentrationTransform( 1000, units_mMString );
   ConcentrationTransform.uM = new ConcentrationTransform( 1000000, units_uMString );
 
