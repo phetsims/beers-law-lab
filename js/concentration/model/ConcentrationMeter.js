@@ -14,6 +14,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
 
@@ -30,14 +31,12 @@ define( function( require ) {
     this.probe = new Movable( probeLocation, probeDragBounds );
   }
 
-  ConcentrationMeter.prototype = {
+  return inherit( Object, ConcentrationMeter, {
     reset: function() {
       this.value.reset();
       this.body.reset();
       this.probe.reset();
     }
-  };
-
-  return ConcentrationMeter;
+  } );
 
 } );

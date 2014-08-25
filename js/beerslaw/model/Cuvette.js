@@ -15,6 +15,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
 
   /**
@@ -30,11 +31,9 @@ define( function( require ) {
     this.height = height;
   }
 
-  Cuvette.prototype = {
+  return inherit( Object, Cuvette, {
     reset: function() {
       this.width.reset();
     }
-  };
-
-  return Cuvette;
+  } );
 } );

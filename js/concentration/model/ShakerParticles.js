@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var inherit = require( 'PHET_CORE/inherit' );
   var ShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticle' );
   var Vector2 = require( 'DOT/Vector2' );
 
@@ -43,7 +44,25 @@ define( function( require ) {
     } );
   }
 
-  ShakerParticles.prototype = {
+  // Gets a random location relative to some origin
+  var getRandomLocation = function( origin ) {
+    // (Math.floor(Math.random() * (randNumMax - randNumMin + 1)) + randNumMin);
+    var xOffset = getRandomInt( -MAX_X_OFFSET, MAX_X_OFFSET ); // positive or negative
+    var yOffset = getRandomInt( 0, MAX_Y_OFFSET ); // positive only
+    return new Vector2( origin.x + xOffset, origin.y + yOffset );
+  };
+
+  // Gets a random number in a range
+  var getRandomInt = function( min, max ) {
+    return (Math.floor( Math.random() * (max - min + 1) ) + min);
+  };
+
+  // Gets a random orientation, in radians.
+  var getRandomOrientation = function() {
+    return Math.random() * 2 * Math.PI;
+  };
+
+  return inherit( Object, ShakerParticles, {
 
     /**
      * Registers a callback that will be notified when particles move, or when all particles are removed.
@@ -127,25 +146,5 @@ define( function( require ) {
         changedCallbacks[i]();
       }
     }
-  };
-
-  // Gets a random location relative to some origin
-  var getRandomLocation = function( origin ) {
-    // (Math.floor(Math.random() * (randNumMax - randNumMin + 1)) + randNumMin);
-    var xOffset = getRandomInt( -MAX_X_OFFSET, MAX_X_OFFSET ); // positive or negative
-    var yOffset = getRandomInt( 0, MAX_Y_OFFSET ); // positive only
-    return new Vector2( origin.x + xOffset, origin.y + yOffset );
-  };
-
-  // Gets a random number in a range
-  var getRandomInt = function( min, max ) {
-    return (Math.floor( Math.random() * (max - min + 1) ) + min);
-  };
-
-  // Gets a random orientation, in radians.
-  var getRandomOrientation = function() {
-    return Math.random() * 2 * Math.PI;
-  };
-
-  return ShakerParticles;
+  } );
 } );

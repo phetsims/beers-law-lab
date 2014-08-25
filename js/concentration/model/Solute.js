@@ -11,6 +11,7 @@ define( function( require ) {
   // modules
   var BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
   var Color = require( 'SCENERY/util/Color' );
+  var inherit = require( 'PHET_CORE/inherit' );
   var SoluteColorScheme = require( 'BEERS_LAW_LAB/concentration/model/SoluteColorScheme' );
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
 
@@ -45,12 +46,12 @@ define( function( require ) {
     this.particlesPerMole = particlesPerMole || 200;
   }
 
-  Solute.prototype = {
+  inherit( Object, Solute, {
     // convenience method
     getSaturatedConcentration: function() {
       return this.colorScheme.maxConcentration;
     }
-  };
+  } );
 
   // Specific solutes ===========================================
 

@@ -88,7 +88,7 @@ define( function( require ) {
     absorbance.value.link( updateValue );
   }
 
-  ATDetector.prototype = {
+  return inherit( Object, ATDetector, {
 
     reset: function() {
       this.body.reset();
@@ -103,13 +103,11 @@ define( function( require ) {
              ( this.probe.getMaxY() > this.light.getMaxY() ) &&
              ( this.probe.locationProperty.get().x > this.light.location.x );
     }
-  };
-
-  // Modes for the detector
-  ATDetector.Mode = {
-    'TRANSMITTANCE': 0,
-    'ABSORBANCE': 1
-  };
-
-  return ATDetector;
+  }, {
+    // @static Modes for the detector
+    Mode: {
+      'TRANSMITTANCE': 0,
+      'ABSORBANCE': 1
+    }
+  } );
 } );

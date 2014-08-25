@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var inherit = require( 'PHET_CORE/inherit' );
   var PrecipitateParticle = require( 'BEERS_LAW_LAB/concentration/model/PrecipitateParticle' );
   var Vector2 = require( 'DOT/Vector2' );
 
@@ -39,7 +40,13 @@ define( function( require ) {
     } );
   }
 
-  Precipitate.prototype = {
+  // Gets a random orientation, in radians.
+  var getRandomOrientation = function() {
+    return Math.random() * 2 * Math.PI;
+  };
+
+  return inherit( Object, Precipitate, {
+
     /**
      * Registers a callback that will be notified when the precipitate changes.
      * @param {Precipitate~Callback} callback has a {Particle} parameter
@@ -102,12 +109,5 @@ define( function( require ) {
       var y = this.beaker.location.y - margin; // this was tweaked based on the lineWidth used to stroke the beaker
       return new Vector2( x, y );
     }
-  };
-
-  // Gets a random orientation, in radians.
-  var getRandomOrientation = function() {
-    return Math.random() * 2 * Math.PI;
-  };
-
-  return Precipitate;
+  } );
 } );

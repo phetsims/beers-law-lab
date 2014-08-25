@@ -11,6 +11,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var inherit = require( 'PHET_CORE/inherit' );
   var interpolateRBGA = require( 'SCENERY/util/Color' ).interpolateRBGA;
 
   /**
@@ -31,7 +32,7 @@ define( function( require ) {
     this.maxConcentration = maxConcentration;
   }
 
-  SoluteColorScheme.prototype = {
+  return inherit( Object, SoluteColorScheme, {
 
     /**
      * Converts a concentration value to a Color, using a linear interpolation of RGB colors.
@@ -52,7 +53,5 @@ define( function( require ) {
         return interpolateRBGA( this.midColor, this.maxColor, ( concentration - this.midConcentration ) / ( this.maxConcentration - this.midConcentration ) );
       }
     }
-  };
-
-  return SoluteColorScheme;
+  } );
 } );

@@ -17,6 +17,7 @@ define( function( require ) {
   var Dropper = require( 'BEERS_LAW_LAB/concentration/model/Dropper' );
   var Evaporator = require( 'BEERS_LAW_LAB/concentration/model/Evaporator' );
   var Faucet = require( 'BEERS_LAW_LAB/concentration/model/Faucet' );
+  var inherit = require( 'PHET_CORE/inherit' );
   var Precipitate = require( 'BEERS_LAW_LAB/concentration/model/Precipitate' );
   var Property = require( 'AXON/Property' );
   var Range = require( 'DOT/Range' );
@@ -87,7 +88,7 @@ define( function( require ) {
     } );
   }
 
-  ConcentrationModel.prototype = {
+  return inherit( Object, ConcentrationModel, {
 
     // Resets all model elements
     reset: function() {
@@ -200,7 +201,5 @@ define( function( require ) {
         return 0;
       }
     }
-  };
-
-  return ConcentrationModel;
+  } );
 } );

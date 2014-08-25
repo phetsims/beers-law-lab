@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
 
   /**
@@ -34,7 +35,7 @@ define( function( require ) {
     } );
   }
 
-  Light.prototype = {
+  return inherit( Object, Light, {
 
     reset: function() {
       this.on.reset();
@@ -47,7 +48,5 @@ define( function( require ) {
     getMaxY: function() {
       return this.location.y + ( this.lensDiameter / 2 );
     }
-  };
-
-  return Light;
+  } );
 } );

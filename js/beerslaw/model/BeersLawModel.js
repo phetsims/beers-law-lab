@@ -15,6 +15,7 @@ define( function( require ) {
   var BeersLawSolution = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolution' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var Cuvette = require( 'BEERS_LAW_LAB/beerslaw/model/Cuvette' );
+  var inherit = require( 'PHET_CORE/inherit' );
   var Light = require( 'BEERS_LAW_LAB/beerslaw/model/Light' );
   var Property = require( 'AXON/Property' );
   var Range = require( 'DOT/Range' );
@@ -64,7 +65,7 @@ define( function( require ) {
     this.beam = new Beam( thisModel.light, thisModel.cuvette, thisModel.detector, thisModel.absorbance, modelViewTransform );
   }
 
-  BeersLawModel.prototype = {
+  return inherit( Object, BeersLawModel, {
 
     // Resets all model elements
     reset: function() {
@@ -77,7 +78,5 @@ define( function( require ) {
       this.detector.reset();
       this.ruler.reset();
     }
-  };
-
-  return BeersLawModel;
+  } );
 } );

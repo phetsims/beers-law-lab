@@ -5,8 +5,11 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function() {
+define( function( require ) {
   'use strict';
+
+  // modules
+  var inherit = require( 'PHET_CORE/inherit' );
 
   /**
    * Constructor
@@ -21,7 +24,7 @@ define( function() {
     this.volume = volume;
   }
 
-  Beaker.prototype = {
+  return inherit( Object, Beaker, {
 
     reset: function() {
       // currently nothing to reset
@@ -36,7 +39,5 @@ define( function() {
     getRight: function() {
       return this.location.x + ( this.size.width / 2 );
     }
-  };
-
-  return Beaker;
+  } );
 } );

@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
 
   /**
@@ -37,12 +38,10 @@ define( function( require ) {
     } );
   }
 
-  Evaporator.prototype = {
+  return inherit( Object, Evaporator, {
     reset: function() {
       this.evaporationRate.reset();
       this.enabled.reset();
     }
-  };
-
-  return Evaporator;
+  } );
 } );

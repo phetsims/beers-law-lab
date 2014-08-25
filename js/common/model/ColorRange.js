@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var Color = require( 'SCENERY/util/Color' );
+  var inherit = require( 'PHET_CORE/inherit' );
 
   /**
    * @param {Color} min
@@ -21,7 +22,7 @@ define( function( require ) {
     this.max = max;
   }
 
-  ColorRange.prototype = {
+  return inherit( Object, ColorRange, {
 
     /**
      * Performs a linear interpolation between min and max colors in RGBA colorspace.
@@ -33,7 +34,5 @@ define( function( require ) {
       assert && assert( distance >= 0 && distance <= 1 );
       return Color.interpolateRBGA( this.min, this.max, distance );
     }
-  };
-
-  return ColorRange;
+  } );
 } );

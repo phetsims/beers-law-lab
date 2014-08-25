@@ -22,6 +22,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
 
   /**
@@ -102,24 +103,6 @@ define( function( require ) {
     }
   }
 
-  Absorbance.prototype = {
-
-    // Gets absorbance for a specified path length.
-    getAbsorbanceAt: function( pathLength ) {
-      return getAbsorbance( this.molarAbsorptivity.get(), pathLength, this.concentration.get() );
-    },
-
-    // Gets transmittance for a specified path length.
-    getTransmittanceAt: function( pathLength ) {
-      return getTransmittance( this.getAbsorbanceAt( pathLength ) );
-    },
-
-    // Converts absorbance to transmittance.
-    getTransmittance: function() {
-      return getTransmittance( this.value.get() );
-    }
-  };
-
   /*
    * General model of absorbance: A = abC
    * @param {Number} molarAbsorptivity
@@ -140,7 +123,23 @@ define( function( require ) {
     return Math.pow( 10, -absorbance );
   };
 
-  return Absorbance;
+  return inherit( Object, Absorbance, {
+
+    // Gets absorbance for a specified path length.
+    getAbsorbanceAt: function( pathLength ) {
+      return getAbsorbance( this.molarAbsorptivity.get(), pathLength, this.concentration.get() );
+    },
+
+    // Gets transmittance for a specified path length.
+    getTransmittanceAt: function( pathLength ) {
+      return getTransmittance( this.getAbsorbanceAt( pathLength ) );
+    },
+
+    // Converts absorbance to transmittance.
+    getTransmittance: function() {
+      return getTransmittance( this.value.get() );
+    }
+  } );
 } );
 
 

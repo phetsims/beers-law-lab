@@ -19,6 +19,7 @@ define( function( require ) {
   var Color = require( 'SCENERY/util/Color' );
   var ColorRange = require( 'BEERS_LAW_LAB/common/model/ColorRange' );
   var ConcentrationTransform = require( 'BEERS_LAW_LAB/beerslaw/model/ConcentrationTransform' );
+  var inherit = require( 'PHET_CORE/inherit' );
   var MolarAbsorptivityData = require( 'BEERS_LAW_LAB/beerslaw/model/MolarAbsorptivityData' );
   var Property = require( 'AXON/Property' );
   var Range = require( 'DOT/Range' );
@@ -79,7 +80,7 @@ define( function( require ) {
     } );
   }
 
-  BeersLawSolution.prototype = {
+  inherit( Object, BeersLawSolution, {
 
     reset: function() {
       this.concentration.reset();
@@ -96,7 +97,7 @@ define( function( require ) {
       return StringUtils.format( pattern_0value_1units,
         this.concentrationTransform.modelToView( concentration ).toFixed( 0 ), this.concentrationTransform.units );
     }
-  };
+  } );
 
   //-------------------------------------------------------------------------------------------
   // Specific solutions below ...

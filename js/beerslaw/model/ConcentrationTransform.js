@@ -15,6 +15,9 @@
 define( function( require ) {
   'use strict';
 
+  // modules
+  var inherit = require( 'PHET_CORE/inherit' );
+
   // strings
   var units_mMString = require( 'string!BEERS_LAW_LAB/units.mM' );
   var units_uMString = require( 'string!BEERS_LAW_LAB/units.uM' );
@@ -29,7 +32,7 @@ define( function( require ) {
     this.units = units;
   }
 
-  ConcentrationTransform.prototype = {
+  inherit( Object, ConcentrationTransform, {
 
     /**
      * Converts from model (M) to view (solution specific).
@@ -48,7 +51,7 @@ define( function( require ) {
     viewToModel: function( viewConcentration ) {
       return viewConcentration / this.scale;
     }
-  };
+  } );
 
   ConcentrationTransform.mM = new ConcentrationTransform( 1000, units_mMString );
   ConcentrationTransform.uM = new ConcentrationTransform( 1000000, units_uMString );
