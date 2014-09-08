@@ -24,7 +24,7 @@ define( function( require ) {
    * @param disabledImage
    * @param {Property<Boolean>} onProperty
    * @param {Property<Boolean>} enabledProperty
-   * @param {*} options
+   * @param {Object} options
    * @constructor
    */
   function ToggleButton( unpressedImage, pressedImage, disabledImage, onProperty, enabledProperty, options ) {
