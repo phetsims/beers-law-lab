@@ -1,3 +1,4 @@
+9/15/14 #74 revised spectroscopy data for KMnO4
 9/8/14 use {Object} instead of {*} as type expression for options param
 8/25/14 #72 replace explicit prototype assignment with inherit(Object,...)
 8/25/14 replace 'new Array(...)' with '[...]' in MolarAbsorptivityData
