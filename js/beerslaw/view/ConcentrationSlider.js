@@ -253,8 +253,8 @@ define( function( require ) {
 
     var concentrationObserver = function( concentration ) {
       // buttons
-      plusButton.setEnabled( concentration < solution.get().concentrationRange.max );
-      minusButton.setEnabled( concentration > solution.get().concentrationRange.min );
+      plusButton.enabled = ( concentration < solution.get().concentrationRange.max );
+      minusButton.enabled = ( concentration > solution.get().concentrationRange.min );
     };
 
     // update the tick labels to match the solution
