@@ -38,7 +38,10 @@ define( function( require ) {
 
   return inherit( CanvasNode, ShakerParticlesNode, {
 
-    // @param {CanvasContextWrapper} wrapper
+    /**
+     * @override
+     * @param {CanvasContextWrapper} wrapper
+     */
     paintCanvas: function( wrapper ) {
       var context = wrapper.context;
 
