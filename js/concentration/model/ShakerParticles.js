@@ -68,7 +68,7 @@ define( function( require ) {
      * Registers a callback that will be notified when particles move, or when all particles are removed.
      * @param {ShakerParticles~Callback} callback
      */
-    registerParticleChangedCallback: function( callback ) {
+    registerChangedCallback: function( callback ) {
       this.changedCallbacks.push( callback );
     },
 

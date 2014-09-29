@@ -19,13 +19,12 @@ define( function( require ) {
   var FaucetFluidNode = require( 'BEERS_LAW_LAB/concentration/view/FaucetFluidNode' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var PrecipitateNode = require( 'BEERS_LAW_LAB/concentration/view/PrecipitateNode' );
+  var ParticlesNode = require( 'BEERS_LAW_LAB/concentration/view/ParticlesNode' );
   var RemoveSoluteButton = require( 'BEERS_LAW_LAB/concentration/view/RemoveSoluteButton' );
   var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
   var SaturatedIndicator = require( 'BEERS_LAW_LAB/concentration/view/SaturatedIndicator' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var ShakerNode = require( 'BEERS_LAW_LAB/concentration/view/ShakerNode' );
-  var ShakerParticlesNode = require( 'BEERS_LAW_LAB/concentration/view/ShakerParticlesNode' );
   var SoluteControls = require( 'BEERS_LAW_LAB/concentration/view/SoluteControls' );
   var SolutionNode = require( 'BEERS_LAW_LAB/concentration/view/SolutionNode' );
   var StockSolutionNode = require( 'BEERS_LAW_LAB/concentration/view/StockSolutionNode' );
@@ -44,7 +43,7 @@ define( function( require ) {
     var beakerNode = new BeakerNode( model.beaker, modelViewTransform );
     var solutionNode = new SolutionNode( model.solution, model.beaker, modelViewTransform );
     // Precipitate particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
-    var precipitateNode = new PrecipitateNode( model.precipitate, modelViewTransform, new Bounds2(
+    var precipitateNode = new ParticlesNode( model.precipitate, modelViewTransform, new Bounds2(
       modelViewTransform.modelToViewX( model.beaker.getLeft() ), modelViewTransform.modelToViewY( model.beaker.location.y ) - 100,
       modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.location.y ) ) );
     var saturatedIndicator = new SaturatedIndicator( model.solution );
@@ -53,7 +52,7 @@ define( function( require ) {
     var shakerNode = new ShakerNode( model.shaker, modelViewTransform );
 
     // Shaker particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
-    var shakerParticlesNode = new ShakerParticlesNode( model.shakerParticles, modelViewTransform, new Bounds2(
+    var shakerParticlesNode = new ParticlesNode( model.shakerParticles, modelViewTransform, new Bounds2(
       modelViewTransform.modelToViewX( model.beaker.getLeft() ), thisView.layoutBounds.minY,
       modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.location.y ) ) );
 

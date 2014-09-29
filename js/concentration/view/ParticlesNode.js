@@ -1,8 +1,8 @@
-// Copyright 2002-2013, University of Colorado Boulder
+// Copyright 2002-20144, University of Colorado Boulder
 
 /**
- * Manages the solid solute particles as they travel between the shaker and their inevitable demise in the beaker.
- * Rendered directly to canvas for performance.
+ * Draws particles directly to canvas for performance.
+ * Used for drawing particles that fall out of the shaker, and for precipitate on the bottom of the beaker.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  * @author Jonathan Olson
@@ -15,37 +15,36 @@ define( function( require ) {
   var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
 
   /**
-   * @param {ShakerParticles} shakerParticles
+   * @param { particles: [Particle], registerChangedCallback: {function} } modelElement model element that has particles
    * @param {ModelViewTransform2} modelViewTransform
    * @param {Bounds2} canvasBounds
    * @constructor
    */
-  function ShakerParticlesNode( shakerParticles, modelViewTransform, canvasBounds ) {
+  function ParticlesNode( modelElement, modelViewTransform, canvasBounds ) {
 
     var thisNode = this;
 
-    thisNode.shakerParticles = shakerParticles;
+    thisNode.modelElement = modelElement;
     thisNode.modelViewTransform = modelViewTransform;
 
-    // Initialize with a self-bounds of activeBounds
     CanvasNode.call( thisNode, { pickable: false, canvasBounds: canvasBounds } );
 
-    // if during a step we change, then trigger a repaint
-    shakerParticles.registerParticleChangedCallback( function() {
+    modelElement.registerChangedCallback( function() {
       thisNode.invalidatePaint();
     } );
   }
 
-  return inherit( CanvasNode, ShakerParticlesNode, {
+  return inherit( CanvasNode, ParticlesNode, {
 
     /**
      * @override
      * @param {CanvasContextWrapper} wrapper
      */
     paintCanvas: function( wrapper ) {
+
       var context = wrapper.context;
 
-      var particles = this.shakerParticles.particles;
+      var particles = this.modelElement.particles;
       var halfViewSize;
       var numberOfParticles = particles.length;
 
