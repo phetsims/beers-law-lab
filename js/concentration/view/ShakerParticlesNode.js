@@ -47,11 +47,11 @@ define( function( require ) {
 
       var particles = this.shakerParticles.particles;
       var halfViewSize;
-      var length = particles.length;
+      var numberOfParticles = particles.length;
 
       // Set and compute static properties that should be shared by all of the particles, and start the path.
       // Assumes that all particles are the same color and size.
-      if ( length ) {
+      if ( numberOfParticles > 0 ) {
         wrapper.setFillStyle( particles[0].color );
         wrapper.setStrokeStyle( particles[0].color.darkerColor() );
         wrapper.setLineWidth( 1 );
@@ -60,7 +60,7 @@ define( function( require ) {
       }
 
       // draw into one big path
-      for ( var i = 0; i < length; i++ ) {
+      for ( var i = 0; i < numberOfParticles; i++ ) {
         var particle = particles[i];
 
         var position = this.modelViewTransform.modelToViewPosition( particle.locationProperty.get() );
@@ -76,7 +76,7 @@ define( function( require ) {
       }
 
       // fill and stroke the entire path
-      if ( length ) {
+      if ( numberOfParticles > 0 ) {
         context.fill();
         context.stroke();
       }
