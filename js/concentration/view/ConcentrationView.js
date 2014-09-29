@@ -43,17 +43,19 @@ define( function( require ) {
     // Beaker and stuff inside it
     var beakerNode = new BeakerNode( model.beaker, modelViewTransform );
     var solutionNode = new SolutionNode( model.solution, model.beaker, modelViewTransform );
-    var precipitateNode = new PrecipitateNode( model.precipitate, modelViewTransform );
+    // Precipitate particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
+    var precipitateNode = new PrecipitateNode( model.precipitate, modelViewTransform, new Bounds2(
+      modelViewTransform.modelToViewX( model.beaker.getLeft() ), modelViewTransform.modelToViewY( model.beaker.location.y ) - 100,
+      modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.location.y ) ) );
     var saturatedIndicator = new SaturatedIndicator( model.solution );
 
     // Shaker
     var shakerNode = new ShakerNode( model.shaker, modelViewTransform );
 
     // Shaker particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
-    var shakerParticlesBounds = new Bounds2(
+    var shakerParticlesNode = new ShakerParticlesNode( model.shakerParticles, modelViewTransform, new Bounds2(
       modelViewTransform.modelToViewX( model.beaker.getLeft() ), thisView.layoutBounds.minY,
-      modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.location.y ) );
-    var shakerParticlesNode = new ShakerParticlesNode( model.shakerParticles, modelViewTransform, shakerParticlesBounds );
+      modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.location.y ) ) );
 
     // Dropper
     var dropperNode = new DropperNode( model.dropper, model.solution.solvent, model.solution.solute, modelViewTransform );
