@@ -20,17 +20,19 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var Bounds2 = require( 'DOT/Bounds2' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var MeterBodyNode = require( 'SCENERY_PHET/MeterBodyNode' );
   var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var ShadedRectangle = require( 'SCENERY_PHET/ShadedRectangle' );
   var Shape = require( 'KITE/Shape' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
+  var VBox = require( 'SCENERY/nodes/VBox' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // strings
@@ -39,19 +41,16 @@ define( function( require ) {
   var units_molesPerLiterString = require( 'string!BEERS_LAW_LAB/units.molesPerLiter' );
 
   // images
-  var bodyLeftImage = require( 'image!BEERS_LAW_LAB/concentration-meter-body-left.png' );
-  var bodyCenterImage = require( 'image!BEERS_LAW_LAB/concentration-meter-body-center.png' );
-  var bodyRightImage = require( 'image!BEERS_LAW_LAB/concentration-meter-body-right.png' );
   var probeImage = require( 'image!BEERS_LAW_LAB/concentration-meter-probe.png' );
 
   // constants
   var BODY_IS_DRAGGABLE = true;
   var VALUE_DECIMALS = 3;
   var NO_VALUE = '-';
-  var TITLE_TOP = 10; // specific to bodyCenterImage
-  var TEXT_X_MARGIN = 25;  // specific to bodyCenterImage
-  var VALUE_X_MARGIN = 30; // specific to bodyCenterImage
-  var VALUE_CENTER_Y = 84; // specific to bodyCenterImage
+  var BODY_X_MARGIN = 15;
+  var BODY_Y_MARGIN = 15;
+  var VALUE_X_MARGIN = 6;
+  var VALUE_Y_MARGIN = 4;
 
   /**
    * Meter body, origin at upper left.
@@ -76,24 +75,30 @@ define( function( require ) {
     var valueNode = new Text( ( 1 ).toFixed( VALUE_DECIMALS ),
       { font: new PhetFont( 24 ), fill: 'black' } );
 
-    // create a background that fits the text
-    var maxTextWidth = Math.max( titleNode.width, unitsNode.width );
-    var bodyWidth = ( 2 * TEXT_X_MARGIN ) + maxTextWidth;
-    var backgroundNode = new MeterBodyNode( bodyWidth, bodyLeftImage, bodyCenterImage, bodyRightImage );
+    // display area for the value
+    var valueWidth = Math.max( Math.max( titleNode.width, unitsNode.width ), valueNode.width ) + ( 2 * VALUE_X_MARGIN );
+    var valueHeight = valueNode.height + ( 2 * VALUE_Y_MARGIN );
+    var valueBackgroundNode = new ShadedRectangle( new Bounds2( 0, 0, valueWidth, valueHeight ), {
+      baseColor: 'white',
+      lightSource: 'rightBottom'
+    } );
+    valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN;
+    valueNode.bottom = valueBackgroundNode.bottom - VALUE_Y_MARGIN;
 
-    // rendering order
-    thisNode.addChild( backgroundNode );
-    thisNode.addChild( titleNode );
-    thisNode.addChild( unitsNode );
-    thisNode.addChild( valueNode );
+    // vertical arrangement of stuff in the meter
+    var vBox = new VBox( { children: [ titleNode, unitsNode, new Node( { children: [ valueBackgroundNode, valueNode ] } ) ], align: 'center', spacing: 6 } );
 
-    // layout
-    titleNode.centerX = backgroundNode.centerX;
-    titleNode.top = TITLE_TOP;
-    unitsNode.centerX = backgroundNode.centerX;
-    unitsNode.top = titleNode.bottom + 5;
-    valueNode.right = backgroundNode.right - VALUE_X_MARGIN; // right justified
-    valueNode.centerY = VALUE_CENTER_Y;
+    // meter body
+    var bodyWidth = vBox.width + ( 2 * BODY_X_MARGIN );
+    var bodyHeight = vBox.height + ( 2* BODY_Y_MARGIN );
+    var bodyNode = new ShadedRectangle( new Bounds2( 0, 0, bodyWidth, bodyHeight ), {
+      baseColor: 'rgb(135,4,72)',
+      lightOffset: 0.95
+    } );
+
+    thisNode.addChild( bodyNode );
+    thisNode.addChild( vBox );
+    vBox.center = bodyNode.center;
 
     if ( BODY_IS_DRAGGABLE ) {
       thisNode.addInputListener( new MovableDragHandler( meter.body, modelViewTransform ) );
@@ -108,11 +113,11 @@ define( function( require ) {
     meter.value.link( function( value ) {
       if ( isNaN( value ) ) {
         valueNode.setText( NO_VALUE );
-        valueNode.centerX = backgroundNode.centerX; // center justified
+        valueNode.centerX = valueBackgroundNode.centerX; // center justified
       }
       else {
         valueNode.setText( value.toFixed( VALUE_DECIMALS ) );
-        valueNode.right = backgroundNode.right - VALUE_X_MARGIN; // right justified
+        valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN; // right justified
       }
     } );
   }

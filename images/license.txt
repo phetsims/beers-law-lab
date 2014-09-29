@@ -1,12 +1,6 @@
-at-detector-body-center.png author=PhET notes=copied and hacked intensity_meter_box.png from bending-light
-at-detector-body-left.png author=PhET notes=copied and hacked intensity_meter_box.png from bending-light
-at-detector-body-right.png author=PhET notes=copied and hacked intensity_meter_box.png from bending-light
 at-detector-probe.png author=PhET notes=copied intensity_meter_probe.png from bending-light
 BeersLaw-screen-icon.jpg author=PhET
 Concentration-screen-icon.jpg author=PhET
-concentration-meter-body-center.png author=PhET notes=copied and hacked intensity_meter_box.png from bending-light
-concentration-meter-body-left.png author=PhET notes=copied and hacked intensity_meter_box.png from bending-light
-concentration-meter-body-right.png author=PhET notes=copied and hacked intensity_meter_box.png from bending-light
 concentration-meter-probe.png author=PhET notes=created by Noah P.
 dropper-icon.png author=PhET notes=scaled version of dropper_foreground.png
 dropper_background.png author=PhET notes=created by Noah P.

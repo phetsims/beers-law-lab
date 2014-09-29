@@ -10,18 +10,20 @@ define( function( require ) {
 
   // modules
   var ATDetector = require( 'BEERS_LAW_LAB/beerslaw/model/ATDetector' );
+  var AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  var Bounds2 = require( 'DOT/Bounds2' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var MeterBodyNode = require( 'SCENERY_PHET/MeterBodyNode' );
   var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  var ShadedRectangle = require( 'SCENERY_PHET/ShadedRectangle' );
   var Shape = require( 'KITE/Shape' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
+  var VBox = require( 'SCENERY/nodes/VBox' );
   var Vector2 = require( 'DOT/Vector2' );
 
   //strings
@@ -30,19 +32,16 @@ define( function( require ) {
   var transmittanceString = require( 'string!BEERS_LAW_LAB/transmittance' );
 
   // images
-  var bodyLeftImage = require( 'image!BEERS_LAW_LAB/at-detector-body-left.png' );
-  var bodyCenterImage = require( 'image!BEERS_LAW_LAB/at-detector-body-center.png' );
-  var bodyRightImage = require( 'image!BEERS_LAW_LAB/at-detector-body-right.png' );
   var probeImage = require( 'image!BEERS_LAW_LAB/at-detector-probe.png' );
 
   // constants
-  var BUTTONS_X_MARGIN = 25; // specific to image files
-  var BUTTONS_Y_OFFSET = 66; // specific to image files
-  var VALUE_X_MARGIN = 30; // specific to image files
-  var VALUE_CENTER_Y = 24; // specific to image files
   var ABSORBANCE_DECIMAL_PLACES = 2;
   var TRANSMITTANCE_DECIMAL_PLACES = 2;
   var NO_VALUE = '-';
+  var BODY_X_MARGIN = 15;
+  var BODY_Y_MARGIN = 15;
+  var VALUE_X_MARGIN = 6;
+  var VALUE_Y_MARGIN = 4;
   var PROBE_CENTER_Y_OFFSET = 55; // specific to image file
 
   /**
@@ -64,30 +63,36 @@ define( function( require ) {
     var absorbanceButton = new AquaRadioButton( detector.mode, ATDetector.Mode.ABSORBANCE, new Text( absorbanceString, textOptions ) );
 
     // group the buttons
-    var buttonGroup = new Node();
-    buttonGroup.addChild( transmittanceButton );
-    buttonGroup.addChild( absorbanceButton );
-    absorbanceButton.x = transmittanceButton.x;
-    absorbanceButton.top = transmittanceButton.bottom + 6;
+    var buttonGroup = new VBox( { children: [ transmittanceButton, absorbanceButton ], align: 'left', spacing: 6 });
 
-    // value display
+    // value
     var maxValue = 100;
     var valueNode = new Text( maxValue.toFixed( ABSORBANCE_DECIMAL_PLACES ), { font: new PhetFont( 24 ) } );
 
-    // background image, sized to fit
-    var bodyWidth = Math.max( buttonGroup.width, valueNode.width ) + ( 2 * BUTTONS_X_MARGIN );
-    var backgroundNode = new MeterBodyNode( bodyWidth, bodyLeftImage, bodyCenterImage, bodyRightImage );
+    // display area for the value
+    var valueWidth = Math.max( buttonGroup.width, valueNode.width ) + ( 2 * VALUE_X_MARGIN );
+    var valueHeight = valueNode.height + ( 2 * VALUE_Y_MARGIN );
+    var valueBackgroundNode = new ShadedRectangle( new Bounds2( 0, 0, valueWidth, valueHeight ), {
+      baseColor: 'white',
+      lightSource: 'rightBottom'
+    } );
+    valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN;
+    valueNode.bottom = valueBackgroundNode.bottom - VALUE_Y_MARGIN;
 
-    // rendering order
-    thisNode.addChild( backgroundNode );
-    thisNode.addChild( buttonGroup );
-    thisNode.addChild( valueNode );
+    // vertical arrangement of stuff in the meter
+    var vBox = new VBox( { children: [ new Node( { children: [ valueBackgroundNode, valueNode ] } ), buttonGroup ], align: 'center', spacing: 12 } );
 
-    // layout
-    buttonGroup.left = BUTTONS_X_MARGIN;
-    buttonGroup.top = BUTTONS_Y_OFFSET;
-    valueNode.x = VALUE_X_MARGIN;
-    valueNode.top = VALUE_CENTER_Y;
+    // meter body
+    var bodyWidth = vBox.width + ( 2 * BODY_X_MARGIN );
+    var bodyHeight = vBox.height + ( 2 * BODY_Y_MARGIN );
+    var bodyNode = new ShadedRectangle( new Bounds2( 0, 0, bodyWidth, bodyHeight ), {
+      baseColor: 'rgb(8,133,54)',
+      lightOffset: 0.95
+    } );
+
+    thisNode.addChild( bodyNode );
+    thisNode.addChild( vBox );
+    vBox.center = bodyNode.center;
 
     // body location
     detector.body.locationProperty.link( function( location ) {
@@ -99,7 +104,7 @@ define( function( require ) {
       var value = detector.value.get();
       if ( isNaN( value ) ) {
         valueNode.text = NO_VALUE;
-        valueNode.centerX = backgroundNode.centerX;
+        valueNode.centerX = valueBackgroundNode.centerX;
       }
       else {
         if ( detector.mode.get() === ATDetector.Mode.TRANSMITTANCE ) {
@@ -108,7 +113,7 @@ define( function( require ) {
         else {
           valueNode.text = value.toFixed( ABSORBANCE_DECIMAL_PLACES );
         }
-        valueNode.right = backgroundNode.right - VALUE_X_MARGIN; // right justified
+        valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN; // right justified
       }
     };
     detector.value.link( valueUpdater );
