@@ -15,6 +15,5 @@
     "uglify-js": "~2.4.0",
     "requirejs": "~2.1.8"
   },
-  "requirejsNamespace": "BEERS_LAW_LAB",
   "simTitleStringKey": "BEERS_LAW_LAB/beers-law-lab.name"
 }
