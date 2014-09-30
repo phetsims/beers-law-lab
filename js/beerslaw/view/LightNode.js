@@ -14,14 +14,11 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Property = require( 'AXON/Property' );
+  var RoundRedButton = require( 'SCENERY_PHET/RoundRedButton' );
   var Shape = require( 'KITE/Shape' );
-  var ToggleButton = require( 'BEERS_LAW_LAB/common/view/ToggleButton' );
 
   // images
   var lightImage = require( 'image!BEERS_LAW_LAB/light.png' );
-  var buttonPressedImage = require( 'image!BEERS_LAW_LAB/red_button_pressed.png' );
-  var buttonUnpressedImage = require( 'image!BEERS_LAW_LAB/red_button_unpressed.png' );
-  var buttonDisabledImage = require( 'image!BEERS_LAW_LAB/red_button_disabled.png' );
 
   /**
    * @param {Light} light
@@ -35,7 +32,7 @@ define( function( require ) {
 
     // nodes
     var housing = new Image( lightImage, { pickable: false } );
-    var button = new ToggleButton( buttonUnpressedImage, buttonPressedImage, buttonDisabledImage, light.on, new Property( true ) );
+    var button = new RoundRedButton( light.on, new Property( true ) );
 
     // expand touch area for button. Do this before scaling the button!
     button.touchArea = Shape.circle( button.width / 2, button.height / 2, 1.0 * button.width /* radius */ );

@@ -18,16 +18,13 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var RoundRedButton = require( 'SCENERY_PHET/RoundRedButton' );
   var Shape = require( 'KITE/Shape' );
   var SubSupText = require( 'SCENERY_PHET/SubSupText' );
-  var ToggleButton = require( 'BEERS_LAW_LAB/common/view/ToggleButton' );
 
   // images
   var dropperForegroundImage = require( 'image!BEERS_LAW_LAB/dropper_foreground.png' );
   var dropperBackgroundImage = require( 'image!BEERS_LAW_LAB/dropper_background.png' );
-  var buttonPressedImage = require( 'image!BEERS_LAW_LAB/red_button_pressed.png' );
-  var buttonUnpressedImage = require( 'image!BEERS_LAW_LAB/red_button_unpressed.png' );
-  var buttonDisabledImage = require( 'image!BEERS_LAW_LAB/red_button_disabled.png' );
 
   // constants
   var DEBUG_ORIGIN = false;
@@ -83,8 +80,7 @@ define( function( require ) {
         lineWidth: 0
       } );
 
-    var button = new ToggleButton( buttonUnpressedImage, buttonPressedImage, buttonDisabledImage,
-      dropper.on, dropper.enabled, { onWhilePressed: true } );
+    var button = new RoundRedButton( dropper.on, dropper.enabled, { onWhilePressed: true } );
     button.touchArea = Shape.circle( button.width / 2, button.height / 2, ( button.width / 2 ) + 30 );
     button.setScaleMagnitude( 0.3 );
 
