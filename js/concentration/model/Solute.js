@@ -27,9 +27,9 @@ define( function( require ) {
 
   /**
    * Constructor.
-   * @param {String} name
-   * @param {String} formula
-   * @param {Number} stockSolutionConcentration
+   * @param {string} name
+   * @param {string} formula
+   * @param {number} stockSolutionConcentration
    * @param {SoluteColorScheme} colorScheme
    * @param {Color|undefined} particleColor
    * @param {Number|undefined} particleSize

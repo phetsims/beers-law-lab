@@ -29,7 +29,7 @@ define( function( require ) {
   var wavelengthString = require( 'string!BEERS_LAW_LAB/wavelength' );
 
   /**
-   * @param {Property<BeersLawSolution>} solution
+   * @param {Property.<BeersLawSolution>} solution
    * @param {Light} light
    * @constructor
    */

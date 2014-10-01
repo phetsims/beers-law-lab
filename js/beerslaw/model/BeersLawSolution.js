@@ -40,8 +40,8 @@ define( function( require ) {
   var potassiumPermanganateString = require( 'string!BEERS_LAW_LAB/potassiumPermanganate' );
 
   /**
-   * @param {String} name
-   * @param {String} formula
+   * @param {string} name
+   * @param {string} formula
    * @param {MolarAbsorptivityData} molarAbsorptivityData
    * @param {Range} concentrationRange
    * @param {ConcentrationTransform} concentrationTransform

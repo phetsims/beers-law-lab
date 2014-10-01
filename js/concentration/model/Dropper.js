@@ -16,9 +16,9 @@ define( function( require ) {
   /**
    * @param {Vector2} location
    * @param {Bounds2} dragBounds
-   * @param {Property<Solute>} solute
-   * @param {Number} maxFlowRate
-   * @param {Boolean} visible
+   * @param {Property.<Solute>} solute
+   * @param {number} maxFlowRate
+   * @param {boolean} visible
    * @constructor
    */
   function Dropper( location, dragBounds, solute, maxFlowRate, visible ) {

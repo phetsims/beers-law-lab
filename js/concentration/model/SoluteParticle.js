@@ -14,9 +14,9 @@ define( function( require ) {
   /**
    * Constructor
    * @param {Color} color
-   * @param {Number} size particles are square, this is the length of one side
+   * @param {number} size particles are square, this is the length of one side
    * @param {Vector2} location location of the particle in the beaker's coordinate frame
-   * @param {Number} orientation in radians
+   * @param {number} orientation in radians
    * @constructor
    */
   function SoluteParticle( color, size, location, orientation ) {

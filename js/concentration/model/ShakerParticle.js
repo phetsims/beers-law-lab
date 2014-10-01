@@ -19,7 +19,7 @@ define( function( require ) {
    * Constructor
    * @param {Solute} solute
    * @param {Vector2} location in the beaker's coordinate frame
-   * @param {Number} orientation in radians
+   * @param {number} orientation in radians
    * @param {Vector2} initialVelocity
    * @param {Vector2} acceleration
    * @constructor
@@ -37,7 +37,7 @@ define( function( require ) {
 
     /**
      *  Propagates the particle to a new location.
-     *  @param {Number} deltaSeconds
+     *  @param {number} deltaSeconds
      *  @param {Beaker} beaker
      */
     step: function( deltaSeconds, beaker ) {

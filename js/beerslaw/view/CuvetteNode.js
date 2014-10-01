@@ -33,7 +33,7 @@ define( function( require ) {
    * @param {Node} cuvetteNode
    * @param {Cuvette} cuvette
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Number} snapInterval
+   * @param {number} snapInterval
    * @constructor
    */
   function CuvetteDragHandler( cuvetteNode, cuvette, modelViewTransform, snapInterval ) {
@@ -68,9 +68,9 @@ define( function( require ) {
 
   /**
    * @param {Cuvette} cuvette
-   * @param {Property<BeersLawSolution>} solution
+   * @param {Property.<BeersLawSolution>} solution
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Number} snapInterval
+   * @param {number} snapInterval
    * @constructor
    */
   function CuvetteNode( cuvette, solution, modelViewTransform, snapInterval ) {

@@ -23,8 +23,8 @@ define( function( require ) {
   var solutionString = require( 'string!BEERS_LAW_LAB/solution' );
 
   /**
-   * @param {Array<BeersLawSolution>} solutions
-   * @param {Property<BeersLawSolution>} selectedSolution
+   * @param {BeersLawSolution[]} solutions
+   * @param {Property.<BeersLawSolution>} selectedSolution
    * @param {Node} soluteListParent
    * @constructor
    */

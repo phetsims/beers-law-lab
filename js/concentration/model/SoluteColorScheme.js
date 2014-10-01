@@ -15,11 +15,11 @@ define( function( require ) {
   var interpolateRBGA = require( 'SCENERY/util/Color' ).interpolateRBGA;
 
   /**
-   * @param {Number} minConcentration
+   * @param {number} minConcentration
    * @param {Color} minColor
-   * @param {Number} midConcentration
+   * @param {number} midConcentration
    * @param {Color} midColor
-   * @param {Number} maxConcentration
+   * @param {number} maxConcentration
    * @param {Color} maxColor
    * @constructor
    */
@@ -36,7 +36,7 @@ define( function( require ) {
 
     /**
      * Converts a concentration value to a Color, using a linear interpolation of RGB colors.
-     * @param {Number} concentration moles (M)
+     * @param {number} concentration moles (M)
      * @return {Color} color
      */
     concentrationToColor: function( concentration ) {

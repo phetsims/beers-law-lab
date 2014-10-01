@@ -13,7 +13,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
 
   /**
-   * @param {Number} maxEvaporationRate L/sec
+   * @param {number} maxEvaporationRate L/sec
    * @param {ConcentrationSolution} solution
    * @constructor
    */

@@ -18,8 +18,8 @@ define( function( require ) {
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
 
   /**
-   * @param {Property<Solute>} solute
-   * @param {Number} soluteAmount moles
+   * @param {Property.<Solute>} solute
+   * @param {number} soluteAmount moles
    * @param {NUmber} volume L
    */
   function ConcentrationSolution( solute, soluteAmount, volume ) {
@@ -95,7 +95,7 @@ define( function( require ) {
      * Creates a color that corresponds to the solution's concentration.
      * @param {Solvent) solvent
      * @param {Solute} solute
-     * @param {Number} concentration
+     * @param {number} concentration
      */
     createColor: function( solvent, solute, concentration ) {
       var color = solvent.color.get();

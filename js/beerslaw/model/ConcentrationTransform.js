@@ -23,8 +23,8 @@ define( function( require ) {
   var units_uMString = require( 'string!BEERS_LAW_LAB/units.uM' );
 
   /**
-   * @param {Number} scale scale factor used to convert model units (Moles, M) to view units
-   * @param {String} units
+   * @param {number} scale scale factor used to convert model units (Moles, M) to view units
+   * @param {string} units
    * @constructor
    */
   function ConcentrationTransform( scale, units ) {
@@ -36,7 +36,7 @@ define( function( require ) {
 
     /**
      * Converts from model (M) to view (solution specific).
-     * @param {Number} modelConcentration
+     * @param {number} modelConcentration
      * @returns {number}
      */
     modelToView: function( modelConcentration ) {
@@ -45,7 +45,7 @@ define( function( require ) {
 
     /**
      * Converts from view (solution specific) to model (M).
-     * @param {Number} viewConcentration
+     * @param {number} viewConcentration
      * @returns {number}
      */
     viewToModel: function( viewConcentration ) {

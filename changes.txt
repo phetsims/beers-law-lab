@@ -1,3 +1,4 @@
+10/1/14 use new JSdoc conventions for @param
 9/29/14 #61 consolidate drawing of particles into ParticlesNode, for drawing both shaker and precipitate particles
 9/29/14 #61 implement precipitate using CanvasNode to improve performance
 9/29/14 #75 use ShadedRectangle for the meter bodies

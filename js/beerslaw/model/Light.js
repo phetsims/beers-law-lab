@@ -15,9 +15,9 @@ define( function( require ) {
 
   /**
    * @param {Vector2} location cm
-   * @param {Boolean} on
-   * @param {Number} lensDiameter cm
-   * @param {Property<BeersLawSolution>} solution
+   * @param {boolean} on
+   * @param {number} lensDiameter cm
+   * @param {Property.<BeersLawSolution>} solution
    * @constructor
    */
   function Light( location, on, lensDiameter, solution ) {

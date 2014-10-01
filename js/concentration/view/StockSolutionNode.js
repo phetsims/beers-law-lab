@@ -15,10 +15,10 @@ define( function( require ) {
 
   /**
    * @param {Solvent} solvent
-   * @param {Property<Solute>} solute
+   * @param {Property.<Solute>} solute
    * @param {Dropper} dropper
    * @param {Beaker} beaker
-   * @param {Number} tipWidth
+   * @param {number} tipWidth
    * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */

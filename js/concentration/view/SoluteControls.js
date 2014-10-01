@@ -16,8 +16,8 @@ define( function( require ) {
   var SoluteFormNode = require( 'BEERS_LAW_LAB/concentration/view/SoluteFormNode' );
 
   /**
-   * @param {Array<Solute>} solutes
-   * @param {Property<Solute>} currentSolute
+   * @param {Solute[]} solutes
+   * @param {Property.<Solute>} currentSolute
    * @param {Shaker} shaker
    * @param {Dropper} dropper
    * @param {Node} soluteListParent

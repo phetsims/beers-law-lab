@@ -26,7 +26,7 @@ define( function( require ) {
   var FONT = new PhetFont( 20 );
 
   /**
-   * @param {Property<BeersLawSolution>} solution
+   * @param {Property.<BeersLawSolution>} solution
    * @constructor
    */
   function ConcentrationControl( solution ) {

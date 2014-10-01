@@ -16,11 +16,11 @@ define( function( require ) {
   /**
    * Constructor
    * @param {Vector2} location
-   * @param {Number} orientation in radians
+   * @param {number} orientation in radians
    * @param {Bounds2} dragBounds
-   * @param {Property<Solute>} solute
-   * @param {Number} maxDispensingRate
-   * @param {Boolean} visible
+   * @param {Property.<Solute>} solute
+   * @param {number} maxDispensingRate
+   * @param {boolean} visible
    * @constructor
    */
   function Shaker( location, dragBounds, orientation, solute, maxDispensingRate, visible ) {

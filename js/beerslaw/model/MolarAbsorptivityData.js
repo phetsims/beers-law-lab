@@ -15,7 +15,7 @@ define( function( require ) {
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   /**
-   * @param {Array<Number>} molarAbsorptivity
+   * @param {number[]} molarAbsorptivity
    * @constructor
    */
   function MolarAbsorptivityData( molarAbsorptivity ) {
@@ -26,8 +26,8 @@ define( function( require ) {
 
   /*
    * Maps a visible wavelength to its corresponding molar absorptivity.
-   * @param {Number} wavelength
-   * @return {Number}
+   * @param {number} wavelength
+   * @return {number}
    */
   MolarAbsorptivityData.prototype.wavelengthToMolarAbsorptivity = function( wavelength ) {
     assert && assert( wavelength >= VisibleColor.MIN_WAVELENGTH && wavelength <= VisibleColor.MAX_WAVELENGTH );
@@ -38,8 +38,8 @@ define( function( require ) {
   /*
    * Finds the wavelength with the maximum molar absorptivity.
    * If there are identical maximums, the lower value is returned.
-   * @param {Array<Number>} molarAbsorptivity
-   * @return {Number}
+   * @param {number[]} molarAbsorptivity
+   * @return {number}
    */
   MolarAbsorptivityData._getLambdaMax = function( molarAbsorptivity ) {
     var indexMax = 0;

@@ -15,9 +15,9 @@ define( function( require ) {
 
   /**
    * @param {Vector2} location center of output pipe
-   * @param {Number} pipeMinX x-coordinate of where the pipe starts
-   * @param {Number} spoutWidth
-   * @param {Number} maxFlowRate L/sec
+   * @param {number} pipeMinX x-coordinate of where the pipe starts
+   * @param {number} spoutWidth
+   * @param {number} maxFlowRate L/sec
    * @constructor
    */
   function Faucet( location, pipeMinX, spoutWidth, maxFlowRate ) {

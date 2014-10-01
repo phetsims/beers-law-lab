@@ -15,7 +15,7 @@ define( function( require ) {
    * Constructor
    * @param {Vector2} location bottom center
    * @param {Dimension2} size
-   * @param {Number} volume in liters (L)
+   * @param {number} volume in liters (L)
    * @constructor
    */
   function Beaker( location, size, volume ) {

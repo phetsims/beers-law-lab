@@ -19,8 +19,8 @@ define( function( require ) {
 
   /**
    * Constructor.
-   * @param {String} name
-   * @param {String} formula
+   * @param {string} name
+   * @param {string} formula
    * @param {Color} color
    * @constructor
    */

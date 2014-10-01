@@ -27,7 +27,7 @@ define( function( require ) {
     /**
      * Performs a linear interpolation between min and max colors in RGBA colorspace.
      *
-     * @param {Number} distance 0-1 (0=min, 1=max)
+     * @param {number} distance 0-1 (0=min, 1=max)
      * @return {Color}
      */
     interpolateLinear: function( distance ) {

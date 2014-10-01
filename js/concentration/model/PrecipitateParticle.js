@@ -18,7 +18,7 @@ define( function( require ) {
    * Constructor
    * @param {Solute} solute
    * @param {Vector2} location location in the beaker's coordinate frame
-   * @param {Number} orientation in radians
+   * @param {number} orientation in radians
    * @constructor
    */
   function PrecipitateParticle( solute, location, orientation ) {

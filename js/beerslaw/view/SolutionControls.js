@@ -16,8 +16,8 @@ define( function( require ) {
   var SolutionComboBox = require( 'BEERS_LAW_LAB/beerslaw/view/SolutionComboBox' );
 
   /**
-   * @param {Array<BeersLawSolution>} solutions
-   * @param {Property<BeersLawSolution>} currentSolution
+   * @param {BeersLawSolution[]} solutions
+   * @param {Property.<BeersLawSolution>} currentSolution
    * @param {Node} solutionListParent
    * @constructor
    */

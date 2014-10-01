@@ -42,7 +42,7 @@ define( function( require ) {
 
     /*
      * Updates the amount of stuff in the beaker, based on solution volume.
-     * @param {Number} volume
+     * @param {number} volume
      */
     var viewLocation = modelViewTransform.modelToViewPosition( beaker.location );
     var viewWidth = modelViewTransform.modelToViewDeltaX( beaker.size.width );

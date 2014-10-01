@@ -27,10 +27,10 @@ define( function( require ) {
   var dropperIconImage = require( 'image!BEERS_LAW_LAB/dropper-icon.png' );
 
   /**
-   * @param {String} text
-   * @param {*} textOptions
+   * @param {string} text
+   * @param {Object} textOptions
    * @param {*} image any type supported by scenery.Image
-   * @param {Number} xSpacing
+   * @param {number} xSpacing
    * @constructor
    */
   function TextAndIconNode( text, textOptions, image, xSpacing ) {

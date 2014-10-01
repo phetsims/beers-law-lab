@@ -21,7 +21,7 @@ define( function( require ) {
   /**
    * @param {Vector2} location fixed location, cm
    * @param {Range} widthRange variable width, cm
-   * @param {Number} height fixed height, cm
+   * @param {number} height fixed height, cm
    * @constructor
    */
   function Cuvette( location, widthRange, height ) {

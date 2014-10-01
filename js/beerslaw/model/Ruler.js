@@ -13,9 +13,9 @@ define( function( require ) {
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
 
   /**
-   * @param {Number} length cm
-   * @param {Number} insets cm, the horizontal insets at the ends of the ruler
-   * @param {Number} height cm
+   * @param {number} length cm
+   * @param {number} insets cm, the horizontal insets at the ends of the ruler
+   * @param {number} height cm
    * @param {Vector2} location
    * @param {Bounds2} dragBounds
    * @constructor

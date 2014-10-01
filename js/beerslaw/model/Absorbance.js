@@ -27,7 +27,7 @@ define( function( require ) {
 
   /**
    * @param {Light} light
-   * @param {Property<BeersLawSolution>} solution
+   * @param {Property.<BeersLawSolution>} solution
    * @param {Cuvette} cuvette
    * @constructor
    */
@@ -105,10 +105,10 @@ define( function( require ) {
 
   /*
    * General model of absorbance: A = abC
-   * @param {Number} molarAbsorptivity
-   * @param {Number} pathLength
-   * @param {Number} concentration
-   * @return {Number}
+   * @param {number} molarAbsorptivity
+   * @param {number} pathLength
+   * @param {number} concentration
+   * @return {number}
    */
   var getAbsorbance = function( molarAbsorptivity, pathLength, concentration ) {
     return molarAbsorptivity * pathLength * concentration;
@@ -116,8 +116,8 @@ define( function( require ) {
 
   /*
    * General model of transmittance: T = 10^A
-   * @param {Number} absorbance
-   * @return {Number}
+   * @param {number} absorbance
+   * @return {number}
    */
   var getTransmittance = function( absorbance ) {
     return Math.pow( 10, -absorbance );

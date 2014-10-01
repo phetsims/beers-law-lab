@@ -18,7 +18,7 @@ define( function( require ) {
    * The probe, whose position indicates where the measurement is being made.
    * @param {Vector2} location
    * @param {Bounds2} dragBounds
-   * @param {Number} sensorDiameter cm
+   * @param {number} sensorDiameter cm
    * @constructor
    */
   function Probe( location, dragBounds, sensorDiameter ) {
