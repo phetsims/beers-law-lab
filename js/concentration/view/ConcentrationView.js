@@ -21,7 +21,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var ParticlesNode = require( 'BEERS_LAW_LAB/concentration/view/ParticlesNode' );
   var RemoveSoluteButton = require( 'BEERS_LAW_LAB/concentration/view/RemoveSoluteButton' );
-  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
+  var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var SaturatedIndicator = require( 'BEERS_LAW_LAB/concentration/view/SaturatedIndicator' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var ShakerNode = require( 'BEERS_LAW_LAB/concentration/view/ShakerNode' );

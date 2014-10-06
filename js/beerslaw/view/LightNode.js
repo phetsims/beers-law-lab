@@ -14,7 +14,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Property = require( 'AXON/Property' );
-  var RoundRedButton = require( 'SCENERY_PHET/RoundRedButton' );
+  var RoundRedButton = require( 'SCENERY_PHET/buttons/RoundRedButton' );
   var Shape = require( 'KITE/Shape' );
 
   // images

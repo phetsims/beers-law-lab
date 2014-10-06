@@ -17,7 +17,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var LightNode = require( 'BEERS_LAW_LAB/beerslaw/view/LightNode' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var ResetAllButton = require( 'SCENERY_PHET/ResetAllButton' );
+  var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var SolutionControls = require( 'BEERS_LAW_LAB/beerslaw/view/SolutionControls' );
   var WavelengthControls = require( 'BEERS_LAW_LAB/beerslaw/view/WavelengthControls' );
