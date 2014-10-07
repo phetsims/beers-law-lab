@@ -37,7 +37,7 @@ define( function( require ) {
   function ConcentrationView( model, mvt ) {
 
     var thisView = this;
-    ScreenView.call( thisView, { renderer: 'svg' } );
+    ScreenView.call( thisView, { renderer: ( /chrom(e|ium)/.test( navigator.userAgent.toLowerCase() ) ? 'canvas' : 'svg' ) } ); // workaround Chrome issue #76
 
     // Beaker and stuff inside it
     var beakerNode = new BeakerNode( model.beaker, mvt );
