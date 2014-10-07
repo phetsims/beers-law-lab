@@ -3,5 +3,5 @@
 // Returns version identifier for the simulation.
 define( function() {
   'use strict';
-  return function() { return '1.2.1'; };
+  return function() { return '1.2.2'; };
 } );
