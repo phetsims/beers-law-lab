@@ -23,14 +23,15 @@ define( function( require ) {
 
   // constants
   var DEBUG_ORIGIN = false;
-  var SHOW_ARROWS = true;
   var ARROW_LENGTH = 40;
   var ARROW_OPTIONS = {
     tailWidth: 23,
     headWidth: 40,
     headHeight: 30,
     fill: 'yellow',
-    stroke: 'rgb(160,160,160)'
+    stroke: 'rgb(160,160,160)',
+    pickable: false,
+    visible: false
   };
 
   /**
@@ -49,32 +50,24 @@ define( function( require ) {
     imageNode.setScaleMagnitude( 0.75 );
 
     // label
-    var labelNode = new SubSupText( shaker.solute.formula, { font: new PhetFont( { size: 22, weight: 'bold' } ), fill: 'black' } );
+    var labelNode = new SubSupText( shaker.solute.formula, {
+      font: new PhetFont( { size: 22, weight: 'bold' } ),
+      fill: 'black'
+    } );
 
     // arrows
     var downArrowNode = new ArrowNode( 0, 0, 0, ARROW_LENGTH, ARROW_OPTIONS );
     downArrowNode.top = imageNode.bottom + 4;
     downArrowNode.centerX = imageNode.centerX;
-    downArrowNode.pickable = false;
-    downArrowNode.visible = false;
 
     var upArrowNode = new ArrowNode( 0, 0, 0, -ARROW_LENGTH, ARROW_OPTIONS );
     upArrowNode.bottom = imageNode.top - 4;
     upArrowNode.centerX = imageNode.centerX;
-    upArrowNode.pickable = false;
-    upArrowNode.visible = false;
 
     // common parent, to simplify rotation and label alignment.
-    var parentNode = new Node();
+    var parentNode = new Node( { children: [ imageNode, labelNode, upArrowNode, downArrowNode ] } );
     thisNode.addChild( parentNode );
-    parentNode.addChild( imageNode );
-    parentNode.addChild( labelNode );
-    if ( SHOW_ARROWS ) {
-      parentNode.addChild( upArrowNode );
-      parentNode.addChild( downArrowNode );
-    }
     parentNode.rotate( shaker.orientation - Math.PI ); // assumes that shaker points to the left in the image file
-
     // Manually adjust these values until the origin is in the middle hole of the shaker.
     parentNode.translate( -12, -imageNode.height / 2 );
 
@@ -102,7 +95,7 @@ define( function( require ) {
       // label the shaker with the solute formula
       labelNode.setText( solute.formula );
       // center the label on the shaker
-      var capWidth = 0.3 * imageNode.width;
+      var capWidth = 0.3 * imageNode.width; // multiplier is dependent on image file
       labelNode.centerX = capWidth + ( imageNode.width - capWidth ) / 2;
       labelNode.centerY = imageNode.centerY;
     } );
