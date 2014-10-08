@@ -111,13 +111,13 @@ define( function( require ) {
     thisNode.cursor = 'pointer';
     thisNode.addInputListener( new MovableDragHandler( shaker, modelViewTransform ) );
     thisNode.addInputListener( {
-        enter: function() {
-          upArrowNode.visible = downArrowNode.visible = !shakerWasMoved;
-        },
-        exit: function() {
-          upArrowNode.visible = downArrowNode.visible = false;
-        }
-      } );
+      enter: function() {
+        upArrowNode.visible = downArrowNode.visible = !shakerWasMoved;
+      },
+      exit: function() {
+        upArrowNode.visible = downArrowNode.visible = false;
+      }
+    } );
   }
 
   return inherit( Node, ShakerNode );
