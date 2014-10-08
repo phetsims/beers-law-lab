@@ -1,3 +1,4 @@
+10/7/14 #79 replace custom arrow shapes in ShakerNode with scenery-phet.ArrowNode
 10/7/14 #79 replace custom arrow shape in CuvetteNode with scenery-phet.ArrowNode
 10/7/14 #76 fix Chrome 37 rendering problem by removing cssTransform:true option from ShakerNode
 10/1/14 use new JSdoc conventions for @param

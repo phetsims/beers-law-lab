@@ -9,14 +9,13 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var ArrowNode = require( 'SCENERY_PHET/ArrowNode' );
   var Circle = require( 'SCENERY/nodes/Circle' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var Shape = require( 'KITE/Shape' );
   var SubSupText = require( 'SCENERY_PHET/SubSupText' );
 
   // images
@@ -26,11 +25,13 @@ define( function( require ) {
   var DEBUG_ORIGIN = false;
   var SHOW_ARROWS = true;
   var ARROW_LENGTH = 40;
-  var ARROW_HEAD_LENGTH = 30;
-  var ARROW_HEAD_WIDTH = 40;
-  var ARROW_TAIL_WIDTH = 23;
-  var ARROW_FILL = 'yellow';
-  var ARROW_STROKE = 'rgb(160,160,160)';
+  var ARROW_OPTIONS = {
+    tailWidth: 23,
+    headWidth: 40,
+    headHeight: 30,
+    fill: 'yellow',
+    stroke: 'rgb(160,160,160)'
+  };
 
   /**
    * Constructor
@@ -51,31 +52,13 @@ define( function( require ) {
     var labelNode = new SubSupText( shaker.solute.formula, { font: new PhetFont( { size: 22, weight: 'bold' } ), fill: 'black' } );
 
     // arrows
-    var downArrowShape = new Shape()
-      .moveTo( 0, 0 )
-      .lineTo( -ARROW_HEAD_WIDTH / 2, -ARROW_HEAD_LENGTH )
-      .lineTo( -ARROW_TAIL_WIDTH / 2, -ARROW_HEAD_LENGTH )
-      .lineTo( -ARROW_TAIL_WIDTH / 2, -ARROW_LENGTH )
-      .lineTo( ARROW_TAIL_WIDTH / 2, -ARROW_LENGTH )
-      .lineTo( ARROW_TAIL_WIDTH / 2, -ARROW_HEAD_LENGTH )
-      .lineTo( ARROW_HEAD_WIDTH / 2, -ARROW_HEAD_LENGTH )
-      .close();
-    var downArrowNode = new Path( downArrowShape, {fill: ARROW_FILL, stroke: ARROW_STROKE } );
+    var downArrowNode = new ArrowNode( 0, 0, 0, ARROW_LENGTH, ARROW_OPTIONS );
     downArrowNode.top = imageNode.bottom + 4;
     downArrowNode.centerX = imageNode.centerX;
     downArrowNode.pickable = false;
     downArrowNode.visible = false;
 
-    var upArrowShape = new Shape()
-      .moveTo( 0, 0 )
-      .lineTo( -ARROW_HEAD_WIDTH / 2, ARROW_HEAD_LENGTH )
-      .lineTo( -ARROW_TAIL_WIDTH / 2, ARROW_HEAD_LENGTH )
-      .lineTo( -ARROW_TAIL_WIDTH / 2, ARROW_LENGTH )
-      .lineTo( ARROW_TAIL_WIDTH / 2, ARROW_LENGTH )
-      .lineTo( ARROW_TAIL_WIDTH / 2, ARROW_HEAD_LENGTH )
-      .lineTo( ARROW_HEAD_WIDTH / 2, ARROW_HEAD_LENGTH )
-      .close();
-    var upArrowNode = new Path( upArrowShape, { fill: ARROW_FILL, stroke: ARROW_STROKE } );
+    var upArrowNode = new ArrowNode( 0, 0, 0, -ARROW_LENGTH, ARROW_OPTIONS );
     upArrowNode.bottom = imageNode.top - 4;
     upArrowNode.centerX = imageNode.centerX;
     upArrowNode.pickable = false;
@@ -134,8 +117,7 @@ define( function( require ) {
         exit: function() {
           upArrowNode.visible = downArrowNode.visible = false;
         }
-      }
-    );
+      } );
   }
 
   return inherit( Node, ShakerNode );
