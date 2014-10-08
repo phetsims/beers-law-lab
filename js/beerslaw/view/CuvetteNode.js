@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var ArrowNode = require( 'SCENERY_PHET/ArrowNode' );
   var Color = require( 'SCENERY/util/Color' );
   var FillHighlightListener = require( 'SCENERY_PHET/input/FillHighlightListener' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -23,7 +24,7 @@ define( function( require ) {
   var PERCENT_FULL = 0.92;
   var SOLUTION_ALPHA = 0.6;
   var ARROW_LENGTH = 110;
-  var ARROW_HEAD_LENGTH = 38;
+  var ARROW_HEAD_HEIGHT = 38;
   var ARROW_HEAD_WIDTH = 45;
   var ARROW_TAIL_WIDTH = 23;
   var ARROW_FILL = Color.ORANGE;
@@ -78,26 +79,18 @@ define( function( require ) {
     var thisNode = this;
     Node.call( this );
 
-    // A double-headed arrow, pointing left and right. Path definition starts at left tip and moves clockwise.
-    assert && assert( ARROW_HEAD_WIDTH > ARROW_TAIL_WIDTH );
-    assert && assert( ARROW_LENGTH > 2 * ARROW_HEAD_LENGTH );
-    var arrowShape = new Shape()
-      .moveTo( -ARROW_LENGTH / 2, 0 )
-      .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, -ARROW_HEAD_WIDTH / 2 )
-      .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, -ARROW_TAIL_WIDTH / 2 )
-      .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, -ARROW_TAIL_WIDTH / 2 )
-      .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, -ARROW_HEAD_WIDTH / 2 )
-      .lineTo( ARROW_LENGTH / 2, 0 )
-      .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, ARROW_HEAD_WIDTH / 2 )
-      .lineTo( ARROW_LENGTH / 2 - ARROW_HEAD_LENGTH, ARROW_TAIL_WIDTH / 2 )
-      .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, ARROW_TAIL_WIDTH / 2 )
-      .lineTo( -ARROW_LENGTH / 2 + ARROW_HEAD_LENGTH, ARROW_HEAD_WIDTH / 2 )
-      .close();
-
     // nodes
     var cuvetteNode = new Path( null, { stroke: 'black', lineWidth: 3 } );
     var solutionNode = new Rectangle( 0, 0, 1, 1, { lineWidth: 0.5 } );
-    var arrowNode = new Path( arrowShape, {fill: ARROW_FILL, stroke: 'black', lineWidth: 1 } );
+    var arrowNode = new ArrowNode( -ARROW_LENGTH / 2, 0, ARROW_LENGTH / 2, 0, {
+      tailWidth: ARROW_TAIL_WIDTH,
+      headWidth: ARROW_HEAD_WIDTH,
+      headHeight: ARROW_HEAD_HEIGHT,
+      doubleHead: true,
+      fill: ARROW_FILL,
+      stroke: 'black',
+      lineWidth: 1
+    } );
 
     // rendering order
     thisNode.addChild( solutionNode );
@@ -139,10 +132,9 @@ define( function( require ) {
     arrowNode.addInputListener( new CuvetteDragHandler( thisNode, cuvette, modelViewTransform, snapInterval ) );
 
     // adjust touch area for the arrow
-    var arrowBounds = arrowShape.computeBounds().copy();
-    var dx = 0.25 * arrowBounds.width;
-    var dy = 1 * arrowBounds.height;
-    arrowNode.touchArea = Shape.rectangle( arrowBounds.minX - dx, arrowBounds.minY - dy, arrowBounds.width + ( 2 * dx ), arrowBounds.height + ( 2 * dy ) );
+    var dx = 0.25 * arrowNode.width;
+    var dy = 1 * arrowNode.height;
+    arrowNode.touchArea = arrowNode.localBounds.dilatedXY( dx, dy );
 
     // location of the cuvette
     var position = modelViewTransform.modelToViewPosition( cuvette.location );
