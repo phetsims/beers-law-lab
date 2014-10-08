@@ -56,8 +56,8 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "36ef7a39c91962cf5ff79ce9dbff4fda2605699a",
+    "sha": "55364487768df4ea61a2037ee467e01c2e1205a3",
     "branch": "1.2"
   },
-  "comment": "# beers-law-lab 1.2.2 Tue Oct 07 2014 16:36:57 GMT-0600 (MDT)"
+  "comment": "# beers-law-lab 1.2.3 Tue Oct 07 2014 19:54:44 GMT-0600 (MDT)"
 }

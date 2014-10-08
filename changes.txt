@@ -1,3 +1,4 @@
+10/7/14 check in dependencies.json for 1.2.3
 # 1.2.3 10/7/14
 10/7/14 #76 fix Chrome 37 rendering problem by removing cssTransform:true option from ShakerNode
 10/7/14 #76 back out workaround
