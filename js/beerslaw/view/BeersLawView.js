@@ -30,7 +30,7 @@ define( function( require ) {
   function BeersLawView( model, mvt ) {
 
     var thisView = this;
-    ScreenView.call( thisView, { renderer: ( /chrom(e|ium)/.test( navigator.userAgent.toLowerCase() ) ? 'canvas' : 'svg' ) } ); // workaround Chrome issue #76
+    ScreenView.call( thisView, { renderer: 'svg' } );
 
     var lightNode = new LightNode( model.light, mvt );
     var cuvetteNode = new CuvetteNode( model.cuvette, model.solution, mvt, 0.1 /* snapInterval, cm */ );
