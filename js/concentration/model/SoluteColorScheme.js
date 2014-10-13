@@ -11,8 +11,8 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var Color = require( 'SCENERY/util/Color' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var interpolateRBGA = require( 'SCENERY/util/Color' ).interpolateRBGA;
 
   /**
    * @param {number} minConcentration
@@ -47,10 +47,10 @@ define( function( require ) {
         return this.minColor;
       }
       else if ( concentration <= this.midConcentration ) {
-        return interpolateRBGA( this.minColor, this.midColor, ( concentration - this.minConcentration ) / ( this.midConcentration - this.minConcentration ) );
+        return Color.interpolateRGBA( this.minColor, this.midColor, ( concentration - this.minConcentration ) / ( this.midConcentration - this.minConcentration ) );
       }
       else {
-        return interpolateRBGA( this.midColor, this.maxColor, ( concentration - this.midConcentration ) / ( this.maxConcentration - this.midConcentration ) );
+        return Color.interpolateRGBA( this.midColor, this.maxColor, ( concentration - this.midConcentration ) / ( this.maxConcentration - this.midConcentration ) );
       }
     }
   } );

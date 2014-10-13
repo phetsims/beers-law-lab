@@ -32,7 +32,7 @@ define( function( require ) {
      */
     interpolateLinear: function( distance ) {
       assert && assert( distance >= 0 && distance <= 1 );
-      return Color.interpolateRBGA( this.min, this.max, distance );
+      return Color.interpolateRGBA( this.min, this.max, distance );
     }
   } );
 } );
