@@ -23,6 +23,7 @@ define( function( require ) {
   var Bounds2 = require( 'DOT/Bounds2' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var LayoutBox = require( 'SCENERY/nodes/LayoutBox' );
   var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
@@ -32,7 +33,6 @@ define( function( require ) {
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
-  var VBox = require( 'SCENERY/nodes/VBox' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // strings
@@ -86,7 +86,12 @@ define( function( require ) {
     valueNode.bottom = valueBackgroundNode.bottom - VALUE_Y_MARGIN;
 
     // vertical arrangement of stuff in the meter
-    var vBox = new VBox( { children: [ titleNode, unitsNode, new Node( { children: [ valueBackgroundNode, valueNode ] } ) ], align: 'center', spacing: 6 } );
+    var vBox = new LayoutBox( {
+      children: [ titleNode, unitsNode, new Node( { children: [ valueBackgroundNode, valueNode ] } ) ],
+      orientation: 'vertical',
+      align: 'center',
+      spacing: 6
+    } );
 
     // meter body
     var bodyWidth = vBox.width + ( 2 * BODY_X_MARGIN );
