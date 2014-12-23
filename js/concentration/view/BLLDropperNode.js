@@ -30,7 +30,7 @@ define( function( require ) {
    * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function DropperNode( dropper, solvent, solute, modelViewTransform ) {
+  function BLLDropperNode( dropper, solvent, solute, modelViewTransform ) {
 
     var thisNode = this;
 
@@ -90,5 +90,5 @@ define( function( require ) {
     thisNode.addInputListener( new MovableDragHandler( dropper, modelViewTransform ) );
   }
 
-  return inherit( EyeDropperNode, DropperNode );
+  return inherit( EyeDropperNode, BLLDropperNode );
 } );

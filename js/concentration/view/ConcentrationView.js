@@ -14,7 +14,7 @@ define( function( require ) {
   var BLLFaucetNode = require( 'BEERS_LAW_LAB/concentration/view/BLLFaucetNode' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var ConcentrationMeterNode = require( 'BEERS_LAW_LAB/concentration/view/ConcentrationMeterNode' );
-  var DropperNode = require( 'BEERS_LAW_LAB/concentration/view/DropperNode' );
+  var BLLDropperNode = require( 'BEERS_LAW_LAB/concentration/view/BLLDropperNode' );
   var EvaporationControl = require( 'BEERS_LAW_LAB/concentration/view/EvaporationControl' );
   var FaucetFluidNode = require( 'BEERS_LAW_LAB/concentration/view/FaucetFluidNode' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -57,7 +57,7 @@ define( function( require ) {
       modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.location.y ) ) );
 
     // Dropper
-    var dropperNode = new DropperNode( model.dropper, model.solution.solvent, model.solution.solute, modelViewTransform );
+    var dropperNode = new BLLDropperNode( model.dropper, model.solution.solvent, model.solution.solute, modelViewTransform );
     var stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.solute, model.dropper, model.beaker, dropperNode.TIP_WIDTH - 1, modelViewTransform );
 
     // faucets
