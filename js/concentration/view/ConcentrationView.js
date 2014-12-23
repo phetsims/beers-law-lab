@@ -58,7 +58,7 @@ define( function( require ) {
 
     // Dropper
     var dropperNode = new DropperNode( model.dropper, model.solution.solvent, model.solution.solute, modelViewTransform );
-    var stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.solute, model.dropper, model.beaker, dropperNode.getTipWidth(), modelViewTransform );
+    var stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.solute, model.dropper, model.beaker, dropperNode.TIP_WIDTH - 1, modelViewTransform );
 
     // faucets
     var solventFaucetNode = new BLLFaucetNode( model.solventFaucet, modelViewTransform );
