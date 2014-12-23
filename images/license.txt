@@ -1,7 +1,7 @@
 at-detector-probe.png author=PhET notes=copied intensity_meter_probe.png from bending-light
 BeersLaw-screen-icon.jpg author=PhET
-Concentration-screen-icon.jpg author=PhET
 concentration-meter-probe.png author=PhET notes=created by Noah P.
+Concentration-screen-icon.jpg author=PhET
 dropper-icon.png author=PhET notes=scaled version of dropper_foreground.png
 dropper_background.png author=PhET notes=created by Noah P.
 dropper_foreground.png author=PhET notes=created by Noah P.
