@@ -13,8 +13,7 @@ define( function( require ) {
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
-  var Property = require( 'AXON/Property' );
-  var RoundRedButton = require( 'SCENERY_PHET/buttons/RoundRedButton' );
+  var RoundToggleButton = require( 'SUN/buttons/RoundToggleButton' );
   var Shape = require( 'KITE/Shape' );
 
   // images
@@ -32,7 +31,7 @@ define( function( require ) {
 
     // nodes
     var housing = new Image( lightImage, { pickable: false } );
-    var button = new RoundRedButton( light.on, new Property( true ) );
+    var button = new RoundToggleButton( true, false, light.on, { baseColor: 'red' } );
 
     // expand touch area for button. Do this before scaling the button!
     button.touchArea = Shape.circle( button.width / 2, button.height / 2, 1.0 * button.width /* radius */ );
