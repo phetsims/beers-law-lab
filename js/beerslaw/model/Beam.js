@@ -51,11 +51,12 @@ define( function( require ) {
     } );
 
     // update shape of the beam
+    var xOverlap = modelViewTransform.modelToViewDeltaX( 1 ); // add some overlap, to hide space between beam and light housing
     var updateShape = function() {
       if ( thisBeam.visible.get() ) {
-        var x = modelViewTransform.modelToViewPosition( light.location ).x;
+        var x = modelViewTransform.modelToViewPosition( light.location ).x - xOverlap;
         var y = modelViewTransform.modelToViewPosition( light.location ).y - modelViewTransform.modelToViewDeltaY( light.lensDiameter / 2 );
-        var w = modelViewTransform.modelToViewDeltaX( detector.probeInBeam() ? detector.probe.locationProperty.get().x - light.location.x : MAX_LIGHT_WIDTH );
+        var w = modelViewTransform.modelToViewDeltaX( detector.probeInBeam() ? detector.probe.locationProperty.get().x - light.location.x : MAX_LIGHT_WIDTH ) + xOverlap;
         var h = modelViewTransform.modelToViewDeltaY( light.lensDiameter );
         thisBeam.shape.set( Shape.rect( x, y, w, h ) );
       }
