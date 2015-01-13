@@ -47,7 +47,10 @@ define( function( require ) {
     var valueBackground = new Rectangle( 0, 0, valueDisplay.width + xMargin + xMargin, valueDisplay.height + yMargin + yMargin,
       { fill: 'white', stroke: 'lightGray' } );
     var presetRadioButton = new AquaRadioButton( variableWavelength, false, new Text( fixedString, { font: new PhetFont( 18 ), fill: 'black' } ) );
-    var variableRadioButton = new AquaRadioButton( variableWavelength, true, new Text( variableString, { font: new PhetFont( 18 ), fill: 'black' } ) );
+    var variableRadioButton = new AquaRadioButton( variableWavelength, true, new Text( variableString, {
+      font: new PhetFont( 18 ),
+      fill: 'black'
+    } ) );
     var wavelengthSlider = new WavelengthSlider( light.wavelength, { trackWidth: 150, trackHeight: 30, valueVisible: false } );
 
     // rendering order

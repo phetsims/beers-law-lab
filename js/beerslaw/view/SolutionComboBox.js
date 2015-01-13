@@ -36,8 +36,8 @@ define( function( require ) {
     // items
     var items = [];
     for ( var i = 0; i < solutions.length; i++ ) {
-      var solution = solutions[i];
-      items[i] = createItem( solution );
+      var solution = solutions[ i ];
+      items[ i ] = createItem( solution );
     }
 
     ComboBox.call( this, items, selectedSolution, soluteListParent, {

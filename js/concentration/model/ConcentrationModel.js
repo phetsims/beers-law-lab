@@ -54,7 +54,7 @@ define( function( require ) {
     ];
 
     // model elements
-    thisModel.solute = new Property( thisModel.solutes[0] );
+    thisModel.solute = new Property( thisModel.solutes[ 0 ] );
     thisModel.solution = new ConcentrationSolution( thisModel.solute, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue );
     thisModel.beaker = new Beaker( new Vector2( 400, 550 ), new Dimension2( 600, 300 ), 1 );
     thisModel.precipitate = new Precipitate( thisModel.solution, thisModel.beaker );

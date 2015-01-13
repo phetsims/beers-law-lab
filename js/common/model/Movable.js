@@ -24,7 +24,7 @@ define( function( require ) {
     this.dragBounds = dragBounds;
   }
 
-  return  inherit( Object, Movable, {
+  return inherit( Object, Movable, {
     reset: function() {
       this.locationProperty.reset();
     }

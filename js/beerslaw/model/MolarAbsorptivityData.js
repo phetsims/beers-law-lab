@@ -32,7 +32,7 @@ define( function( require ) {
   MolarAbsorptivityData.prototype.wavelengthToMolarAbsorptivity = function( wavelength ) {
     assert && assert( wavelength >= VisibleColor.MIN_WAVELENGTH && wavelength <= VisibleColor.MAX_WAVELENGTH );
     var index = Math.floor( wavelength - VisibleColor.MIN_WAVELENGTH );
-    return this.molarAbsorptivity[index];
+    return this.molarAbsorptivity[ index ];
   };
 
   /*
@@ -43,10 +43,10 @@ define( function( require ) {
    */
   MolarAbsorptivityData._getLambdaMax = function( molarAbsorptivity ) {
     var indexMax = 0;
-    var molarAbsorptivityMax = molarAbsorptivity[indexMax];
+    var molarAbsorptivityMax = molarAbsorptivity[ indexMax ];
     for ( var i = 0; i < molarAbsorptivity.length; i++ ) {
-      if ( molarAbsorptivity[i] > molarAbsorptivityMax ) {
-        molarAbsorptivityMax = molarAbsorptivity[i];
+      if ( molarAbsorptivity[ i ] > molarAbsorptivityMax ) {
+        molarAbsorptivityMax = molarAbsorptivity[ i ];
         indexMax = i;
       }
     }

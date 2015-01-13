@@ -68,7 +68,7 @@ define( function( require ) {
       orientation: 'vertical',
       align: 'left',
       spacing: 6
-    });
+    } );
 
     // value
     var maxValue = 100;

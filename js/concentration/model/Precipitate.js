@@ -95,7 +95,7 @@ define( function( require ) {
     fireChanged: function() {
       var changedCallbacks = this.changedCallbacks.slice( 0 ); // copy to prevent concurrent modification
       for ( var i = 0; i < changedCallbacks.length; i++ ) {
-        changedCallbacks[i]( this );
+        changedCallbacks[ i ]( this );
       }
     },
 

@@ -83,7 +83,7 @@ define( function( require ) {
       // propagate existing particles
       for ( var i = this.particles.length - 1; i >= 0; i-- ) {
 
-        var particle = this.particles[i];
+        var particle = this.particles[ i ];
         particle.step( deltaSeconds, beaker );
 
         // If the particle hits the solution surface or bottom of the beaker, delete it, and add a corresponding amount of solute to the solution.
@@ -134,7 +134,7 @@ define( function( require ) {
     removeAllParticles: function() {
       var particles = this.particles.slice( 0 );
       for ( var i = 0; i < particles.length; i++ ) {
-        this.removeParticle( particles[i] );
+        this.removeParticle( particles[ i ] );
       }
       this.fireParticlesChanged();
     },
@@ -143,7 +143,7 @@ define( function( require ) {
     fireParticlesChanged: function() {
       var changedCallbacks = this.changedCallbacks.slice( 0 );
       for ( var i = 0; i < changedCallbacks.length; i++ ) {
-        changedCallbacks[i]();
+        changedCallbacks[ i ]();
       }
     }
   } );

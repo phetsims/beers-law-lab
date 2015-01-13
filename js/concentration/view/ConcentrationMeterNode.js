@@ -95,7 +95,7 @@ define( function( require ) {
 
     // meter body
     var bodyWidth = vBox.width + ( 2 * BODY_X_MARGIN );
-    var bodyHeight = vBox.height + ( 2* BODY_Y_MARGIN );
+    var bodyHeight = vBox.height + ( 2 * BODY_Y_MARGIN );
     var bodyNode = new ShadedRectangle( new Bounds2( 0, 0, bodyWidth, bodyHeight ), {
       baseColor: 'rgb(135,4,72)',
       lightOffset: 0.95

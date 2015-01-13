@@ -42,7 +42,7 @@ define( function( require ) {
       BeersLawSolution.POTASSIUM_PERMANGANATE
     ];
 
-    thisModel.solution = new Property( thisModel.solutions[0] );
+    thisModel.solution = new Property( thisModel.solutions[ 0 ] );
 
     //NOTE: All locations are relative to the location of the cuvette.
     thisModel.cuvette = new Cuvette( new Vector2( 3.3, 0.5 ), new Range( 0.5, 2.0, 1.0 ), 3 );
@@ -70,7 +70,7 @@ define( function( require ) {
     // Resets all model elements
     reset: function() {
       for ( var i = 0; i < this.solutions.length; i++ ) {
-        this.solutions[i].reset();
+        this.solutions[ i ].reset();
       }
       this.solution.reset();
       this.light.reset();

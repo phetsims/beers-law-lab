@@ -11,7 +11,7 @@ define( function( require ) {
   // modules
   var BeersLawScreen = require( 'BEERS_LAW_LAB/beerslaw/BeersLawScreen' );
   var ConcentrationScreen = require( 'BEERS_LAW_LAB/concentration/ConcentrationScreen' );
-  var Sim = require( 'JOIST/Sim');
+  var Sim = require( 'JOIST/Sim' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
 
   // strings

@@ -9,7 +9,7 @@
 
 require.config( {
 
-  deps: ['beers-law-lab-main'],
+  deps: [ 'beers-law-lab-main' ],
 
   paths: {
 

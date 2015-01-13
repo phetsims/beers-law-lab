@@ -51,16 +51,16 @@ define( function( require ) {
       // Set and compute static properties that should be shared by all of the particles, and start the path.
       // Assumes that all particles are the same color and size.
       if ( numberOfParticles > 0 ) {
-        wrapper.setFillStyle( particles[0].color );
-        wrapper.setStrokeStyle( particles[0].color.darkerColor() );
+        wrapper.setFillStyle( particles[ 0 ].color );
+        wrapper.setStrokeStyle( particles[ 0 ].color.darkerColor() );
         wrapper.setLineWidth( 1 );
-        halfViewSize = this.modelViewTransform.modelToViewDeltaX( particles[0].size ) * Math.SQRT2 / 2;
+        halfViewSize = this.modelViewTransform.modelToViewDeltaX( particles[ 0 ].size ) * Math.SQRT2 / 2;
         context.beginPath();
       }
 
       // draw into one big path
       for ( var i = 0; i < numberOfParticles; i++ ) {
-        var particle = particles[i];
+        var particle = particles[ i ];
 
         var position = this.modelViewTransform.modelToViewPosition( particle.locationProperty.get() );
         var x = position.x;
