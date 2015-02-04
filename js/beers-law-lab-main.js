@@ -26,15 +26,6 @@ define( function( require ) {
     }
   };
 
-  // Appending '?dev' to the URL will enable developer-only features.
-  if ( phet.phetcommon.getQueryParameter( 'dev' ) ) {
-    simOptions = _.extend( {
-      // add dev-specific options here
-      showHomeScreen: false,
-      screenIndex: 0
-    }, simOptions );
-  }
-
   SimLauncher.launch( function() {
     var sim = new Sim( simTitle, [ new ConcentrationScreen(), new BeersLawScreen() ], simOptions );
     sim.start();
