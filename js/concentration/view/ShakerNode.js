@@ -16,7 +16,12 @@ define( function( require ) {
   var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var Sound = require( 'VIBE/Sound' );
   var SubSupText = require( 'SCENERY_PHET/SubSupText' );
+
+  // audio
+  var shakeLeftAudio = require( 'audio!BEERS_LAW_LAB/shake-left' );
+  var shakeRightAudio = require( 'audio!BEERS_LAW_LAB/shake-left' );
 
   // images
   var shakerImage = require( 'image!BEERS_LAW_LAB/shaker.png' );
@@ -78,7 +83,9 @@ define( function( require ) {
 
     // sync location with model
     var shakerWasMoved = false;
+    var previousTranslation = null;
     shaker.locationProperty.link( function( location ) {
+      previousTranslation = thisNode.translation; // used elsewhere to determine direction of motion
       thisNode.translation = modelViewTransform.modelToViewPosition( location );
       shakerWasMoved = true;
       upArrowNode.visible = downArrowNode.visible = false;
@@ -98,6 +105,24 @@ define( function( require ) {
       var capWidth = 0.3 * imageNode.width; // multiplier is dependent on image file
       labelNode.centerX = capWidth + ( imageNode.width - capWidth ) / 2;
       labelNode.centerY = imageNode.centerY;
+    } );
+
+    // produce shaking sound when dispensing
+    var shakeLeftSound = new Sound( shakeLeftAudio );
+    var shakeRightSound = new Sound( shakeRightAudio );
+    var motionState = 'still'; // valid values are 'movingLeft', 'movingRight', and 'still'.
+    shaker.dispensingRate.link( function( dispensingRate ) {
+      console.log( 'dispensingRate = ' + dispensingRate );
+      console.log( 'thisNode.translation.x - previousTranslation.x = ' + ( thisNode.translation.x - previousTranslation.x ) );
+      var translation = thisNode.translation.x - previousTranslation.x;
+      if ( dispensingRate > 0 ) {
+        if ( translation > 0 ) {
+          shakeLeftSound.play();
+        }
+        else {
+          shakeRightSound.play();
+        }
+      }
     } );
 
     // interactivity
