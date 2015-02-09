@@ -143,7 +143,6 @@ define( function( require ) {
     var soluteSound = new Sound( soluteAudio );
     model.shaker.visible.lazyLink( function( visible ) {
       // play the sound effect that indicates that a solid has been selected
-      console.log( 'visible = ' + visible );
       if ( visible ) {
         solidSound.play();
       }
@@ -173,9 +172,7 @@ define( function( require ) {
     } );
 
     model.solution.volume.lazyLink( function( volume ) {
-      console.log( 'volume = ' + volume );
       waterVolumeSound.setWaterLevel( volume );
-
     } );
   }
 
