@@ -5,7 +5,7 @@ define( function( require ) {
 
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
-  var Timer = require( 'JOIST/Timer' );
+  //var Timer = require( 'JOIST/Timer' );
 
   // constants
   var MIN_FREQUENCY = 263;
@@ -16,7 +16,7 @@ define( function( require ) {
    * @constructor
    */
   function WaterVolumeSound() {
-    var self = this;
+    //var self = this;
 
     var audioContext;
     if ( window.AudioContext ) {
@@ -54,8 +54,8 @@ define( function( require ) {
   }
 
   return inherit( Object, WaterVolumeSound, {
-    on: function() { this.gainControl.gain.value = 0.7 },
-    off: function() { this.gainControl.gain.value = 0 },
+    on: function() { this.gainControl.gain.value = 0.7; },
+    off: function() { this.gainControl.gain.value = 0; },
     setWaterLevel: function( waterLevel ) {
       this.oscillator1.frequency.value = MIN_FREQUENCY + waterLevel * MAX_FREQUENCY;
     }

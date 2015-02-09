@@ -110,7 +110,6 @@ define( function( require ) {
     // produce shaking sound when dispensing
     var shakeLeftSound = new Sound( shakeLeftAudio );
     var shakeRightSound = new Sound( shakeRightAudio );
-    var motionState = 'still'; // valid values are 'movingLeft', 'movingRight', and 'still'.
     shaker.dispensingRate.link( function( dispensingRate ) {
       console.log( 'dispensingRate = ' + dispensingRate );
       console.log( 'thisNode.translation.x - previousTranslation.x = ' + ( thisNode.translation.x - previousTranslation.x ) );
