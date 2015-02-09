@@ -26,8 +26,13 @@ define( function( require ) {
   var ScreenView = require( 'JOIST/ScreenView' );
   var ShakerNode = require( 'BEERS_LAW_LAB/concentration/view/ShakerNode' );
   var SoluteControls = require( 'BEERS_LAW_LAB/concentration/view/SoluteControls' );
+  var Sound = require( 'VIBE/Sound' );
   var SolutionNode = require( 'BEERS_LAW_LAB/concentration/view/SolutionNode' );
   var StockSolutionNode = require( 'BEERS_LAW_LAB/concentration/view/StockSolutionNode' );
+
+  // audio
+  var solidAudio = require( 'audio!BEERS_LAW_LAB/solid' );
+  var soluteAudio = require( 'audio!BEERS_LAW_LAB/water-drop' );
 
   /**
    * @param {ConcentrationModel} model
@@ -130,6 +135,24 @@ define( function( require ) {
       resetAllButton.left = drainFaucetNode.right + 100;
       resetAllButton.centerY = removeSoluteButton.centerY;
     }
+
+    // sounds
+    var solidSound = new Sound( solidAudio );
+    var soluteSound = new Sound( soluteAudio );
+    model.shaker.visible.lazyLink( function( visible ) {
+      // play the sound effect that indicates that a solid has been selected
+      console.log( 'visible = ' + visible );
+      if ( visible ) {
+        solidSound.play();
+      }
+    } );
+
+    model.dropper.visible.lazyLink( function( visible ) {
+      // play the sound effect that indicates that a solid has been selected
+      if ( visible ) {
+        soluteSound.play();
+      }
+    } );
   }
 
   return inherit( ScreenView, ConcentrationView );

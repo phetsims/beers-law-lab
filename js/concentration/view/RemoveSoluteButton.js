@@ -11,7 +11,11 @@ define( function( require ) {
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var Sound = require( 'VIBE/Sound' );
   var TextPushButton = require( 'SUN/buttons/TextPushButton' );
+
+  // audio
+  var removeSoluteAudio = require( 'audio!BEERS_LAW_LAB/remove-solute-1' );
 
   // strings
   var removeSoluteString = require( 'string!BEERS_LAW_LAB/removeSolute' );
@@ -32,9 +36,12 @@ define( function( require ) {
       xMargin: 10
     } );
 
+    var removeSoluteSound = new Sound( removeSoluteAudio );
+
     this.addListener( function() {
       solution.soluteAmount.set( 0 );
       shakerParticles.removeAllParticles();
+      removeSoluteSound.play();
     } );
 
     // change the text fill to indicate whether the button is enabled
