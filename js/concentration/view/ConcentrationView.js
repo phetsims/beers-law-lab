@@ -11,10 +11,11 @@ define( function( require ) {
   // modules
   var BeakerNode = require( 'BEERS_LAW_LAB/concentration/view/BeakerNode' );
   var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+  var BLLDropperNode = require( 'BEERS_LAW_LAB/concentration/view/BLLDropperNode' );
   var BLLFaucetNode = require( 'BEERS_LAW_LAB/concentration/view/BLLFaucetNode' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var ConcentrationMeterNode = require( 'BEERS_LAW_LAB/concentration/view/ConcentrationMeterNode' );
-  var BLLDropperNode = require( 'BEERS_LAW_LAB/concentration/view/BLLDropperNode' );
+  var DerivedProperty = require( 'AXON/DerivedProperty' );
   var EvaporationControl = require( 'BEERS_LAW_LAB/concentration/view/EvaporationControl' );
   var FaucetFluidNode = require( 'BEERS_LAW_LAB/concentration/view/FaucetFluidNode' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -29,6 +30,7 @@ define( function( require ) {
   var Sound = require( 'VIBE/Sound' );
   var SolutionNode = require( 'BEERS_LAW_LAB/concentration/view/SolutionNode' );
   var StockSolutionNode = require( 'BEERS_LAW_LAB/concentration/view/StockSolutionNode' );
+  var WaterVolumeSound = require( 'BEERS_LAW_LAB/concentration/view/WaterVolumeSound' );
 
   // audio
   var solidAudio = require( 'audio!BEERS_LAW_LAB/solid' );
@@ -152,6 +154,28 @@ define( function( require ) {
       if ( visible ) {
         soluteSound.play();
       }
+    } );
+
+    var waterFlowing = new DerivedProperty( [ model.solventFaucet.flowRate, model.drainFaucet.flowRate ],
+      function( incomingFlowRate, outgoingFlowRate ) {
+        return ( incomingFlowRate > 0 || outgoingFlowRate > 0 );
+      } );
+
+    // handle the sound for when water if flowing in and/or out of the beaker
+    var waterVolumeSound = new WaterVolumeSound();
+    waterFlowing.link( function( waterIsFlowing ) {
+      if ( waterIsFlowing ) {
+        waterVolumeSound.on();
+      }
+      else {
+        waterVolumeSound.off();
+      }
+    } );
+
+    model.solution.volume.lazyLink( function( volume ) {
+      console.log( 'volume = ' + volume );
+      waterVolumeSound.setWaterLevel( volume );
+
     } );
   }
 
