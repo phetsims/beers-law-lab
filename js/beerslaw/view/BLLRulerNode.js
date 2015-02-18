@@ -57,7 +57,10 @@ define( function( require ) {
 
     // interactivity
     thisNode.cursor = 'pointer';
-    thisNode.addInputListener( new MovableDragHandler( ruler, modelViewTransform ) );
+    thisNode.addInputListener( new MovableDragHandler( ruler.locationProperty, {
+      dragBounds: ruler.dragBounds,
+      modelViewTransform: modelViewTransform
+    } ) );
   }
 
   return inherit( Node, BLLRulerNode );

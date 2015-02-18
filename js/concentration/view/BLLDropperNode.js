@@ -83,7 +83,10 @@ define( function( require ) {
     thisNode.touchArea = thisNode.localBounds.dilatedX( 0.25 * thisNode.width );
 
     // move the dropper
-    thisNode.addInputListener( new MovableDragHandler( dropper, modelViewTransform ) );
+    thisNode.addInputListener( new MovableDragHandler( dropper.locationProperty, {
+      dragBounds: dropper.dragBounds,
+      modelViewTransform: modelViewTransform
+    } ) );
   }
 
   return inherit( EyeDropperNode, BLLDropperNode );

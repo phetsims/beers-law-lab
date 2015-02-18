@@ -102,7 +102,10 @@ define( function( require ) {
 
     // interactivity
     thisNode.cursor = 'pointer';
-    thisNode.addInputListener( new MovableDragHandler( shaker, modelViewTransform ) );
+    thisNode.addInputListener( new MovableDragHandler( shaker.locationProperty, {
+      dragBounds: shaker.dragBounds,
+      modelViewTransform: modelViewTransform
+    }) );
     thisNode.addInputListener( {
       enter: function() {
         upArrowNode.visible = downArrowNode.visible = !shakerWasMoved;

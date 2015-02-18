@@ -106,7 +106,10 @@ define( function( require ) {
     vBox.center = bodyNode.center;
 
     if ( BODY_IS_DRAGGABLE ) {
-      thisNode.addInputListener( new MovableDragHandler( meter.body, modelViewTransform ) );
+      thisNode.addInputListener( new MovableDragHandler( meter.body.locationProperty, {
+        dragBounds: meter.body.dragBounds,
+        modelViewTransform: modelViewTransform
+      } ) );
     }
 
     // body location
@@ -163,7 +166,10 @@ define( function( require ) {
     thisNode.touchArea = Shape.rectangle( imageNode.x - dx, imageNode.y - dy, imageNode.width + dx + dx, imageNode.height + dy + dy );
 
     // drag handler
-    thisNode.addInputListener( new MovableDragHandler( probe, modelViewTransform ) );
+    thisNode.addInputListener( new MovableDragHandler( probe.locationProperty, {
+      dragBounds: probe.dragBounds,
+      modelViewTransform: modelViewTransform
+    } ) );
 
     var isInNode = function( node ) {
       var localPoint = node.parentToLocalPoint( probe.locationProperty.get() );
