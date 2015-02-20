@@ -33,8 +33,9 @@ define( function( require ) {
   var WaterVolumeSound = require( 'BEERS_LAW_LAB/concentration/view/WaterVolumeSound' );
 
   // audio
-  var solidAudio = require( 'audio!BEERS_LAW_LAB/solid' );
-  var soluteAudio = require( 'audio!BEERS_LAW_LAB/water-drop' );
+  var solidSound = new Sound( require( 'audio!BEERS_LAW_LAB/solid' ) );
+  var soluteSound = new Sound( require( 'audio!BEERS_LAW_LAB/water-drop' ) );
+  var resetAllSound = new Sound( require( 'audio!BEERS_LAW_LAB/reset-all-2' ) );
 
   /**
    * @param {ConcentrationModel} model
@@ -92,7 +93,10 @@ define( function( require ) {
     // Reset All button
     var resetAllButton = new ResetAllButton(
       {
-        listener: function() { model.reset(); },
+        listener: function() {
+          resetAllSound.play();
+          model.reset();
+        },
         scale: 1.32
       } );
 
@@ -139,8 +143,6 @@ define( function( require ) {
     }
 
     // sounds
-    var solidSound = new Sound( solidAudio );
-    var soluteSound = new Sound( soluteAudio );
     model.shaker.visible.lazyLink( function( visible ) {
       // play the sound effect that indicates that a solid has been selected
       if ( visible ) {

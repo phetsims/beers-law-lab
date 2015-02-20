@@ -17,9 +17,9 @@ require.config( {
     text: '../../sherpa/text',
 
     // PhET plugins
-    audio: '../../chipper/requirejs-plugins/audio',
-    image: '../../chipper/requirejs-plugins/image',
-    string: '../../chipper/requirejs-plugins/string',
+    audio: '../../chipper/js/requirejs-plugins/audio',
+    image: '../../chipper/js/requirejs-plugins/image',
+    string: '../../chipper/js/requirejs-plugins/string',
 
     // PhET libs, uppercase names to identify them in require.js imports
     AXON: '../../axon/js',
@@ -40,6 +40,5 @@ require.config( {
     BEERS_LAW_LAB: "."
   },
 
-  // optional cache buster to make browser refresh load all included scripts, can be disabled with ?cacheBuster=false
-  urlArgs: phet.phetcommon.getCacheBusterArgs()
+  urlArgs: new Date().getTime()  // cache buster to make browser refresh load all included scripts
 } );
