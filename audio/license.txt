@@ -1,0 +1,9 @@
+remove-solute-1 source=Phet author=John Blanco
+reset-all-1 source=Phet author=John Blanco
+reset-all-2 source=Phet author=John Blanco
+shake-left source=Phet author=John Blanco
+solid source=Phet author=John Blanco
+stairwell_ortf notes=not open source, need to replace
+water_drop notes=not open source, need to replace
+salt-shaking source=freesound author=simosco license=Creative Commons 0 notes=Modified by John Blanco
+

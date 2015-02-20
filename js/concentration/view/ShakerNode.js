@@ -20,8 +20,12 @@ define( function( require ) {
   var SubSupText = require( 'SCENERY_PHET/SubSupText' );
 
   // audio
-  var shakeLeftAudio = require( 'audio!BEERS_LAW_LAB/shake-left' );
-  var shakeRightAudio = require( 'audio!BEERS_LAW_LAB/shake-left' );
+  var shakeSounds = [
+    new Sound( require( 'audio!BEERS_LAW_LAB/salt-shaking' ) ),
+    new Sound( require( 'audio!BEERS_LAW_LAB/salt-shaking-2' ) ),
+    new Sound( require( 'audio!BEERS_LAW_LAB/salt-shaking-3' ) ),
+    new Sound( require( 'audio!BEERS_LAW_LAB/salt-shaking-4' ) )
+  ];
 
   // images
   var shakerImage = require( 'image!BEERS_LAW_LAB/shaker.png' );
@@ -83,9 +87,7 @@ define( function( require ) {
 
     // sync location with model
     var shakerWasMoved = false;
-    var previousTranslation = null;
     shaker.locationProperty.link( function( location ) {
-      previousTranslation = thisNode.translation; // used elsewhere to determine direction of motion
       thisNode.translation = modelViewTransform.modelToViewPosition( location );
       shakerWasMoved = true;
       upArrowNode.visible = downArrowNode.visible = false;
@@ -108,20 +110,14 @@ define( function( require ) {
     } );
 
     // produce shaking sound when dispensing
-    var shakeLeftSound = new Sound( shakeLeftAudio );
-    var shakeRightSound = new Sound( shakeRightAudio );
+    var currentShakeSound = 0;
+    var previousDispensingRate = 0;
     shaker.dispensingRate.link( function( dispensingRate ) {
-      console.log( 'dispensingRate = ' + dispensingRate );
-      console.log( 'thisNode.translation.x - previousTranslation.x = ' + ( thisNode.translation.x - previousTranslation.x ) );
-      var translation = thisNode.translation.x - previousTranslation.x;
-      if ( dispensingRate > 0 ) {
-        if ( translation > 0 ) {
-          shakeLeftSound.play();
-        }
-        else {
-          shakeRightSound.play();
-        }
+      if ( dispensingRate > 0 && previousDispensingRate === 0 ) {
+        shakeSounds[ currentShakeSound ].play();
+        currentShakeSound = ( currentShakeSound + 1 ) % shakeSounds.length;
       }
+      previousDispensingRate = dispensingRate;
     } );
 
     // interactivity
@@ -129,7 +125,7 @@ define( function( require ) {
     thisNode.addInputListener( new MovableDragHandler( shaker.locationProperty, {
       dragBounds: shaker.dragBounds,
       modelViewTransform: modelViewTransform
-    }) );
+    } ) );
     thisNode.addInputListener( {
       enter: function() {
         upArrowNode.visible = downArrowNode.visible = !shakerWasMoved;
