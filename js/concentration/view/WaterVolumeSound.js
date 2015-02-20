@@ -8,8 +8,9 @@ define( function( require ) {
   //var Timer = require( 'JOIST/Timer' );
 
   // constants
-  var MIN_FREQUENCY = 263;
-  var MAX_FREQUENCY = 526;
+  var MIN_FREQUENCY = 100;
+  var MAX_FREQUENCY = 400;
+
 
   /**
    *
@@ -18,46 +19,81 @@ define( function( require ) {
   function WaterVolumeSound() {
     //var self = this;
 
-    var audioContext;
-    if ( window.AudioContext ) {
-      audioContext = new window.AudioContext();
-    }
-    else {
-      audioContext = new window.webkitAudioContext();
-    }
+    // create an audio context
+    var audioContext = new ( window.AudioContext || window.webkitAudioContext )();
 
-    // create and initialize the audio nodes
+    var bufferSize = 4096;
+    var pinkNoise = (function() {
+      var b0, b1, b2, b3, b4, b5, b6;
+      b0 = b1 = b2 = b3 = b4 = b5 = b6 = 0.0;
+      var node = audioContext.createScriptProcessor( bufferSize, 1, 1 );
+      node.onaudioprocess = function( e ) {
+        var output = e.outputBuffer.getChannelData( 0 );
+        for ( var i = 0; i < bufferSize; i++ ) {
+          var white = Math.random() * 2 - 1;
+          b0 = 0.99886 * b0 + white * 0.0555179;
+          b1 = 0.99332 * b1 + white * 0.0750759;
+          b2 = 0.96900 * b2 + white * 0.1538520;
+          b3 = 0.86650 * b3 + white * 0.3104856;
+          b4 = 0.55000 * b4 + white * 0.5329522;
+          b5 = -0.7616 * b5 - white * 0.0168980;
+          output[ i ] = b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362;
+          output[ i ] *= 0.11; // (roughly) compensate for gain
+          b6 = white * 0.115926;
+        }
+      };
+      return node;
+    })();
+
+    // Create the 'noise node'.
+    //var bufferSize = 4096;
+    var brownNoise = (function() {
+      var lastOut = 0.0;
+      var node = audioContext.createScriptProcessor( bufferSize, 1, 1 );
+      node.onaudioprocess = function( e ) {
+        var output = e.outputBuffer.getChannelData( 0 );
+        for ( var i = 0; i < bufferSize; i++ ) {
+          var white = Math.random() * 2 - 1;
+          output[ i ] = (lastOut + (0.02 * white)) / 1.02;
+          lastOut = output[ i ];
+          output[ i ] *= 3.5; // (roughly) compensate for gain
+        }
+      };
+      return node;
+    })();
+
+    // create an oscillator so that there is a pitch mixed in with the water sound
     this.oscillator1 = audioContext.createOscillator(); // Create sound source
-    this.oscillator1.type = 'sine';
-    this.lfoGainControl = audioContext.createGain();
-    this.lfoGainControl.gain.value = 1;
+    this.oscillator1.type = 'triangle';
+    this.oscillator1.start( 0 );
+
+    // volume control for oscillator
+    var oscillatorVolumeControl = audioContext.createGain();
+    oscillatorVolumeControl.gain.value = 0.05; // empirically determined
+
+    // filter
+    this.filter = audioContext.createBiquadFilter();
+    this.filter.type = this.filter.LOWPASS;
+
+    // gain control
     this.gainControl = audioContext.createGain();
     this.gainControl.gain.value = 0;
 
-    // hook up the audio nodes
-    this.oscillator1.connect( this.lfoGainControl );
-    this.lfoGainControl.connect( this.gainControl );
+    // Hook the nodes together.
+    brownNoise.connect( this.filter );
+    //pinkNoise.connect( this.filter );
+    this.filter.connect( this.gainControl );
+    this.oscillator1.connect( oscillatorVolumeControl );
+    oscillatorVolumeControl.connect( this.filter );
     this.gainControl.connect( audioContext.destination );
-
-    // start the oscillator
-    this.oscillator1.start( 0 );
-
-    // set up the low frequency oscillation
-    //var counter = 0;
-    //Timer.setInterval( function(){
-    //  counter++;
-    //  self.lfoGainControl.gain.value = counter / 1000;
-    //  if ( counter > 1000 ){
-    //    counter = 0;
-    //  }
-    //}, 60 );
   }
 
   return inherit( Object, WaterVolumeSound, {
-    on: function() { this.gainControl.gain.value = 0.7; },
+    on: function() { this.gainControl.gain.value = 0.5; },
     off: function() { this.gainControl.gain.value = 0; },
     setWaterLevel: function( waterLevel ) {
       this.oscillator1.frequency.value = MIN_FREQUENCY + waterLevel * MAX_FREQUENCY;
+      this.filter.frequency.value = 400 + waterLevel * 6000;
     }
   } );
 } );

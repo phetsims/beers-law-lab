@@ -16,7 +16,7 @@ define( function( require ) {
   var impulseResponse = new Sound( require( 'audio!BEERS_LAW_LAB/stairwell_ortf.ogg' ) );
 
   // constants
-  var MAX_GAIN = 0.75;
+  var MAX_GAIN = 0.6;
 
   /**
    * @constructor
