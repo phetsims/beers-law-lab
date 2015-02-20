@@ -16,10 +16,14 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
+  var TonePlayer = require( 'BEERS_LAW_LAB/concentration/view/TonePlayer' );
 
   // strings
   var pattern_0label = require( 'string!BEERS_LAW_LAB/pattern.0label' );
   var soluteString = require( 'string!BEERS_LAW_LAB/solute' );
+
+  // constants
+  var MAJOR_SCALE_NOTES = [ 261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88, 523.25 ];
 
   /**
    * @param {Solute[]} solutes
@@ -45,6 +49,21 @@ define( function( require ) {
       listPosition: 'below',
       itemYMargin: 12,
       itemHighlightFill: 'rgb(218,255,255)'
+    } );
+
+    var tonePlayer = new TonePlayer();
+    selectedSolute.lazyLink( function( solute ) {
+      var indexOfSolute = -1;
+      for ( var i = 0; i < items.length; i++ ) {
+        if ( solute.name === items[ i ].value.name ) {
+          indexOfSolute = i;
+          break;
+        }
+      }
+
+      if ( indexOfSolute >= 0 ) {
+        tonePlayer.play( MAJOR_SCALE_NOTES[ indexOfSolute ] );
+      }
     } );
   }
 
