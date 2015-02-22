@@ -20,7 +20,16 @@ define( function( require ) {
   function WaterDrippingSound() {
 
     // create an audio context
-    var audioContext = new ( window.AudioContext || window.webkitAudioContext )();
+    var audioContext;
+    if ( 'AudioContext' in window ) {
+      /*global AudioContext*/ // Disable jshint warning.
+      audioContext = new AudioContext();
+    }
+    else if ( 'webkitAudioContext' in window ) {
+      /*global webkitAudioContext*/
+      /*jshint newcap:false*/ // Disable jshint warning.
+      audioContext = new webkitAudioContext();
+    }
 
     // set up the sound source for flowing water
     var waterDrippingSourceSound = audioContext.createBufferSource();

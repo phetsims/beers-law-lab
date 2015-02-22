@@ -24,7 +24,15 @@ define( function( require ) {
   function TonePlayer() {
 
     // create an audio context
-    this.audioContext = new ( window.AudioContext || window.webkitAudioContext )();
+    if ( 'AudioContext' in window ) {
+      /*global AudioContext*/ // Disable jshint warning.
+      this.audioContext = new AudioContext();
+    }
+    else if ( 'webkitAudioContext' in window ) {
+      /*global webkitAudioContext*/
+      /*jshint newcap:false*/ // Disable jshint warning.
+      this.audioContext = new webkitAudioContext();
+    }
 
     // create an oscillator that will provide the basic sound waveform
     this.oscillator1 = this.audioContext.createOscillator();
@@ -48,17 +56,15 @@ define( function( require ) {
 
     // Load the impulse response into the convolver. This is necessary because of the async load of the impulse
     // response buffer.
-    var attemptLoad = function() {
+    var attemptLoad = (function() {
       if ( typeof( impulseResponse.audioBuffer ) !== 'undefined' ) {
         reverb.buffer = impulseResponse.audioBuffer;
-        console.log( 'loaded' );
       }
       else {
         Timer.setTimeout( 500, attemptLoad );
-        console.log( 'going around again' );
       }
       return false;
-    }();
+    }());
   }
 
   return inherit( Object, TonePlayer, {
