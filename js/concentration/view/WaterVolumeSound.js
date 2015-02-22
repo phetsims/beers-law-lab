@@ -5,12 +5,14 @@ define( function( require ) {
 
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
-  //var Timer = require( 'JOIST/Timer' );
+  var SoundUtil = require( 'VIBE/SoundUtil' );
+
+  // audio
+  var WATER_FLOWING_AUDIO = require( 'audio!BEERS_LAW_LAB/water-flowing-1' );
 
   // constants
   var MIN_FREQUENCY = 100;
   var MAX_FREQUENCY = 400;
-
 
   /**
    *
@@ -22,7 +24,11 @@ define( function( require ) {
     // create an audio context
     var audioContext = new ( window.AudioContext || window.webkitAudioContext )();
 
-    var bufferSize = 4096;
+    /*
+     TODO: Pink and brown noise generators were tried, but sounded pretty bad.  They are retained immediately below in
+     case looping a sampled sound doesn't work.  If the looping works out, this code should be deleted.
+
+     var bufferSize = 4096;
     var pinkNoise = (function() {
       var b0, b1, b2, b3, b4, b5, b6;
       b0 = b1 = b2 = b3 = b4 = b5 = b6 = 0.0;
@@ -50,7 +56,9 @@ define( function( require ) {
     var brownNoise = (function() {
       var lastOut = 0.0;
       var node = audioContext.createScriptProcessor( bufferSize, 1, 1 );
+     var count = 0;
       node.onaudioprocess = function( e ) {
+     console.log( 'count++ = ' + count++ );
         var output = e.outputBuffer.getChannelData( 0 );
         for ( var i = 0; i < bufferSize; i++ ) {
           var white = Math.random() * 2 - 1;
@@ -61,6 +69,13 @@ define( function( require ) {
       };
       return node;
     })();
+     */
+
+    // set up the sound source for flowing water
+    var waterFlowingSourceSound = audioContext.createBufferSource();
+    SoundUtil.loadSoundIntoAudioSource( waterFlowingSourceSound, WATER_FLOWING_AUDIO );
+    waterFlowingSourceSound.loop = true;
+    waterFlowingSourceSound.start();
 
     // create an oscillator so that there is a pitch mixed in with the water sound
     this.oscillator1 = audioContext.createOscillator(); // Create sound source
@@ -69,7 +84,7 @@ define( function( require ) {
 
     // volume control for oscillator
     var oscillatorVolumeControl = audioContext.createGain();
-    oscillatorVolumeControl.gain.value = 0.05; // empirically determined
+    oscillatorVolumeControl.gain.value = 0.00; // empirically determined
 
     // filter
     this.filter = audioContext.createBiquadFilter();
@@ -80,8 +95,9 @@ define( function( require ) {
     this.gainControl.gain.value = 0;
 
     // Hook the nodes together.
-    brownNoise.connect( this.filter );
+    //brownNoise.connect( this.filter );
     //pinkNoise.connect( this.filter );
+    waterFlowingSourceSound.connect( this.filter );
     this.filter.connect( this.gainControl );
     this.oscillator1.connect( oscillatorVolumeControl );
     oscillatorVolumeControl.connect( this.filter );
@@ -93,7 +109,7 @@ define( function( require ) {
     off: function() { this.gainControl.gain.value = 0; },
     setWaterLevel: function( waterLevel ) {
       this.oscillator1.frequency.value = MIN_FREQUENCY + waterLevel * MAX_FREQUENCY;
-      this.filter.frequency.value = 400 + waterLevel * 6000;
+      this.filter.frequency.value = 300 + waterLevel * 5000;
     }
   } );
 } );
