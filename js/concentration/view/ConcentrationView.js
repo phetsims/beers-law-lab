@@ -30,6 +30,7 @@ define( function( require ) {
   var Sound = require( 'VIBE/Sound' );
   var SolutionNode = require( 'BEERS_LAW_LAB/concentration/view/SolutionNode' );
   var StockSolutionNode = require( 'BEERS_LAW_LAB/concentration/view/StockSolutionNode' );
+  var WaterDrippingSound = require( 'BEERS_LAW_LAB/concentration/view/WaterDrippingSound' );
   var WaterVolumeSound = require( 'BEERS_LAW_LAB/concentration/view/WaterVolumeSound' );
 
   // audio
@@ -173,8 +174,19 @@ define( function( require ) {
       }
     } );
 
+    var waterDrippingSound = new WaterDrippingSound();
+    model.dropper.flowRate.link( function( flowRate ) {
+      if ( flowRate > 0 ) {
+        waterDrippingSound.on();
+      }
+      else {
+        waterDrippingSound.off();
+      }
+    } );
+
     model.solution.volume.lazyLink( function( volume ) {
       waterVolumeSound.setWaterLevel( volume );
+      waterDrippingSound.setWaterLevel( volume );
     } );
   }
 

@@ -1,5 +1,8 @@
 // Copyright 2002-2015, University of Colorado Boulder
 
+/**
+ * Sound generator for water pouring into and draining out of a container.
+ */
 define( function( require ) {
   'use strict';
 
@@ -19,7 +22,6 @@ define( function( require ) {
    * @constructor
    */
   function WaterVolumeSound() {
-    //var self = this;
 
     // create an audio context
     var audioContext = new ( window.AudioContext || window.webkitAudioContext )();
