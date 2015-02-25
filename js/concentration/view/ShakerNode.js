@@ -23,8 +23,7 @@ define( function( require ) {
   var shakeSounds = [
     new Sound( require( 'audio!BEERS_LAW_LAB/salt-shaking' ) ),
     new Sound( require( 'audio!BEERS_LAW_LAB/salt-shaking-2' ) ),
-    new Sound( require( 'audio!BEERS_LAW_LAB/salt-shaking-3' ) ),
-    new Sound( require( 'audio!BEERS_LAW_LAB/salt-shaking-4' ) )
+    new Sound( require( 'audio!BEERS_LAW_LAB/salt-shaking-3' ) )
   ];
 
   // images
@@ -111,13 +110,14 @@ define( function( require ) {
 
     // produce shaking sound when dispensing
     var currentShakeSound = 0;
-    var previousDispensingRate = 0;
-    shaker.dispensingRate.link( function( dispensingRate ) {
-      if ( dispensingRate > 0 && previousDispensingRate === 0 ) {
+    var doNotPlayYetTime = 0;
+    shaker.locationProperty.link( function( location ) {
+      var now = (new Date).getTime();
+      if ( shaker.dispensingRate.value > 0 && now > doNotPlayYetTime ) {
         shakeSounds[ currentShakeSound ].play();
         currentShakeSound = ( currentShakeSound + 1 ) % shakeSounds.length;
+        doNotPlayYetTime = now + Math.random() * 100 + 100;
       }
-      previousDispensingRate = dispensingRate;
     } );
 
     // interactivity
