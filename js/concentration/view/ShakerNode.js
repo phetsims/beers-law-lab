@@ -112,7 +112,7 @@ define( function( require ) {
     var currentShakeSound = 0;
     var doNotPlayYetTime = 0;
     shaker.locationProperty.link( function( location ) {
-      var now = (new Date).getTime();
+      var now = (new Date()).getTime();
       if ( shaker.dispensingRate.value > 0 && now > doNotPlayYetTime ) {
         shakeSounds[ currentShakeSound ].play();
         currentShakeSound = ( currentShakeSound + 1 ) % shakeSounds.length;
