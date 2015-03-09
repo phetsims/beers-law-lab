@@ -51,6 +51,12 @@ define( function( require ) {
         thisDropper.enabled.set( false );
       }
     } );
+
+    together && together.addComponent( 'concentrationScreen.dropper.flowRate', thisDropper.flowRate );
+    together && together.addComponent( 'concentrationScreen.dropper.on', thisDropper.on );
+    together && together.addComponent( 'concentrationScreen.dropper.location', thisDropper.locationProperty );
+    together && together.addComponent( 'concentrationScreen.dropper.empty', thisDropper.empty );
+    together && together.addComponent( 'concentrationScreen.dropper.visible', thisDropper.visible );
   }
 
   return inherit( Movable, Dropper, {
