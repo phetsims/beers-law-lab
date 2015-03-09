@@ -66,6 +66,7 @@ define( function( require ) {
     };
 
     together && together.addComponent( 'concentrationScreen.solution.concentration', thisSolution.concentration );
+    together && together.addComponent( 'concentrationScreen.solution.volume', thisSolution.volume );
   }
 
   return inherit( Fluid, ConcentrationSolution, {
