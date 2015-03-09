@@ -135,6 +135,7 @@ define( function( require ) {
     together && together.addComponent( 'concentrationScreen.resetAllButton', resetAllButton );
     together && together.addComponent( 'concentrationScreen.solventFaucet', solventFaucetNode );
     together && together.addComponent( 'concentrationScreen.drainFaucet', drainFaucetNode );
+    together && together.addComponent( 'concentrationScreen.removeSoluteButton', removeSoluteButton );
   }
 
   return inherit( ScreenView, ConcentrationView );

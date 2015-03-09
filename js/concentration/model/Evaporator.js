@@ -36,6 +36,9 @@ define( function( require ) {
         thisEvaporator.evaporationRate.set( 0 );
       }
     } );
+
+    together && together.addComponent( 'concentrationScreen.evaporationRate', thisEvaporator.evaporationRate );
+    together && together.addComponent( 'concentrationScreen.evaporationEnabled', thisEvaporator.enabled );
   }
 
   return inherit( Object, Evaporator, {

@@ -64,6 +64,8 @@ define( function( require ) {
       thisSolution.volume.reset();
       updateColor(); // because we provided a bogus initial color to Fluid constructor
     };
+
+    together && together.addComponent( 'concentrationScreen.solution.concentration', thisSolution.concentration );
   }
 
   return inherit( Fluid, ConcentrationSolution, {
