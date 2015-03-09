@@ -103,6 +103,8 @@ define( function( require ) {
     } );
 
     together && together.addComponent( 'concentrationScreen.soluteForm', soluteFormProperty );
+    together && together.addComponent( 'concentrationScreen.solidRadioButton', shakerButton );
+    together && together.addComponent( 'concentrationScreen.solutionRadioButton', dropperButton );
   }
 
   return inherit( Node, SoluteFormNode );
