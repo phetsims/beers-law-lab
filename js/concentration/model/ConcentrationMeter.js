@@ -29,6 +29,9 @@ define( function( require ) {
     this.value = new Property( NaN ); // NaN if the meter is not reading a value
     this.body = new Movable( bodyLocation, bodyDragBounds );
     this.probe = new Movable( probeLocation, probeDragBounds );
+
+    together && together.addComponent( 'concentrationScreen.concentrationMeterProbe.bodyLocation', this.body.locationProperty );
+    together && together.addComponent( 'concentrationScreen.concentrationMeterProbe.probeLocation', this.probe.locationProperty );
   }
 
   return inherit( Object, ConcentrationMeter, {

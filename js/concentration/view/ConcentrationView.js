@@ -130,6 +130,11 @@ define( function( require ) {
       resetAllButton.left = drainFaucetNode.right + 100;
       resetAllButton.centerY = removeSoluteButton.centerY;
     }
+
+    // Register components with together
+    together && together.addComponent( 'concentrationScreen.resetAllButton', resetAllButton );
+    together && together.addComponent( 'concentrationScreen.solventFaucet', solventFaucetNode );
+    together && together.addComponent( 'concentrationScreen.drainFaucet', drainFaucetNode );
   }
 
   return inherit( ScreenView, ConcentrationView );

@@ -17,6 +17,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Shape = require( 'KITE/Shape' );
   var Text = require( 'SCENERY/nodes/Text' );
+  var Property = require( 'AXON/Property' );
 
   // strings
   var solidString = require( 'string!BEERS_LAW_LAB/solid' );
@@ -52,13 +53,18 @@ define( function( require ) {
    */
   function SoluteFormNode( shaker, dropper ) {
 
+    var thisNode = this;
+
     Node.call( this );
 
     var TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
     var X_SPACING = 10;
     var shakerButton = new AquaRadioButton( shaker.visible, true, new TextAndIconNode( solidString, TEXT_OPTIONS, shakerIconImage, X_SPACING ) );
     var dropperButton = new AquaRadioButton( dropper.visible, true, new TextAndIconNode( solutionString, TEXT_OPTIONS, dropperIconImage, X_SPACING ) );
-    var separator = new Path( Shape.lineSegment( 0, 0, 0, shakerButton.height ), { stroke: 'rgb(150,150,150)', lineWidth: 0.5 } );
+    var separator = new Path( Shape.lineSegment( 0, 0, 0, shakerButton.height ), {
+      stroke: 'rgb(150,150,150)',
+      lineWidth: 0.5
+    } );
 
     // rendering order
     this.addChild( shakerButton );
@@ -78,6 +84,25 @@ define( function( require ) {
     dropper.visible.link( function( visible ) {
       shaker.visible.set( !visible );
     } );
+
+    // This property was added for the public API.
+    // TODO: This should be the fundamental property, and shaker visible/dropper visible should derive from this
+    var soluteFormProperty = new Property( dropper.visible.value ? 'liquid' : 'solid' );
+
+    shaker.visible.link( function() {
+      soluteFormProperty.value = dropper.visible.value ? 'liquid' : 'solid';
+    } );
+    dropper.visible.link( function() {
+      soluteFormProperty.value = dropper.visible.value ? 'liquid' : 'solid';
+    } );
+
+    // TODO: Will this cause any loops, etc?
+    soluteFormProperty.link( function( soluteForm ) {
+      shaker.visible.set( soluteForm === 'solid' );
+      dropper.visible.set( soluteForm === 'liquid' );
+    } );
+
+    together && together.addComponent( 'concentrationScreen.soluteForm', soluteFormProperty );
   }
 
   return inherit( Node, SoluteFormNode );

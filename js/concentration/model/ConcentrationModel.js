@@ -86,6 +86,9 @@ define( function( require ) {
       thisModel.dropper.empty.set( containsMaxSolute );
       thisModel.dropper.enabled.set( !thisModel.dropper.empty.get() && !containsMaxSolute && thisModel.solution.volume.get() < SOLUTION_VOLUME_RANGE.max );
     } );
+
+    together && together.addComponent( 'concentrationScreen.solventFaucet.flowRate', thisModel.solventFaucet.flowRate );
+    together && together.addComponent( 'concentrationScreen.drainFaucet.flowRate', thisModel.drainFaucet.flowRate );
   }
 
   return inherit( Object, ConcentrationModel, {

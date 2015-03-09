@@ -45,6 +45,8 @@ define( function( require ) {
     };
     thisShaker.empty.link( observer );
     thisShaker.visible.link( observer );
+
+    together && together.addComponent( 'concentrationScreen.shaker.location', thisShaker.locationProperty );
   }
 
   return inherit( Movable, Shaker, {
