@@ -30,8 +30,8 @@ define( function( require ) {
     this.body = new Movable( bodyLocation, bodyDragBounds );
     this.probe = new Movable( probeLocation, probeDragBounds );
 
-    together && together.addComponent( 'concentrationScreen.concentrationMeterProbe.bodyLocation', this.body.locationProperty );
-    together && together.addComponent( 'concentrationScreen.concentrationMeterProbe.probeLocation', this.probe.locationProperty );
+    together && together.addComponent( 'concentrationScreen.concentrationMeter.bodyLocation', this.body.locationProperty );
+    together && together.addComponent( 'concentrationScreen.concentrationMeter.probeLocation', this.probe.locationProperty );
   }
 
   return inherit( Object, ConcentrationMeter, {
