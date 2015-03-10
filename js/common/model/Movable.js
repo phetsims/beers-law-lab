@@ -22,8 +22,6 @@ define( function( require ) {
    */
   function Movable( location, dragBounds, options ) {
     options = _.extend( {
-
-      // Must be filled in if using together
       locationComponentID: null
     }, options );
     this.locationProperty = new Property( location );
