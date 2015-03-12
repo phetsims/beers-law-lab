@@ -89,5 +89,11 @@ define( function( require ) {
     } ) );
   }
 
-  return inherit( EyeDropperNode, BLLDropperNode );
+  return inherit( EyeDropperNode, BLLDropperNode, {
+    // Pass through componentID and componentType to the movableDragHandler, where the arch messages are reported.
+    set componentID( id ) {this.movableDragHandler.componentID = id;},
+    get componentID() {return this.movableDragHandler.componentID;},
+    set componentType( type ) {this.movableDragHandler.componentType = type;},
+    get componentType() {return this.movableDragHandler.componentType;}
+  } );
 } );
