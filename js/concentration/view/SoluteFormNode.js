@@ -53,8 +53,6 @@ define( function( require ) {
    */
   function SoluteFormNode( shaker, dropper ) {
 
-    var thisNode = this;
-
     Node.call( this );
 
     var TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
