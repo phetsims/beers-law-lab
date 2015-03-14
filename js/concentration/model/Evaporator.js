@@ -22,8 +22,8 @@ define( function( require ) {
     var thisEvaporator = this;
 
     thisEvaporator.maxEvaporationRate = maxEvaporationRate; // L/sec
-    thisEvaporator.evaporationRate = new Property( 0 ); // L/sec
-    thisEvaporator.enabled = new Property( true );
+    thisEvaporator.evaporationRate = new Property( 0, { componentID: 'concentrationScreen.evaporationRate' } ); // L/sec
+    thisEvaporator.enabled = new Property( true, { componentID: 'concentrationScreen.evaporationEnabled' } );
 
     // disable when the volume gets to zero
     solution.volume.link( function( volume ) {
@@ -36,9 +36,6 @@ define( function( require ) {
         thisEvaporator.evaporationRate.set( 0 );
       }
     } );
-
-    together && together.addComponent( 'concentrationScreen.evaporationRate', thisEvaporator.evaporationRate );
-    together && together.addComponent( 'concentrationScreen.evaporationEnabled', thisEvaporator.enabled );
   }
 
   return inherit( Object, Evaporator, {

@@ -73,8 +73,6 @@ define( function( require ) {
       }
     } );
 
-    together && together.addComponent( 'concentrationScreen.solute', soluteAPINameProperty );
-
     thisModel.solution = new ConcentrationSolution( thisModel.solute, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue );
     thisModel.beaker = new Beaker( new Vector2( 400, 550 ), new Dimension2( 600, 300 ), 1 );
     thisModel.precipitate = new Precipitate( thisModel.solution, thisModel.beaker );

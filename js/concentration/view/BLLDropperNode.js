@@ -93,7 +93,8 @@ define( function( require ) {
     } );
     thisNode.addInputListener( this.movableDragHandler );
 
-    together && together.addComponent( 'concentrationScreen.dropper', this );
+    this.componentID = 'concentrationScreen.dropper';
+    together && together.addComponent( this );
   }
 
   return inherit( EyeDropperNode, BLLDropperNode, {

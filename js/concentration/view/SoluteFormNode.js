@@ -57,8 +57,12 @@ define( function( require ) {
 
     var TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
     var X_SPACING = 10;
-    var shakerButton = new AquaRadioButton( shaker.visible, true, new TextAndIconNode( solidString, TEXT_OPTIONS, shakerIconImage, X_SPACING ) );
-    var dropperButton = new AquaRadioButton( dropper.visible, true, new TextAndIconNode( solutionString, TEXT_OPTIONS, dropperIconImage, X_SPACING ) );
+    var shakerButton = new AquaRadioButton( shaker.visible, true, new TextAndIconNode( solidString, TEXT_OPTIONS, shakerIconImage, X_SPACING ), {
+      componentID: 'concentrationScreen.solidRadioButton'
+    } );
+    var dropperButton = new AquaRadioButton( dropper.visible, true, new TextAndIconNode( solutionString, TEXT_OPTIONS, dropperIconImage, X_SPACING ), {
+      componentID: 'concentrationScreen.solutionRadioButton'
+    } );
     var separator = new Path( Shape.lineSegment( 0, 0, 0, shakerButton.height ), {
       stroke: 'rgb(150,150,150)',
       lineWidth: 0.5
@@ -85,7 +89,7 @@ define( function( require ) {
 
     // This property was added for the public API.
     // TODO: This should be the fundamental property, and shaker visible/dropper visible should derive from this
-    var soluteFormProperty = new Property( dropper.visible.value ? 'liquid' : 'solid' );
+    var soluteFormProperty = new Property( dropper.visible.value ? 'liquid' : 'solid', { componentID: 'concentrationScreen.soluteForm' } );
 
     shaker.visible.link( function() {
       soluteFormProperty.value = dropper.visible.value ? 'liquid' : 'solid';
@@ -99,10 +103,6 @@ define( function( require ) {
       shaker.visible.set( soluteForm === 'solid' );
       dropper.visible.set( soluteForm === 'liquid' );
     } );
-
-    together && together.addComponent( 'concentrationScreen.soluteForm', soluteFormProperty );
-    together && together.addComponent( 'concentrationScreen.solidRadioButton', shakerButton );
-    together && together.addComponent( 'concentrationScreen.solutionRadioButton', dropperButton );
   }
 
   return inherit( Node, SoluteFormNode );

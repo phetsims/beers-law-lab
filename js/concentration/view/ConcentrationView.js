@@ -61,8 +61,8 @@ define( function( require ) {
     var stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.solute, model.dropper, model.beaker, dropperNode.TIP_WIDTH - 1, modelViewTransform );
 
     // faucets
-    var solventFaucetNode = new BLLFaucetNode( model.solventFaucet, modelViewTransform );
-    var drainFaucetNode = new BLLFaucetNode( model.drainFaucet, modelViewTransform );
+    var solventFaucetNode = new BLLFaucetNode( model.solventFaucet, modelViewTransform, { componentID: 'concentrationScreen.solventFaucet' } );
+    var drainFaucetNode = new BLLFaucetNode( model.drainFaucet, modelViewTransform, { componentID: 'concentrationScreen.drainFaucet' } );
     var SOLVENT_FLUID_HEIGHT = model.beaker.location.y - model.solventFaucet.location.y;
     var DRAIN_FLUID_HEIGHT = 1000; // tall enough that resizing the play area is unlikely to show bottom of fluid
     var solventFluidNode = new FaucetFluidNode( model.solventFaucet, model.solution.solvent, SOLVENT_FLUID_HEIGHT, modelViewTransform );
@@ -83,11 +83,11 @@ define( function( require ) {
     var removeSoluteButton = new RemoveSoluteButton( model.solution, model.shakerParticles );
 
     // Reset All button
-    var resetAllButton = new ResetAllButton(
-      {
-        listener: function() { model.reset(); },
-        scale: 1.32
-      } );
+    var resetAllButton = new ResetAllButton( {
+      listener: function() { model.reset(); },
+      scale: 1.32,
+      componentID: 'concentrationScreen.resetAllButton'
+    } );
 
     // Rendering order
     thisView.addChild( solventFluidNode );
@@ -132,10 +132,8 @@ define( function( require ) {
     }
 
     // Register components with together
-    together && together.addComponent( 'concentrationScreen.resetAllButton', resetAllButton );
-    together && together.addComponent( 'concentrationScreen.solventFaucet', solventFaucetNode );
-    together && together.addComponent( 'concentrationScreen.drainFaucet', drainFaucetNode );
-    together && together.addComponent( 'concentrationScreen.removeSoluteButton', removeSoluteButton );
+    //together && together.addComponent( '', resetAllButton );
+    //together && together.addComponent( 'concentrationScreen.removeSoluteButton', removeSoluteButton );
   }
 
   return inherit( ScreenView, ConcentrationView );

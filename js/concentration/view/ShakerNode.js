@@ -116,7 +116,8 @@ define( function( require ) {
       }
     } );
 
-    together && together.addComponent( 'concentrationScreen.shaker', this );
+    this.componentID = 'concentrationScreen.shaker';
+    together && together.addComponent( this );
   }
 
   return inherit( Node, ShakerNode, {

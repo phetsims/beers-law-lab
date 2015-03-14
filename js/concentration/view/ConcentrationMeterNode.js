@@ -108,7 +108,8 @@ define( function( require ) {
     if ( BODY_IS_DRAGGABLE ) {
       thisNode.addInputListener( new MovableDragHandler( meter.body.locationProperty, {
         dragBounds: meter.body.dragBounds,
-        modelViewTransform: modelViewTransform
+        modelViewTransform: modelViewTransform,
+        componentID: 'concentrationScreen.concentrationMeterBody'
       } ) );
     }
 
@@ -166,10 +167,11 @@ define( function( require ) {
     thisNode.touchArea = Shape.rectangle( imageNode.x - dx, imageNode.y - dy, imageNode.width + dx + dx, imageNode.height + dy + dy );
 
     // drag handler
-    thisNode.addInputListener( new MovableDragHandler( probe.locationProperty, {
+    this.movableDragHandler = new MovableDragHandler( probe.locationProperty, {
       dragBounds: probe.dragBounds,
       modelViewTransform: modelViewTransform
-    } ) );
+    } );
+    thisNode.addInputListener( this.movableDragHandler );
 
     var isInNode = function( node ) {
       var localPoint = node.parentToLocalPoint( probe.locationProperty.get() );
@@ -193,9 +195,15 @@ define( function( require ) {
     thisNode.isInStockSolution = function() {
       return isInNode( stockSolutionNode );
     };
+
+    this.componentID = 'concentrationScreen.concentrationMeterProbe';
+    together && together.addComponent( this );
   }
 
-  inherit( Node, ProbeNode );
+  inherit( Node, ProbeNode, {
+    set componentID( c ) {this.movableDragHandler.componentID = c;},
+    get componentID() {return this.movableDragHandler.componentID;}
+  } );
 
   /**
    * Wire that connects the body and probe.

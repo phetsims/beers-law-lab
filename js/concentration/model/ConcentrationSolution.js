@@ -30,11 +30,11 @@ define( function( require ) {
     thisSolution.solvent = Solvent.WATER;
     thisSolution.solute = solute;
     thisSolution.soluteAmount = new Property( soluteAmount );
-    thisSolution.volume = new Property( volume );
+    thisSolution.volume = new Property( volume, { componentID: 'concentrationScreen.solution.volume' } );
 
     // derive amount of precipitate (moles)
     thisSolution.precipitateAmount = new Property( 0 );
-    thisSolution.concentration = new Property( 0 );
+    thisSolution.concentration = new Property( 0, { componentID: 'concentrationScreen.solution.concentration' } );
     var updatePrecipitateAmount = function() {
 
       var volume = thisSolution.volume.get();
@@ -64,9 +64,6 @@ define( function( require ) {
       thisSolution.volume.reset();
       updateColor(); // because we provided a bogus initial color to Fluid constructor
     };
-
-    together && together.addComponent( 'concentrationScreen.solution.concentration', thisSolution.concentration );
-    together && together.addComponent( 'concentrationScreen.solution.volume', thisSolution.volume );
   }
 
   return inherit( Fluid, ConcentrationSolution, {

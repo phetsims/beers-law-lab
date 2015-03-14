@@ -33,7 +33,7 @@ define( function( require ) {
     thisFaucet.pipeMinX = pipeMinX;
     thisFaucet.spoutWidth = spoutWidth;
     thisFaucet.maxFlowRate = maxFlowRate;
-    thisFaucet.flowRate = new Property( 0 );
+    thisFaucet.flowRate = new Property( 0, { componentID: options.flowRateComponentID } );
     thisFaucet.enabled = new Property( true );
 
     // when disabled, turn off the faucet.
@@ -42,7 +42,6 @@ define( function( require ) {
         thisFaucet.flowRate.set( 0 );
       }
     } );
-    together && together.addComponent( options.flowRateComponentID, this.flowRate );
   }
 
   return inherit( Object, Faucet, {

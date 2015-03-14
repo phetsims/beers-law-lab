@@ -24,12 +24,8 @@ define( function( require ) {
     options = _.extend( {
       locationComponentID: null
     }, options );
-    this.locationProperty = new Property( location );
+    this.locationProperty = new Property( location, { componentID: options.locationComponentID } );
     this.dragBounds = dragBounds;
-
-    if ( options.locationComponentID ) {
-      together && together.addComponent( options.locationComponentID, this.locationProperty );
-    }
   }
 
   return inherit( Object, Movable, {
