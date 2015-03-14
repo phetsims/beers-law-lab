@@ -37,10 +37,11 @@ define( function( require ) {
    * @param {Number|undefined} particlesPerMole
    * @constructor
    */
-  function Solute( name, formula, apiName, stockSolutionConcentration, colorScheme, particleColor, particleSize, particlesPerMole ) {
+  function Solute( name, formula, apiName, listItemComponentID, stockSolutionConcentration, colorScheme, particleColor, particleSize, particlesPerMole ) {
     this.name = name;
     this.formula = formula;
     this.apiName = apiName;
+    this.listItemComponentID = listItemComponentID;
     this.stockSolutionConcentration = stockSolutionConcentration;
     this.colorScheme = colorScheme;
     this.particleColor = particleColor || colorScheme.maxColor;
@@ -61,6 +62,7 @@ define( function( require ) {
     drinkMixString,
     drinkMixString,
     'drinkMix',
+    'concentrationScreen.soluteComboBox.drinkMixButton',
     5.5,
     new SoluteColorScheme( 0, new Color( 224, 255, 255 ),
       0.05, new Color( 255, 225, 225 ),
@@ -70,6 +72,7 @@ define( function( require ) {
     cobaltIINitrateString,
     BLLSymbols.COBALT_II_NITRATE,
     'cobaltIINitrate',
+    'concentrationScreen.soluteComboBox.cobaltIINitrateButton',
     5.0,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR,
       0.05, new Color( 255, 225, 225 ),
@@ -79,6 +82,7 @@ define( function( require ) {
     cobaltChlorideString,
     BLLSymbols.COBALT_CHLORIDE,
     'cobaltChloride',
+    'concentrationScreen.soluteComboBox.cobaltChlorideButton',
     4.0,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR,
       0.05, new Color( 255, 242, 242 ),
@@ -88,6 +92,7 @@ define( function( require ) {
     potassiumDichromateString,
     BLLSymbols.POTASSIUM_DICHROMATE,
     'potassiumDichromate',
+    'concentrationScreen.soluteComboBox.potassiumDichromateButton',
     0.5,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR,
       0.01, new Color( 255, 204, 153 ),
@@ -97,6 +102,7 @@ define( function( require ) {
     potassiumChromateString,
     BLLSymbols.POTASSIUM_CHROMATE,
     'potassiumChromate',
+    'concentrationScreen.soluteComboBox.potassiumChromateButton',
     3.0,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR,
       0.05, new Color( 255, 255, 153 ),
@@ -106,6 +112,7 @@ define( function( require ) {
     nickelIIChlorideString,
     BLLSymbols.NICKEL_II_CHLORIDE,
     'nickelIIChloride',
+    'concentrationScreen.soluteComboBox.nickelIIChlorideButton',
     5.0,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR,
       0.2, new Color( 170, 255, 170 ),
@@ -115,6 +122,7 @@ define( function( require ) {
     copperSulfateString,
     BLLSymbols.COPPER_SULFATE,
     'copperSulfate',
+    'concentrationScreen.soluteComboBox.copperSulfateButton',
     1.0,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR,
       0.2, new Color( 200, 225, 255 ),
@@ -124,6 +132,7 @@ define( function( require ) {
     potassiumPermanganateString,
     BLLSymbols.POTASSIUM_PERMANGANATE,
     'potassiumPermanganate',
+    'concentrationScreen.soluteComboBox.potassiumPermanganateButton',
     0.4,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR,
       0.01, new Color( 255, 0, 255 ),
