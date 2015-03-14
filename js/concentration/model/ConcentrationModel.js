@@ -60,10 +60,7 @@ define( function( require ) {
     // Here, we perform 2-way binding between the solute name and the solute instance
     // This means we can get the value of the solute by name, and set it back by name,
     // which enables save/load/record/playback/configuration through query parameters/etc.
-    var soluteAPINameProperty = new Property( thisModel.solute.value.apiName );
-    thisModel.solute.link( function( solute ) {
-      soluteAPINameProperty.value = solute.apiName;
-    } );
+    var soluteAPINameProperty = new Property( thisModel.solute.value.apiName, { componentID: 'concentrationScreen.solute' } );
     soluteAPINameProperty.link( function( soluteAPIName ) {
       for ( var i = 0; i < thisModel.solutes.length; i++ ) {
         var solute = thisModel.solutes[ i ];
@@ -71,6 +68,9 @@ define( function( require ) {
           thisModel.solute.value = solute;
         }
       }
+    } );
+    thisModel.solute.link( function( solute ) {
+      soluteAPINameProperty.value = solute.apiName;
     } );
 
     thisModel.solution = new ConcentrationSolution( thisModel.solute, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue );
