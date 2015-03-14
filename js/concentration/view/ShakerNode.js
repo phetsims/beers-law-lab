@@ -102,10 +102,11 @@ define( function( require ) {
 
     // interactivity
     thisNode.cursor = 'pointer';
-    thisNode.addInputListener( new MovableDragHandler( shaker.locationProperty, {
+    this.movableDragHandler = new MovableDragHandler( shaker.locationProperty, {
       dragBounds: shaker.dragBounds,
       modelViewTransform: modelViewTransform
-    }) );
+    } );
+    thisNode.addInputListener( this.movableDragHandler );
     thisNode.addInputListener( {
       enter: function() {
         upArrowNode.visible = downArrowNode.visible = !shakerWasMoved;
@@ -114,6 +115,8 @@ define( function( require ) {
         upArrowNode.visible = downArrowNode.visible = false;
       }
     } );
+
+    together && together.addComponent( 'concentrationScreen.shaker', this );
   }
 
   return inherit( Node, ShakerNode, {
