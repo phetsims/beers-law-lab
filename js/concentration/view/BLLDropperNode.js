@@ -33,7 +33,8 @@ define( function( require ) {
     EyeDropperNode.call( thisNode, {
       onProperty: dropper.on,
       enabledProperty: dropper.enabled,
-      emptyProperty: dropper.empty
+      emptyProperty: dropper.empty,
+      buttonComponentID: 'concentrationScreen.dropperButton'
     } );
 
     // label background, so the label shows up on various fluid colors
@@ -43,7 +44,10 @@ define( function( require ) {
     thisNode.addChild( labelBackground );
 
     // label
-    var label = new SubSupText( dropper.solute.formula, { font: new PhetFont( { size: 18, weight: 'bold' } ), fill: 'black' } );
+    var label = new SubSupText( dropper.solute.formula, {
+      font: new PhetFont( { size: 18, weight: 'bold' } ),
+      fill: 'black'
+    } );
     thisNode.addChild( label );
 
     // location
