@@ -37,6 +37,8 @@ define( function( require ) {
       buttonComponentID: 'concentrationScreen.dropperButton'
     } );
 
+    this.componentID = 'concentrationScreen.dropper';
+
     // label background, so the label shows up on various fluid colors
     var labelBackground = new Path( null, {
       fill: 'rgba( 240, 240, 240, 0.6 )' // translucent gray
@@ -89,17 +91,13 @@ define( function( require ) {
     // move the dropper
     this.movableDragHandler = new MovableDragHandler( dropper.locationProperty, {
       dragBounds: dropper.dragBounds,
-      modelViewTransform: modelViewTransform
+      modelViewTransform: modelViewTransform,
+      componentID: thisNode.componentID
     } );
     thisNode.addInputListener( this.movableDragHandler );
 
-    this.componentID = 'concentrationScreen.dropper';
     together && together.addComponent( this );
   }
 
-  return inherit( EyeDropperNode, BLLDropperNode, {
-    // Pass through componentID to the movableDragHandler, where the arch messages are reported.
-    set componentID( id ) {this.movableDragHandler.componentID = id;},
-    get componentID() {return this.movableDragHandler.componentID;}
-  } );
+  return inherit( EyeDropperNode, BLLDropperNode );
 } );

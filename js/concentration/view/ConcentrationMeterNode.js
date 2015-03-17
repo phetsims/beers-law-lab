@@ -150,6 +150,8 @@ define( function( require ) {
       cursor: 'pointer'
     } );
 
+    this.componentID = 'concentrationScreen.concentrationMeterProbe';
+
     var imageNode = new Image( probeImage );
     thisNode.addChild( imageNode );
     var radius = imageNode.height / 2; // assumes that image height defines the radius
@@ -167,11 +169,11 @@ define( function( require ) {
     thisNode.touchArea = Shape.rectangle( imageNode.x - dx, imageNode.y - dy, imageNode.width + dx + dx, imageNode.height + dy + dy );
 
     // drag handler
-    this.movableDragHandler = new MovableDragHandler( probe.locationProperty, {
+    thisNode.addInputListener( new MovableDragHandler( probe.locationProperty, {
       dragBounds: probe.dragBounds,
-      modelViewTransform: modelViewTransform
-    } );
-    thisNode.addInputListener( this.movableDragHandler );
+      modelViewTransform: modelViewTransform,
+      componentID: thisNode.componentID
+    } ) );
 
     var isInNode = function( node ) {
       var localPoint = node.parentToLocalPoint( probe.locationProperty.get() );
@@ -196,14 +198,10 @@ define( function( require ) {
       return isInNode( stockSolutionNode );
     };
 
-    this.componentID = 'concentrationScreen.concentrationMeterProbe';
     together && together.addComponent( this );
   }
 
-  inherit( Node, ProbeNode, {
-    set componentID( c ) {this.movableDragHandler.componentID = c;},
-    get componentID() {return this.movableDragHandler.componentID;}
-  } );
+  inherit( Node, ProbeNode );
 
   /**
    * Wire that connects the body and probe.

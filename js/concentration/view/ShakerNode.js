@@ -45,6 +45,8 @@ define( function( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
+    this.componentID = 'concentrationScreen.shaker';
+
     // shaker image
     var imageNode = new Image( shakerImage );
     imageNode.setScaleMagnitude( 0.75 );
@@ -102,11 +104,11 @@ define( function( require ) {
 
     // interactivity
     thisNode.cursor = 'pointer';
-    this.movableDragHandler = new MovableDragHandler( shaker.locationProperty, {
+    thisNode.addInputListener( new MovableDragHandler( shaker.locationProperty, {
       dragBounds: shaker.dragBounds,
-      modelViewTransform: modelViewTransform
-    } );
-    thisNode.addInputListener( this.movableDragHandler );
+      modelViewTransform: modelViewTransform,
+      componentID: thisNode.componentID
+    } ) );
     thisNode.addInputListener( {
       enter: function() {
         upArrowNode.visible = downArrowNode.visible = !shakerWasMoved;
@@ -116,14 +118,8 @@ define( function( require ) {
       }
     } );
 
-    this.componentID = 'concentrationScreen.shaker';
     together && together.addComponent( this );
   }
 
-  return inherit( Node, ShakerNode, {
-
-    // Pass through componentID to the movableDragHandler, where the arch messages are reported.
-    set componentID( id ) {this.movableDragHandler.componentID = id;},
-    get componentID() {return this.movableDragHandler.componentID;}
-  } );
+  return inherit( Node, ShakerNode );
 } );
