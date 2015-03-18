@@ -91,17 +91,18 @@ define( function( require ) {
     // TODO: This should be the fundamental property, and shaker visible/dropper visible should derive from this
     var soluteFormProperty = new Property( dropper.visible.value ? 'liquid' : 'solid', { componentID: 'concentrationScreen.soluteForm' } );
 
+    soluteFormProperty.link( function( soluteForm ) {
+      shaker.visible.set( soluteForm === 'solid' );
+      dropper.visible.set( soluteForm === 'liquid' );
+    } );
+
+    // Link these afterwards since the soluteFormProperty value may be customized on startup, and we don't want the value
+    // to be immediately overriden
     shaker.visible.link( function() {
       soluteFormProperty.value = dropper.visible.value ? 'liquid' : 'solid';
     } );
     dropper.visible.link( function() {
       soluteFormProperty.value = dropper.visible.value ? 'liquid' : 'solid';
-    } );
-
-    // TODO: Will this cause any loops, etc?
-    soluteFormProperty.link( function( soluteForm ) {
-      shaker.visible.set( soluteForm === 'solid' );
-      dropper.visible.set( soluteForm === 'liquid' );
     } );
   }
 
