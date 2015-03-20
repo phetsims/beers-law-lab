@@ -34,6 +34,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
   var Vector2 = require( 'DOT/Vector2' );
+  var Property = require( 'AXON/Property' );
 
   // strings
   var concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
@@ -119,6 +120,7 @@ define( function( require ) {
     } );
 
     // displayed value
+    var displayedTextProperty = new Property( NO_VALUE, { componentID: 'concentrationScreen.concentrationMeter.readout' } );
     meter.value.link( function( value ) {
       if ( isNaN( value ) ) {
         valueNode.setText( NO_VALUE );
@@ -128,6 +130,9 @@ define( function( require ) {
         valueNode.setText( value.toFixed( VALUE_DECIMALS ) );
         valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN; // right justified
       }
+
+      // Output the data in the arch data stream
+      displayedTextProperty.set( valueNode.getText() );
     } );
   }
 

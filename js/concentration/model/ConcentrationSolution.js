@@ -29,11 +29,11 @@ define( function( require ) {
 
     thisSolution.solvent = Solvent.WATER;
     thisSolution.solute = solute;
-    thisSolution.soluteAmount = new Property( soluteAmount );
+    thisSolution.soluteAmount = new Property( soluteAmount, { componentID: 'concentrationScreen.solution.soluteAmount' } );
     thisSolution.volume = new Property( volume, { componentID: 'concentrationScreen.solution.volume' } );
 
     // derive amount of precipitate (moles)
-    thisSolution.precipitateAmount = new Property( 0 );
+    thisSolution.precipitateAmount = new Property( 0, { componentID: 'concentrationScreen.solution.precipitateAmount' } );
     thisSolution.concentration = new Property( 0, { componentID: 'concentrationScreen.solution.concentration' } );
     var updatePrecipitateAmount = function() {
 
