@@ -34,10 +34,9 @@ define( function( require ) {
       onProperty: dropper.on,
       enabledProperty: dropper.enabled,
       emptyProperty: dropper.empty,
+      componentID: 'concentrationScreen.dropper',
       buttonComponentID: 'concentrationScreen.dropperButton'
     } );
-
-    this.componentID = 'concentrationScreen.dropper';
 
     // label background, so the label shows up on various fluid colors
     var labelBackground = new Path( null, {
@@ -95,8 +94,6 @@ define( function( require ) {
       componentID: thisNode.componentID
     } );
     thisNode.addInputListener( this.movableDragHandler );
-
-    together && together.addComponent( this );
   }
 
   return inherit( EyeDropperNode, BLLDropperNode );
