@@ -44,7 +44,9 @@ define( function( require ) {
       labelNode: labelNode,
       listPosition: 'below',
       itemYMargin: 12,
-      itemHighlightFill: 'rgb(218,255,255)'
+      itemHighlightFill: 'rgb(218,255,255)',
+      buttonNodeComponentID: 'concentrationScreen.soluteComboBox',
+      listNodeVisiblePropertyID: 'concentrationScreen.soluteComboBox.listVisible'
     } );
   }
 
@@ -55,7 +57,10 @@ define( function( require ) {
    */
   var createItem = function( solute ) {
     var node = new Node();
-    var colorNode = new Rectangle( 0, 0, 20, 20, { fill: solute.colorScheme.maxColor, stroke: solute.colorScheme.maxColor.darkerColor() } );
+    var colorNode = new Rectangle( 0, 0, 20, 20, {
+      fill: solute.colorScheme.maxColor,
+      stroke: solute.colorScheme.maxColor.darkerColor()
+    } );
     var textNode = new Text( solute.name, { font: new PhetFont( 20 ) } );
     node.addChild( colorNode );
     node.addChild( textNode );

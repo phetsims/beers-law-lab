@@ -24,14 +24,14 @@ define( function( require ) {
   function Dropper( location, dragBounds, solute, maxFlowRate, visible ) {
 
     var thisDropper = this;
-    Movable.call( thisDropper, location, dragBounds );
+    Movable.call( thisDropper, location, dragBounds, { locationComponentID: 'concentrationScreen.dropper.location' } );
 
     thisDropper.solute = solute;
-    thisDropper.visible = new Property( visible );
-    thisDropper.on = new Property( false ); // true if the dropper is dispensing solution
+    thisDropper.visible = new Property( visible, { componentID: 'concentrationScreen.dropper.visible' } );
+    thisDropper.on = new Property( false, { componentID: 'concentrationScreen.dropper.on' } ); // true if the dropper is dispensing solution
     thisDropper.enabled = new Property( true );
-    thisDropper.empty = new Property( false );
-    thisDropper.flowRate = new Property( 0 ); // L/sec
+    thisDropper.empty = new Property( false, { componentID: 'concentrationScreen.dropper.empty' } );
+    thisDropper.flowRate = new Property( 0, { componentID: 'concentrationScreen.dropper.flowRate' } ); // L/sec
 
     // Turn off the dropper when it's disabled.
     thisDropper.enabled.link( function( enabled ) {
@@ -51,6 +51,8 @@ define( function( require ) {
         thisDropper.enabled.set( false );
       }
     } );
+
+    //together && together.addComponent( 'concentrationScreen.dropper.location', thisDropper.locationProperty );
   }
 
   return inherit( Movable, Dropper, {

@@ -38,7 +38,8 @@ define( function( require ) {
     var slider = new HSlider( evaporator.evaporationRate, new Range( 0, evaporator.maxEvaporationRate ), {
       trackSize: new Dimension2( 200, 6 ),
       enabledProperty: evaporator.enabled,
-      endDrag: function() { evaporator.evaporationRate.set( 0 ); }  // at end of drag, snap evaporation rate back to zero
+      endDrag: function() { evaporator.evaporationRate.set( 0 ); },  // at end of drag, snap evaporation rate back to zero
+      componentID: 'concentrationScreen.evaporationSlider'
     } );
 
     var tickFont = new PhetFont( 16 );

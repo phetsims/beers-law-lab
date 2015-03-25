@@ -33,7 +33,9 @@ define( function( require ) {
     EyeDropperNode.call( thisNode, {
       onProperty: dropper.on,
       enabledProperty: dropper.enabled,
-      emptyProperty: dropper.empty
+      emptyProperty: dropper.empty,
+      componentID: 'concentrationScreen.dropper',
+      buttonComponentID: 'concentrationScreen.dropperButton'
     } );
 
     // label background, so the label shows up on various fluid colors
@@ -43,7 +45,10 @@ define( function( require ) {
     thisNode.addChild( labelBackground );
 
     // label
-    var label = new SubSupText( dropper.solute.formula, { font: new PhetFont( { size: 18, weight: 'bold' } ), fill: 'black' } );
+    var label = new SubSupText( dropper.solute.formula, {
+      font: new PhetFont( { size: 18, weight: 'bold' } ),
+      fill: 'black'
+    } );
     thisNode.addChild( label );
 
     // location
@@ -83,10 +88,12 @@ define( function( require ) {
     thisNode.touchArea = thisNode.localBounds.dilatedX( 0.25 * thisNode.width );
 
     // move the dropper
-    thisNode.addInputListener( new MovableDragHandler( dropper.locationProperty, {
+    this.movableDragHandler = new MovableDragHandler( dropper.locationProperty, {
       dragBounds: dropper.dragBounds,
-      modelViewTransform: modelViewTransform
-    } ) );
+      modelViewTransform: modelViewTransform,
+      componentID: thisNode.componentID
+    } );
+    thisNode.addInputListener( this.movableDragHandler );
   }
 
   return inherit( EyeDropperNode, BLLDropperNode );

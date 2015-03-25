@@ -20,8 +20,11 @@ define( function( require ) {
    * @param {number} maxFlowRate L/sec
    * @constructor
    */
-  function Faucet( location, pipeMinX, spoutWidth, maxFlowRate ) {
+  function Faucet( location, pipeMinX, spoutWidth, maxFlowRate, options ) {
 
+    options = _.extend( {
+      flowRateComponentID: null
+    }, options );
     assert && assert( pipeMinX < location.x ); // pipe enters the faucet from the left
 
     var thisFaucet = this;
@@ -30,7 +33,7 @@ define( function( require ) {
     thisFaucet.pipeMinX = pipeMinX;
     thisFaucet.spoutWidth = spoutWidth;
     thisFaucet.maxFlowRate = maxFlowRate;
-    thisFaucet.flowRate = new Property( 0 );
+    thisFaucet.flowRate = new Property( 0, { componentID: options.flowRateComponentID } );
     thisFaucet.enabled = new Property( true );
 
     // when disabled, turn off the faucet.

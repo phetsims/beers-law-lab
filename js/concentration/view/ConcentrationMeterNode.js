@@ -34,6 +34,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
   var Vector2 = require( 'DOT/Vector2' );
+  var Property = require( 'AXON/Property' );
 
   // strings
   var concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
@@ -108,7 +109,8 @@ define( function( require ) {
     if ( BODY_IS_DRAGGABLE ) {
       thisNode.addInputListener( new MovableDragHandler( meter.body.locationProperty, {
         dragBounds: meter.body.dragBounds,
-        modelViewTransform: modelViewTransform
+        modelViewTransform: modelViewTransform,
+        componentID: 'concentrationScreen.concentrationMeterBody'
       } ) );
     }
 
@@ -118,6 +120,7 @@ define( function( require ) {
     } );
 
     // displayed value
+    var displayedTextProperty = new Property( NO_VALUE, { componentID: 'concentrationScreen.concentrationMeter.readout' } );
     meter.value.link( function( value ) {
       if ( isNaN( value ) ) {
         valueNode.setText( NO_VALUE );
@@ -127,6 +130,9 @@ define( function( require ) {
         valueNode.setText( value.toFixed( VALUE_DECIMALS ) );
         valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN; // right justified
       }
+
+      // Output the data in the arch data stream
+      displayedTextProperty.set( valueNode.getText() );
     } );
   }
 
@@ -149,6 +155,8 @@ define( function( require ) {
       cursor: 'pointer'
     } );
 
+    this.componentID = 'concentrationScreen.concentrationMeterProbe';
+
     var imageNode = new Image( probeImage );
     thisNode.addChild( imageNode );
     var radius = imageNode.height / 2; // assumes that image height defines the radius
@@ -168,7 +176,8 @@ define( function( require ) {
     // drag handler
     thisNode.addInputListener( new MovableDragHandler( probe.locationProperty, {
       dragBounds: probe.dragBounds,
-      modelViewTransform: modelViewTransform
+      modelViewTransform: modelViewTransform,
+      componentID: thisNode.componentID
     } ) );
 
     var isInNode = function( node ) {
@@ -193,6 +202,8 @@ define( function( require ) {
     thisNode.isInStockSolution = function() {
       return isInNode( stockSolutionNode );
     };
+
+    together && together.addComponent( this );
   }
 
   inherit( Node, ProbeNode );

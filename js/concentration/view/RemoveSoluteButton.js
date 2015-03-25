@@ -29,7 +29,8 @@ define( function( require ) {
       baseColor: 'rgb(255,200,0)',
       font: new PhetFont( 22 ),
       textFill: 'black',
-      xMargin: 10
+      xMargin: 10,
+      componentID: 'concentrationScreen.removeSoluteButton'
     } );
 
     this.addListener( function() {

@@ -55,6 +55,24 @@ define( function( require ) {
 
     // model elements
     thisModel.solute = new Property( thisModel.solutes[ 0 ] );
+
+    // The Public API for this simulation provides a simplified name for the selected solute
+    // Here, we perform 2-way binding between the solute name and the solute instance
+    // This means we can get the value of the solute by name, and set it back by name,
+    // which enables save/load/record/playback/configuration through query parameters/etc.
+    var soluteAPINameProperty = new Property( thisModel.solute.value.apiName, { componentID: 'concentrationScreen.solute' } );
+    soluteAPINameProperty.link( function( soluteAPIName ) {
+      for ( var i = 0; i < thisModel.solutes.length; i++ ) {
+        var solute = thisModel.solutes[ i ];
+        if ( solute.apiName === soluteAPIName ) {
+          thisModel.solute.value = solute;
+        }
+      }
+    } );
+    thisModel.solute.link( function( solute ) {
+      soluteAPINameProperty.value = solute.apiName;
+    } );
+
     thisModel.solution = new ConcentrationSolution( thisModel.solute, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue );
     thisModel.beaker = new Beaker( new Vector2( 400, 550 ), new Dimension2( 600, 300 ), 1 );
     thisModel.precipitate = new Precipitate( thisModel.solution, thisModel.beaker );
@@ -62,8 +80,8 @@ define( function( require ) {
     thisModel.shakerParticles = new ShakerParticles( thisModel.shaker, thisModel.solution, thisModel.beaker );
     thisModel.dropper = new Dropper( new Vector2( thisModel.beaker.location.x, 225 ), new Bounds2( 250, 225, 570, 225 ), thisModel.solute, DROPPER_FLOW_RATE, false );
     thisModel.evaporator = new Evaporator( MAX_EVAPORATION_RATE, thisModel.solution );
-    thisModel.solventFaucet = new Faucet( new Vector2( 155, 220 ), -400, 45, MAX_INPUT_FLOW_RATE );
-    thisModel.drainFaucet = new Faucet( new Vector2( 800, 630 ), thisModel.beaker.getRight(), 45, MAX_OUTPUT_FLOW_RATE );
+    thisModel.solventFaucet = new Faucet( new Vector2( 155, 220 ), -400, 45, MAX_INPUT_FLOW_RATE, { flowRateComponentID: 'concentrationScreen.solventFaucet.flowRate' } );
+    thisModel.drainFaucet = new Faucet( new Vector2( 800, 630 ), thisModel.beaker.getRight(), 45, MAX_OUTPUT_FLOW_RATE, { flowRateComponentID: 'concentrationScreen.drainFaucet.flowRate' } );
     thisModel.concentrationMeter = new ConcentrationMeter( new Vector2( 785, 210 ), new Bounds2( 10, 150, 835, 680 ),
       new Vector2( 750, 370 ), new Bounds2( 30, 150, 966, 680 ) );
 
