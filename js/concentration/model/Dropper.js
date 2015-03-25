@@ -51,8 +51,6 @@ define( function( require ) {
         thisDropper.enabled.set( false );
       }
     } );
-
-    //together && together.addComponent( 'concentrationScreen.dropper.location', thisDropper.locationProperty );
   }
 
   return inherit( Movable, Dropper, {
