@@ -87,7 +87,7 @@ define( function( require ) {
       shaker.visible.set( !visible );
     } );
 
-    // This property was added for the public API.
+    // This property was added for the together API.
     // TODO: This should be the fundamental property, and shaker visible/dropper visible should derive from this
     var soluteFormProperty = new Property( dropper.visible.value ? 'liquid' : 'solid', { componentID: 'concentrationScreen.soluteForm' } );
 
