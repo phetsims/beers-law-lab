@@ -22,11 +22,11 @@ define( function( require ) {
   /**
    * @param {Dropper} dropper
    * @param {Solvent} solvent
-   * @param {Property.<Solute>} solute
+   * @param {Property.<Solute>} soluteProperty
    * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function BLLDropperNode( dropper, solvent, solute, modelViewTransform ) {
+  function BLLDropperNode( dropper, solvent, soluteProperty, modelViewTransform ) {
 
     var thisNode = this;
 
@@ -45,7 +45,7 @@ define( function( require ) {
     thisNode.addChild( labelBackground );
 
     // label
-    var label = new SubSupText( dropper.solute.formula, {
+    var label = new SubSupText( '', {
       font: new PhetFont( { size: 18, weight: 'bold' } ),
       fill: 'black'
     } );
@@ -63,7 +63,7 @@ define( function( require ) {
     } );
 
     // Change the label and color when the solute changes.
-    solute.link( function( solute ) {
+    soluteProperty.link( function( solute ) {
 
       // fluid color
       thisNode.fluidColor = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
