@@ -29,7 +29,7 @@ define( function( require ) {
     thisPrecipitate.changedCallbacks = []; // function(Precipitate), private
 
     // when the saturation changes, update the number of precipitate particles
-    thisPrecipitate.solution.precipitateAmount.link( function() {
+    thisPrecipitate.solution.precipitateAmountProperty.link( function() {
       thisPrecipitate.updateParticles();
     } );
 

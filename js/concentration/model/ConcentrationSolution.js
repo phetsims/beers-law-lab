@@ -33,7 +33,7 @@ define( function( require ) {
     thisSolution.volumeProperty = new Property( volume, { componentID: 'concentrationScreen.solution.volume' } );
 
     // derive amount of precipitate (moles)
-    thisSolution.precipitateAmount = new Property( 0, { componentID: 'concentrationScreen.solution.precipitateAmount' } );
+    thisSolution.precipitateAmountProperty = new Property( 0, { componentID: 'concentrationScreen.solution.precipitateAmount' } );
     thisSolution.concentration = new Property( 0, { componentID: 'concentrationScreen.solution.concentration' } );
     var updatePrecipitateAmount = function() {
 
@@ -41,7 +41,7 @@ define( function( require ) {
       var soluteAmount = thisSolution.soluteAmountProperty.get();
 
       // derive amount of precipitate (moles)
-      thisSolution.precipitateAmount.set( Math.max( 0, soluteAmount - ( volume * thisSolution.getSaturatedConcentration() ) ) );
+      thisSolution.precipitateAmountProperty.set( Math.max( 0, soluteAmount - ( volume * thisSolution.getSaturatedConcentration() ) ) );
 
       // derive concentration (M = mol/L)
       thisSolution.concentration.set( ( volume > 0 ) ? Math.min( thisSolution.getSaturatedConcentration(), soluteAmount / volume ) : 0 );
@@ -82,8 +82,8 @@ define( function( require ) {
     },
 
     getNumberOfPrecipitateParticles: function() {
-      var numberOfParticles = Math.round( this.soluteProperty.get().particlesPerMole * this.precipitateAmount.get() );
-      if ( numberOfParticles === 0 && this.precipitateAmount.get() > 0 ) {
+      var numberOfParticles = Math.round( this.soluteProperty.get().particlesPerMole * this.precipitateAmountProperty.get() );
+      if ( numberOfParticles === 0 && this.precipitateAmountProperty.get() > 0 ) {
         numberOfParticles = 1;
       }
       return numberOfParticles;
