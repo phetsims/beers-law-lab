@@ -39,7 +39,7 @@ define( function( require ) {
     thisParticles.changedCallbacks = []; // function(ShakerParticle)
 
     // when the solute changes, remove all particles
-    solution.solute.link( function() {
+    solution.soluteProperty.link( function() {
       thisParticles.removeAllParticles();
     } );
   }
@@ -88,18 +88,18 @@ define( function( require ) {
 
         // If the particle hits the solution surface or bottom of the beaker, delete it, and add a corresponding amount of solute to the solution.
         var percentFull = solution.volume.get() / beaker.volume;
-        var solutionSurfaceY = beaker.location.y - ( percentFull * beaker.size.height ) - solution.solute.get().particleSize;
+        var solutionSurfaceY = beaker.location.y - ( percentFull * beaker.size.height ) - solution.soluteProperty.get().particleSize;
         if ( particle.locationProperty.get().y > solutionSurfaceY ) {
           this.removeParticle( particle );
-          solution.soluteAmount.set( solution.soluteAmount.get() + ( 1 / solution.solute.get().particlesPerMole ) );
+          solution.soluteAmount.set( solution.soluteAmount.get() + ( 1 / solution.soluteProperty.get().particlesPerMole ) );
         }
       }
 
       // create new particles
       if ( shaker.dispensingRate.get() > 0 ) {
-        var numberOfParticles = Math.round( Math.max( 1, shaker.dispensingRate.get() * solution.solute.get().particlesPerMole * deltaSeconds ) );
+        var numberOfParticles = Math.round( Math.max( 1, shaker.dispensingRate.get() * solution.soluteProperty.get().particlesPerMole * deltaSeconds ) );
         for ( var j = 0; j < numberOfParticles; j++ ) {
-          this.addParticle( new ShakerParticle( solution.solute.get(), getRandomLocation( this.shaker.locationProperty.get() ), getRandomOrientation(),
+          this.addParticle( new ShakerParticle( solution.soluteProperty.get(), getRandomLocation( this.shaker.locationProperty.get() ), getRandomOrientation(),
             this.getInitialVelocity(), this.getGravitationalAcceleration() ) );
         }
       }

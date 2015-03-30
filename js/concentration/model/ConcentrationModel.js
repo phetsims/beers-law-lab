@@ -153,7 +153,7 @@ define( function( require ) {
       var dropperVolume = this.dropper.flowRate.get() * deltaSeconds;
       if ( dropperVolume > 0 ) {
         var volumeAdded = this.addSolvent( dropperVolume );
-        this.addSolute( this.solution.solute.get().stockSolutionConcentration * volumeAdded );
+        this.addSolute( this.solution.soluteProperty.get().stockSolutionConcentration * volumeAdded );
       }
     },
 

@@ -34,7 +34,7 @@ define( function( require ) {
     } );
 
     // when the solute changes, remove all particles and create new particles for the solute
-    thisPrecipitate.solution.solute.link( function() {
+    thisPrecipitate.solution.soluteProperty.link( function() {
       thisPrecipitate.removeAllParticles();
       thisPrecipitate.updateParticles();
     } );
@@ -79,7 +79,7 @@ define( function( require ) {
       else {
         // add some particles
         while ( numberOfParticles > this.particles.length ) {
-          this.particles.push( new PrecipitateParticle( this.solution.solute.get(), this.getRandomOffset(), getRandomOrientation() ) );
+          this.particles.push( new PrecipitateParticle( this.solution.soluteProperty.get(), this.getRandomOffset(), getRandomOrientation() ) );
         }
       }
       assert && assert( this.particles.length === numberOfParticles );
@@ -101,7 +101,7 @@ define( function( require ) {
 
     // @private Gets a random location, in global model coordinate frame.
     getRandomOffset: function() {
-      var particleSize = this.solution.solute.get().particleSize;
+      var particleSize = this.solution.soluteProperty.get().particleSize;
       // particles are square, largest margin required is the diagonal length
       var margin = Math.sqrt( particleSize * particleSize );
       // offset

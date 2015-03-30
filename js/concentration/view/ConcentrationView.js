@@ -57,7 +57,7 @@ define( function( require ) {
       modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.location.y ) ) );
 
     // Dropper
-    var dropperNode = new BLLDropperNode( model.dropper, model.solution.solvent, model.solution.solute, modelViewTransform );
+    var dropperNode = new BLLDropperNode( model.dropper, model.solution.solvent, model.solution.soluteProperty, modelViewTransform );
     var stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.solute, model.dropper, model.beaker, dropperNode.TIP_WIDTH - 1, modelViewTransform );
 
     // faucets

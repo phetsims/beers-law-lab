@@ -293,7 +293,7 @@ define( function( require ) {
       }
     };
     meter.probe.locationProperty.link( updateValue );
-    solution.solute.link( updateValue );
+    solution.soluteProperty.link( updateValue );
     solution.concentration.link( updateValue );
     solutionNode.addEventListener( 'bounds', updateValue );
     stockSolutionNode.addEventListener( 'bounds', updateValue );

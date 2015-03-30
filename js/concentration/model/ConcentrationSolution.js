@@ -18,17 +18,17 @@ define( function( require ) {
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
 
   /**
-   * @param {Property.<Solute>} solute
+   * @param {Property.<Solute>} soluteProperty
    * @param {number} soluteAmount moles
    * @param {NUmber} volume L
    */
-  function ConcentrationSolution( solute, soluteAmount, volume ) {
+  function ConcentrationSolution( soluteProperty, soluteAmount, volume ) {
 
     var thisSolution = this;
     Fluid.call( thisSolution, Color.WHITE ); // use a bogus initial color, so we'll need to set color properly in reset
 
     thisSolution.solvent = Solvent.WATER;
-    thisSolution.solute = solute;
+    thisSolution.soluteProperty = soluteProperty;
     thisSolution.soluteAmount = new Property( soluteAmount, { componentID: 'concentrationScreen.solution.soluteAmount' } );
     thisSolution.volume = new Property( volume, { componentID: 'concentrationScreen.solution.volume' } );
 
@@ -46,15 +46,15 @@ define( function( require ) {
       // derive concentration (M = mol/L)
       thisSolution.concentration.set( ( volume > 0 ) ? Math.min( thisSolution.getSaturatedConcentration(), soluteAmount / volume ) : 0 );
     };
-    thisSolution.solute.link( updatePrecipitateAmount );
+    thisSolution.soluteProperty.link( updatePrecipitateAmount );
     thisSolution.soluteAmount.link( updatePrecipitateAmount );
     thisSolution.volume.link( updatePrecipitateAmount );
 
     // derive the solution color
     var updateColor = function() {
-      thisSolution.color.set( ConcentrationSolution.createColor( thisSolution.solvent, thisSolution.solute.get(), thisSolution.concentration.get() ) );
+      thisSolution.color.set( ConcentrationSolution.createColor( thisSolution.solvent, thisSolution.soluteProperty.get(), thisSolution.concentration.get() ) );
     };
-    thisSolution.solute.link( updateColor );
+    thisSolution.soluteProperty.link( updateColor );
     thisSolution.concentration.link( updateColor );
 
     // reset
@@ -70,7 +70,7 @@ define( function( require ) {
 
     // convenience function
     getSaturatedConcentration: function() {
-      return this.solute.get().getSaturatedConcentration();
+      return this.soluteProperty.get().getSaturatedConcentration();
     },
 
     isSaturated: function() {
@@ -82,7 +82,7 @@ define( function( require ) {
     },
 
     getNumberOfPrecipitateParticles: function() {
-      var numberOfParticles = Math.round( this.solute.get().particlesPerMole * this.precipitateAmount.get() );
+      var numberOfParticles = Math.round( this.soluteProperty.get().particlesPerMole * this.precipitateAmount.get() );
       if ( numberOfParticles === 0 && this.precipitateAmount.get() > 0 ) {
         numberOfParticles = 1;
       }
