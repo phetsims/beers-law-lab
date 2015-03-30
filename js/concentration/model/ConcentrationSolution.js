@@ -30,14 +30,14 @@ define( function( require ) {
     thisSolution.solvent = Solvent.WATER;
     thisSolution.soluteProperty = soluteProperty;
     thisSolution.soluteAmountProperty = new Property( soluteAmount, { componentID: 'concentrationScreen.solution.soluteAmount' } );
-    thisSolution.volume = new Property( volume, { componentID: 'concentrationScreen.solution.volume' } );
+    thisSolution.volumeProperty = new Property( volume, { componentID: 'concentrationScreen.solution.volume' } );
 
     // derive amount of precipitate (moles)
     thisSolution.precipitateAmount = new Property( 0, { componentID: 'concentrationScreen.solution.precipitateAmount' } );
     thisSolution.concentration = new Property( 0, { componentID: 'concentrationScreen.solution.concentration' } );
     var updatePrecipitateAmount = function() {
 
-      var volume = thisSolution.volume.get();
+      var volume = thisSolution.volumeProperty.get();
       var soluteAmount = thisSolution.soluteAmountProperty.get();
 
       // derive amount of precipitate (moles)
@@ -48,7 +48,7 @@ define( function( require ) {
     };
     thisSolution.soluteProperty.link( updatePrecipitateAmount );
     thisSolution.soluteAmountProperty.link( updatePrecipitateAmount );
-    thisSolution.volume.link( updatePrecipitateAmount );
+    thisSolution.volumeProperty.link( updatePrecipitateAmount );
 
     // derive the solution color
     var updateColor = function() {
@@ -61,7 +61,7 @@ define( function( require ) {
     thisSolution.reset = function() {
       Fluid.prototype.reset.call( this );
       thisSolution.soluteAmountProperty.reset();
-      thisSolution.volume.reset();
+      thisSolution.volumeProperty.reset();
       updateColor(); // because we provided a bogus initial color to Fluid constructor
     };
   }
@@ -75,8 +75,8 @@ define( function( require ) {
 
     isSaturated: function() {
       var saturated = false;
-      if ( this.volume.get() > 0 ) {
-        saturated = ( this.soluteAmountProperty.get() / this.volume.get() ) > this.getSaturatedConcentration();
+      if ( this.volumeProperty.get() > 0 ) {
+        saturated = ( this.soluteAmountProperty.get() / this.volumeProperty.get() ) > this.getSaturatedConcentration();
       }
       return saturated;
     },

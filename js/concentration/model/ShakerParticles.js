@@ -87,7 +87,7 @@ define( function( require ) {
         particle.step( deltaSeconds, beaker );
 
         // If the particle hits the solution surface or bottom of the beaker, delete it, and add a corresponding amount of solute to the solution.
-        var percentFull = solution.volume.get() / beaker.volume;
+        var percentFull = solution.volumeProperty.get() / beaker.volume;
         var solutionSurfaceY = beaker.location.y - ( percentFull * beaker.size.height ) - solution.soluteProperty.get().particleSize;
         if ( particle.locationProperty.get().y > solutionSurfaceY ) {
           this.removeParticle( particle );

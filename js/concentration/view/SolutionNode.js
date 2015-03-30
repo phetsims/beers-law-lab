@@ -46,7 +46,7 @@ define( function( require ) {
      */
     var viewLocation = modelViewTransform.modelToViewPosition( beaker.location );
     var viewWidth = modelViewTransform.modelToViewDeltaX( beaker.size.width );
-    solution.volume.link( function( volume ) {
+    solution.volumeProperty.link( function( volume ) {
 
       // determine dimensions in model coordinates
       var solutionHeight = Util.linear( 0, beaker.volume, 0, beaker.size.height, volume ); // volume -> height

@@ -91,7 +91,7 @@ define( function( require ) {
     } );
 
     // Enable faucets and dropper based on amount of solution in the beaker.
-    thisModel.solution.volume.link( function( volume ) {
+    thisModel.solution.volumeProperty.link( function( volume ) {
       thisModel.solventFaucet.enabled.set( volume < SOLUTION_VOLUME_RANGE.max );
       thisModel.drainFaucet.enabled.set( volume > SOLUTION_VOLUME_RANGE.min );
       thisModel.dropper.enabled.set( !thisModel.dropper.empty.get() && ( volume < SOLUTION_VOLUME_RANGE.max ) );
@@ -102,7 +102,7 @@ define( function( require ) {
       var containsMaxSolute = ( soluteAmount >= SOLUTE_AMOUNT.max );
       thisModel.shaker.empty.set( containsMaxSolute );
       thisModel.dropper.empty.set( containsMaxSolute );
-      thisModel.dropper.enabled.set( !thisModel.dropper.empty.get() && !containsMaxSolute && thisModel.solution.volume.get() < SOLUTION_VOLUME_RANGE.max );
+      thisModel.dropper.enabled.set( !thisModel.dropper.empty.get() && !containsMaxSolute && thisModel.solution.volumeProperty.get() < SOLUTION_VOLUME_RANGE.max );
     } );
   }
 
@@ -175,9 +175,10 @@ define( function( require ) {
     // @private Adds solvent to the solution. Returns the amount actually added.
     addSolvent: function( deltaVolume ) {
       if ( deltaVolume > 0 ) {
-        var volumeBefore = this.solution.volume.get();
-        this.solution.volume.set( Math.min( SOLUTION_VOLUME_RANGE.max, this.solution.volume.get() + deltaVolume ) );
-        return this.solution.volume.get() - volumeBefore;
+        var volumeProperty = this.solution.volumeProperty;
+        var volumeBefore = volumeProperty.get();
+        volumeProperty.set( Math.min( SOLUTION_VOLUME_RANGE.max, volumeProperty.get() + deltaVolume ) );
+        return volumeProperty.get() - volumeBefore;
       }
       else {
         return 0;
@@ -187,9 +188,10 @@ define( function( require ) {
     // @private Removes solvent from the solution. Returns the amount actually removed.
     removeSolvent: function( deltaVolume ) {
       if ( deltaVolume > 0 ) {
-        var volumeBefore = this.solution.volume.get();
-        this.solution.volume.set( Math.max( SOLUTION_VOLUME_RANGE.min, this.solution.volume.get() - deltaVolume ) );
-        return volumeBefore - this.solution.volume.get();
+        var volumeProperty = this.solution.volumeProperty;
+        var volumeBefore = volumeProperty.get();
+        volumeProperty.set( Math.max( SOLUTION_VOLUME_RANGE.min, volumeProperty.get() - deltaVolume ) );
+        return volumeBefore - volumeProperty.get();
       }
       else {
         return 0;

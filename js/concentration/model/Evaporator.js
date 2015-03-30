@@ -26,7 +26,7 @@ define( function( require ) {
     thisEvaporator.enabled = new Property( true, { componentID: 'concentrationScreen.evaporationEnabled' } );
 
     // disable when the volume gets to zero
-    solution.volume.link( function( volume ) {
+    solution.volumeProperty.link( function( volume ) {
       thisEvaporator.enabled.set( volume > 0 );
     } );
 
