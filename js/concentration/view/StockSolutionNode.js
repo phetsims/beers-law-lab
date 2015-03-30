@@ -15,14 +15,14 @@ define( function( require ) {
 
   /**
    * @param {Solvent} solvent
-   * @param {Property.<Solute>} solute
+   * @param {Property.<Solute>} soluteProperty
    * @param {Dropper} dropper
    * @param {Beaker} beaker
    * @param {number} tipWidth
    * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function StockSolutionNode( solvent, solute, dropper, beaker, tipWidth, modelViewTransform ) {
+  function StockSolutionNode( solvent, soluteProperty, dropper, beaker, tipWidth, modelViewTransform ) {
 
     var thisNode = this;
 
@@ -45,7 +45,7 @@ define( function( require ) {
     dropper.empty.link( updateShapeAndLocation );
 
     // set color to match solute
-    solute.link( function( solute ) {
+    soluteProperty.link( function( solute ) {
       var color = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
       thisNode.fill = color;
       thisNode.stroke = color.darkerColor();
