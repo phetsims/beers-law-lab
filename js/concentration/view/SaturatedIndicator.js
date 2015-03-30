@@ -43,7 +43,7 @@ define( function( require ) {
     label.centerY = background.centerY;
 
     // make this node visible when the solution is saturated
-    solution.concentration.link( function() {
+    solution.concentrationProperty.link( function() {
       thisNode.setVisible( solution.isSaturated() );
     } );
   }

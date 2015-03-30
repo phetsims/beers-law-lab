@@ -142,7 +142,7 @@ define( function( require ) {
     drainSolutionFromOutputFaucet: function( deltaSeconds ) {
       var drainVolume = this.drainFaucet.flowRate.get() * deltaSeconds;
       if ( drainVolume > 0 ) {
-        var concentration = this.solution.concentration.get(); // get concentration before changing volume
+        var concentration = this.solution.concentrationProperty.get(); // get concentration before changing volume
         var volumeRemoved = this.removeSolvent( drainVolume );
         this.removeSolute( concentration * volumeRemoved );
       }

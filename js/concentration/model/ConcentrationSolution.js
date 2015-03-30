@@ -34,7 +34,7 @@ define( function( require ) {
 
     // derive amount of precipitate (moles)
     thisSolution.precipitateAmountProperty = new Property( 0, { componentID: 'concentrationScreen.solution.precipitateAmount' } );
-    thisSolution.concentration = new Property( 0, { componentID: 'concentrationScreen.solution.concentration' } );
+    thisSolution.concentrationProperty = new Property( 0, { componentID: 'concentrationScreen.solution.concentration' } );
     var updatePrecipitateAmount = function() {
 
       var volume = thisSolution.volumeProperty.get();
@@ -44,7 +44,7 @@ define( function( require ) {
       thisSolution.precipitateAmountProperty.set( Math.max( 0, soluteAmount - ( volume * thisSolution.getSaturatedConcentration() ) ) );
 
       // derive concentration (M = mol/L)
-      thisSolution.concentration.set( ( volume > 0 ) ? Math.min( thisSolution.getSaturatedConcentration(), soluteAmount / volume ) : 0 );
+      thisSolution.concentrationProperty.set( ( volume > 0 ) ? Math.min( thisSolution.getSaturatedConcentration(), soluteAmount / volume ) : 0 );
     };
     thisSolution.soluteProperty.link( updatePrecipitateAmount );
     thisSolution.soluteAmountProperty.link( updatePrecipitateAmount );
@@ -52,10 +52,10 @@ define( function( require ) {
 
     // derive the solution color
     var updateColor = function() {
-      thisSolution.color.set( ConcentrationSolution.createColor( thisSolution.solvent, thisSolution.soluteProperty.get(), thisSolution.concentration.get() ) );
+      thisSolution.color.set( ConcentrationSolution.createColor( thisSolution.solvent, thisSolution.soluteProperty.get(), thisSolution.concentrationProperty.get() ) );
     };
     thisSolution.soluteProperty.link( updateColor );
-    thisSolution.concentration.link( updateColor );
+    thisSolution.concentrationProperty.link( updateColor );
 
     // reset
     thisSolution.reset = function() {
@@ -96,6 +96,7 @@ define( function( require ) {
      * @param {Solvent) solvent
      * @param {Solute} solute
      * @param {number} concentration
+     * @static
      */
     createColor: function( solvent, solute, concentration ) {
       var color = solvent.color.get();

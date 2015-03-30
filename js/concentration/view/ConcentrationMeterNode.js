@@ -277,13 +277,13 @@ define( function( require ) {
 
     var updateValue = function() {
       if ( probeNode.isInSolution() ) {
-        meter.value.set( solution.concentration.get() );
+        meter.value.set( solution.concentrationProperty.get() );
       }
       else if ( probeNode.isInSolvent() ) {
         meter.value.set( 0 );
       }
       else if ( probeNode.isInDrainFluid() ) {
-        meter.value.set( solution.concentration.get() );
+        meter.value.set( solution.concentrationProperty.get() );
       }
       else if ( probeNode.isInStockSolution() ) {
         meter.value.set( dropper.solute.get().stockSolutionConcentration );
@@ -294,7 +294,7 @@ define( function( require ) {
     };
     meter.probe.locationProperty.link( updateValue );
     solution.soluteProperty.link( updateValue );
-    solution.concentration.link( updateValue );
+    solution.concentrationProperty.link( updateValue );
     solutionNode.addEventListener( 'bounds', updateValue );
     stockSolutionNode.addEventListener( 'bounds', updateValue );
     solventFluidNode.addEventListener( 'bounds', updateValue );
