@@ -34,12 +34,12 @@ define( function( require ) {
     } );
 
     this.addListener( function() {
-      solution.soluteAmount.set( 0 );
+      solution.soluteAmountProperty.set( 0 );
       shakerParticles.removeAllParticles();
     } );
 
     // change the text fill to indicate whether the button is enabled
-    solution.soluteAmount.link( function( soluteAmount ) {
+    solution.soluteAmountProperty.link( function( soluteAmount ) {
       thisButton.enabled = ( soluteAmount > 0 );
     } );
   }

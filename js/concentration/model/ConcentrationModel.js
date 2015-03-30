@@ -87,7 +87,7 @@ define( function( require ) {
 
     // Things to do when the solute is changed.
     thisModel.solute.link( function() {
-      thisModel.solution.soluteAmount.set( 0 );
+      thisModel.solution.soluteAmountProperty.set( 0 );
     } );
 
     // Enable faucets and dropper based on amount of solution in the beaker.
@@ -98,7 +98,7 @@ define( function( require ) {
     } );
 
     // Empty shaker and dropper when max solute is reached.
-    thisModel.solution.soluteAmount.link( function( soluteAmount ) {
+    thisModel.solution.soluteAmountProperty.link( function( soluteAmount ) {
       var containsMaxSolute = ( soluteAmount >= SOLUTE_AMOUNT.max );
       thisModel.shaker.empty.set( containsMaxSolute );
       thisModel.dropper.empty.set( containsMaxSolute );
@@ -199,9 +199,9 @@ define( function( require ) {
     // @private Adds solute to the solution. Returns the amount actually added.
     addSolute: function( deltaAmount ) {
       if ( deltaAmount > 0 ) {
-        var amountBefore = this.solution.soluteAmount.get();
-        this.solution.soluteAmount.set( Math.min( SOLUTE_AMOUNT.max, this.solution.soluteAmount.get() + deltaAmount ) );
-        return this.solution.soluteAmount.get() - amountBefore;
+        var amountBefore = this.solution.soluteAmountProperty.get();
+        this.solution.soluteAmountProperty.set( Math.min( SOLUTE_AMOUNT.max, this.solution.soluteAmountProperty.get() + deltaAmount ) );
+        return this.solution.soluteAmountProperty.get() - amountBefore;
       }
       else {
         return 0;
@@ -211,9 +211,9 @@ define( function( require ) {
     // @private Removes solute from the solution. Returns the amount actually removed.
     removeSolute: function( deltaAmount ) {
       if ( deltaAmount > 0 ) {
-        var amountBefore = this.solution.soluteAmount.get();
-        this.solution.soluteAmount.set( Math.max( SOLUTE_AMOUNT.min, this.solution.soluteAmount.get() - deltaAmount ) );
-        return amountBefore - this.solution.soluteAmount.get();
+        var amountBefore = this.solution.soluteAmountProperty.get();
+        this.solution.soluteAmountProperty.set( Math.max( SOLUTE_AMOUNT.min, this.solution.soluteAmountProperty.get() - deltaAmount ) );
+        return amountBefore - this.solution.soluteAmountProperty.get();
       }
       else {
         return 0;

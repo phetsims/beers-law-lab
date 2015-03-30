@@ -91,7 +91,7 @@ define( function( require ) {
         var solutionSurfaceY = beaker.location.y - ( percentFull * beaker.size.height ) - solution.soluteProperty.get().particleSize;
         if ( particle.locationProperty.get().y > solutionSurfaceY ) {
           this.removeParticle( particle );
-          solution.soluteAmount.set( solution.soluteAmount.get() + ( 1 / solution.soluteProperty.get().particlesPerMole ) );
+          solution.soluteAmountProperty.set( solution.soluteAmountProperty.get() + ( 1 / solution.soluteProperty.get().particlesPerMole ) );
         }
       }
 
