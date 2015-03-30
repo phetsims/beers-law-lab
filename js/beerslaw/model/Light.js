@@ -17,20 +17,20 @@ define( function( require ) {
    * @param {Vector2} location cm
    * @param {boolean} on
    * @param {number} lensDiameter cm
-   * @param {Property.<BeersLawSolution>} solution
+   * @param {Property.<BeersLawSolution>} solutionProperty
    * @constructor
    */
-  function Light( location, on, lensDiameter, solution ) {
+  function Light( location, on, lensDiameter, solutionProperty ) {
 
     var thisLight = this;
 
     thisLight.location = location;
     thisLight.on = new Property( on );
-    thisLight.wavelength = new Property( solution.get().molarAbsorptivityData.lambdaMax ); // nm
+    thisLight.wavelength = new Property( solutionProperty.get().molarAbsorptivityData.lambdaMax ); // nm
     thisLight.lensDiameter = lensDiameter;
 
     // when the solution changes, set the light to the solution's lambdaMax wavelength
-    solution.link( function( solution ) {
+    solutionProperty.link( function( solution ) {
       thisLight.wavelength.set( solution.molarAbsorptivityData.lambdaMax );
     } );
   }
