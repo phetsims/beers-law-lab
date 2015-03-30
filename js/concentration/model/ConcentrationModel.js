@@ -56,7 +56,7 @@ define( function( require ) {
     // model elements
     thisModel.solute = new Property( thisModel.solutes[ 0 ] );
 
-    // The Public API for this simulation provides a simplified name for the selected solute
+    // The together API for this simulation provides a simplified name for the selected solute
     // Here, we perform 2-way binding between the solute name and the solute instance
     // This means we can get the value of the solute by name, and set it back by name,
     // which enables save/load/record/playback/configuration through query parameters/etc.
