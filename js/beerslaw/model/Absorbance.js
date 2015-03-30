@@ -27,18 +27,18 @@ define( function( require ) {
 
   /**
    * @param {Light} light
-   * @param {Property.<BeersLawSolution>} solution
+   * @param {Property.<BeersLawSolution>} solutionProperty
    * @param {Cuvette} cuvette
    * @constructor
    */
-  function Absorbance( light, solution, cuvette ) {
+  function Absorbance( light, solutionProperty, cuvette ) {
 
     var thisAbsorbance = this;
 
     // a: molar absorptivity, units=1/(cm*M)
     {
       var computeMolarAbsorptivity = function() {
-        return solution.get().molarAbsorptivityData.wavelengthToMolarAbsorptivity( light.wavelength.get() );
+        return solutionProperty.get().molarAbsorptivityData.wavelengthToMolarAbsorptivity( light.wavelength.get() );
       };
 
       thisAbsorbance.molarAbsorptivity = new Property( computeMolarAbsorptivity() );
@@ -47,7 +47,7 @@ define( function( require ) {
       var updateMolarAbsorptivity = function() {
         thisAbsorbance.molarAbsorptivity.set( computeMolarAbsorptivity() );
       };
-      solution.link( updateMolarAbsorptivity );
+      solutionProperty.link( updateMolarAbsorptivity );
       light.wavelength.link( updateMolarAbsorptivity );
     }
 
@@ -68,16 +68,16 @@ define( function( require ) {
 
     // C: concentration, units=M
     {
-      thisAbsorbance.concentration = new Property( solution.get().concentration.get() );
+      thisAbsorbance.concentration = new Property( solutionProperty.get().concentration.get() );
 
       // Observe the concentration property of the current solution.
       var updateConcentration = function( concentration ) {
         thisAbsorbance.concentration.set( concentration );
       };
-      solution.get().concentration.link( updateConcentration );
+      solutionProperty.get().concentration.link( updateConcentration );
 
       // Rewire the concentration observer when the solution changes.
-      solution.link( function( newSolution, oldSolution ) {
+      solutionProperty.link( function( newSolution, oldSolution ) {
         if ( oldSolution !== null ) {
           oldSolution.concentration.unlink( updateConcentration );
         }
