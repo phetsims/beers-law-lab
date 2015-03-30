@@ -30,6 +30,7 @@ define( function( require ) {
    * @param {string} name
    * @param {string} formula
    * @param {string} apiName - A non-internationalized unique identifier that can be used to access the solute
+   * @param {string} listItemComponentID - componentID for combo box list items
    * @param {number} stockSolutionConcentration
    * @param {SoluteColorScheme} colorScheme
    * @param {Color|undefined} particleColor
