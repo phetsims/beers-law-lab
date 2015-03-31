@@ -72,11 +72,11 @@ define( function( require ) {
       }
       return color;
     };
-    thisSolution.fluidColor = new Property( createFluidColor( thisSolution.concentrationProperty.get() ) );
+    thisSolution.fluidColorProperty = new Property( createFluidColor( thisSolution.concentrationProperty.get() ) );
 
     // update fluid color when concentration changes
     this.concentrationProperty.link( function( concentration ) {
-      thisSolution.fluidColor.set( createFluidColor( concentration ) );
+      thisSolution.fluidColorProperty.set( createFluidColor( concentration ) );
     } );
   }
 

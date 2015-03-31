@@ -114,14 +114,14 @@ define( function( require ) {
       solutionNode.fill = color.withAlpha( SOLUTION_ALPHA );
       solutionNode.stroke = color.darkerColor();
     };
-    solutionProperty.get().fluidColor.link( colorObserver );
+    solutionProperty.get().fluidColorProperty.link( colorObserver );
 
     // when the solution changes, rewire the color observer
     solutionProperty.link( function( newSolution, oldSolution ) {
       if ( oldSolution ) {
-        oldSolution.fluidColor.unlink( colorObserver );
+        oldSolution.fluidColorProperty.unlink( colorObserver );
       }
-      newSolution.fluidColor.link( colorObserver );
+      newSolution.fluidColorProperty.link( colorObserver );
     } );
 
     // interactivity
