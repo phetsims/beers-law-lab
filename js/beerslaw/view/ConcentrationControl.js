@@ -26,18 +26,18 @@ define( function( require ) {
   var FONT = new PhetFont( 20 );
 
   /**
-   * @param {Property.<BeersLawSolution>} solution
+   * @param {Property.<BeersLawSolution>} solutionProperty
    * @constructor
    */
-  function ConcentrationControl( solution ) {
+  function ConcentrationControl( solutionProperty ) {
 
     var thisNode = this;
     Node.call( thisNode );
 
     // nodes
     var label = new Text( StringUtils.format( pattern_0label, concentrationString ), { font: FONT } );
-    var slider = new ConcentrationSlider( solution );
-    var valueDisplay = new Text( ' ' + solution.get().getDisplayConcentration( solution.get().concentrationRange.max ), { font: FONT } );
+    var slider = new ConcentrationSlider( solutionProperty );
+    var valueDisplay = new Text( ' ' + solutionProperty.get().getDisplayConcentration( solutionProperty.get().concentrationRange.max ), { font: FONT } );
     var xMargin = 0.1 * valueDisplay.width;
     var yMargin = 0.1 * valueDisplay.height;
     var valueBackground = new Rectangle( 0, 0, valueDisplay.width + xMargin + xMargin, valueDisplay.height + yMargin + yMargin,
@@ -59,13 +59,13 @@ define( function( require ) {
 
     // update the value display when concentration changes
     var concentrationObserver = function( concentration ) {
-      valueDisplay.text = solution.get().getDisplayConcentration( concentration );
+      valueDisplay.text = solutionProperty.get().getDisplayConcentration( concentration );
       valueDisplay.right = valueBackground.right - xMargin; // right aligned
     };
-    solution.get().concentration.link( concentrationObserver );
+    solutionProperty.get().concentration.link( concentrationObserver );
 
     // when solution changes, rewire the concentration observer
-    solution.link( function( newSolution, oldSolution ) {
+    solutionProperty.link( function( newSolution, oldSolution ) {
       if ( oldSolution ) {
         oldSolution.concentration.unlink( concentrationObserver );
       }
