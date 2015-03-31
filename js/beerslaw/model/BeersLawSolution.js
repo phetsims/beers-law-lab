@@ -19,6 +19,7 @@ define( function( require ) {
   var Color = require( 'SCENERY/util/Color' );
   var ColorRange = require( 'BEERS_LAW_LAB/common/model/ColorRange' );
   var ConcentrationTransform = require( 'BEERS_LAW_LAB/beerslaw/model/ConcentrationTransform' );
+  var DerivedProperty = require( 'AXON/DerivedProperty' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MolarAbsorptivityData = require( 'BEERS_LAW_LAB/beerslaw/model/MolarAbsorptivityData' );
   var Property = require( 'AXON/Property' );
@@ -63,21 +64,16 @@ define( function( require ) {
     thisSolution.colorRange = colorRange;
     thisSolution.saturatedColor = saturatedColor || colorRange.max;
 
-    // Creates a color that corresponds to a concentration value.
-    var createFluidColor = function( concentration ) {
-      var color = thisSolution.solvent.colorProperty.get();
-      if ( concentration > 0 ) {
-        var distance = Util.linear( thisSolution.concentrationRange.min, thisSolution.concentrationRange.max, 0, 1, concentration );
-        color = thisSolution.colorRange.interpolateLinear( distance );
-      }
-      return color;
-    };
-    thisSolution.fluidColorProperty = new Property( createFluidColor( thisSolution.concentrationProperty.get() ) );
-
-    // update fluid color when concentration changes
-    this.concentrationProperty.link( function( concentration ) {
-      thisSolution.fluidColorProperty.set( createFluidColor( concentration ) );
-    } );
+    // Solution color is derived from concentration
+    thisSolution.fluidColorProperty = new DerivedProperty( [ thisSolution.concentrationProperty ],
+      function( concentration ) {
+        var color = thisSolution.solvent.colorProperty.get();
+        if ( concentration > 0 ) {
+          var distance = Util.linear( thisSolution.concentrationRange.min, thisSolution.concentrationRange.max, 0, 1, concentration );
+          color = thisSolution.colorRange.interpolateLinear( distance );
+        }
+        return color;
+      } );
   }
 
   inherit( Object, BeersLawSolution, {
