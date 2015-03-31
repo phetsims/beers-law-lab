@@ -69,12 +69,12 @@ define( function( require ) {
 
   /**
    * @param {Cuvette} cuvette
-   * @param {Property.<BeersLawSolution>} solution
+   * @param {Property.<BeersLawSolution>} solutionProperty
    * @param {ModelViewTransform2} modelViewTransform
    * @param {number} snapInterval
    * @constructor
    */
-  function CuvetteNode( cuvette, solution, modelViewTransform, snapInterval ) {
+  function CuvetteNode( cuvette, solutionProperty, modelViewTransform, snapInterval ) {
 
     var thisNode = this;
     Node.call( this );
@@ -114,10 +114,10 @@ define( function( require ) {
       solutionNode.fill = color.withAlpha( SOLUTION_ALPHA );
       solutionNode.stroke = color.darkerColor();
     };
-    solution.get().fluidColor.link( colorObserver );
+    solutionProperty.get().fluidColor.link( colorObserver );
 
     // when the solution changes, rewire the color observer
-    solution.link( function( newSolution, oldSolution ) {
+    solutionProperty.link( function( newSolution, oldSolution ) {
       if ( oldSolution ) {
         oldSolution.fluidColor.unlink( colorObserver );
       }
