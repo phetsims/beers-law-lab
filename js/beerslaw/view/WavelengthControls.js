@@ -29,11 +29,11 @@ define( function( require ) {
   var wavelengthString = require( 'string!BEERS_LAW_LAB/wavelength' );
 
   /**
-   * @param {Property.<BeersLawSolution>} solution
+   * @param {Property.<BeersLawSolution>} solutionProperty
    * @param {Light} light
    * @constructor
    */
-  function WavelengthControls( solution, light ) {
+  function WavelengthControls( solutionProperty, light ) {
 
     var thisNode = this;
 
@@ -93,7 +93,7 @@ define( function( require ) {
       }
       if ( !isVariable ) {
         // Set the light to the current solution's lambdaMax wavelength.
-        light.wavelength.set( solution.get().molarAbsorptivityData.lambdaMax );
+        light.wavelength.set( solutionProperty.get().molarAbsorptivityData.lambdaMax );
       }
     } );
 
