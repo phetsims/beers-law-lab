@@ -31,7 +31,7 @@ define( function( require ) {
     var thisNode = this;
 
     EyeDropperNode.call( thisNode, {
-      onProperty: dropper.on,
+      onProperty: dropper.onProperty,
       enabledProperty: dropper.enabledProperty,
       emptyProperty: dropper.emptyProperty,
       componentID: 'concentrationScreen.dropper',
@@ -57,7 +57,7 @@ define( function( require ) {
     } );
 
     // visibility
-    dropper.visible.link( function( visible ) {
+    dropper.visibleProperty.link( function( visible ) {
       thisNode.visible = visible;
       if ( !visible ) { dropper.flowRateProperty.set( 0 ); }
     } );

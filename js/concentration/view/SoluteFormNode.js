@@ -60,7 +60,7 @@ define( function( require ) {
     var shakerButton = new AquaRadioButton( shaker.visibleProperty, true, new TextAndIconNode( solidString, TEXT_OPTIONS, shakerIconImage, X_SPACING ), {
       componentID: 'concentrationScreen.solidRadioButton'
     } );
-    var dropperButton = new AquaRadioButton( dropper.visible, true, new TextAndIconNode( solutionString, TEXT_OPTIONS, dropperIconImage, X_SPACING ), {
+    var dropperButton = new AquaRadioButton( dropper.visibleProperty, true, new TextAndIconNode( solutionString, TEXT_OPTIONS, dropperIconImage, X_SPACING ), {
       componentID: 'concentrationScreen.solutionRadioButton'
     } );
     var separator = new Path( Shape.lineSegment( 0, 0, 0, shakerButton.height ), {
@@ -81,28 +81,28 @@ define( function( require ) {
 
     // ensure mutual exclusivity
     shaker.visibleProperty.link( function( visible ) {
-      dropper.visible.set( !visible );
+      dropper.visibleProperty.set( !visible );
     } );
-    dropper.visible.link( function( visible ) {
+    dropper.visibleProperty.link( function( visible ) {
       shaker.visibleProperty.set( !visible );
     } );
 
     // This property was added for the together API.
     // TODO: This should be the fundamental property, and shaker visible/dropper visible should derive from this
-    var soluteFormProperty = new Property( dropper.visible.value ? 'liquid' : 'solid', { componentID: 'concentrationScreen.soluteForm' } );
+    var soluteFormProperty = new Property( dropper.visibleProperty.value ? 'liquid' : 'solid', { componentID: 'concentrationScreen.soluteForm' } );
 
     soluteFormProperty.link( function( soluteForm ) {
       shaker.visibleProperty.set( soluteForm === 'solid' );
-      dropper.visible.set( soluteForm === 'liquid' );
+      dropper.visibleProperty.set( soluteForm === 'liquid' );
     } );
 
     // Link these afterwards since the soluteFormProperty value may be customized on startup, and we don't want the value
     // to be immediately overriden
     shaker.visibleProperty.link( function() {
-      soluteFormProperty.value = dropper.visible.value ? 'liquid' : 'solid';
+      soluteFormProperty.value = dropper.visibleProperty.value ? 'liquid' : 'solid';
     } );
-    dropper.visible.link( function() {
-      soluteFormProperty.value = dropper.visible.value ? 'liquid' : 'solid';
+    dropper.visibleProperty.link( function() {
+      soluteFormProperty.value = dropper.visibleProperty.value ? 'liquid' : 'solid';
     } );
   }
 

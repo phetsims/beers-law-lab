@@ -27,8 +27,8 @@ define( function( require ) {
     Movable.call( thisDropper, location, dragBounds, { locationComponentID: 'concentrationScreen.dropper.location' } );
 
     thisDropper.soluteProperty = soluteProperty;
-    thisDropper.visible = new Property( visible, { componentID: 'concentrationScreen.dropper.visible' } );
-    thisDropper.on = new Property( false, { componentID: 'concentrationScreen.dropper.on' } ); // true if the dropper is dispensing solution
+    thisDropper.visibleProperty = new Property( visible, { componentID: 'concentrationScreen.dropper.visible' } );
+    thisDropper.onProperty = new Property( false, { componentID: 'concentrationScreen.dropper.on' } ); // true if the dropper is dispensing solution
     thisDropper.enabledProperty = new Property( true );
     thisDropper.emptyProperty = new Property( false, { componentID: 'concentrationScreen.dropper.empty' } );
     thisDropper.flowRateProperty = new Property( 0, { componentID: 'concentrationScreen.dropper.flowRate' } ); // L/sec
@@ -36,12 +36,12 @@ define( function( require ) {
     // Turn off the dropper when it's disabled.
     thisDropper.enabledProperty.link( function( enabled ) {
       if ( !enabled ) {
-        thisDropper.on.set( false );
+        thisDropper.onProperty.set( false );
       }
     } );
 
     // Toggle the flow rate when the dropper is turned on/off.
-    thisDropper.on.link( function( on ) {
+    thisDropper.onProperty.link( function( on ) {
       thisDropper.flowRateProperty.set( on ? maxFlowRate : 0 );
     } );
 
@@ -56,8 +56,8 @@ define( function( require ) {
   return inherit( Movable, Dropper, {
     reset: function() {
       Movable.prototype.reset.call( this );
-      this.visible.reset();
-      this.on.reset();
+      this.visibleProperty.reset();
+      this.onProperty.reset();
       this.enabledProperty.reset();
       this.emptyProperty.reset();
       this.flowRateProperty.reset();
