@@ -94,15 +94,15 @@ define( function( require ) {
     thisModel.solution.volumeProperty.link( function( volume ) {
       thisModel.solventFaucet.enabledProperty.set( volume < SOLUTION_VOLUME_RANGE.max );
       thisModel.drainFaucet.enabledProperty.set( volume > SOLUTION_VOLUME_RANGE.min );
-      thisModel.dropper.enabled.set( !thisModel.dropper.empty.get() && ( volume < SOLUTION_VOLUME_RANGE.max ) );
+      thisModel.dropper.enabledProperty.set( !thisModel.dropper.emptyProperty.get() && ( volume < SOLUTION_VOLUME_RANGE.max ) );
     } );
 
     // Empty shaker and dropper when max solute is reached.
     thisModel.solution.soluteAmountProperty.link( function( soluteAmount ) {
       var containsMaxSolute = ( soluteAmount >= SOLUTE_AMOUNT.max );
       thisModel.shaker.emptyProperty.set( containsMaxSolute );
-      thisModel.dropper.empty.set( containsMaxSolute );
-      thisModel.dropper.enabled.set( !thisModel.dropper.empty.get() && !containsMaxSolute && thisModel.solution.volumeProperty.get() < SOLUTION_VOLUME_RANGE.max );
+      thisModel.dropper.emptyProperty.set( containsMaxSolute );
+      thisModel.dropper.enabledProperty.set( !thisModel.dropper.emptyProperty.get() && !containsMaxSolute && thisModel.solution.volumeProperty.get() < SOLUTION_VOLUME_RANGE.max );
     } );
   }
 
@@ -150,7 +150,7 @@ define( function( require ) {
 
     // @private Add stock solution from dropper
     addStockSolutionFromDropper: function( deltaSeconds ) {
-      var dropperVolume = this.dropper.flowRate.get() * deltaSeconds;
+      var dropperVolume = this.dropper.flowRateProperty.get() * deltaSeconds;
       if ( dropperVolume > 0 ) {
         var volumeAdded = this.addSolvent( dropperVolume );
         this.addSolute( this.solution.soluteProperty.get().stockSolutionConcentration * volumeAdded );

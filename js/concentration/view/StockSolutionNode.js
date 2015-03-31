@@ -31,7 +31,7 @@ define( function( require ) {
     // shape and location
     var updateShapeAndLocation = function() {
       // path
-      if ( dropper.on.get() && !dropper.empty.get() ) {
+      if ( dropper.on.get() && !dropper.emptyProperty.get() ) {
         thisNode.setRect( -tipWidth / 2, 0, tipWidth, beaker.location.y - dropper.locationProperty.get().y );
       }
       else {
@@ -42,7 +42,7 @@ define( function( require ) {
     };
     dropper.locationProperty.link( updateShapeAndLocation );
     dropper.on.link( updateShapeAndLocation );
-    dropper.empty.link( updateShapeAndLocation );
+    dropper.emptyProperty.link( updateShapeAndLocation );
 
     // set color to match solute
     soluteProperty.link( function( solute ) {

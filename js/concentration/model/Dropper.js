@@ -29,12 +29,12 @@ define( function( require ) {
     thisDropper.soluteProperty = soluteProperty;
     thisDropper.visible = new Property( visible, { componentID: 'concentrationScreen.dropper.visible' } );
     thisDropper.on = new Property( false, { componentID: 'concentrationScreen.dropper.on' } ); // true if the dropper is dispensing solution
-    thisDropper.enabled = new Property( true );
-    thisDropper.empty = new Property( false, { componentID: 'concentrationScreen.dropper.empty' } );
-    thisDropper.flowRate = new Property( 0, { componentID: 'concentrationScreen.dropper.flowRate' } ); // L/sec
+    thisDropper.enabledProperty = new Property( true );
+    thisDropper.emptyProperty = new Property( false, { componentID: 'concentrationScreen.dropper.empty' } );
+    thisDropper.flowRateProperty = new Property( 0, { componentID: 'concentrationScreen.dropper.flowRate' } ); // L/sec
 
     // Turn off the dropper when it's disabled.
-    thisDropper.enabled.link( function( enabled ) {
+    thisDropper.enabledProperty.link( function( enabled ) {
       if ( !enabled ) {
         thisDropper.on.set( false );
       }
@@ -42,13 +42,13 @@ define( function( require ) {
 
     // Toggle the flow rate when the dropper is turned on/off.
     thisDropper.on.link( function( on ) {
-      thisDropper.flowRate.set( on ? maxFlowRate : 0 );
+      thisDropper.flowRateProperty.set( on ? maxFlowRate : 0 );
     } );
 
     // When the dropper becomes empty, disable it.
-    thisDropper.empty.link( function( empty ) {
+    thisDropper.emptyProperty.link( function( empty ) {
       if ( empty ) {
-        thisDropper.enabled.set( false );
+        thisDropper.enabledProperty.set( false );
       }
     } );
   }
@@ -58,9 +58,9 @@ define( function( require ) {
       Movable.prototype.reset.call( this );
       this.visible.reset();
       this.on.reset();
-      this.enabled.reset();
-      this.empty.reset();
-      this.flowRate.reset();
+      this.enabledProperty.reset();
+      this.emptyProperty.reset();
+      this.flowRateProperty.reset();
     }
   } );
 } );

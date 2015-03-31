@@ -32,8 +32,8 @@ define( function( require ) {
 
     EyeDropperNode.call( thisNode, {
       onProperty: dropper.on,
-      enabledProperty: dropper.enabled,
-      emptyProperty: dropper.empty,
+      enabledProperty: dropper.enabledProperty,
+      emptyProperty: dropper.emptyProperty,
       componentID: 'concentrationScreen.dropper',
       buttonComponentID: 'concentrationScreen.dropperButton'
     } );
@@ -59,7 +59,7 @@ define( function( require ) {
     // visibility
     dropper.visible.link( function( visible ) {
       thisNode.visible = visible;
-      if ( !visible ) { dropper.flowRate.set( 0 ); }
+      if ( !visible ) { dropper.flowRateProperty.set( 0 ); }
     } );
 
     // Change the label and color when the solute changes.
