@@ -40,7 +40,7 @@ define( function( require ) {
      */
     var viewLocation = modelViewTransform.modelToViewPosition( faucet.location );
     var viewHeight = modelViewTransform.modelToViewDeltaY( height );
-    faucet.flowRate.link( function( flowRate ) {
+    faucet.flowRateProperty.link( function( flowRate ) {
       if ( flowRate === 0 ) {
         thisNode.setRect( 0, 0, 0, 0 );
       }

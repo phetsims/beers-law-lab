@@ -25,7 +25,7 @@ define( function( require ) {
       horizontalPipeLength: horizontalPipeLength,
       scale: scale
     }, options );
-    FaucetNode.call( this, faucet.maxFlowRate, faucet.flowRate, faucet.enabled, options );
+    FaucetNode.call( this, faucet.maxFlowRate, faucet.flowRateProperty, faucet.enabledProperty, options );
     this.translation = modelViewTransform.modelToViewPosition( faucet.location );
   }
 

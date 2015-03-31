@@ -92,8 +92,8 @@ define( function( require ) {
 
     // Enable faucets and dropper based on amount of solution in the beaker.
     thisModel.solution.volumeProperty.link( function( volume ) {
-      thisModel.solventFaucet.enabled.set( volume < SOLUTION_VOLUME_RANGE.max );
-      thisModel.drainFaucet.enabled.set( volume > SOLUTION_VOLUME_RANGE.min );
+      thisModel.solventFaucet.enabledProperty.set( volume < SOLUTION_VOLUME_RANGE.max );
+      thisModel.drainFaucet.enabledProperty.set( volume > SOLUTION_VOLUME_RANGE.min );
       thisModel.dropper.enabled.set( !thisModel.dropper.empty.get() && ( volume < SOLUTION_VOLUME_RANGE.max ) );
     } );
 
@@ -135,12 +135,12 @@ define( function( require ) {
 
     // @private Add solvent from the input faucet
     addSolventFromInputFaucet: function( deltaSeconds ) {
-      this.addSolvent( this.solventFaucet.flowRate.get() * deltaSeconds );
+      this.addSolvent( this.solventFaucet.flowRateProperty.get() * deltaSeconds );
     },
 
     // @private Drain solution from the output faucet
     drainSolutionFromOutputFaucet: function( deltaSeconds ) {
-      var drainVolume = this.drainFaucet.flowRate.get() * deltaSeconds;
+      var drainVolume = this.drainFaucet.flowRateProperty.get() * deltaSeconds;
       if ( drainVolume > 0 ) {
         var concentration = this.solution.concentrationProperty.get(); // get concentration before changing volume
         var volumeRemoved = this.removeSolvent( drainVolume );

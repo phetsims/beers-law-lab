@@ -33,21 +33,21 @@ define( function( require ) {
     thisFaucet.pipeMinX = pipeMinX;
     thisFaucet.spoutWidth = spoutWidth;
     thisFaucet.maxFlowRate = maxFlowRate;
-    thisFaucet.flowRate = new Property( 0, { componentID: options.flowRateComponentID } );
-    thisFaucet.enabled = new Property( true );
+    thisFaucet.flowRateProperty = new Property( 0, { componentID: options.flowRateComponentID } );
+    thisFaucet.enabledProperty = new Property( true );
 
     // when disabled, turn off the faucet.
-    thisFaucet.enabled.link( function( enabled ) {
+    thisFaucet.enabledProperty.link( function( enabled ) {
       if ( !enabled ) {
-        thisFaucet.flowRate.set( 0 );
+        thisFaucet.flowRateProperty.set( 0 );
       }
     } );
   }
 
   return inherit( Object, Faucet, {
     reset: function() {
-      this.flowRate.reset();
-      this.enabled.reset();
+      this.flowRateProperty.reset();
+      this.enabledProperty.reset();
     }
   } );
 } );
