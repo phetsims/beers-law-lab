@@ -41,11 +41,11 @@ define( function( require ) {
         return solutionProperty.get().molarAbsorptivityData.wavelengthToMolarAbsorptivity( light.wavelengthProperty.get() );
       };
 
-      thisAbsorbance.molarAbsorptivity = new Property( computeMolarAbsorptivity() );
+      thisAbsorbance.molarAbsorptivityProperty = new Property( computeMolarAbsorptivity() );
 
       // dependencies from which this property is derived:
       var updateMolarAbsorptivity = function() {
-        thisAbsorbance.molarAbsorptivity.set( computeMolarAbsorptivity() );
+        thisAbsorbance.molarAbsorptivityProperty.set( computeMolarAbsorptivity() );
       };
       solutionProperty.link( updateMolarAbsorptivity );
       light.wavelengthProperty.link( updateMolarAbsorptivity );
@@ -88,7 +88,7 @@ define( function( require ) {
     // compute absorbance: A = abC
     {
       var computeAbsorbance = function() {
-        return getAbsorbance( thisAbsorbance.molarAbsorptivity.get(), thisAbsorbance.pathLength.get(), thisAbsorbance.concentration.get() );
+        return getAbsorbance( thisAbsorbance.molarAbsorptivityProperty.get(), thisAbsorbance.pathLength.get(), thisAbsorbance.concentration.get() );
       };
 
       thisAbsorbance.value = new Property( computeAbsorbance() );
@@ -97,7 +97,7 @@ define( function( require ) {
       var updateAbsorbance = function() {
         thisAbsorbance.value.set( computeAbsorbance() );
       };
-      thisAbsorbance.molarAbsorptivity.link( updateAbsorbance );
+      thisAbsorbance.molarAbsorptivityProperty.link( updateAbsorbance );
       thisAbsorbance.pathLength.link( updateAbsorbance );
       thisAbsorbance.concentration.link( updateAbsorbance );
     }
@@ -127,7 +127,7 @@ define( function( require ) {
 
     // Gets absorbance for a specified path length.
     getAbsorbanceAt: function( pathLength ) {
-      return getAbsorbance( this.molarAbsorptivity.get(), pathLength, this.concentration.get() );
+      return getAbsorbance( this.molarAbsorptivityProperty.get(), pathLength, this.concentration.get() );
     },
 
     // Gets transmittance for a specified path length.
