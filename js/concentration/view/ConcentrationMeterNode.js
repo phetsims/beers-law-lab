@@ -286,7 +286,7 @@ define( function( require ) {
         meter.value.set( solution.concentrationProperty.get() );
       }
       else if ( probeNode.isInStockSolution() ) {
-        meter.value.set( dropper.solute.get().stockSolutionConcentration );
+        meter.value.set( dropper.soluteProperty.get().stockSolutionConcentration );
       }
       else {
         meter.value.set( NaN );

@@ -52,7 +52,7 @@ define( function( require ) {
     imageNode.setScaleMagnitude( 0.75 );
 
     // label
-    var labelNode = new SubSupText( shaker.solute.formula, {
+    var labelNode = new SubSupText( shaker.soluteProperty.formula, {
       font: new PhetFont( { size: 22, weight: 'bold' } ),
       fill: 'black'
     } );
@@ -93,7 +93,7 @@ define( function( require ) {
     } );
 
     // sync solute with model
-    shaker.solute.link( function( solute ) {
+    shaker.soluteProperty.link( function( solute ) {
       // label the shaker with the solute formula
       labelNode.setText( solute.formula );
       // center the label on the shaker

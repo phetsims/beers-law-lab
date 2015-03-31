@@ -16,17 +16,17 @@ define( function( require ) {
   /**
    * @param {Vector2} location
    * @param {Bounds2} dragBounds
-   * @param {Property.<Solute>} solute
+   * @param {Property.<Solute>} soluteProperty
    * @param {number} maxFlowRate
    * @param {boolean} visible
    * @constructor
    */
-  function Dropper( location, dragBounds, solute, maxFlowRate, visible ) {
+  function Dropper( location, dragBounds, soluteProperty, maxFlowRate, visible ) {
 
     var thisDropper = this;
     Movable.call( thisDropper, location, dragBounds, { locationComponentID: 'concentrationScreen.dropper.location' } );
 
-    thisDropper.solute = solute;
+    thisDropper.soluteProperty = soluteProperty;
     thisDropper.visible = new Property( visible, { componentID: 'concentrationScreen.dropper.visible' } );
     thisDropper.on = new Property( false, { componentID: 'concentrationScreen.dropper.on' } ); // true if the dropper is dispensing solution
     thisDropper.enabled = new Property( true );

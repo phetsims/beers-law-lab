@@ -58,7 +58,7 @@ define( function( require ) {
 
     // Dropper
     var dropperNode = new BLLDropperNode( model.dropper, model.solution.solvent, model.solution.soluteProperty, modelViewTransform );
-    var stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.solute, model.dropper, model.beaker, dropperNode.TIP_WIDTH - 1, modelViewTransform );
+    var stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.soluteProperty, model.dropper, model.beaker, dropperNode.TIP_WIDTH - 1, modelViewTransform );
 
     // faucets
     var solventFaucetNode = new BLLFaucetNode( model.solventFaucet, modelViewTransform, { componentID: 'concentrationScreen.solventFaucet' } );
@@ -74,7 +74,7 @@ define( function( require ) {
 
     // Solute controls
     var soluteListParent = new Node();
-    var soluteControls = new SoluteControls( model.solutes, model.solute, model.shaker, model.dropper, soluteListParent );
+    var soluteControls = new SoluteControls( model.solutes, model.soluteProperty, model.shaker, model.dropper, soluteListParent );
 
     // Evaporation control
     var evaporationControl = new EvaporationControl( model.evaporator );

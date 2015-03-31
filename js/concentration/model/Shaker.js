@@ -18,18 +18,18 @@ define( function( require ) {
    * @param {Vector2} location
    * @param {number} orientation in radians
    * @param {Bounds2} dragBounds
-   * @param {Property.<Solute>} solute
+   * @param {Property.<Solute>} soluteProperty
    * @param {number} maxDispensingRate
    * @param {boolean} visible
    * @constructor
    */
-  function Shaker( location, dragBounds, orientation, solute, maxDispensingRate, visible ) {
+  function Shaker( location, dragBounds, orientation, soluteProperty, maxDispensingRate, visible ) {
 
     var thisShaker = this;
     Movable.call( thisShaker, location, dragBounds, { locationComponentID: 'concentrationScreen.shaker.location' } );
 
     thisShaker.orientation = orientation;
-    thisShaker.solute = solute;
+    thisShaker.soluteProperty = soluteProperty;
     thisShaker.maxDispensingRate = maxDispensingRate;
 
     thisShaker.visible = new Property( visible );
