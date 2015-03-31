@@ -68,20 +68,20 @@ define( function( require ) {
 
     // C: concentration, units=M
     {
-      thisAbsorbance.concentration = new Property( solutionProperty.get().concentration.get() );
+      thisAbsorbance.concentration = new Property( solutionProperty.get().concentrationProperty.get() );
 
       // Observe the concentration property of the current solution.
       var updateConcentration = function( concentration ) {
         thisAbsorbance.concentration.set( concentration );
       };
-      solutionProperty.get().concentration.link( updateConcentration );
+      solutionProperty.get().concentrationProperty.link( updateConcentration );
 
       // Rewire the concentration observer when the solution changes.
       solutionProperty.link( function( newSolution, oldSolution ) {
         if ( oldSolution !== null ) {
-          oldSolution.concentration.unlink( updateConcentration );
+          oldSolution.concentrationProperty.unlink( updateConcentration );
         }
-        newSolution.concentration.link( updateConcentration );
+        newSolution.concentrationProperty.link( updateConcentration );
       } );
     }
 

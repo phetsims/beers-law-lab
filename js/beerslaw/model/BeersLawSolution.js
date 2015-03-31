@@ -57,7 +57,7 @@ define( function( require ) {
     thisSolution.name = name;
     thisSolution.formula = formula;
     thisSolution.molarAbsorptivityData = molarAbsorptivityData;
-    thisSolution.concentration = new Property( concentrationRange.defaultValue );
+    thisSolution.concentrationProperty = new Property( concentrationRange.defaultValue );
     thisSolution.concentrationRange = concentrationRange;
     thisSolution.concentrationTransform = concentrationTransform;
     thisSolution.colorRange = colorRange;
@@ -72,10 +72,10 @@ define( function( require ) {
       }
       return color;
     };
-    thisSolution.fluidColor = new Property( createFluidColor( thisSolution.concentration.get() ) );
+    thisSolution.fluidColor = new Property( createFluidColor( thisSolution.concentrationProperty.get() ) );
 
     // update fluid color when concentration changes
-    this.concentration.link( function( concentration ) {
+    this.concentrationProperty.link( function( concentration ) {
       thisSolution.fluidColor.set( createFluidColor( concentration ) );
     } );
   }
@@ -83,7 +83,7 @@ define( function( require ) {
   inherit( Object, BeersLawSolution, {
 
     reset: function() {
-      this.concentration.reset();
+      this.concentrationProperty.reset();
     },
 
     getDisplayName: function() {

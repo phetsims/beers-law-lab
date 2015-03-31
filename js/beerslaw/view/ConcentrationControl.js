@@ -62,14 +62,14 @@ define( function( require ) {
       valueDisplay.text = solutionProperty.get().getDisplayConcentration( concentration );
       valueDisplay.right = valueBackground.right - xMargin; // right aligned
     };
-    solutionProperty.get().concentration.link( concentrationObserver );
+    solutionProperty.get().concentrationProperty.link( concentrationObserver );
 
     // when solution changes, rewire the concentration observer
     solutionProperty.link( function( newSolution, oldSolution ) {
       if ( oldSolution ) {
-        oldSolution.concentration.unlink( concentrationObserver );
+        oldSolution.concentrationProperty.unlink( concentrationObserver );
       }
-      newSolution.concentration.link( concentrationObserver );
+      newSolution.concentrationProperty.link( concentrationObserver );
     } );
   }
 

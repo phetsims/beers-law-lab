@@ -75,7 +75,7 @@ define( function( require ) {
     var handleEvent = function( event ) {
       var x = thisNode.globalToLocalPoint( event.pointer.point ).x;
       var concentration = positionToConcentration( x );
-      solutionProperty.get().concentration.set( concentration );
+      solutionProperty.get().concentrationProperty.set( concentration );
     };
     thisNode.addInputListener( new SimpleDragHandler(
       {
@@ -154,7 +154,7 @@ define( function( require ) {
       if ( dragHandler ) {
         thisNode.removeInputListener( dragHandler );
       }
-      dragHandler = new ThumbDragHandler( thisNode, solution.concentration, new LinearFunction( 0, trackSize.width, solution.concentrationRange.min, solution.concentrationRange.max, true /* clamp */ ) );
+      dragHandler = new ThumbDragHandler( thisNode, solution.concentrationProperty, new LinearFunction( 0, trackSize.width, solution.concentrationRange.min, solution.concentrationRange.max, true /* clamp */ ) );
       thisNode.addInputListener( dragHandler );
 
       // linear mapping function with solution's concentration range
@@ -166,15 +166,15 @@ define( function( require ) {
     var concentrationObserver = function( concentration ) {
       thisNode.x = concentrationToPosition( concentration );
     };
-    solutionProperty.get().concentration.link( concentrationObserver );
+    solutionProperty.get().concentrationProperty.link( concentrationObserver );
 
     // when the solution changes, wire up to the current solution
     solutionProperty.link( function( newSolution, oldSolution ) {
       setSolution( newSolution );
       if ( oldSolution ) {
-        oldSolution.concentration.unlink( concentrationObserver );
+        oldSolution.concentrationProperty.unlink( concentrationObserver );
       }
-      newSolution.concentration.link( concentrationObserver );
+      newSolution.concentrationProperty.link( concentrationObserver );
     } );
   }
 
@@ -224,12 +224,12 @@ define( function( require ) {
     var plusButton = new ArrowButton( 'right', function() {
       var solution = solutionProperty.get();
       var delta = solution.concentrationTransform.viewToModel( 1 );
-      solution.concentration.set( Math.min( solution.concentration.get() + delta, solution.concentrationRange.max ) );
+      solution.concentrationProperty.set( Math.min( solution.concentrationProperty.get() + delta, solution.concentrationRange.max ) );
     } );
     var minusButton = new ArrowButton( 'left', function() {
       var solution = solutionProperty.get();
       var delta = solution.concentrationTransform.viewToModel( 1 );
-      solution.concentration.set( Math.max( solution.concentration.get() - delta, solution.concentrationRange.min ) );
+      solution.concentrationProperty.set( Math.max( solution.concentrationProperty.get() - delta, solution.concentrationRange.min ) );
     } );
 
     // rendering order
@@ -273,9 +273,9 @@ define( function( require ) {
       maxTickLabel.centerX = maxTickLine.centerX;
       // re-wire observer
       if ( oldSolution ) {
-        oldSolution.concentration.unlink( concentrationObserver );
+        oldSolution.concentrationProperty.unlink( concentrationObserver );
       }
-      solution.concentration.link( concentrationObserver );
+      solution.concentrationProperty.link( concentrationObserver );
     } );
   }
 
