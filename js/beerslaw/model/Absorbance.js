@@ -57,11 +57,11 @@ define( function( require ) {
         return cuvette.widthProperty.get();
       };
 
-      thisAbsorbance.pathLength = new Property( computePathLength() );
+      thisAbsorbance.pathLengthProperty = new Property( computePathLength() ); // @private
 
       // dependencies from which this property is derived:
       var updatePathLength = function() {
-        thisAbsorbance.pathLength.set( computePathLength() );
+        thisAbsorbance.pathLengthProperty.set( computePathLength() );
       };
       cuvette.widthProperty.link( updatePathLength );
     }
@@ -88,7 +88,7 @@ define( function( require ) {
     // compute absorbance: A = abC
     {
       var computeAbsorbance = function() {
-        return getAbsorbance( thisAbsorbance.molarAbsorptivityProperty.get(), thisAbsorbance.pathLength.get(), thisAbsorbance.concentration.get() );
+        return getAbsorbance( thisAbsorbance.molarAbsorptivityProperty.get(), thisAbsorbance.pathLengthProperty.get(), thisAbsorbance.concentration.get() );
       };
 
       thisAbsorbance.value = new Property( computeAbsorbance() );
@@ -98,7 +98,7 @@ define( function( require ) {
         thisAbsorbance.value.set( computeAbsorbance() );
       };
       thisAbsorbance.molarAbsorptivityProperty.link( updateAbsorbance );
-      thisAbsorbance.pathLength.link( updateAbsorbance );
+      thisAbsorbance.pathLengthProperty.link( updateAbsorbance );
       thisAbsorbance.concentration.link( updateAbsorbance );
     }
   }
