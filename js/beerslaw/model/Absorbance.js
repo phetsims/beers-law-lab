@@ -68,11 +68,11 @@ define( function( require ) {
 
     // C: concentration, units=M
     {
-      thisAbsorbance.concentration = new Property( solutionProperty.get().concentrationProperty.get() );
+      thisAbsorbance.concentrationProperty = new Property( solutionProperty.get().concentrationProperty.get() ); // @private
 
       // Observe the concentration property of the current solution.
       var updateConcentration = function( concentration ) {
-        thisAbsorbance.concentration.set( concentration );
+        thisAbsorbance.concentrationProperty.set( concentration );
       };
       solutionProperty.get().concentrationProperty.link( updateConcentration );
 
@@ -88,7 +88,7 @@ define( function( require ) {
     // compute absorbance: A = abC
     {
       var computeAbsorbance = function() {
-        return getAbsorbance( thisAbsorbance.molarAbsorptivityProperty.get(), thisAbsorbance.pathLengthProperty.get(), thisAbsorbance.concentration.get() );
+        return getAbsorbance( thisAbsorbance.molarAbsorptivityProperty.get(), thisAbsorbance.pathLengthProperty.get(), thisAbsorbance.concentrationProperty.get() );
       };
 
       thisAbsorbance.value = new Property( computeAbsorbance() );
@@ -99,7 +99,7 @@ define( function( require ) {
       };
       thisAbsorbance.molarAbsorptivityProperty.link( updateAbsorbance );
       thisAbsorbance.pathLengthProperty.link( updateAbsorbance );
-      thisAbsorbance.concentration.link( updateAbsorbance );
+      thisAbsorbance.concentrationProperty.link( updateAbsorbance );
     }
   }
 
@@ -127,7 +127,7 @@ define( function( require ) {
 
     // Gets absorbance for a specified path length.
     getAbsorbanceAt: function( pathLength ) {
-      return getAbsorbance( this.molarAbsorptivityProperty.get(), pathLength, this.concentration.get() );
+      return getAbsorbance( this.molarAbsorptivityProperty.get(), pathLength, this.concentrationProperty.get() );
     },
 
     // Gets transmittance for a specified path length.
