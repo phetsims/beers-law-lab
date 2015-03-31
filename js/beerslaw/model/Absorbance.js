@@ -4,6 +4,9 @@
  * Model for computing the absorbance (and transmittance) of light passing through a solution in a cuvette.
  * <p>
  * Absorbance model: A = abC
+ * a : molar absorptivity, units=1/(cm*M)
+ * b : path length, synonymous with cuvette width, units=cm
+ * C : concentration, units=M
  * <p>
  * Transmittance model: T = 10^A
  * <p>
@@ -22,6 +25,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var DerivedProperty = require( 'AXON/DerivedProperty' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
 
@@ -35,72 +39,36 @@ define( function( require ) {
 
     var thisAbsorbance = this;
 
-    // a: molar absorptivity, units=1/(cm*M)
-    {
-      var computeMolarAbsorptivity = function() {
-        return solutionProperty.get().molarAbsorptivityData.wavelengthToMolarAbsorptivity( light.wavelengthProperty.get() );
-      };
+    // a : molar absorptivity
+    thisAbsorbance.molarAbsorptivityProperty = new DerivedProperty( [ solutionProperty, light.wavelengthProperty ],
+      function( solution, wavelength ) {
+        return solution.molarAbsorptivityData.wavelengthToMolarAbsorptivity( wavelength );
+      } );
 
-      thisAbsorbance.molarAbsorptivityProperty = new Property( computeMolarAbsorptivity() ); // @private
-
-      // dependencies from which this property is derived:
-      var updateMolarAbsorptivity = function() {
-        thisAbsorbance.molarAbsorptivityProperty.set( computeMolarAbsorptivity() );
-      };
-      solutionProperty.link( updateMolarAbsorptivity );
-      light.wavelengthProperty.link( updateMolarAbsorptivity );
-    }
-
-    // b: path length, synonymous with cuvette width, units=cm
-    {
-      var computePathLength = function() {
-        return cuvette.widthProperty.get();
-      };
-
-      thisAbsorbance.pathLengthProperty = new Property( computePathLength() ); // @private
-
-      // dependencies from which this property is derived:
-      var updatePathLength = function() {
-        thisAbsorbance.pathLengthProperty.set( computePathLength() );
-      };
-      cuvette.widthProperty.link( updatePathLength );
-    }
-
-    // C: concentration, units=M
+    // C : concentration property, wired to the current solution's concentration
     {
       thisAbsorbance.concentrationProperty = new Property( solutionProperty.get().concentrationProperty.get() ); // @private
 
       // Observe the concentration property of the current solution.
-      var updateConcentration = function( concentration ) {
+      var concentrationObserver = function( concentration ) {
         thisAbsorbance.concentrationProperty.set( concentration );
       };
-      solutionProperty.get().concentrationProperty.link( updateConcentration );
+      solutionProperty.get().concentrationProperty.link( concentrationObserver );
 
       // Rewire the concentration observer when the solution changes.
       solutionProperty.link( function( newSolution, oldSolution ) {
         if ( oldSolution !== null ) {
-          oldSolution.concentrationProperty.unlink( updateConcentration );
+          oldSolution.concentrationProperty.unlink( concentrationObserver );
         }
-        newSolution.concentrationProperty.link( updateConcentration );
+        newSolution.concentrationProperty.link( concentrationObserver );
       } );
     }
 
-    // compute absorbance: A = abC
-    {
-      var computeAbsorbance = function() {
-        return getAbsorbance( thisAbsorbance.molarAbsorptivityProperty.get(), thisAbsorbance.pathLengthProperty.get(), thisAbsorbance.concentrationProperty.get() );
-      };
-
-      thisAbsorbance.absorbanceProperty = new Property( computeAbsorbance() );
-
-      // dependencies from which this property is derived:
-      var updateAbsorbance = function() {
-        thisAbsorbance.absorbanceProperty.set( computeAbsorbance() );
-      };
-      thisAbsorbance.molarAbsorptivityProperty.link( updateAbsorbance );
-      thisAbsorbance.pathLengthProperty.link( updateAbsorbance );
-      thisAbsorbance.concentrationProperty.link( updateAbsorbance );
-    }
+    // absorbance: A = abC
+    thisAbsorbance.absorbanceProperty = new DerivedProperty( [ thisAbsorbance.molarAbsorptivityProperty, cuvette.widthProperty, thisAbsorbance.concentrationProperty ],
+      function( molarAbsorptivity, pathLength, concentration ) {
+        return getAbsorbance( molarAbsorptivity, pathLength, concentration );
+      } );
   }
 
   /*
