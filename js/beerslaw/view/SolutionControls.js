@@ -17,15 +17,15 @@ define( function( require ) {
 
   /**
    * @param {BeersLawSolution[]} solutions
-   * @param {Property.<BeersLawSolution>} currentSolution
+   * @param {Property.<BeersLawSolution>} currentSolutionProperty
    * @param {Node} solutionListParent
    * @constructor
    */
-  function SolutionControls( solutions, currentSolution, solutionListParent ) {
+  function SolutionControls( solutions, currentSolutionProperty, solutionListParent ) {
 
     // nodes
-    var comboBox = new SolutionComboBox( solutions, currentSolution, solutionListParent );
-    var concentrationControl = new ConcentrationControl( currentSolution );
+    var comboBox = new SolutionComboBox( solutions, currentSolutionProperty, solutionListParent );
+    var concentrationControl = new ConcentrationControl( currentSolutionProperty );
     var contentNode = new Node();
 
     // rendering order
