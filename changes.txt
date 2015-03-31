@@ -1,3 +1,5 @@
+3/30/15 #86 add 'Property' suffix to all axon.Property
+3/25/15 #35 together data-collection instrumentation merged in from branch
 1/5/15 #82 fix gap between light housing and beam
 1/5/15 scenery-phet#80 replace RoundRedButton with sun.RoundToggleButton for light on/off switch
 12/23/14 scenery-phet#35 migrate DropperNode to scenery-phet.EyeDropperNode
