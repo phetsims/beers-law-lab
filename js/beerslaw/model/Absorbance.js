@@ -41,7 +41,7 @@ define( function( require ) {
         return solutionProperty.get().molarAbsorptivityData.wavelengthToMolarAbsorptivity( light.wavelengthProperty.get() );
       };
 
-      thisAbsorbance.molarAbsorptivityProperty = new Property( computeMolarAbsorptivity() );
+      thisAbsorbance.molarAbsorptivityProperty = new Property( computeMolarAbsorptivity() ); // @private
 
       // dependencies from which this property is derived:
       var updateMolarAbsorptivity = function() {
