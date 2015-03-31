@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var DerivedProperty = require( 'AXON/DerivedProperty' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
@@ -22,11 +23,8 @@ define( function( require ) {
    * @constructor
    */
   function Probe( location, dragBounds, sensorDiameter ) {
-
-    var thisProbe = this;
-    Movable.call( thisProbe, location, dragBounds );
-
-    thisProbe.sensorDiameter = sensorDiameter;
+    Movable.call( this, location, dragBounds );
+    this.sensorDiameter = sensorDiameter; // @private
   }
 
   inherit( Movable, Probe, {
@@ -54,38 +52,36 @@ define( function( require ) {
 
     var thisDetector = this;
 
-    thisDetector.light = light;
-    thisDetector.modeProperty = new Property( ATDetector.Mode.TRANSMITTANCE );
+    thisDetector.light = light; // @private
     thisDetector.body = new Movable( bodyLocation, bodyDragBounds );
     thisDetector.probe = new Probe( probeLocation, probeDragBounds, 0.57 );
 
-    // Computes the displayed value, NaN if the light is off or the probe is outside the beam.
-    var computeValue = function() {
-      var value = NaN;
-      if ( thisDetector.probeInBeam() ) {
-        // path length is between 0 and cuvette width
-        var pathLength = Math.min( Math.max( 0, thisDetector.probe.locationProperty.get().x - cuvette.location.x ), cuvette.widthProperty.get() );
-        if ( thisDetector.modeProperty.get() === ATDetector.Mode.ABSORBANCE ) {
-          value = absorbance.getAbsorbanceAt( pathLength );
-        }
-        else {
-          value = 100 * absorbance.getTransmittanceAt( pathLength );
-        }
-      }
-      return value;
-    };
+    // for switching between absorbance (A) and percent transmittance (%T)
+    thisDetector.modeProperty = new Property( ATDetector.Mode.TRANSMITTANCE );
 
-    thisDetector.valueProperty = new Property( computeValue() );
-
-    // observer dependencies for the value
-    var updateValue = function() {
-      thisDetector.valueProperty.set( computeValue() );
-    };
-    thisDetector.probe.locationProperty.link( updateValue );
-    thisDetector.light.onProperty.link( updateValue );
-    thisDetector.probe.locationProperty.link( updateValue );
-    thisDetector.modeProperty.link( updateValue );
-    absorbance.absorbanceProperty.link( updateValue );
+    // value is either absorbance (A) or percent transmittance (%T) depending on mode
+    thisDetector.valueProperty = new DerivedProperty( [
+        thisDetector.probe.locationProperty,
+        thisDetector.light.onProperty,
+        thisDetector.modeProperty,
+        cuvette.widthProperty,
+        absorbance.absorbanceProperty
+      ],
+      function( probeLocation, lightOn, mode, cuvetteWidth, absorbanceValue ) {
+        // Computes the displayed value, NaN if the light is off or the probe is outside the beam.
+        var value = NaN;
+        if ( thisDetector.probeInBeam() ) {
+          // path length is between 0 and cuvette width
+          var pathLength = Math.min( Math.max( 0, probeLocation.x - cuvette.location.x ), cuvetteWidth );
+          if ( thisDetector.modeProperty.get() === ATDetector.Mode.ABSORBANCE ) {
+            value = absorbance.getAbsorbanceAt( pathLength );
+          }
+          else {
+            value = 100 * absorbance.getTransmittanceAt( pathLength );
+          }
+        }
+        return value;
+      } );
   }
 
   return inherit( Object, ATDetector, {
