@@ -54,7 +54,7 @@ define( function( require ) {
     // b: path length, synonymous with cuvette width, units=cm
     {
       var computePathLength = function() {
-        return cuvette.width.get();
+        return cuvette.widthProperty.get();
       };
 
       thisAbsorbance.pathLength = new Property( computePathLength() );
@@ -63,7 +63,7 @@ define( function( require ) {
       var updatePathLength = function() {
         thisAbsorbance.pathLength.set( computePathLength() );
       };
-      cuvette.width.link( updatePathLength );
+      cuvette.widthProperty.link( updatePathLength );
     }
 
     // C: concentration, units=M

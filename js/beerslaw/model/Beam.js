@@ -61,7 +61,7 @@ define( function( require ) {
         thisBeam.shapeProperty.set( Shape.rect( x, y, w, h ) );
       }
     };
-    cuvette.width.link( updateShape );
+    cuvette.widthProperty.link( updateShape );
     detector.probe.locationProperty.link( updateShape );
     thisBeam.visibleProperty.link( updateShape );
 
@@ -72,12 +72,12 @@ define( function( require ) {
         var leftColor = baseColor.withAlpha( MAX_LIGHT_ALPHA );
         var rightColor = baseColor.withAlpha( Util.linear( 0, 1, MIN_LIGHT_ALPHA, MAX_LIGHT_ALPHA, absorbance.getTransmittance() ) );
         var x = modelViewTransform.modelToViewPosition( cuvette.location ).x;
-        var w = modelViewTransform.modelToViewDeltaX( cuvette.width.get() );
+        var w = modelViewTransform.modelToViewDeltaX( cuvette.widthProperty.get() );
         thisBeam.fillProperty.set( new LinearGradient( x, 0, x + w, 0 ).addColorStop( 0, leftColor ).addColorStop( 1, rightColor ) );
       }
     };
     light.wavelength.link( updateColor );
-    cuvette.width.link( updateColor );
+    cuvette.widthProperty.link( updateColor );
     absorbance.value.link( updateColor );
     thisBeam.visibleProperty.link( updateColor );
   }

@@ -64,7 +64,7 @@ define( function( require ) {
       var value = NaN;
       if ( thisDetector.probeInBeam() ) {
         // path length is between 0 and cuvette width
-        var pathLength = Math.min( Math.max( 0, thisDetector.probe.locationProperty.get().x - cuvette.location.x ), cuvette.width.get() );
+        var pathLength = Math.min( Math.max( 0, thisDetector.probe.locationProperty.get().x - cuvette.location.x ), cuvette.widthProperty.get() );
         if ( thisDetector.modeProperty.get() === ATDetector.Mode.ABSORBANCE ) {
           value = absorbance.getAbsorbanceAt( pathLength );
         }

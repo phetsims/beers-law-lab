@@ -48,19 +48,19 @@ define( function( require ) {
 
       start: function( event ) {
         startX = event.pointer.point.x;
-        startWidth = cuvette.width.get();
+        startWidth = cuvette.widthProperty.get();
       },
 
       drag: function( event ) {
         var dragX = event.pointer.point.x;
         var deltaWidth = modelViewTransform.viewToModelDeltaX( dragX - startX );
         var cuvetteWidth = Util.clamp( startWidth + deltaWidth, cuvette.widthRange.min, cuvette.widthRange.max );
-        cuvette.width.set( cuvetteWidth );
+        cuvette.widthProperty.set( cuvetteWidth );
       },
 
       end: function() {
-        var numberOfIntervals = Math.floor( ( cuvette.width.get() + ( snapInterval / 2 ) ) / snapInterval );
-        cuvette.width.set( numberOfIntervals * snapInterval );
+        var numberOfIntervals = Math.floor( ( cuvette.widthProperty.get() + ( snapInterval / 2 ) ) / snapInterval );
+        cuvette.widthProperty.set( numberOfIntervals * snapInterval );
       }
     } );
   }
@@ -98,8 +98,8 @@ define( function( require ) {
     thisNode.addChild( arrowNode );
 
     // when the cuvette width changes ...
-    cuvette.width.link( function() {
-      var width = modelViewTransform.modelToViewDeltaX( cuvette.width.get() );
+    cuvette.widthProperty.link( function() {
+      var width = modelViewTransform.modelToViewDeltaX( cuvette.widthProperty.get() );
       var height = modelViewTransform.modelToViewDeltaY( cuvette.height );
       cuvetteNode.setShape( new Shape().moveTo( 0, 0 ).lineTo( 0, height ).lineTo( width, height ).lineTo( width, 0 ) );
       solutionNode.setRect( 0, 0, width, PERCENT_FULL * height );

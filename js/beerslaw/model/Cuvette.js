@@ -27,13 +27,13 @@ define( function( require ) {
   function Cuvette( location, widthRange, height ) {
     this.location = location;
     this.widthRange = widthRange;
-    this.width = new Property( widthRange.defaultValue );
+    this.widthProperty = new Property( widthRange.defaultValue );
     this.height = height;
   }
 
   return inherit( Object, Cuvette, {
     reset: function() {
-      this.width.reset();
+      this.widthProperty.reset();
     }
   } );
 } );
