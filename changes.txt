@@ -1,3 +1,4 @@
+3/30/15 #90 use DerivedProperty where appropriate
 3/30/15 #86 add 'Property' suffix to all axon.Property
 3/25/15 #35 together data-collection instrumentation merged in from branch
 1/5/15 #82 fix gap between light housing and beam
