@@ -37,7 +37,7 @@ define( function( require ) {
 
     var thisNode = this;
 
-    var variableWavelength = new Property( false ); // is the wavelength variable or fixed?
+    this.variableWavelengthProperty = new Property( false ); // @private is the wavelength variable or fixed?
 
     // nodes
     var label = new Text( StringUtils.format( pattern_0label, wavelengthString ), { font: new PhetFont( 20 ), fill: 'black' } );
@@ -46,8 +46,8 @@ define( function( require ) {
     var yMargin = 0.1 * valueDisplay.height;
     var valueBackground = new Rectangle( 0, 0, valueDisplay.width + xMargin + xMargin, valueDisplay.height + yMargin + yMargin,
       { fill: 'white', stroke: 'lightGray' } );
-    var presetRadioButton = new AquaRadioButton( variableWavelength, false, new Text( fixedString, { font: new PhetFont( 18 ), fill: 'black' } ) );
-    var variableRadioButton = new AquaRadioButton( variableWavelength, true, new Text( variableString, {
+    var presetRadioButton = new AquaRadioButton( this.variableWavelengthProperty, false, new Text( fixedString, { font: new PhetFont( 18 ), fill: 'black' } ) );
+    var variableRadioButton = new AquaRadioButton( this.variableWavelengthProperty, true, new Text( variableString, {
       font: new PhetFont( 18 ),
       fill: 'black'
     } ) );
@@ -59,7 +59,7 @@ define( function( require ) {
     content.addChild( valueBackground );
     content.addChild( valueDisplay );
     content.addChild( presetRadioButton );
-    if ( !variableWavelength.get() ) { // opposite of initial state, so variableWavelength.link doesn't fail on add/removeChild
+    if ( !this.variableWavelengthProperty.get() ) { // opposite of initial state, so variableWavelengthProperty.link doesn't fail on add/removeChild
       content.addChild( variableRadioButton );
     }
     content.addChild( wavelengthSlider );
@@ -84,7 +84,7 @@ define( function( require ) {
       { xMargin: 20, yMargin: 20, fill: '#F0F0F0', stroke: 'gray', lineWidth: 1 } );
 
     // When the radio button selection changes...
-    variableWavelength.link( function( isVariable ) {
+    this.variableWavelengthProperty.link( function( isVariable ) {
       if ( isVariable ) {
         content.addChild( wavelengthSlider );
       }
@@ -97,10 +97,6 @@ define( function( require ) {
       }
     } );
 
-    thisNode.reset = function() {
-      variableWavelength.reset();
-    };
-
     // sync displayed value with model
     light.wavelengthProperty.link( function( wavelength ) {
       valueDisplay.text = thisNode.formatWavelength( wavelength );
@@ -109,6 +105,11 @@ define( function( require ) {
   }
 
   return inherit( Panel, WavelengthControls, {
+
+    reset: function() {
+      this.variableWavelengthProperty.reset();
+    },
+
     formatWavelength: function( wavelength ) {
       return StringUtils.format( pattern_0value1units, wavelength.toFixed( 0 ), units_nmString );
     }
