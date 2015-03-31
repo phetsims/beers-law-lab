@@ -88,7 +88,7 @@ define( function( require ) {
     shakerWasMoved = false; // reset to false, because function is fired when link is performed
 
     // sync visibility with model
-    shaker.visible.link( function( visible ) {
+    shaker.visibleProperty.link( function( visible ) {
       thisNode.setVisible( visible );
     } );
 

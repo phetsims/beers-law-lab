@@ -57,7 +57,7 @@ define( function( require ) {
 
     var TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
     var X_SPACING = 10;
-    var shakerButton = new AquaRadioButton( shaker.visible, true, new TextAndIconNode( solidString, TEXT_OPTIONS, shakerIconImage, X_SPACING ), {
+    var shakerButton = new AquaRadioButton( shaker.visibleProperty, true, new TextAndIconNode( solidString, TEXT_OPTIONS, shakerIconImage, X_SPACING ), {
       componentID: 'concentrationScreen.solidRadioButton'
     } );
     var dropperButton = new AquaRadioButton( dropper.visible, true, new TextAndIconNode( solutionString, TEXT_OPTIONS, dropperIconImage, X_SPACING ), {
@@ -80,11 +80,11 @@ define( function( require ) {
     dropperButton.left = separator.right + SEPARATOR_SPACING;
 
     // ensure mutual exclusivity
-    shaker.visible.link( function( visible ) {
+    shaker.visibleProperty.link( function( visible ) {
       dropper.visible.set( !visible );
     } );
     dropper.visible.link( function( visible ) {
-      shaker.visible.set( !visible );
+      shaker.visibleProperty.set( !visible );
     } );
 
     // This property was added for the together API.
@@ -92,13 +92,13 @@ define( function( require ) {
     var soluteFormProperty = new Property( dropper.visible.value ? 'liquid' : 'solid', { componentID: 'concentrationScreen.soluteForm' } );
 
     soluteFormProperty.link( function( soluteForm ) {
-      shaker.visible.set( soluteForm === 'solid' );
+      shaker.visibleProperty.set( soluteForm === 'solid' );
       dropper.visible.set( soluteForm === 'liquid' );
     } );
 
     // Link these afterwards since the soluteFormProperty value may be customized on startup, and we don't want the value
     // to be immediately overriden
-    shaker.visible.link( function() {
+    shaker.visibleProperty.link( function() {
       soluteFormProperty.value = dropper.visible.value ? 'liquid' : 'solid';
     } );
     dropper.visible.link( function() {

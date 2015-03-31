@@ -100,7 +100,7 @@ define( function( require ) {
     // Empty shaker and dropper when max solute is reached.
     thisModel.solution.soluteAmountProperty.link( function( soluteAmount ) {
       var containsMaxSolute = ( soluteAmount >= SOLUTE_AMOUNT.max );
-      thisModel.shaker.empty.set( containsMaxSolute );
+      thisModel.shaker.emptyProperty.set( containsMaxSolute );
       thisModel.dropper.empty.set( containsMaxSolute );
       thisModel.dropper.enabled.set( !thisModel.dropper.empty.get() && !containsMaxSolute && thisModel.solution.volumeProperty.get() < SOLUTION_VOLUME_RANGE.max );
     } );

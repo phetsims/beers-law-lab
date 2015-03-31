@@ -32,40 +32,40 @@ define( function( require ) {
     thisShaker.soluteProperty = soluteProperty;
     thisShaker.maxDispensingRate = maxDispensingRate;
 
-    thisShaker.visible = new Property( visible );
-    thisShaker.empty = new Property( false );
-    thisShaker.dispensingRate = new Property( 0 );
+    thisShaker.visibleProperty = new Property( visible );
+    thisShaker.emptyProperty = new Property( false );
+    thisShaker.dispensingRateProperty = new Property( 0 );
     thisShaker.previousLocation = location;
 
     // set the dispensing rate to zero when the shaker becomes empty or invisible
     var observer = function() {
-      if ( thisShaker.empty.get() || !thisShaker.visible.get() ) {
-        thisShaker.dispensingRate.set( 0 );
+      if ( thisShaker.emptyProperty.get() || !thisShaker.visibleProperty.get() ) {
+        thisShaker.dispensingRateProperty.set( 0 );
       }
     };
-    thisShaker.empty.link( observer );
-    thisShaker.visible.link( observer );
+    thisShaker.emptyProperty.link( observer );
+    thisShaker.visibleProperty.link( observer );
   }
 
   return inherit( Movable, Shaker, {
 
     reset: function() {
       Movable.prototype.reset.call( this );
-      this.visible.reset();
-      this.empty.reset();
-      this.dispensingRate.reset();
+      this.visibleProperty.reset();
+      this.emptyProperty.reset();
+      this.dispensingRateProperty.reset();
       this.previousLocation = this.locationProperty.get(); // to prevent shaker from dispensing solute when its location is reset
     },
 
     // Sets the dispensing rate if the shaker is moving.
     step: function() {
       var thisShaker = this;
-      if ( thisShaker.visible.get() && !thisShaker.empty.get() ) {
+      if ( thisShaker.visibleProperty.get() && !thisShaker.emptyProperty.get() ) {
         if ( thisShaker.previousLocation.equals( thisShaker.locationProperty.get() ) ) {
-          thisShaker.dispensingRate.set( 0 ); // shaker is not moving, don't dispense anything
+          thisShaker.dispensingRateProperty.set( 0 ); // shaker is not moving, don't dispense anything
         }
         else {
-          thisShaker.dispensingRate.set( thisShaker.maxDispensingRate ); // max rate seems to work fine
+          thisShaker.dispensingRateProperty.set( thisShaker.maxDispensingRate ); // max rate seems to work fine
         }
       }
       thisShaker.previousLocation = thisShaker.locationProperty.get();

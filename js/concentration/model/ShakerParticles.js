@@ -96,8 +96,8 @@ define( function( require ) {
       }
 
       // create new particles
-      if ( shaker.dispensingRate.get() > 0 ) {
-        var numberOfParticles = Math.round( Math.max( 1, shaker.dispensingRate.get() * solution.soluteProperty.get().particlesPerMole * deltaSeconds ) );
+      if ( shaker.dispensingRateProperty.get() > 0 ) {
+        var numberOfParticles = Math.round( Math.max( 1, shaker.dispensingRateProperty.get() * solution.soluteProperty.get().particlesPerMole * deltaSeconds ) );
         for ( var j = 0; j < numberOfParticles; j++ ) {
           this.addParticle( new ShakerParticle( solution.soluteProperty.get(), getRandomLocation( this.shaker.locationProperty.get() ), getRandomOrientation(),
             this.getInitialVelocity(), this.getGravitationalAcceleration() ) );
