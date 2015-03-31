@@ -228,7 +228,7 @@ define( function( require ) {
     } );
     var minusButton = new ArrowButton( 'left', function() {
       var solution = solutionProperty.get();
-      var delta = solution.concentrationTransform.viewToModel( 1 )
+      var delta = solution.concentrationTransform.viewToModel( 1 );
       solution.concentration.set( Math.max( solution.concentration.get() - delta, solution.concentrationRange.min ) );
     } );
 
