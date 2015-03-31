@@ -11,7 +11,7 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var Color = require( 'SCENERY/util/Color' );
+  var DerivedProperty = require( 'AXON/DerivedProperty' );
   var Fluid = require( 'BEERS_LAW_LAB/common/model/Fluid' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
@@ -20,12 +20,11 @@ define( function( require ) {
   /**
    * @param {Property.<Solute>} soluteProperty
    * @param {number} soluteAmount moles
-   * @param {NUmber} volume L
+   * @param {number} volume L
    */
   function ConcentrationSolution( soluteProperty, soluteAmount, volume ) {
 
     var thisSolution = this;
-    Fluid.call( thisSolution, Color.WHITE ); // use a bogus initial color, so we'll need to set color properly in reset
 
     thisSolution.solvent = Solvent.WATER;
     thisSolution.soluteProperty = soluteProperty;
@@ -33,40 +32,40 @@ define( function( require ) {
     thisSolution.volumeProperty = new Property( volume, { componentID: 'concentrationScreen.solution.volume' } );
 
     // derive amount of precipitate (moles)
-    thisSolution.precipitateAmountProperty = new Property( 0, { componentID: 'concentrationScreen.solution.precipitateAmount' } );
-    thisSolution.concentrationProperty = new Property( 0, { componentID: 'concentrationScreen.solution.concentration' } );
-    var updatePrecipitateAmount = function() {
+    thisSolution.precipitateAmountProperty = new DerivedProperty(
+      [ thisSolution.soluteProperty, thisSolution.soluteAmountProperty, thisSolution.volumeProperty ],
+      function( solute, soluteAmount, volume ) {
+        return Math.max( 0, soluteAmount - ( volume * thisSolution.getSaturatedConcentration() ) );
+      },
+      { componentID: 'concentrationScreen.solution.precipitateAmount' }
+    );
 
-      var volume = thisSolution.volumeProperty.get();
-      var soluteAmount = thisSolution.soluteAmountProperty.get();
+    // derive concentration (M = mol/L)
+    thisSolution.concentrationProperty = new DerivedProperty(
+      [ thisSolution.soluteProperty, thisSolution.soluteAmountProperty, thisSolution.volumeProperty ],
+      function( solute, soluteAmount, volume ) {
+        return ( volume > 0 ) ? Math.min( thisSolution.getSaturatedConcentration(), soluteAmount / volume ) : 0;
+      },
+      { componentID: 'concentrationScreen.solution.concentration' }
+    );
 
-      // derive amount of precipitate (moles)
-      thisSolution.precipitateAmountProperty.set( Math.max( 0, soluteAmount - ( volume * thisSolution.getSaturatedConcentration() ) ) );
-
-      // derive concentration (M = mol/L)
-      thisSolution.concentrationProperty.set( ( volume > 0 ) ? Math.min( thisSolution.getSaturatedConcentration(), soluteAmount / volume ) : 0 );
-    };
-    thisSolution.soluteProperty.link( updatePrecipitateAmount );
-    thisSolution.soluteAmountProperty.link( updatePrecipitateAmount );
-    thisSolution.volumeProperty.link( updatePrecipitateAmount );
+    Fluid.call( thisSolution, ConcentrationSolution.createColor( thisSolution.solvent, thisSolution.soluteProperty.get(), thisSolution.concentrationProperty.get() ) );
 
     // derive the solution color
     var updateColor = function() {
       thisSolution.colorProperty.set( ConcentrationSolution.createColor( thisSolution.solvent, thisSolution.soluteProperty.get(), thisSolution.concentrationProperty.get() ) );
     };
-    thisSolution.soluteProperty.link( updateColor );
-    thisSolution.concentrationProperty.link( updateColor );
-
-    // reset
-    thisSolution.reset = function() {
-      Fluid.prototype.reset.call( this );
-      thisSolution.soluteAmountProperty.reset();
-      thisSolution.volumeProperty.reset();
-      updateColor(); // because we provided a bogus initial color to Fluid constructor
-    };
+    thisSolution.soluteProperty.lazyLink( updateColor );
+    thisSolution.concentrationProperty.lazyLink( updateColor );
   }
 
   return inherit( Fluid, ConcentrationSolution, {
+
+    reset: function() {
+      Fluid.prototype.reset.call( this );
+      this.soluteAmountProperty.reset();
+      this.volumeProperty.reset();
+    },
 
     // convenience function
     getSaturatedConcentration: function() {
