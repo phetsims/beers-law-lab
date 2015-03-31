@@ -17,8 +17,9 @@ define( function( require ) {
 
   // modules
   var Color = require( 'SCENERY/util/Color' );
+  var DerivedProperty = require( 'AXON/DerivedProperty' );
+  var inherit = require( 'PHET_CORE/inherit' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
-  var Property = require( 'AXON/Property' );
   var Shape = require( 'KITE/Shape' );
   var Util = require( 'DOT/Util' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
@@ -40,47 +41,38 @@ define( function( require ) {
 
     var thisBeam = this;
 
-    // Proper values will be set when observers are registered
-    thisBeam.shapeProperty = new Property( Shape.rect( 0, 0, 0, 0 ) ); // in view coordinates
-    thisBeam.fillProperty = new Property( Color.WHITE ); // gradient, prepared for shape
-    thisBeam.visibleProperty = new Property( false );
-
     // Make the beam visible when the light is on.
-    light.onProperty.link( function( on ) {
-      thisBeam.visibleProperty.set( on );
-    } );
+    thisBeam.visibleProperty = new DerivedProperty( [ light.onProperty ],
+      function( on ) {
+        return on;
+      } );
 
-    // update shape of the beam
+    // beam shape
     var xOverlap = modelViewTransform.modelToViewDeltaX( 1 ); // add some overlap, to hide space between beam and light housing
-    var updateShape = function() {
-      if ( thisBeam.visibleProperty.get() ) {
-        var x = modelViewTransform.modelToViewPosition( light.location ).x - xOverlap;
-        var y = modelViewTransform.modelToViewPosition( light.location ).y - modelViewTransform.modelToViewDeltaY( light.lensDiameter / 2 );
-        var w = modelViewTransform.modelToViewDeltaX( detector.probeInBeam() ? detector.probe.locationProperty.get().x - light.location.x : MAX_LIGHT_WIDTH ) + xOverlap;
-        var h = modelViewTransform.modelToViewDeltaY( light.lensDiameter );
-        thisBeam.shapeProperty.set( Shape.rect( x, y, w, h ) );
-      }
-    };
-    cuvette.widthProperty.link( updateShape );
-    detector.probe.locationProperty.link( updateShape );
-    thisBeam.visibleProperty.link( updateShape );
+    thisBeam.shapeProperty = new DerivedProperty( [ thisBeam.visibleProperty, cuvette.widthProperty, detector.probe.locationProperty ],
+      function( beamVisible, cuvetteWidth, probeLocation ) {
+        if ( beamVisible ) {
+          var x = modelViewTransform.modelToViewPosition( light.location ).x - xOverlap;
+          var y = modelViewTransform.modelToViewPosition( light.location ).y - modelViewTransform.modelToViewDeltaY( light.lensDiameter / 2 );
+          var w = modelViewTransform.modelToViewDeltaX( detector.probeInBeam() ? probeLocation.x - light.location.x : MAX_LIGHT_WIDTH ) + xOverlap;
+          var h = modelViewTransform.modelToViewDeltaY( light.lensDiameter );
+          return Shape.rect( x, y, w, h );
+        }
+      } );
 
-    // update color of beam, a left-to-right linear gradient that transitions inside the solution
-    var updateColor = function() {
-      if ( thisBeam.visibleProperty.get() ) {
-        var baseColor = VisibleColor.wavelengthToColor( light.wavelengthProperty.get() );
-        var leftColor = baseColor.withAlpha( MAX_LIGHT_ALPHA );
-        var rightColor = baseColor.withAlpha( Util.linear( 0, 1, MIN_LIGHT_ALPHA, MAX_LIGHT_ALPHA, absorbance.getTransmittance() ) );
-        var x = modelViewTransform.modelToViewPosition( cuvette.location ).x;
-        var w = modelViewTransform.modelToViewDeltaX( cuvette.widthProperty.get() );
-        thisBeam.fillProperty.set( new LinearGradient( x, 0, x + w, 0 ).addColorStop( 0, leftColor ).addColorStop( 1, rightColor ) );
-      }
-    };
-    light.wavelengthProperty.link( updateColor );
-    cuvette.widthProperty.link( updateColor );
-    absorbance.absorbanceProperty.link( updateColor );
-    thisBeam.visibleProperty.link( updateColor );
+    // beam color, a left-to-right linear gradient that transitions inside the solution
+    thisBeam.fillProperty = new DerivedProperty( [ thisBeam.visibleProperty, cuvette.widthProperty, light.wavelengthProperty, absorbance.absorbanceProperty ],
+      function( beamVisible, cuvetteWidth, wavelength, absorbanceValue ) {
+        if ( beamVisible ) {
+          var baseColor = VisibleColor.wavelengthToColor( wavelength );
+          var leftColor = baseColor.withAlpha( MAX_LIGHT_ALPHA );
+          var rightColor = baseColor.withAlpha( Util.linear( 0, 1, MIN_LIGHT_ALPHA, MAX_LIGHT_ALPHA, absorbance.getTransmittance() ) );
+          var x = modelViewTransform.modelToViewPosition( cuvette.location ).x;
+          var w = modelViewTransform.modelToViewDeltaX( cuvetteWidth );
+          return new LinearGradient( x, 0, x + w, 0 ).addColorStop( 0, leftColor ).addColorStop( 1, rightColor );
+        }
+      } );
   }
 
-  return Beam;
+  return inherit( Object, Beam );
 } );
