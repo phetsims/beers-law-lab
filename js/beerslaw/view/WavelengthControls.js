@@ -41,7 +41,7 @@ define( function( require ) {
 
     // nodes
     var label = new Text( StringUtils.format( pattern_0label, wavelengthString ), { font: new PhetFont( 20 ), fill: 'black' } );
-    var valueDisplay = new Text( thisNode.formatWavelength( light.wavelength.get() ), { font: new PhetFont( 20 ), fill: 'black' } );
+    var valueDisplay = new Text( thisNode.formatWavelength( light.wavelengthProperty.get() ), { font: new PhetFont( 20 ), fill: 'black' } );
     var xMargin = 0.1 * valueDisplay.width;
     var yMargin = 0.1 * valueDisplay.height;
     var valueBackground = new Rectangle( 0, 0, valueDisplay.width + xMargin + xMargin, valueDisplay.height + yMargin + yMargin,
@@ -51,7 +51,7 @@ define( function( require ) {
       font: new PhetFont( 18 ),
       fill: 'black'
     } ) );
-    var wavelengthSlider = new WavelengthSlider( light.wavelength, { trackWidth: 150, trackHeight: 30, valueVisible: false } );
+    var wavelengthSlider = new WavelengthSlider( light.wavelengthProperty, { trackWidth: 150, trackHeight: 30, valueVisible: false } );
 
     // rendering order
     var content = new Node();
@@ -93,7 +93,7 @@ define( function( require ) {
       }
       if ( !isVariable ) {
         // Set the light to the current solution's lambdaMax wavelength.
-        light.wavelength.set( solutionProperty.get().molarAbsorptivityData.lambdaMax );
+        light.wavelengthProperty.set( solutionProperty.get().molarAbsorptivityData.lambdaMax );
       }
     } );
 
@@ -102,7 +102,7 @@ define( function( require ) {
     };
 
     // sync displayed value with model
-    light.wavelength.link( function( wavelength ) {
+    light.wavelengthProperty.link( function( wavelength ) {
       valueDisplay.text = thisNode.formatWavelength( wavelength );
       valueDisplay.right = valueBackground.right - xMargin; // right aligned
     } );

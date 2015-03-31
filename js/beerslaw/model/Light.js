@@ -26,12 +26,12 @@ define( function( require ) {
 
     thisLight.location = location;
     thisLight.on = new Property( on );
-    thisLight.wavelength = new Property( solutionProperty.get().molarAbsorptivityData.lambdaMax ); // nm
+    thisLight.wavelengthProperty = new Property( solutionProperty.get().molarAbsorptivityData.lambdaMax ); // nm
     thisLight.lensDiameter = lensDiameter;
 
     // when the solution changes, set the light to the solution's lambdaMax wavelength
     solutionProperty.link( function( solution ) {
-      thisLight.wavelength.set( solution.molarAbsorptivityData.lambdaMax );
+      thisLight.wavelengthProperty.set( solution.molarAbsorptivityData.lambdaMax );
     } );
   }
 

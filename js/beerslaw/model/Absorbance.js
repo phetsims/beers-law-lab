@@ -38,7 +38,7 @@ define( function( require ) {
     // a: molar absorptivity, units=1/(cm*M)
     {
       var computeMolarAbsorptivity = function() {
-        return solutionProperty.get().molarAbsorptivityData.wavelengthToMolarAbsorptivity( light.wavelength.get() );
+        return solutionProperty.get().molarAbsorptivityData.wavelengthToMolarAbsorptivity( light.wavelengthProperty.get() );
       };
 
       thisAbsorbance.molarAbsorptivity = new Property( computeMolarAbsorptivity() );
@@ -48,7 +48,7 @@ define( function( require ) {
         thisAbsorbance.molarAbsorptivity.set( computeMolarAbsorptivity() );
       };
       solutionProperty.link( updateMolarAbsorptivity );
-      light.wavelength.link( updateMolarAbsorptivity );
+      light.wavelengthProperty.link( updateMolarAbsorptivity );
     }
 
     // b: path length, synonymous with cuvette width, units=cm
