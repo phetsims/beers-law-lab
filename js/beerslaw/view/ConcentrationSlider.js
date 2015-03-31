@@ -49,10 +49,10 @@ define( function( require ) {
    * Clicking in the track changes the value.
    *
    * @param {Dimension2} trackSize
-   * @param {Property.<BeersLawSolution>} solution
+   * @param {Property.<BeersLawSolution>} solutionProperty
    * @constructor
    */
-  function Track( trackSize, solution ) {
+  function Track( trackSize, solutionProperty ) {
 
     var thisNode = this;
     Rectangle.call( thisNode, 0, 0, trackSize.width, trackSize.height,
@@ -60,7 +60,7 @@ define( function( require ) {
 
     // sync view with model
     var positionToConcentration;
-    solution.link( function( solution ) {
+    solutionProperty.link( function( solution ) {
       // change the view-to-model function to match the solution's concentration range
       var concentrationRange = solution.concentrationRange;
       positionToConcentration = new LinearFunction( 0, trackSize.width, concentrationRange.min, concentrationRange.max, true /* clamp */ );
@@ -75,7 +75,7 @@ define( function( require ) {
     var handleEvent = function( event ) {
       var x = thisNode.globalToLocalPoint( event.pointer.point ).x;
       var concentration = positionToConcentration( x );
-      solution.get().concentration.set( concentration );
+      solutionProperty.get().concentration.set( concentration );
     };
     thisNode.addInputListener( new SimpleDragHandler(
       {
@@ -120,10 +120,10 @@ define( function( require ) {
    * The slider thumb, a rounded rectangle with a vertical line through its center.
    * @param {Dimension2} thumbSize
    * @param {Dimension2} trackSize
-   * @param {Property.<BeersLawSolution>} solution
+   * @param {Property.<BeersLawSolution>} solutionProperty
    * @constructor
    */
-  function Thumb( thumbSize, trackSize, solution ) {
+  function Thumb( thumbSize, trackSize, solutionProperty ) {
 
     var thisNode = this;
     Node.call( thisNode, { cursor: 'pointer' } );
@@ -160,16 +160,16 @@ define( function( require ) {
       // linear mapping function with solution's concentration range
       concentrationToPosition = new LinearFunction( solution.concentrationRange.min, solution.concentrationRange.max, 0, trackSize.width, true /* clamp */ );
     };
-    setSolution( solution.get() );
+    setSolution( solutionProperty.get() );
 
     // move the slider thumb to reflect the concentration value
     var concentrationObserver = function( concentration ) {
       thisNode.x = concentrationToPosition( concentration );
     };
-    solution.get().concentration.link( concentrationObserver );
+    solutionProperty.get().concentration.link( concentrationObserver );
 
     // when the solution changes, wire up to the current solution
-    solution.link( function( newSolution, oldSolution ) {
+    solutionProperty.link( function( newSolution, oldSolution ) {
       setSolution( newSolution );
       if ( oldSolution ) {
         oldSolution.concentration.unlink( concentrationObserver );
@@ -183,11 +183,11 @@ define( function( require ) {
   /**
    * Drag handler for the slider thumb.
    * @param {Node} dragNode
-   * @param {Property.<number>} concentration
+   * @param {Property.<number>} concentrationProperty
    * @param {LinearFunction} positionToValue
    * @constructor
    */
-  function ThumbDragHandler( dragNode, concentration, positionToValue ) {
+  function ThumbDragHandler( dragNode, concentrationProperty, positionToValue ) {
     var clickXOffset; // x-offset between initial click and thumb's origin
     SimpleDragHandler.call( this, {
       allowTouchSnag: true,
@@ -196,7 +196,7 @@ define( function( require ) {
       },
       drag: function( event ) {
         var x = dragNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
-        concentration.set( positionToValue( x ) );
+        concentrationProperty.set( positionToValue( x ) );
       }
     } );
   }
@@ -204,17 +204,17 @@ define( function( require ) {
   inherit( SimpleDragHandler, ThumbDragHandler );
 
   /**
-   * @param {Property.<BeersLawSolution>} solution
+   * @param {Property.<BeersLawSolution>} solutionProperty
    * @constructor
    */
-  function ConcentrationSlider( solution ) {
+  function ConcentrationSlider( solutionProperty ) {
 
     var thisNode = this;
     Node.call( thisNode );
 
     // nodes
-    var track = new Track( TRACK_SIZE, solution );
-    var thumb = new Thumb( THUMB_SIZE, TRACK_SIZE, solution );
+    var track = new Track( TRACK_SIZE, solutionProperty );
+    var thumb = new Thumb( THUMB_SIZE, TRACK_SIZE, solutionProperty );
     var minTickLine = new TickLine();
     var maxTickLine = new TickLine();
     var minTickLabel = new TickLabel( 0 ); // correct value will be set when observer is registered
@@ -222,10 +222,14 @@ define( function( require ) {
 
     // buttons for single-unit increments
     var plusButton = new ArrowButton( 'right', function() {
-      solution.get().concentration.set( Math.min( solution.get().concentration.get() + solution.get().concentrationTransform.viewToModel( 1 ), solution.get().concentrationRange.max ) );
+      var solution = solutionProperty.get();
+      var delta = solution.concentrationTransform.viewToModel( 1 );
+      solution.concentration.set( Math.min( solution.concentration.get() + delta, solution.concentrationRange.max ) );
     } );
     var minusButton = new ArrowButton( 'left', function() {
-      solution.get().concentration.set( Math.max( solution.get().concentration.get() - solution.get().concentrationTransform.viewToModel( 1 ), solution.get().concentrationRange.min ) );
+      var solution = solutionProperty.get();
+      var delta = solution.concentrationTransform.viewToModel( 1 )
+      solution.concentration.set( Math.max( solution.concentration.get() - delta, solution.concentrationRange.min ) );
     } );
 
     // rendering order
@@ -253,12 +257,12 @@ define( function( require ) {
 
     var concentrationObserver = function( concentration ) {
       // buttons
-      plusButton.enabled = ( concentration < solution.get().concentrationRange.max );
-      minusButton.enabled = ( concentration > solution.get().concentrationRange.min );
+      plusButton.enabled = ( concentration < solutionProperty.get().concentrationRange.max );
+      minusButton.enabled = ( concentration > solutionProperty.get().concentrationRange.min );
     };
 
     // update the tick labels to match the solution
-    solution.link( function( solution, oldSolution ) {
+    solutionProperty.link( function( solution, oldSolution ) {
       var concentrationRange = solution.concentrationRange;
       var transform = solution.concentrationTransform;
       // update label values
