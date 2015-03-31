@@ -24,11 +24,11 @@ define( function( require ) {
 
   /**
    * @param {BeersLawSolution[]} solutions
-   * @param {Property.<BeersLawSolution>} selectedSolution
+   * @param {Property.<BeersLawSolution>} selectedSolutionProperty
    * @param {Node} soluteListParent
    * @constructor
    */
-  function SolutionComboBox( solutions, selectedSolution, soluteListParent ) {
+  function SolutionComboBox( solutions, selectedSolutionProperty, soluteListParent ) {
 
     // 'Solution' label
     var label = new Text( StringUtils.format( pattern_0label, solutionString ), { font: new PhetFont( 20 ) } );
@@ -40,7 +40,7 @@ define( function( require ) {
       items[ i ] = createItem( solution );
     }
 
-    ComboBox.call( this, items, selectedSolution, soluteListParent, {
+    ComboBox.call( this, items, selectedSolutionProperty, soluteListParent, {
       labelNode: label,
       listPosition: 'above',
       itemYMargin: 12,
