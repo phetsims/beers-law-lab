@@ -59,8 +59,8 @@ define( function( require ) {
 
     // buttons for changing the detector 'mode'
     var textOptions = { font: new PhetFont( 18 ), fill: 'white' };
-    var transmittanceButton = new AquaRadioButton( detector.mode, ATDetector.Mode.TRANSMITTANCE, new Text( transmittanceString, textOptions ) );
-    var absorbanceButton = new AquaRadioButton( detector.mode, ATDetector.Mode.ABSORBANCE, new Text( absorbanceString, textOptions ) );
+    var transmittanceButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.TRANSMITTANCE, new Text( transmittanceString, textOptions ) );
+    var absorbanceButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.ABSORBANCE, new Text( absorbanceString, textOptions ) );
 
     // group the buttons
     var buttonGroup = new LayoutBox( {
@@ -111,13 +111,13 @@ define( function( require ) {
 
     // update the value display
     var valueUpdater = function() {
-      var value = detector.value.get();
+      var value = detector.valueProperty.get();
       if ( isNaN( value ) ) {
         valueNode.text = NO_VALUE;
         valueNode.centerX = valueBackgroundNode.centerX;
       }
       else {
-        if ( detector.mode.get() === ATDetector.Mode.TRANSMITTANCE ) {
+        if ( detector.modeProperty.get() === ATDetector.Mode.TRANSMITTANCE ) {
           valueNode.text = StringUtils.format( pattern_0percent, value.toFixed( TRANSMITTANCE_DECIMAL_PLACES ) );
         }
         else {
@@ -126,8 +126,8 @@ define( function( require ) {
         valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN; // right justified
       }
     };
-    detector.value.link( valueUpdater );
-    detector.mode.link( valueUpdater );
+    detector.valueProperty.link( valueUpdater );
+    detector.modeProperty.link( valueUpdater );
   }
 
   inherit( Node, BodyNode );

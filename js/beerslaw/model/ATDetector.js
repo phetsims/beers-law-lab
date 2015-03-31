@@ -55,7 +55,7 @@ define( function( require ) {
     var thisDetector = this;
 
     thisDetector.light = light;
-    thisDetector.mode = new Property( ATDetector.Mode.TRANSMITTANCE );
+    thisDetector.modeProperty = new Property( ATDetector.Mode.TRANSMITTANCE );
     thisDetector.body = new Movable( bodyLocation, bodyDragBounds );
     thisDetector.probe = new Probe( probeLocation, probeDragBounds, 0.57 );
 
@@ -65,7 +65,7 @@ define( function( require ) {
       if ( thisDetector.probeInBeam() ) {
         // path length is between 0 and cuvette width
         var pathLength = Math.min( Math.max( 0, thisDetector.probe.locationProperty.get().x - cuvette.location.x ), cuvette.width.get() );
-        if ( thisDetector.mode.get() === ATDetector.Mode.ABSORBANCE ) {
+        if ( thisDetector.modeProperty.get() === ATDetector.Mode.ABSORBANCE ) {
           value = absorbance.getAbsorbanceAt( pathLength );
         }
         else {
@@ -75,16 +75,16 @@ define( function( require ) {
       return value;
     };
 
-    thisDetector.value = new Property( computeValue() );
+    thisDetector.valueProperty = new Property( computeValue() );
 
     // observer dependencies for the value
     var updateValue = function() {
-      thisDetector.value.set( computeValue() );
+      thisDetector.valueProperty.set( computeValue() );
     };
     thisDetector.probe.locationProperty.link( updateValue );
     thisDetector.light.on.link( updateValue );
     thisDetector.probe.locationProperty.link( updateValue );
-    thisDetector.mode.link( updateValue );
+    thisDetector.modeProperty.link( updateValue );
     absorbance.value.link( updateValue );
   }
 
@@ -93,7 +93,7 @@ define( function( require ) {
     reset: function() {
       this.body.reset();
       this.probe.reset();
-      this.mode.reset();
+      this.modeProperty.reset();
     },
 
     // Is the probe in some segment of the beam?
