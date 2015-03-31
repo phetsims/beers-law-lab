@@ -52,7 +52,7 @@ define( function( require ) {
 
     // derive the solution color
     var updateColor = function() {
-      thisSolution.color.set( ConcentrationSolution.createColor( thisSolution.solvent, thisSolution.soluteProperty.get(), thisSolution.concentrationProperty.get() ) );
+      thisSolution.colorProperty.set( ConcentrationSolution.createColor( thisSolution.solvent, thisSolution.soluteProperty.get(), thisSolution.concentrationProperty.get() ) );
     };
     thisSolution.soluteProperty.link( updateColor );
     thisSolution.concentrationProperty.link( updateColor );
@@ -99,7 +99,7 @@ define( function( require ) {
      * @static
      */
     createColor: function( solvent, solute, concentration ) {
-      var color = solvent.color.get();
+      var color = solvent.colorProperty.get();
       if ( concentration > 0 ) {
         color = solute.colorScheme.concentrationToColor( concentration );
       }

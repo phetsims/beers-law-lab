@@ -35,7 +35,7 @@ define( function( require ) {
      * Updates the color of the solution, accounting for saturation.
      * @param {Color} color
      */
-    solution.color.link( function( color ) {
+    solution.colorProperty.link( function( color ) {
       thisNode.fill = color;
       thisNode.stroke = color.darkerColor();
     } );

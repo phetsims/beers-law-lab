@@ -65,7 +65,7 @@ define( function( require ) {
 
     // Creates a color that corresponds to a concentration value.
     var createFluidColor = function( concentration ) {
-      var color = thisSolution.solvent.color.get();
+      var color = thisSolution.solvent.colorProperty.get();
       if ( concentration > 0 ) {
         var distance = Util.linear( thisSolution.concentrationRange.min, thisSolution.concentrationRange.max, 0, 1, concentration );
         color = thisSolution.colorRange.interpolateLinear( distance );

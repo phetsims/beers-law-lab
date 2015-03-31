@@ -29,7 +29,7 @@ define( function( require ) {
      * Set the color of the fluid coming out of the spout.
      * @param {Color} color
      */
-    fluid.color.link( function( color ) {
+    fluid.colorProperty.link( function( color ) {
       thisNode.fill = color;
       thisNode.stroke = color.darkerColor();
     } );
