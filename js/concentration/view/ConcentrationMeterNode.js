@@ -121,7 +121,7 @@ define( function( require ) {
 
     // displayed value
     var readoutProperty = new Property( NO_VALUE, { componentID: 'concentrationScreen.concentrationMeter.readout' } );
-    meter.value.link( function( value ) {
+    meter.valueProperty.link( function( value ) {
       if ( isNaN( value ) ) {
         valueNode.setText( NO_VALUE );
         valueNode.centerX = valueBackgroundNode.centerX; // center justified
@@ -277,19 +277,19 @@ define( function( require ) {
 
     var updateValue = function() {
       if ( probeNode.isInSolution() ) {
-        meter.value.set( solution.concentrationProperty.get() );
+        meter.valueProperty.set( solution.concentrationProperty.get() );
       }
       else if ( probeNode.isInSolvent() ) {
-        meter.value.set( 0 );
+        meter.valueProperty.set( 0 );
       }
       else if ( probeNode.isInDrainFluid() ) {
-        meter.value.set( solution.concentrationProperty.get() );
+        meter.valueProperty.set( solution.concentrationProperty.get() );
       }
       else if ( probeNode.isInStockSolution() ) {
-        meter.value.set( dropper.soluteProperty.get().stockSolutionConcentration );
+        meter.valueProperty.set( dropper.soluteProperty.get().stockSolutionConcentration );
       }
       else {
-        meter.value.set( NaN );
+        meter.valueProperty.set( NaN );
       }
     };
     meter.probe.locationProperty.link( updateValue );
