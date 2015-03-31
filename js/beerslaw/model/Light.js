@@ -25,7 +25,7 @@ define( function( require ) {
     var thisLight = this;
 
     thisLight.location = location;
-    thisLight.on = new Property( on );
+    thisLight.onProperty = new Property( on );
     thisLight.wavelengthProperty = new Property( solutionProperty.get().molarAbsorptivityData.lambdaMax ); // nm
     thisLight.lensDiameter = lensDiameter;
 
@@ -38,7 +38,7 @@ define( function( require ) {
   return inherit( Object, Light, {
 
     reset: function() {
-      this.on.reset();
+      this.onProperty.reset();
     },
 
     getMinY: function() {

@@ -161,7 +161,7 @@ define( function( require ) {
       modelViewTransform: modelViewTransform,
       endDrag: function() {
         // If the light is on and the probe is close enough to the beam...
-        if ( light.on.get() && ( probe.locationProperty.get().x >= light.location.x ) && ( Math.abs( probe.locationProperty.get().y - light.location.y ) <= 0.5 * light.lensDiameter ) ) {
+        if ( light.onProperty.get() && ( probe.locationProperty.get().x >= light.location.x ) && ( Math.abs( probe.locationProperty.get().y - light.location.y ) <= 0.5 * light.lensDiameter ) ) {
           // ... snap the probe to the center of beam.
           probe.locationProperty.set( new Vector2( probe.locationProperty.get().x, light.location.y ) );
         }

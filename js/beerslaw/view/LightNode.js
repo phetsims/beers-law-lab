@@ -31,7 +31,7 @@ define( function( require ) {
 
     // nodes
     var housing = new Image( lightImage, { pickable: false } );
-    var button = new RoundToggleButton( true, false, light.on, { baseColor: 'red' } );
+    var button = new RoundToggleButton( true, false, light.onProperty, { baseColor: 'red' } );
 
     // expand touch area for button. Do this before scaling the button!
     button.touchArea = Shape.circle( button.width / 2, button.height / 2, 1.0 * button.width /* radius */ );

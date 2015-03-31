@@ -46,7 +46,7 @@ define( function( require ) {
     thisBeam.visibleProperty = new Property( false );
 
     // Make the beam visible when the light is on.
-    light.on.link( function( on ) {
+    light.onProperty.link( function( on ) {
       thisBeam.visibleProperty.set( on );
     } );
 

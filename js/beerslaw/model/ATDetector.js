@@ -82,7 +82,7 @@ define( function( require ) {
       thisDetector.valueProperty.set( computeValue() );
     };
     thisDetector.probe.locationProperty.link( updateValue );
-    thisDetector.light.on.link( updateValue );
+    thisDetector.light.onProperty.link( updateValue );
     thisDetector.probe.locationProperty.link( updateValue );
     thisDetector.modeProperty.link( updateValue );
     absorbance.value.link( updateValue );
@@ -98,7 +98,7 @@ define( function( require ) {
 
     // Is the probe in some segment of the beam?
     probeInBeam: function() {
-      return this.light.on.get() &&
+      return this.light.onProperty.get() &&
              ( this.probe.getMinY() < this.light.getMinY() ) &&
              ( this.probe.getMaxY() > this.light.getMaxY() ) &&
              ( this.probe.locationProperty.get().x > this.light.location.x );
