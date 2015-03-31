@@ -33,13 +33,13 @@ define( function( require ) {
     ScreenView.call( thisView, BLLConstants.SCREEN_VIEW_OPTIONS );
 
     var lightNode = new LightNode( model.light, modelViewTransform );
-    var cuvetteNode = new CuvetteNode( model.cuvette, model.solution, modelViewTransform, 0.1 /* snapInterval, cm */ );
+    var cuvetteNode = new CuvetteNode( model.cuvette, model.solutionProperty, modelViewTransform, 0.1 /* snapInterval, cm */ );
     var beamNode = new BeamNode( model.beam );
     var detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform );
-    var wavelengthControls = new WavelengthControls( model.solution, model.light );
+    var wavelengthControls = new WavelengthControls( model.solutionProperty, model.light );
     var rulerNode = new BLLRulerNode( model.ruler, modelViewTransform );
     var foregroundNode = new Node();
-    var solutionControls = new SolutionControls( model.solutions, model.solution, foregroundNode );
+    var solutionControls = new SolutionControls( model.solutions, model.solutionProperty, foregroundNode );
 
     // Reset All button
     var resetAllButton = new ResetAllButton(
