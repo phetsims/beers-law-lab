@@ -120,7 +120,7 @@ define( function( require ) {
     } );
 
     // displayed value
-    var displayedTextProperty = new Property( NO_VALUE, { componentID: 'concentrationScreen.concentrationMeter.readout' } );
+    var readoutProperty = new Property( NO_VALUE, { componentID: 'concentrationScreen.concentrationMeter.readout' } );
     meter.value.link( function( value ) {
       if ( isNaN( value ) ) {
         valueNode.setText( NO_VALUE );
@@ -131,8 +131,8 @@ define( function( require ) {
         valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN; // right justified
       }
 
-      // Output the data in the arch data stream
-      displayedTextProperty.set( valueNode.getText() );
+      // Output the displayed value to the together data stream
+      readoutProperty.set( valueNode.getText() );
     } );
   }
 
