@@ -74,7 +74,7 @@ define( function( require ) {
 
     // Solute controls
     var soluteListParent = new Node();
-    var soluteControls = new SoluteControls( model.solutes, model.soluteProperty, model.shaker, model.dropper, soluteListParent );
+    var soluteControls = new SoluteControls( model.solutes, model.soluteProperty, model.soluteFormProperty, model.shaker, model.dropper, soluteListParent );
 
     // Evaporation control
     var evaporationControl = new EvaporationControl( model.evaporator );

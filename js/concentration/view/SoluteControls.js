@@ -18,18 +18,19 @@ define( function( require ) {
   /**
    * @param {Solute[]} solutes
    * @param {Property.<Solute>} currentSoluteProperty
+   * @param {Property.<string>} soluteFormProperty form of the solute, 'solid' or 'liquid'
    * @param {Shaker} shaker
    * @param {Dropper} dropper
    * @param {Node} soluteListParent
    * @constructor
    */
-  function SoluteControlsNode( solutes, currentSoluteProperty, shaker, dropper, soluteListParent ) {
+  function SoluteControlsNode( solutes, currentSoluteProperty, soluteFormProperty, shaker, dropper, soluteListParent ) {
 
     // solute combo box
     var soluteComboBox = new SoluteComboBox( solutes, currentSoluteProperty, soluteListParent );
 
     // radio buttons for solid vs solution
-    var soluteFormNode = new SoluteFormNode( shaker, dropper );
+    var soluteFormNode = new SoluteFormNode( soluteFormProperty, shaker, dropper );
 
     var contentNode = new Node();
     contentNode.addChild( soluteFormNode );
