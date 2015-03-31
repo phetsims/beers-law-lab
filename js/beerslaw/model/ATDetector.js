@@ -85,7 +85,7 @@ define( function( require ) {
     thisDetector.light.onProperty.link( updateValue );
     thisDetector.probe.locationProperty.link( updateValue );
     thisDetector.modeProperty.link( updateValue );
-    absorbance.value.link( updateValue );
+    absorbance.absorbanceProperty.link( updateValue );
   }
 
   return inherit( Object, ATDetector, {

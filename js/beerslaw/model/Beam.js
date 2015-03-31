@@ -78,7 +78,7 @@ define( function( require ) {
     };
     light.wavelengthProperty.link( updateColor );
     cuvette.widthProperty.link( updateColor );
-    absorbance.value.link( updateColor );
+    absorbance.absorbanceProperty.link( updateColor );
     thisBeam.visibleProperty.link( updateColor );
   }
 

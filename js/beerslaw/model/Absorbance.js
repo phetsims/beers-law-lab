@@ -91,11 +91,11 @@ define( function( require ) {
         return getAbsorbance( thisAbsorbance.molarAbsorptivityProperty.get(), thisAbsorbance.pathLengthProperty.get(), thisAbsorbance.concentrationProperty.get() );
       };
 
-      thisAbsorbance.value = new Property( computeAbsorbance() );
+      thisAbsorbance.absorbanceProperty = new Property( computeAbsorbance() );
 
       // dependencies from which this property is derived:
       var updateAbsorbance = function() {
-        thisAbsorbance.value.set( computeAbsorbance() );
+        thisAbsorbance.absorbanceProperty.set( computeAbsorbance() );
       };
       thisAbsorbance.molarAbsorptivityProperty.link( updateAbsorbance );
       thisAbsorbance.pathLengthProperty.link( updateAbsorbance );
@@ -137,7 +137,7 @@ define( function( require ) {
 
     // Converts absorbance to transmittance.
     getTransmittance: function() {
-      return getTransmittance( this.value.get() );
+      return getTransmittance( this.absorbanceProperty.get() );
     }
   } );
 } );
