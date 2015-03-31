@@ -22,26 +22,26 @@ define( function( require ) {
     var thisEvaporator = this;
 
     thisEvaporator.maxEvaporationRate = maxEvaporationRate; // L/sec
-    thisEvaporator.evaporationRate = new Property( 0, { componentID: 'concentrationScreen.evaporationRate' } ); // L/sec
-    thisEvaporator.enabled = new Property( true, { componentID: 'concentrationScreen.evaporationEnabled' } );
+    thisEvaporator.evaporationRateProperty = new Property( 0, { componentID: 'concentrationScreen.evaporationRate' } ); // L/sec
+    thisEvaporator.enabledProperty = new Property( true, { componentID: 'concentrationScreen.evaporationEnabled' } );
 
     // disable when the volume gets to zero
     solution.volumeProperty.link( function( volume ) {
-      thisEvaporator.enabled.set( volume > 0 );
+      thisEvaporator.enabledProperty.set( volume > 0 );
     } );
 
     // when disabled, set the rate to zero
-    thisEvaporator.enabled.link( function( enabled ) {
+    thisEvaporator.enabledProperty.link( function( enabled ) {
       if ( !enabled ) {
-        thisEvaporator.evaporationRate.set( 0 );
+        thisEvaporator.evaporationRateProperty.set( 0 );
       }
     } );
   }
 
   return inherit( Object, Evaporator, {
     reset: function() {
-      this.evaporationRate.reset();
-      this.enabled.reset();
+      this.evaporationRateProperty.reset();
+      this.enabledProperty.reset();
     }
   } );
 } );

@@ -35,10 +35,10 @@ define( function( require ) {
 
     var label = new Text( StringUtils.format( pattern_0label, evaporationString ), { font: new PhetFont( 22 ) } );
 
-    var slider = new HSlider( evaporator.evaporationRate, new Range( 0, evaporator.maxEvaporationRate ), {
+    var slider = new HSlider( evaporator.evaporationRateProperty, new Range( 0, evaporator.maxEvaporationRate ), {
       trackSize: new Dimension2( 200, 6 ),
-      enabledProperty: evaporator.enabled,
-      endDrag: function() { evaporator.evaporationRate.set( 0 ); },  // at end of drag, snap evaporation rate back to zero
+      enabledProperty: evaporator.enabledProperty,
+      endDrag: function() { evaporator.evaporationRateProperty.set( 0 ); },  // at end of drag, snap evaporation rate back to zero
       componentID: 'concentrationScreen.evaporationSlider'
     } );
 

@@ -159,7 +159,7 @@ define( function( require ) {
 
     // @private Evaporate solvent
     evaporateSolvent: function( deltaSeconds ) {
-      this.removeSolvent( this.evaporator.evaporationRate.get() * deltaSeconds );
+      this.removeSolvent( this.evaporator.evaporationRateProperty.get() * deltaSeconds );
     },
 
     // @private Propagates solid solute that came out of the shaker
