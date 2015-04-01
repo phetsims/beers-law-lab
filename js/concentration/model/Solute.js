@@ -35,6 +35,7 @@ define( function( require ) {
    * @constructor
    */
   function Solute( name, formula, stockSolutionConcentration, colorScheme, options ) {
+
     options = _.extend( {
       particleColor: colorScheme.maxColor,
       particleSize: 5,
