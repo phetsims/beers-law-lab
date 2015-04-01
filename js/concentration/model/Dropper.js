@@ -27,7 +27,7 @@ define( function( require ) {
     Movable.call( thisDropper, location, dragBounds, { locationComponentID: 'concentrationScreen.dropper.location' } );
 
     thisDropper.soluteProperty = soluteProperty;
-    thisDropper.visibleProperty = new Property( visible, { componentID: 'concentrationScreen.dropper.visible' } );
+    thisDropper.visibleProperty = new Property( visible );
     thisDropper.onProperty = new Property( false, { componentID: 'concentrationScreen.dropper.on' } ); // true if the dropper is dispensing solution
     thisDropper.enabledProperty = new Property( true );
     thisDropper.emptyProperty = new Property( false, { componentID: 'concentrationScreen.dropper.empty' } );
