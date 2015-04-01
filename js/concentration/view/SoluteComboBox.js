@@ -65,7 +65,19 @@ define( function( require ) {
     node.addChild( textNode );
     textNode.left = colorNode.right + 5;
     textNode.centerY = colorNode.centerY;
-    return ComboBox.createItem( node, solute );
+
+    // Map solute ID to combo box list item ID
+    var componentID = {
+      'concentrationScreen.solutes.drinkMix': 'concentrationScreen.soluteComboBox.drinkMixButton',
+      'concentrationScreen.solutes.cobaltIINitrate': 'concentrationScreen.soluteComboBox.cobaltIINitrateButton',
+      'concentrationScreen.solutes.cobaltChloride': 'concentrationScreen.soluteComboBox.cobaltChlorideButton',
+      'concentrationScreen.solutes.potassiumDichromate': 'concentrationScreen.soluteComboBox.potassiumDichromateButton',
+      'concentrationScreen.solutes.potassiumChromate': 'concentrationScreen.soluteComboBox.potassiumChromateButton',
+      'concentrationScreen.solutes.nickelIIChloride': 'concentrationScreen.soluteComboBox.nickelIIChlorideButton',
+      'concentrationScreen.solutes.copperSulfate': 'concentrationScreen.soluteComboBox.copperSulfateButton',
+      'concentrationScreen.solutes.potassiumPermanganate': 'concentrationScreen.soluteComboBox.potassiumPermanganateButton'
+    }[ solute.componentID ];
+    return ComboBox.createItem( node, solute, { componentID: componentID } );
   };
 
   return inherit( ComboBox, SoluteComboBox );
