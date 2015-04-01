@@ -54,25 +54,8 @@ define( function( require ) {
     ];
 
     // model elements
-    thisModel.soluteProperty = new Property( thisModel.solutes[ 0 ] );
+    thisModel.soluteProperty = new Property( thisModel.solutes[ 0 ], { componentID: 'concentrationScreen.solute' } );
     thisModel.soluteFormProperty = new Property( 'solid', { componentID: 'concentrationScreen.soluteForm' } ); // 'solid' or 'liquid'
-
-    // The together API for this simulation provides a simplified name for the selected solute
-    // Here, we perform 2-way binding between the solute name and the solute instance
-    // This means we can get the value of the solute by name, and set it back by name,
-    // which enables save/load/record/playback/configuration through query parameters/etc.
-    var soluteAPINameProperty = new Property( thisModel.soluteProperty.get().apiName, { componentID: 'concentrationScreen.solute' } );
-    soluteAPINameProperty.link( function( soluteAPIName ) {
-      for ( var i = 0; i < thisModel.solutes.length; i++ ) {
-        var solute = thisModel.solutes[ i ];
-        if ( solute.apiName === soluteAPIName ) {
-          thisModel.soluteProperty.set( solute );
-        }
-      }
-    } );
-    thisModel.soluteProperty.link( function( solute ) {
-      soluteAPINameProperty.set( solute.apiName );
-    } );
 
     thisModel.solution = new ConcentrationSolution( thisModel.soluteProperty, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue );
     thisModel.beaker = new Beaker( new Vector2( 400, 550 ), new Dimension2( 600, 300 ), 1 );
