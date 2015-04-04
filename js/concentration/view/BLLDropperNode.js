@@ -35,7 +35,7 @@ define( function( require ) {
       enabledProperty: dropper.enabledProperty,
       emptyProperty: dropper.emptyProperty,
       togetherID: 'concentrationScreen.dropper',
-      buttonComponentID: 'concentrationScreen.dropperButton'
+      buttonTogetherID: 'concentrationScreen.dropperButton'
     } );
 
     // label background, so the label shows up on various fluid colors

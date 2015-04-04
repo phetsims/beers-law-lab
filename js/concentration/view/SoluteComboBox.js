@@ -45,7 +45,7 @@ define( function( require ) {
       listPosition: 'below',
       itemYMargin: 12,
       itemHighlightFill: 'rgb(218,255,255)',
-      buttonNodeComponentID: 'concentrationScreen.soluteComboBox'
+      buttonNodeTogetherID: 'concentrationScreen.soluteComboBox'
     } );
   }
 

@@ -24,7 +24,7 @@ define( function( require ) {
   function Dropper( location, dragBounds, soluteProperty, maxFlowRate, visible ) {
 
     var thisDropper = this;
-    Movable.call( thisDropper, location, dragBounds, { locationComponentID: 'concentrationScreen.dropper.location' } );
+    Movable.call( thisDropper, location, dragBounds, { locationTogetherID: 'concentrationScreen.dropper.location' } );
 
     thisDropper.soluteProperty = soluteProperty;
     thisDropper.visibleProperty = new Property( visible );

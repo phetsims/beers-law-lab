@@ -22,9 +22,9 @@ define( function( require ) {
    */
   function Movable( location, dragBounds, options ) {
     options = _.extend( {
-      locationComponentID: null
+      locationTogetherID: null
     }, options );
-    this.locationProperty = new Property( location, { togetherID: options.locationComponentID } );
+    this.locationProperty = new Property( location, { togetherID: options.locationTogetherID } );
     this.dragBounds = dragBounds;
   }
 
