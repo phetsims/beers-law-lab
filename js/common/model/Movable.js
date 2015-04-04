@@ -24,7 +24,7 @@ define( function( require ) {
     options = _.extend( {
       locationComponentID: null
     }, options );
-    this.locationProperty = new Property( location, { componentID: options.locationComponentID } );
+    this.locationProperty = new Property( location, { togetherID: options.locationComponentID } );
     this.dragBounds = dragBounds;
   }
 

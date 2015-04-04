@@ -110,7 +110,7 @@ define( function( require ) {
       thisNode.addInputListener( new MovableDragHandler( meter.body.locationProperty, {
         dragBounds: meter.body.dragBounds,
         modelViewTransform: modelViewTransform,
-        componentID: 'concentrationScreen.concentrationMeterBody'
+        togetherID: 'concentrationScreen.concentrationMeterBody'
       } ) );
     }
 
@@ -120,7 +120,7 @@ define( function( require ) {
     } );
 
     // displayed value
-    var readoutProperty = new Property( NO_VALUE, { componentID: 'concentrationScreen.concentrationMeter.readout' } );
+    var readoutProperty = new Property( NO_VALUE, { togetherID: 'concentrationScreen.concentrationMeter.readout' } );
     meter.valueProperty.link( function( value ) {
       if ( isNaN( value ) ) {
         valueNode.setText( NO_VALUE );
@@ -155,7 +155,7 @@ define( function( require ) {
       cursor: 'pointer'
     } );
 
-    this.componentID = 'concentrationScreen.concentrationMeterProbe';
+    this.togetherID = 'concentrationScreen.concentrationMeterProbe';
 
     var imageNode = new Image( probeImage );
     thisNode.addChild( imageNode );
@@ -177,7 +177,7 @@ define( function( require ) {
     thisNode.addInputListener( new MovableDragHandler( probe.locationProperty, {
       dragBounds: probe.dragBounds,
       modelViewTransform: modelViewTransform,
-      componentID: thisNode.componentID
+      togetherID: thisNode.togetherID
     } ) );
 
     var isInNode = function( node ) {

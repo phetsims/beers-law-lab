@@ -34,7 +34,7 @@ define( function( require ) {
       onProperty: dropper.onProperty,
       enabledProperty: dropper.enabledProperty,
       emptyProperty: dropper.emptyProperty,
-      componentID: 'concentrationScreen.dropper',
+      togetherID: 'concentrationScreen.dropper',
       buttonComponentID: 'concentrationScreen.dropperButton'
     } );
 
@@ -91,7 +91,7 @@ define( function( require ) {
     this.movableDragHandler = new MovableDragHandler( dropper.locationProperty, {
       dragBounds: dropper.dragBounds,
       modelViewTransform: modelViewTransform,
-      componentID: thisNode.componentID
+      togetherID: thisNode.togetherID
     } );
     thisNode.addInputListener( this.movableDragHandler );
   }

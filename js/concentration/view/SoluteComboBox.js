@@ -67,7 +67,7 @@ define( function( require ) {
     textNode.centerY = colorNode.centerY;
 
     // Map solute ID to combo box list item ID
-    var componentID = {
+    var togetherID = {
       'concentrationScreen.solutes.drinkMix': 'concentrationScreen.soluteComboBox.drinkMixButton',
       'concentrationScreen.solutes.cobaltIINitrate': 'concentrationScreen.soluteComboBox.cobaltIINitrateButton',
       'concentrationScreen.solutes.cobaltChloride': 'concentrationScreen.soluteComboBox.cobaltChlorideButton',
@@ -76,8 +76,8 @@ define( function( require ) {
       'concentrationScreen.solutes.nickelIIChloride': 'concentrationScreen.soluteComboBox.nickelIIChlorideButton',
       'concentrationScreen.solutes.copperSulfate': 'concentrationScreen.soluteComboBox.copperSulfateButton',
       'concentrationScreen.solutes.potassiumPermanganate': 'concentrationScreen.soluteComboBox.potassiumPermanganateButton'
-    }[ solute.componentID ];
-    return ComboBox.createItem( node, solute, { componentID: componentID } );
+    }[ solute.togetherID ];
+    return ComboBox.createItem( node, solute, { togetherID: togetherID } );
   };
 
   return inherit( ComboBox, SoluteComboBox );

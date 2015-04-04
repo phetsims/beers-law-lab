@@ -30,7 +30,7 @@ define( function( require ) {
       font: new PhetFont( 22 ),
       textFill: 'black',
       xMargin: 10,
-      componentID: 'concentrationScreen.removeSoluteButton'
+      togetherID: 'concentrationScreen.removeSoluteButton'
     } );
 
     this.addListener( function() {

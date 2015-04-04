@@ -54,8 +54,8 @@ define( function( require ) {
     ];
 
     // model elements
-    thisModel.soluteProperty = new Property( thisModel.solutes[ 0 ], { componentID: 'concentrationScreen.solute' } );
-    thisModel.soluteFormProperty = new Property( 'solid', { componentID: 'concentrationScreen.soluteForm' } ); // 'solid' or 'liquid'
+    thisModel.soluteProperty = new Property( thisModel.solutes[ 0 ], { togetherID: 'concentrationScreen.solute' } );
+    thisModel.soluteFormProperty = new Property( 'solid', { togetherID: 'concentrationScreen.soluteForm' } ); // 'solid' or 'liquid'
 
     thisModel.solution = new ConcentrationSolution( thisModel.soluteProperty, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue );
     thisModel.beaker = new Beaker( new Vector2( 400, 550 ), new Dimension2( 600, 300 ), 1 );

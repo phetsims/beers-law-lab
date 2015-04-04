@@ -45,7 +45,7 @@ define( function( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
-    this.componentID = 'concentrationScreen.shaker';
+    this.togetherID = 'concentrationScreen.shaker';
 
     // shaker image
     var imageNode = new Image( shakerImage );
@@ -107,7 +107,7 @@ define( function( require ) {
     thisNode.addInputListener( new MovableDragHandler( shaker.locationProperty, {
       dragBounds: shaker.dragBounds,
       modelViewTransform: modelViewTransform,
-      componentID: thisNode.componentID
+      togetherID: thisNode.togetherID
     } ) );
     thisNode.addInputListener( {
       enter: function() {

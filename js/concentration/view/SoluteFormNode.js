@@ -55,7 +55,7 @@ define( function( require ) {
 
     var shakerButton = new AquaRadioButton( soluteFormProperty, 'solid',
       new TextAndIconNode( solidString, shakerIconImage, TEXT_OPTIONS ), {
-        componentID: 'concentrationScreen.solidRadioButton'
+        togetherID: 'concentrationScreen.solidRadioButton'
       } );
 
     // vertical separator
@@ -69,7 +69,7 @@ define( function( require ) {
     var dropperButton = new AquaRadioButton( soluteFormProperty, 'liquid',
       new TextAndIconNode( solutionString, dropperIconImage, TEXT_OPTIONS ), {
         left: separator.right + SEPARATOR_SPACING,
-        componentID: 'concentrationScreen.solutionRadioButton'
+        togetherID: 'concentrationScreen.solutionRadioButton'
       } );
 
     Node.call( this, { children: [ shakerButton, separator, dropperButton ] } );

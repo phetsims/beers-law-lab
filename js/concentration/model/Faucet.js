@@ -33,7 +33,7 @@ define( function( require ) {
     thisFaucet.pipeMinX = pipeMinX;
     thisFaucet.spoutWidth = spoutWidth;
     thisFaucet.maxFlowRate = maxFlowRate;
-    thisFaucet.flowRateProperty = new Property( 0, { componentID: options.flowRateComponentID } );
+    thisFaucet.flowRateProperty = new Property( 0, { togetherID: options.flowRateComponentID } );
     thisFaucet.enabledProperty = new Property( true );
 
     // when disabled, turn off the faucet.

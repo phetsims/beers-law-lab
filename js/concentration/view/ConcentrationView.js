@@ -61,8 +61,8 @@ define( function( require ) {
     var stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.soluteProperty, model.dropper, model.beaker, dropperNode.TIP_WIDTH - 1, modelViewTransform );
 
     // faucets
-    var solventFaucetNode = new BLLFaucetNode( model.solventFaucet, modelViewTransform, { componentID: 'concentrationScreen.solventFaucet' } );
-    var drainFaucetNode = new BLLFaucetNode( model.drainFaucet, modelViewTransform, { componentID: 'concentrationScreen.drainFaucet' } );
+    var solventFaucetNode = new BLLFaucetNode( model.solventFaucet, modelViewTransform, { togetherID: 'concentrationScreen.solventFaucet' } );
+    var drainFaucetNode = new BLLFaucetNode( model.drainFaucet, modelViewTransform, { togetherID: 'concentrationScreen.drainFaucet' } );
     var SOLVENT_FLUID_HEIGHT = model.beaker.location.y - model.solventFaucet.location.y;
     var DRAIN_FLUID_HEIGHT = 1000; // tall enough that resizing the play area is unlikely to show bottom of fluid
     var solventFluidNode = new FaucetFluidNode( model.solventFaucet, model.solution.solvent, SOLVENT_FLUID_HEIGHT, modelViewTransform );
@@ -86,7 +86,7 @@ define( function( require ) {
     var resetAllButton = new ResetAllButton( {
       listener: function() { model.reset(); },
       scale: 1.32,
-      componentID: 'concentrationScreen.resetAllButton'
+      togetherID: 'concentrationScreen.resetAllButton'
     } );
 
     // Rendering order

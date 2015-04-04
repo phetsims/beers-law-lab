@@ -28,10 +28,10 @@ define( function( require ) {
 
     thisDropper.soluteProperty = soluteProperty;
     thisDropper.visibleProperty = new Property( visible );
-    thisDropper.onProperty = new Property( false, { componentID: 'concentrationScreen.dropper.on' } ); // true if the dropper is dispensing solution
+    thisDropper.onProperty = new Property( false, { togetherID: 'concentrationScreen.dropper.on' } ); // true if the dropper is dispensing solution
     thisDropper.enabledProperty = new Property( true );
-    thisDropper.emptyProperty = new Property( false, { componentID: 'concentrationScreen.dropper.empty' } );
-    thisDropper.flowRateProperty = new Property( 0, { componentID: 'concentrationScreen.dropper.flowRate' } ); // L/sec
+    thisDropper.emptyProperty = new Property( false, { togetherID: 'concentrationScreen.dropper.empty' } );
+    thisDropper.flowRateProperty = new Property( 0, { togetherID: 'concentrationScreen.dropper.flowRate' } ); // L/sec
 
     // Turn off the dropper when it's disabled.
     thisDropper.enabledProperty.link( function( enabled ) {

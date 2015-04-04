@@ -28,8 +28,8 @@ define( function( require ) {
 
     thisSolution.solvent = Solvent.WATER;
     thisSolution.soluteProperty = soluteProperty;
-    thisSolution.soluteAmountProperty = new Property( soluteAmount, { componentID: 'concentrationScreen.solution.soluteAmount' } );
-    thisSolution.volumeProperty = new Property( volume, { componentID: 'concentrationScreen.solution.volume' } );
+    thisSolution.soluteAmountProperty = new Property( soluteAmount, { togetherID: 'concentrationScreen.solution.soluteAmount' } );
+    thisSolution.volumeProperty = new Property( volume, { togetherID: 'concentrationScreen.solution.volume' } );
 
     // derive amount of precipitate (moles)
     thisSolution.precipitateAmountProperty = new DerivedProperty(
@@ -37,7 +37,7 @@ define( function( require ) {
       function( solute, soluteAmount, volume ) {
         return Math.max( 0, soluteAmount - ( volume * thisSolution.getSaturatedConcentration() ) );
       },
-      { componentID: 'concentrationScreen.solution.precipitateAmount' }
+      { togetherID: 'concentrationScreen.solution.precipitateAmount' }
     );
 
     // derive concentration (M = mol/L)
@@ -46,7 +46,7 @@ define( function( require ) {
       function( solute, soluteAmount, volume ) {
         return ( volume > 0 ) ? Math.min( thisSolution.getSaturatedConcentration(), soluteAmount / volume ) : 0;
       },
-      { componentID: 'concentrationScreen.solution.concentration' }
+      { togetherID: 'concentrationScreen.solution.concentration' }
     );
 
     Fluid.call( thisSolution, ConcentrationSolution.createColor( thisSolution.solvent, thisSolution.soluteProperty.get(), thisSolution.concentrationProperty.get() ) );
