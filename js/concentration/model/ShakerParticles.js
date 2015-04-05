@@ -42,6 +42,9 @@ define( function( require ) {
     solution.soluteProperty.link( function() {
       thisParticles.removeAllParticles();
     } );
+
+    this.togetherID = 'concentrationScreen.shakerParticles';
+    together && together.addComponent( this );
   }
 
   // Gets a random location relative to some origin
@@ -144,6 +147,28 @@ define( function( require ) {
       var changedCallbacks = this.changedCallbacks.slice( 0 );
       for ( var i = 0; i < changedCallbacks.length; i++ ) {
         changedCallbacks[ i ]();
+      }
+    },
+
+    /**
+     * For together.js, load the state of all the particles.
+     * This is declared here instead of in together.js because of the methods + logic required here
+     * And since the concentration-api.js file does cannot easily replicate the code below since
+     * it runs in a preload script, and types such as ShakerParticle are not available globally.
+     * The argument is defined by concentration-api.js
+     * TODO: To fully support save/load, we must also capture the particle velocities, solute type, orientation, etc.
+     * @param {Object} value - the state as loaded by concentration-api.js
+     */
+    setValueToSim: function( value ) {
+      this.removeAllParticles();
+      for ( var i = 0; i < value.length; i++ ) {
+        var particle = value[ i ];
+        this.addParticle( new ShakerParticle(
+          this.solution.soluteProperty.get(),
+          new Vector2( particle.x, particle.y ),
+          getRandomOrientation(),
+          this.getInitialVelocity(),
+          this.getGravitationalAcceleration() ) );
       }
     }
   } );
