@@ -233,7 +233,7 @@ define( function( require ) {
       // The vector instances have the same values, but are different *instances* which makes axon think it
       // needs to trigger a change notification, and the updateCode body executes.  Here, we check to make
       // sure the values are indeed changed, and bail out if no work is necessary.
-      if ( oldLocation && newLocation && oldLocation.x == newLocation.x && oldLocation.y === newLocation.y ) {
+      if ( oldLocation && newLocation && oldLocation.x === newLocation.x && oldLocation.y === newLocation.y ) {
         return;
       }
 
