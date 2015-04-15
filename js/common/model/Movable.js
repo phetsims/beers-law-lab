@@ -17,14 +17,10 @@ define( function( require ) {
    * Constructor
    * @param {Vector2} location
    * @param {Bounds2} dragBounds
-   * @param {Object} [options]
    * @constructor
    */
-  function Movable( location, dragBounds, options ) {
-    options = _.extend( {
-      locationTogetherID: null
-    }, options );
-    this.locationProperty = new Property( location, { togetherID: options.locationTogetherID } );
+  function Movable( location, dragBounds) {
+    this.locationProperty = new Property( location );
     this.dragBounds = dragBounds;
   }
 

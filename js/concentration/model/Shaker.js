@@ -26,7 +26,7 @@ define( function( require ) {
   function Shaker( location, dragBounds, orientation, soluteProperty, maxDispensingRate, visible ) {
 
     var thisShaker = this;
-    Movable.call( thisShaker, location, dragBounds, { locationTogetherID: 'concentrationScreen.shaker.location' } );
+    Movable.call( thisShaker, location, dragBounds );
 
     thisShaker.orientation = orientation;
     thisShaker.soluteProperty = soluteProperty;
@@ -45,6 +45,9 @@ define( function( require ) {
     };
     thisShaker.emptyProperty.link( observer );
     thisShaker.visibleProperty.link( observer );
+
+    // Together support
+    together && together.addComponent( this.locationProperty, 'concentrationScreen.shaker.location' );
   }
 
   return inherit( Movable, Shaker, {

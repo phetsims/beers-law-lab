@@ -43,8 +43,8 @@ define( function( require ) {
       thisParticles.removeAllParticles();
     } );
 
-    this.togetherID = 'concentrationScreen.shakerParticles';
-    together && together.addComponent( this );
+    // Together support
+    together && together.addComponent( this, 'concentrationScreen.shakerParticles' );
   }
 
   // Gets a random location relative to some origin

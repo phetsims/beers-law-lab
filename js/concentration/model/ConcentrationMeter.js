@@ -27,8 +27,11 @@ define( function( require ) {
    */
   function ConcentrationMeter( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds ) {
     this.valueProperty = new Property( NaN ); // NaN if the meter is not reading a value
-    this.body = new Movable( bodyLocation, bodyDragBounds, { locationTogetherID: 'concentrationScreen.concentrationMeter.bodyLocation' } );
-    this.probe = new Movable( probeLocation, probeDragBounds, { locationTogetherID: 'concentrationScreen.concentrationMeter.probeLocation' } );
+    this.body = new Movable( bodyLocation, bodyDragBounds );
+    this.probe = new Movable( probeLocation, probeDragBounds );
+
+    together && together.addComponent( this.body.locationProperty, 'concentrationScreen.concentrationMeter.bodyLocation' );
+    together && together.addComponent( this.probe.locationProperty, 'concentrationScreen.concentrationMeter.probeLocation' );
   }
 
   return inherit( Object, ConcentrationMeter, {

@@ -28,16 +28,15 @@ define( function( require ) {
 
     thisSolution.solvent = Solvent.WATER;
     thisSolution.soluteProperty = soluteProperty;
-    thisSolution.soluteAmountProperty = new Property( soluteAmount, { togetherID: 'concentrationScreen.solution.soluteAmount' } );
-    thisSolution.volumeProperty = new Property( volume, { togetherID: 'concentrationScreen.solution.volume' } );
+    thisSolution.soluteAmountProperty = new Property( soluteAmount );
+    thisSolution.volumeProperty = new Property( volume );
 
     // derive amount of precipitate (moles)
     thisSolution.precipitateAmountProperty = new DerivedProperty(
       [ thisSolution.soluteProperty, thisSolution.soluteAmountProperty, thisSolution.volumeProperty ],
       function( solute, soluteAmount, volume ) {
         return Math.max( 0, soluteAmount - ( volume * thisSolution.getSaturatedConcentration() ) );
-      },
-      { togetherID: 'concentrationScreen.solution.precipitateAmount' }
+      }
     );
 
     // derive concentration (M = mol/L)
@@ -45,10 +44,8 @@ define( function( require ) {
       [ thisSolution.soluteProperty, thisSolution.soluteAmountProperty, thisSolution.volumeProperty ],
       function( solute, soluteAmount, volume ) {
         return ( volume > 0 ) ? Math.min( thisSolution.getSaturatedConcentration(), soluteAmount / volume ) : 0;
-      },
-      { togetherID: 'concentrationScreen.solution.concentration' }
+      }
     );
-
     Fluid.call( thisSolution, ConcentrationSolution.createColor( thisSolution.solvent, thisSolution.soluteProperty.get(), thisSolution.concentrationProperty.get() ) );
 
     // derive the solution color
@@ -57,6 +54,12 @@ define( function( require ) {
     };
     thisSolution.soluteProperty.lazyLink( updateColor );
     thisSolution.concentrationProperty.lazyLink( updateColor );
+
+    // Together Support
+    together && together.addComponent( thisSolution.soluteAmountProperty, 'concentrationScreen.solution.soluteAmount' );
+    together && together.addComponent( thisSolution.volumeProperty, 'concentrationScreen.solution.volume' );
+    together && together.addComponent( thisSolution.precipitateAmountProperty, 'concentrationScreen.solution.precipitateAmount' );
+    together && together.addComponent( thisSolution.concentrationProperty, 'concentrationScreen.solution.concentration' );
   }
 
   return inherit( Fluid, ConcentrationSolution, {

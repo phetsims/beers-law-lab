@@ -33,9 +33,7 @@ define( function( require ) {
     EyeDropperNode.call( thisNode, {
       onProperty: dropper.onProperty,
       enabledProperty: dropper.enabledProperty,
-      emptyProperty: dropper.emptyProperty,
-      togetherID: 'concentrationScreen.dropper',
-      buttonTogetherID: 'concentrationScreen.dropperButton'
+      emptyProperty: dropper.emptyProperty
     } );
 
     // label background, so the label shows up on various fluid colors
@@ -90,8 +88,7 @@ define( function( require ) {
     // move the dropper
     this.movableDragHandler = new MovableDragHandler( dropper.locationProperty, {
       dragBounds: dropper.dragBounds,
-      modelViewTransform: modelViewTransform,
-      togetherID: thisNode.togetherID
+      modelViewTransform: modelViewTransform
     } );
     thisNode.addInputListener( this.movableDragHandler );
   }

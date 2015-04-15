@@ -22,9 +22,6 @@ define( function( require ) {
    */
   function Faucet( location, pipeMinX, spoutWidth, maxFlowRate, options ) {
 
-    options = _.extend( {
-      flowRateTogetherID: null
-    }, options );
     assert && assert( pipeMinX < location.x ); // pipe enters the faucet from the left
 
     var thisFaucet = this;
@@ -33,7 +30,7 @@ define( function( require ) {
     thisFaucet.pipeMinX = pipeMinX;
     thisFaucet.spoutWidth = spoutWidth;
     thisFaucet.maxFlowRate = maxFlowRate;
-    thisFaucet.flowRateProperty = new Property( 0, { togetherID: options.flowRateTogetherID } );
+    thisFaucet.flowRateProperty = new Property( 0 );
     thisFaucet.enabledProperty = new Property( true );
 
     // when disabled, turn off the faucet.

@@ -38,8 +38,7 @@ define( function( require ) {
     var slider = new HSlider( evaporator.evaporationRateProperty, new Range( 0, evaporator.maxEvaporationRate ), {
       trackSize: new Dimension2( 200, 6 ),
       enabledProperty: evaporator.enabledProperty,
-      endDrag: function() { evaporator.evaporationRateProperty.set( 0 ); },  // at end of drag, snap evaporation rate back to zero
-      togetherID: 'concentrationScreen.evaporationSlider'
+      endDrag: function() { evaporator.evaporationRateProperty.set( 0 ); }  // at end of drag, snap evaporation rate back to zero
     } );
 
     var tickFont = new PhetFont( 16 );
@@ -55,6 +54,9 @@ define( function( require ) {
 
     Panel.call( thisControl, content,
       { xMargin: 15, yMargin: 8, fill: '#F0F0F0', stroke: 'gray', lineWidth: 1, resize: false } );
+
+    // Together support
+    together && together.addComponent( slider, 'concentrationScreen.evaporationSlider' );
   }
 
   return inherit( Panel, EvaporationControl );

@@ -24,14 +24,14 @@ define( function( require ) {
   function Dropper( location, dragBounds, soluteProperty, maxFlowRate, visible ) {
 
     var thisDropper = this;
-    Movable.call( thisDropper, location, dragBounds, { locationTogetherID: 'concentrationScreen.dropper.location' } );
+    Movable.call( thisDropper, location, dragBounds );
 
     thisDropper.soluteProperty = soluteProperty;
     thisDropper.visibleProperty = new Property( visible );
-    thisDropper.onProperty = new Property( false, { togetherID: 'concentrationScreen.dropper.on' } ); // true if the dropper is dispensing solution
+    thisDropper.onProperty = new Property( false ); // true if the dropper is dispensing solution
     thisDropper.enabledProperty = new Property( true );
-    thisDropper.emptyProperty = new Property( false, { togetherID: 'concentrationScreen.dropper.empty' } );
-    thisDropper.flowRateProperty = new Property( 0, { togetherID: 'concentrationScreen.dropper.flowRate' } ); // L/sec
+    thisDropper.emptyProperty = new Property( false );
+    thisDropper.flowRateProperty = new Property( 0 ); // L/sec
 
     // Turn off the dropper when it's disabled.
     thisDropper.enabledProperty.link( function( enabled ) {
@@ -51,6 +51,12 @@ define( function( require ) {
         thisDropper.enabledProperty.set( false );
       }
     } );
+
+    // Together support
+    together && together.addComponent( this.locationProperty, 'concentrationScreen.dropper.location' );
+    together && together.addComponent( thisDropper.onProperty, 'concentrationScreen.dropper.on' );
+    together && together.addComponent( thisDropper.emptyProperty, 'concentrationScreen.dropper.empty' );
+    together && together.addComponent( thisDropper.flowRateProperty, 'concentrationScreen.dropper.flowRate' );
   }
 
   return inherit( Movable, Dropper, {

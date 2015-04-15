@@ -54,9 +54,7 @@ define( function( require ) {
     var SEPARATOR_SPACING = 30;
 
     var shakerButton = new AquaRadioButton( soluteFormProperty, 'solid',
-      new TextAndIconNode( solidString, shakerIconImage, TEXT_OPTIONS ), {
-        togetherID: 'concentrationScreen.solidRadioButton'
-      } );
+      new TextAndIconNode( solidString, shakerIconImage, TEXT_OPTIONS ) );
 
     // vertical separator
     var separator = new Line( 0, 0, 0, shakerButton.height, {
@@ -68,8 +66,7 @@ define( function( require ) {
 
     var dropperButton = new AquaRadioButton( soluteFormProperty, 'liquid',
       new TextAndIconNode( solutionString, dropperIconImage, TEXT_OPTIONS ), {
-        left: separator.right + SEPARATOR_SPACING,
-        togetherID: 'concentrationScreen.solutionRadioButton'
+        left: separator.right + SEPARATOR_SPACING
       } );
 
     Node.call( this, { children: [ shakerButton, separator, dropperButton ] } );
@@ -86,6 +83,10 @@ define( function( require ) {
     dropper.visibleProperty.link( function( visible ) {
       soluteFormProperty.set( visible ? 'liquid' : 'solid' );
     } );
+
+    // Together support
+    together && together.addComponent( shakerButton, 'concentrationScreen.solidRadioButton' );
+    together && together.addComponent( dropperButton, 'concentrationScreen.solutionRadioButton' );
   }
 
   return inherit( Node, SoluteFormNode );

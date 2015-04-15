@@ -107,11 +107,13 @@ define( function( require ) {
     vBox.center = bodyNode.center;
 
     if ( BODY_IS_DRAGGABLE ) {
-      thisNode.addInputListener( new MovableDragHandler( meter.body.locationProperty, {
+      this.movableDragHandler = new MovableDragHandler( meter.body.locationProperty, {
         dragBounds: meter.body.dragBounds,
         modelViewTransform: modelViewTransform,
-        togetherID: 'concentrationScreen.concentrationMeterBody'
-      } ) );
+      } );
+      thisNode.addInputListener( this.movableDragHandler );
+
+      together && together.addComponent( this, 'concentrationScreen.concentrationMeterBody' );
     }
 
     // body location
@@ -120,7 +122,9 @@ define( function( require ) {
     } );
 
     // displayed value
-    var readoutProperty = new Property( NO_VALUE, { togetherID: 'concentrationScreen.concentrationMeter.readout' } );
+    var readoutProperty = new Property( NO_VALUE );
+
+    together && together.addComponent( readoutProperty, 'concentrationScreen.concentrationMeter.readout' );
     meter.valueProperty.link( function( value ) {
       if ( isNaN( value ) ) {
         valueNode.setText( NO_VALUE );
@@ -155,8 +159,6 @@ define( function( require ) {
       cursor: 'pointer'
     } );
 
-    this.togetherID = 'concentrationScreen.concentrationMeterProbe';
-
     var imageNode = new Image( probeImage );
     thisNode.addChild( imageNode );
     var radius = imageNode.height / 2; // assumes that image height defines the radius
@@ -174,11 +176,13 @@ define( function( require ) {
     thisNode.touchArea = Shape.rectangle( imageNode.x - dx, imageNode.y - dy, imageNode.width + dx + dx, imageNode.height + dy + dy );
 
     // drag handler
-    thisNode.addInputListener( new MovableDragHandler( probe.locationProperty, {
+    this.movableDragHandler = new MovableDragHandler( probe.locationProperty, {
       dragBounds: probe.dragBounds,
-      modelViewTransform: modelViewTransform,
-      togetherID: thisNode.togetherID
-    } ) );
+      modelViewTransform: modelViewTransform
+    } );
+    thisNode.addInputListener( this.movableDragHandler );
+
+    together && together.addComponent( this, 'concentrationScreen.concentrationMeterProbe' );
 
     var isInNode = function( node ) {
       var localPoint = node.parentToLocalPoint( probe.locationProperty.get() );

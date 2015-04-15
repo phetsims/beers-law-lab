@@ -44,8 +44,7 @@ define( function( require ) {
       labelNode: labelNode,
       listPosition: 'below',
       itemYMargin: 12,
-      itemHighlightFill: 'rgb(218,255,255)',
-      buttonNodeTogetherID: 'concentrationScreen.soluteComboBox'
+      itemHighlightFill: 'rgb(218,255,255)'
     } );
   }
 
@@ -66,18 +65,7 @@ define( function( require ) {
     textNode.left = colorNode.right + 5;
     textNode.centerY = colorNode.centerY;
 
-    // Map solute ID to combo box list item ID
-    var togetherID = {
-      'concentrationScreen.solutes.drinkMix': 'concentrationScreen.soluteComboBox.drinkMixButton',
-      'concentrationScreen.solutes.cobaltIINitrate': 'concentrationScreen.soluteComboBox.cobaltIINitrateButton',
-      'concentrationScreen.solutes.cobaltChloride': 'concentrationScreen.soluteComboBox.cobaltChlorideButton',
-      'concentrationScreen.solutes.potassiumDichromate': 'concentrationScreen.soluteComboBox.potassiumDichromateButton',
-      'concentrationScreen.solutes.potassiumChromate': 'concentrationScreen.soluteComboBox.potassiumChromateButton',
-      'concentrationScreen.solutes.nickelIIChloride': 'concentrationScreen.soluteComboBox.nickelIIChlorideButton',
-      'concentrationScreen.solutes.copperSulfate': 'concentrationScreen.soluteComboBox.copperSulfateButton',
-      'concentrationScreen.solutes.potassiumPermanganate': 'concentrationScreen.soluteComboBox.potassiumPermanganateButton'
-    }[ solute.togetherID ];
-    return ComboBox.createItem( node, solute, { togetherID: togetherID } );
+    return ComboBox.createItem( node, solute );
   };
 
   return inherit( ComboBox, SoluteComboBox );

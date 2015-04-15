@@ -42,6 +42,9 @@ define( function( require ) {
 
     Panel.call( this, contentNode,
       { xMargin: 15, yMargin: 15, fill: '#F0F0F0', stroke: 'gray', lineWidth: 1 } );
+
+    // Together support
+    together && together.addComponent( soluteComboBox, 'concentrationScreen.soluteComboBox' );
   }
 
   return inherit( Panel, SoluteControlsNode );

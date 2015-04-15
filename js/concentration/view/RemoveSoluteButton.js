@@ -29,8 +29,7 @@ define( function( require ) {
       baseColor: 'rgb(255,200,0)',
       font: new PhetFont( 22 ),
       textFill: 'black',
-      xMargin: 10,
-      togetherID: 'concentrationScreen.removeSoluteButton'
+      xMargin: 10
     } );
 
     this.addListener( function() {
@@ -42,6 +41,9 @@ define( function( require ) {
     solution.soluteAmountProperty.link( function( soluteAmount ) {
       thisButton.enabled = ( soluteAmount > 0 );
     } );
+
+    // Together support
+    together && together.addComponent( this, 'concentrationScreen.removeSoluteButton' );
   }
 
   return inherit( TextPushButton, RemoveSoluteButton );
