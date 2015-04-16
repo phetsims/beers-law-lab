@@ -132,6 +132,7 @@ define( function( require ) {
 
     // Together support
     together && together.addComponent( dropperNode, 'concentrationScreen.dropper' );
+    together && together.addComponent( dropperNode.button, 'concentrationScreen.dropperButton' );
     together && together.addComponent( solventFaucetNode, 'concentrationScreen.solventFaucet' );
     together && together.addComponent( drainFaucetNode, 'concentrationScreen.drainFaucet' );
     together && together.addComponent( resetAllButton, 'concentrationScreen.resetAllButton' );
