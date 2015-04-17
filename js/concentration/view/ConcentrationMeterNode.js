@@ -231,15 +231,7 @@ define( function( require ) {
       pickable: false // no need to drag the wire, and we don't want to do cubic-curve intersection here, or have it get in the way
     } );
 
-    var updateCurve = function( newLocation, oldLocation ) {
-
-      // When running with together/examples/mirror.html, redrawing the curve takes up 90% of the CPU.
-      // The vector instances have the same values, but are different *instances* which makes axon think it
-      // needs to trigger a change notification, and the updateCode body executes.  Here, we check to make
-      // sure the values are indeed changed, and bail out if no work is necessary.
-      if ( oldLocation && newLocation && oldLocation.x === newLocation.x && oldLocation.y === newLocation.y ) {
-        return;
-      }
+    var updateCurve = function() {
 
       // Connect bottom-center of body to right-center of probe.
       var bodyConnectionPoint = new Vector2( bodyNode.centerX, bodyNode.bottom - 10 );
