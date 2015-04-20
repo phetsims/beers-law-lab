@@ -206,8 +206,6 @@ define( function( require ) {
     thisNode.isInStockSolution = function() {
       return isInNode( stockSolutionNode );
     };
-
-    together && together.addComponent( this );
   }
 
   inherit( Node, ProbeNode );
