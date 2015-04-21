@@ -31,7 +31,7 @@ define( function( require ) {
     // shape and location
     var updateShapeAndLocation = function() {
       // path
-      if ( dropper.onProperty.get() && !dropper.emptyProperty.get() ) {
+      if ( dropper.dispensingProperty.get() && !dropper.emptyProperty.get() ) {
         thisNode.setRect( -tipWidth / 2, 0, tipWidth, beaker.location.y - dropper.locationProperty.get().y );
       }
       else {
@@ -41,7 +41,7 @@ define( function( require ) {
       thisNode.translation = modelViewTransform.modelToViewPosition( dropper.locationProperty.get() );
     };
     dropper.locationProperty.link( updateShapeAndLocation );
-    dropper.onProperty.link( updateShapeAndLocation );
+    dropper.dispensingProperty.link( updateShapeAndLocation );
     dropper.emptyProperty.link( updateShapeAndLocation );
 
     // set color to match solute

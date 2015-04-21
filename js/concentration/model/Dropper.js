@@ -28,7 +28,7 @@ define( function( require ) {
 
     thisDropper.soluteProperty = soluteProperty;
     thisDropper.visibleProperty = new Property( visible );
-    thisDropper.onProperty = new Property( false ); // true if the dropper is dispensing solution
+    thisDropper.dispensingProperty = new Property( false ); // true if the dropper is dispensing solution
     thisDropper.enabledProperty = new Property( true );
     thisDropper.emptyProperty = new Property( false );
     thisDropper.flowRateProperty = new Property( 0 ); // L/sec
@@ -36,12 +36,12 @@ define( function( require ) {
     // Turn off the dropper when it's disabled.
     thisDropper.enabledProperty.link( function( enabled ) {
       if ( !enabled ) {
-        thisDropper.onProperty.set( false );
+        thisDropper.dispensingProperty.set( false );
       }
     } );
 
     // Toggle the flow rate when the dropper is turned on/off.
-    thisDropper.onProperty.link( function( on ) {
+    thisDropper.dispensingProperty.link( function( on ) {
       thisDropper.flowRateProperty.set( on ? maxFlowRate : 0 );
     } );
 
@@ -54,7 +54,7 @@ define( function( require ) {
 
     // Together support
     together && together.addComponent( this.locationProperty, 'concentrationScreen.dropper.location' );
-    together && together.addComponent( thisDropper.onProperty, 'concentrationScreen.dropper.on' );
+    together && together.addComponent( thisDropper.dispensingProperty, 'concentrationScreen.dropper.dispensing' );
     together && together.addComponent( thisDropper.emptyProperty, 'concentrationScreen.dropper.empty' );
     together && together.addComponent( thisDropper.flowRateProperty, 'concentrationScreen.dropper.flowRate' );
   }
@@ -63,7 +63,7 @@ define( function( require ) {
     reset: function() {
       Movable.prototype.reset.call( this );
       this.visibleProperty.reset();
-      this.onProperty.reset();
+      this.dispensingProperty.reset();
       this.enabledProperty.reset();
       this.emptyProperty.reset();
       this.flowRateProperty.reset();
