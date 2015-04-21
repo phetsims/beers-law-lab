@@ -24,7 +24,7 @@ define( function( require ) {
    * @param {Node} soluteListParent
    * @constructor
    */
-  function SoluteControlsNode( solutes, currentSoluteProperty, soluteFormProperty, shaker, dropper, soluteListParent ) {
+  function SoluteControls( solutes, currentSoluteProperty, soluteFormProperty, shaker, dropper, soluteListParent ) {
 
     // solute combo box
     var soluteComboBox = new SoluteComboBox( solutes, currentSoluteProperty, soluteListParent );
@@ -47,5 +47,5 @@ define( function( require ) {
     together && together.addComponent( soluteComboBox, 'concentrationScreen.soluteComboBox' );
   }
 
-  return inherit( Panel, SoluteControlsNode );
+  return inherit( Panel, SoluteControls );
 } );
