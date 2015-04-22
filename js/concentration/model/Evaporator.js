@@ -23,8 +23,8 @@ define( function( require ) {
     var thisEvaporator = this;
 
     thisEvaporator.maxEvaporationRate = maxEvaporationRate; // L/sec
-    thisEvaporator.evaporationRateProperty = new Property( 0, { tandem: tandem.createTandem( 'rate' ) } ); // L/sec
-    thisEvaporator.enabledProperty = new Property( true, { tandem: tandem.createTandem( 'enabled' ) } );
+    thisEvaporator.evaporationRateProperty = new Property( 0, { tandem: tandem.createTandem( 'evaporationRate' ) } ); // L/sec
+    thisEvaporator.enabledProperty = new Property( true, { tandem: tandem.createTandem( 'evaporationEnabled' ) } );
 
     // disable when the volume gets to zero
     solution.volumeProperty.link( function( volume ) {

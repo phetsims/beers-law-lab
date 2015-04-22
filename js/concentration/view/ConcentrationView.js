@@ -79,7 +79,7 @@ define( function( require ) {
       model.dropper, soluteListParent, tandem );
 
     // Evaporation control
-    var evaporationControl = new EvaporationControl( model.evaporator, tandem.createTandem( 'evaporator' ) );
+    var evaporationControl = new EvaporationControl( model.evaporator, tandem );
 
     // Remove Solute button
     var removeSoluteButton = new RemoveSoluteButton( model.solution, model.shakerParticles, tandem.createTandem( 'removeSoluteButton' ) );
