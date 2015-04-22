@@ -15,6 +15,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   var Screen = require( 'JOIST/Screen' );
+  var Tandem = require( 'TANDEM/Tandem' );
 
   // strings
   var concentrationString = require( 'string!BEERS_LAW_LAB/tab.concentration' );
@@ -24,13 +25,14 @@ define( function( require ) {
 
   function ConcentrationScreen() {
 
+    var tandem = new Tandem( 'concentrationScreen' );
     var modelViewTransform = ModelViewTransform2.createIdentity();
 
     Screen.call( this,
       concentrationString,
       new Image( screenIcon ),
-      function() { return new ConcentrationModel(); },
-      function( model ) { return new ConcentrationView( model, modelViewTransform ); }
+      function() { return new ConcentrationModel( tandem ); },
+      function( model ) { return new ConcentrationView( model, modelViewTransform, tandem ); }
     );
   }
 

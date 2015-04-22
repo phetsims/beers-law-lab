@@ -23,15 +23,13 @@ define( function( require ) {
    * @param {Bounds2} bodyDragBounds
    * @param {Vector2} probeLocation
    * @param {Bounds2} probeDragBounds
+   * @param {Tandem} tandem - support for exporting elements from the sim
    * @constructor
    */
-  function ConcentrationMeter( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds ) {
+  function ConcentrationMeter( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds, tandem ) {
     this.valueProperty = new Property( NaN ); // NaN if the meter is not reading a value
-    this.body = new Movable( bodyLocation, bodyDragBounds );
-    this.probe = new Movable( probeLocation, probeDragBounds );
-
-    together && together.addComponent( this.body.locationProperty, 'concentrationScreen.concentrationMeter.bodyLocation' );
-    together && together.addComponent( this.probe.locationProperty, 'concentrationScreen.concentrationMeter.probeLocation' );
+    this.body = new Movable( bodyLocation, bodyDragBounds, tandem.createTandem( 'body.location' ) );
+    this.probe = new Movable( probeLocation, probeDragBounds, tandem.createTandem( 'probe.location' ) );
   }
 
   return inherit( Object, ConcentrationMeter, {

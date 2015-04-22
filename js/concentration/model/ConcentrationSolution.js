@@ -21,22 +21,24 @@ define( function( require ) {
    * @param {Property.<Solute>} soluteProperty
    * @param {number} soluteAmount moles
    * @param {number} volume L
+   * @param {Tandem} tandem - support for exporting elements from the sim
    */
-  function ConcentrationSolution( soluteProperty, soluteAmount, volume ) {
+  function ConcentrationSolution( soluteProperty, soluteAmount, volume, tandem ) {
 
     var thisSolution = this;
 
     thisSolution.solvent = Solvent.WATER;
     thisSolution.soluteProperty = soluteProperty;
-    thisSolution.soluteAmountProperty = new Property( soluteAmount );
-    thisSolution.volumeProperty = new Property( volume );
+    thisSolution.soluteAmountProperty = new Property( soluteAmount, { tandem: tandem.createTandem( 'soluteAmount' ) } );
+    thisSolution.volumeProperty = new Property( volume, { tandem: tandem.createTandem( 'volume' ) } );
 
     // derive amount of precipitate (moles)
     thisSolution.precipitateAmountProperty = new DerivedProperty(
       [ thisSolution.soluteProperty, thisSolution.soluteAmountProperty, thisSolution.volumeProperty ],
       function( solute, soluteAmount, volume ) {
         return Math.max( 0, soluteAmount - ( volume * thisSolution.getSaturatedConcentration() ) );
-      }
+      },
+      { tandem: tandem.createTandem( 'precipitateAmount' ) }
     );
 
     // derive concentration (M = mol/L)
@@ -44,7 +46,8 @@ define( function( require ) {
       [ thisSolution.soluteProperty, thisSolution.soluteAmountProperty, thisSolution.volumeProperty ],
       function( solute, soluteAmount, volume ) {
         return ( volume > 0 ) ? Math.min( thisSolution.getSaturatedConcentration(), soluteAmount / volume ) : 0;
-      }
+      },
+      { tandem: tandem.createTandem( 'concentration' ) }
     );
     Fluid.call( thisSolution, ConcentrationSolution.createColor( thisSolution.solvent, thisSolution.soluteProperty.get(), thisSolution.concentrationProperty.get() ) );
 
@@ -54,12 +57,6 @@ define( function( require ) {
     };
     thisSolution.soluteProperty.lazyLink( updateColor );
     thisSolution.concentrationProperty.lazyLink( updateColor );
-
-    // Together Support
-    together && together.addComponent( thisSolution.soluteAmountProperty, 'concentrationScreen.solution.soluteAmount' );
-    together && together.addComponent( thisSolution.volumeProperty, 'concentrationScreen.solution.volume' );
-    together && together.addComponent( thisSolution.precipitateAmountProperty, 'concentrationScreen.solution.precipitateAmount' );
-    together && together.addComponent( thisSolution.concentrationProperty, 'concentrationScreen.solution.concentration' );
   }
 
   return inherit( Fluid, ConcentrationSolution, {

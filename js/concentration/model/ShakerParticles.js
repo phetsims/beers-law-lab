@@ -26,9 +26,10 @@ define( function( require ) {
    * @param {Shaker} shaker
    * @param {ConcentrationSolution} solution
    * @param {Beaker} beaker
+   * @param {Tandem} tandem - support for exporting elements from the sim
    * @constructor
    */
-  function ShakerParticles( shaker, solution, beaker ) {
+  function ShakerParticles( shaker, solution, beaker, tandem ) {
 
     var thisParticles = this;
 
@@ -43,8 +44,8 @@ define( function( require ) {
       thisParticles.removeAllParticles();
     } );
 
-    // Together support
-    together && together.addComponent( this, 'concentrationScreen.shakerParticles' );
+    // Tandem support
+    tandem.addInstance( this );
   }
 
   // Gets a random location relative to some origin

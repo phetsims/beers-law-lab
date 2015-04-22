@@ -46,15 +46,18 @@ define( function( require ) {
    * @param {Property.<string>} soluteFormProperty form of the solute, 'solid' or 'liquid'
    * @param {Shaker} shaker
    * @param {Dropper} dropper
+   * @param {Tandem} tandem - support for exporting elements from the sim
    * @constructor
    */
-  function SoluteFormNode( soluteFormProperty, shaker, dropper ) {
+  function SoluteFormNode( soluteFormProperty, shaker, dropper, tandem ) {
 
     var TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
     var SEPARATOR_SPACING = 30;
 
     var shakerButton = new AquaRadioButton( soluteFormProperty, 'solid',
-      new TextAndIconNode( solidString, shakerIconImage, TEXT_OPTIONS ) );
+      new TextAndIconNode( solidString, shakerIconImage, TEXT_OPTIONS ), {
+        tandem: tandem.createTandem( 'solidRadioButton' )
+      } );
 
     // vertical separator
     var separator = new Line( 0, 0, 0, shakerButton.height, {
@@ -66,7 +69,8 @@ define( function( require ) {
 
     var dropperButton = new AquaRadioButton( soluteFormProperty, 'liquid',
       new TextAndIconNode( solutionString, dropperIconImage, TEXT_OPTIONS ), {
-        left: separator.right + SEPARATOR_SPACING
+        left: separator.right + SEPARATOR_SPACING,
+        tandem: tandem.createTandem( 'solutionRadioButton' )
       } );
 
     Node.call( this, { children: [ shakerButton, separator, dropperButton ] } );
@@ -83,10 +87,6 @@ define( function( require ) {
     dropper.visibleProperty.link( function( visible ) {
       soluteFormProperty.set( visible ? 'liquid' : 'solid' );
     } );
-
-    // Together support
-    together && together.addComponent( shakerButton, 'concentrationScreen.solidRadioButton' );
-    together && together.addComponent( dropperButton, 'concentrationScreen.solutionRadioButton' );
   }
 
   return inherit( Node, SoluteFormNode );

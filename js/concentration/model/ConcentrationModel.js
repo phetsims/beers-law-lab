@@ -37,7 +37,11 @@ define( function( require ) {
   var DROPPER_FLOW_RATE = 0.05; // L/sec
   var SHAKER_MAX_DISPENSING_RATE = 0.2; // mol/sec
 
-  function ConcentrationModel() {
+  /**
+   * @param {Tandem} tandem - support for exporting elements from the sim
+   * @constructor
+   */
+  function ConcentrationModel( tandem ) {
 
     var thisModel = this;
 
@@ -54,20 +58,22 @@ define( function( require ) {
     ];
 
     // model elements
-    thisModel.soluteProperty = new Property( thisModel.solutes[ 0 ] );
-    thisModel.soluteFormProperty = new Property( 'solid' ); // 'solid' or 'liquid'
+    thisModel.soluteProperty = new Property( thisModel.solutes[ 0 ], { tandem: tandem.createTandem( 'solute' ) } );
+    thisModel.soluteFormProperty = new Property( 'solid', { tandem: tandem.createTandem( 'soluteForm' ) } ); // 'solid' or 'liquid'
 
-    thisModel.solution = new ConcentrationSolution( thisModel.soluteProperty, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue );
+    thisModel.solution = new ConcentrationSolution( thisModel.soluteProperty, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue, tandem.createTandem( 'solution' ) );
     thisModel.beaker = new Beaker( new Vector2( 400, 550 ), new Dimension2( 600, 300 ), 1 );
     thisModel.precipitate = new Precipitate( thisModel.solution, thisModel.beaker );
-    thisModel.shaker = new Shaker( new Vector2( thisModel.beaker.location.x, 170 ), new Bounds2( 225, 50, 625, 210 ), 0.75 * Math.PI, thisModel.soluteProperty, SHAKER_MAX_DISPENSING_RATE, thisModel.soluteFormProperty.get() === 'solid' );
-    thisModel.shakerParticles = new ShakerParticles( thisModel.shaker, thisModel.solution, thisModel.beaker );
-    thisModel.dropper = new Dropper( new Vector2( thisModel.beaker.location.x, 225 ), new Bounds2( 250, 225, 570, 225 ), thisModel.soluteProperty, DROPPER_FLOW_RATE, thisModel.soluteFormProperty.get() === 'liquid' );
-    thisModel.evaporator = new Evaporator( MAX_EVAPORATION_RATE, thisModel.solution );
-    thisModel.solventFaucet = new Faucet( new Vector2( 155, 220 ), -400, 45, MAX_INPUT_FLOW_RATE );
-    thisModel.drainFaucet = new Faucet( new Vector2( 800, 630 ), thisModel.beaker.getRight(), 45, MAX_OUTPUT_FLOW_RATE );
+    thisModel.shaker = new Shaker( new Vector2( thisModel.beaker.location.x, 170 ), new Bounds2( 225, 50, 625, 210 ), 0.75 * Math.PI,
+      thisModel.soluteProperty, SHAKER_MAX_DISPENSING_RATE, thisModel.soluteFormProperty.get() === 'solid', tandem.createTandem( 'shaker' ) );
+    thisModel.shakerParticles = new ShakerParticles( thisModel.shaker, thisModel.solution, thisModel.beaker, tandem.createTandem( 'shakerParticles' ) );
+    thisModel.dropper = new Dropper( new Vector2( thisModel.beaker.location.x, 225 ), new Bounds2( 250, 225, 570, 225 ),
+      thisModel.soluteProperty, DROPPER_FLOW_RATE, thisModel.soluteFormProperty.get() === 'liquid', tandem.createTandem( 'dropper' ) );
+    thisModel.evaporator = new Evaporator( MAX_EVAPORATION_RATE, thisModel.solution, tandem.createTandem( 'evaporator' ) );
+    thisModel.solventFaucet = new Faucet( new Vector2( 155, 220 ), -400, 45, MAX_INPUT_FLOW_RATE, tandem.createTandem( 'solventFaucet' ) );
+    thisModel.drainFaucet = new Faucet( new Vector2( 800, 630 ), thisModel.beaker.getRight(), 45, MAX_OUTPUT_FLOW_RATE, tandem.createTandem( 'drainFaucet' ) );
     thisModel.concentrationMeter = new ConcentrationMeter( new Vector2( 785, 210 ), new Bounds2( 10, 150, 835, 680 ),
-      new Vector2( 750, 370 ), new Bounds2( 30, 150, 966, 680 ) );
+      new Vector2( 750, 370 ), new Bounds2( 30, 150, 966, 680 ), tandem.createTandem( 'concentrationMeter' ) );
 
     // Things to do when the solute is changed.
     thisModel.soluteProperty.link( function() {
@@ -88,12 +94,6 @@ define( function( require ) {
       thisModel.dropper.emptyProperty.set( containsMaxSolute );
       thisModel.dropper.enabledProperty.set( !thisModel.dropper.emptyProperty.get() && !containsMaxSolute && thisModel.solution.volumeProperty.get() < SOLUTION_VOLUME_RANGE.max );
     } );
-
-    // Together support
-    together && together.addComponent( thisModel.solventFaucet.flowRateProperty, 'concentrationScreen.solventFaucet.flowRate' );
-    together && together.addComponent( thisModel.drainFaucet.flowRateProperty, 'concentrationScreen.drainFaucet.flowRate' );
-    together && together.addComponent( thisModel.soluteProperty, 'concentrationScreen.solute' );
-    together && together.addComponent( thisModel.soluteFormProperty, 'concentrationScreen.soluteForm' );
   }
 
   return inherit( Object, ConcentrationModel, {

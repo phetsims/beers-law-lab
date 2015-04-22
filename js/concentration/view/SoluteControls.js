@@ -22,15 +22,16 @@ define( function( require ) {
    * @param {Shaker} shaker
    * @param {Dropper} dropper
    * @param {Node} soluteListParent
+   * @param {Tandem} tandem - support for exporting elements from the sim
    * @constructor
    */
-  function SoluteControls( solutes, currentSoluteProperty, soluteFormProperty, shaker, dropper, soluteListParent ) {
+  function SoluteControls( solutes, currentSoluteProperty, soluteFormProperty, shaker, dropper, soluteListParent, tandem ) {
 
     // solute combo box
-    var soluteComboBox = new SoluteComboBox( solutes, currentSoluteProperty, soluteListParent );
+    var soluteComboBox = new SoluteComboBox( solutes, currentSoluteProperty, soluteListParent, tandem.createTandem( 'soluteComboBox' ) );
 
     // radio buttons for solid vs solution
-    var soluteFormNode = new SoluteFormNode( soluteFormProperty, shaker, dropper );
+    var soluteFormNode = new SoluteFormNode( soluteFormProperty, shaker, dropper, tandem );
 
     var contentNode = new Node();
     contentNode.addChild( soluteFormNode );
@@ -42,9 +43,6 @@ define( function( require ) {
 
     Panel.call( this, contentNode,
       { xMargin: 15, yMargin: 15, fill: '#F0F0F0', stroke: 'gray', lineWidth: 1 } );
-
-    // Together support
-    together && together.addComponent( soluteComboBox, 'concentrationScreen.soluteComboBox' );
   }
 
   return inherit( Panel, SoluteControls );

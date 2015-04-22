@@ -15,15 +15,16 @@ define( function( require ) {
   /**
    * @param {number} maxEvaporationRate L/sec
    * @param {ConcentrationSolution} solution
+   * @param {Tandem} tandem - support for exporting elements from the sim
    * @constructor
    */
-  function Evaporator( maxEvaporationRate, solution ) {
+  function Evaporator( maxEvaporationRate, solution, tandem ) {
 
     var thisEvaporator = this;
 
     thisEvaporator.maxEvaporationRate = maxEvaporationRate; // L/sec
-    thisEvaporator.evaporationRateProperty = new Property( 0 ); // L/sec
-    thisEvaporator.enabledProperty = new Property( true );
+    thisEvaporator.evaporationRateProperty = new Property( 0, { tandem: tandem.createTandem( 'rate' ) } ); // L/sec
+    thisEvaporator.enabledProperty = new Property( true, { tandem: tandem.createTandem( 'enabled' ) } );
 
     // disable when the volume gets to zero
     solution.volumeProperty.link( function( volume ) {
@@ -36,10 +37,6 @@ define( function( require ) {
         thisEvaporator.evaporationRateProperty.set( 0 );
       }
     } );
-
-    // Together support
-    together && together.addComponent( thisEvaporator.evaporationRateProperty, 'concentrationScreen.evaporationRate' );
-    together && together.addComponent( thisEvaporator.enabledProperty, 'concentrationScreen.evaporationEnabled' );
   }
 
   return inherit( Object, Evaporator, {

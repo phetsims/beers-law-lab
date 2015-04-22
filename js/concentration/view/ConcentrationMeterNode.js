@@ -59,9 +59,10 @@ define( function( require ) {
    * so it has no drag handler
    * @param {ConcentrationMeter} meter
    * @param {ModelViewTransform2} modelViewTransform
+   * @param {Tandem} tandem - support for exporting elements from the sim
    * @constructor
    */
-  function BodyNode( meter, modelViewTransform ) {
+  function BodyNode( meter, modelViewTransform, tandem ) {
 
     var thisNode = this;
     Node.call( thisNode, {
@@ -113,7 +114,7 @@ define( function( require ) {
       } );
       thisNode.addInputListener( this.movableDragHandler );
 
-      together && together.addComponent( this, 'concentrationScreen.concentrationMeterBody' );
+      tandem.addInstance( this );
     }
 
     // body location
@@ -122,9 +123,7 @@ define( function( require ) {
     } );
 
     // displayed value
-    var readoutProperty = new Property( NO_VALUE );
-
-    together && together.addComponent( readoutProperty, 'concentrationScreen.concentrationMeter.readout' );
+    var readoutProperty = new Property( NO_VALUE, tandem.createTandem( 'readout' ) );
     meter.valueProperty.link( function( value ) {
       if ( isNaN( value ) ) {
         valueNode.setText( NO_VALUE );
@@ -150,9 +149,10 @@ define( function( require ) {
    * @param {Node} stockSolutionNode
    * @param {Node} solventFluidNode
    * @param {Node} drainFluidNode
+   * @param {Tandem} tandem - support for exporting elements from the sim
    * @constructor
    */
-  function ProbeNode( probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode ) {
+  function ProbeNode( probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, tandem ) {
 
     var thisNode = this;
     Node.call( thisNode, {
@@ -182,8 +182,6 @@ define( function( require ) {
     } );
     thisNode.addInputListener( this.movableDragHandler );
 
-    together && together.addComponent( this, 'concentrationScreen.concentrationMeterProbe' );
-
     var isInNode = function( node ) {
       var localPoint = node.parentToLocalPoint( probe.locationProperty.get() );
       var nodeShape = node.getShape();
@@ -206,6 +204,7 @@ define( function( require ) {
     thisNode.isInStockSolution = function() {
       return isInNode( stockSolutionNode );
     };
+    tandem.addInstance( this );
   }
 
   inherit( Node, ProbeNode );
@@ -261,15 +260,17 @@ define( function( require ) {
    * @param {Node} solventFluidNode
    * @param {Node} drainFluidNode
    * @param {ModelViewTransform2} modelViewTransform
+   * @param {Tandem} tandem - support for exporting elements from the sim
    * @constructor
    */
-  function ConcentrationMeterNode( meter, solution, dropper, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, modelViewTransform ) {
+  function ConcentrationMeterNode( meter, solution, dropper, solutionNode, stockSolutionNode, solventFluidNode,
+                                   drainFluidNode, modelViewTransform, tandem ) {
 
     var thisNode = this;
     Node.call( thisNode );
 
-    var bodyNode = new BodyNode( meter, modelViewTransform );
-    var probeNode = new ProbeNode( meter.probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode );
+    var bodyNode = new BodyNode( meter, modelViewTransform, tandem.createTandem( 'body' ) );
+    var probeNode = new ProbeNode( meter.probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, tandem.createTandem( 'probe' ) );
     var wireNode = new WireNode( meter.body, meter.probe, bodyNode, probeNode );
 
     // rendering order

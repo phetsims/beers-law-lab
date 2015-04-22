@@ -21,12 +21,13 @@ define( function( require ) {
    * @param {Property.<Solute>} soluteProperty
    * @param {number} maxDispensingRate
    * @param {boolean} visible
+   * @param {Tandem} tandem - support for exporting elements from the sim
    * @constructor
    */
-  function Shaker( location, dragBounds, orientation, soluteProperty, maxDispensingRate, visible ) {
+  function Shaker( location, dragBounds, orientation, soluteProperty, maxDispensingRate, visible, tandem ) {
 
     var thisShaker = this;
-    Movable.call( thisShaker, location, dragBounds );
+    Movable.call( thisShaker, location, dragBounds, tandem.createTandem( 'location' ) );
 
     thisShaker.orientation = orientation;
     thisShaker.soluteProperty = soluteProperty;
@@ -45,9 +46,6 @@ define( function( require ) {
     };
     thisShaker.emptyProperty.link( observer );
     thisShaker.visibleProperty.link( observer );
-
-    // Together support
-    together && together.addComponent( this.locationProperty, 'concentrationScreen.shaker.location' );
   }
 
   return inherit( Movable, Shaker, {

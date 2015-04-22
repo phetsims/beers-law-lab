@@ -25,9 +25,10 @@ define( function( require ) {
    * @param {Solute[]} solutes
    * @param {Property.<Solute>} selectedSoluteProperty
    * @param {Node} soluteListParent
+   * @param {Tandem} tandem - support for exporting elements from the sim
    * @constructor
    */
-  function SoluteComboBox( solutes, selectedSoluteProperty, soluteListParent ) {
+  function SoluteComboBox( solutes, selectedSoluteProperty, soluteListParent, tandem ) {
 
     // 'Solute' label
     var labelNode = new Text( StringUtils.format( pattern_0label, soluteString ),
@@ -44,7 +45,8 @@ define( function( require ) {
       labelNode: labelNode,
       listPosition: 'below',
       itemYMargin: 12,
-      itemHighlightFill: 'rgb(218,255,255)'
+      itemHighlightFill: 'rgb(218,255,255)',
+      tandem: tandem
     } );
   }
 

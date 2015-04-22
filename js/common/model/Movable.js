@@ -17,10 +17,11 @@ define( function( require ) {
    * Constructor
    * @param {Vector2} location
    * @param {Bounds2} dragBounds
+   * @param {Tandem} tandem - support for exporting elements from the sim
    * @constructor
    */
-  function Movable( location, dragBounds) {
-    this.locationProperty = new Property( location );
+  function Movable( location, dragBounds, tandem ) {
+    this.locationProperty = new Property( location, { tandem: tandem } );
     this.dragBounds = dragBounds;
   }
 

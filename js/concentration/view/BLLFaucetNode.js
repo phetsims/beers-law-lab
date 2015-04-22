@@ -16,14 +16,17 @@ define( function( require ) {
   /**
    * @param {Faucet} faucet
    * @param {ModelViewTransform2} modelViewTransform
+   * @param {Tandem} tandem - support for exporting elements from the sim
+   * @param {Object} [options]
    * @constructor
    */
-  function BLLFaucetNode( faucet, modelViewTransform, options ) {
+  function BLLFaucetNode( faucet, modelViewTransform, tandem, options ) {
     var scale = 0.75;
     var horizontalPipeLength = modelViewTransform.modelToViewX( faucet.location.x - faucet.pipeMinX ) / scale;
     options = _.extend( {
       horizontalPipeLength: horizontalPipeLength,
-      scale: scale
+      scale: scale,
+      tandem: tandem
     }, options );
     FaucetNode.call( this, faucet.maxFlowRate, faucet.flowRateProperty, faucet.enabledProperty, options );
     this.translation = modelViewTransform.modelToViewPosition( faucet.location );

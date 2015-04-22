@@ -32,9 +32,10 @@ define( function( require ) {
   /**
    * @param {ConcentrationModel} model
    * @param {ModelViewTransform2} modelViewTransform
+   * @param {Tandem} tandem - support for exporting elements from the sim
    * @constructor
    */
-  function ConcentrationView( model, modelViewTransform ) {
+  function ConcentrationView( model, modelViewTransform, tandem ) {
 
     var thisView = this;
     ScreenView.call( thisView, BLLConstants.SCREEN_VIEW_OPTIONS );
@@ -49,7 +50,7 @@ define( function( require ) {
     var saturatedIndicator = new SaturatedIndicator( model.solution );
 
     // Shaker
-    var shakerNode = new ShakerNode( model.shaker, modelViewTransform );
+    var shakerNode = new ShakerNode( model.shaker, modelViewTransform, tandem.createTandem( 'shaker' ) );
 
     // Shaker particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
     var shakerParticlesNode = new ParticlesNode( model.shakerParticles, modelViewTransform, new Bounds2(
@@ -57,12 +58,12 @@ define( function( require ) {
       modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.location.y ) ) );
 
     // Dropper
-    var dropperNode = new BLLDropperNode( model.dropper, model.solution.solvent, model.solution.soluteProperty, modelViewTransform );
+    var dropperNode = new BLLDropperNode( model.dropper, model.solution.solvent, model.solution.soluteProperty, modelViewTransform, tandem.createTandem( 'dropper' ) );
     var stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.soluteProperty, model.dropper, model.beaker, dropperNode.TIP_WIDTH - 1, modelViewTransform );
 
     // faucets
-    var solventFaucetNode = new BLLFaucetNode( model.solventFaucet, modelViewTransform );
-    var drainFaucetNode = new BLLFaucetNode( model.drainFaucet, modelViewTransform );
+    var solventFaucetNode = new BLLFaucetNode( model.solventFaucet, modelViewTransform, tandem.createTandem( 'solventFaucet' ) );
+    var drainFaucetNode = new BLLFaucetNode( model.drainFaucet, modelViewTransform, tandem.createTandem( 'drainFaucet' ) );
     var SOLVENT_FLUID_HEIGHT = model.beaker.location.y - model.solventFaucet.location.y;
     var DRAIN_FLUID_HEIGHT = 1000; // tall enough that resizing the play area is unlikely to show bottom of fluid
     var solventFluidNode = new FaucetFluidNode( model.solventFaucet, model.solution.solvent, SOLVENT_FLUID_HEIGHT, modelViewTransform );
@@ -70,22 +71,24 @@ define( function( require ) {
 
     // Concentration meter
     var concentrationMeterNode = new ConcentrationMeterNode( model.concentrationMeter, model.solution, model.dropper,
-      solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, modelViewTransform );
+      solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, modelViewTransform, tandem.createTandem( 'concentrationMeter' ) );
 
     // Solute controls
     var soluteListParent = new Node();
-    var soluteControls = new SoluteControls( model.solutes, model.soluteProperty, model.soluteFormProperty, model.shaker, model.dropper, soluteListParent );
+    var soluteControls = new SoluteControls( model.solutes, model.soluteProperty, model.soluteFormProperty, model.shaker,
+      model.dropper, soluteListParent, tandem );
 
     // Evaporation control
-    var evaporationControl = new EvaporationControl( model.evaporator );
+    var evaporationControl = new EvaporationControl( model.evaporator, tandem.createTandem( 'evaporator' ) );
 
     // Remove Solute button
-    var removeSoluteButton = new RemoveSoluteButton( model.solution, model.shakerParticles );
+    var removeSoluteButton = new RemoveSoluteButton( model.solution, model.shakerParticles, tandem.createTandem( 'removeSoluteButton' ) );
 
     // Reset All button
     var resetAllButton = new ResetAllButton( {
       listener: function() { model.reset(); },
-      scale: 1.32
+      scale: 1.32,
+      tandem: tandem.createTandem( 'resetAllButton' )
     } );
 
     // Rendering order
@@ -108,35 +111,27 @@ define( function( require ) {
     thisView.addChild( concentrationMeterNode );
     thisView.addChild( soluteListParent ); // last, so that combo box list is on top
 
+    ////////
     // Layout for things that don't have a location in the model.
-    {
-      // centered towards bottom of beaker
-      var saturatedIndicatorVisible = saturatedIndicator.visible; // so we can layout an invisible node
-      saturatedIndicator.visible = true;
-      saturatedIndicator.centerX = beakerNode.centerX;
-      saturatedIndicator.bottom = beakerNode.bottom - 30;
-      saturatedIndicator.visible = saturatedIndicatorVisible;
-      // upper right
-      soluteControls.right = concentrationMeterNode.right + 100;
-      soluteControls.top = 20;
-      // left-aligned below beaker
-      evaporationControl.left = modelViewTransform.modelToViewPosition( model.beaker.location ).x - modelViewTransform.modelToViewDeltaX( model.beaker.size.width / 2 );
-      evaporationControl.top = beakerNode.bottom + 30;
-      // left of evaporation control
-      removeSoluteButton.left = evaporationControl.right + 30;
-      removeSoluteButton.centerY = evaporationControl.centerY;
-      // lower right
-      resetAllButton.left = drainFaucetNode.right + 100;
-      resetAllButton.centerY = removeSoluteButton.centerY;
-    }
 
-    // Together support
-    together && together.addComponent( dropperNode, 'concentrationScreen.dropper' );
-    together && together.addComponent( dropperNode.button, 'concentrationScreen.dropperButton' );
-    together && together.addComponent( solventFaucetNode, 'concentrationScreen.solventFaucet' );
-    together && together.addComponent( drainFaucetNode, 'concentrationScreen.drainFaucet' );
-    together && together.addComponent( resetAllButton, 'concentrationScreen.resetAllButton' );
-    together && together.addComponent( shakerNode, 'concentrationScreen.shaker' );
+    // centered towards bottom of beaker
+    var saturatedIndicatorVisible = saturatedIndicator.visible; // so we can layout an invisible node
+    saturatedIndicator.visible = true;
+    saturatedIndicator.centerX = beakerNode.centerX;
+    saturatedIndicator.bottom = beakerNode.bottom - 30;
+    saturatedIndicator.visible = saturatedIndicatorVisible;
+    // upper right
+    soluteControls.right = concentrationMeterNode.right + 100;
+    soluteControls.top = 20;
+    // left-aligned below beaker
+    evaporationControl.left = modelViewTransform.modelToViewPosition( model.beaker.location ).x - modelViewTransform.modelToViewDeltaX( model.beaker.size.width / 2 );
+    evaporationControl.top = beakerNode.bottom + 30;
+    // left of evaporation control
+    removeSoluteButton.left = evaporationControl.right + 30;
+    removeSoluteButton.centerY = evaporationControl.centerY;
+    // lower right
+    resetAllButton.left = drainFaucetNode.right + 100;
+    resetAllButton.centerY = removeSoluteButton.centerY;
   }
 
   return inherit( ScreenView, ConcentrationView );

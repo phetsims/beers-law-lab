@@ -19,19 +19,20 @@ define( function( require ) {
    * @param {Property.<Solute>} soluteProperty
    * @param {number} maxFlowRate
    * @param {boolean} visible
+   * @param {Tandem} tandem - support for exporting elements from the sim
    * @constructor
    */
-  function Dropper( location, dragBounds, soluteProperty, maxFlowRate, visible ) {
+  function Dropper( location, dragBounds, soluteProperty, maxFlowRate, visible, tandem ) {
 
     var thisDropper = this;
-    Movable.call( thisDropper, location, dragBounds );
+    Movable.call( thisDropper, location, dragBounds, tandem.createTandem( 'location' ) );
 
     thisDropper.soluteProperty = soluteProperty;
     thisDropper.visibleProperty = new Property( visible );
-    thisDropper.dispensingProperty = new Property( false ); // true if the dropper is dispensing solution
+    thisDropper.dispensingProperty = new Property( false, { tandem: tandem.createTandem( 'dispensing' ) } ); // true if the dropper is dispensing solution
     thisDropper.enabledProperty = new Property( true );
-    thisDropper.emptyProperty = new Property( false );
-    thisDropper.flowRateProperty = new Property( 0 ); // L/sec
+    thisDropper.emptyProperty = new Property( false, { tandem: tandem.createTandem( 'empty' ) } );
+    thisDropper.flowRateProperty = new Property( 0, { tandem: tandem.createTandem( 'flowRate' ) } ); // L/sec
 
     // Turn off the dropper when it's disabled.
     thisDropper.enabledProperty.link( function( enabled ) {
@@ -51,12 +52,6 @@ define( function( require ) {
         thisDropper.enabledProperty.set( false );
       }
     } );
-
-    // Together support
-    together && together.addComponent( this.locationProperty, 'concentrationScreen.dropper.location' );
-    together && together.addComponent( thisDropper.dispensingProperty, 'concentrationScreen.dropper.dispensing' );
-    together && together.addComponent( thisDropper.emptyProperty, 'concentrationScreen.dropper.empty' );
-    together && together.addComponent( thisDropper.flowRateProperty, 'concentrationScreen.dropper.flowRate' );
   }
 
   return inherit( Movable, Dropper, {

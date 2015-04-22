@@ -38,9 +38,10 @@ define( function( require ) {
    * Constructor
    * @param {Shaker} shaker
    * @param {ModelViewTransform2} modelViewTransform
+   * @param {Tandem} tandem - support for exporting elements from the sim
    * @constructor
    */
-  function ShakerNode( shaker, modelViewTransform ) {
+  function ShakerNode( shaker, modelViewTransform, tandem ) {
 
     var thisNode = this;
     Node.call( thisNode );
@@ -115,6 +116,9 @@ define( function( require ) {
         upArrowNode.visible = downArrowNode.visible = false;
       }
     } );
+
+    // Tandem support
+    tandem.addInstance( this );
   }
 
   return inherit( Node, ShakerNode );

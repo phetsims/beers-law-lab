@@ -19,9 +19,10 @@ define( function( require ) {
   /**
    * @param {ConcentrationSolution} solution
    * @param {ShakerParticles} shakerParticles
+   * @param {Tandem} tandem - support for exporting elements from the sim
    * @constructor
    */
-  function RemoveSoluteButton( solution, shakerParticles ) {
+  function RemoveSoluteButton( solution, shakerParticles, tandem ) {
 
     var thisButton = this;
 
@@ -29,7 +30,8 @@ define( function( require ) {
       baseColor: 'rgb(255,200,0)',
       font: new PhetFont( 22 ),
       textFill: 'black',
-      xMargin: 10
+      xMargin: 10,
+      tandem: tandem
     } );
 
     this.addListener( function() {
@@ -41,9 +43,6 @@ define( function( require ) {
     solution.soluteAmountProperty.link( function( soluteAmount ) {
       thisButton.enabled = ( soluteAmount > 0 );
     } );
-
-    // Together support
-    together && together.addComponent( this, 'concentrationScreen.removeSoluteButton' );
   }
 
   return inherit( TextPushButton, RemoveSoluteButton );

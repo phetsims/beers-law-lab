@@ -18,9 +18,10 @@ define( function( require ) {
    * @param {number} pipeMinX x-coordinate of where the pipe starts
    * @param {number} spoutWidth
    * @param {number} maxFlowRate L/sec
+   * @param {Tandem} tandem - support for exporting elements from the sim
    * @constructor
    */
-  function Faucet( location, pipeMinX, spoutWidth, maxFlowRate, options ) {
+  function Faucet( location, pipeMinX, spoutWidth, maxFlowRate, tandem ) {
 
     assert && assert( pipeMinX < location.x ); // pipe enters the faucet from the left
 
@@ -30,7 +31,7 @@ define( function( require ) {
     thisFaucet.pipeMinX = pipeMinX;
     thisFaucet.spoutWidth = spoutWidth;
     thisFaucet.maxFlowRate = maxFlowRate;
-    thisFaucet.flowRateProperty = new Property( 0 );
+    thisFaucet.flowRateProperty = new Property( 0, { tandem: tandem.createTandem( 'flowRate' ) } );
     thisFaucet.enabledProperty = new Property( true );
 
     // when disabled, turn off the faucet.

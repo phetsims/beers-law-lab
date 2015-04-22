@@ -24,16 +24,21 @@ define( function( require ) {
    * @param {Solvent} solvent
    * @param {Property.<Solute>} soluteProperty
    * @param {ModelViewTransform2} modelViewTransform
+   * @param {Tandem} tandem - support for exporting elements from the sim
    * @constructor
    */
-  function BLLDropperNode( dropper, solvent, soluteProperty, modelViewTransform ) {
+  function BLLDropperNode( dropper, solvent, soluteProperty, modelViewTransform, tandem ) {
 
     var thisNode = this;
 
     EyeDropperNode.call( thisNode, {
       dispensingProperty: dropper.dispensingProperty,
       enabledProperty: dropper.enabledProperty,
-      emptyProperty: dropper.emptyProperty
+      emptyProperty: dropper.emptyProperty,
+
+      // Using the movableDragHander below to report its locations for the BLLDropperNode (for now?)
+      // So we cannot use the same ID in the base class.  The ID in the base class is not currently used.
+      tandem: tandem
     } );
 
     // label background, so the label shows up on various fluid colors
@@ -88,9 +93,14 @@ define( function( require ) {
     // move the dropper
     this.movableDragHandler = new MovableDragHandler( dropper.locationProperty, {
       dragBounds: dropper.dragBounds,
-      modelViewTransform: modelViewTransform
+      modelViewTransform: modelViewTransform,
     } );
     thisNode.addInputListener( this.movableDragHandler );
+
+    // TODO: If/when EyeDropperNode registers itself with tandem, this will be a problem
+    // since togetherIDs would get overwritten.  One solution would be to make EyeDropperNode
+    // draggable
+    tandem.addInstance( this );
   }
 
   return inherit( EyeDropperNode, BLLDropperNode );
