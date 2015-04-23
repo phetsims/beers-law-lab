@@ -1,0 +1,119 @@
+{
+  "absorbance": {
+    "value": "Absorbance"
+  },
+  "beers-law-lab.name": {
+    "value": "Beer's Law Lab"
+  },
+  "cobaltIINitrate": {
+    "value": "Cobalt (II) nitrate"
+  },
+  "cobaltChloride": {
+    "value": "Cobalt chloride"
+  },
+  "concentration": {
+    "value": "Concentration"
+  },
+  "copperSulfate": {
+    "value": "Copper sulfate"
+  },
+  "drinkMix": {
+    "value": "Drink mix"
+  },
+  "evaporation": {
+    "value": "Evaporation"
+  },
+  "fixed": {
+    "value": "preset"
+  },
+  "ir": {
+    "value": "IR"
+  },
+  "lots": {
+    "value": "lots"
+  },
+  "nickelIIChloride": {
+    "value": "Nickel (II) chloride"
+  },
+  "none": {
+    "value": "none"
+  },
+  "pattern.0label": {
+    "value": "{0}:"
+  },
+  "pattern.0value.1units": {
+    "value": "{0} {1}"
+  },
+  "pattern.parentheses.0text": {
+    "value": "({0})"
+  },
+  "pattern.0percent": {
+    "value": "{0}%"
+  },
+  "pattern.0formula.1name": {
+    "value": "{0}: {1}"
+  },
+  "potassiumChromate": {
+    "value": "Potassium chromate"
+  },
+  "potassiumDichromate": {
+    "value": "Potassium dichromate"
+  },
+  "potassiumPermanganate": {
+    "value": "Potassium permanganate"
+  },
+  "removeSolute": {
+    "value": "Remove Solute"
+  },
+  "saturated": {
+    "value": "Saturated!"
+  },
+  "solid": {
+    "value": "Solid"
+  },
+  "solute": {
+    "value": "Solute"
+  },
+  "solution": {
+    "value": "Solution"
+  },
+  "tab.concentration": {
+    "value": "Concentration"
+  },
+  "tab.beersLaw": {
+    "value": "Beer's Law"
+  },
+  "transmittance": {
+    "value": "Transmittance"
+  },
+  "units.centimeters": {
+    "value": "cm"
+  },
+  "units.liters": {
+    "value": "L"
+  },
+  "units.molesPerLiter": {
+    "value": "mol/L"
+  },
+  "units.mM": {
+    "value": "mM"
+  },
+  "units.uM": {
+    "value": "µM"
+  },
+  "units.nm": {
+    "value": "nm"
+  },
+  "uv": {
+    "value": "UV"
+  },
+  "variable": {
+    "value": "variable"
+  },
+  "water": {
+    "value": "water"
+  },
+  "wavelength": {
+    "value": "Wavelength"
+  }
+}
