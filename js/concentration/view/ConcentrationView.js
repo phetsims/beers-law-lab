@@ -32,7 +32,7 @@ define( function( require ) {
   /**
    * @param {ConcentrationModel} model
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem - support for exporting elements from the sim
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @constructor
    */
   function ConcentrationView( model, modelViewTransform, tandem ) {

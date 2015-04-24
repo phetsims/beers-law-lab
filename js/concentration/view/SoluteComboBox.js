@@ -25,7 +25,7 @@ define( function( require ) {
    * @param {Solute[]} solutes
    * @param {Property.<Solute>} selectedSoluteProperty
    * @param {Node} soluteListParent
-   * @param {Tandem} tandem - support for exporting elements from the sim
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @constructor
    */
   function SoluteComboBox( solutes, selectedSoluteProperty, soluteListParent, tandem ) {

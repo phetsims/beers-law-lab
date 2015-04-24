@@ -38,7 +38,7 @@ define( function( require ) {
   var SHAKER_MAX_DISPENSING_RATE = 0.2; // mol/sec
 
   /**
-   * @param {Tandem} tandem - support for exporting elements from the sim
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @constructor
    */
   function ConcentrationModel( tandem ) {

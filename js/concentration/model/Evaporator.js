@@ -15,7 +15,7 @@ define( function( require ) {
   /**
    * @param {number} maxEvaporationRate L/sec
    * @param {ConcentrationSolution} solution
-   * @param {Tandem} tandem - support for exporting elements from the sim
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @constructor
    */
   function Evaporator( maxEvaporationRate, solution, tandem ) {

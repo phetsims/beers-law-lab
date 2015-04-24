@@ -19,7 +19,7 @@ define( function( require ) {
   /**
    * @param {ConcentrationSolution} solution
    * @param {ShakerParticles} shakerParticles
-   * @param {Tandem} tandem - support for exporting elements from the sim
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @constructor
    */
   function RemoveSoluteButton( solution, shakerParticles, tandem ) {

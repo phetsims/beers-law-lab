@@ -38,7 +38,7 @@ define( function( require ) {
    * Constructor
    * @param {Shaker} shaker
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem - support for exporting elements from the sim
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @constructor
    */
   function ShakerNode( shaker, modelViewTransform, tandem ) {

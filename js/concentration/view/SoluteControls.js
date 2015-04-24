@@ -22,7 +22,7 @@ define( function( require ) {
    * @param {Shaker} shaker
    * @param {Dropper} dropper
    * @param {Node} soluteListParent
-   * @param {Tandem} tandem - support for exporting elements from the sim
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @constructor
    */
   function SoluteControls( solutes, currentSoluteProperty, soluteFormProperty, shaker, dropper, soluteListParent, tandem ) {

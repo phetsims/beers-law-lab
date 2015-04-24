@@ -21,7 +21,7 @@ define( function( require ) {
    * @param {Property.<Solute>} soluteProperty
    * @param {number} soluteAmount moles
    * @param {number} volume L
-   * @param {Tandem} tandem - support for exporting elements from the sim
+   * @param {Tandem} tandem - support for exporting instances from the sim
    */
   function ConcentrationSolution( soluteProperty, soluteAmount, volume, tandem ) {
 

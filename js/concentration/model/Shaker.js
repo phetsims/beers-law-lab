@@ -21,7 +21,7 @@ define( function( require ) {
    * @param {Property.<Solute>} soluteProperty
    * @param {number} maxDispensingRate
    * @param {boolean} visible
-   * @param {Tandem} tandem - support for exporting elements from the sim
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @constructor
    */
   function Shaker( location, dragBounds, orientation, soluteProperty, maxDispensingRate, visible, tandem ) {

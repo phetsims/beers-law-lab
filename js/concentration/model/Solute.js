@@ -32,7 +32,7 @@ define( function( require ) {
    * @param {string} formula
    * @param {number} stockSolutionConcentration
    * @param {SoluteColorScheme} colorScheme
-   * @param {Tandem} tandem - support for exporting elements from the sim
+   * @param {Tandem} tandem - support for exporting instances from the sim
    * @param {object} [options]
    * @constructor
    */
