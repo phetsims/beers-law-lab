@@ -23,16 +23,16 @@ define( function( require ) {
   // images
   var screenIcon = require( 'image!BEERS_LAW_LAB/Concentration-screen-icon.jpg' );
 
-  function ConcentrationScreen() {
+  function ConcentrationScreen( tandem ) {
 
-    var tandem = new Tandem( 'concentrationScreen' );
     var modelViewTransform = ModelViewTransform2.createIdentity();
+    var screenTandem = tandem.createTandem( 'concentrationScreen' );
 
     Screen.call( this,
       concentrationString,
       new Image( screenIcon ),
-      function() { return new ConcentrationModel( tandem ); },
-      function( model ) { return new ConcentrationView( model, modelViewTransform, tandem ); }
+      function() { return new ConcentrationModel( screenTandem ); },
+      function( model ) { return new ConcentrationView( model, modelViewTransform, screenTandem ); }
     );
   }
 

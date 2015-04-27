@@ -65,7 +65,7 @@ define( function( require ) {
 
   // Specific solutes ===========================================
 
-  var tandem = new Tandem( 'concentrationScreen.solutes' );
+  var tandem = new Tandem( 'concentration.solutes' );
 
   Solute.DRINK_MIX = new Solute(
     drinkMixString,
