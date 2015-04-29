@@ -13,6 +13,8 @@ define( function( require ) {
   var ConcentrationScreen = require( 'BEERS_LAW_LAB/concentration/ConcentrationScreen' );
   var Sim = require( 'JOIST/Sim' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
+  var Tandem = require( 'TANDEM/Tandem' );
+
 
   // strings
   var simTitle = require( 'string!BEERS_LAW_LAB/beers-law-lab.name' );
@@ -27,7 +29,8 @@ define( function( require ) {
   };
 
   SimLauncher.launch( function() {
-    var sim = new Sim( simTitle, [ new ConcentrationScreen(), new BeersLawScreen() ], simOptions );
+    var tandem = new Tandem( 'beersLawLab');
+    var sim = new Sim( simTitle, [ new ConcentrationScreen( tandem ), new BeersLawScreen() ], simOptions );
     sim.start();
   } );
 } );
