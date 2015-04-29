@@ -22,6 +22,10 @@ define( function( require ) {
   // images
   var screenIcon = require( 'image!BEERS_LAW_LAB/Concentration-screen-icon.jpg' );
 
+  /**
+   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @constructor
+   */
   function ConcentrationScreen( tandem ) {
 
     var modelViewTransform = ModelViewTransform2.createIdentity();
