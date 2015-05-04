@@ -19,6 +19,9 @@ define( function( require ) {
   // strings
   var units_centimetersString = require( 'string!BEERS_LAW_LAB/units.centimeters' );
 
+  // constants
+  var MAJOR_TICK_WIDTH = 0.5; // in model coordinate frame
+
   /**
    * @param {Ruler} ruler
    * @param {ModelViewTransform2} modelViewTransform
@@ -31,7 +34,7 @@ define( function( require ) {
 
     // Compute tick labels, 1 major tick for every 0.5 unit of length, labels on the ticks that correspond to integer values.
     var majorTickLabels = [];
-    var numberOfTicks = Math.floor( ruler.length / 0.5 ) + 1;
+    var numberOfTicks = Math.floor( ruler.length / MAJOR_TICK_WIDTH ) + 1;
     for ( var i = 0; i < numberOfTicks; i++ ) {
       majorTickLabels[ i ] = ( i % 2 === 0 ) ? ( i / 2 ) : '';
     }
@@ -39,7 +42,7 @@ define( function( require ) {
     // use the common ruler node
     var width = modelViewTransform.modelToViewDeltaX( ruler.length );
     var height = modelViewTransform.modelToViewDeltaY( ruler.height );
-    var majorTickWidth = modelViewTransform.modelToViewDeltaX( 0.5 );
+    var majorTickWidth = modelViewTransform.modelToViewDeltaX( MAJOR_TICK_WIDTH );
     thisNode.addChild( new RulerNode( width, height, majorTickWidth, majorTickLabels, units_centimetersString,
       { minorTicksPerMajorTick: 4, insetsWidth: 0 } ) );
 
