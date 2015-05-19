@@ -5,21 +5,7 @@
   "simTitleStringKey": "BEERS_LAW_LAB/beers-law-lab.name",
   "phetLibs": [
     "beers-law-lab",
-    "assert",
-    "axon",
-    "babel",
-    "brand",
-    "chipper",
-    "dot",
-    "joist",
-    "kite",
-    "nitroglycerin",
-    "phet-core",
-    "phetcommon",
-    "scenery",
-    "scenery-phet",
-    "sherpa",
-    "sun"
+    "nitroglycerin"
   ],
   "repository": {
     "type": "git",
