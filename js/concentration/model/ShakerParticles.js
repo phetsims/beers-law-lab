@@ -152,11 +152,11 @@ define( function( require ) {
     },
 
     /**
-     * For together.js, load the state of all the particles.
-     * This is declared here instead of in together.js because of the methods + logic required here
-     * And since the concentration-api.js file does cannot easily replicate the code below since
+     * For together, load the state of all the particles.
+     * This is declared here instead of in together.js because of the methods + logic required here,
+     * and since the concentration-api.js file does cannot easily replicate the code below since
      * it runs in a preload script, and types such as ShakerParticle are not available globally.
-     * The argument is defined by concentration-api.js
+     * The argument is defined in concentration-api.js.
      * TODO: To fully support save/load, we must also capture the particle velocities, solute type, orientation, etc.
      * @param {Object} value - the state as loaded by concentration-api.js
      */
