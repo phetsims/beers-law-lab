@@ -52,7 +52,7 @@ define( function( require ) {
     this.particleSize = options.particleSize;
     this.particlesPerMole = options.particlesPerMole;
 
-    // Tandem support
+    // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
     tandem.addInstance( this );
   }
 

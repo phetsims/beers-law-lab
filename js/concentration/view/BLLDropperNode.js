@@ -97,9 +97,11 @@ define( function( require ) {
     } );
     thisNode.addInputListener( this.movableDragHandler );
 
-    // TODO: If/when EyeDropperNode registers itself with tandem, this will be a problem
-    // since togetherIDs would get overwritten.  One solution would be to make EyeDropperNode
-    // draggable
+    /*
+     * TODO: If/when EyeDropperNode registers itself with tandem, this will be a problem since
+     * togetherIDs would get overwritten.  One solution would be to make EyeDropperNode draggable.
+     */
+    // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
     tandem.addInstance( this );
   }
 

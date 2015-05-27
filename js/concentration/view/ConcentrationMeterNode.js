@@ -114,6 +114,7 @@ define( function( require ) {
       } );
       thisNode.addInputListener( this.movableDragHandler );
 
+      // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
       tandem.addInstance( this );
     }
 
@@ -204,6 +205,8 @@ define( function( require ) {
     thisNode.isInStockSolution = function() {
       return isInNode( stockSolutionNode );
     };
+
+    // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
     tandem.addInstance( this );
   }
 

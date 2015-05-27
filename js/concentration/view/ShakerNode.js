@@ -117,7 +117,7 @@ define( function( require ) {
       }
     } );
 
-    // Tandem support
+    // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
     tandem.addInstance( this );
   }
 
