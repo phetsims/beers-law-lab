@@ -19,6 +19,7 @@ define( function( require ) {
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
+  var Util = require( 'DOT/Util' );
 
   // strings
   var pattern_0label = require( 'string!BEERS_LAW_LAB/pattern.0label' );
@@ -111,7 +112,7 @@ define( function( require ) {
     },
 
     formatWavelength: function( wavelength ) {
-      return StringUtils.format( pattern_0value1units, wavelength.toFixed( 0 ), units_nmString );
+      return StringUtils.format( pattern_0value1units, Util.toFixed( wavelength, 0 ), units_nmString );
     }
   } );
 } );

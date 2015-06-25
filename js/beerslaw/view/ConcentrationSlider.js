@@ -26,6 +26,7 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var Text = require( 'SCENERY/nodes/Text' );
+  var Util = require( 'DOT/Util' );
 
   // track constants
   var TRACK_SIZE = new Dimension2( 200, 15 );
@@ -109,7 +110,7 @@ define( function( require ) {
     var thisNode = this;
     Text.call( thisNode, '?', { font: TICK_FONT, fill: 'black' } );
     thisNode.setValue = function( value ) {
-      thisNode.text = value.toFixed( TICK_DECIMAL_PLACES );
+      thisNode.text = Util.toFixed( value, TICK_DECIMAL_PLACES );
     };
     thisNode.setValue( value );
   }

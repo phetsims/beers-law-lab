@@ -72,7 +72,7 @@ define( function( require ) {
 
     // value
     var maxValue = 100;
-    var valueNode = new Text( maxValue.toFixed( ABSORBANCE_DECIMAL_PLACES ), { font: new PhetFont( 24 ) } );
+    var valueNode = new Text( Util.toFixed( maxValue, ABSORBANCE_DECIMAL_PLACES ), { font: new PhetFont( 24 ) } );
 
     // display area for the value
     var valueWidth = Math.max( buttonGroup.width, valueNode.width ) + ( 2 * VALUE_X_MARGIN );
@@ -118,10 +118,10 @@ define( function( require ) {
       }
       else {
         if ( detector.modeProperty.get() === ATDetector.Mode.TRANSMITTANCE ) {
-          valueNode.text = StringUtils.format( pattern_0percent, value.toFixed( TRANSMITTANCE_DECIMAL_PLACES ) );
+          valueNode.text = StringUtils.format( pattern_0percent, Util.toFixed( value, TRANSMITTANCE_DECIMAL_PLACES ) );
         }
         else {
-          valueNode.text = value.toFixed( ABSORBANCE_DECIMAL_PLACES );
+          valueNode.text = Util.toFixed( value, ABSORBANCE_DECIMAL_PLACES );
         }
         valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN; // right justified
       }

@@ -74,7 +74,7 @@ define( function( require ) {
       { font: new PhetFont( 18 ), fill: 'white' } );
     var unitsNode = new Text( StringUtils.format( pattern_parentheses_0text, units_molesPerLiterString ),
       { font: new PhetFont( 18 ), fill: 'white' } );
-    var valueNode = new Text( ( 1 ).toFixed( VALUE_DECIMALS ),
+    var valueNode = new Text( Util.toFixed( 1, VALUE_DECIMALS ),
       { font: new PhetFont( 24 ), fill: 'black' } );
 
     // display area for the value
@@ -131,7 +131,7 @@ define( function( require ) {
         valueNode.centerX = valueBackgroundNode.centerX; // center justified
       }
       else {
-        valueNode.setText( value.toFixed( VALUE_DECIMALS ) );
+        valueNode.setText( Util.toFixed( value, VALUE_DECIMALS ) );
         valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN; // right justified
       }
 
