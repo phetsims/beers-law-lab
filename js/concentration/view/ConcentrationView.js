@@ -74,9 +74,9 @@ define( function( require ) {
       solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, modelViewTransform, tandem.createTandem( 'concentrationMeter' ) );
 
     // Solute controls
-    var soluteListParent = new Node();
+    var soluteListParent = new Node( { maxWidth: 320 } );
     var soluteControls = new SoluteControls( model.solutes, model.soluteProperty, model.soluteFormProperty, model.shaker,
-      model.dropper, soluteListParent, tandem );
+      model.dropper, soluteListParent, tandem, { maxWidth: 480 } );
 
     // Evaporation control
     var evaporationControl = new EvaporationControl( model.evaporator, tandem );
@@ -121,7 +121,7 @@ define( function( require ) {
     saturatedIndicator.bottom = beakerNode.bottom - 30;
     saturatedIndicator.visible = saturatedIndicatorVisible;
     // upper right
-    soluteControls.right = concentrationMeterNode.right + 100;
+    soluteControls.left = beakerNode.right - 120;
     soluteControls.top = 20;
     // left-aligned below beaker
     evaporationControl.left = modelViewTransform.modelToViewPosition( model.beaker.location ).x - modelViewTransform.modelToViewDeltaX( model.beaker.size.width / 2 );

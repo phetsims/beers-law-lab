@@ -23,9 +23,18 @@ define( function( require ) {
    * @param {Dropper} dropper
    * @param {Node} soluteListParent
    * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Object} [options]
    * @constructor
    */
-  function SoluteControls( solutes, currentSoluteProperty, soluteFormProperty, shaker, dropper, soluteListParent, tandem ) {
+  function SoluteControls( solutes, currentSoluteProperty, soluteFormProperty, shaker, dropper, soluteListParent, tandem, options ) {
+
+    options = _.extend( {
+      xMargin: 15,
+      yMargin: 15,
+      fill: '#F0F0F0',
+      stroke: 'gray',
+      lineWidth: 1
+    }, options );
 
     // solute combo box
     var soluteComboBox = new SoluteComboBox( solutes, currentSoluteProperty, soluteListParent, tandem.createTandem( 'soluteComboBox' ) );
@@ -41,8 +50,7 @@ define( function( require ) {
     soluteFormNode.left = soluteComboBox.left;
     soluteFormNode.top = soluteComboBox.bottom + 15;
 
-    Panel.call( this, contentNode,
-      { xMargin: 15, yMargin: 15, fill: '#F0F0F0', stroke: 'gray', lineWidth: 1 } );
+    Panel.call( this, contentNode, options );
   }
 
   return inherit( Panel, SoluteControls );
