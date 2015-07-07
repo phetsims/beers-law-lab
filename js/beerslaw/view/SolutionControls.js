@@ -19,9 +19,19 @@ define( function( require ) {
    * @param {BeersLawSolution[]} solutions
    * @param {Property.<BeersLawSolution>} currentSolutionProperty
    * @param {Node} solutionListParent
+   * @param {Object} [options]
    * @constructor
    */
-  function SolutionControls( solutions, currentSolutionProperty, solutionListParent ) {
+  function SolutionControls( solutions, currentSolutionProperty, solutionListParent, options ) {
+
+    options = _.extend( {
+      xMargin: 15,
+      yMargin: 15,
+      fill: '#F0F0F0',
+      stroke: 'gray',
+      lineWidth: 1,
+      resize: false
+    }, options );
 
     // nodes
     var comboBox = new SolutionComboBox( solutions, currentSolutionProperty, solutionListParent );
@@ -36,8 +46,7 @@ define( function( require ) {
     concentrationControl.left = comboBox.left;
     concentrationControl.top = comboBox.bottom + 15;
 
-    Panel.call( this, contentNode,
-      { xMargin: 15, yMargin: 15, fill: '#F0F0F0', stroke: 'gray', lineWidth: 1, resize: false } );
+    Panel.call( this, contentNode, options );
   }
 
   return inherit( Panel, SolutionControls );

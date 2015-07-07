@@ -38,8 +38,8 @@ define( function( require ) {
     var detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform );
     var wavelengthControls = new WavelengthControls( model.solutionProperty, model.light );
     var rulerNode = new BLLRulerNode( model.ruler, modelViewTransform );
-    var comboBoxListParent = new Node();
-    var solutionControls = new SolutionControls( model.solutions, model.solutionProperty, comboBoxListParent );
+    var comboBoxListParent = new Node( { maxWidth: 500 });
+    var solutionControls = new SolutionControls( model.solutions, model.solutionProperty, comboBoxListParent, { maxWidth: 575 } );
 
     // Reset All button
     var resetAllButton = new ResetAllButton( {
