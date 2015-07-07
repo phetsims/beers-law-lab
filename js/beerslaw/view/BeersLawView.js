@@ -38,8 +38,8 @@ define( function( require ) {
     var detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform );
     var wavelengthControls = new WavelengthControls( model.solutionProperty, model.light );
     var rulerNode = new BLLRulerNode( model.ruler, modelViewTransform );
-    var foregroundNode = new Node();
-    var solutionControls = new SolutionControls( model.solutions, model.solutionProperty, foregroundNode );
+    var comboBoxListParent = new Node();
+    var solutionControls = new SolutionControls( model.solutions, model.solutionProperty, comboBoxListParent );
 
     // Reset All button
     var resetAllButton = new ResetAllButton( {
@@ -59,7 +59,7 @@ define( function( require ) {
     thisView.addChild( beamNode );
     thisView.addChild( lightNode );
     thisView.addChild( rulerNode );
-    thisView.addChild( foregroundNode ); // last, so that combo box list is on top
+    thisView.addChild( comboBoxListParent ); // last, so that combo box list is on top
 
     // Layout for things that don't have a location in the model.
     {
