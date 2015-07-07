@@ -40,49 +40,79 @@ define( function( require ) {
 
     this.variableWavelengthProperty = new Property( false ); // @private is the wavelength variable or fixed?
 
-    // nodes
-    var label = new Text( StringUtils.format( pattern_0label, wavelengthString ), { font: new PhetFont( 20 ), fill: 'black' } );
-    var valueDisplay = new Text( thisNode.formatWavelength( light.wavelengthProperty.get() ), { font: new PhetFont( 20 ), fill: 'black' } );
-    var xMargin = 0.1 * valueDisplay.width;
-    var yMargin = 0.1 * valueDisplay.height;
-    var valueBackground = new Rectangle( 0, 0, valueDisplay.width + xMargin + xMargin, valueDisplay.height + yMargin + yMargin,
-      { fill: 'white', stroke: 'lightGray' } );
-    var presetRadioButton = new AquaRadioButton( this.variableWavelengthProperty, false, new Text( fixedString, { font: new PhetFont( 18 ), fill: 'black' } ) );
-    var variableRadioButton = new AquaRadioButton( this.variableWavelengthProperty, true, new Text( variableString, {
-      font: new PhetFont( 18 ),
+    var xMargin = 7;
+    var yMargin = 3;
+    var ySpacing = 20;
+
+    var label = new Text( StringUtils.format( pattern_0label, wavelengthString ), {
+      font: new PhetFont( 20 ),
       fill: 'black'
-    } ) );
-    var wavelengthSlider = new WavelengthSlider( light.wavelengthProperty, { trackWidth: 150, trackHeight: 30, valueVisible: false } );
+    } );
+
+    var valueDisplay = new Text( formatWavelength( light.wavelengthProperty.get() ), {
+      font: new PhetFont( 20 ),
+      fill: 'black',
+      y: label.y // align baselines
+    } );
+
+    var valueBackground = new Rectangle( 0, 0, valueDisplay.width + xMargin + xMargin, valueDisplay.height + yMargin + yMargin, {
+      fill: 'white',
+      stroke: 'lightGray',
+      left: label.right + 10,
+      centerY: valueDisplay.centerY
+    } );
+    valueDisplay.right = valueBackground.right - xMargin; // right aligned
+
+    var presetRadioButton = new AquaRadioButton( this.variableWavelengthProperty, false,
+      new Text( fixedString, {
+        font: new PhetFont( 18 ),
+        fill: 'black'
+      } ), {
+        left: label.left,
+        top: label.bottom + ySpacing
+      } );
+
+    var variableRadioButton = new AquaRadioButton( this.variableWavelengthProperty, true,
+      new Text( variableString, {
+        font: new PhetFont( 18 ),
+        fill: 'black'
+      } ), {
+        left: presetRadioButton.right + 15,
+        centerY: presetRadioButton.centerY
+      } );
+
+    // stuff above the slider
+    var topComponents = new Node( {
+      children: [ label, valueBackground, valueDisplay, presetRadioButton ],
+      maxWidth: 250 // constrain width for i18n
+    } );
+    if ( !this.variableWavelengthProperty.get() ) { // opposite of initial state, so variableWavelengthProperty.link doesn't fail on add/removeChild
+      topComponents.addChild( variableRadioButton );
+    }
+
+    var wavelengthSlider = new WavelengthSlider( light.wavelengthProperty, {
+      trackWidth: 150,
+      trackHeight: 30,
+      valueVisible: false,
+      left: topComponents.left,
+      top: topComponents.bottom + ySpacing
+    } );
 
     // rendering order
-    var content = new Node();
-    content.addChild( label );
-    content.addChild( valueBackground );
-    content.addChild( valueDisplay );
-    content.addChild( presetRadioButton );
-    if ( !this.variableWavelengthProperty.get() ) { // opposite of initial state, so variableWavelengthProperty.link doesn't fail on add/removeChild
-      content.addChild( variableRadioButton );
-    }
-    content.addChild( wavelengthSlider );
+    var content = new Node( {
+      children: [ topComponents, wavelengthSlider ]
+    } );
 
     // add a horizontal strut to prevent width changes
-    content.addChild( new Rectangle( 0, 0, content.width, 1, { pickable: false } ) );
+    content.addChild( new Rectangle( 0, 0, Math.max( content.width, wavelengthSlider.width ), 1 ) );
 
-    // layout
-    var ySpacing = 20;
-    valueBackground.left = label.right + 10;
-    valueDisplay.right = valueBackground.right - xMargin; // right aligned
-    valueDisplay.y = label.y; // align baselines
-    valueBackground.centerY = valueDisplay.centerY;
-    presetRadioButton.left = label.left;
-    presetRadioButton.top = label.bottom + ySpacing;
-    variableRadioButton.left = presetRadioButton.right + 15;
-    variableRadioButton.centerY = presetRadioButton.centerY;
-    wavelengthSlider.left = presetRadioButton.left;
-    wavelengthSlider.top = presetRadioButton.bottom + ySpacing;
-
-    Panel.call( thisNode, content,
-      { xMargin: 20, yMargin: 20, fill: '#F0F0F0', stroke: 'gray', lineWidth: 1 } );
+    Panel.call( thisNode, content, {
+      xMargin: 20,
+      yMargin: 20,
+      fill: '#F0F0F0',
+      stroke: 'gray',
+      lineWidth: 1
+    } );
 
     // When the radio button selection changes...
     this.variableWavelengthProperty.link( function( isVariable ) {
@@ -100,19 +130,19 @@ define( function( require ) {
 
     // sync displayed value with model
     light.wavelengthProperty.link( function( wavelength ) {
-      valueDisplay.text = thisNode.formatWavelength( wavelength );
+      valueDisplay.text = formatWavelength( wavelength );
       valueDisplay.right = valueBackground.right - xMargin; // right aligned
     } );
   }
+
+  var formatWavelength = function( wavelength ) {
+    return StringUtils.format( pattern_0value1units, Util.toFixed( wavelength, 0 ), units_nmString );
+  };
 
   return inherit( Panel, WavelengthControls, {
 
     reset: function() {
       this.variableWavelengthProperty.reset();
-    },
-
-    formatWavelength: function( wavelength ) {
-      return StringUtils.format( pattern_0value1units, Util.toFixed( wavelength, 0 ), units_nmString );
     }
   } );
 } );
