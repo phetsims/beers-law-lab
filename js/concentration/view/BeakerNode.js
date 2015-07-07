@@ -91,7 +91,8 @@ define( function( require ) {
             font: new PhetFont( 24 ),
             fill: 'black',
             x: rightX + TICK_LABEL_X_SPACING,
-            centerY: tickPath.centerY
+            centerY: tickPath.centerY,
+            maxWidth: 0.25 * beaker.size.width // constrain width for i18n
           } ) );
         }
       }
