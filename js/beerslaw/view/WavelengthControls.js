@@ -9,17 +9,20 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  var HBox = require( 'SCENERY/nodes/HBox' );
+  var HStrut = require( 'SCENERY/nodes/HStrut' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Panel = require( 'SUN/Panel' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Property = require( 'AXON/Property' );
-  var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
   var Util = require( 'DOT/Util' );
+  var VBox = require( 'SCENERY/nodes/VBox' );
+  var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
 
   // strings
   var pattern_0label = require( 'string!BEERS_LAW_LAB/pattern.0label' );
@@ -42,7 +45,6 @@ define( function( require ) {
 
     var xMargin = 7;
     var yMargin = 3;
-    var ySpacing = 20;
 
     var label = new Text( StringUtils.format( pattern_0label, wavelengthString ), {
       font: new PhetFont( 20 ),
@@ -63,48 +65,45 @@ define( function( require ) {
     } );
     valueDisplay.right = valueBackground.right - xMargin; // right aligned
 
-    var presetRadioButton = new AquaRadioButton( this.variableWavelengthProperty, false,
-      new Text( fixedString, {
-        font: new PhetFont( 18 ),
-        fill: 'black'
-      } ), {
-        left: label.left,
-        top: label.bottom + ySpacing
-      } );
-
-    var variableRadioButton = new AquaRadioButton( this.variableWavelengthProperty, true,
-      new Text( variableString, {
-        font: new PhetFont( 18 ),
-        fill: 'black'
-      } ), {
-        left: presetRadioButton.right + 15,
-        centerY: presetRadioButton.centerY
-      } );
-
-    // stuff above the slider
-    var topComponents = new Node( {
-      children: [ label, valueBackground, valueDisplay, presetRadioButton ],
+    var valueParent = new Node( {
+      children: [ label, valueBackground, valueDisplay ],
       maxWidth: 250 // constrain width for i18n
     } );
-    if ( !this.variableWavelengthProperty.get() ) { // opposite of initial state, so variableWavelengthProperty.link doesn't fail on add/removeChild
-      topComponents.addChild( variableRadioButton );
-    }
+
+    var radioButtons = new HBox( {
+      spacing: 15,
+      maxWidth: 250, // constrain width for i18n
+      children: [
+        // fixed
+        new AquaRadioButton( this.variableWavelengthProperty, false,
+          new Text( fixedString, {
+            font: new PhetFont( 18 ),
+            fill: 'black'
+          } ) ),
+        // variable
+        new AquaRadioButton( this.variableWavelengthProperty, true,
+          new Text( variableString, {
+            font: new PhetFont( 18 ),
+            fill: 'black'
+          } ) )
+      ]
+    } );
 
     var wavelengthSlider = new WavelengthSlider( light.wavelengthProperty, {
       trackWidth: 150,
       trackHeight: 30,
-      valueVisible: false,
-      left: topComponents.left,
-      top: topComponents.bottom + ySpacing
+      valueVisible: false
     } );
 
     // rendering order
-    var content = new Node( {
-      children: [ topComponents, wavelengthSlider ]
+    var content = new VBox( {
+      spacing: 15,
+      align: 'left',
+      children: [ valueParent, radioButtons, wavelengthSlider ]
     } );
 
     // add a horizontal strut to prevent width changes
-    content.addChild( new Rectangle( 0, 0, Math.max( content.width, wavelengthSlider.width ), 1 ) );
+    content.addChild( new HStrut( Math.max( content.width, wavelengthSlider.width ) ) );
 
     Panel.call( thisNode, content, {
       xMargin: 20,
