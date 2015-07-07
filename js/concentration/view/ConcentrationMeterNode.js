@@ -70,12 +70,13 @@ define( function( require ) {
     } );
 
     // text nodes
+    var maxTextWidth = 225; // constrain text width for i18n, determined empirically
     var titleNode = new Text( concentrationString,
-      { font: new PhetFont( 18 ), fill: 'white' } );
+      { font: new PhetFont( 18 ), fill: 'white', maxWidth: maxTextWidth } );
     var unitsNode = new Text( StringUtils.format( pattern_parentheses_0text, units_molesPerLiterString ),
-      { font: new PhetFont( 18 ), fill: 'white' } );
+      { font: new PhetFont( 18 ), fill: 'white', maxWidth: maxTextWidth } );
     var valueNode = new Text( Util.toFixed( 1, VALUE_DECIMALS ),
-      { font: new PhetFont( 24 ), fill: 'black' } );
+      { font: new PhetFont( 24 ), fill: 'black', maxWidth: maxTextWidth } );
 
     // display area for the value
     var valueWidth = Math.max( Math.max( titleNode.width, unitsNode.width ), valueNode.width ) + ( 2 * VALUE_X_MARGIN );
