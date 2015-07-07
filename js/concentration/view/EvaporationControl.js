@@ -28,9 +28,19 @@ define( function( require ) {
   /**
    * @param {Evaporator} evaporator
    * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Object} options
    * @constructor
    */
-  function EvaporationControl( evaporator, tandem ) {
+  function EvaporationControl( evaporator, tandem, options ) {
+
+    options = _.extend( {
+      xMargin: 15,
+      yMargin: 8,
+      fill: '#F0F0F0',
+      stroke: 'gray',
+      lineWidth: 1,
+      resize: false
+    }, options );
 
     var thisControl = this;
 
@@ -54,8 +64,7 @@ define( function( require ) {
     slider.left = label.right + 10;
     slider.centerY = label.centerY;
 
-    Panel.call( thisControl, content,
-      { xMargin: 15, yMargin: 8, fill: '#F0F0F0', stroke: 'gray', lineWidth: 1, resize: false } );
+    Panel.call( thisControl, content, options );
   }
 
   return inherit( Panel, EvaporationControl );

@@ -20,19 +20,22 @@ define( function( require ) {
    * @param {ConcentrationSolution} solution
    * @param {ShakerParticles} shakerParticles
    * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Object} [options]
    * @constructor
    */
-  function RemoveSoluteButton( solution, shakerParticles, tandem ) {
+  function RemoveSoluteButton( solution, shakerParticles, tandem, options ) {
 
-    var thisButton = this;
-
-    TextPushButton.call( thisButton, removeSoluteString, {
+    options = _.extend( {
       baseColor: 'rgb(255,200,0)',
       font: new PhetFont( 22 ),
       textFill: 'black',
       xMargin: 10,
       tandem: tandem
-    } );
+    }, options );
+
+    var thisButton = this;
+
+    TextPushButton.call( thisButton, removeSoluteString, options );
 
     this.addListener( function() {
       solution.soluteAmountProperty.set( 0 );

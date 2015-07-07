@@ -79,10 +79,12 @@ define( function( require ) {
       model.dropper, soluteListParent, tandem, { maxWidth: 480 } );
 
     // Evaporation control
-    var evaporationControl = new EvaporationControl( model.evaporator, tandem );
+    var evaporationControl = new EvaporationControl( model.evaporator, tandem, { maxWidth: 410 } );
 
     // Remove Solute button
-    var removeSoluteButton = new RemoveSoluteButton( model.solution, model.shakerParticles, tandem.createTandem( 'removeSoluteButton' ) );
+    var removeSoluteButton = new RemoveSoluteButton( model.solution, model.shakerParticles, tandem.createTandem( 'removeSoluteButton' ), {
+      maxWidth: 175
+    } );
 
     // Reset All button
     var resetAllButton = new ResetAllButton( {
