@@ -51,9 +51,10 @@ define( function( require ) {
     imageNode.setScaleMagnitude( 0.75 );
 
     // label
-    var labelNode = new SubSupText( shaker.soluteProperty.formula, {
+    var labelNode = new SubSupText( shaker.soluteProperty.get().formula, {
       font: new PhetFont( { size: 22, weight: 'bold' } ),
-      fill: 'black'
+      fill: 'black',
+      maxWidth: 0.5 * imageNode.width // constrain width for i18n
     } );
 
     // arrows
