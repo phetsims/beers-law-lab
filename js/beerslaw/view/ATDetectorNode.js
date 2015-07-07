@@ -67,12 +67,13 @@ define( function( require ) {
       children: [ transmittanceButton, absorbanceButton ],
       orientation: 'vertical',
       align: 'left',
-      spacing: 6
+      spacing: 6,
+      maxWidth: 260
     } );
 
     // value
     var maxValue = 100;
-    var valueNode = new Text( Util.toFixed( maxValue, ABSORBANCE_DECIMAL_PLACES ), { font: new PhetFont( 24 ) } );
+    var valueNode = new Text( Util.toFixed( maxValue, ABSORBANCE_DECIMAL_PLACES ), { font: new PhetFont( 24 ), maxWidth: 150 } );
 
     // display area for the value
     var valueWidth = Math.max( buttonGroup.width, valueNode.width ) + ( 2 * VALUE_X_MARGIN );
