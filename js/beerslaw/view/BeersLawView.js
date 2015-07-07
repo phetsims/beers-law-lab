@@ -42,14 +42,13 @@ define( function( require ) {
     var solutionControls = new SolutionControls( model.solutions, model.solutionProperty, foregroundNode );
 
     // Reset All button
-    var resetAllButton = new ResetAllButton(
-      {
-        listener: function() {
-          model.reset();
-          wavelengthControls.reset();
-        },
-        scale: 1.32
-      } );
+    var resetAllButton = new ResetAllButton( {
+      scale: 1.32,
+      listener: function() {
+        model.reset();
+        wavelengthControls.reset();
+      }
+    } );
 
     // Rendering order
     thisView.addChild( wavelengthControls );
