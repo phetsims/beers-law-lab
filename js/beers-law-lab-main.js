@@ -22,7 +22,7 @@ define( function( require ) {
   var simOptions = {
     credits: {
       leadDesign: 'Julia Chamberlain',
-      softwareDevelopment: 'Chris Malley',
+      softwareDevelopment: 'Chris Malley (PixelZoom, Inc.)',
       team: 'Kelly Lancaster, Emily B. Moore, Ariel Paul, Kathy Perkins',
       thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
     }
