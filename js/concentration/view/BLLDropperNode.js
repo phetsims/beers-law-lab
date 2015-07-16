@@ -35,10 +35,7 @@ define( function( require ) {
       dispensingProperty: dropper.dispensingProperty,
       enabledProperty: dropper.enabledProperty,
       emptyProperty: dropper.emptyProperty,
-
-      // Using the movableDragHander below to report its locations for the BLLDropperNode (for now?)
-      // So we cannot use the same ID in the base class.  The ID in the base class is not currently used.
-      tandem: tandem
+      tandem: tandem // supertype handles tandem registration for the momentary button
     } );
 
     // label background, so the label shows up on various fluid colors
@@ -93,15 +90,12 @@ define( function( require ) {
     // move the dropper
     this.movableDragHandler = new MovableDragHandler( dropper.locationProperty, {
       dragBounds: dropper.dragBounds,
-      modelViewTransform: modelViewTransform,
+      modelViewTransform: modelViewTransform
     } );
     thisNode.addInputListener( this.movableDragHandler );
 
-    /*
-     * TODO: If/when EyeDropperNode registers itself with tandem, this will be a problem since
-     * togetherIDs would get overwritten.  One solution would be to make EyeDropperNode draggable.
-     */
-    // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
+    // Supertype registers the momentary button, but not itself, so register here in the subtype.
+    // No corresponding removeInstance is needed because this object exists for the lifetime of the sim
     tandem.addInstance( this );
   }
 
