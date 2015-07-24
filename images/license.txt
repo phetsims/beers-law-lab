@@ -1,8 +1,66 @@
-at-detector-probe.png author=PhET notes=copied intensity_meter_probe.png from bending-light
-BeersLaw-screen-icon.jpg author=PhET
-concentration-meter-probe.png author=PhET notes=created by Noah P.
-Concentration-screen-icon.jpg author=PhET
-dropper-icon.png author=PhET notes=scaled version of dropper_foreground.png
-light.png author=PhET notes=copied laser.png from bending-light
-shaker.png author=PhET notes=copied salt_micro.png from sugar-and-salt-solutions
-shaker-icon.png author=PhET
+{
+  "at-detector-probe.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "copied intensity_meter_probe.png from bending-light"
+  },
+  "BeersLaw-screen-icon.jpg": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": ""
+  },
+  "concentration-meter-probe.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "created by Noah Podolefsky"
+  },
+  "Concentration-screen-icon.jpg": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": ""
+  },
+  "dropper-icon.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "scaled version of dropper_foreground.png"
+  },
+  "light.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "copied laser.png from bending-light"
+  },
+  "shaker.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": "copied salt_micro.png from sugar-and-salt-solutions"
+  },
+  "shaker-icon.png": {
+    "text": [
+      "Copyright 2002-2015 University of Colorado Boulder"
+    ],
+    "projectURL": "http://phet.colorado.edu",
+    "license": "contact phethelp@colorado.edu",
+    "notes": ""
+  }
+}
