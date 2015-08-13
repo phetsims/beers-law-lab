@@ -33,7 +33,7 @@ define( function( require ) {
    * @param {number} stockSolutionConcentration
    * @param {SoluteColorScheme} colorScheme
    * @param {Tandem} tandem - support for exporting instances from the sim
-   * @param {object} [options]
+   * @param {Object} [options]
    * @constructor
    */
   function Solute( name, formula, stockSolutionConcentration, colorScheme, tandem, options ) {
