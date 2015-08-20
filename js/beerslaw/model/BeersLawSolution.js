@@ -90,7 +90,7 @@ define( function( require ) {
     },
 
     getDisplayConcentration: function( concentration ) {
-      var valueText = this.concentrationTransform.modelToView( Util.toFixed( concentration, 0 ) );
+      var valueText = Util.toFixed( this.concentrationTransform.modelToView( concentration ), 0 );
       return StringUtils.format( pattern_0value_1units, valueText, this.concentrationTransform.units );
     }
   } );
