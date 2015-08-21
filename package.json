@@ -15,7 +15,6 @@
   },
   "phet": {
     "requirejsNamespace": "BEERS_LAW_LAB",
-    "simTitleStringKey": "BEERS_LAW_LAB/beers-law-lab.name",
     "phetLibs": [
       "nitroglycerin"
     ]
