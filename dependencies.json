@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.3.0-dev.3 Sun Aug 16 2015 11:42:21 GMT-0600 (MDT)",
+  "comment": "# beers-law-lab 1.3.0-dev.4 Tue Aug 25 2015 13:51:35 GMT-0600 (MDT)",
   "assert": {
     "sha": "858e65ac477bf1861883ce06eed56d9fdefa5027",
     "branch": "master"
@@ -9,15 +9,15 @@
     "branch": "master"
   },
   "beers-law-lab": {
-    "sha": "76fcf019e8daf73d2c801b8e5cf5f94dc6670654",
+    "sha": "d55f0db2c0b64588a38d728c08d88ab74ef7486e",
     "branch": "master"
   },
   "brand": {
-    "sha": "ffae69f4b1dfb6cebf84a20a92b8203ec5328cf3",
+    "sha": "2af17fe775352982468b0b7215096f413339a32a",
     "branch": "master"
   },
   "chipper": {
-    "sha": "0386a8bf77b77aefc18c55f66d5193de357d9cb4",
+    "sha": "58aae0559b7b3fc2fe6fbb855804e3a72e95257f",
     "branch": "master"
   },
   "dot": {
@@ -25,7 +25,7 @@
     "branch": "master"
   },
   "joist": {
-    "sha": "0f8e76c71d3d825dd3cb0bf2cd6426921154d76c",
+    "sha": "ee8e0ea931224a58059928fc0d785be5c9558474",
     "branch": "master"
   },
   "kite": {
@@ -41,15 +41,15 @@
     "branch": "master"
   },
   "phetcommon": {
-    "sha": "89a44d2cefd4b66f031f7f3fc30c0578a3130b5e",
+    "sha": "e30eb1e06d9f65f32cde69dc28afb4c037d206a2",
     "branch": "master"
   },
   "scenery": {
-    "sha": "cd1c36a9c2cdd047ece3ddbaa7fcc4c2c5032a78",
+    "sha": "7379d318ebee43100c5167746a484af4b185140b",
     "branch": "master"
   },
   "scenery-phet": {
-    "sha": "78082cb37084beac1bb3188f616eee901ccffaa5",
+    "sha": "70815580956c98e9d0c20d550d7dac58fbbcc1a0",
     "branch": "master"
   },
   "sherpa": {
@@ -57,7 +57,7 @@
     "branch": "master"
   },
   "sun": {
-    "sha": "1320a557747cdae948b731a9398ec3670b139334",
+    "sha": "e400abb482b66d703556f9899cf224f2a3488f35",
     "branch": "master"
   }
 }
