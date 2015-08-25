@@ -80,17 +80,17 @@ define( function( require ) {
           new Text( fixedString, {
             font: new PhetFont( 18 ),
             fill: 'black'
-          }, {
+          } ), {
             radius: BLLConstants.RADIO_BUTTON_RADIUS
-          } ) ),
+          } ),
         // variable
         new AquaRadioButton( this.variableWavelengthProperty, true,
           new Text( variableString, {
             font: new PhetFont( 18 ),
             fill: 'black'
-          }, {
+          } ), {
             radius: BLLConstants.RADIO_BUTTON_RADIUS
-          } ) )
+          } )
       ]
     } );
 
