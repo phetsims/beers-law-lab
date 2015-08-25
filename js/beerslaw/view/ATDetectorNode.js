@@ -11,6 +11,7 @@ define( function( require ) {
   // modules
   var ATDetector = require( 'BEERS_LAW_LAB/beerslaw/model/ATDetector' );
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -59,15 +60,19 @@ define( function( require ) {
 
     // buttons for changing the detector 'mode'
     var textOptions = { font: new PhetFont( 18 ), fill: 'white' };
-    var transmittanceButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.TRANSMITTANCE, new Text( transmittanceString, textOptions ) );
-    var absorbanceButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.ABSORBANCE, new Text( absorbanceString, textOptions ) );
+    var transmittanceButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.TRANSMITTANCE, new Text( transmittanceString, textOptions ), {
+      radius: BLLConstants.RADIO_BUTTON_RADIUS
+    } );
+    var absorbanceButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.ABSORBANCE, new Text( absorbanceString, textOptions ), {
+      radius: BLLConstants.RADIO_BUTTON_RADIUS
+    });
 
     // group the buttons
     var buttonGroup = new LayoutBox( {
       children: [ transmittanceButton, absorbanceButton ],
       orientation: 'vertical',
       align: 'left',
-      spacing: 6,
+      spacing: 15,
       maxWidth: 260
     } );
 

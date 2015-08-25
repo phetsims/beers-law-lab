@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var HBox = require( 'SCENERY/nodes/HBox' );
   var HStrut = require( 'SCENERY/nodes/HStrut' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -79,12 +80,16 @@ define( function( require ) {
           new Text( fixedString, {
             font: new PhetFont( 18 ),
             fill: 'black'
+          }, {
+            radius: BLLConstants.RADIO_BUTTON_RADIUS
           } ) ),
         // variable
         new AquaRadioButton( this.variableWavelengthProperty, true,
           new Text( variableString, {
             font: new PhetFont( 18 ),
             fill: 'black'
+          }, {
+            radius: BLLConstants.RADIO_BUTTON_RADIUS
           } ) )
       ]
     } );

@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Line = require( 'SCENERY/nodes/Line' );
@@ -56,6 +57,7 @@ define( function( require ) {
 
     var shakerButton = new AquaRadioButton( soluteFormProperty, 'solid',
       new TextAndIconNode( solidString, shakerIconImage, TEXT_OPTIONS ), {
+        radius: BLLConstants.RADIO_BUTTON_RADIUS,
         tandem: tandem.createTandem( 'solidRadioButton' )
       } );
 
@@ -69,6 +71,7 @@ define( function( require ) {
 
     var dropperButton = new AquaRadioButton( soluteFormProperty, 'liquid',
       new TextAndIconNode( solutionString, dropperIconImage, TEXT_OPTIONS ), {
+        radius: BLLConstants.RADIO_BUTTON_RADIUS,
         left: separator.right + SEPARATOR_SPACING,
         tandem: tandem.createTandem( 'solutionRadioButton' )
       } );
