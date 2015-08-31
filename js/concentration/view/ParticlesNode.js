@@ -15,21 +15,21 @@ define( function( require ) {
   var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
 
   /**
-   * @param { particles: [Particle], registerChangedCallback: {function} } modelElement model element that has particles
+   * @param {Particles} particles a collection of particle
    * @param {ModelViewTransform2} modelViewTransform
    * @param {Bounds2} canvasBounds
    * @constructor
    */
-  function ParticlesNode( modelElement, modelViewTransform, canvasBounds ) {
+  function ParticlesNode( particles, modelViewTransform, canvasBounds ) {
 
     var thisNode = this;
 
-    thisNode.modelElement = modelElement;
+    thisNode.particles = particles;
     thisNode.modelViewTransform = modelViewTransform;
 
     CanvasNode.call( thisNode, { pickable: false, canvasBounds: canvasBounds } );
 
-    modelElement.registerChangedCallback( function() {
+    particles.registerChangedCallback( function() {
       thisNode.invalidatePaint();
     } );
   }
@@ -44,7 +44,7 @@ define( function( require ) {
 
       var context = wrapper.context;
 
-      var particles = this.modelElement.particles;
+      var particles = this.particles.particles;
       var halfViewSize;
       var numberOfParticles = particles.length;
 

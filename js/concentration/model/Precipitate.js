@@ -11,6 +11,7 @@ define( function( require ) {
 
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
+  var Particles = require( 'BEERS_LAW_LAB/concentration/model/Particles' );
   var PrecipitateParticle = require( 'BEERS_LAW_LAB/concentration/model/PrecipitateParticle' );
   var Vector2 = require( 'DOT/Vector2' );
 
@@ -21,12 +22,12 @@ define( function( require ) {
    */
   function Precipitate( solution, beaker ) {
 
+    Particles.call( this );
+
     var thisPrecipitate = this;
 
     thisPrecipitate.solution = solution;
     thisPrecipitate.beaker = beaker;
-    thisPrecipitate.particles = []; // PrecipitateParticle
-    thisPrecipitate.changedCallbacks = []; // function(Precipitate), private
 
     // when the saturation changes, update the number of precipitate particles
     thisPrecipitate.solution.precipitateAmountProperty.link( function() {
@@ -45,15 +46,7 @@ define( function( require ) {
     return Math.random() * 2 * Math.PI;
   };
 
-  return inherit( Object, Precipitate, {
-
-    /**
-     * Registers a callback that will be notified when the precipitate changes.
-     * @param {Precipitate~Callback} callback has a {Particle} parameter
-     */
-    registerChangedCallback: function( callback ) {
-      this.changedCallbacks.push( callback );
-    },
+  return inherit( Particles, Precipitate, {
 
     /*
      * @private

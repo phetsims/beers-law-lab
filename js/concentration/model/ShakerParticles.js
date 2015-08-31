@@ -11,6 +11,7 @@ define( function( require ) {
 
   // modules
   var inherit = require( 'PHET_CORE/inherit' );
+  var Particles = require( 'BEERS_LAW_LAB/concentration/model/Particles' );
   var ShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticle' );
   var Vector2 = require( 'DOT/Vector2' );
 
@@ -31,13 +32,13 @@ define( function( require ) {
    */
   function ShakerParticles( shaker, solution, beaker, tandem ) {
 
+    Particles.call( this );
+
     var thisParticles = this;
 
     thisParticles.shaker = shaker;
     thisParticles.solution = solution;
     thisParticles.beaker = beaker;
-    thisParticles.particles = []; // ShakerParticle
-    thisParticles.changedCallbacks = []; // function(ShakerParticle)
 
     // when the solute changes, remove all particles
     solution.soluteProperty.link( function() {
@@ -66,15 +67,7 @@ define( function( require ) {
     return Math.random() * 2 * Math.PI;
   };
 
-  return inherit( Object, ShakerParticles, {
-
-    /**
-     * Registers a callback that will be notified when particles move, or when all particles are removed.
-     * @param {ShakerParticles~Callback} callback
-     */
-    registerChangedCallback: function( callback ) {
-      this.changedCallbacks.push( callback );
-    },
+  return inherit( Particles, ShakerParticles, {
 
     // Particle animation and delivery to the solution, called when the simulation clock ticks.
     step: function( deltaSeconds ) {
