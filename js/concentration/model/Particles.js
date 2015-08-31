@@ -1,7 +1,6 @@
 // Copyright 2002-2015, University of Colorado Boulder
 
 /**
- *
  * Base type for a collection of particles.
  *
  * @author Chris Malley
