@@ -40,7 +40,7 @@ define( function( require ) {
 
     var thisBeam = this;
 
-    // Make the beam visible when the light is on.
+    // @public Make the beam visible when the light is on.
     thisBeam.visibleProperty = new DerivedProperty( [ light.onProperty ],
       function( on ) {
         return on;
@@ -48,6 +48,7 @@ define( function( require ) {
 
     // beam shape
     var xOverlap = modelViewTransform.modelToViewDeltaX( 1 ); // add some overlap, to hide space between beam and light housing
+    // @public
     thisBeam.shapeProperty = new DerivedProperty( [ thisBeam.visibleProperty, cuvette.widthProperty, detector.probe.locationProperty ],
       function( beamVisible, cuvetteWidth, probeLocation ) {
         if ( beamVisible ) {
@@ -59,7 +60,7 @@ define( function( require ) {
         }
       } );
 
-    // beam color, a left-to-right linear gradient that transitions inside the solution
+    // @public beam color, a left-to-right linear gradient that transitions inside the solution
     thisBeam.fillProperty = new DerivedProperty( [ thisBeam.visibleProperty, cuvette.widthProperty, light.wavelengthProperty, absorbance.absorbanceProperty ],
       function( beamVisible, cuvetteWidth, wavelength, absorbanceValue ) {
         if ( beamVisible ) {

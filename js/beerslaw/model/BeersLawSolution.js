@@ -54,6 +54,7 @@ define( function( require ) {
 
     var thisSolution = this;
 
+    // @public
     thisSolution.solvent = Solvent.WATER;
     thisSolution.name = name;
     thisSolution.formula = formula;
@@ -64,7 +65,7 @@ define( function( require ) {
     thisSolution.colorRange = colorRange;
     thisSolution.saturatedColor = saturatedColor || colorRange.max;
 
-    // Solution color is derived from concentration
+    // @public Solution color is derived from concentration
     thisSolution.fluidColorProperty = new DerivedProperty( [ thisSolution.concentrationProperty ],
       function( concentration ) {
         var color = thisSolution.solvent.colorProperty.get();
@@ -78,10 +79,12 @@ define( function( require ) {
 
   inherit( Object, BeersLawSolution, {
 
+    // @public
     reset: function() {
       this.concentrationProperty.reset();
     },
 
+    // @public
     getDisplayName: function() {
       if ( this.formula === this.name ) {
         return this.name;
@@ -89,6 +92,7 @@ define( function( require ) {
       return StringUtils.format( pattern_0formula_1name, this.formula, this.name );
     },
 
+    // @public
     getDisplayConcentration: function( concentration ) {
       var valueText = Util.toFixed( this.concentrationTransform.modelToView( concentration ), 0 );
       return StringUtils.format( pattern_0value_1units, valueText, this.concentrationTransform.units );

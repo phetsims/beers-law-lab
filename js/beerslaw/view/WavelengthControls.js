@@ -145,6 +145,7 @@ define( function( require ) {
 
   return inherit( Panel, WavelengthControls, {
 
+    // @public
     reset: function() {
       this.variableWavelengthProperty.reset();
     }

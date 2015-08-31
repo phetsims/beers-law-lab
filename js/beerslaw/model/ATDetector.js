@@ -29,10 +29,12 @@ define( function( require ) {
 
   inherit( Movable, Probe, {
 
+    // @public
     getMinY: function() {
       return this.locationProperty.get().y - ( this.sensorDiameter / 2 );
     },
 
+    // @public
     getMaxY: function() {
       return this.locationProperty.get().y + ( this.sensorDiameter / 2 );
     }
@@ -53,13 +55,13 @@ define( function( require ) {
     var thisDetector = this;
 
     thisDetector.light = light; // @private
-    thisDetector.body = new Movable( bodyLocation, bodyDragBounds );
-    thisDetector.probe = new Probe( probeLocation, probeDragBounds, 0.57 );
+    thisDetector.body = new Movable( bodyLocation, bodyDragBounds ); // @public
+    thisDetector.probe = new Probe( probeLocation, probeDragBounds, 0.57 ); // @public
 
-    // for switching between absorbance (A) and percent transmittance (%T)
+    // @public for switching between absorbance (A) and percent transmittance (%T)
     thisDetector.modeProperty = new Property( ATDetector.Mode.TRANSMITTANCE );
 
-    // value is either absorbance (A) or percent transmittance (%T) depending on mode
+    // @public value is either absorbance (A) or percent transmittance (%T) depending on mode
     thisDetector.valueProperty = new DerivedProperty( [
         thisDetector.probe.locationProperty,
         thisDetector.light.onProperty,
@@ -86,13 +88,14 @@ define( function( require ) {
 
   return inherit( Object, ATDetector, {
 
+    // @public
     reset: function() {
       this.body.reset();
       this.probe.reset();
       this.modeProperty.reset();
     },
 
-    // Is the probe in some segment of the beam?
+    // @public Is the probe in some segment of the beam?
     probeInBeam: function() {
       return this.light.onProperty.get() &&
              ( this.probe.getMinY() < this.light.getMinY() ) &&

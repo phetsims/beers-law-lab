@@ -24,6 +24,7 @@ define( function( require ) {
 
     Movable.call( this, location, dragBounds );
 
+    // @public (read-only)
     this.length = length;
     this.insets = insets;
     this.height = height;

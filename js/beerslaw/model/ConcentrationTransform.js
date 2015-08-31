@@ -28,6 +28,8 @@ define( function( require ) {
    * @constructor
    */
   function ConcentrationTransform( scale, units ) {
+
+    // @public (read-only)
     this.scale = scale;
     this.units = units;
   }
@@ -38,6 +40,7 @@ define( function( require ) {
      * Converts from model (M) to view (solution specific).
      * @param {number} modelConcentration
      * @returns {number}
+     * @public
      */
     modelToView: function( modelConcentration ) {
       return modelConcentration * this.scale;
@@ -47,6 +50,7 @@ define( function( require ) {
      * Converts from view (solution specific) to model (M).
      * @param {number} viewConcentration
      * @returns {number}
+     * @public
      */
     viewToModel: function( viewConcentration ) {
       return viewConcentration / this.scale;

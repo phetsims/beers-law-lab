@@ -39,13 +39,13 @@ define( function( require ) {
 
     var thisAbsorbance = this;
 
-    // a : molar absorptivity
+    // @public a : molar absorptivity
     thisAbsorbance.molarAbsorptivityProperty = new DerivedProperty( [ solutionProperty, light.wavelengthProperty ],
       function( solution, wavelength ) {
         return solution.molarAbsorptivityData.wavelengthToMolarAbsorptivity( wavelength );
       } );
 
-    // C : concentration property, wired to the current solution's concentration
+    // @public C : concentration property, wired to the current solution's concentration
     {
       thisAbsorbance.concentrationProperty = new Property( solutionProperty.get().concentrationProperty.get() ); // @private
 
@@ -64,7 +64,7 @@ define( function( require ) {
       } );
     }
 
-    // absorbance: A = abC
+    // @public absorbance: A = abC
     thisAbsorbance.absorbanceProperty = new DerivedProperty( [ thisAbsorbance.molarAbsorptivityProperty, cuvette.widthProperty, thisAbsorbance.concentrationProperty ],
       function( molarAbsorptivity, pathLength, concentration ) {
         return getAbsorbance( molarAbsorptivity, pathLength, concentration );
@@ -93,17 +93,17 @@ define( function( require ) {
 
   return inherit( Object, Absorbance, {
 
-    // Gets absorbance for a specified path length.
+    // @public Gets absorbance for a specified path length.
     getAbsorbanceAt: function( pathLength ) {
       return getAbsorbance( this.molarAbsorptivityProperty.get(), pathLength, this.concentrationProperty.get() );
     },
 
-    // Gets transmittance for a specified path length.
+    // @public Gets transmittance for a specified path length.
     getTransmittanceAt: function( pathLength ) {
       return getTransmittance( this.getAbsorbanceAt( pathLength ) );
     },
 
-    // Converts absorbance to transmittance.
+    // @public Converts absorbance to transmittance.
     getTransmittance: function() {
       return getTransmittance( this.absorbanceProperty.get() );
     }

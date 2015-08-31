@@ -24,10 +24,13 @@ define( function( require ) {
 
     var thisLight = this;
 
+    // @public (read-only)
     thisLight.location = location;
+    thisLight.lensDiameter = lensDiameter;
+
+    // @public
     thisLight.onProperty = new Property( on );
     thisLight.wavelengthProperty = new Property( solutionProperty.get().molarAbsorptivityData.lambdaMax ); // nm
-    thisLight.lensDiameter = lensDiameter;
 
     // when the solution changes, set the light to the solution's lambdaMax wavelength
     solutionProperty.link( function( solution ) {
@@ -37,14 +40,17 @@ define( function( require ) {
 
   return inherit( Object, Light, {
 
+    // @public
     reset: function() {
       this.onProperty.reset();
     },
 
+    // @public
     getMinY: function() {
       return this.location.y - ( this.lensDiameter / 2 );
     },
 
+    // @public
     getMaxY: function() {
       return this.location.y + ( this.lensDiameter / 2 );
     }

@@ -25,6 +25,8 @@ define( function( require ) {
    * @constructor
    */
   function Cuvette( location, widthRange, height ) {
+
+    // @public (read-only)
     this.location = location;
     this.widthRange = widthRange;
     this.widthProperty = new Property( widthRange.defaultValue );
@@ -32,6 +34,8 @@ define( function( require ) {
   }
 
   return inherit( Object, Cuvette, {
+
+    // @public
     reset: function() {
       this.widthProperty.reset();
     }
