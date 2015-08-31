@@ -32,11 +32,19 @@ define( function( require ) {
     thisSolution.soluteAmountProperty = new Property( soluteAmount, { tandem: tandem.createTandem( 'soluteAmount' ) } );
     thisSolution.volumeProperty = new Property( volume, { tandem: tandem.createTandem( 'volume' ) } );
 
+    // @public for deferring update of precipitateAmount until we've changed both volume and soluteAmount, see concentration#1
+    thisSolution.updatePrecipitateAmount = true;
+
     // derive amount of precipitate (moles)
     thisSolution.precipitateAmountProperty = new DerivedProperty(
       [ thisSolution.soluteProperty, thisSolution.soluteAmountProperty, thisSolution.volumeProperty ],
       function( solute, soluteAmount, volume ) {
-        return Math.max( 0, soluteAmount - ( volume * thisSolution.getSaturatedConcentration() ) );
+        if ( thisSolution.updatePrecipitateAmount ) {
+          return Math.max( 0, soluteAmount - ( volume * thisSolution.getSaturatedConcentration() ) );
+        }
+        else {
+          return thisSolution.precipitateAmountProperty.get();
+        }
       },
       { tandem: tandem.createTandem( 'precipitateAmount' ) }
     );

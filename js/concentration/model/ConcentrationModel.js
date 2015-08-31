@@ -143,7 +143,11 @@ define( function( require ) {
     addStockSolutionFromDropper: function( deltaSeconds ) {
       var dropperVolume = this.dropper.flowRateProperty.get() * deltaSeconds;
       if ( dropperVolume > 0 ) {
+
+        // defer update of precipitateAmount until we've changed both volume and solute amount, see concentration#1
+        this.solution.updatePrecipitateAmount = false;
         var volumeAdded = this.addSolvent( dropperVolume );
+        this.solution.updatePrecipitateAmount = true;
         this.addSolute( this.solution.soluteProperty.get().stockSolutionConcentration * volumeAdded );
       }
     },
