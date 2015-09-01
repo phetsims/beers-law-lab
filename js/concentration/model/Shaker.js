@@ -29,10 +29,12 @@ define( function( require ) {
     var thisShaker = this;
     Movable.call( thisShaker, location, dragBounds, tandem.createTandem( 'location' ) );
 
+    // @public (read-only)
     thisShaker.orientation = orientation;
-    thisShaker.soluteProperty = soluteProperty;
     thisShaker.maxDispensingRate = maxDispensingRate;
 
+    // @public
+    thisShaker.soluteProperty = soluteProperty;
     thisShaker.visibleProperty = new Property( visible );
     thisShaker.emptyProperty = new Property( false );
     thisShaker.dispensingRateProperty = new Property( 0 );
@@ -50,6 +52,7 @@ define( function( require ) {
 
   return inherit( Movable, Shaker, {
 
+    // @public
     reset: function() {
       Movable.prototype.reset.call( this );
       this.visibleProperty.reset();
@@ -58,7 +61,7 @@ define( function( require ) {
       this.previousLocation = this.locationProperty.get(); // to prevent shaker from dispensing solute when its location is reset
     },
 
-    // Sets the dispensing rate if the shaker is moving.
+    // @public Sets the dispensing rate if the shaker is moving.
     step: function() {
       var thisShaker = this;
       if ( thisShaker.visibleProperty.get() && !thisShaker.emptyProperty.get() ) {

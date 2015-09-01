@@ -36,6 +36,7 @@ define( function( require ) {
 
     var thisParticles = this;
 
+    // @private
     thisParticles.shaker = shaker;
     thisParticles.solution = solution;
     thisParticles.beaker = beaker;
@@ -69,7 +70,7 @@ define( function( require ) {
 
   return inherit( Particles, ShakerParticles, {
 
-    // Particle animation and delivery to the solution, called when the simulation clock ticks.
+    // @public Particle animation and delivery to the solution, called when the simulation clock ticks.
     step: function( deltaSeconds ) {
 
       var beaker = this.beaker;
@@ -128,6 +129,7 @@ define( function( require ) {
       this.particles.splice( this.particles.indexOf( particle ), 1 );
     },
 
+    // @public
     removeAllParticles: function() {
       var particles = this.particles.slice( 0 );
       for ( var i = 0; i < particles.length; i++ ) {
@@ -152,6 +154,7 @@ define( function( require ) {
      * The argument is defined in concentration-api.js.
      * TODO: To fully support save/load, we must also capture the particle velocities, solute type, orientation, etc.
      * @param {Object} value - the state as loaded by concentration-api.js
+     * @public
      */
     setValueToSim: function( value ) {
       this.removeAllParticles();

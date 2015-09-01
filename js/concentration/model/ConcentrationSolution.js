@@ -27,7 +27,9 @@ define( function( require ) {
 
     var thisSolution = this;
 
-    thisSolution.solvent = Solvent.WATER;
+    thisSolution.solvent = Solvent.WATER; // @public (read-only)
+
+    // @public
     thisSolution.soluteProperty = soluteProperty;
     thisSolution.soluteAmountProperty = new Property( soluteAmount, { tandem: tandem.createTandem( 'soluteAmount' ) } );
     thisSolution.volumeProperty = new Property( volume, { tandem: tandem.createTandem( 'volume' ) } );
@@ -35,7 +37,7 @@ define( function( require ) {
     // @public for deferring update of precipitateAmount until we've changed both volume and soluteAmount, see concentration#1
     thisSolution.updatePrecipitateAmount = true;
 
-    // derive amount of precipitate (moles)
+    // @public derive amount of precipitate (moles)
     thisSolution.precipitateAmountProperty = new DerivedProperty(
       [ thisSolution.soluteProperty, thisSolution.soluteAmountProperty, thisSolution.volumeProperty ],
       function( solute, soluteAmount, volume ) {
@@ -49,7 +51,7 @@ define( function( require ) {
       { tandem: tandem.createTandem( 'precipitateAmount' ) }
     );
 
-    // derive concentration (M = mol/L)
+    // @public derive concentration (M = mol/L)
     thisSolution.concentrationProperty = new DerivedProperty(
       [ thisSolution.soluteProperty, thisSolution.soluteAmountProperty, thisSolution.volumeProperty ],
       function( solute, soluteAmount, volume ) {
@@ -69,17 +71,19 @@ define( function( require ) {
 
   return inherit( Fluid, ConcentrationSolution, {
 
+    // @public
     reset: function() {
       Fluid.prototype.reset.call( this );
       this.soluteAmountProperty.reset();
       this.volumeProperty.reset();
     },
 
-    // convenience function
+    // @public convenience function
     getSaturatedConcentration: function() {
       return this.soluteProperty.get().getSaturatedConcentration();
     },
 
+    // @public
     isSaturated: function() {
       var saturated = false;
       if ( this.volumeProperty.get() > 0 ) {
@@ -88,6 +92,7 @@ define( function( require ) {
       return saturated;
     },
 
+    // @public
     getNumberOfPrecipitateParticles: function() {
       var numberOfParticles = Math.round( this.soluteProperty.get().particlesPerMole * this.precipitateAmountProperty.get() );
       if ( numberOfParticles === 0 && this.precipitateAmountProperty.get() > 0 ) {
@@ -96,7 +101,6 @@ define( function( require ) {
       return numberOfParticles;
     }
   }, {
-    // static
 
     /*
      * Creates a color that corresponds to the solution's concentration.

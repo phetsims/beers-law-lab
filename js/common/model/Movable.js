@@ -21,11 +21,13 @@ define( function( require ) {
    * @constructor
    */
   function Movable( location, dragBounds, tandem ) {
-    this.locationProperty = new Property( location, { tandem: tandem } );
-    this.dragBounds = dragBounds;
+    this.locationProperty = new Property( location, { tandem: tandem } ); // @public
+    this.dragBounds = dragBounds; // @public (read-only)
   }
 
   return inherit( Object, Movable, {
+
+    // @public
     reset: function() {
       this.locationProperty.reset();
     }

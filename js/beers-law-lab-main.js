@@ -15,7 +15,6 @@ define( function( require ) {
   var SimLauncher = require( 'JOIST/SimLauncher' );
   var Tandem = require( 'TANDEM/Tandem' );
 
-
   // strings
   var simTitle = require( 'string!BEERS_LAW_LAB/beers-law-lab.name' );
 

@@ -27,10 +27,13 @@ define( function( require ) {
 
     var thisFaucet = this;
 
+    // @public (read-only)
     thisFaucet.location = location;
     thisFaucet.pipeMinX = pipeMinX;
     thisFaucet.spoutWidth = spoutWidth;
     thisFaucet.maxFlowRate = maxFlowRate;
+
+    // @public
     thisFaucet.flowRateProperty = new Property( 0, { tandem: tandem.createTandem( 'flowRate' ) } );
     thisFaucet.enabledProperty = new Property( true );
 
@@ -43,6 +46,8 @@ define( function( require ) {
   }
 
   return inherit( Object, Faucet, {
+
+    // @public
     reset: function() {
       this.flowRateProperty.reset();
       this.enabledProperty.reset();

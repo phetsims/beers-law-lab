@@ -27,6 +27,7 @@ define( function( require ) {
     var thisDropper = this;
     Movable.call( thisDropper, location, dragBounds, tandem.createTandem( 'location' ) );
 
+    // @public
     thisDropper.soluteProperty = soluteProperty;
     thisDropper.visibleProperty = new Property( visible );
     thisDropper.dispensingProperty = new Property( false, { tandem: tandem.createTandem( 'dispensing' ) } ); // true if the dropper is dispensing solution
@@ -55,6 +56,8 @@ define( function( require ) {
   }
 
   return inherit( Movable, Dropper, {
+
+    // @public
     reset: function() {
       Movable.prototype.reset.call( this );
       this.visibleProperty.reset();

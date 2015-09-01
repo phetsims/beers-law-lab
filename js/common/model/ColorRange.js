@@ -18,6 +18,7 @@ define( function( require ) {
    * @constructor
    */
   function ColorRange( min, max ) {
+    // @public (read-only)
     this.min = min;
     this.max = max;
   }
@@ -29,6 +30,7 @@ define( function( require ) {
      *
      * @param {number} distance 0-1 (0=min, 1=max)
      * @return {Color}
+     * @public
      */
     interpolateLinear: function( distance ) {
       assert && assert( distance >= 0 && distance <= 1 );

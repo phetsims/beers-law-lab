@@ -27,12 +27,17 @@ define( function( require ) {
    * @constructor
    */
   function ConcentrationMeter( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds, tandem ) {
-    this.valueProperty = new Property( NaN ); // NaN if the meter is not reading a value
+
+    this.valueProperty = new Property( NaN ); // @public NaN if the meter is not reading a value
+
+    // @public (read-only)
     this.body = new Movable( bodyLocation, bodyDragBounds, tandem.createTandem( 'body.location' ) );
     this.probe = new Movable( probeLocation, probeDragBounds, tandem.createTandem( 'probe.location' ) );
   }
 
   return inherit( Object, ConcentrationMeter, {
+
+    // @public
     reset: function() {
       this.valueProperty.reset();
       this.body.reset();

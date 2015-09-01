@@ -22,7 +22,9 @@ define( function( require ) {
 
     var thisEvaporator = this;
 
-    thisEvaporator.maxEvaporationRate = maxEvaporationRate; // L/sec
+    thisEvaporator.maxEvaporationRate = maxEvaporationRate; // @public (read-only) L/sec
+
+    // @public
     thisEvaporator.evaporationRateProperty = new Property( 0, { tandem: tandem.createTandem( 'evaporationRate' ) } ); // L/sec
     thisEvaporator.enabledProperty = new Property( true, { tandem: tandem.createTandem( 'evaporationEnabled' ) } );
 
@@ -40,6 +42,8 @@ define( function( require ) {
   }
 
   return inherit( Object, Evaporator, {
+
+    // @public
     reset: function() {
       this.evaporationRateProperty.reset();
       this.enabledProperty.reset();

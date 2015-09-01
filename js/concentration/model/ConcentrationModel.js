@@ -45,7 +45,7 @@ define( function( require ) {
 
     var thisModel = this;
 
-    // Solutes, in rainbow (ROYGBIV) order.
+    // @public Solutes, in rainbow (ROYGBIV) order.
     thisModel.solutes = [
       Solute.DRINK_MIX,
       Solute.COBALT_II_NITRATE,
@@ -57,10 +57,11 @@ define( function( require ) {
       Solute.POTASSIUM_PERMANGANATE
     ];
 
-    // model elements
+    // @public
     thisModel.soluteProperty = new Property( thisModel.solutes[ 0 ], { tandem: tandem.createTandem( 'solute' ) } );
     thisModel.soluteFormProperty = new Property( 'solid', { tandem: tandem.createTandem( 'soluteForm' ) } ); // 'solid' or 'liquid'
 
+    // @public
     thisModel.solution = new ConcentrationSolution( thisModel.soluteProperty, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue, tandem.createTandem( 'solution' ) );
     thisModel.beaker = new Beaker( new Vector2( 400, 550 ), new Dimension2( 600, 300 ), 1 );
     thisModel.precipitate = new Precipitate( thisModel.solution, thisModel.beaker );
@@ -98,7 +99,7 @@ define( function( require ) {
 
   return inherit( Object, ConcentrationModel, {
 
-    // Resets all model elements
+    // @public Resets all model elements
     reset: function() {
       this.soluteProperty.reset();
       this.soluteFormProperty.reset();
@@ -114,6 +115,7 @@ define( function( require ) {
     /*
      * Moves time forward by the specified amount.
      * @param deltaSeconds clock time change, in seconds.
+     * @public
      */
     step: function( deltaSeconds ) {
       this.addSolventFromInputFaucet( deltaSeconds );

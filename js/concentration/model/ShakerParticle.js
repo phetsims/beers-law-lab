@@ -28,6 +28,7 @@ define( function( require ) {
 
     SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation );
 
+    // @private
     this.solute = solute;
     this.velocity = initialVelocity;
     this.acceleration = acceleration;
@@ -39,6 +40,7 @@ define( function( require ) {
      *  Propagates the particle to a new location.
      *  @param {number} deltaSeconds
      *  @param {Beaker} beaker
+     *  @public
      */
     step: function( deltaSeconds, beaker ) {
       // mutable calls added to remove the number of new objects we create

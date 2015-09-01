@@ -17,10 +17,12 @@ define( function( require ) {
    * @constructor
    */
   function Fluid( color ) {
-    this.colorProperty = new Property( color );
+    this.colorProperty = new Property( color ); // @public
   }
 
   return inherit( Object, Fluid, {
+
+    // @public
     reset: function() {
       this.colorProperty.reset();
     }

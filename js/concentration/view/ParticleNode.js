@@ -29,7 +29,7 @@ define( function( require ) {
       lineWidth: 1
     } );
 
-    thisNode.particle = particle;
+    thisNode.particle = particle; // @private
     thisNode.rotation = particle.orientation;
 
     particle.locationProperty.link( function() {

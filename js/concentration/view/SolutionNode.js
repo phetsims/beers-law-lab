@@ -28,6 +28,7 @@ define( function( require ) {
     var thisNode = this;
     Rectangle.call( thisNode, 0, 0, 1, 1, { lineWidth: 1 } );
 
+    // @private
     thisNode.solution = solution;
     thisNode.beaker = beaker;
 

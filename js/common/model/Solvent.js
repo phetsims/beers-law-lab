@@ -25,7 +25,10 @@ define( function( require ) {
    * @constructor
    */
   function Solvent( name, formula, color ) {
+
     Fluid.call( this, color );
+
+    // @public (read-only)
     this.name = name;
     this.formula = formula;
   }

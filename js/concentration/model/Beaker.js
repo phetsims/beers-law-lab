@@ -19,6 +19,8 @@ define( function( require ) {
    * @constructor
    */
   function Beaker( location, size, volume ) {
+
+    // @public (read-only)
     this.location = location;
     this.size = size;
     this.volume = volume;
@@ -26,16 +28,17 @@ define( function( require ) {
 
   return inherit( Object, Beaker, {
 
+    // @public
     reset: function() {
       // currently nothing to reset
     },
 
-    // Gets the x-coordinate of the left wall.
+    // @public Gets the x-coordinate of the left wall.
     getLeft: function() {
       return this.location.x - ( this.size.width / 2 );
     },
 
-    // Gets the x-coordinate of the right wall.
+    // @public Gets the x-coordinate of the right wall.
     getRight: function() {
       return this.location.x + ( this.size.width / 2 );
     }

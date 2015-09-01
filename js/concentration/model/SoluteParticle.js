@@ -20,10 +20,15 @@ define( function( require ) {
    * @constructor
    */
   function SoluteParticle( color, size, location, orientation ) {
+
+    // @public (read-only)
     this.color = color;
     this.size = size;
-    this.locationProperty = new Property( location );
     this.orientation = orientation;
+
+    // @public
+    this.locationProperty = new Property( location );
+
   }
 
   return SoluteParticle;

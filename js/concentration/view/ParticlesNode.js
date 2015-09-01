@@ -24,8 +24,8 @@ define( function( require ) {
 
     var thisNode = this;
 
-    thisNode.particles = particles;
-    thisNode.modelViewTransform = modelViewTransform;
+    thisNode.particles = particles;  // @public
+    thisNode.modelViewTransform = modelViewTransform; // @public
 
     CanvasNode.call( thisNode, { pickable: false, canvasBounds: canvasBounds } );
 
@@ -37,8 +37,9 @@ define( function( require ) {
   return inherit( CanvasNode, ParticlesNode, {
 
     /**
-     * @override
      * @param {CanvasContextWrapper} wrapper
+     * @override
+     * @public
      */
     paintCanvas: function( wrapper ) {
 

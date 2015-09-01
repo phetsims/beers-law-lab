@@ -26,6 +26,7 @@ define( function( require ) {
 
     var thisPrecipitate = this;
 
+    // @private
     thisPrecipitate.solution = solution;
     thisPrecipitate.beaker = beaker;
 
@@ -49,10 +50,10 @@ define( function( require ) {
   return inherit( Particles, Precipitate, {
 
     /*
-     * @private
      * Adds/removes particles to match the model.
      * To optimize performance, clients who register for the 'change' callback will assume that
      * particles are added/removed from the end of the 'particles' array.  See #48.
+     * @private
      */
     updateParticles: function() {
       var numberOfParticles = this.solution.getNumberOfPrecipitateParticles(); // number of particles desired after this update
