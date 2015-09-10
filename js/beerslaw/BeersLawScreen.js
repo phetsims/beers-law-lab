@@ -18,7 +18,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // strings
-  var beersLawString = require( 'string!BEERS_LAW_LAB/tab.beersLaw' );
+  var beersLawString = require( 'string!BEERS_LAW_LAB/screen.beersLaw' );
 
   // image
   var screenIcon = require( 'image!BEERS_LAW_LAB/BeersLaw-screen-icon.jpg' );

@@ -77,10 +77,10 @@
   "solution": {
     "value": "Solution"
   },
-  "tab.concentration": {
+  "screen.concentration": {
     "value": "Concentration"
   },
-  "tab.beersLaw": {
+  "screen.beersLaw": {
     "value": "Beer's Law"
   },
   "transmittance": {

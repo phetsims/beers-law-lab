@@ -17,7 +17,7 @@ define( function( require ) {
   var Screen = require( 'JOIST/Screen' );
 
   // strings
-  var concentrationString = require( 'string!BEERS_LAW_LAB/tab.concentration' );
+  var concentrationString = require( 'string!BEERS_LAW_LAB/screen.concentration' );
 
   // images
   var screenIcon = require( 'image!BEERS_LAW_LAB/Concentration-screen-icon.jpg' );
