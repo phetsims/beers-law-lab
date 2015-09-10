@@ -16,7 +16,7 @@ define( function( require ) {
   var Tandem = require( 'TANDEM/Tandem' );
 
   // strings
-  var simTitle = require( 'string!BEERS_LAW_LAB/beers-law-lab.name' );
+  var simTitle = require( 'string!BEERS_LAW_LAB/beers-law-lab.title' );
 
   var simOptions = {
     credits: {
