@@ -16,7 +16,8 @@
   "phet": {
     "requirejsNamespace": "BEERS_LAW_LAB",
     "phetLibs": [
-      "nitroglycerin"
+      "nitroglycerin",
+      "tandem"
     ]
   }
 }
