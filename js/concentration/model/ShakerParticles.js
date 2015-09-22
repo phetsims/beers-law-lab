@@ -156,7 +156,7 @@ define( function( require ) {
      * @param {Object} value - the state as loaded by concentration-api.js
      * @public
      */
-    setValueToSim: function( value ) {
+    setValue: function( value ) {
       this.removeAllParticles();
       for ( var i = 0; i < value.length; i++ ) {
         var particle = value[ i ];
