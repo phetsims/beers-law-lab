@@ -22,7 +22,7 @@ define( function( require ) {
    * @param {Shaker} shaker
    * @param {Dropper} dropper
    * @param {Node} soluteListParent
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @param {Object} [options]
    * @constructor
    */

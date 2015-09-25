@@ -47,7 +47,7 @@ define( function( require ) {
    * @param {Property.<string>} soluteFormProperty form of the solute, 'solid' or 'liquid'
    * @param {Shaker} shaker
    * @param {Dropper} dropper
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @constructor
    */
   function SoluteFormNode( soluteFormProperty, shaker, dropper, tandem ) {

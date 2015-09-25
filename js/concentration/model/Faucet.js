@@ -18,7 +18,7 @@ define( function( require ) {
    * @param {number} pipeMinX x-coordinate of where the pipe starts
    * @param {number} spoutWidth
    * @param {number} maxFlowRate L/sec
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @constructor
    */
   function Faucet( location, pipeMinX, spoutWidth, maxFlowRate, tandem ) {

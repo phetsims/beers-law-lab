@@ -16,7 +16,7 @@ define( function( require ) {
   /**
    * @param {Faucet} faucet
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @param {Object} [options]
    * @constructor
    */

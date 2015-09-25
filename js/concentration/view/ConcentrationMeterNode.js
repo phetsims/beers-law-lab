@@ -59,7 +59,7 @@ define( function( require ) {
    * so it has no drag handler
    * @param {ConcentrationMeter} meter
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @constructor
    */
   function BodyNode( meter, modelViewTransform, tandem ) {
@@ -151,7 +151,7 @@ define( function( require ) {
    * @param {Node} stockSolutionNode
    * @param {Node} solventFluidNode
    * @param {Node} drainFluidNode
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @constructor
    */
   function ProbeNode( probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, tandem ) {
@@ -264,7 +264,7 @@ define( function( require ) {
    * @param {Node} solventFluidNode
    * @param {Node} drainFluidNode
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @constructor
    */
   function ConcentrationMeterNode( meter, solution, dropper, solutionNode, stockSolutionNode, solventFluidNode,

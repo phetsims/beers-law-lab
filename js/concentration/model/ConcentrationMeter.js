@@ -23,7 +23,7 @@ define( function( require ) {
    * @param {Bounds2} bodyDragBounds
    * @param {Vector2} probeLocation
    * @param {Bounds2} probeDragBounds
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @constructor
    */
   function ConcentrationMeter( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds, tandem ) {

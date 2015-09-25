@@ -23,7 +23,7 @@ define( function( require ) {
   var screenIcon = require( 'image!BEERS_LAW_LAB/Concentration-screen-icon.jpg' );
 
   /**
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @constructor
    */
   function ConcentrationScreen( tandem ) {

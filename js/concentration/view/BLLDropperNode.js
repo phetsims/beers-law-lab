@@ -24,7 +24,7 @@ define( function( require ) {
    * @param {Solvent} solvent
    * @param {Property.<Solute>} soluteProperty
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @constructor
    */
   function BLLDropperNode( dropper, solvent, soluteProperty, modelViewTransform, tandem ) {

@@ -17,7 +17,7 @@ define( function( require ) {
    * Constructor
    * @param {Vector2} location
    * @param {Bounds2} dragBounds
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @constructor
    */
   function Movable( location, dragBounds, tandem ) {

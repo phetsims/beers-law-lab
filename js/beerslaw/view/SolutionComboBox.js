@@ -26,7 +26,7 @@ define( function( require ) {
    * @param {BeersLawSolution[]} solutions
    * @param {Property.<BeersLawSolution>} selectedSolutionProperty
    * @param {Node} soluteListParent
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @constructor
    */
   function SolutionComboBox( solutions, selectedSolutionProperty, soluteListParent, tandem ) {
@@ -54,7 +54,7 @@ define( function( require ) {
    * Creates a combo box item.
    * @private
    * @param {Solution} solution
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @returns {{node: *, value: *}}
    */
   var createItem = function( solution, tandem ) {

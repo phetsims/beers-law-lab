@@ -27,7 +27,7 @@ define( function( require ) {
    * @param {Shaker} shaker
    * @param {ConcentrationSolution} solution
    * @param {Beaker} beaker
-   * @param {Tandem} tandem - support for exporting instances from the sim
+   * @param {Tandem} tandem
    * @constructor
    */
   function ShakerParticles( shaker, solution, beaker, tandem ) {
