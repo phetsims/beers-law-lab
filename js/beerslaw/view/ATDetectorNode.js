@@ -13,13 +13,13 @@ define( function( require ) {
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var Bounds2 = require( 'DOT/Bounds2' );
+  var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LayoutBox = require( 'SCENERY/nodes/LayoutBox' );
   var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var ProbeNode = require( 'SCENERY_PHET/ProbeNode' );
   var ShadedRectangle = require( 'SCENERY_PHET/ShadedRectangle' );
   var Shape = require( 'KITE/Shape' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
@@ -27,10 +27,13 @@ define( function( require ) {
   var Util = require( 'DOT/Util' );
   var Vector2 = require( 'DOT/Vector2' );
 
-  // strings
+  //strings
   var absorbanceString = require( 'string!BEERS_LAW_LAB/absorbance' );
   var pattern_0percent = require( 'string!BEERS_LAW_LAB/pattern.0percent' );
   var transmittanceString = require( 'string!BEERS_LAW_LAB/transmittance' );
+
+  // images
+  var probeImage = require( 'image!BEERS_LAW_LAB/at-detector-probe.png' );
 
   // constants
   var ABSORBANCE_DECIMAL_PLACES = 2;
@@ -40,7 +43,7 @@ define( function( require ) {
   var BODY_Y_MARGIN = 15;
   var VALUE_X_MARGIN = 6;
   var VALUE_Y_MARGIN = 4;
-  var PROBE_COLOR = 'rgb(8,133,54)';
+  var PROBE_CENTER_Y_OFFSET = 55; // specific to image file
 
   /**
    * The body of the detector, where A and T values are displayed.
@@ -99,7 +102,7 @@ define( function( require ) {
     var bodyWidth = vBox.width + ( 2 * BODY_X_MARGIN );
     var bodyHeight = vBox.height + ( 2 * BODY_Y_MARGIN );
     var bodyNode = new ShadedRectangle( new Bounds2( 0, 0, bodyWidth, bodyHeight ), {
-      baseColor: PROBE_COLOR,
+      baseColor: 'rgb(8,133,54)',
       lightOffset: 0.95
     } );
 
@@ -142,18 +145,15 @@ define( function( require ) {
    * @param {ModelViewTransform2} modelViewTransform
    * @constructor
    */
-  function ATProbeNode( probe, light, modelViewTransform ) {
+  function ProbeNode( probe, light, modelViewTransform ) {
 
     var thisNode = this;
-    ProbeNode.call( thisNode, {
-      radius: 55,
-      innerRadius: 40,
-      handleWidth: 68,
-      handleHeight: 60,
-      handleCornerRadius: 20,
-      lightAngle: 1.25 * Math.PI,
-      color: PROBE_COLOR
-    } );
+    Node.call( thisNode );
+
+    var imageNode = new Image( probeImage );
+    thisNode.addChild( imageNode );
+    imageNode.x = -imageNode.width / 2;
+    imageNode.y = -PROBE_CENTER_Y_OFFSET;
 
     // location
     probe.locationProperty.link( function( location ) {
@@ -175,12 +175,12 @@ define( function( require ) {
     } ) );
 
     // touch area
-    var dx = 0.25 * thisNode.width;
-    var dy = 0 * thisNode.height;
-    thisNode.touchArea = Shape.rectangle( thisNode.x - dx, thisNode.y - dy, thisNode.width + dx + dx, thisNode.height + dy + dy );
+    var dx = 0.25 * imageNode.width;
+    var dy = 0 * imageNode.height;
+    thisNode.touchArea = Shape.rectangle( imageNode.x - dx, imageNode.y - dy, imageNode.width + dx + dx, imageNode.height + dy + dy );
   }
 
-  inherit( Node, ATProbeNode );
+  inherit( Node, ProbeNode );
 
   /**
    * Wire that connects the body and probe.
@@ -236,7 +236,7 @@ define( function( require ) {
     Node.call( this );
 
     var bodyNode = new BodyNode( detector, modelViewTransform );
-    var probeNode = new ATProbeNode( detector.probe, light, modelViewTransform );
+    var probeNode = new ProbeNode( detector.probe, light, modelViewTransform );
     var wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
 
     this.addChild( wireNode );
