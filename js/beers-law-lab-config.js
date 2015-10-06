@@ -37,7 +37,7 @@ require.config( {
     TANDEM: '../../tandem/js',
 
     // this sim
-    BEERS_LAW_LAB: "."
+    BEERS_LAW_LAB: '.'
   },
 
   // optional cache buster to make browser refresh load all included scripts, can be disabled with ?cacheBuster=false

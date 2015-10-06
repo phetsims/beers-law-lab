@@ -111,7 +111,7 @@ define( function( require ) {
     if ( BODY_IS_DRAGGABLE ) {
       this.movableDragHandler = new MovableDragHandler( meter.body.locationProperty, {
         dragBounds: meter.body.dragBounds,
-        modelViewTransform: modelViewTransform,
+        modelViewTransform: modelViewTransform
       } );
       thisNode.addInputListener( this.movableDragHandler );
 
