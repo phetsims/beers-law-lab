@@ -29,13 +29,14 @@ define( function( require ) {
   function ConcentrationScreen( tandem ) {
 
     var modelViewTransform = ModelViewTransform2.createIdentity();
-    var screenTandem = tandem.createTandem( 'concentrationScreen' );
 
     Screen.call( this,
       concentrationString,
       new Image( screenIcon ),
-      function() { return new ConcentrationModel( screenTandem ); },
-      function( model ) { return new ConcentrationView( model, modelViewTransform, screenTandem ); }
+      function() { return new ConcentrationModel( tandem ); },
+      function( model ) { return new ConcentrationView( model, modelViewTransform, tandem ); }, {
+        tandemScreenName: 'concentrationScreen'
+      }
     );
   }
 

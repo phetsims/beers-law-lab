@@ -18,18 +18,24 @@ define( function( require ) {
   // strings
   var simTitle = require( 'string!BEERS_LAW_LAB/beers-law-lab.title' );
 
+  // constants
+  var tandem = new Tandem( 'beersLawLab' );
+
   var simOptions = {
     credits: {
       leadDesign: 'Julia Chamberlain',
       softwareDevelopment: 'Chris Malley (PixelZoom, Inc.)',
       team: 'Kelly Lancaster, Emily B. Moore, Ariel Paul, Kathy Perkins',
       thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
-    }
+    },
+    tandem: tandem
   };
 
   SimLauncher.launch( function() {
-    var tandem = new Tandem( 'beersLawLab');
-    var sim = new Sim( simTitle, [ new ConcentrationScreen( tandem ), new BeersLawScreen() ], simOptions );
+    var sim = new Sim( simTitle, [
+      new ConcentrationScreen( tandem.createTandem( 'concentrationScreen' ) ),
+      new BeersLawScreen( tandem.createTandem( 'beersLawScreen' ) )
+    ], simOptions );
     sim.start();
   } );
 } );

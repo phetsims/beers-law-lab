@@ -32,7 +32,9 @@ define( function( require ) {
       beersLawString,
       new Image( screenIcon ),
       function() { return new BeersLawModel( modelViewTransform ); },
-      function( model ) { return new BeersLawView( model, modelViewTransform ); }
+      function( model ) { return new BeersLawView( model, modelViewTransform ); }, {
+        tandemScreenName: 'beersLawScreen'
+      }
     );
   }
 
