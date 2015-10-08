@@ -61,8 +61,8 @@ define( function( require ) {
       } );
 
     // @public beam color, a left-to-right linear gradient that transitions inside the solution
-    thisBeam.fillProperty = new DerivedProperty( [ thisBeam.visibleProperty, cuvette.widthProperty, light.wavelengthProperty, absorbance.absorbanceProperty ],
-      function( beamVisible, cuvetteWidth, wavelength, absorbanceValue ) {
+    thisBeam.fillProperty = new DerivedProperty( [ thisBeam.visibleProperty, cuvette.widthProperty, light.wavelengthProperty ],
+      function( beamVisible, cuvetteWidth, wavelength ) {
         if ( beamVisible ) {
           var baseColor = VisibleColor.wavelengthToColor( wavelength );
           var leftColor = baseColor.withAlpha( MAX_LIGHT_ALPHA );
@@ -70,6 +70,9 @@ define( function( require ) {
           var x = modelViewTransform.modelToViewPosition( cuvette.location ).x;
           var w = modelViewTransform.modelToViewDeltaX( cuvetteWidth );
           return new LinearGradient( x, 0, x + w, 0 ).addColorStop( 0, leftColor ).addColorStop( 1, rightColor );
+        }
+        else {
+          return null;
         }
       } );
   }
