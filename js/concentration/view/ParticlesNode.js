@@ -37,13 +37,11 @@ define( function( require ) {
   return inherit( CanvasNode, ParticlesNode, {
 
     /**
-     * @param {CanvasContextWrapper} wrapper
+     * @param {CanvasRenderingContext2D} context
      * @override
      * @public
      */
-    paintCanvas: function( wrapper ) {
-
-      var context = wrapper.context;
+    paintCanvas: function( context ) {
 
       var particles = this.particles.particles;
       var halfViewSize;
@@ -52,9 +50,9 @@ define( function( require ) {
       // Set and compute static properties that should be shared by all of the particles, and start the path.
       // Assumes that all particles are the same color and size.
       if ( numberOfParticles > 0 ) {
-        wrapper.setFillStyle( particles[ 0 ].color );
-        wrapper.setStrokeStyle( particles[ 0 ].color.darkerColor() );
-        wrapper.setLineWidth( 1 );
+        context.fillStyle = particles[ 0 ].color.getCanvasStyle();
+        context.strokeStyle = particles[ 0 ].color.darkerColor().getCanvasStyle();
+        context.lineWidth = 1;
         halfViewSize = this.modelViewTransform.modelToViewDeltaX( particles[ 0 ].size ) * Math.SQRT2 / 2;
         context.beginPath();
       }
