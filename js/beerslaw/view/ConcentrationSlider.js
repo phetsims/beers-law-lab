@@ -149,7 +149,8 @@ define( function( require ) {
     thisNode.touchArea = Shape.rectangle( ( -thisNode.width / 2 ) - dx, ( -thisNode.height / 2 ) - dy, thisNode.width + dx + dx, thisNode.height + dy + dy );
 
     // set the drag handler and mapping function for the selected solution
-    var dragHandler, concentrationToPosition;
+    var dragHandler;
+    var concentrationToPosition;
     var setSolution = function( solution ) {
       // drag handler with solution's concentration range
       if ( dragHandler ) {
