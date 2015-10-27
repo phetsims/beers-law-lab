@@ -147,11 +147,11 @@ define( function( require ) {
     var thisNode = this;
 
     ProbeNode.call( thisNode, {
-      radius: 55,
+      radius: 53,
       innerRadius: 40,
       handleWidth: 68,
       handleHeight: 60,
-      handleCornerRadius: 20,
+      handleCornerRadius: 22,
       lightAngle: 1.25 * Math.PI,
       color: PROBE_COLOR
     } );
