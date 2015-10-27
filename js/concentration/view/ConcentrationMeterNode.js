@@ -21,13 +21,13 @@ define( function( require ) {
 
   // modules
   var Bounds2 = require( 'DOT/Bounds2' );
-  var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LayoutBox = require( 'SCENERY/nodes/LayoutBox' );
   var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  var ProbeNode = require( 'SCENERY_PHET/ProbeNode' );
   var ShadedRectangle = require( 'SCENERY_PHET/ShadedRectangle' );
   var Shape = require( 'KITE/Shape' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
@@ -41,9 +41,6 @@ define( function( require ) {
   var pattern_parentheses_0text = require( 'string!BEERS_LAW_LAB/pattern.parentheses.0text' );
   var units_molesPerLiterString = require( 'string!BEERS_LAW_LAB/units.molesPerLiter' );
 
-  // images
-  var probeImage = require( 'image!BEERS_LAW_LAB/concentration-meter-probe.png' );
-
   // constants
   var BODY_IS_DRAGGABLE = true;
   var VALUE_DECIMALS = 3;
@@ -52,6 +49,7 @@ define( function( require ) {
   var BODY_Y_MARGIN = 15;
   var VALUE_X_MARGIN = 6;
   var VALUE_Y_MARGIN = 4;
+  var PROBE_COLOR = 'rgb( 135, 4, 72 )';
 
   /**
    * Meter body, origin at upper left.
@@ -100,7 +98,7 @@ define( function( require ) {
     var bodyWidth = vBox.width + ( 2 * BODY_X_MARGIN );
     var bodyHeight = vBox.height + ( 2 * BODY_Y_MARGIN );
     var bodyNode = new ShadedRectangle( new Bounds2( 0, 0, bodyWidth, bodyHeight ), {
-      baseColor: 'rgb(135,4,72)',
+      baseColor: PROBE_COLOR,
       lightOffset: 0.95
     } );
 
@@ -154,18 +152,24 @@ define( function( require ) {
    * @param {Tandem} tandem
    * @constructor
    */
-  function ProbeNode( probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, tandem ) {
+  function ConcentrationProbeNode( probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, tandem ) {
 
     var thisNode = this;
-    Node.call( thisNode, {
+
+    ProbeNode.call( thisNode, {
+      sensorType: ProbeNode.crosshairs( {
+        intersectionRadius: 6
+      } ),
+      radius: 34,
+      innerRadius: 26,
+      handleWidth: 30,
+      handleHeight: 25,
+      handleCornerRadius: 12,
+      lightAngle: 1.75 * Math.PI,
+      color: PROBE_COLOR,
+      rotation: -Math.PI / 2,
       cursor: 'pointer'
     } );
-
-    var imageNode = new Image( probeImage );
-    thisNode.addChild( imageNode );
-    var radius = imageNode.height / 2; // assumes that image height defines the radius
-    imageNode.x = -radius;
-    imageNode.y = -radius;
 
     // probe location
     probe.locationProperty.link( function( location ) {
@@ -173,9 +177,9 @@ define( function( require ) {
     } );
 
     // touch area
-    var dx = 0.25 * imageNode.width;
-    var dy = 0.25 * imageNode.height;
-    thisNode.touchArea = Shape.rectangle( imageNode.x - dx, imageNode.y - dy, imageNode.width + dx + dx, imageNode.height + dy + dy );
+    var dx = 0.25 * thisNode.width;
+    var dy = 0.25 * thisNode.height;
+    thisNode.touchArea = Shape.rectangle( thisNode.x - dx, thisNode.y - dy, thisNode.width + dx + dx, thisNode.height + dy + dy );
 
     // drag handler
     this.movableDragHandler = new MovableDragHandler( probe.locationProperty, {
@@ -211,7 +215,7 @@ define( function( require ) {
     tandem.addInstance( this );
   }
 
-  inherit( Node, ProbeNode );
+  inherit( Node, ConcentrationProbeNode );
 
   /**
    * Wire that connects the body and probe.
@@ -274,7 +278,7 @@ define( function( require ) {
     Node.call( thisNode );
 
     var bodyNode = new BodyNode( meter, modelViewTransform, tandem.createTandem( 'body' ) );
-    var probeNode = new ProbeNode( meter.probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, tandem.createTandem( 'probe' ) );
+    var probeNode = new ConcentrationProbeNode( meter.probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, tandem.createTandem( 'probe' ) );
     var wireNode = new WireNode( meter.body, meter.probe, bodyNode, probeNode );
 
     // rendering order
