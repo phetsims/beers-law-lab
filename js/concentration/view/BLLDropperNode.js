@@ -46,6 +46,7 @@ define( function( require ) {
 
     // label
     var label = new SubSupText( '', {
+      maxWidth: 80, // determined empirically, to cover only the glass portion of the dropper
       font: new PhetFont( { size: 18, weight: 'bold' } ),
       fill: 'black'
     } );
