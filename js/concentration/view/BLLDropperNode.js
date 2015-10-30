@@ -75,10 +75,10 @@ define( function( require ) {
       // rotate to vertical, center the label in the dropper's glass
       label.rotation = -Math.PI / 2;
       label.centerX = 0;
-      label.centerY = thisNode.GLASS_MAX_Y - ( thisNode.GLASS_MAX_Y - thisNode.GLASS_MIN_Y ) / 2;
+      label.centerY = EyeDropperNode.GLASS_MAX_Y - ( EyeDropperNode.GLASS_MAX_Y - EyeDropperNode.GLASS_MIN_Y ) / 2;
 
       // translucent background for the label, so that it's visible on all solution colors
-      var width = 0.75 * thisNode.GLASS_WIDTH;
+      var width = 0.75 * EyeDropperNode.GLASS_WIDTH;
       var height = 1.2 * label.height;
       var x = label.centerX - ( width / 2 );
       var y = label.centerY - ( height / 2 );
