@@ -177,9 +177,7 @@ define( function( require ) {
     } );
 
     // touch area
-    var dx = 0.25 * thisNode.width;
-    var dy = 0.25 * thisNode.height;
-    thisNode.touchArea = thisNode.localBounds.dilatedXY( dx, dy );
+    thisNode.touchArea = thisNode.localBounds.dilatedXY( 0.25 * thisNode.width, 0.25 * thisNode.height );
 
     // drag handler
     this.movableDragHandler = new MovableDragHandler( probe.locationProperty, {
