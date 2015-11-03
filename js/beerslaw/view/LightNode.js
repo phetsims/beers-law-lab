@@ -34,7 +34,7 @@ define( function( require ) {
     var button = new RoundStickyToggleButton( false, true, light.onProperty, { baseColor: 'red' } );
 
     // expand touch area for button. Do this before scaling the button!
-    button.touchArea = Shape.circle( button.width / 2, button.height / 2, 1.0 * button.width /* radius */ );
+    button.touchArea = Shape.circle( 0, 0, 1.0 * button.width /* radius */ );
 
     // make the button fit in the housing
     button.setScaleMagnitude( 0.65 * housing.height / button.height );
