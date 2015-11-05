@@ -20,7 +20,7 @@ define( function( require ) {
 
   // strings
   var concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
-  var pattern_0label = require( 'string!BEERS_LAW_LAB/pattern.0label' );
+  var pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
 
   // constants
   var FONT = new PhetFont( 20 );
@@ -35,7 +35,7 @@ define( function( require ) {
     Node.call( thisNode );
 
     // nodes
-    var label = new Text( StringUtils.format( pattern_0label, concentrationString ), { font: FONT } );
+    var label = new Text( StringUtils.format( pattern0LabelString, concentrationString ), { font: FONT } );
     var slider = new ConcentrationSlider( solutionProperty );
     var valueDisplay = new Text( ' ' + solutionProperty.get().getDisplayConcentration( solutionProperty.get().concentrationRange.max ), { font: FONT } );
     var xMargin = 0.1 * valueDisplay.width;

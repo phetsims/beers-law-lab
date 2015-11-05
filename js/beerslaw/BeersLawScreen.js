@@ -18,7 +18,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // strings
-  var beersLawString = require( 'string!BEERS_LAW_LAB/screen.beersLaw' );
+  var screenBeersLawString = require( 'string!BEERS_LAW_LAB/screen.beersLaw' );
 
   // image
   var screenIcon = require( 'image!BEERS_LAW_LAB/BeersLaw-screen-icon.jpg' );
@@ -29,7 +29,7 @@ define( function( require ) {
     var modelViewTransform = ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 125 );
 
     Screen.call( this,
-      beersLawString,
+      screenBeersLawString,
       new Image( screenIcon ),
       function() { return new BeersLawModel( modelViewTransform ); },
       function( model ) { return new BeersLawView( model, modelViewTransform ); }, {

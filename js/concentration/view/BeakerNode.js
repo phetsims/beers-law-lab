@@ -19,8 +19,8 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
 
   //strings
-  var pattern_0value_1units = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
-  var units_litersString = require( 'string!BEERS_LAW_LAB/units.liters' );
+  var pattern0Value1UnitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
+  var unitsLitersString = require( 'string!BEERS_LAW_LAB/units.liters' );
 
   // constants
   var RIM_OFFSET = 20;
@@ -86,7 +86,7 @@ define( function( require ) {
       if ( isMajorTick ) {
         var labelIndex = ( i / MINOR_TICKS_PER_MAJOR_TICK ) - 1;
         if ( labelIndex < MAJOR_TICK_LABELS.length ) {
-          var label = StringUtils.format( pattern_0value_1units, MAJOR_TICK_LABELS[ labelIndex ], units_litersString );
+          var label = StringUtils.format( pattern0Value1UnitsString, MAJOR_TICK_LABELS[ labelIndex ], unitsLitersString );
           ticksParent.addChild( new Text( label, {
             font: new PhetFont( 24 ),
             fill: 'black',

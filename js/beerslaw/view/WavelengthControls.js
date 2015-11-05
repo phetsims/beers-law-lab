@@ -26,10 +26,10 @@ define( function( require ) {
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
 
   // strings
-  var pattern_0label = require( 'string!BEERS_LAW_LAB/pattern.0label' );
-  var pattern_0value1units = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
+  var pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
+  var pattern0Value1UnitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
   var fixedString = require( 'string!BEERS_LAW_LAB/fixed' );
-  var units_nmString = require( 'string!BEERS_LAW_LAB/units.nm' );
+  var unitsNmString = require( 'string!BEERS_LAW_LAB/units.nm' );
   var variableString = require( 'string!BEERS_LAW_LAB/variable' );
   var wavelengthString = require( 'string!BEERS_LAW_LAB/wavelength' );
 
@@ -47,7 +47,7 @@ define( function( require ) {
     var xMargin = 7;
     var yMargin = 3;
 
-    var label = new Text( StringUtils.format( pattern_0label, wavelengthString ), {
+    var label = new Text( StringUtils.format( pattern0LabelString, wavelengthString ), {
       font: new PhetFont( 20 ),
       fill: 'black'
     } );
@@ -140,7 +140,7 @@ define( function( require ) {
   }
 
   var formatWavelength = function( wavelength ) {
-    return StringUtils.format( pattern_0value1units, Util.toFixed( wavelength, 0 ), units_nmString );
+    return StringUtils.format( pattern0Value1UnitsString, Util.toFixed( wavelength, 0 ), unitsNmString );
   };
 
   return inherit( Panel, WavelengthControls, {

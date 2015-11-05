@@ -16,7 +16,7 @@ define( function( require ) {
   var Tandem = require( 'TANDEM/Tandem' );
 
   // strings
-  var simTitle = require( 'string!BEERS_LAW_LAB/beers-law-lab.title' );
+  var beersLawLabTitleString = require( 'string!BEERS_LAW_LAB/beers-law-lab.title' );
 
   // constants
   var tandem = new Tandem( 'beersLawLab' );
@@ -33,7 +33,7 @@ define( function( require ) {
   };
 
   SimLauncher.launch( function() {
-    var sim = new Sim( simTitle, [
+    var sim = new Sim( beersLawLabTitleString, [
       new ConcentrationScreen( tandem.createTandem( 'concentrationScreen' ) ),
       new BeersLawScreen( tandem.createTandem( 'beersLawScreen' ) )
     ], simOptions );

@@ -17,7 +17,7 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
 
   // strings
-  var units_centimetersString = require( 'string!BEERS_LAW_LAB/units.centimeters' );
+  var unitsCentimetersString = require( 'string!BEERS_LAW_LAB/units.centimeters' );
 
   // constants
   var MAJOR_TICK_WIDTH = 0.5; // in model coordinate frame
@@ -43,7 +43,7 @@ define( function( require ) {
     var width = modelViewTransform.modelToViewDeltaX( ruler.length );
     var height = modelViewTransform.modelToViewDeltaY( ruler.height );
     var majorTickWidth = modelViewTransform.modelToViewDeltaX( MAJOR_TICK_WIDTH );
-    thisNode.addChild( new RulerNode( width, height, majorTickWidth, majorTickLabels, units_centimetersString,
+    thisNode.addChild( new RulerNode( width, height, majorTickWidth, majorTickLabels, unitsCentimetersString,
       { minorTicksPerMajorTick: 4, insetsWidth: 0 } ) );
 
     // touch area

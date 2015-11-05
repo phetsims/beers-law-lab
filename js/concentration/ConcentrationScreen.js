@@ -17,7 +17,7 @@ define( function( require ) {
   var Screen = require( 'JOIST/Screen' );
 
   // strings
-  var concentrationString = require( 'string!BEERS_LAW_LAB/screen.concentration' );
+  var screenConcentrationString = require( 'string!BEERS_LAW_LAB/screen.concentration' );
 
   // images
   var screenIcon = require( 'image!BEERS_LAW_LAB/Concentration-screen-icon.jpg' );
@@ -31,7 +31,7 @@ define( function( require ) {
     var modelViewTransform = ModelViewTransform2.createIdentity();
 
     Screen.call( this,
-      concentrationString,
+      screenConcentrationString,
       new Image( screenIcon ),
       function() { return new ConcentrationModel( tandem ); },
       function( model ) { return new ConcentrationView( model, modelViewTransform, tandem ); }, {

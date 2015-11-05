@@ -34,8 +34,8 @@ define( function( require ) {
   var copperSulfateString = require( 'string!BEERS_LAW_LAB/copperSulfate' );
   var drinkMixString = require( 'string!BEERS_LAW_LAB/drinkMix' );
   var nickelIIChlorideString = require( 'string!BEERS_LAW_LAB/nickelIIChloride' );
-  var pattern_0formula_1name = require( 'string!BEERS_LAW_LAB/pattern.0formula.1name' );
-  var pattern_0value_1units = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
+  var pattern0Formula1NameString = require( 'string!BEERS_LAW_LAB/pattern.0formula.1name' );
+  var pattern0Value1UnitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
   var potassiumChromateString = require( 'string!BEERS_LAW_LAB/potassiumChromate' );
   var potassiumDichromateString = require( 'string!BEERS_LAW_LAB/potassiumDichromate' );
   var potassiumPermanganateString = require( 'string!BEERS_LAW_LAB/potassiumPermanganate' );
@@ -89,13 +89,13 @@ define( function( require ) {
       if ( this.formula === this.name ) {
         return this.name;
       }
-      return StringUtils.format( pattern_0formula_1name, this.formula, this.name );
+      return StringUtils.format( pattern0Formula1NameString, this.formula, this.name );
     },
 
     // @public
     getDisplayConcentration: function( concentration ) {
       var valueText = Util.toFixed( this.concentrationTransform.modelToView( concentration ), 0 );
-      return StringUtils.format( pattern_0value_1units, valueText, this.concentrationTransform.units );
+      return StringUtils.format( pattern0Value1UnitsString, valueText, this.concentrationTransform.units );
     }
   } );
 

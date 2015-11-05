@@ -19,8 +19,8 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
 
   // strings
-  var units_mMString = require( 'string!BEERS_LAW_LAB/units.mM' );
-  var units_uMString = require( 'string!BEERS_LAW_LAB/units.uM' );
+  var unitsMMString = require( 'string!BEERS_LAW_LAB/units.mM' );
+  var unitsUMString = require( 'string!BEERS_LAW_LAB/units.uM' );
 
   /**
    * @param {number} scale scale factor used to convert model units (Moles, M) to view units
@@ -58,8 +58,8 @@ define( function( require ) {
   } );
 
   // specific transforms
-  ConcentrationTransform.mM = new ConcentrationTransform( 1000, units_mMString );
-  ConcentrationTransform.uM = new ConcentrationTransform( 1000000, units_uMString );
+  ConcentrationTransform.mM = new ConcentrationTransform( 1000, unitsMMString );
+  ConcentrationTransform.uM = new ConcentrationTransform( 1000000, unitsUMString );
 
   return ConcentrationTransform;
 } );

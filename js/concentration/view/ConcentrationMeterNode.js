@@ -38,8 +38,8 @@ define( function( require ) {
 
   // strings
   var concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
-  var pattern_parentheses_0text = require( 'string!BEERS_LAW_LAB/pattern.parentheses.0text' );
-  var units_molesPerLiterString = require( 'string!BEERS_LAW_LAB/units.molesPerLiter' );
+  var patternParentheses0TextString = require( 'string!BEERS_LAW_LAB/pattern.parentheses.0text' );
+  var unitsMolesPerLiterString = require( 'string!BEERS_LAW_LAB/units.molesPerLiter' );
 
   // constants
   var BODY_IS_DRAGGABLE = true;
@@ -71,7 +71,7 @@ define( function( require ) {
     var maxTextWidth = 225; // constrain text width for i18n, determined empirically
     var titleNode = new Text( concentrationString,
       { font: new PhetFont( 18 ), fill: 'white', maxWidth: maxTextWidth } );
-    var unitsNode = new Text( StringUtils.format( pattern_parentheses_0text, units_molesPerLiterString ),
+    var unitsNode = new Text( StringUtils.format( patternParentheses0TextString, unitsMolesPerLiterString ),
       { font: new PhetFont( 18 ), fill: 'white', maxWidth: maxTextWidth } );
     var valueNode = new Text( Util.toFixed( 1, VALUE_DECIMALS ),
       { font: new PhetFont( 24 ), fill: 'black', maxWidth: maxTextWidth } );
