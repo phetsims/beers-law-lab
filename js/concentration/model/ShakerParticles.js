@@ -70,6 +70,11 @@ define( function( require ) {
 
   return inherit( Particles, ShakerParticles, {
 
+    // @public
+    reset: function() {
+       this.removeAllParticles();
+    },
+
     // @public Particle animation and delivery to the solution, called when the simulation clock ticks.
     step: function( deltaSeconds ) {
 

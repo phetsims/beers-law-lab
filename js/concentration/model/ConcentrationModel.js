@@ -105,6 +105,7 @@ define( function( require ) {
       this.soluteFormProperty.reset();
       this.solution.reset();
       this.shaker.reset();
+      this.shakerParticles.reset();
       this.dropper.reset();
       this.evaporator.reset();
       this.solventFaucet.reset();
