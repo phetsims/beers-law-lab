@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var ConcentrationControl = require( 'BEERS_LAW_LAB/beerslaw/view/ConcentrationControl' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -48,6 +49,8 @@ define( function( require ) {
 
     Panel.call( this, contentNode, options );
   }
+
+  beersLawLab.register( 'SolutionControls', SolutionControls );
 
   return inherit( Panel, SolutionControls );
 } );

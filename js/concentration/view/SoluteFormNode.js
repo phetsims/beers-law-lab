@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -25,23 +26,6 @@ define( function( require ) {
   // images
   var shakerIconImage = require( 'image!BEERS_LAW_LAB/shaker-icon.png' );
   var dropperIconImage = require( 'image!BEERS_LAW_LAB/dropper-icon.png' );
-
-  /**
-   * @param {string} text
-   * @param {*} image any type supported by scenery.Image
-   * @param {Object} textOptions
-   * @constructor
-   */
-  function TextAndIconNode( text, image, textOptions ) {
-    var textNode = new Text( text, textOptions );
-    var imageNode = new Image( image, {
-      left: textNode.right + 10,
-      centerY: textNode.centerY
-    } );
-    return new Node( { children: [ textNode, imageNode ] } );
-  }
-
-  inherit( Node, TextAndIconNode );
 
   /**
    * @param {Property.<string>} soluteFormProperty form of the solute, 'solid' or 'liquid'
@@ -91,6 +75,27 @@ define( function( require ) {
       soluteFormProperty.set( visible ? 'liquid' : 'solid' );
     } );
   }
+
+  beersLawLab.register( 'SoluteFormNode', SoluteFormNode );
+
+  /**
+   * @param {string} text
+   * @param {*} image any type supported by scenery.Image
+   * @param {Object} textOptions
+   * @constructor
+   */
+  function TextAndIconNode( text, image, textOptions ) {
+    var textNode = new Text( text, textOptions );
+    var imageNode = new Image( image, {
+      left: textNode.right + 10,
+      centerY: textNode.centerY
+    } );
+    return new Node( { children: [ textNode, imageNode ] } );
+  }
+
+  beersLawLab.register( 'SoluteFormNode.TextAndIconNode', TextAndIconNode );
+
+  inherit( Node, TextAndIconNode );
 
   return inherit( Node, SoluteFormNode );
 } );

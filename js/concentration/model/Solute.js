@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
   var Color = require( 'SCENERY/util/Color' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -55,6 +56,8 @@ define( function( require ) {
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
     tandem.addInstance( this );
   }
+
+  beersLawLab.register( 'Solute', Solute );
 
   inherit( Object, Solute, {
     // convenience method

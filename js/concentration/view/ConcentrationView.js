@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var BeakerNode = require( 'BEERS_LAW_LAB/concentration/view/BeakerNode' );
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var BLLFaucetNode = require( 'BEERS_LAW_LAB/concentration/view/BLLFaucetNode' );
   var Bounds2 = require( 'DOT/Bounds2' );
@@ -136,6 +137,8 @@ define( function( require ) {
     resetAllButton.left = drainFaucetNode.right + 100;
     resetAllButton.centerY = removeSoluteButton.centerY;
   }
+
+  beersLawLab.register( 'ConcentrationView', ConcentrationView );
 
   return inherit( ScreenView, ConcentrationView );
 } );

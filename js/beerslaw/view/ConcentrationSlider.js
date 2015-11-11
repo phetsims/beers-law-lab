@@ -13,6 +13,7 @@ define( function( require ) {
 
   // modules
   var ArrowButton = require( 'SCENERY_PHET/buttons/ArrowButton' );
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var Color = require( 'SCENERY/util/Color' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var FillHighlightListener = require( 'SCENERY_PHET/input/FillHighlightListener' );
@@ -43,167 +44,6 @@ define( function( require ) {
   var TICK_LENGTH = 16;
   var TICK_FONT = new PhetFont( 16 );
   var TICK_DECIMAL_PLACES = 0;
-
-  /**
-   * Track that the thumb moves in.
-   * Filled with a gradient that matches the solution.
-   * Clicking in the track changes the value.
-   *
-   * @param {Dimension2} trackSize
-   * @param {Property.<BeersLawSolution>} solutionProperty
-   * @constructor
-   */
-  function Track( trackSize, solutionProperty ) {
-
-    var thisNode = this;
-    Rectangle.call( thisNode, 0, 0, trackSize.width, trackSize.height,
-      { cursor: 'pointer', stroke: 'black', lineWidth: 1 } );
-
-    // sync view with model
-    var positionToConcentration;
-    solutionProperty.link( function( solution ) {
-      // change the view-to-model function to match the solution's concentration range
-      var concentrationRange = solution.concentrationRange;
-      positionToConcentration = new LinearFunction( 0, trackSize.width, concentrationRange.min, concentrationRange.max, true /* clamp */ );
-
-      // fill with a gradient that matches the solution's color range
-      thisNode.fill = new LinearGradient( 0, 0, trackSize.width, 0 )
-        .addColorStop( 0, solution.colorRange.min )
-        .addColorStop( 1, solution.colorRange.max );
-    } );
-
-    // click in the track to change the value, continue dragging if desired
-    var handleEvent = function( event ) {
-      var x = thisNode.globalToLocalPoint( event.pointer.point ).x;
-      var concentration = positionToConcentration( x );
-      solutionProperty.get().concentrationProperty.set( concentration );
-    };
-    thisNode.addInputListener( new SimpleDragHandler(
-      {
-        start: function( event ) {
-          handleEvent( event );
-        },
-        drag: function( event ) {
-          handleEvent( event );
-        }
-      } ) );
-  }
-
-  inherit( Rectangle, Track );
-
-  /**
-   * Vertical tick line.
-   * @constructor
-   */
-  function TickLine() {
-    Path.call( this, Shape.lineSegment( 0, 0, 0, TICK_LENGTH ), { stroke: 'black', lineWidth: 1 } );
-  }
-
-  inherit( Path, TickLine );
-
-  /**
-   * Tick label.
-   * @param {number} value
-   * @constructor
-   */
-  function TickLabel( value ) {
-    var thisNode = this;
-    Text.call( thisNode, '?', { font: TICK_FONT, fill: 'black' } );
-    thisNode.setValue = function( value ) {
-      thisNode.text = Util.toFixed( value, TICK_DECIMAL_PLACES );
-    };
-    thisNode.setValue( value );
-  }
-
-  inherit( Text, TickLabel );
-
-  /**
-   * The slider thumb, a rounded rectangle with a vertical line through its center.
-   * @param {Dimension2} thumbSize
-   * @param {Dimension2} trackSize
-   * @param {Property.<BeersLawSolution>} solutionProperty
-   * @constructor
-   */
-  function Thumb( thumbSize, trackSize, solutionProperty ) {
-
-    var thisNode = this;
-    Node.call( thisNode, { cursor: 'pointer' } );
-
-    // nodes
-    var arcWidth = 0.25 * thumbSize.width;
-    var body = new Rectangle( -thumbSize.width / 2, -thumbSize.height / 2, thumbSize.width, thumbSize.height, arcWidth, arcWidth,
-      { fill: THUMB_FILL_NORMAL, stroke: THUMB_STROKE, lineWidth: THUMB_LINE_WIDTH } );
-    var centerLineYMargin = 3;
-    var centerLine = new Path( Shape.lineSegment( 0, -( thumbSize.height / 2 ) + centerLineYMargin, 0, ( thumbSize.height / 2 ) - centerLineYMargin ), { stroke: THUMB_CENTER_LINE_STROKE } );
-
-    // rendering order
-    thisNode.addChild( body );
-    thisNode.addChild( centerLine );
-
-    // interactivity
-    body.addInputListener( new FillHighlightListener( THUMB_FILL_NORMAL, THUMB_FILL_HIGHLIGHT ) );
-
-    // touch area
-    var dx = 0.25 * thisNode.width;
-    var dy = 0.5 * thisNode.height;
-    thisNode.touchArea = Shape.rectangle( ( -thisNode.width / 2 ) - dx, ( -thisNode.height / 2 ) - dy, thisNode.width + dx + dx, thisNode.height + dy + dy );
-
-    // set the drag handler and mapping function for the selected solution
-    var dragHandler;
-    var concentrationToPosition;
-    var setSolution = function( solution ) {
-      // drag handler with solution's concentration range
-      if ( dragHandler ) {
-        thisNode.removeInputListener( dragHandler );
-      }
-      dragHandler = new ThumbDragHandler( thisNode, solution.concentrationProperty, new LinearFunction( 0, trackSize.width, solution.concentrationRange.min, solution.concentrationRange.max, true /* clamp */ ) );
-      thisNode.addInputListener( dragHandler );
-
-      // linear mapping function with solution's concentration range
-      concentrationToPosition = new LinearFunction( solution.concentrationRange.min, solution.concentrationRange.max, 0, trackSize.width, true /* clamp */ );
-    };
-    setSolution( solutionProperty.get() );
-
-    // move the slider thumb to reflect the concentration value
-    var concentrationObserver = function( concentration ) {
-      thisNode.x = concentrationToPosition( concentration );
-    };
-    solutionProperty.get().concentrationProperty.link( concentrationObserver );
-
-    // when the solution changes, wire up to the current solution
-    solutionProperty.link( function( newSolution, oldSolution ) {
-      setSolution( newSolution );
-      if ( oldSolution ) {
-        oldSolution.concentrationProperty.unlink( concentrationObserver );
-      }
-      newSolution.concentrationProperty.link( concentrationObserver );
-    } );
-  }
-
-  inherit( Node, Thumb );
-
-  /**
-   * Drag handler for the slider thumb.
-   * @param {Node} dragNode
-   * @param {Property.<number>} concentrationProperty
-   * @param {LinearFunction} positionToValue
-   * @constructor
-   */
-  function ThumbDragHandler( dragNode, concentrationProperty, positionToValue ) {
-    var clickXOffset; // x-offset between initial click and thumb's origin
-    SimpleDragHandler.call( this, {
-      allowTouchSnag: true,
-      start: function( event ) {
-        clickXOffset = dragNode.globalToParentPoint( event.pointer.point ).x - event.currentTarget.x;
-      },
-      drag: function( event ) {
-        var x = dragNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
-        concentrationProperty.set( positionToValue( x ) );
-      }
-    } );
-  }
-
-  inherit( SimpleDragHandler, ThumbDragHandler );
 
   /**
    * @param {Property.<BeersLawSolution>} solutionProperty
@@ -280,6 +120,179 @@ define( function( require ) {
       solution.concentrationProperty.link( concentrationObserver );
     } );
   }
+
+  beersLawLab.register( 'ConcentrationSlider', ConcentrationSlider );
+
+  /**
+   * Track that the thumb moves in.
+   * Filled with a gradient that matches the solution.
+   * Clicking in the track changes the value.
+   *
+   * @param {Dimension2} trackSize
+   * @param {Property.<BeersLawSolution>} solutionProperty
+   * @constructor
+   */
+  function Track( trackSize, solutionProperty ) {
+
+    var thisNode = this;
+    Rectangle.call( thisNode, 0, 0, trackSize.width, trackSize.height,
+      { cursor: 'pointer', stroke: 'black', lineWidth: 1 } );
+
+    // sync view with model
+    var positionToConcentration;
+    solutionProperty.link( function( solution ) {
+      // change the view-to-model function to match the solution's concentration range
+      var concentrationRange = solution.concentrationRange;
+      positionToConcentration = new LinearFunction( 0, trackSize.width, concentrationRange.min, concentrationRange.max, true /* clamp */ );
+
+      // fill with a gradient that matches the solution's color range
+      thisNode.fill = new LinearGradient( 0, 0, trackSize.width, 0 )
+        .addColorStop( 0, solution.colorRange.min )
+        .addColorStop( 1, solution.colorRange.max );
+    } );
+
+    // click in the track to change the value, continue dragging if desired
+    var handleEvent = function( event ) {
+      var x = thisNode.globalToLocalPoint( event.pointer.point ).x;
+      var concentration = positionToConcentration( x );
+      solutionProperty.get().concentrationProperty.set( concentration );
+    };
+    thisNode.addInputListener( new SimpleDragHandler(
+      {
+        start: function( event ) {
+          handleEvent( event );
+        },
+        drag: function( event ) {
+          handleEvent( event );
+        }
+      } ) );
+  }
+
+  beersLawLab.register( 'ConcentrationSlider.Track', Track );
+
+  inherit( Rectangle, Track );
+
+  /**
+   * Vertical tick line.
+   * @constructor
+   */
+  function TickLine() {
+    Path.call( this, Shape.lineSegment( 0, 0, 0, TICK_LENGTH ), { stroke: 'black', lineWidth: 1 } );
+  }
+
+  beersLawLab.register( 'ConcentrationSlider.TickLine', TickLine );
+
+  inherit( Path, TickLine );
+
+  /**
+   * Tick label.
+   * @param {number} value
+   * @constructor
+   */
+  function TickLabel( value ) {
+    var thisNode = this;
+    Text.call( thisNode, '?', { font: TICK_FONT, fill: 'black' } );
+    thisNode.setValue = function( value ) {
+      thisNode.text = Util.toFixed( value, TICK_DECIMAL_PLACES );
+    };
+    thisNode.setValue( value );
+  }
+
+  beersLawLab.register( 'ConcentrationSlider.TickLabel', TickLabel );
+
+  inherit( Text, TickLabel );
+
+  /**
+   * The slider thumb, a rounded rectangle with a vertical line through its center.
+   * @param {Dimension2} thumbSize
+   * @param {Dimension2} trackSize
+   * @param {Property.<BeersLawSolution>} solutionProperty
+   * @constructor
+   */
+  function Thumb( thumbSize, trackSize, solutionProperty ) {
+
+    var thisNode = this;
+    Node.call( thisNode, { cursor: 'pointer' } );
+
+    // nodes
+    var arcWidth = 0.25 * thumbSize.width;
+    var body = new Rectangle( -thumbSize.width / 2, -thumbSize.height / 2, thumbSize.width, thumbSize.height, arcWidth, arcWidth,
+      { fill: THUMB_FILL_NORMAL, stroke: THUMB_STROKE, lineWidth: THUMB_LINE_WIDTH } );
+    var centerLineYMargin = 3;
+    var centerLine = new Path( Shape.lineSegment( 0, -( thumbSize.height / 2 ) + centerLineYMargin, 0, ( thumbSize.height / 2 ) - centerLineYMargin ), { stroke: THUMB_CENTER_LINE_STROKE } );
+
+    // rendering order
+    thisNode.addChild( body );
+    thisNode.addChild( centerLine );
+
+    // interactivity
+    body.addInputListener( new FillHighlightListener( THUMB_FILL_NORMAL, THUMB_FILL_HIGHLIGHT ) );
+
+    // touch area
+    var dx = 0.25 * thisNode.width;
+    var dy = 0.5 * thisNode.height;
+    thisNode.touchArea = Shape.rectangle( ( -thisNode.width / 2 ) - dx, ( -thisNode.height / 2 ) - dy, thisNode.width + dx + dx, thisNode.height + dy + dy );
+
+    // set the drag handler and mapping function for the selected solution
+    var dragHandler;
+    var concentrationToPosition;
+    var setSolution = function( solution ) {
+      // drag handler with solution's concentration range
+      if ( dragHandler ) {
+        thisNode.removeInputListener( dragHandler );
+      }
+      dragHandler = new ThumbDragHandler( thisNode, solution.concentrationProperty, new LinearFunction( 0, trackSize.width, solution.concentrationRange.min, solution.concentrationRange.max, true /* clamp */ ) );
+      thisNode.addInputListener( dragHandler );
+
+      // linear mapping function with solution's concentration range
+      concentrationToPosition = new LinearFunction( solution.concentrationRange.min, solution.concentrationRange.max, 0, trackSize.width, true /* clamp */ );
+    };
+    setSolution( solutionProperty.get() );
+
+    // move the slider thumb to reflect the concentration value
+    var concentrationObserver = function( concentration ) {
+      thisNode.x = concentrationToPosition( concentration );
+    };
+    solutionProperty.get().concentrationProperty.link( concentrationObserver );
+
+    // when the solution changes, wire up to the current solution
+    solutionProperty.link( function( newSolution, oldSolution ) {
+      setSolution( newSolution );
+      if ( oldSolution ) {
+        oldSolution.concentrationProperty.unlink( concentrationObserver );
+      }
+      newSolution.concentrationProperty.link( concentrationObserver );
+    } );
+  }
+
+  beersLawLab.register( 'ConcentrationSlider.Thumb', Thumb );
+
+  inherit( Node, Thumb );
+
+  /**
+   * Drag handler for the slider thumb.
+   * @param {Node} dragNode
+   * @param {Property.<number>} concentrationProperty
+   * @param {LinearFunction} positionToValue
+   * @constructor
+   */
+  function ThumbDragHandler( dragNode, concentrationProperty, positionToValue ) {
+    var clickXOffset; // x-offset between initial click and thumb's origin
+    SimpleDragHandler.call( this, {
+      allowTouchSnag: true,
+      start: function( event ) {
+        clickXOffset = dragNode.globalToParentPoint( event.pointer.point ).x - event.currentTarget.x;
+      },
+      drag: function( event ) {
+        var x = dragNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
+        concentrationProperty.set( positionToValue( x ) );
+      }
+    } );
+  }
+
+  beersLawLab.register( 'ConcentrationSlider.ThumbDragHandler', ThumbDragHandler );
+
+  inherit( SimpleDragHandler, ThumbDragHandler );
 
   return inherit( Node, ConcentrationSlider );
 } );

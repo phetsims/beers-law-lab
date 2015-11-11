@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -65,6 +66,8 @@ define( function( require ) {
       modelViewTransform: modelViewTransform
     } ) );
   }
+
+  beersLawLab.register( 'BLLRulerNode', BLLRulerNode );
 
   return inherit( Node, BLLRulerNode );
 } );

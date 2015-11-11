@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Particles = require( 'BEERS_LAW_LAB/concentration/model/Particles' );
   var ShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticle' );
@@ -49,6 +50,8 @@ define( function( require ) {
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
     tandem.addInstance( this );
   }
+
+  beersLawLab.register( 'ShakerParticles', ShakerParticles );
 
   // Gets a random location relative to some origin
   var getRandomLocation = function( origin ) {

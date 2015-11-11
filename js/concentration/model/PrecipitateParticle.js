@@ -11,6 +11,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
 
@@ -24,6 +25,8 @@ define( function( require ) {
   function PrecipitateParticle( solute, location, orientation ) {
     SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation );
   }
+
+  beersLawLab.register( 'PrecipitateParticle', PrecipitateParticle );
 
   return inherit( SoluteParticle, PrecipitateParticle );
 } );

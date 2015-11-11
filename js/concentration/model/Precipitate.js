@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Particles = require( 'BEERS_LAW_LAB/concentration/model/Particles' );
   var PrecipitateParticle = require( 'BEERS_LAW_LAB/concentration/model/PrecipitateParticle' );
@@ -41,6 +42,8 @@ define( function( require ) {
       thisPrecipitate.updateParticles();
     } );
   }
+
+  beersLawLab.register( 'Precipitate', Precipitate );
 
   // Gets a random orientation, in radians.
   var getRandomOrientation = function() {

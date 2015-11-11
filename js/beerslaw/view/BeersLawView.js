@@ -11,6 +11,7 @@ define( function( require ) {
   // modules
   var ATDetectorNode = require( 'BEERS_LAW_LAB/beerslaw/view/ATDetectorNode' );
   var BeamNode = require( 'BEERS_LAW_LAB/beerslaw/view/BeamNode' );
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var BLLRulerNode = require( 'BEERS_LAW_LAB/beerslaw/view/BLLRulerNode' );
   var CuvetteNode = require( 'BEERS_LAW_LAB/beerslaw/view/CuvetteNode' );
@@ -74,6 +75,8 @@ define( function( require ) {
       resetAllButton.bottom = solutionControls.bottom;
     }
   }
+
+  beersLawLab.register( 'BeersLawView', BeersLawView );
 
   return inherit( ScreenView, BeersLawView );
 } );

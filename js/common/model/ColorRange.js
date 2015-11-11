@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var Color = require( 'SCENERY/util/Color' );
   var inherit = require( 'PHET_CORE/inherit' );
 
@@ -22,6 +23,8 @@ define( function( require ) {
     this.min = min;
     this.max = max;
   }
+
+  beersLawLab.register( 'ColorRange', ColorRange );
 
   return inherit( Object, ColorRange, {
 

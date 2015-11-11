@@ -16,6 +16,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
 
   // strings
@@ -33,6 +34,8 @@ define( function( require ) {
     this.scale = scale;
     this.units = units;
   }
+
+  beersLawLab.register( 'ConcentrationTransform', ConcentrationTransform );
 
   inherit( Object, ConcentrationTransform, {
 

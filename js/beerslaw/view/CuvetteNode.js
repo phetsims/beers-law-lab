@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var ArrowNode = require( 'SCENERY_PHET/ArrowNode' );
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var Color = require( 'SCENERY/util/Color' );
   var FillHighlightListener = require( 'SCENERY_PHET/input/FillHighlightListener' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -28,44 +29,6 @@ define( function( require ) {
   var ARROW_HEAD_WIDTH = 45;
   var ARROW_TAIL_WIDTH = 23;
   var ARROW_FILL = Color.ORANGE;
-
-  /**
-   * Handler that is attached to the cuvette's drag handle.
-   * @param {Node} cuvetteNode
-   * @param {Cuvette} cuvette
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {number} snapInterval
-   * @constructor
-   */
-  function CuvetteDragHandler( cuvetteNode, cuvette, modelViewTransform, snapInterval ) {
-
-    var startX; // x coordinate of mouse click
-    var startWidth; // width of the cuvette when the drag started
-
-    SimpleDragHandler.call( this, {
-
-      allowTouchSnag: true,
-
-      start: function( event ) {
-        startX = event.pointer.point.x;
-        startWidth = cuvette.widthProperty.get();
-      },
-
-      drag: function( event ) {
-        var dragX = event.pointer.point.x;
-        var deltaWidth = modelViewTransform.viewToModelDeltaX( dragX - startX );
-        var cuvetteWidth = Util.clamp( startWidth + deltaWidth, cuvette.widthRange.min, cuvette.widthRange.max );
-        cuvette.widthProperty.set( cuvetteWidth );
-      },
-
-      end: function() {
-        var numberOfIntervals = Math.floor( ( cuvette.widthProperty.get() + ( snapInterval / 2 ) ) / snapInterval );
-        cuvette.widthProperty.set( numberOfIntervals * snapInterval );
-      }
-    } );
-  }
-
-  inherit( SimpleDragHandler, CuvetteDragHandler );
 
   /**
    * @param {Cuvette} cuvette
@@ -141,6 +104,48 @@ define( function( require ) {
     thisNode.x = position.x;
     thisNode.y = position.y;
   }
+
+  beersLawLab.register( 'CuvetteNode', CuvetteNode );
+
+  /**
+   * Handler that is attached to the cuvette's drag handle.
+   * @param {Node} cuvetteNode
+   * @param {Cuvette} cuvette
+   * @param {ModelViewTransform2} modelViewTransform
+   * @param {number} snapInterval
+   * @constructor
+   */
+  function CuvetteDragHandler( cuvetteNode, cuvette, modelViewTransform, snapInterval ) {
+
+    var startX; // x coordinate of mouse click
+    var startWidth; // width of the cuvette when the drag started
+
+    SimpleDragHandler.call( this, {
+
+      allowTouchSnag: true,
+
+      start: function( event ) {
+        startX = event.pointer.point.x;
+        startWidth = cuvette.widthProperty.get();
+      },
+
+      drag: function( event ) {
+        var dragX = event.pointer.point.x;
+        var deltaWidth = modelViewTransform.viewToModelDeltaX( dragX - startX );
+        var cuvetteWidth = Util.clamp( startWidth + deltaWidth, cuvette.widthRange.min, cuvette.widthRange.max );
+        cuvette.widthProperty.set( cuvetteWidth );
+      },
+
+      end: function() {
+        var numberOfIntervals = Math.floor( ( cuvette.widthProperty.get() + ( snapInterval / 2 ) ) / snapInterval );
+        cuvette.widthProperty.set( numberOfIntervals * snapInterval );
+      }
+    } );
+  }
+
+  beersLawLab.register( 'CuvetteNode.CuvetteDragHandler', CuvetteDragHandler );
+
+  inherit( SimpleDragHandler, CuvetteDragHandler );
 
   return inherit( Node, CuvetteNode );
 } );

@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var ComboBox = require( 'SUN/ComboBox' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -49,6 +50,8 @@ define( function( require ) {
       tandem: tandem
     } );
   }
+
+  beersLawLab.register( 'SoluteComboBox', SoluteComboBox );
 
   /**
    * Creates an item for the combo box.

@@ -15,6 +15,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
   var Color = require( 'SCENERY/util/Color' );
   var ColorRange = require( 'BEERS_LAW_LAB/common/model/ColorRange' );
@@ -76,6 +77,8 @@ define( function( require ) {
         return color;
       } );
   }
+
+  beersLawLab.register( 'BeersLawSolution', BeersLawSolution );
 
   inherit( Object, BeersLawSolution, {
 

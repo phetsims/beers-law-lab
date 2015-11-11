@@ -12,6 +12,7 @@ define( function( require ) {
   var Absorbance = require( 'BEERS_LAW_LAB/beerslaw/model/Absorbance' );
   var ATDetector = require( 'BEERS_LAW_LAB/beerslaw/model/ATDetector' );
   var Beam = require( 'BEERS_LAW_LAB/beerslaw/model/Beam' );
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BeersLawSolution = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolution' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var Cuvette = require( 'BEERS_LAW_LAB/beerslaw/model/Cuvette' );
@@ -70,6 +71,8 @@ define( function( require ) {
     // @public
     this.beam = new Beam( thisModel.light, thisModel.cuvette, thisModel.detector, thisModel.absorbance, modelViewTransform );
   }
+
+  beersLawLab.register( 'BeersLawModel', BeersLawModel );
 
   return inherit( Object, BeersLawModel, {
 

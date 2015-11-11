@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
 
@@ -29,6 +30,8 @@ define( function( require ) {
     this.insets = insets;
     this.height = height;
   }
+
+  beersLawLab.register( 'Ruler', Ruler );
 
   return inherit( Movable, Ruler );
 } );

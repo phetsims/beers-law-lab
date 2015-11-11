@@ -12,6 +12,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   /**
@@ -23,6 +24,8 @@ define( function( require ) {
     this.molarAbsorptivity = molarAbsorptivity;
     this.lambdaMax = MolarAbsorptivityData._getLambdaMax( molarAbsorptivity );
   }
+
+  beersLawLab.register( 'MolarAbsorptivityData', MolarAbsorptivityData );
 
   /*
    * Maps a visible wavelength to its corresponding molar absorptivity.

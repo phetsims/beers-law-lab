@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
@@ -49,6 +50,8 @@ define( function( require ) {
     thisShaker.emptyProperty.link( observer );
     thisShaker.visibleProperty.link( observer );
   }
+
+  beersLawLab.register( 'Shaker', Shaker );
 
   return inherit( Movable, Shaker, {
 

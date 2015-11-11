@@ -10,35 +10,11 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var DerivedProperty = require( 'AXON/DerivedProperty' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
-
-  /**
-   * The probe, whose position indicates where the measurement is being made.
-   * @param {Vector2} location
-   * @param {Bounds2} dragBounds
-   * @param {number} sensorDiameter cm
-   * @constructor
-   */
-  function Probe( location, dragBounds, sensorDiameter ) {
-    Movable.call( this, location, dragBounds );
-    this.sensorDiameter = sensorDiameter; // @private
-  }
-
-  inherit( Movable, Probe, {
-
-    // @public
-    getMinY: function() {
-      return this.locationProperty.get().y - ( this.sensorDiameter / 2 );
-    },
-
-    // @public
-    getMaxY: function() {
-      return this.locationProperty.get().y + ( this.sensorDiameter / 2 );
-    }
-  } );
 
   /**
    * @param {Vector2} bodyLocation
@@ -85,6 +61,35 @@ define( function( require ) {
         return value;
       } );
   }
+
+  beersLawLab.register( 'ATDetector', ATDetector );
+
+  /**
+   * The probe, whose position indicates where the measurement is being made.
+   * @param {Vector2} location
+   * @param {Bounds2} dragBounds
+   * @param {number} sensorDiameter cm
+   * @constructor
+   */
+  function Probe( location, dragBounds, sensorDiameter ) {
+    Movable.call( this, location, dragBounds );
+    this.sensorDiameter = sensorDiameter; // @private
+  }
+
+  beersLawLab.register( 'ATDetector.Probe', Probe );
+
+  inherit( Movable, Probe, {
+
+    // @public
+    getMinY: function() {
+      return this.locationProperty.get().y - ( this.sensorDiameter / 2 );
+    },
+
+    // @public
+    getMaxY: function() {
+      return this.locationProperty.get().y + ( this.sensorDiameter / 2 );
+    }
+  } );
 
   return inherit( Object, ATDetector, {
 

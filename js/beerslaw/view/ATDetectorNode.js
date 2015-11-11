@@ -11,6 +11,7 @@ define( function( require ) {
   // modules
   var ATDetector = require( 'BEERS_LAW_LAB/beerslaw/model/ATDetector' );
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -41,6 +42,27 @@ define( function( require ) {
   var VALUE_X_MARGIN = 6;
   var VALUE_Y_MARGIN = 4;
   var PROBE_COLOR = 'rgb( 8, 133, 54 )';
+
+  /**
+   * @param {ATDetector} detector
+   * @param {Light} light
+   * @param {ModelViewTransform2} modelViewTransform
+   * @constructor
+   */
+  function ATDetectorNode( detector, light, modelViewTransform ) {
+
+    Node.call( this );
+
+    var bodyNode = new BodyNode( detector, modelViewTransform );
+    var probeNode = new ATProbeNode( detector.probe, light, modelViewTransform );
+    var wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
+
+    this.addChild( wireNode );
+    this.addChild( bodyNode );
+    this.addChild( probeNode );
+  }
+
+  beersLawLab.register( 'ATDetectorNode', ATDetectorNode );
 
   /**
    * The body of the detector, where A and T values are displayed.
@@ -133,6 +155,8 @@ define( function( require ) {
     detector.modeProperty.link( valueUpdater );
   }
 
+  beersLawLab.register( 'ATDetectorNode.BodyNode', BodyNode );
+
   inherit( Node, BodyNode );
 
   /**
@@ -174,6 +198,8 @@ define( function( require ) {
         }
       }
     } ) );
+
+    beersLawLab.register( 'ATDetectorNode.ATProbeNode', ATProbeNode );
 
     // touch area
     thisNode.touchArea = thisNode.localBounds.dilatedXY( 0.25 * thisNode.width, 0 );
@@ -222,26 +248,9 @@ define( function( require ) {
     probe.locationProperty.link( updateCurve );
   }
 
+  beersLawLab.register( 'ATDetectorNode.WireNode', WireNode );
+
   inherit( Path, WireNode );
-
-  /**
-   * @param {ATDetector} detector
-   * @param {Light} light
-   * @param {ModelViewTransform2} modelViewTransform
-   * @constructor
-   */
-  function ATDetectorNode( detector, light, modelViewTransform ) {
-
-    Node.call( this );
-
-    var bodyNode = new BodyNode( detector, modelViewTransform );
-    var probeNode = new ATProbeNode( detector.probe, light, modelViewTransform );
-    var wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
-
-    this.addChild( wireNode );
-    this.addChild( bodyNode );
-    this.addChild( probeNode );
-  }
 
   return inherit( Node, ATDetectorNode );
 } );

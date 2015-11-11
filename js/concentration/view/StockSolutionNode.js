@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var ConcentrationSolution = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationSolution' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
@@ -56,6 +57,8 @@ define( function( require ) {
       thisNode.setVisible( visible );
     } );
   }
+
+  beersLawLab.register( 'StockSolutionNode', StockSolutionNode );
 
   return inherit( Rectangle, StockSolutionNode );
 } );

@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var Property = require( 'AXON/Property' );
 
   /**
@@ -30,6 +31,8 @@ define( function( require ) {
     this.locationProperty = new Property( location );
 
   }
+
+  beersLawLab.register( 'SoluteParticle', SoluteParticle );
 
   return SoluteParticle;
 } );

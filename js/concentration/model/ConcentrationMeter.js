@@ -14,6 +14,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
@@ -34,6 +35,8 @@ define( function( require ) {
     this.body = new Movable( bodyLocation, bodyDragBounds, tandem.createTandem( 'body.location' ) );
     this.probe = new Movable( probeLocation, probeDragBounds, tandem.createTandem( 'probe.location' ) );
   }
+
+  beersLawLab.register( 'ConcentrationMeter', ConcentrationMeter );
 
   return inherit( Object, ConcentrationMeter, {
 

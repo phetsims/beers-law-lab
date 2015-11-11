@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var ArrowNode = require( 'SCENERY_PHET/ArrowNode' );
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var Circle = require( 'SCENERY/nodes/Circle' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -120,6 +121,8 @@ define( function( require ) {
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
     tandem.addInstance( this );
   }
+
+  beersLawLab.register( 'ShakerNode', ShakerNode );
 
   return inherit( Node, ShakerNode );
 } );

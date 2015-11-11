@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var ConcentrationSolution = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationSolution' );
   var EyeDropperNode = require( 'SCENERY_PHET/EyeDropperNode' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -99,6 +100,8 @@ define( function( require ) {
     // No corresponding removeInstance is needed because this object exists for the lifetime of the sim
     tandem.addInstance( this );
   }
+
+  beersLawLab.register( 'BLLDropperNode', BLLDropperNode );
 
   return inherit( EyeDropperNode, BLLDropperNode );
 } );

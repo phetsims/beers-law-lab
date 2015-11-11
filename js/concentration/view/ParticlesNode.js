@@ -11,8 +11,9 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var inherit = require( 'PHET_CORE/inherit' );
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
+  var inherit = require( 'PHET_CORE/inherit' );
 
   /**
    * @param {Particles} particles a collection of particle
@@ -33,6 +34,8 @@ define( function( require ) {
       thisNode.invalidatePaint();
     } );
   }
+
+  beersLawLab.register( 'ParticlesNode', ParticlesNode );
 
   return inherit( CanvasNode, ParticlesNode, {
 

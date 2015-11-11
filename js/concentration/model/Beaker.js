@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
 
   /**
@@ -25,6 +26,8 @@ define( function( require ) {
     this.size = size;
     this.volume = volume;
   }
+
+  beersLawLab.register( 'Beaker', Beaker );
 
   return inherit( Object, Beaker, {
 

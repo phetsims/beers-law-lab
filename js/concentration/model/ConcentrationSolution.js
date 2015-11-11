@@ -11,6 +11,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var DerivedProperty = require( 'AXON/DerivedProperty' );
   var Fluid = require( 'BEERS_LAW_LAB/common/model/Fluid' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -68,6 +69,8 @@ define( function( require ) {
     thisSolution.soluteProperty.lazyLink( updateColor );
     thisSolution.concentrationProperty.lazyLink( updateColor );
   }
+
+  beersLawLab.register( 'ConcentrationSolution', ConcentrationSolution );
 
   return inherit( Fluid, ConcentrationSolution, {
 

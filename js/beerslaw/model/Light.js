@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
 
@@ -37,6 +38,8 @@ define( function( require ) {
       thisLight.wavelengthProperty.set( solution.molarAbsorptivityData.lambdaMax );
     } );
   }
+
+  beersLawLab.register( 'Light', Light );
 
   return inherit( Object, Light, {
 

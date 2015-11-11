@@ -10,8 +10,9 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var inherit = require( 'PHET_CORE/inherit' );
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var FaucetNode = require( 'SCENERY_PHET/FaucetNode' );
+  var inherit = require( 'PHET_CORE/inherit' );
 
   /**
    * @param {Faucet} faucet
@@ -31,6 +32,8 @@ define( function( require ) {
     FaucetNode.call( this, faucet.maxFlowRate, faucet.flowRateProperty, faucet.enabledProperty, options );
     this.translation = modelViewTransform.modelToViewPosition( faucet.location );
   }
+
+  beersLawLab.register( 'BLLFaucetNode', BLLFaucetNode );
 
   return inherit( FaucetNode, BLLFaucetNode );
 } );

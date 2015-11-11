@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var Beaker = require( 'BEERS_LAW_LAB/concentration/model/Beaker' );
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var ConcentrationMeter = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationMeter' );
   var ConcentrationSolution = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationSolution' );
@@ -96,6 +97,8 @@ define( function( require ) {
       thisModel.dropper.enabledProperty.set( !thisModel.dropper.emptyProperty.get() && !containsMaxSolute && thisModel.solution.volumeProperty.get() < SOLUTION_VOLUME_RANGE.max );
     } );
   }
+
+  beersLawLab.register( 'ConcentrationModel', ConcentrationModel );
 
   return inherit( Object, ConcentrationModel, {
 

@@ -15,6 +15,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
 
@@ -32,6 +33,8 @@ define( function( require ) {
     this.widthProperty = new Property( widthRange.defaultValue );
     this.height = height;
   }
+
+  beersLawLab.register( 'Cuvette', Cuvette );
 
   return inherit( Object, Cuvette, {
 

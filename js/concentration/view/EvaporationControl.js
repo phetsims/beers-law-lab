@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var HSlider = require( 'SUN/HSlider' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -66,6 +67,8 @@ define( function( require ) {
 
     Panel.call( thisControl, content, options );
   }
+
+  beersLawLab.register( 'EvaporationControl', EvaporationControl );
 
   return inherit( Panel, EvaporationControl );
 } );

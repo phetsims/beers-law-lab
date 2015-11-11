@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -47,6 +48,8 @@ define( function( require ) {
       thisNode.setVisible( solution.isSaturated() );
     } );
   }
+
+  beersLawLab.register( 'SaturatedIndicator', SaturatedIndicator );
 
   return inherit( Node, SaturatedIndicator );
 } );

@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
 
@@ -36,6 +37,8 @@ define( function( require ) {
       thisNode.translation = modelViewTransform.modelToViewPosition( particle.locationProperty.get() );
     } );
   }
+
+  beersLawLab.register( 'ParticleNode', ParticleNode );
 
   return inherit( Rectangle, ParticleNode );
 } );

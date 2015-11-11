@@ -16,6 +16,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var DerivedProperty = require( 'AXON/DerivedProperty' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
@@ -76,6 +77,8 @@ define( function( require ) {
         }
       } );
   }
+
+  beersLawLab.register( 'Beam', Beam );
 
   return inherit( Object, Beam );
 } );

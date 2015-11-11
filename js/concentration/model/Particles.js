@@ -9,12 +9,15 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
 
   function Particles() {
     this.particles = []; // @public the particles in the collection
     this.changedCallbacks = []; // @protected called when the collection of particles changes
   }
+
+  beersLawLab.register( 'Particles', Particles );
 
   return inherit( Object, Particles, {
 

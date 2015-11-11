@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
   var Color = require( 'SCENERY/util/Color' );
   var Fluid = require( 'BEERS_LAW_LAB/common/model/Fluid' );
@@ -32,6 +33,8 @@ define( function( require ) {
     this.name = name;
     this.formula = formula;
   }
+
+  beersLawLab.register( 'Solvent', Solvent );
 
   Solvent.WATER_COLOR = new Color( 224, 255, 255 );
 

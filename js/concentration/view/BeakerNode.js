@@ -10,6 +10,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
@@ -102,6 +103,8 @@ define( function( require ) {
     thisNode.x = location.x;
     thisNode.y = location.y;
   }
+
+  beersLawLab.register( 'BeakerNode', BeakerNode );
 
   return inherit( Node, BeakerNode );
 } );

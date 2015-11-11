@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var ConcentrationSlider = require( 'BEERS_LAW_LAB/beerslaw/view/ConcentrationSlider' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -72,6 +73,8 @@ define( function( require ) {
       newSolution.concentrationProperty.link( concentrationObserver );
     } );
   }
+
+  beersLawLab.register( 'ConcentrationControl', ConcentrationControl );
 
   return inherit( Node, ConcentrationControl );
 } );

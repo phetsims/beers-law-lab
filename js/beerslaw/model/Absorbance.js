@@ -25,6 +25,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var DerivedProperty = require( 'AXON/DerivedProperty' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
@@ -70,6 +71,8 @@ define( function( require ) {
         return getAbsorbance( molarAbsorptivity, pathLength, concentration );
       } );
   }
+
+  beersLawLab.register( 'Absorbance', Absorbance );
 
   /*
    * General model of absorbance: A = abC

@@ -20,6 +20,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LayoutBox = require( 'SCENERY/nodes/LayoutBox' );
@@ -50,6 +51,61 @@ define( function( require ) {
   var VALUE_X_MARGIN = 6;
   var VALUE_Y_MARGIN = 4;
   var PROBE_COLOR = 'rgb( 135, 4, 72 )';
+
+  /**
+   * @param {ConcentrationMeter} meter
+   * @param {ConcentrationSolution} solution
+   * @param {Dropper} dropper
+   * @param {Node} solutionNode
+   * @param {Node} stockSolutionNode
+   * @param {Node} solventFluidNode
+   * @param {Node} drainFluidNode
+   * @param {ModelViewTransform2} modelViewTransform
+   * @param {Tandem} tandem
+   * @constructor
+   */
+  function ConcentrationMeterNode( meter, solution, dropper, solutionNode, stockSolutionNode, solventFluidNode,
+                                   drainFluidNode, modelViewTransform, tandem ) {
+
+    var thisNode = this;
+    Node.call( thisNode );
+
+    var bodyNode = new BodyNode( meter, modelViewTransform, tandem.createTandem( 'body' ) );
+    var probeNode = new ConcentrationProbeNode( meter.probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, tandem.createTandem( 'probe' ) );
+    var wireNode = new WireNode( meter.body, meter.probe, bodyNode, probeNode );
+
+    // rendering order
+    thisNode.addChild( wireNode );
+    thisNode.addChild( bodyNode );
+    thisNode.addChild( probeNode );
+
+    var updateValue = function() {
+      if ( probeNode.isInSolution() ) {
+        meter.valueProperty.set( solution.concentrationProperty.get() );
+      }
+      else if ( probeNode.isInSolvent() ) {
+        meter.valueProperty.set( 0 );
+      }
+      else if ( probeNode.isInDrainFluid() ) {
+        meter.valueProperty.set( solution.concentrationProperty.get() );
+      }
+      else if ( probeNode.isInStockSolution() ) {
+        meter.valueProperty.set( dropper.soluteProperty.get().stockSolutionConcentration );
+      }
+      else {
+        meter.valueProperty.set( NaN );
+      }
+    };
+    meter.probe.locationProperty.link( updateValue );
+    solution.soluteProperty.link( updateValue );
+    solution.concentrationProperty.link( updateValue );
+    solutionNode.addEventListener( 'bounds', updateValue );
+    stockSolutionNode.addEventListener( 'bounds', updateValue );
+    solventFluidNode.addEventListener( 'bounds', updateValue );
+    drainFluidNode.addEventListener( 'bounds', updateValue );
+  }
+
+  beersLawLab.register( 'ConcentrationMeterNode', ConcentrationMeterNode );
 
   /**
    * Meter body, origin at upper left.
@@ -139,6 +195,8 @@ define( function( require ) {
     } );
   }
 
+  beersLawLab.register( 'ConcentrationMeterNode.BodyNode', BodyNode );
+
   inherit( Node, BodyNode );
 
   /**
@@ -213,6 +271,8 @@ define( function( require ) {
     tandem.addInstance( this );
   }
 
+  beersLawLab.register( 'ConcentrationMeterNode.ConcentrationProbeNode', ConcentrationProbeNode );
+
   inherit( Node, ConcentrationProbeNode );
 
   /**
@@ -255,60 +315,9 @@ define( function( require ) {
     probe.locationProperty.link( updateCurve );
   }
 
+  beersLawLab.register( 'ConcentrationMeterNode.WireNode', WireNode );
+
   inherit( Path, WireNode );
-
-  /**
-   * @param {ConcentrationMeter} meter
-   * @param {ConcentrationSolution} solution
-   * @param {Dropper} dropper
-   * @param {Node} solutionNode
-   * @param {Node} stockSolutionNode
-   * @param {Node} solventFluidNode
-   * @param {Node} drainFluidNode
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
-   * @constructor
-   */
-  function ConcentrationMeterNode( meter, solution, dropper, solutionNode, stockSolutionNode, solventFluidNode,
-                                   drainFluidNode, modelViewTransform, tandem ) {
-
-    var thisNode = this;
-    Node.call( thisNode );
-
-    var bodyNode = new BodyNode( meter, modelViewTransform, tandem.createTandem( 'body' ) );
-    var probeNode = new ConcentrationProbeNode( meter.probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, tandem.createTandem( 'probe' ) );
-    var wireNode = new WireNode( meter.body, meter.probe, bodyNode, probeNode );
-
-    // rendering order
-    thisNode.addChild( wireNode );
-    thisNode.addChild( bodyNode );
-    thisNode.addChild( probeNode );
-
-    var updateValue = function() {
-      if ( probeNode.isInSolution() ) {
-        meter.valueProperty.set( solution.concentrationProperty.get() );
-      }
-      else if ( probeNode.isInSolvent() ) {
-        meter.valueProperty.set( 0 );
-      }
-      else if ( probeNode.isInDrainFluid() ) {
-        meter.valueProperty.set( solution.concentrationProperty.get() );
-      }
-      else if ( probeNode.isInStockSolution() ) {
-        meter.valueProperty.set( dropper.soluteProperty.get().stockSolutionConcentration );
-      }
-      else {
-        meter.valueProperty.set( NaN );
-      }
-    };
-    meter.probe.locationProperty.link( updateValue );
-    solution.soluteProperty.link( updateValue );
-    solution.concentrationProperty.link( updateValue );
-    solutionNode.addEventListener( 'bounds', updateValue );
-    stockSolutionNode.addEventListener( 'bounds', updateValue );
-    solventFluidNode.addEventListener( 'bounds', updateValue );
-    drainFluidNode.addEventListener( 'bounds', updateValue );
-  }
 
   return inherit( Node, ConcentrationMeterNode );
 } );

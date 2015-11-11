@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var TextPushButton = require( 'SUN/buttons/TextPushButton' );
@@ -47,6 +48,8 @@ define( function( require ) {
       thisButton.enabled = ( soluteAmount > 0 );
     } );
   }
+
+  beersLawLab.register( 'RemoveSoluteButton', RemoveSoluteButton );
 
   return inherit( TextPushButton, RemoveSoluteButton );
 } );

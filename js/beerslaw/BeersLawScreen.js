@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BeersLawModel = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawModel' );
   var BeersLawView = require( 'BEERS_LAW_LAB/beerslaw/view/BeersLawView' );
   var Image = require( 'SCENERY/nodes/Image' );
@@ -37,6 +38,8 @@ define( function( require ) {
       }
     );
   }
+
+  beersLawLab.register( 'BeersLawScreen', BeersLawScreen );
 
   return inherit( Screen, BeersLawScreen );
 } );
