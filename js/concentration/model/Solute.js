@@ -69,7 +69,7 @@ define( function( require ) {
   // Specific solutes ===========================================
 
   // A new tandem instance is required here since the solutes are created statically.
-  var tandem = new Tandem( 'concentration.solutes' );
+  var tandem = new Tandem( 'beersLawLab.solutes' );
 
   Solute.DRINK_MIX = new Solute(
     drinkMixString,
