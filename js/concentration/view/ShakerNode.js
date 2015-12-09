@@ -45,7 +45,11 @@ define( function( require ) {
   function ShakerNode( shaker, modelViewTransform, tandem ) {
 
     var thisNode = this;
-    Node.call( thisNode );
+    Node.call( thisNode, {
+      // Performance optimization so Scenery won't fit blocks around this.
+      // See https://github.com/phetsims/beers-law-lab/issues/113
+      preventFit: true
+    } );
 
     // shaker image
     var imageNode = new Image( shakerImage );
