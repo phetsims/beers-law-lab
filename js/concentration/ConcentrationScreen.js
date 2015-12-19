@@ -36,7 +36,7 @@ define( function( require ) {
       new Image( screenIcon ),
       function() { return new ConcentrationModel( tandem ); },
       function( model ) { return new ConcentrationView( model, modelViewTransform, tandem ); }, {
-        tandemScreenName: 'concentrationScreen'
+        tandem: tandem
       }
     );
   }

@@ -24,7 +24,7 @@ define( function( require ) {
   // image
   var screenIcon = require( 'image!BEERS_LAW_LAB/BeersLaw-screen-icon.jpg' );
 
-  function BeersLawScreen() {
+  function BeersLawScreen( tandem ) {
 
     // No offset, scale 125x when going from model to view (1cm == 125 pixels)
     var modelViewTransform = ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 125 );
@@ -34,7 +34,7 @@ define( function( require ) {
       new Image( screenIcon ),
       function() { return new BeersLawModel( modelViewTransform ); },
       function( model ) { return new BeersLawView( model, modelViewTransform ); }, {
-        tandemScreenName: 'beersLawScreen'
+        tandem: tandem
       }
     );
   }
