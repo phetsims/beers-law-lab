@@ -57,7 +57,9 @@ define( function( require ) {
     // @public
     thisModel.ruler = new Ruler( 2.1, 0.1, 0.35,
       new Vector2( thisModel.cuvette.location.x - 2.6, thisModel.cuvette.location.y + 4 ),
-      new Bounds2( 0, 0, 6, 5 ) );
+      new Bounds2( 0, 0, 6, 5 ),
+      tandem.createTandem( 'ruler' )
+    );
 
     // @public
     this.absorbance = new Absorbance( thisModel.light, thisModel.solutionProperty, thisModel.cuvette );

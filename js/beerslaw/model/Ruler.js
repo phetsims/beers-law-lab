@@ -19,11 +19,12 @@ define( function( require ) {
    * @param {number} height cm
    * @param {Vector2} location
    * @param {Bounds2} dragBounds
+   * @param {Tandem} tandem
    * @constructor
    */
-  function Ruler( length, insets, height, location, dragBounds ) {
+  function Ruler( length, insets, height, location, dragBounds, tandem ) {
 
-    Movable.call( this, location, dragBounds );
+    Movable.call( this, location, dragBounds, tandem.createTandem( 'position' ) );
 
     // @public (read-only)
     this.length = length;
