@@ -24,9 +24,10 @@ define( function( require ) {
    * @param {Light} light
    * @param {Cuvette} cuvette
    * @param {Absorbance} absorbance
+   * @param {Tandem} tandem
    * @constructor
    */
-  function ATDetector( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds, light, cuvette, absorbance ) {
+  function ATDetector( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds, light, cuvette, absorbance, tandem ) {
 
     var thisDetector = this;
 
@@ -35,7 +36,7 @@ define( function( require ) {
     thisDetector.probe = new Probe( probeLocation, probeDragBounds, 0.57 ); // @public
 
     // @public for switching between absorbance (A) and percent transmittance (%T)
-    thisDetector.modeProperty = new Property( ATDetector.Mode.TRANSMITTANCE );
+    thisDetector.modeProperty = new Property( ATDetector.Mode.TRANSMITTANCE, { tandem: tandem.createTandem( 'mode' ) } );
 
     // @public value is either absorbance (A) or percent transmittance (%T) depending on mode
     thisDetector.valueProperty = new DerivedProperty( [

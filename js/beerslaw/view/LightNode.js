@@ -23,16 +23,20 @@ define( function( require ) {
   /**
    * @param {Light} light
    * @param {ModelViewTransform2} modelViewTransform
+   * @param {Tandem} tandem
    * @constructor
    */
-  function LightNode( light, modelViewTransform ) {
+  function LightNode( light, modelViewTransform, tandem ) {
 
     var thisNode = this;
     Node.call( this );
 
     // nodes
     var housing = new Image( lightImage, { pickable: false } );
-    var button = new RoundStickyToggleButton( false, true, light.onProperty, { baseColor: 'red' } );
+    var button = new RoundStickyToggleButton( false, true, light.onProperty, {
+      baseColor: 'red',
+      tandem: tandem.createTandem( 'button' )
+    } );
 
     // expand touch area for button. Do this before scaling the button!
     button.touchArea = Shape.circle( 0, 0, 1.0 * button.width /* radius */ );

@@ -32,8 +32,8 @@ define( function( require ) {
     Screen.call( this,
       screenBeersLawString,
       new Image( screenIcon ),
-      function() { return new BeersLawModel( modelViewTransform ); },
-      function( model ) { return new BeersLawView( model, modelViewTransform ); }, {
+      function() { return new BeersLawModel( modelViewTransform, tandem ); },
+      function( model ) { return new BeersLawView( model, modelViewTransform, tandem ); }, {
         tandem: tandem
       }
     );

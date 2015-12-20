@@ -26,20 +26,21 @@ define( function( require ) {
   /**
    * @param {BeersLawModel} model
    * @param {ModelViewTransform2} modelViewTransform
+   * @param {Tandem} tandem
    * @constructor
    */
-  function BeersLawView( model, modelViewTransform ) {
+  function BeersLawView( model, modelViewTransform, tandem ) {
 
     var thisView = this;
     ScreenView.call( thisView, BLLConstants.SCREEN_VIEW_OPTIONS );
 
-    var lightNode = new LightNode( model.light, modelViewTransform );
+    var lightNode = new LightNode( model.light, modelViewTransform, tandem.createTandem( 'light' ) );
     var cuvetteNode = new CuvetteNode( model.cuvette, model.solutionProperty, modelViewTransform, 0.1 /* snapInterval, cm */ );
     var beamNode = new BeamNode( model.beam );
-    var detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform );
-    var wavelengthControls = new WavelengthControls( model.solutionProperty, model.light );
+    var detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform, tandem.createTandem( 'ATDetectorNode' ) );
+    var wavelengthControls = new WavelengthControls( model.solutionProperty, model.light, tandem.createTandem( 'wavelengthControls' ) );
     var rulerNode = new BLLRulerNode( model.ruler, modelViewTransform );
-    var comboBoxListParent = new Node( { maxWidth: 500 });
+    var comboBoxListParent = new Node( { maxWidth: 500 } );
     var solutionControls = new SolutionControls( model.solutions, model.solutionProperty, comboBoxListParent, { maxWidth: 575 } );
 
     // Reset All button
@@ -48,7 +49,8 @@ define( function( require ) {
       listener: function() {
         model.reset();
         wavelengthControls.reset();
-      }
+      },
+      tandem: tandem.createTandem( 'resetAllButton' )
     } );
 
     // Rendering order

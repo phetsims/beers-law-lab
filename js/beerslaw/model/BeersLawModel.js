@@ -25,9 +25,10 @@ define( function( require ) {
 
   /**
    * @param {ModelViewTransform2} modelViewTransform
+   * @param {Tandem} tandem
    * @constructor
    */
-  function BeersLawModel( modelViewTransform ) {
+  function BeersLawModel( modelViewTransform, tandem ) {
 
     var thisModel = this;
 
@@ -51,7 +52,7 @@ define( function( require ) {
 
     // @public
     thisModel.light = new Light( new Vector2( thisModel.cuvette.location.x - 1.5, thisModel.cuvette.location.y + ( thisModel.cuvette.height / 2 ) ),
-      false, 0.45, thisModel.solutionProperty );
+      false, 0.45, thisModel.solutionProperty, tandem.createTandem( 'light' ) );
 
     // @public
     thisModel.ruler = new Ruler( 2.1, 0.1, 0.35,
@@ -66,7 +67,9 @@ define( function( require ) {
       new Bounds2( 0, 0, 7.9, 5.25 ),
       new Vector2( thisModel.cuvette.location.x + 3, thisModel.light.location.y ),
       new Bounds2( 0, 0, 7.9, 5.25 ),
-      thisModel.light, thisModel.cuvette, thisModel.absorbance );
+      thisModel.light, thisModel.cuvette, thisModel.absorbance,
+      tandem.createTandem( 'ATDetector' )
+    );
 
     // @public
     this.beam = new Beam( thisModel.light, thisModel.cuvette, thisModel.detector, thisModel.absorbance, modelViewTransform );

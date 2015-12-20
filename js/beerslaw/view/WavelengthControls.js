@@ -37,13 +37,15 @@ define( function( require ) {
   /**
    * @param {Property.<BeersLawSolution>} solutionProperty
    * @param {Light} light
+   * @param {Tandem} tandem
    * @constructor
    */
-  function WavelengthControls( solutionProperty, light ) {
+  function WavelengthControls( solutionProperty, light, tandem ) {
 
     var thisNode = this;
 
-    this.variableWavelengthProperty = new Property( false ); // @private is the wavelength variable or fixed?
+    // @private is the wavelength variable or fixed?
+    this.variableWavelengthProperty = new Property( false, { tandem: tandem.createTandem( 'variableWavelengthProperty' ) } );
 
     var xMargin = 7;
     var yMargin = 3;
@@ -82,7 +84,8 @@ define( function( require ) {
             font: new PhetFont( 18 ),
             fill: 'black'
           } ), {
-            radius: BLLConstants.RADIO_BUTTON_RADIUS
+            radius: BLLConstants.RADIO_BUTTON_RADIUS,
+            tandem: tandem.createTandem( 'presetWavelengthRadioButton' )
           } ),
         // variable
         new AquaRadioButton( this.variableWavelengthProperty, true,
@@ -90,7 +93,8 @@ define( function( require ) {
             font: new PhetFont( 18 ),
             fill: 'black'
           } ), {
-            radius: BLLConstants.RADIO_BUTTON_RADIUS
+            radius: BLLConstants.RADIO_BUTTON_RADIUS,
+            tandem: tandem.createTandem( 'variableWavelengthRadioButton' )
           } )
       ]
     } );

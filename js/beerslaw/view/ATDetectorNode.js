@@ -47,13 +47,14 @@ define( function( require ) {
    * @param {ATDetector} detector
    * @param {Light} light
    * @param {ModelViewTransform2} modelViewTransform
+   * @param {Tandem} tandem
    * @constructor
    */
-  function ATDetectorNode( detector, light, modelViewTransform ) {
+  function ATDetectorNode( detector, light, modelViewTransform, tandem ) {
 
     Node.call( this );
 
-    var bodyNode = new BodyNode( detector, modelViewTransform );
+    var bodyNode = new BodyNode( detector, modelViewTransform, tandem );
     var probeNode = new ATProbeNode( detector.probe, light, modelViewTransform );
     var wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
 
@@ -70,9 +71,10 @@ define( function( require ) {
    * so it has no drag handler
    * @param {ATDetector} detector
    * @param {ModelViewTransform2} modelViewTransform
+   * @param {Tandem} tandem
    * @constructor
    */
-  function BodyNode( detector, modelViewTransform ) {
+  function BodyNode( detector, modelViewTransform, tandem ) {
 
     var thisNode = this;
     Node.call( thisNode );
@@ -80,11 +82,13 @@ define( function( require ) {
     // buttons for changing the detector 'mode'
     var textOptions = { font: new PhetFont( 18 ), fill: 'white' };
     var transmittanceButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.TRANSMITTANCE, new Text( transmittanceString, textOptions ), {
-      radius: BLLConstants.RADIO_BUTTON_RADIUS
+      radius: BLLConstants.RADIO_BUTTON_RADIUS,
+      tandem: tandem.createTandem( 'transmittanceRadioButton' )
     } );
     var absorbanceButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.ABSORBANCE, new Text( absorbanceString, textOptions ), {
-      radius: BLLConstants.RADIO_BUTTON_RADIUS
-    });
+      radius: BLLConstants.RADIO_BUTTON_RADIUS,
+      tandem: tandem.createTandem( 'absorbanceRadioButton' )
+    } );
 
     // group the buttons
     var buttonGroup = new LayoutBox( {
@@ -97,7 +101,10 @@ define( function( require ) {
 
     // value
     var maxValue = 100;
-    var valueNode = new Text( Util.toFixed( maxValue, ABSORBANCE_DECIMAL_PLACES ), { font: new PhetFont( 24 ), maxWidth: 150 } );
+    var valueNode = new Text( Util.toFixed( maxValue, ABSORBANCE_DECIMAL_PLACES ), {
+      font: new PhetFont( 24 ),
+      maxWidth: 150
+    } );
 
     // display area for the value
     var valueWidth = Math.max( buttonGroup.width, valueNode.width ) + ( 2 * VALUE_X_MARGIN );
@@ -203,7 +210,7 @@ define( function( require ) {
 
     // touch area
     thisNode.touchArea = thisNode.localBounds.dilatedXY( 0.25 * thisNode.width, 0 );
-   }
+  }
 
   inherit( Node, ATProbeNode );
 

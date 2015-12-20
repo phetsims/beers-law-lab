@@ -19,9 +19,10 @@ define( function( require ) {
    * @param {boolean} on
    * @param {number} lensDiameter cm
    * @param {Property.<BeersLawSolution>} solutionProperty
+   * @param {Tandem} tandem
    * @constructor
    */
-  function Light( location, on, lensDiameter, solutionProperty ) {
+  function Light( location, on, lensDiameter, solutionProperty, tandem ) {
 
     var thisLight = this;
 
@@ -30,8 +31,10 @@ define( function( require ) {
     thisLight.lensDiameter = lensDiameter;
 
     // @public
-    thisLight.onProperty = new Property( on );
-    thisLight.wavelengthProperty = new Property( solutionProperty.get().molarAbsorptivityData.lambdaMax ); // nm
+    thisLight.onProperty = new Property( on, { tandem: tandem.createTandem( 'onProperty' ) } );
+    thisLight.wavelengthProperty = new Property( solutionProperty.get().molarAbsorptivityData.lambdaMax /*nm*/, {
+      tandem: tandem.createTandem( 'wavelengthProperty' )
+    } );
 
     // when the solution changes, set the light to the solution's lambdaMax wavelength
     solutionProperty.link( function( solution ) {
