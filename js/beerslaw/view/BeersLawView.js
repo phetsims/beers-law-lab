@@ -39,7 +39,7 @@ define( function( require ) {
     var beamNode = new BeamNode( model.beam );
     var detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform, tandem.createTandem( 'ATDetectorNode' ) );
     var wavelengthControls = new WavelengthControls( model.solutionProperty, model.light, tandem.createTandem( 'wavelengthControls' ) );
-    var rulerNode = new BLLRulerNode( model.ruler, modelViewTransform );
+    var rulerNode = new BLLRulerNode( model.ruler, modelViewTransform, tandem.createTandem( 'ruler' ) );
     var comboBoxListParent = new Node( { maxWidth: 500 } );
     var solutionControls = new SolutionControls( model.solutions, model.solutionProperty, comboBoxListParent, { maxWidth: 575 } );
 

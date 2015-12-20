@@ -26,9 +26,10 @@ define( function( require ) {
   /**
    * @param {Ruler} ruler
    * @param {ModelViewTransform2} modelViewTransform
+   * @param {Tandem} tandem
    * @constructor
    */
-  function BLLRulerNode( ruler, modelViewTransform ) {
+  function BLLRulerNode( ruler, modelViewTransform, tandem ) {
 
     var thisNode = this;
     Node.call( thisNode );
@@ -61,10 +62,15 @@ define( function( require ) {
 
     // interactivity
     thisNode.cursor = 'pointer';
-    thisNode.addInputListener( new MovableDragHandler( ruler.locationProperty, {
+
+    // @private (together)
+    this.movableDragHandler = new MovableDragHandler( ruler.locationProperty, {
       dragBounds: ruler.dragBounds,
       modelViewTransform: modelViewTransform
-    } ) );
+    } );
+    thisNode.addInputListener( this.movableDragHandler );
+
+    tandem.addInstance( this );
   }
 
   beersLawLab.register( 'BLLRulerNode', BLLRulerNode );
