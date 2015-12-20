@@ -102,7 +102,8 @@ define( function( require ) {
     var wavelengthSlider = new WavelengthSlider( light.wavelengthProperty, {
       trackWidth: 150,
       trackHeight: 30,
-      valueVisible: false
+      valueVisible: false,
+      tandem: tandem.createTandem( 'slider' )
     } );
 
     // rendering order
