@@ -28,16 +28,17 @@ define( function( require ) {
 
   /**
    * @param {Property.<BeersLawSolution>} solutionProperty
+   * @param {Tandem} tandem
    * @constructor
    */
-  function ConcentrationControl( solutionProperty ) {
+  function ConcentrationControl( solutionProperty, tandem ) {
 
     var thisNode = this;
     Node.call( thisNode );
 
     // nodes
     var label = new Text( StringUtils.format( pattern0LabelString, concentrationString ), { font: FONT } );
-    var slider = new ConcentrationSlider( solutionProperty );
+    var slider = new ConcentrationSlider( solutionProperty, tandem.createTandem( 'slider' ) );
     var valueDisplay = new Text( ' ' + solutionProperty.get().getDisplayConcentration( solutionProperty.get().concentrationRange.max ), { font: FONT } );
     var xMargin = 0.1 * valueDisplay.width;
     var yMargin = 0.1 * valueDisplay.height;

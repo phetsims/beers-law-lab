@@ -47,9 +47,10 @@ define( function( require ) {
 
   /**
    * @param {Property.<BeersLawSolution>} solutionProperty
+   * @param {Tandem} tandem
    * @constructor
    */
-  function ConcentrationSlider( solutionProperty ) {
+  function ConcentrationSlider( solutionProperty, tandem ) {
 
     var thisNode = this;
     Node.call( thisNode );
@@ -67,11 +68,15 @@ define( function( require ) {
       var solution = solutionProperty.get();
       var delta = solution.concentrationTransform.viewToModel( 1 );
       solution.concentrationProperty.set( Math.min( solution.concentrationProperty.get() + delta, solution.concentrationRange.max ) );
+    }, {
+      tandem: tandem.createTandem( 'plusButton' )
     } );
     var minusButton = new ArrowButton( 'left', function() {
       var solution = solutionProperty.get();
       var delta = solution.concentrationTransform.viewToModel( 1 );
       solution.concentrationProperty.set( Math.max( solution.concentrationProperty.get() - delta, solution.concentrationRange.min ) );
+    }, {
+      tandem: tandem.createTandem( 'minusButton' )
     } );
 
     // rendering order

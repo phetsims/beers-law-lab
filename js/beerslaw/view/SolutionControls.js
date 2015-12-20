@@ -37,7 +37,7 @@ define( function( require ) {
 
     // nodes
     var comboBox = new SolutionComboBox( solutions, currentSolutionProperty, solutionListParent, tandem.createTandem( 'comboBox' ) );
-    var concentrationControl = new ConcentrationControl( currentSolutionProperty );
+    var concentrationControl = new ConcentrationControl( currentSolutionProperty, tandem.createTandem( 'concentrationControl' ) );
     var contentNode = new Node();
 
     // rendering order

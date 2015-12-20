@@ -63,7 +63,9 @@ define( function( require ) {
     thisSolution.name = name;
     thisSolution.formula = formula;
     thisSolution.molarAbsorptivityData = molarAbsorptivityData;
-    thisSolution.concentrationProperty = new Property( concentrationRange.defaultValue );
+    thisSolution.concentrationProperty = new Property( concentrationRange.defaultValue, {
+      tandem: tandem.createTandem( 'concentration' )
+    } );
     thisSolution.concentrationRange = concentrationRange;
     thisSolution.concentrationTransform = concentrationTransform;
     thisSolution.colorRange = colorRange;
