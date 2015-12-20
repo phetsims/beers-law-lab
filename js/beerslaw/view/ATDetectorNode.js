@@ -55,7 +55,7 @@ define( function( require ) {
     Node.call( this );
 
     var bodyNode = new BodyNode( detector, modelViewTransform, tandem );
-    var probeNode = new ATProbeNode( detector.probe, light, modelViewTransform );
+    var probeNode = new ATProbeNode( detector.probe, light, modelViewTransform, tandem.createTandem( 'probeNode' ) );
     var wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
 
     this.addChild( wireNode );
@@ -171,9 +171,10 @@ define( function( require ) {
    * @param {Movable} probe
    * @param {Light} light
    * @param {ModelViewTransform2} modelViewTransform
+   * @param {Tandem} tandem
    * @constructor
    */
-  function ATProbeNode( probe, light, modelViewTransform ) {
+  function ATProbeNode( probe, light, modelViewTransform, tandem ) {
 
     var thisNode = this;
 
@@ -194,7 +195,9 @@ define( function( require ) {
 
     // interactivity
     thisNode.cursor = 'pointer';
-    thisNode.addInputListener( new MovableDragHandler( probe.locationProperty, {
+
+    // @private (together)
+    this.movableDragHandler = new MovableDragHandler( probe.locationProperty, {
       dragBounds: probe.dragBounds,
       modelViewTransform: modelViewTransform,
       endDrag: function() {
@@ -204,12 +207,15 @@ define( function( require ) {
           probe.locationProperty.set( new Vector2( probe.locationProperty.get().x, light.location.y ) );
         }
       }
-    } ) );
+    } );
+    thisNode.addInputListener( this.movableDragHandler );
 
     beersLawLab.register( 'ATDetectorNode.ATProbeNode', ATProbeNode );
 
     // touch area
     thisNode.touchArea = thisNode.localBounds.dilatedXY( 0.25 * thisNode.width, 0 );
+
+    tandem.addInstance( this );
   }
 
   inherit( Node, ATProbeNode );
