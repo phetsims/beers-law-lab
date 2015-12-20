@@ -35,7 +35,7 @@ define( function( require ) {
     ScreenView.call( thisView, BLLConstants.SCREEN_VIEW_OPTIONS );
 
     var lightNode = new LightNode( model.light, modelViewTransform, tandem.createTandem( 'light' ) );
-    var cuvetteNode = new CuvetteNode( model.cuvette, model.solutionProperty, modelViewTransform, 0.1 /* snapInterval, cm */ );
+    var cuvetteNode = new CuvetteNode( model.cuvette, model.solutionProperty, modelViewTransform, 0.1 /* snapInterval, cm */, tandem.createTandem( 'cuvette' ).createTandem( 'node' ) );
     var beamNode = new BeamNode( model.beam );
     var detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform, tandem.createTandem( 'ATDetectorNode' ) );
     var wavelengthControls = new WavelengthControls( model.solutionProperty, model.light, tandem.createTandem( 'wavelengthControls' ) );

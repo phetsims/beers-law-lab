@@ -25,12 +25,12 @@ define( function( require ) {
    * @param {number} height fixed height, cm
    * @constructor
    */
-  function Cuvette( location, widthRange, height ) {
+  function Cuvette( location, widthRange, height, tandem ) {
 
     // @public (read-only)
     this.location = location;
     this.widthRange = widthRange;
-    this.widthProperty = new Property( widthRange.defaultValue );
+    this.widthProperty = new Property( widthRange.defaultValue, { tandem: tandem.createTandem( 'width' ) } );
     this.height = height;
   }
 
