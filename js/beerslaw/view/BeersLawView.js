@@ -41,7 +41,7 @@ define( function( require ) {
     var wavelengthControls = new WavelengthControls( model.solutionProperty, model.light, tandem.createTandem( 'wavelengthControls' ) );
     var rulerNode = new BLLRulerNode( model.ruler, modelViewTransform, tandem.createTandem( 'ruler' ) );
     var comboBoxListParent = new Node( { maxWidth: 500 } );
-    var solutionControls = new SolutionControls( model.solutions, model.solutionProperty, comboBoxListParent, { maxWidth: 575 } );
+    var solutionControls = new SolutionControls( model.solutions, model.solutionProperty, comboBoxListParent, tandem.createTandem( 'solutionControls' ), { maxWidth: 575 } );
 
     // Reset All button
     var resetAllButton = new ResetAllButton( {

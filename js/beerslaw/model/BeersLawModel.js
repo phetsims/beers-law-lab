@@ -45,7 +45,7 @@ define( function( require ) {
     ];
 
     // @public
-    thisModel.solutionProperty = new Property( thisModel.solutions[ 0 ] );
+    thisModel.solutionProperty = new Property( thisModel.solutions[ 0 ], { tandem: tandem.createTandem( 'solution' ) } );
 
     // @public NOTE: All locations are relative to the location of the cuvette.
     thisModel.cuvette = new Cuvette( new Vector2( 3.3, 0.5 ), new Range( 0.5, 2.0, 1.0 ), 3, tandem.createTandem( 'cuvette' ) );

@@ -20,10 +20,11 @@ define( function( require ) {
    * @param {BeersLawSolution[]} solutions
    * @param {Property.<BeersLawSolution>} currentSolutionProperty
    * @param {Node} solutionListParent
+   * @param {Tandem} tandem
    * @param {Object} [options]
    * @constructor
    */
-  function SolutionControls( solutions, currentSolutionProperty, solutionListParent, options ) {
+  function SolutionControls( solutions, currentSolutionProperty, solutionListParent, tandem, options ) {
 
     options = _.extend( {
       xMargin: 15,
@@ -35,7 +36,7 @@ define( function( require ) {
     }, options );
 
     // nodes
-    var comboBox = new SolutionComboBox( solutions, currentSolutionProperty, solutionListParent );
+    var comboBox = new SolutionComboBox( solutions, currentSolutionProperty, solutionListParent, tandem.createTandem( 'comboBox' ) );
     var concentrationControl = new ConcentrationControl( currentSolutionProperty );
     var contentNode = new Node();
 
