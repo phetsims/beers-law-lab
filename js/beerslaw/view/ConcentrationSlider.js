@@ -28,6 +28,7 @@ define( function( require ) {
   var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
+  var Emitter = require( 'AXON/Emitter' );
 
   // track constants
   var TRACK_SIZE = new Dimension2( 200, 15 );
@@ -57,7 +58,9 @@ define( function( require ) {
 
     // nodes
     var track = new Track( TRACK_SIZE, solutionProperty );
-    var thumb = new Thumb( THUMB_SIZE, TRACK_SIZE, solutionProperty );
+
+    // @private (together)
+    this.thumb = new Thumb( THUMB_SIZE, TRACK_SIZE, solutionProperty );
     var minTickLine = new TickLine();
     var maxTickLine = new TickLine();
     var minTickLabel = new TickLabel( 0 ); // correct value will be set when observer is registered
@@ -85,7 +88,7 @@ define( function( require ) {
     thisNode.addChild( minTickLabel );
     thisNode.addChild( maxTickLabel );
     thisNode.addChild( track );
-    thisNode.addChild( thumb );
+    thisNode.addChild( this.thumb );
     thisNode.addChild( plusButton );
     thisNode.addChild( minusButton );
 
@@ -96,10 +99,10 @@ define( function( require ) {
     maxTickLine.right = track.right;
     maxTickLine.bottom = track.top;
     maxTickLabel.bottom = maxTickLine.top - 2;
-    thumb.centerY = track.centerY;
-    minusButton.right = track.left - ( thumb.width / 2 ) - 2;
+    this.thumb.centerY = track.centerY;
+    minusButton.right = track.left - ( this.thumb.width / 2 ) - 2;
     minusButton.bottom = track.bottom;
-    plusButton.left = track.right + ( thumb.width / 2 ) + 2;
+    plusButton.left = track.right + ( this.thumb.width / 2 ) + 2;
     plusButton.bottom = track.bottom;
 
     var concentrationObserver = function( concentration ) {
@@ -124,6 +127,8 @@ define( function( require ) {
       }
       solution.concentrationProperty.link( concentrationObserver );
     } );
+
+    tandem.addInstance( this );
   }
 
   beersLawLab.register( 'ConcentrationSlider', ConcentrationSlider );
@@ -219,6 +224,16 @@ define( function( require ) {
     var thisNode = this;
     Node.call( thisNode, { cursor: 'pointer' } );
 
+    // Emitters for together
+    this.startedCallbacksForDragStartedEmitter = new Emitter(); // @private (together)
+    this.endedCallbacksForDragStartedEmitter = new Emitter(); // @private (together)
+
+    this.startedCallbacksForDraggedEmitter = new Emitter(); // @private (together)
+    this.endedCallbacksForDraggedEmitter = new Emitter(); // @private (together)
+
+    this.startedCallbacksForDragEndedEmitter = new Emitter(); // @private (together)
+    this.endedCallbacksForDragEndedEmitter = new Emitter(); // @private (together)
+
     // nodes
     var arcWidth = 0.25 * thumbSize.width;
     var body = new Rectangle( -thumbSize.width / 2, -thumbSize.height / 2, thumbSize.width, thumbSize.height, arcWidth, arcWidth,
@@ -286,11 +301,20 @@ define( function( require ) {
     SimpleDragHandler.call( this, {
       allowTouchSnag: true,
       start: function( event ) {
+        dragNode.startedCallbacksForDragStartedEmitter.emit();
         clickXOffset = dragNode.globalToParentPoint( event.pointer.point ).x - event.currentTarget.x;
+        dragNode.endedCallbacksForDragStartedEmitter.emit();
       },
       drag: function( event ) {
         var x = dragNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
-        concentrationProperty.set( positionToValue( x ) );
+        var newValue = positionToValue( x );
+        dragNode.startedCallbacksForDraggedEmitter.emit1( newValue );
+        concentrationProperty.set( newValue );
+        dragNode.endedCallbacksForDraggedEmitter.emit();
+      },
+      end: function( event ) {
+        dragNode.startedCallbacksForDragEndedEmitter.emit();
+        dragNode.endedCallbacksForDragEndedEmitter.emit();
       }
     } );
   }
