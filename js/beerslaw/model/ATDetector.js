@@ -33,7 +33,7 @@ define( function( require ) {
 
     thisDetector.light = light; // @private
     thisDetector.body = new Movable( bodyLocation, bodyDragBounds ); // @public
-    thisDetector.probe = new Probe( probeLocation, probeDragBounds, 0.57 ); // @public
+    thisDetector.probe = new Probe( probeLocation, probeDragBounds, 0.57, tandem.createTandem( 'probeLocation' ) ); // @public
 
     // @public for switching between absorbance (A) and percent transmittance (%T)
     thisDetector.modeProperty = new Property( ATDetector.Mode.TRANSMITTANCE, { tandem: tandem.createTandem( 'mode' ) } );
@@ -70,10 +70,11 @@ define( function( require ) {
    * @param {Vector2} location
    * @param {Bounds2} dragBounds
    * @param {number} sensorDiameter cm
+   * @param {Tandem} tandem
    * @constructor
    */
-  function Probe( location, dragBounds, sensorDiameter ) {
-    Movable.call( this, location, dragBounds );
+  function Probe( location, dragBounds, sensorDiameter, tandem ) {
+    Movable.call( this, location, dragBounds, tandem );
     this.sensorDiameter = sensorDiameter; // @private
   }
 
