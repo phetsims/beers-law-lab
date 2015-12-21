@@ -57,7 +57,8 @@ define( function( require ) {
     Node.call( thisNode );
 
     // nodes
-    var track = new Track( TRACK_SIZE, solutionProperty );
+    // @private (together)
+    this.track = new Track( TRACK_SIZE, solutionProperty );
 
     // @private (together)
     this.thumb = new Thumb( THUMB_SIZE, TRACK_SIZE, solutionProperty );
@@ -87,23 +88,23 @@ define( function( require ) {
     thisNode.addChild( maxTickLine );
     thisNode.addChild( minTickLabel );
     thisNode.addChild( maxTickLabel );
-    thisNode.addChild( track );
+    thisNode.addChild( this.track );
     thisNode.addChild( this.thumb );
     thisNode.addChild( plusButton );
     thisNode.addChild( minusButton );
 
     // layout
-    minTickLine.left = track.left;
-    minTickLine.bottom = track.top;
+    minTickLine.left = this.track.left;
+    minTickLine.bottom = this.track.top;
     minTickLabel.bottom = minTickLine.top - 2;
-    maxTickLine.right = track.right;
-    maxTickLine.bottom = track.top;
+    maxTickLine.right = this.track.right;
+    maxTickLine.bottom = this.track.top;
     maxTickLabel.bottom = maxTickLine.top - 2;
-    this.thumb.centerY = track.centerY;
-    minusButton.right = track.left - ( this.thumb.width / 2 ) - 2;
-    minusButton.bottom = track.bottom;
-    plusButton.left = track.right + ( this.thumb.width / 2 ) + 2;
-    plusButton.bottom = track.bottom;
+    this.thumb.centerY = this.track.centerY;
+    minusButton.right = this.track.left - ( this.thumb.width / 2 ) - 2;
+    minusButton.bottom = this.track.bottom;
+    plusButton.left = this.track.right + ( this.thumb.width / 2 ) + 2;
+    plusButton.bottom = this.track.bottom;
 
     var concentrationObserver = function( concentration ) {
       // buttons
@@ -145,6 +146,17 @@ define( function( require ) {
   function Track( trackSize, solutionProperty ) {
 
     var thisNode = this;
+
+    // Emitters for together
+    this.startedCallbacksForDragStartedEmitter = new Emitter(); // @private (together)
+    this.endedCallbacksForDragStartedEmitter = new Emitter(); // @private (together)
+
+    this.startedCallbacksForDraggedEmitter = new Emitter(); // @private (together)
+    this.endedCallbacksForDraggedEmitter = new Emitter(); // @private (together)
+
+    this.startedCallbacksForDragEndedEmitter = new Emitter(); // @private (together)
+    this.endedCallbacksForDragEndedEmitter = new Emitter(); // @private (together)
+
     Rectangle.call( thisNode, 0, 0, trackSize.width, trackSize.height,
       { cursor: 'pointer', stroke: 'black', lineWidth: 1 } );
 
@@ -170,10 +182,18 @@ define( function( require ) {
     thisNode.addInputListener( new SimpleDragHandler(
       {
         start: function( event ) {
+          thisNode.startedCallbacksForDragStartedEmitter.emit();
           handleEvent( event );
+          thisNode.endedCallbacksForDragStartedEmitter.emit();
         },
         drag: function( event ) {
+          thisNode.startedCallbacksForDraggedEmitter.emit();
           handleEvent( event );
+          thisNode.endedCallbacksForDraggedEmitter.emit();
+        },
+        end: function() {
+          thisNode.startedCallbacksForDragEndedEmitter.emit();
+          thisNode.endedCallbacksForDragEndedEmitter.emit();
         }
       } ) );
   }
