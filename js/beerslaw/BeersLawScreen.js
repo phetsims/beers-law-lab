@@ -24,6 +24,10 @@ define( function( require ) {
   // image
   var screenIcon = require( 'image!BEERS_LAW_LAB/BeersLaw-screen-icon.jpg' );
 
+  /**
+   * @param {Tandem} tandem
+   * @constructor
+   */
   function BeersLawScreen( tandem ) {
 
     // No offset, scale 125x when going from model to view (1cm == 125 pixels)
