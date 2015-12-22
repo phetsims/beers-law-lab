@@ -60,7 +60,7 @@ define( function( require ) {
 
     // @public
     thisModel.soluteProperty = new Property( thisModel.solutes[ 0 ], { tandem: tandem.createTandem( 'solute' ) } );
-    thisModel.soluteFormProperty = new Property( 'solid', { tandem: tandem.createTandem( 'soluteForm' ) } ); // 'solid' or 'liquid'
+    thisModel.soluteFormProperty = new Property( 'solid', { tandem: tandem.createTandem( 'soluteForm' ) } ); // 'solid' or 'solution'
 
     // @public
     thisModel.solution = new ConcentrationSolution( thisModel.soluteProperty, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue, tandem.createTandem( 'solution' ) );
@@ -70,7 +70,7 @@ define( function( require ) {
       thisModel.soluteProperty, SHAKER_MAX_DISPENSING_RATE, thisModel.soluteFormProperty.get() === 'solid', tandem.createTandem( 'shaker' ) );
     thisModel.shakerParticles = new ShakerParticles( thisModel.shaker, thisModel.solution, thisModel.beaker, tandem.createTandem( 'shakerParticles' ) );
     thisModel.dropper = new Dropper( new Vector2( thisModel.beaker.location.x, 225 ), new Bounds2( 250, 225, 570, 225 ),
-      thisModel.soluteProperty, DROPPER_FLOW_RATE, thisModel.soluteFormProperty.get() === 'liquid', tandem.createTandem( 'dropper' ) );
+      thisModel.soluteProperty, DROPPER_FLOW_RATE, thisModel.soluteFormProperty.get() === 'solution', tandem.createTandem( 'dropper' ) );
     thisModel.evaporator = new Evaporator( MAX_EVAPORATION_RATE, thisModel.solution, tandem );
     thisModel.solventFaucet = new Faucet( new Vector2( 155, 220 ), -400, 45, MAX_INPUT_FLOW_RATE, tandem.createTandem( 'solventFaucet' ) );
     thisModel.drainFaucet = new Faucet( new Vector2( 800, 630 ), thisModel.beaker.getRight(), 45, MAX_OUTPUT_FLOW_RATE, tandem.createTandem( 'drainFaucet' ) );

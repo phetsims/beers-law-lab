@@ -1,7 +1,7 @@
 // Copyright 2013-2015, University of Colorado Boulder
 
 /**
- * Radio buttons that select the solution form, either 'solid' (shaker) or 'liquid' (dropper).
+ * Radio buttons that select the solution form, either 'solid' (shaker) or 'solution' (dropper).
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -28,7 +28,7 @@ define( function( require ) {
   var dropperIconImage = require( 'image!BEERS_LAW_LAB/dropper-icon.png' );
 
   /**
-   * @param {Property.<string>} soluteFormProperty form of the solute, 'solid' or 'liquid'
+   * @param {Property.<string>} soluteFormProperty form of the solute, 'solid' or 'solution'
    * @param {Shaker} shaker
    * @param {Dropper} dropper
    * @param {Tandem} tandem
@@ -53,7 +53,7 @@ define( function( require ) {
       centerY: shakerButton.centerY
     } );
 
-    var dropperButton = new AquaRadioButton( soluteFormProperty, 'liquid',
+    var dropperButton = new AquaRadioButton( soluteFormProperty, 'solution',
       new TextAndIconNode( solutionString, dropperIconImage, TEXT_OPTIONS ), {
         radius: BLLConstants.RADIO_BUTTON_RADIUS,
         left: separator.right + SEPARATOR_SPACING,
@@ -64,15 +64,15 @@ define( function( require ) {
 
     soluteFormProperty.link( function( soluteForm ) {
       shaker.visibleProperty.set( soluteForm === 'solid' );
-      dropper.visibleProperty.set( soluteForm === 'liquid' );
+      dropper.visibleProperty.set( soluteForm === 'solution' );
     } );
 
     shaker.visibleProperty.link( function( visible ) {
-      soluteFormProperty.set( visible ? 'solid' : 'liquid' );
+      soluteFormProperty.set( visible ? 'solid' : 'solution' );
     } );
 
     dropper.visibleProperty.link( function( visible ) {
-      soluteFormProperty.set( visible ? 'liquid' : 'solid' );
+      soluteFormProperty.set( visible ? 'solution' : 'solid' );
     } );
   }
 

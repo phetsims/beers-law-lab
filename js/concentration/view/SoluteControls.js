@@ -19,7 +19,7 @@ define( function( require ) {
   /**
    * @param {Solute[]} solutes
    * @param {Property.<Solute>} currentSoluteProperty
-   * @param {Property.<string>} soluteFormProperty form of the solute, 'solid' or 'liquid'
+   * @param {Property.<string>} soluteFormProperty form of the solute, 'solid' or 'solution'
    * @param {Shaker} shaker
    * @param {Dropper} dropper
    * @param {Node} soluteListParent
