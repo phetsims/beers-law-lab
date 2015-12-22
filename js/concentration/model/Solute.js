@@ -28,7 +28,6 @@ define( function( require ) {
   var potassiumPermanganateString = require( 'string!BEERS_LAW_LAB/potassiumPermanganate' );
 
   /**
-   * Constructor.
    * @param {string} name
    * @param {string} formula
    * @param {number} stockSolutionConcentration

@@ -17,7 +17,6 @@ define( function( require ) {
   var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
 
   /**
-   * Constructor
    * @param {Solute} solute
    * @param {Vector2} location in the beaker's coordinate frame
    * @param {number} orientation in radians

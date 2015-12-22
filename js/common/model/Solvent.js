@@ -19,7 +19,6 @@ define( function( require ) {
   var waterString = require( 'string!BEERS_LAW_LAB/water' );
 
   /**
-   * Constructor.
    * @param {string} name
    * @param {string} formula
    * @param {Color} color

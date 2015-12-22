@@ -36,7 +36,6 @@ define( function( require ) {
   };
 
   /**
-   * Constructor
    * @param {Shaker} shaker
    * @param {ModelViewTransform2} modelViewTransform
    * @param {Tandem} tandem

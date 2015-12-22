@@ -15,7 +15,6 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
 
   /**
-   * Constructor
    * @param {Vector2} location
    * @param {Bounds2} dragBounds
    * @param {Tandem} tandem

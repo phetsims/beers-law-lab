@@ -13,7 +13,6 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
 
   /**
-   * Constructor
    * @param {Color} color
    * @param {number} size particles are square, this is the length of one side
    * @param {Vector2} location location of the particle in the beaker's coordinate frame

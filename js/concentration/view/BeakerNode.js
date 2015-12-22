@@ -33,7 +33,6 @@ define( function( require ) {
   var MAJOR_TICK_LABELS = new Array( '\u00bd', '1' ); // 1/2, 1
 
   /**
-   * Constructor
    * @param {Beaker} beaker
    * @param {ModelViewTransform2} modelViewTransform
    * @constructor

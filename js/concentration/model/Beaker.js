@@ -13,7 +13,6 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
 
   /**
-   * Constructor
    * @param {Vector2} location bottom center
    * @param {Dimension2} size
    * @param {number} volume in liters (L)
