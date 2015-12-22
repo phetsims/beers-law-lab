@@ -23,6 +23,7 @@ define( function( require ) {
    * @param {number} soluteAmount moles
    * @param {number} volume L
    * @param {Tandem} tandem
+   * @constructor
    */
   function ConcentrationSolution( soluteProperty, soluteAmount, volume, tandem ) {
 
