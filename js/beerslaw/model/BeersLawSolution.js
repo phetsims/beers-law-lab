@@ -50,11 +50,15 @@ define( function( require ) {
    * @param {ConcentrationTransform} concentrationTransform
    * @param {ColorRange} colorRange
    * @param {Tandem} tandem
-   * @param {Color} saturatedColor optional, defaults to colorRange.maxColor
+   * @param {Object} [options]
    * @constructor
    */
   function BeersLawSolution( name, formula, molarAbsorptivityData, concentrationRange, concentrationTransform,
-                             colorRange, tandem, saturatedColor ) {
+                             colorRange, tandem, options ) {
+
+    options = _.extend( {
+      saturatedColor: colorRange.max // {Color} color to use when the solution is saturated
+    }, options );
 
     var thisSolution = this;
 
@@ -69,7 +73,7 @@ define( function( require ) {
     thisSolution.concentrationRange = concentrationRange;
     thisSolution.concentrationTransform = concentrationTransform;
     thisSolution.colorRange = colorRange;
-    thisSolution.saturatedColor = saturatedColor || colorRange.max;
+    thisSolution.saturatedColor = options.saturatedColor;
 
     // @public Solution color is derived from concentration
     thisSolution.fluidColorProperty = new DerivedProperty( [ thisSolution.concentrationProperty ],
@@ -195,7 +199,7 @@ define( function( require ) {
     ConcentrationTransform.uM,
     new ColorRange( new Color( 255, 235, 255 ), new Color( 255, 0, 255 ) ),
     tandem.createTandem( 'potassiumPermanganate' ),
-    new Color( 80, 0, 120 )  // has a special saturated color
+    { saturatedColor: new Color( 80, 0, 120 ) } // has a special saturated color
   );
 
   return BeersLawSolution;
