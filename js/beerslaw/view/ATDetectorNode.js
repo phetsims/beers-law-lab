@@ -54,7 +54,7 @@ define( function( require ) {
 
     Node.call( this );
 
-    var bodyNode = new BodyNode( detector, modelViewTransform, tandem );
+    var bodyNode = new BodyNode( detector, modelViewTransform, tandem.createTandem( 'body' ) );
     var probeNode = new ATProbeNode( detector.probe, light, modelViewTransform, tandem.createTandem( 'probeNode' ) );
     var wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
 
