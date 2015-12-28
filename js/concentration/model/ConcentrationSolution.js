@@ -69,6 +69,7 @@ define( function( require ) {
       },
       { tandem: tandem.createTandem( 'saturated' ) }
     );
+
     Fluid.call( thisSolution, ConcentrationSolution.createColor( thisSolution.solvent, thisSolution.soluteProperty.get(), thisSolution.concentrationProperty.get() ) );
 
     // derive the solution color
