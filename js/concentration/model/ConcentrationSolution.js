@@ -61,6 +61,14 @@ define( function( require ) {
       },
       { tandem: tandem.createTandem( 'concentration' ) }
     );
+
+    // @public boolean property indicating whether the solution is saturated or not.
+    this.saturatedProperty = new DerivedProperty( [ this.soluteProperty, this.soluteAmountProperty, this.volumeProperty ],
+      function( solute, soluteAmount, volume ) {
+        return ( volume > 0 ) && ( soluteAmount / volume ) > solute.getSaturatedConcentration();
+      },
+      { tandem: tandem.createTandem( 'saturated' ) }
+    );
     Fluid.call( thisSolution, ConcentrationSolution.createColor( thisSolution.solvent, thisSolution.soluteProperty.get(), thisSolution.concentrationProperty.get() ) );
 
     // derive the solution color
@@ -85,15 +93,6 @@ define( function( require ) {
     // @public convenience function
     getSaturatedConcentration: function() {
       return this.soluteProperty.get().getSaturatedConcentration();
-    },
-
-    // @public
-    isSaturated: function() {
-      var saturated = false;
-      if ( this.volumeProperty.get() > 0 ) {
-        saturated = ( this.soluteAmountProperty.get() / this.volumeProperty.get() ) > this.getSaturatedConcentration();
-      }
-      return saturated;
     },
 
     // @public
