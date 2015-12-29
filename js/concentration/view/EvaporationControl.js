@@ -51,7 +51,7 @@ define( function( require ) {
       trackSize: new Dimension2( 200, 6 ),
       enabledProperty: evaporator.enabledProperty,
       endDrag: function() { evaporator.evaporationRateProperty.set( 0 ); },  // at end of drag, snap evaporation rate back to zero
-      tandem: tandem.createTandem( 'evaporationSlider' )
+      tandem: tandem.createTandem( 'slider' )
     } );
 
     var tickFont = new PhetFont( 16 );

@@ -71,7 +71,7 @@ define( function( require ) {
     thisModel.shakerParticles = new ShakerParticles( thisModel.shaker, thisModel.solution, thisModel.beaker, tandem.createTandem( 'shakerParticles' ) );
     thisModel.dropper = new Dropper( new Vector2( thisModel.beaker.location.x, 225 ), new Bounds2( 250, 225, 570, 225 ),
       thisModel.soluteProperty, DROPPER_FLOW_RATE, thisModel.soluteFormProperty.get() === 'solution', tandem.createTandem( 'dropper' ) );
-    thisModel.evaporator = new Evaporator( MAX_EVAPORATION_RATE, thisModel.solution, tandem );
+    thisModel.evaporator = new Evaporator( MAX_EVAPORATION_RATE, thisModel.solution, tandem.createTandem( 'evaporator' ) );
     thisModel.solventFaucet = new Faucet( new Vector2( 155, 220 ), -400, 45, MAX_INPUT_FLOW_RATE, tandem.createTandem( 'solventFaucet' ) );
     thisModel.drainFaucet = new Faucet( new Vector2( 800, 630 ), thisModel.beaker.getRight(), 45, MAX_OUTPUT_FLOW_RATE, tandem.createTandem( 'drainFaucet' ) );
     thisModel.concentrationMeter = new ConcentrationMeter( new Vector2( 785, 210 ), new Bounds2( 10, 150, 835, 680 ),
