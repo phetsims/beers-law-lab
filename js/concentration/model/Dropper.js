@@ -26,7 +26,7 @@ define( function( require ) {
   function Dropper( location, dragBounds, soluteProperty, maxFlowRate, visible, tandem ) {
 
     var thisDropper = this;
-    Movable.call( thisDropper, location, dragBounds, tandem.createTandem( 'location' ) );
+    Movable.call( thisDropper, location, dragBounds, tandem );
 
     // @public
     thisDropper.soluteProperty = soluteProperty;

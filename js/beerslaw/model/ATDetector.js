@@ -32,8 +32,8 @@ define( function( require ) {
     var thisDetector = this;
 
     thisDetector.light = light; // @private
-    thisDetector.body = new Movable( bodyLocation, bodyDragBounds ); // @public
-    thisDetector.probe = new Probe( probeLocation, probeDragBounds, 0.57, tandem.createTandem( 'probeLocation' ) ); // @public
+    thisDetector.body = new Movable( bodyLocation, bodyDragBounds, tandem.createTandem( 'body' ) ); // @public
+    thisDetector.probe = new Probe( probeLocation, probeDragBounds, 0.57, tandem.createTandem( 'probe' ) ); // @public
 
     // @public for switching between absorbance (A) and percent transmittance (%T)
     thisDetector.modeProperty = new Property( ATDetector.Mode.TRANSMITTANCE, { tandem: tandem.createTandem( 'mode' ) } );

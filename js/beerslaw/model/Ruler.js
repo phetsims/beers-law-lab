@@ -24,7 +24,7 @@ define( function( require ) {
    */
   function Ruler( length, insets, height, location, dragBounds, tandem ) {
 
-    Movable.call( this, location, dragBounds, tandem.createTandem( 'position' ) );
+    Movable.call( this, location, dragBounds, tandem );
 
     // @public (read-only)
     this.length = length;

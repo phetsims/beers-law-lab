@@ -27,7 +27,7 @@ define( function( require ) {
   function Shaker( location, dragBounds, orientation, soluteProperty, maxDispensingRate, visible, tandem ) {
 
     var thisShaker = this;
-    Movable.call( thisShaker, location, dragBounds, tandem.createTandem( 'location' ) );
+    Movable.call( thisShaker, location, dragBounds, tandem );
 
     // @public (read-only)
     thisShaker.orientation = orientation;
