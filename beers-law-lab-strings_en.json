@@ -26,9 +26,6 @@
   "fixed": {
     "value": "preset"
   },
-  "ir": {
-    "value": "IR"
-  },
   "lots": {
     "value": "lots"
   },
@@ -103,9 +100,6 @@
   },
   "units.nm": {
     "value": "nm"
-  },
-  "uv": {
-    "value": "UV"
   },
   "variable": {
     "value": "variable"
