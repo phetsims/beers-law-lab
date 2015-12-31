@@ -33,8 +33,8 @@ define( function( require ) {
 
     // @public
     thisSolution.soluteProperty = soluteProperty;
-    thisSolution.soluteAmountProperty = new Property( soluteAmount, { tandem: tandem.createTandem( 'soluteAmount' ) } );
-    thisSolution.volumeProperty = new Property( volume, { tandem: tandem.createTandem( 'volume' ) } );
+    thisSolution.soluteAmountProperty = new Property( soluteAmount, { tandem: tandem.createTandem( 'soluteAmountProperty' ) } );
+    thisSolution.volumeProperty = new Property( volume, { tandem: tandem.createTandem( 'volumeProperty' ) } );
 
     // @public for deferring update of precipitateAmount until we've changed both volume and soluteAmount, see concentration#1
     thisSolution.updatePrecipitateAmount = true;

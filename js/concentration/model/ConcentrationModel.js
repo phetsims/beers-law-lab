@@ -59,8 +59,8 @@ define( function( require ) {
     ];
 
     // @public
-    thisModel.soluteProperty = new Property( thisModel.solutes[ 0 ], { tandem: tandem.createTandem( 'solute' ) } );
-    thisModel.soluteFormProperty = new Property( 'solid', { tandem: tandem.createTandem( 'soluteForm' ) } ); // 'solid' or 'solution'
+    thisModel.soluteProperty = new Property( thisModel.solutes[ 0 ], { tandem: tandem.createTandem( 'soluteProperty' ) } );
+    thisModel.soluteFormProperty = new Property( 'solid', { tandem: tandem.createTandem( 'soluteFormProperty' ) } ); // 'solid' or 'solution'
 
     // @public
     thisModel.solution = new ConcentrationSolution( thisModel.soluteProperty, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue, tandem.createTandem( 'solution' ) );

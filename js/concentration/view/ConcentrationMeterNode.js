@@ -179,7 +179,7 @@ define( function( require ) {
     } );
 
     // displayed value
-    var readoutProperty = new Property( NO_VALUE, tandem.createTandem( 'readout' ) );
+    var readoutProperty = new Property( NO_VALUE, tandem.createTandem( 'readoutProperty' ) );
     meter.valueProperty.link( function( value ) {
       if ( isNaN( value ) ) {
         valueNode.setText( NO_VALUE );

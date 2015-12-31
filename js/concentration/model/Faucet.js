@@ -35,7 +35,7 @@ define( function( require ) {
     thisFaucet.maxFlowRate = maxFlowRate;
 
     // @public
-    thisFaucet.flowRateProperty = new Property( 0, { tandem: tandem.createTandem( 'flowRate' ) } );
+    thisFaucet.flowRateProperty = new Property( 0, { tandem: tandem.createTandem( 'flowRateProperty' ) } );
     thisFaucet.enabledProperty = new Property( true );
 
     // when disabled, turn off the faucet.

@@ -30,7 +30,7 @@ define( function( require ) {
     // @public (read-only)
     this.location = location;
     this.widthRange = widthRange;
-    this.widthProperty = new Property( widthRange.defaultValue, { tandem: tandem.createTandem( 'width' ) } );
+    this.widthProperty = new Property( widthRange.defaultValue, { tandem: tandem.createTandem( 'widthProperty' ) } );
     this.height = height;
   }
 

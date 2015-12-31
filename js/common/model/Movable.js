@@ -21,7 +21,7 @@ define( function( require ) {
    * @constructor
    */
   function Movable( location, dragBounds, tandem ) {
-    this.locationProperty = new Property( location, { tandem: tandem.createTandem( 'location' ) } ); // @public
+    this.locationProperty = new Property( location, { tandem: tandem.createTandem( 'locationProperty' ) } ); // @public
     this.dragBounds = dragBounds; // @public (read-only)
   }
 

@@ -31,10 +31,10 @@ define( function( require ) {
     // @public
     thisDropper.soluteProperty = soluteProperty;
     thisDropper.visibleProperty = new Property( visible );
-    thisDropper.dispensingProperty = new Property( false, { tandem: tandem.createTandem( 'dispensing' ) } ); // true if the dropper is dispensing solution
+    thisDropper.dispensingProperty = new Property( false, { tandem: tandem.createTandem( 'dispensingProperty' ) } ); // true if the dropper is dispensing solution
     thisDropper.enabledProperty = new Property( true );
-    thisDropper.emptyProperty = new Property( false, { tandem: tandem.createTandem( 'empty' ) } );
-    thisDropper.flowRateProperty = new Property( 0, { tandem: tandem.createTandem( 'flowRate' ) } ); // L/sec
+    thisDropper.emptyProperty = new Property( false, { tandem: tandem.createTandem( 'emptyProperty' ) } );
+    thisDropper.flowRateProperty = new Property( 0, { tandem: tandem.createTandem( 'flowRateProperty' ) } ); // L/sec
 
     // Turn off the dropper when it's disabled.
     thisDropper.enabledProperty.link( function( enabled ) {
