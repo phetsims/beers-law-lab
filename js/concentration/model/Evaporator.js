@@ -26,7 +26,7 @@ define( function( require ) {
     thisEvaporator.maxEvaporationRate = maxEvaporationRate; // @public (read-only) L/sec
 
     // @public
-    thisEvaporator.evaporationRateProperty = new Property( 0, { tandem: tandem.createTandem( 'rateProperty' ) } ); // L/sec
+    thisEvaporator.evaporationRateProperty = new Property( 0, { tandem: tandem.createTandem( 'evaporationRateProperty' ) } ); // L/sec
     thisEvaporator.enabledProperty = new Property( true, { tandem: tandem.createTandem( 'enabledProperty' ) } );
 
     // disable when the volume gets to zero

@@ -36,7 +36,9 @@ define( function( require ) {
     thisDetector.probe = new Probe( probeLocation, probeDragBounds, 0.57, tandem.createTandem( 'probe' ) ); // @public
 
     // @public for switching between absorbance (A) and percent transmittance (%T)
-    thisDetector.modeProperty = new Property( ATDetector.Mode.TRANSMITTANCE, { tandem: tandem.createTandem( 'modeProperty' ) } );
+    thisDetector.modeProperty = new Property( ATDetector.Mode.TRANSMITTANCE, {
+      tandem: tandem.createTandem( 'modeProperty' )
+    } );
 
     // @public value is either absorbance (A) or percent transmittance (%T) depending on mode
     thisDetector.valueProperty = new DerivedProperty( [

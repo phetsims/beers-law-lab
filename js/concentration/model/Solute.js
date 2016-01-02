@@ -131,8 +131,7 @@ define( function( require ) {
     BLLSymbols.POTASSIUM_PERMANGANATE,
     0.4,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.01, new Color( 255, 0, 255 ), 0.48, new Color( 80, 0, 120 ) ),
-    tandem.createTandem( 'potassiumPermanganate' ),
-    {
+    tandem.createTandem( 'potassiumPermanganate' ), {
       particleColor: Color.BLACK
     }
   );

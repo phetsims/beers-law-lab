@@ -41,7 +41,7 @@ define( function( require ) {
     var soluteComboBox = new SoluteComboBox( solutes, currentSoluteProperty, soluteListParent, tandem.createTandem( 'soluteComboBox' ) );
 
     // radio buttons for solid vs solution
-    var soluteFormNode = new SoluteFormNode( soluteFormProperty, shaker, dropper, tandem );
+    var soluteFormNode = new SoluteFormNode( soluteFormProperty, shaker, dropper, tandem.createTandem( 'soluteFormNode' ) );
 
     var contentNode = new Node();
     contentNode.addChild( soluteFormNode );

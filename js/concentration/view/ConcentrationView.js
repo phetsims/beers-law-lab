@@ -52,7 +52,7 @@ define( function( require ) {
     var saturatedIndicator = new SaturatedIndicator( model.solution );
 
     // Shaker
-    var shakerNode = new ShakerNode( model.shaker, modelViewTransform, tandem.createTandem( 'shaker' ) );
+    var shakerNode = new ShakerNode( model.shaker, modelViewTransform, tandem.createTandem( 'shakerNode' ) );
 
     // Shaker particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
     var shakerParticlesNode = new ParticlesNode( model.shakerParticles, modelViewTransform, new Bounds2(
@@ -60,12 +60,12 @@ define( function( require ) {
       modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.location.y ) ) );
 
     // Dropper
-    var dropperNode = new BLLDropperNode( model.dropper, model.solution.solvent, model.solution.soluteProperty, modelViewTransform, tandem.createTandem( 'dropper' ) );
+    var dropperNode = new BLLDropperNode( model.dropper, model.solution.solvent, model.solution.soluteProperty, modelViewTransform, tandem.createTandem( 'dropperNode' ) );
     var stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.soluteProperty, model.dropper, model.beaker, EyeDropperNode.TIP_WIDTH - 1, modelViewTransform );
 
     // faucets
-    var solventFaucetNode = new BLLFaucetNode( model.solventFaucet, modelViewTransform, tandem.createTandem( 'solventFaucet' ) );
-    var drainFaucetNode = new BLLFaucetNode( model.drainFaucet, modelViewTransform, tandem.createTandem( 'drainFaucet' ) );
+    var solventFaucetNode = new BLLFaucetNode( model.solventFaucet, modelViewTransform, tandem.createTandem( 'solventFaucetNode' ) );
+    var drainFaucetNode = new BLLFaucetNode( model.drainFaucet, modelViewTransform, tandem.createTandem( 'drainFaucetNode' ) );
     var SOLVENT_FLUID_HEIGHT = model.beaker.location.y - model.solventFaucet.location.y;
     var DRAIN_FLUID_HEIGHT = 1000; // tall enough that resizing the play area is unlikely to show bottom of fluid
     var solventFluidNode = new FaucetFluidNode( model.solventFaucet, model.solution.solvent, SOLVENT_FLUID_HEIGHT, modelViewTransform );
@@ -73,15 +73,15 @@ define( function( require ) {
 
     // Concentration meter
     var concentrationMeterNode = new ConcentrationMeterNode( model.concentrationMeter, model.solution, model.dropper,
-      solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, modelViewTransform, tandem.createTandem( 'concentrationMeter' ) );
+      solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, modelViewTransform, tandem.createTandem( 'concentrationMeterNode' ) );
 
     // Solute controls
     var soluteListParent = new Node( { maxWidth: 320 } );
     var soluteControls = new SoluteControls( model.solutes, model.soluteProperty, model.soluteFormProperty, model.shaker,
-      model.dropper, soluteListParent, tandem, { maxWidth: 480 } );
+      model.dropper, soluteListParent, tandem.createTandem( 'soluteControls' ), { maxWidth: 480 } );
 
     // Evaporation control
-    var evaporationControl = new EvaporationControl( model.evaporator, tandem.createTandem( 'evaporator' ), { maxWidth: 410 } );
+    var evaporationControl = new EvaporationControl( model.evaporator, tandem.createTandem( 'evaporationControl' ), { maxWidth: 410 } );
 
     // Remove Solute button
     var removeSoluteButton = new RemoveSoluteButton( model.solution, model.shakerParticles, tandem.createTandem( 'removeSoluteButton' ), {

@@ -49,8 +49,9 @@ define( function( require ) {
         else {
           return thisSolution.precipitateAmountProperty.get();
         }
-      },
-      { tandem: tandem.createTandem( 'precipitateAmount' ) }
+      }, {
+        tandem: tandem.createTandem( 'precipitateAmountProperty' )
+      }
     );
 
     // @public derive concentration (M = mol/L)
@@ -58,16 +59,18 @@ define( function( require ) {
       [ thisSolution.soluteProperty, thisSolution.soluteAmountProperty, thisSolution.volumeProperty ],
       function( solute, soluteAmount, volume ) {
         return ( volume > 0 ) ? Math.min( thisSolution.getSaturatedConcentration(), soluteAmount / volume ) : 0;
-      },
-      { tandem: tandem.createTandem( 'concentration' ) }
+      }, {
+        tandem: tandem.createTandem( 'concentrationProperty' )
+      }
     );
 
     // @public boolean property indicating whether the solution is saturated or not.
     this.saturatedProperty = new DerivedProperty( [ this.soluteProperty, this.soluteAmountProperty, this.volumeProperty ],
       function( solute, soluteAmount, volume ) {
         return ( volume > 0 ) && ( soluteAmount / volume ) > solute.getSaturatedConcentration();
-      },
-      { tandem: tandem.createTandem( 'saturated' ) }
+      }, {
+        tandem: tandem.createTandem( 'saturatedProperty' )
+      }
     );
 
     Fluid.call( thisSolution, ConcentrationSolution.createColor( thisSolution.solvent, thisSolution.soluteProperty.get(), thisSolution.concentrationProperty.get() ) );

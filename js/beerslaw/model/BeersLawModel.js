@@ -45,7 +45,9 @@ define( function( require ) {
     ];
 
     // @public
-    thisModel.solutionProperty = new Property( thisModel.solutions[ 0 ], { tandem: tandem.createTandem( 'solutionProperty' ) } );
+    thisModel.solutionProperty = new Property( thisModel.solutions[ 0 ], {
+      tandem: tandem.createTandem( 'solutionProperty' )
+    } );
 
     // @public NOTE: All locations are relative to the location of the cuvette.
     thisModel.cuvette = new Cuvette( new Vector2( 3.3, 0.5 ), new Range( 0.5, 2.0, 1.0 ), 3, tandem.createTandem( 'cuvette' ) );
@@ -70,7 +72,7 @@ define( function( require ) {
       new Vector2( thisModel.cuvette.location.x + 3, thisModel.light.location.y ),
       new Bounds2( 0, 0, 7.9, 5.25 ),
       thisModel.light, thisModel.cuvette, thisModel.absorbance,
-      tandem.createTandem( 'ATDetector' )
+      tandem.createTandem( 'detector' )
     );
 
     // @public

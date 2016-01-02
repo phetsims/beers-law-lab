@@ -34,12 +34,12 @@ define( function( require ) {
     var thisView = this;
     ScreenView.call( thisView, BLLConstants.SCREEN_VIEW_OPTIONS );
 
-    var lightNode = new LightNode( model.light, modelViewTransform, tandem.createTandem( 'light' ) );
-    var cuvetteNode = new CuvetteNode( model.cuvette, model.solutionProperty, modelViewTransform, 0.1 /* snapInterval, cm */, tandem.createTandem( 'cuvette' ).createTandem( 'node' ) );
+    var lightNode = new LightNode( model.light, modelViewTransform, tandem.createTandem( 'lightNode' ) );
+    var cuvetteNode = new CuvetteNode( model.cuvette, model.solutionProperty, modelViewTransform, 0.1 /* snapInterval, cm */, tandem.createTandem( 'cuvetteNode' ) );
     var beamNode = new BeamNode( model.beam );
-    var detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform, tandem.createTandem( 'ATDetectorNode' ) );
+    var detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform, tandem.createTandem( 'detectorNode' ) );
     var wavelengthControls = new WavelengthControls( model.solutionProperty, model.light, tandem.createTandem( 'wavelengthControls' ) );
-    var rulerNode = new BLLRulerNode( model.ruler, modelViewTransform, tandem.createTandem( 'ruler' ) );
+    var rulerNode = new BLLRulerNode( model.ruler, modelViewTransform, tandem.createTandem( 'rulerNode' ) );
     var comboBoxListParent = new Node( { maxWidth: 500 } );
     var solutionControls = new SolutionControls( model.solutions, model.solutionProperty, comboBoxListParent, tandem.createTandem( 'solutionControls' ), { maxWidth: 575 } );
 

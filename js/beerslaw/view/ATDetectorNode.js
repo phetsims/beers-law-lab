@@ -81,18 +81,18 @@ define( function( require ) {
 
     // buttons for changing the detector 'mode'
     var textOptions = { font: new PhetFont( 18 ), fill: 'white' };
-    var transmittanceButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.TRANSMITTANCE, new Text( transmittanceString, textOptions ), {
+    var transmittanceRadioButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.TRANSMITTANCE, new Text( transmittanceString, textOptions ), {
       radius: BLLConstants.RADIO_BUTTON_RADIUS,
       tandem: tandem.createTandem( 'transmittanceRadioButton' )
     } );
-    var absorbanceButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.ABSORBANCE, new Text( absorbanceString, textOptions ), {
+    var absorbanceRadioButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.ABSORBANCE, new Text( absorbanceString, textOptions ), {
       radius: BLLConstants.RADIO_BUTTON_RADIUS,
       tandem: tandem.createTandem( 'absorbanceRadioButton' )
     } );
 
     // group the buttons
     var buttonGroup = new LayoutBox( {
-      children: [ transmittanceButton, absorbanceButton ],
+      children: [ transmittanceRadioButton, absorbanceRadioButton ],
       orientation: 'vertical',
       align: 'left',
       spacing: 15,

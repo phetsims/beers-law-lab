@@ -70,8 +70,8 @@ define( function( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
-    var bodyNode = new BodyNode( meter, modelViewTransform, tandem.createTandem( 'body' ) );
-    var probeNode = new ConcentrationProbeNode( meter.probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, tandem.createTandem( 'probe' ) );
+    var bodyNode = new BodyNode( meter, modelViewTransform, tandem.createTandem( 'bodyNode' ) );
+    var probeNode = new ConcentrationProbeNode( meter.probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, tandem.createTandem( 'probeNode' ) );
     var wireNode = new WireNode( meter.body, meter.probe, bodyNode, probeNode );
 
     // rendering order

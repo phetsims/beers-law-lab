@@ -103,7 +103,7 @@ define( function( require ) {
       trackWidth: 150,
       trackHeight: 30,
       valueVisible: false,
-      tandem: tandem.createTandem( 'slider' )
+      tandem: tandem.createTandem( 'wavelengthSlider' )
     } );
 
     // rendering order

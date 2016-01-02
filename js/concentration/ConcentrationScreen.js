@@ -34,8 +34,8 @@ define( function( require ) {
     Screen.call( this,
       screenConcentrationString,
       new Image( screenIcon ),
-      function() { return new ConcentrationModel( tandem ); },
-      function( model ) { return new ConcentrationView( model, modelViewTransform, tandem ); }, {
+      function() { return new ConcentrationModel( tandem.createTandem( 'model' ) ); },
+      function( model ) { return new ConcentrationView( model, modelViewTransform, tandem.createTandem( 'view' ) ); }, {
         tandem: tandem
       }
     );
