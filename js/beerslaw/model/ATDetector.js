@@ -62,6 +62,8 @@ define( function( require ) {
           }
         }
         return value;
+      }, {
+        tandem: tandem.createTandem( 'valueProperty' )
       } );
   }
 
