@@ -37,7 +37,9 @@ define( function( require ) {
     thisShaker.soluteProperty = soluteProperty;
     thisShaker.visibleProperty = new Property( visible );
     thisShaker.emptyProperty = new Property( false );
-    thisShaker.dispensingRateProperty = new Property( 0 );
+    thisShaker.dispensingRateProperty = new Property( 0, { tandem: tandem.createTandem( 'dispensingRateProperty' ) } );
+
+    // @private
     thisShaker.previousLocation = location;
 
     // set the dispensing rate to zero when the shaker becomes empty or invisible
