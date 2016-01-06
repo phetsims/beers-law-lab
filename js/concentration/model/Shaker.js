@@ -39,8 +39,9 @@ define( function( require ) {
     thisShaker.emptyProperty = new Property( false );
     thisShaker.dispensingRateProperty = new Property( 0 );
 
+    // Store the previousLocation as a property so that it can be easily saved/restored for phet-io, see #138
     // @private
-    thisShaker.previousLocation = location;
+    thisShaker.previousLocationProperty = new Property( location, { tandem: tandem.createTandem( 'previousLocationProperty' ) } );
 
     // set the dispensing rate to zero when the shaker becomes empty or invisible
     var observer = function() {
@@ -62,21 +63,21 @@ define( function( require ) {
       this.visibleProperty.reset();
       this.emptyProperty.reset();
       this.dispensingRateProperty.reset();
-      this.previousLocation = this.locationProperty.get(); // to prevent shaker from dispensing solute when its location is reset
+      this.previousLocationProperty.set( this.locationProperty.get() ); // to prevent shaker from dispensing solute when its location is reset
     },
 
     // @public Sets the dispensing rate if the shaker is moving.
     step: function() {
       var thisShaker = this;
       if ( thisShaker.visibleProperty.get() && !thisShaker.emptyProperty.get() ) {
-        if ( thisShaker.previousLocation.equals( thisShaker.locationProperty.get() ) ) {
+        if ( thisShaker.previousLocationProperty.get().equals( thisShaker.locationProperty.get() ) ) {
           thisShaker.dispensingRateProperty.set( 0 ); // shaker is not moving, don't dispense anything
         }
         else {
           thisShaker.dispensingRateProperty.set( thisShaker.maxDispensingRate ); // max rate seems to work fine
         }
       }
-      thisShaker.previousLocation = thisShaker.locationProperty.get();
+      thisShaker.previousLocationProperty.set( thisShaker.locationProperty.get() );
     }
   } );
 } );
