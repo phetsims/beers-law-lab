@@ -39,7 +39,7 @@ define( function( require ) {
     thisShaker.emptyProperty = new Property( false );
     thisShaker.dispensingRateProperty = new Property( 0 );
 
-    // Store the previousLocation as a property so that it can be easily saved/restored for phet-io, see #138
+    // Store the previousLocation as a Property so that it can be easily saved/restored for phet-io, see #138
     // @public (together)
     thisShaker.previousLocationProperty = new Property( location, { tandem: tandem.createTandem( 'previousLocationProperty' ) } );
 
