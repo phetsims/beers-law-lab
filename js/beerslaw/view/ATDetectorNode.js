@@ -144,7 +144,7 @@ define( function( require ) {
     // update the value display
     var valueUpdater = function() {
       var value = detector.valueProperty.get();
-      if ( isNaN( value ) ) {
+      if ( value === null ) {
         valueNode.text = NO_VALUE;
         valueNode.centerX = valueBackgroundNode.centerX;
       }

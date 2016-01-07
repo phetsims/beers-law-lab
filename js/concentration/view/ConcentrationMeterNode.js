@@ -93,7 +93,7 @@ define( function( require ) {
         meter.valueProperty.set( dropper.soluteProperty.get().stockSolutionConcentration );
       }
       else {
-        meter.valueProperty.set( NaN );
+        meter.valueProperty.set( null );
       }
     };
     meter.probe.locationProperty.link( updateValue );
@@ -181,7 +181,7 @@ define( function( require ) {
     // displayed value
     var readoutProperty = new Property( NO_VALUE, tandem.createTandem( 'readoutProperty' ) );
     meter.valueProperty.link( function( value ) {
-      if ( isNaN( value ) ) {
+      if ( value === null ) {
         valueNode.setText( NO_VALUE );
         valueNode.centerX = valueBackgroundNode.centerX; // center justified
       }

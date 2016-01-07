@@ -49,8 +49,8 @@ define( function( require ) {
         absorbance.absorbanceProperty
       ],
       function( probeLocation, lightOn, mode, cuvetteWidth, absorbanceValue ) {
-        // Computes the displayed value, NaN if the light is off or the probe is outside the beam.
-        var value = NaN;
+        // Computes the displayed value, null if the light is off or the probe is outside the beam.
+        var value = null;
         if ( thisDetector.probeInBeam() ) {
           // path length is between 0 and cuvette width
           var pathLength = Math.min( Math.max( 0, probeLocation.x - cuvette.location.x ), cuvetteWidth );

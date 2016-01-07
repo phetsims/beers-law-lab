@@ -29,7 +29,8 @@ define( function( require ) {
    */
   function ConcentrationMeter( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds, tandem ) {
 
-    this.valueProperty = new Property( NaN, { tandem: tandem.createTandem( 'valueProperty' ) } ); // @public NaN if the meter is not reading a value
+    // @public null if the meter is not reading a value
+    this.valueProperty = new Property( null, { tandem: tandem.createTandem( 'valueProperty' ) } );
 
     // @public (read-only)
     this.body = new Movable( bodyLocation, bodyDragBounds, tandem.createTandem( 'body' ) );

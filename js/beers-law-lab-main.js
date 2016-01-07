@@ -32,6 +32,8 @@ define( function( require ) {
     tandem: tandem
   };
 
+  console.log( 0 === null );
+
   SimLauncher.launch( function() {
     var sim = new Sim( beersLawLabTitleString, [
       new ConcentrationScreen( tandem.createTandem( 'concentrationScreen' ) ),
