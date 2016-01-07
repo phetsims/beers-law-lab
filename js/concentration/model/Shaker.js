@@ -40,7 +40,7 @@ define( function( require ) {
     thisShaker.dispensingRateProperty = new Property( 0 );
 
     // Store the previousLocation as a property so that it can be easily saved/restored for phet-io, see #138
-    // @private
+    // @public (together)
     thisShaker.previousLocationProperty = new Property( location, { tandem: tandem.createTandem( 'previousLocationProperty' ) } );
 
     // set the dispensing rate to zero when the shaker becomes empty or invisible
