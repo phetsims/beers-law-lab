@@ -96,7 +96,7 @@ define( function( require ) {
     arrowNode.addInputListener( new FillHighlightListener( ARROW_FILL, ARROW_FILL.brighterColor() ) );
 
     // @public (together)
-    this.cuvetteDragHandler = new CuvetteDragHandler( thisNode, cuvette, modelViewTransform, snapInterval );
+    this.cuvetteDragHandler = new CuvetteDragHandler( cuvette, modelViewTransform, snapInterval );
     arrowNode.addInputListener( this.cuvetteDragHandler );
 
     // adjust touch area for the arrow
@@ -116,13 +116,13 @@ define( function( require ) {
 
   /**
    * Handler that is attached to the cuvette's drag handle.
-   * @param {Node} cuvetteNode
+   *
    * @param {Cuvette} cuvette
    * @param {ModelViewTransform2} modelViewTransform
    * @param {number} snapInterval
    * @constructor
    */
-  function CuvetteDragHandler( cuvetteNode, cuvette, modelViewTransform, snapInterval ) {
+  function CuvetteDragHandler( cuvette, modelViewTransform, snapInterval ) {
 
     var startX; // x coordinate of mouse click
     var startWidth; // width of the cuvette when the drag started
