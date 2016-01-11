@@ -101,7 +101,7 @@ define( function( require ) {
 
     // value
     var maxValue = 100;
-    var valueNode = new Text( Util.toFixed( maxValue, ABSORBANCE_DECIMAL_PLACES ), {
+    var valueNode = new Text( StringUtils.format( pattern0PercentString, Util.toFixed( maxValue, TRANSMITTANCE_DECIMAL_PLACES ) ), {
       font: new PhetFont( 24 ),
       maxWidth: 150
     } );
