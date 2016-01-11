@@ -2,15 +2,13 @@
 
 /**
  * Concentration meter, with probe.
- * <p/>
  * The probe registers the concentration of all possible fluids that it may contact, including:
- * <ul>
- * <li>solution in the beaker
- * <li>output of the solvent faucet
- * <li>output of the drain faucet
- * <li>output of the dropper
- * </ul>
- * <p/>
+ *
+ * - solution in the beaker
+ * - output of the solvent faucet
+ * - output of the drain faucet
+ * - output of the dropper
+ *
  * Rather than trying to model the shapes of all of these fluids, we handle 'probe is in fluid'
  * herein via intersection of node shapes.
  *
