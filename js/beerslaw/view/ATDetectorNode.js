@@ -75,7 +75,9 @@ define( function( require ) {
 
     // value
     var maxValue = 100;
-    var valueNode = new Text( Util.toFixed( maxValue, ABSORBANCE_DECIMAL_PLACES ), { font: new PhetFont( 24 ), maxWidth: 150 } );
+    var valueNode = new Text( StringUtils.format( pattern_0percent, Util.toFixed( maxValue, TRANSMITTANCE_DECIMAL_PLACES ) ), {
+      font: new PhetFont( 24 ), maxWidth: 150
+    } );
 
     // display area for the value
     var valueWidth = Math.max( buttonGroup.width, valueNode.width ) + ( 2 * VALUE_X_MARGIN );
