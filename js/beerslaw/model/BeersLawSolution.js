@@ -115,7 +115,7 @@ define( function( require ) {
   } );
 
   // A new tandem instance is required here since the solutes are created statically.
-  var tandem = new Tandem( 'beersLawLab.solutions' );
+  var tandem = Tandem.createStaticTandem( 'solutions' );
 
   //-------------------------------------------------------------------------------------------
   // Specific solutions below ...

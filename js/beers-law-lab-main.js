@@ -19,7 +19,7 @@ define( function( require ) {
   var beersLawLabTitleString = require( 'string!BEERS_LAW_LAB/beers-law-lab.title' );
 
   // constants
-  var tandem = new Tandem( 'beersLawLab' );
+  var tandem = Tandem.createRootTandem();
 
   var simOptions = {
     credits: {
