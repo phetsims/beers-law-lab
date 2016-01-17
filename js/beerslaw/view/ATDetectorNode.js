@@ -198,8 +198,8 @@ define( function( require ) {
     // interactivity
     thisNode.cursor = 'pointer';
 
-    // @private (together)
-    this.movableDragHandler = new MovableDragHandler( probe.locationProperty, {
+    var movableDragHandler = new MovableDragHandler( probe.locationProperty, {
+      tandem: tandem.createTandem( 'movableDragHandler' ),
       dragBounds: probe.dragBounds,
       modelViewTransform: modelViewTransform,
       endDrag: function() {
@@ -210,7 +210,7 @@ define( function( require ) {
         }
       }
     } );
-    thisNode.addInputListener( this.movableDragHandler );
+    thisNode.addInputListener( movableDragHandler );
 
     beersLawLab.register( 'ATDetectorNode.ATProbeNode', ATProbeNode );
 
