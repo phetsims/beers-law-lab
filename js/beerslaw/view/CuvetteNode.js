@@ -18,9 +18,8 @@ define( function( require ) {
   var Path = require( 'SCENERY/nodes/Path' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Shape = require( 'KITE/Shape' );
-  var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
+  var TandemDragHandler = require( 'TANDEM/TandemDragHandler' );
   var Util = require( 'DOT/Util' );
-  var Emitter = require( 'AXON/Emitter' );
 
   // constants
   var PERCENT_FULL = 0.92;
@@ -95,9 +94,9 @@ define( function( require ) {
     arrowNode.cursor = 'pointer';
     arrowNode.addInputListener( new FillHighlightListener( ARROW_FILL, ARROW_FILL.brighterColor() ) );
 
-    // @public (together)
-    this.cuvetteDragHandler = new CuvetteDragHandler( cuvette, modelViewTransform, snapInterval );
-    arrowNode.addInputListener( this.cuvetteDragHandler );
+    var cuvetteDragHandler = new CuvetteDragHandler( cuvette, modelViewTransform, snapInterval,
+      tandem.createTandem( 'cuvetteDragHandler' ) );
+    arrowNode.addInputListener( cuvetteDragHandler );
 
     // adjust touch area for the arrow
     var dx = 0.25 * arrowNode.width;
@@ -120,68 +119,43 @@ define( function( require ) {
    * @param {Cuvette} cuvette
    * @param {ModelViewTransform2} modelViewTransform
    * @param {number} snapInterval
+   * @param {Tandem} tandem
    * @constructor
    */
-  function CuvetteDragHandler( cuvette, modelViewTransform, snapInterval ) {
+  function CuvetteDragHandler( cuvette, modelViewTransform, snapInterval, tandem ) {
 
     var startX; // x coordinate of mouse click
     var startWidth; // width of the cuvette when the drag started
 
-    var cuvetteDragHandler = this;
-
-    // Emitters for together
-    this.startedCallbacksForDragStartedEmitter = new Emitter(); // @private (together)
-    this.endedCallbacksForDragStartedEmitter = new Emitter(); // @private (together)
-
-    this.startedCallbacksForDraggedEmitter = new Emitter(); // @private (together)
-    this.endedCallbacksForDraggedEmitter = new Emitter(); // @private (together)
-
-    this.startedCallbacksForDragEndedEmitter = new Emitter(); // @private (together)
-    this.endedCallbacksForDragEndedEmitter = new Emitter(); // @private (together)
-
-    SimpleDragHandler.call( this, {
-
+    TandemDragHandler.call( this, {
+      tandem: tandem,
       allowTouchSnag: true,
 
       start: function( event ) {
         startX = event.pointer.point.x;
         startWidth = cuvette.widthProperty.get();
-
-        cuvetteDragHandler.startedCallbacksForDragStartedEmitter.emit1( cuvette.widthProperty.get() );
-
-        cuvetteDragHandler.endedCallbacksForDragStartedEmitter.emit();
       },
 
       drag: function( event ) {
-
         var dragX = event.pointer.point.x;
         var deltaWidth = modelViewTransform.viewToModelDeltaX( dragX - startX );
         var cuvetteWidth = Util.clamp( startWidth + deltaWidth, cuvette.widthRange.min, cuvette.widthRange.max );
 
-        cuvetteDragHandler.startedCallbacksForDraggedEmitter.emit1( cuvetteWidth );
-
         cuvette.widthProperty.set( cuvetteWidth );
-
-        cuvetteDragHandler.endedCallbacksForDraggedEmitter.emit();
       },
 
       end: function() {
-
         var numberOfIntervals = Math.floor( ( cuvette.widthProperty.get() + ( snapInterval / 2 ) ) / snapInterval );
-
         var newWidth = numberOfIntervals * snapInterval;
-        cuvetteDragHandler.startedCallbacksForDragEndedEmitter.emit1( newWidth );
 
         cuvette.widthProperty.set( newWidth );
-
-        cuvetteDragHandler.endedCallbacksForDragEndedEmitter.emit();
       }
     } );
   }
 
   beersLawLab.register( 'CuvetteNode.CuvetteDragHandler', CuvetteDragHandler );
 
-  inherit( SimpleDragHandler, CuvetteDragHandler );
+  inherit( TandemDragHandler, CuvetteDragHandler );
 
   return inherit( Node, CuvetteNode );
 } );
