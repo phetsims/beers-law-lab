@@ -128,6 +128,7 @@ define( function( require ) {
     var startWidth; // width of the cuvette when the drag started
 
     TandemDragHandler.call( this, {
+
       tandem: tandem,
       allowTouchSnag: true,
 
