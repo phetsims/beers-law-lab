@@ -18,7 +18,7 @@ define( function( require ) {
   var Path = require( 'SCENERY/nodes/Path' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Shape = require( 'KITE/Shape' );
-  var TandemDragHandler = require( 'SCENERY_PHET/input/TandemDragHandler' );
+  var TandemDragHandler = require( 'SUN/TandemDragHandler' );
   var Util = require( 'DOT/Util' );
 
   // constants
