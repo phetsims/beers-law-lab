@@ -161,11 +161,12 @@ define( function( require ) {
     vBox.center = bodyNode.center;
 
     if ( BODY_IS_DRAGGABLE ) {
-      this.movableDragHandler = new MovableDragHandler( meter.body.locationProperty, {
+      var movableDragHandler = new MovableDragHandler( meter.body.locationProperty, {
+        tandem: tandem.createTandem( 'movableDragHandler' ),
         dragBounds: meter.body.dragBounds,
         modelViewTransform: modelViewTransform
       } );
-      thisNode.addInputListener( this.movableDragHandler );
+      thisNode.addInputListener( movableDragHandler );
 
       // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
       tandem.addInstance( this );
@@ -236,11 +237,12 @@ define( function( require ) {
     thisNode.touchArea = thisNode.localBounds.dilatedXY( 0.25 * thisNode.width, 0.25 * thisNode.height );
 
     // drag handler
-    this.movableDragHandler = new MovableDragHandler( probe.locationProperty, {
+    var movableDragHandler = new MovableDragHandler( probe.locationProperty, {
+      tandem: tandem.createTandem( 'movableDragHandler' ),
       dragBounds: probe.dragBounds,
       modelViewTransform: modelViewTransform
     } );
-    thisNode.addInputListener( this.movableDragHandler );
+    thisNode.addInputListener( movableDragHandler );
 
     var isInNode = function( node ) {
       var localPoint = node.parentToLocalPoint( probe.locationProperty.get() );

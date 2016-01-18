@@ -25,10 +25,9 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Shape = require( 'KITE/Shape' );
-  var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
+  var TandemDragHandler = require( 'SCENERY_PHET/input/TandemDragHandler' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
-  var Emitter = require( 'AXON/Emitter' );
 
   // track constants
   var TRACK_SIZE = new Dimension2( 200, 15 );
@@ -58,10 +57,10 @@ define( function( require ) {
 
     // nodes
     // @private (together)
-    this.track = new Track( TRACK_SIZE, solutionProperty );
+    this.track = new Track( TRACK_SIZE, solutionProperty, tandem.createTandem( 'track' ) );
 
     // @private (together)
-    this.thumb = new Thumb( THUMB_SIZE, TRACK_SIZE, solutionProperty );
+    this.thumb = new Thumb( THUMB_SIZE, TRACK_SIZE, solutionProperty, tandem.createTandem( 'thumb' ) );
     var minTickLine = new TickLine();
     var maxTickLine = new TickLine();
     var minTickLabel = new TickLabel( 0 ); // correct value will be set when observer is registered
@@ -141,21 +140,12 @@ define( function( require ) {
    *
    * @param {Dimension2} trackSize
    * @param {Property.<BeersLawSolution>} solutionProperty
+   * @param {Tandem} tandem
    * @constructor
    */
-  function Track( trackSize, solutionProperty ) {
+  function Track( trackSize, solutionProperty, tandem ) {
 
     var thisNode = this;
-
-    // Emitters for together
-    this.startedCallbacksForDragStartedEmitter = new Emitter(); // @private (together)
-    this.endedCallbacksForDragStartedEmitter = new Emitter(); // @private (together)
-
-    this.startedCallbacksForDraggedEmitter = new Emitter(); // @private (together)
-    this.endedCallbacksForDraggedEmitter = new Emitter(); // @private (together)
-
-    this.startedCallbacksForDragEndedEmitter = new Emitter(); // @private (together)
-    this.endedCallbacksForDragEndedEmitter = new Emitter(); // @private (together)
 
     Rectangle.call( thisNode, 0, 0, trackSize.width, trackSize.height,
       { cursor: 'pointer', stroke: 'black', lineWidth: 1 } );
@@ -179,23 +169,15 @@ define( function( require ) {
       var concentration = positionToConcentration( x );
       solutionProperty.get().concentrationProperty.set( concentration );
     };
-    thisNode.addInputListener( new SimpleDragHandler(
-      {
-        start: function( event ) {
-          thisNode.startedCallbacksForDragStartedEmitter.emit();
-          handleEvent( event );
-          thisNode.endedCallbacksForDragStartedEmitter.emit();
-        },
-        drag: function( event ) {
-          thisNode.startedCallbacksForDraggedEmitter.emit();
-          handleEvent( event );
-          thisNode.endedCallbacksForDraggedEmitter.emit();
-        },
-        end: function() {
-          thisNode.startedCallbacksForDragEndedEmitter.emit();
-          thisNode.endedCallbacksForDragEndedEmitter.emit();
-        }
-      } ) );
+    thisNode.addInputListener( new TandemDragHandler( {
+      tandem: tandem.createTandem( 'inputListener' ),
+      start: function( event ) {
+        handleEvent( event );
+      },
+      drag: function( event ) {
+        handleEvent( event );
+      }
+    } ) );
   }
 
   beersLawLab.register( 'ConcentrationSlider.Track', Track );
@@ -237,22 +219,13 @@ define( function( require ) {
    * @param {Dimension2} thumbSize
    * @param {Dimension2} trackSize
    * @param {Property.<BeersLawSolution>} solutionProperty
+   * @param {Tandem} tandem
    * @constructor
    */
-  function Thumb( thumbSize, trackSize, solutionProperty ) {
+  function Thumb( thumbSize, trackSize, solutionProperty, tandem ) {
 
     var thisNode = this;
     Node.call( thisNode, { cursor: 'pointer' } );
-
-    // Emitters for together
-    this.startedCallbacksForDragStartedEmitter = new Emitter(); // @private (together)
-    this.endedCallbacksForDragStartedEmitter = new Emitter(); // @private (together)
-
-    this.startedCallbacksForDraggedEmitter = new Emitter(); // @private (together)
-    this.endedCallbacksForDraggedEmitter = new Emitter(); // @private (together)
-
-    this.startedCallbacksForDragEndedEmitter = new Emitter(); // @private (together)
-    this.endedCallbacksForDragEndedEmitter = new Emitter(); // @private (together)
 
     // nodes
     var arcWidth = 0.25 * thumbSize.width;
@@ -280,8 +253,11 @@ define( function( require ) {
       // drag handler with solution's concentration range
       if ( dragHandler ) {
         thisNode.removeInputListener( dragHandler );
+        dragHandler.dispose();
       }
-      dragHandler = new ThumbDragHandler( thisNode, solution.concentrationProperty, new LinearFunction( 0, trackSize.width, solution.concentrationRange.min, solution.concentrationRange.max, true /* clamp */ ) );
+      dragHandler = new ThumbDragHandler( thisNode, solution.concentrationProperty,
+        new LinearFunction( 0, trackSize.width, solution.concentrationRange.min, solution.concentrationRange.max, true /* clamp */ ),
+        tandem.createTandem( 'dragHandler' ) );
       thisNode.addInputListener( dragHandler );
 
       // linear mapping function with solution's concentration range
@@ -314,34 +290,28 @@ define( function( require ) {
    * @param {Node} dragNode
    * @param {Property.<number>} concentrationProperty
    * @param {LinearFunction} positionToValue
+   * @param {Tandem} tandem
    * @constructor
    */
-  function ThumbDragHandler( dragNode, concentrationProperty, positionToValue ) {
+  function ThumbDragHandler( dragNode, concentrationProperty, positionToValue, tandem ) {
     var clickXOffset; // x-offset between initial click and thumb's origin
-    SimpleDragHandler.call( this, {
+    TandemDragHandler.call( this, {
+      tandem: tandem,
       allowTouchSnag: true,
       start: function( event ) {
-        dragNode.startedCallbacksForDragStartedEmitter.emit();
         clickXOffset = dragNode.globalToParentPoint( event.pointer.point ).x - event.currentTarget.x;
-        dragNode.endedCallbacksForDragStartedEmitter.emit();
       },
       drag: function( event ) {
         var x = dragNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
         var newValue = positionToValue( x );
-        dragNode.startedCallbacksForDraggedEmitter.emit1( newValue );
         concentrationProperty.set( newValue );
-        dragNode.endedCallbacksForDraggedEmitter.emit();
-      },
-      end: function( event ) {
-        dragNode.startedCallbacksForDragEndedEmitter.emit();
-        dragNode.endedCallbacksForDragEndedEmitter.emit();
       }
     } );
   }
 
   beersLawLab.register( 'ConcentrationSlider.ThumbDragHandler', ThumbDragHandler );
 
-  inherit( SimpleDragHandler, ThumbDragHandler );
+  inherit( TandemDragHandler, ThumbDragHandler );
 
   return inherit( Node, ConcentrationSlider );
 } );

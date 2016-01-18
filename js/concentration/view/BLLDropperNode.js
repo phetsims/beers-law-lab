@@ -90,11 +90,12 @@ define( function( require ) {
     thisNode.touchArea = thisNode.localBounds.dilatedX( 0.25 * thisNode.width );
 
     // move the dropper
-    this.movableDragHandler = new MovableDragHandler( dropper.locationProperty, {
+    var movableDragHandler = new MovableDragHandler( dropper.locationProperty, {
+      tandem: tandem.createTandem( 'movableDragHandler' ),
       dragBounds: dropper.dragBounds,
       modelViewTransform: modelViewTransform
     } );
-    thisNode.addInputListener( this.movableDragHandler );
+    thisNode.addInputListener( movableDragHandler );
 
     // Supertype registers the momentary button, but not itself, so register here in the subtype.
     // No corresponding removeInstance is needed because this object exists for the lifetime of the sim

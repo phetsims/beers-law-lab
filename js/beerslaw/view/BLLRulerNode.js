@@ -65,6 +65,7 @@ define( function( require ) {
 
     // @private (together)
     this.movableDragHandler = new MovableDragHandler( ruler.locationProperty, {
+      tandem: tandem.createTandem( 'movableDragHandler' ),
       dragBounds: ruler.dragBounds,
       modelViewTransform: modelViewTransform
     } );

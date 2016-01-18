@@ -109,6 +109,7 @@ define( function( require ) {
     // interactivity
     thisNode.cursor = 'pointer';
     thisNode.addInputListener( new MovableDragHandler( shaker.locationProperty, {
+      tandem: tandem.createTandem( 'inputListener' ),
       dragBounds: shaker.dragBounds,
       modelViewTransform: modelViewTransform
     } ) );
