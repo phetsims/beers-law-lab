@@ -17,6 +17,11 @@
     "requirejsNamespace": "BEERS_LAW_LAB",
     "phetLibs": [
       "nitroglycerin"
-    ]
+    ],
+    "phet-io": {
+      "preload": [
+        "../together/js/api/beers-law-lab-api.js"
+      ]
+    }
   }
 }
