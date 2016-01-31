@@ -21,23 +21,25 @@ define( function( require ) {
   /**
    * @param {string} name
    * @param {string} formula
+   * @param {number} gramsPerLiter
    * @param {Color} color
    * @constructor
    */
-  function Solvent( name, formula, color ) {
+  function Solvent( name, formula, gramsPerLiter, color ) {
 
     Fluid.call( this, color );
 
     // @public (read-only)
     this.name = name;
     this.formula = formula;
+    this.gramsPerLiter = gramsPerLiter;
   }
 
   beersLawLab.register( 'Solvent', Solvent );
 
   Solvent.WATER_COLOR = new Color( 224, 255, 255 );
 
-  Solvent.WATER = new Solvent( waterString, BLLSymbols.WATER, Solvent.WATER_COLOR );
+  Solvent.WATER = new Solvent( waterString, BLLSymbols.WATER, 1000, Solvent.WATER_COLOR );
 
   return inherit( Fluid, Solvent );
 } );
