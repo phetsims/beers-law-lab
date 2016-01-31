@@ -30,7 +30,7 @@ define( function( require ) {
   /**
    * @param {string} name
    * @param {string} formula
-   * @param {number} stockSolutionConcentration
+   * @param {number} stockSolutionConcentration - mol/L
    * @param {SoluteColorScheme} colorScheme
    * @param {number} molarMass - mass per mole in grams
    * @param {Tandem} tandem
