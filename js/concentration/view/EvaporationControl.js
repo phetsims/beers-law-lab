@@ -48,7 +48,7 @@ define( function( require ) {
     var label = new Text( StringUtils.format( pattern0LabelString, evaporationString ), { font: new PhetFont( 22 ) } );
 
     var slider = new HSlider( evaporator.evaporationRateProperty, new Range( 0, evaporator.maxEvaporationRate ), {
-      trackSize: new Dimension2( 200, 6 ),
+      trackSize: new Dimension2( 150, 6 ),
       enabledProperty: evaporator.enabledProperty,
       endDrag: function() { evaporator.evaporationRateProperty.set( 0 ); },  // at end of drag, snap evaporation rate back to zero
       tandem: tandem.createTandem( 'slider' )
