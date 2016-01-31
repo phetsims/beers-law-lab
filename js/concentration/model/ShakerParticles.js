@@ -160,7 +160,7 @@ define( function( require ) {
      * and since the concentration-api.js file does cannot easily replicate the code below since
      * it runs in a preload script, and types such as ShakerParticle are not available globally.
      * The argument is defined in concentration-api.js.
-     * TODO: To fully support save/load, we must also capture the particle velocities, solute type, orientation, etc.
+     * TODO: beers-law-lab#103 To fully support save/load, we must also capture the particle velocities, solute type, orientation, etc.
      * @param {Object} value - the state as loaded by concentration-api.js
      * @public
      */
