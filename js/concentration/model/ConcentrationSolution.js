@@ -33,8 +33,8 @@ define( function( require ) {
 
     // @public
     thisSolution.soluteProperty = soluteProperty;
-    thisSolution.soluteAmountProperty = new Property( soluteAmount, { tandem: tandem.createTandem( 'soluteAmountProperty' ) } );
-    thisSolution.volumeProperty = new Property( volume, { tandem: tandem.createTandem( 'volumeProperty' ) } );
+    thisSolution.soluteAmountProperty = new Property( soluteAmount, { tandem: tandem.createTandem( 'soluteAmountProperty' ) } ); // moles
+    thisSolution.volumeProperty = new Property( volume, { tandem: tandem.createTandem( 'volumeProperty' ) } ); // L
 
     // @public for deferring update of precipitateAmount until we've changed both volume and soluteAmount, see concentration#1
     thisSolution.updatePrecipitateAmount = true;
@@ -73,6 +73,29 @@ define( function( require ) {
       }
     );
 
+    // @public {number} amount of solute, in grams
+    this.soluteGramsProperty = new DerivedProperty( [ this.soluteProperty, this.soluteAmountProperty, this.precipitateAmountProperty ],
+      function( solute, soluteAmount, precipitateAmount ) {
+        return solute.molarMass * ( soluteAmount - precipitateAmount )
+      }, {
+        tandem: tandem.createTandem( 'soluteGramsProperty' )
+      }
+    );
+
+    // @public {number} percent concentration
+    this.percentConcentrationProperty = new DerivedProperty( [ this.volumeProperty, this.soluteGramsProperty ],
+      function( volume, soluteGrams ) {
+        var percentConcentration = 0;
+        if ( volume > 0 ) {
+          var solventGrams = volume * thisSolution.solvent.gramsPerLiter;
+          percentConcentration = 100 * ( soluteGrams / ( soluteGrams + solventGrams ) );
+        }
+        return percentConcentration;
+      }, {
+        tandem: tandem.createTandem( 'percentConcentrationProperty' )
+      }
+    );
+
     Fluid.call( thisSolution, ConcentrationSolution.createColor( thisSolution.solvent, thisSolution.soluteProperty.get(), thisSolution.concentrationProperty.get() ) );
 
     // derive the solution color
@@ -106,21 +129,6 @@ define( function( require ) {
         numberOfParticles = 1;
       }
       return numberOfParticles;
-    },
-
-    /**
-     * Converts the current concentration (mol/L) to percent concentration. See beers-law-lab#148,#149
-     * @returns {number}
-     * @public
-    */
-    getPercentConcentration: function() {
-      var percentConcentration = 0;
-      if ( this.volumeProperty.get() > 0 ) {
-        var gramsOfSolute = this.soluteProperty.value.molarMass * ( this.soluteAmountProperty.get() - this.precipitateAmountProperty.get() );
-        var gramsOfSolvent = this.volumeProperty.get() * this.solvent.gramsPerLiter;
-        percentConcentration = 100 * ( gramsOfSolute / ( gramsOfSolute + gramsOfSolvent ) );
-      }
-      return percentConcentration;
     }
   }, {
 

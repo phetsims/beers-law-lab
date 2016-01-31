@@ -52,6 +52,7 @@ define( function( require ) {
   var VALUE_X_MARGIN = 8;
   var VALUE_Y_MARGIN = 4;
   var PROBE_COLOR = 'rgb( 135, 4, 72 )';
+  var DISPLAY_MOLES_PER_LITER = ( BLLQueryParameters.CONCENTRATION_METER_UNITS === 'molesPerLiter' );
 
   /**
    * @param {ConcentrationMeter} meter
@@ -71,7 +72,7 @@ define( function( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
-    var bodyNode = new BodyNode( meter, solution, modelViewTransform, tandem.createTandem( 'bodyNode' ) );
+    var bodyNode = new BodyNode( meter, modelViewTransform, tandem.createTandem( 'bodyNode' ) );
     var probeNode = new ConcentrationProbeNode( meter.probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, tandem.createTandem( 'probeNode' ) );
     var wireNode = new WireNode( meter.body, meter.probe, bodyNode, probeNode );
 
@@ -81,25 +82,29 @@ define( function( require ) {
     thisNode.addChild( probeNode );
 
     var updateValue = function() {
-      if ( probeNode.isInSolution() ) {
-        meter.valueProperty.set( solution.concentrationProperty.get() );
+      if ( probeNode.isInSolution() || probeNode.isInDrainFluid() ) {
+        meter.valueProperty.set( DISPLAY_MOLES_PER_LITER ? solution.concentrationProperty.get() : solution.percentConcentrationProperty.get() );
       }
       else if ( probeNode.isInSolvent() ) {
         meter.valueProperty.set( 0 );
       }
-      else if ( probeNode.isInDrainFluid() ) {
-        meter.valueProperty.set( solution.concentrationProperty.get() );
-      }
       else if ( probeNode.isInStockSolution() ) {
-        meter.valueProperty.set( dropper.soluteProperty.get().stockSolutionConcentration );
+        //TODO #149 how to compute percent concentration for stock solutions?
+        meter.valueProperty.set( DISPLAY_MOLES_PER_LITER ? dropper.soluteProperty.get().stockSolutionConcentration : 0 );
       }
       else {
         meter.valueProperty.set( null );
       }
     };
+
     meter.probe.locationProperty.link( updateValue );
     solution.soluteProperty.link( updateValue );
-    solution.concentrationProperty.link( updateValue );
+    if ( DISPLAY_MOLES_PER_LITER ) {
+      solution.concentrationProperty.link( updateValue );
+    }
+    else {
+      solution.percentConcentrationProperty.link( updateValue );
+    }
     solutionNode.addEventListener( 'bounds', updateValue );
     stockSolutionNode.addEventListener( 'bounds', updateValue );
     solventFluidNode.addEventListener( 'bounds', updateValue );
@@ -113,12 +118,11 @@ define( function( require ) {
    * Note that while the body is a Movable, we have currently decided not to allow it to be moved,
    * so it has no drag handler
    * @param {ConcentrationMeter} meter
-   * @param {ConcentrationSolution} solution
    * @param {ModelViewTransform2} modelViewTransform
    * @param {Tandem} tandem
    * @constructor
    */
-  function BodyNode( meter, solution, modelViewTransform, tandem ) {
+  function BodyNode( meter, modelViewTransform, tandem ) {
 
     var thisNode = this;
     Node.call( thisNode, {
@@ -192,12 +196,11 @@ define( function( require ) {
       else {
 
         // display concentration as 'mol/L' or '%', see beers-law-lab#149
-        if ( BLLQueryParameters.CONCENTRATION_METER_UNITS === 'molesPerLiter' ) {
+        if ( DISPLAY_MOLES_PER_LITER ) {
           valueNode.setText( StringUtils.format( pattern0Value1UnitsString, Util.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), unitsMolesPerLiterString ) );
         }
         else {
-          //TODO #149 use the proper value for percent units
-          valueNode.setText( StringUtils.format( pattern0PercentString, Util.toFixed( solution.getPercentConcentration(), DECIMAL_PLACES_PERCENT ) ) );
+          valueNode.setText( StringUtils.format( pattern0PercentString, Util.toFixed( value, DECIMAL_PLACES_PERCENT ) ) );
         }
         valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN; // right justified
       }
