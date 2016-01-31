@@ -11,6 +11,7 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var BLLQueryParameters = require( 'BEERS_LAW_LAB/common/BLLQueryParameters' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
@@ -22,6 +23,7 @@ define( function( require ) {
   //strings
   var pattern0Value1UnitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
   var unitsLitersString = require( 'string!BEERS_LAW_LAB/units.liters' );
+  var unitsMillilitersString = require( 'string!BEERS_LAW_LAB/units.milliliters' );
 
   // constants
   var RIM_OFFSET = 20;
@@ -30,7 +32,9 @@ define( function( require ) {
   var MAJOR_TICK_LENGTH = 30;
   var MINOR_TICK_LENGTH = 15;
   var TICK_LABEL_X_SPACING = 8;
-  var MAJOR_TICK_LABELS = new Array( '\u00bd', '1' ); // 1/2, 1
+  var MAJOR_TICK_VALUES_LITERS = [ '\u00bd', '1' ]; // 1/2 L, 1 L
+  var MAJOR_TICK_VALUES_MILLILITERS = [ '500', '1000' ]; // 500 mL, 1000 mL
+  assert && assert( MAJOR_TICK_VALUES_LITERS.length === MAJOR_TICK_VALUES_MILLILITERS.length );
 
   /**
    * @param {Beaker} beaker
@@ -85,8 +89,13 @@ define( function( require ) {
       // major tick label
       if ( isMajorTick ) {
         var labelIndex = ( i / MINOR_TICKS_PER_MAJOR_TICK ) - 1;
-        if ( labelIndex < MAJOR_TICK_LABELS.length ) {
-          var label = StringUtils.format( pattern0Value1UnitsString, MAJOR_TICK_LABELS[ labelIndex ], unitsLitersString );
+        if ( labelIndex < MAJOR_TICK_VALUES_LITERS.length ) {
+
+          // display ticks in liters or milliliters, see beers-law-lab#150
+          var label = ( BLLQueryParameters.BEAKER_UNITS === 'liters' ) ?
+            StringUtils.format( pattern0Value1UnitsString, MAJOR_TICK_VALUES_LITERS[ labelIndex ], unitsLitersString ) :
+            StringUtils.format( pattern0Value1UnitsString, MAJOR_TICK_VALUES_MILLILITERS[ labelIndex ], unitsMillilitersString );
+
           ticksParent.addChild( new Text( label, {
             font: new PhetFont( 24 ),
             fill: 'black',
