@@ -133,9 +133,9 @@ define( function( require ) {
     // left of evaporation control
     removeSoluteButton.left = evaporationControl.right + 30;
     removeSoluteButton.centerY = evaporationControl.centerY;
-    // lower right
-    resetAllButton.left = drainFaucetNode.right + 100;
-    resetAllButton.centerY = removeSoluteButton.centerY;
+    // bottom right
+    resetAllButton.right = this.layoutBounds.right - 30;
+    resetAllButton.bottom = this.layoutBounds.bottom - 30;
   }
 
   beersLawLab.register( 'ConcentrationView', ConcentrationView );

@@ -72,9 +72,9 @@ define( function( require ) {
       // below cuvette
       solutionControls.left = cuvetteNode.left;
       solutionControls.top = cuvetteNode.bottom + 60;
-      // bottom left
-      resetAllButton.left = solutionControls.right + 20;
-      resetAllButton.bottom = solutionControls.bottom;
+      // bottom right
+      resetAllButton.right = this.layoutBounds.right - 30;
+      resetAllButton.bottom = this.layoutBounds.bottom - 30;
     }
   }
 
