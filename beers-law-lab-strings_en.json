@@ -47,6 +47,9 @@
   "pattern.0formula.1name": {
     "value": "{0}: {1}"
   },
+  "pattern.0soluteAmount": {
+    "value": "Solute Amount: {0} g"
+  },
   "potassiumChromate": {
     "value": "Potassium chromate"
   },

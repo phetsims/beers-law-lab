@@ -13,6 +13,7 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var BLLFaucetNode = require( 'BEERS_LAW_LAB/concentration/view/BLLFaucetNode' );
+  var BLLQueryParameters = require( 'BEERS_LAW_LAB/common/BLLQueryParameters' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var ConcentrationMeterNode = require( 'BEERS_LAW_LAB/concentration/view/ConcentrationMeterNode' );
   var BLLDropperNode = require( 'BEERS_LAW_LAB/concentration/view/BLLDropperNode' );
@@ -27,6 +28,7 @@ define( function( require ) {
   var SaturatedIndicator = require( 'BEERS_LAW_LAB/concentration/view/SaturatedIndicator' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var ShakerNode = require( 'BEERS_LAW_LAB/concentration/view/ShakerNode' );
+  var SoluteGramsNode = require( 'BEERS_LAW_LAB/concentration/view/SoluteGramsNode' );
   var SoluteControls = require( 'BEERS_LAW_LAB/concentration/view/SoluteControls' );
   var SolutionNode = require( 'BEERS_LAW_LAB/concentration/view/SolutionNode' );
   var StockSolutionNode = require( 'BEERS_LAW_LAB/concentration/view/StockSolutionNode' );
@@ -83,9 +85,15 @@ define( function( require ) {
     // Evaporation control
     var evaporationControl = new EvaporationControl( model.evaporator, tandem.createTandem( 'evaporationControl' ), { maxWidth: 410 } );
 
+    // Solute amount, in grams
+    var soluteGramsNode = new SoluteGramsNode( model.solution.soluteGramsProperty, {
+      maxWidth: 200,
+      visible: BLLQueryParameters.SOLUTE_AMOUNT_VISIBLE
+    } );
+
     // Remove Solute button
     var removeSoluteButton = new RemoveSoluteButton( model.solution, model.shakerParticles, tandem.createTandem( 'removeSoluteButton' ), {
-      maxWidth: 175
+      maxWidth: 200
     } );
 
     // Reset All button
@@ -109,6 +117,7 @@ define( function( require ) {
     thisView.addChild( shakerNode );
     thisView.addChild( dropperNode );
     thisView.addChild( evaporationControl );
+    thisView.addChild( soluteGramsNode );
     thisView.addChild( removeSoluteButton );
     thisView.addChild( resetAllButton );
     thisView.addChild( soluteControls );
@@ -124,15 +133,29 @@ define( function( require ) {
     saturatedIndicator.centerX = beakerNode.centerX;
     saturatedIndicator.bottom = beakerNode.bottom - 30;
     saturatedIndicator.visible = saturatedIndicatorVisible;
+
     // upper right
     soluteControls.left = beakerNode.right - 120;
     soluteControls.top = 20;
+
     // left-aligned below beaker
     evaporationControl.left = modelViewTransform.modelToViewPosition( model.beaker.location ).x - modelViewTransform.modelToViewDeltaX( model.beaker.size.width / 2 );
     evaporationControl.top = beakerNode.bottom + 30;
-    // left of evaporation control
-    removeSoluteButton.left = evaporationControl.right + 30;
-    removeSoluteButton.centerY = evaporationControl.centerY;
+
+    if ( soluteGramsNode.visible ) {
+      // bottom aligned with evaporator
+      removeSoluteButton.left = evaporationControl.right + 30;
+      removeSoluteButton.bottom = evaporationControl.bottom;
+      //  above button
+      soluteGramsNode.left = removeSoluteButton.left;
+      soluteGramsNode.bottom = removeSoluteButton.top - 20;
+    }
+    else {
+      // left of evaporation control
+      removeSoluteButton.left = evaporationControl.right + 30;
+      removeSoluteButton.centerY = evaporationControl.centerY;
+    }
+
     // bottom right
     resetAllButton.right = this.layoutBounds.right - 30;
     resetAllButton.bottom = this.layoutBounds.bottom - 30;
