@@ -19,6 +19,7 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var BLLQueryParameters = require( 'BEERS_LAW_LAB/common/BLLQueryParameters' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LayoutBox = require( 'SCENERY/nodes/LayoutBox' );
@@ -27,26 +28,28 @@ define( function( require ) {
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ProbeNode = require( 'SCENERY_PHET/ProbeNode' );
+  var Property = require( 'AXON/Property' );
   var ShadedRectangle = require( 'SCENERY_PHET/ShadedRectangle' );
   var Shape = require( 'KITE/Shape' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
   var Vector2 = require( 'DOT/Vector2' );
-  var Property = require( 'AXON/Property' );
 
   // strings
   var concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
-  var patternParentheses0TextString = require( 'string!BEERS_LAW_LAB/pattern.parentheses.0text' );
+  var pattern0PercentString = require( 'string!BEERS_LAW_LAB/pattern.0percent' );
+  var pattern0Value1UnitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
   var unitsMolesPerLiterString = require( 'string!BEERS_LAW_LAB/units.molesPerLiter' );
 
   // constants
   var BODY_IS_DRAGGABLE = true;
-  var VALUE_DECIMALS = 3;
+  var DECIMAL_PLACES_MOLES_PER_LITER = 3;
+  var DECIMAL_PLACES_PERCENT = 1;
   var NO_VALUE = '-';
   var BODY_X_MARGIN = 15;
   var BODY_Y_MARGIN = 15;
-  var VALUE_X_MARGIN = 6;
+  var VALUE_X_MARGIN = 8;
   var VALUE_Y_MARGIN = 4;
   var PROBE_COLOR = 'rgb( 135, 4, 72 )';
 
@@ -125,13 +128,11 @@ define( function( require ) {
     var maxTextWidth = 225; // constrain text width for i18n, determined empirically
     var titleNode = new Text( concentrationString,
       { font: new PhetFont( 18 ), fill: 'white', maxWidth: maxTextWidth } );
-    var unitsNode = new Text( StringUtils.format( patternParentheses0TextString, unitsMolesPerLiterString ),
-      { font: new PhetFont( 18 ), fill: 'white', maxWidth: maxTextWidth } );
-    var valueNode = new Text( Util.toFixed( 1, VALUE_DECIMALS ),
+    var valueNode = new Text( StringUtils.format( pattern0Value1UnitsString, Util.toFixed( 1, DECIMAL_PLACES_MOLES_PER_LITER ), unitsMolesPerLiterString ),
       { font: new PhetFont( 24 ), fill: 'black', maxWidth: maxTextWidth } );
 
     // display area for the value
-    var valueWidth = Math.max( Math.max( titleNode.width, unitsNode.width ), valueNode.width ) + ( 2 * VALUE_X_MARGIN );
+    var valueWidth = Math.max( titleNode.width, valueNode.width ) + ( 2 * VALUE_X_MARGIN );
     var valueHeight = valueNode.height + ( 2 * VALUE_Y_MARGIN );
     var valueBackgroundNode = new ShadedRectangle( new Bounds2( 0, 0, valueWidth, valueHeight ), {
       baseColor: 'white',
@@ -142,10 +143,10 @@ define( function( require ) {
 
     // vertical arrangement of stuff in the meter
     var vBox = new LayoutBox( {
-      children: [ titleNode, unitsNode, new Node( { children: [ valueBackgroundNode, valueNode ] } ) ],
+      children: [ titleNode, new Node( { children: [ valueBackgroundNode, valueNode ] } ) ],
       orientation: 'vertical',
       align: 'center',
-      spacing: 6
+      spacing: 10
     } );
 
     // meter body
@@ -177,19 +178,29 @@ define( function( require ) {
       thisNode.translation = modelViewTransform.modelToViewPosition( location );
     } );
 
-    // displayed value
+    // what the user sees (value & units), for the PhET-iO data stream
     var readoutProperty = new Property( NO_VALUE, tandem.createTandem( 'readoutProperty' ) );
+
+    // displayed value & units
     meter.valueProperty.link( function( value ) {
+
       if ( value === null ) {
         valueNode.setText( NO_VALUE );
         valueNode.centerX = valueBackgroundNode.centerX; // center justified
       }
       else {
-        valueNode.setText( Util.toFixed( value, VALUE_DECIMALS ) );
+
+        // display concentration as 'mol/L' or '%', see beers-law-lab#149
+        if ( BLLQueryParameters.CONCENTRATION_METER_UNITS === 'molesPerLiter' ) {
+          valueNode.setText( StringUtils.format( pattern0Value1UnitsString, Util.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), unitsMolesPerLiterString ) );
+        }
+        else {
+          //TODO #149 use the proper value for percent units
+          valueNode.setText( StringUtils.format( pattern0PercentString, Util.toFixed( value, DECIMAL_PLACES_PERCENT ) ) );
+        }
         valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN; // right justified
       }
 
-      // Output the displayed value to the together data stream
       readoutProperty.set( valueNode.getText() );
     } );
   }
