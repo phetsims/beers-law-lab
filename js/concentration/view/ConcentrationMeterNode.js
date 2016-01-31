@@ -71,7 +71,7 @@ define( function( require ) {
     var thisNode = this;
     Node.call( thisNode );
 
-    var bodyNode = new BodyNode( meter, modelViewTransform, tandem.createTandem( 'bodyNode' ) );
+    var bodyNode = new BodyNode( meter, solution, modelViewTransform, tandem.createTandem( 'bodyNode' ) );
     var probeNode = new ConcentrationProbeNode( meter.probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, tandem.createTandem( 'probeNode' ) );
     var wireNode = new WireNode( meter.body, meter.probe, bodyNode, probeNode );
 
@@ -113,11 +113,12 @@ define( function( require ) {
    * Note that while the body is a Movable, we have currently decided not to allow it to be moved,
    * so it has no drag handler
    * @param {ConcentrationMeter} meter
+   * @param {ConcentrationSolution} solution
    * @param {ModelViewTransform2} modelViewTransform
    * @param {Tandem} tandem
    * @constructor
    */
-  function BodyNode( meter, modelViewTransform, tandem ) {
+  function BodyNode( meter, solution, modelViewTransform, tandem ) {
 
     var thisNode = this;
     Node.call( thisNode, {
@@ -196,7 +197,7 @@ define( function( require ) {
         }
         else {
           //TODO #149 use the proper value for percent units
-          valueNode.setText( StringUtils.format( pattern0PercentString, Util.toFixed( value, DECIMAL_PLACES_PERCENT ) ) );
+          valueNode.setText( StringUtils.format( pattern0PercentString, Util.toFixed( solution.getPercentConcentration(), DECIMAL_PLACES_PERCENT ) ) );
         }
         valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN; // right justified
       }
