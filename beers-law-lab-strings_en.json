@@ -41,9 +41,6 @@
   "pattern.0value.1units": {
     "value": "{0} {1}"
   },
-  "pattern.parentheses.0text": {
-    "value": "({0})"
-  },
   "pattern.0percent": {
     "value": "{0}%"
   },
@@ -88,6 +85,9 @@
   },
   "units.liters": {
     "value": "L"
+  },
+  "units.milliliters": {
+    "value": "mL"
   },
   "units.molesPerLiter": {
     "value": "mol/L"

@@ -106,6 +106,21 @@ define( function( require ) {
         numberOfParticles = 1;
       }
       return numberOfParticles;
+    },
+
+    /**
+     * Converts the current concentration (mol/L) to percent concentration. See beers-law-lab#148,#149
+     * @returns {number}
+     * @public
+    */
+    getPercentConcentration: function() {
+      var percentConcentration = 0;
+      if ( this.volumeProperty.get() > 0 ) {
+        var gramsOfSolute = this.soluteProperty.value.molarMass * ( this.soluteAmountProperty.get() - this.precipitateAmountProperty.get() );
+        var gramsOfSolvent = this.volumeProperty.get() * this.solvent.gramsPerLiter;
+        percentConcentration = 100 * ( gramsOfSolute / ( gramsOfSolute + gramsOfSolvent ) );
+      }
+      return percentConcentration;
     }
   }, {
 
