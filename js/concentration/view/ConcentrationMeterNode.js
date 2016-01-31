@@ -146,7 +146,7 @@ define( function( require ) {
       children: [ titleNode, new Node( { children: [ valueBackgroundNode, valueNode ] } ) ],
       orientation: 'vertical',
       align: 'center',
-      spacing: 10
+      spacing: 18
     } );
 
     // meter body
