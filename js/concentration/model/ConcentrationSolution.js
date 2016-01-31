@@ -76,7 +76,7 @@ define( function( require ) {
     // @public {number} amount of solute, in grams
     this.soluteGramsProperty = new DerivedProperty( [ this.soluteProperty, this.soluteAmountProperty, this.precipitateAmountProperty ],
       function( solute, soluteAmount, precipitateAmount ) {
-        return solute.molarMass * ( soluteAmount - precipitateAmount )
+        return solute.molarMass * ( soluteAmount - precipitateAmount );
       }, {
         tandem: tandem.createTandem( 'soluteGramsProperty' )
       }
