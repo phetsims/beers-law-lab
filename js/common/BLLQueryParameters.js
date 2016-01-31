@@ -22,10 +22,10 @@ define( function( require ) {
     // {boolean} whether the solute amount (in grams) is visible on the Concentration screen, see beers-law-lab#148
     SOLUTE_AMOUNT_VISIBLE: !!getQueryParameter( 'soluteAmountVisible' ) || false,
 
-    // {string} units on the concentration meter, 'molesPerLiter'|'percent', see beers-law-lab#149
+    // {string} units on the concentration meter, see beers-law-lab#149
     CONCENTRATION_METER_UNITS: getQueryParameter( 'concentrationMeterUnits' ) || CONCENTRATION_METER_UNITS_VALUES[ 0 ],
 
-    // {string} units for beaker ticks, 'liters'|'milliliters', see beers-law-lab#150
+    // {string} units for beaker ticks, see beers-law-lab#150
     BEAKER_UNITS: getQueryParameter( 'beakerUnits' ) || BEAKER_TICK_UNITS_VALUES[ 0 ]
   };
 
