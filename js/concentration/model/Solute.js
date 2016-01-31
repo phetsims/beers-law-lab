@@ -32,11 +32,12 @@ define( function( require ) {
    * @param {string} formula
    * @param {number} stockSolutionConcentration
    * @param {SoluteColorScheme} colorScheme
+   * @param {number} molarMass - mass per mole in grams
    * @param {Tandem} tandem
    * @param {Object} [options]
    * @constructor
    */
-  function Solute( name, formula, stockSolutionConcentration, colorScheme, tandem, options ) {
+  function Solute( name, formula, stockSolutionConcentration, colorScheme, molarMass, tandem, options ) {
 
     options = _.extend( {
       particleColor: colorScheme.maxColor,
@@ -48,6 +49,7 @@ define( function( require ) {
     this.formula = formula;
     this.stockSolutionConcentration = stockSolutionConcentration;
     this.colorScheme = colorScheme;
+    this.molarMass = molarMass;
     this.particleColor = options.particleColor;
     this.particleSize = options.particleSize;
     this.particlesPerMole = options.particlesPerMole;
@@ -75,6 +77,7 @@ define( function( require ) {
     drinkMixString,
     5.5,
     new SoluteColorScheme( 0, new Color( 224, 255, 255 ), 0.05, new Color( 255, 225, 225 ), 5.96, new Color( 255, 0, 0 ) ),
+    342.3, // source: used sucrose value from PubChem
     tandem.createTandem( 'drinkMix' )
   );
 
@@ -83,6 +86,7 @@ define( function( require ) {
     BLLSymbols.COBALT_II_NITRATE,
     5.0,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.05, new Color( 255, 225, 225 ), 5.64, new Color( 255, 0, 0 ) ),
+    182.9, // source: Google
     tandem.createTandem( 'cobaltIINitrate' )
   );
 
@@ -91,6 +95,7 @@ define( function( require ) {
     BLLSymbols.COBALT_CHLORIDE,
     4.0,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.05, new Color( 255, 242, 242 ), 4.33, new Color( 255, 106, 106 ) ),
+    129.9, // source: Google
     tandem.createTandem( 'cobaltChloride' )
   );
 
@@ -99,6 +104,7 @@ define( function( require ) {
     BLLSymbols.POTASSIUM_DICHROMATE,
     0.5,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.01, new Color( 255, 204, 153 ), 0.51, new Color( 255, 127, 0 ) ),
+    294.1, // source: Google
     tandem.createTandem( 'potassiumDichromate' )
   );
 
@@ -107,6 +113,7 @@ define( function( require ) {
     BLLSymbols.POTASSIUM_CHROMATE,
     3.0,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.05, new Color( 255, 255, 153 ), 3.35, new Color( 255, 255, 0 ) ),
+    194.2, // source: Google
     tandem.createTandem( 'potassiumChromate' )
   );
 
@@ -115,6 +122,7 @@ define( function( require ) {
     BLLSymbols.NICKEL_II_CHLORIDE,
     5.0,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.2, new Color( 170, 255, 170 ), 5.21, new Color( 0, 128, 0 ) ),
+    129.6, // source: Google
     tandem.createTandem( 'nickelIIChloride' )
   );
 
@@ -123,6 +131,7 @@ define( function( require ) {
     BLLSymbols.COPPER_SULFATE,
     1.0,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.2, new Color( 200, 225, 255 ), 1.38, new Color( 30, 144, 255 ) ),
+    159.6, // source: Google
     tandem.createTandem( 'copperSulfate' )
   );
 
@@ -131,6 +140,7 @@ define( function( require ) {
     BLLSymbols.POTASSIUM_PERMANGANATE,
     0.4,
     new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.01, new Color( 255, 0, 255 ), 0.48, new Color( 80, 0, 120 ) ),
+    158.0, // source: Google
     tandem.createTandem( 'potassiumPermanganate' ), {
       particleColor: Color.BLACK
     }
