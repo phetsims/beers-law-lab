@@ -48,8 +48,8 @@ define( function( require ) {
     // @public (read-only)
     this.name = name;
     this.formula = formula;
-    this.stockSolutionConcentration = stockSolutionConcentration;
-    this.molarMass = molarMass;
+    this.stockSolutionConcentration = stockSolutionConcentration; // mol/L
+    this.molarMass = molarMass; // g/mol
     this.colorScheme = colorScheme;
     this.particleColor = options.particleColor;
     this.particleSize = options.particleSize;
@@ -101,7 +101,6 @@ define( function( require ) {
     4.0, // stockSolutionConcentration, mol/L
     129.839, // molarMass, g/mol
     new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.05, new Color( 255, 242, 242 ), 4.33, new Color( 255, 106, 106 ) ),
-
     tandem.createTandem( 'cobaltChloride' )
   );
 
