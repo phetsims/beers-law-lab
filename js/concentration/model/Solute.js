@@ -55,8 +55,10 @@ define( function( require ) {
     this.particleSize = options.particleSize;
     this.particlesPerMole = options.particlesPerMole;
 
-    // @public (read-only) percent concentration of stock solution, see beers-law-lab#149
-    this.stockSolutionPercentConcentration = ( molarMass * stockSolutionConcentration ) / Solvent.WATER.gramsPerLiter;
+    // @public (read-only) percent concentration [0,100] of stock solution, see beers-law-lab#149
+    this.stockSolutionPercentConcentration = 100 *
+      ( molarMass * stockSolutionConcentration ) / ( Solvent.WATER.gramsPerLiter + ( molarMass * stockSolutionConcentration ) );
+    assert && assert( this.stockSolutionPercentConcentration >= 0 && this.stockSolutionPercentConcentration <= 100 );
 
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
     tandem.addInstance( this );
