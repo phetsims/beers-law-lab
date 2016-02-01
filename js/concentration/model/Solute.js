@@ -61,9 +61,19 @@ define( function( require ) {
   beersLawLab.register( 'Solute', Solute );
 
   inherit( Object, Solute, {
-    // convenience method
+
+    // @public convenience method
     getSaturatedConcentration: function() {
       return this.colorScheme.maxConcentration;
+    },
+
+    /**
+     * Gets percent concentration of the stock solution, see beers-law-lab#149
+     * @returns {number}
+     */
+    getStockSolutionPercentConcentration: function() {
+      //TODO #149 compute, assuming stock solvent is water
+      return 0;
     }
   } );
 

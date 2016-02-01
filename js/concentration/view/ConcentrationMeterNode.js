@@ -83,14 +83,17 @@ define( function( require ) {
 
     var updateValue = function() {
       if ( probeNode.isInSolution() || probeNode.isInDrainFluid() ) {
-        meter.valueProperty.set( DISPLAY_MOLES_PER_LITER ? solution.concentrationProperty.get() : solution.percentConcentrationProperty.get() );
+        meter.valueProperty.set( DISPLAY_MOLES_PER_LITER ?
+                                 solution.concentrationProperty.get() :
+                                 solution.percentConcentrationProperty.get() );
       }
       else if ( probeNode.isInSolvent() ) {
         meter.valueProperty.set( 0 );
       }
       else if ( probeNode.isInStockSolution() ) {
-        //TODO #149 how to compute percent concentration for stock solutions?
-        meter.valueProperty.set( DISPLAY_MOLES_PER_LITER ? dropper.soluteProperty.get().stockSolutionConcentration : 0 );
+        meter.valueProperty.set( DISPLAY_MOLES_PER_LITER ?
+                                 dropper.soluteProperty.get().stockSolutionConcentration :
+                                 dropper.soluteProperty.get().getStockSolutionPercentConcentration() );
       }
       else {
         meter.valueProperty.set( null );
