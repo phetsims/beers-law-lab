@@ -20,7 +20,7 @@ define( function( require ) {
   var BLLQueryParameters = {
 
     // {boolean} whether the solute amount (in grams) is visible on the Concentration screen, see beers-law-lab#148
-    SOLUTE_AMOUNT_VISIBLE: !!getQueryParameter( 'soluteAmountVisible' ) || false,
+    SHOW_SOLUTE_AMOUNT: !!getQueryParameter( 'showSoluteAmount' ) || false,
 
     // {string} units on the concentration meter, see beers-law-lab#149
     CONCENTRATION_METER_UNITS: getQueryParameter( 'concentrationMeterUnits' ) || CONCENTRATION_METER_UNITS_VALUES[ 0 ],
@@ -30,8 +30,8 @@ define( function( require ) {
   };
 
   // validation - use Error instead of assert, because these are user errors, not programming errors
-  if ( typeof BLLQueryParameters.SOLUTE_AMOUNT_VISIBLE !== 'boolean' ) {
-    throw new Error( 'invalid value for soluteAmountVisible query parameter: ' + BLLQueryParameters.SOLUTE_AMOUNT_VISIBLE );
+  if ( typeof BLLQueryParameters.SHOW_SOLUTE_AMOUNT !== 'boolean' ) {
+    throw new Error( 'invalid value for showSoluteAmount query parameter: ' + BLLQueryParameters.SHOW_SOLUTE_AMOUNT );
   }
   if ( _.indexOf( CONCENTRATION_METER_UNITS_VALUES, BLLQueryParameters.CONCENTRATION_METER_UNITS ) === -1 ) {
     throw new Error( 'invalid value for concentrationMeterUnits query parameter: ' + BLLQueryParameters.CONCENTRATION_METER_UNITS );
