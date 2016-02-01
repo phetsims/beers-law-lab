@@ -40,19 +40,19 @@ define( function( require ) {
 
     var thisAbsorbance = this;
 
-    // @public a : molar absorptivity
+    // @private a : molar absorptivity
     thisAbsorbance.molarAbsorptivityProperty = new DerivedProperty( [ solutionProperty, light.wavelengthProperty ],
       function( solution, wavelength ) {
         return solution.molarAbsorptivityData.wavelengthToMolarAbsorptivity( wavelength );
       } );
 
-    // @public C : concentration property, wired to the current solution's concentration
+    // @private C : concentration property, wired to the current solution's concentration
     {
-      thisAbsorbance.concentrationProperty = new Property( solutionProperty.get().concentrationProperty.get() ); // @private
+      thisAbsorbance.currentConcentrationProperty = new Property( solutionProperty.get().concentrationProperty.get() ); // @private
 
       // Observe the concentration property of the current solution.
       var concentrationObserver = function( concentration ) {
-        thisAbsorbance.concentrationProperty.set( concentration );
+        thisAbsorbance.currentConcentrationProperty.set( concentration );
       };
       solutionProperty.get().concentrationProperty.link( concentrationObserver );
 
@@ -66,7 +66,7 @@ define( function( require ) {
     }
 
     // @public absorbance: A = abC
-    thisAbsorbance.absorbanceProperty = new DerivedProperty( [ thisAbsorbance.molarAbsorptivityProperty, cuvette.widthProperty, thisAbsorbance.concentrationProperty ],
+    thisAbsorbance.absorbanceProperty = new DerivedProperty( [ thisAbsorbance.molarAbsorptivityProperty, cuvette.widthProperty, thisAbsorbance.currentConcentrationProperty ],
       function( molarAbsorptivity, pathLength, concentration ) {
         return getAbsorbance( molarAbsorptivity, pathLength, concentration );
       } );
@@ -98,7 +98,7 @@ define( function( require ) {
 
     // @public Gets absorbance for a specified path length.
     getAbsorbanceAt: function( pathLength ) {
-      return getAbsorbance( this.molarAbsorptivityProperty.get(), pathLength, this.concentrationProperty.get() );
+      return getAbsorbance( this.molarAbsorptivityProperty.get(), pathLength, this.currentConcentrationProperty.get() );
     },
 
     // @public Gets transmittance for a specified path length.
