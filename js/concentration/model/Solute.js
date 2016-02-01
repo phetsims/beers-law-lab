@@ -66,7 +66,7 @@ define( function( require ) {
 
   inherit( Object, Solute, {
 
-    // @public convenience method
+    // @public gets the saturated concentration, in mol/L
     getSaturatedConcentration: function() {
       return this.colorScheme.maxConcentration;
     }

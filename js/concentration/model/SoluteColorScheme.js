@@ -16,11 +16,11 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
 
   /**
-   * @param {number} minConcentration
+   * @param {number} minConcentration - mol/L
    * @param {Color} minColor
-   * @param {number} midConcentration
+   * @param {number} midConcentration - mol/L
    * @param {Color} midColor
-   * @param {number} maxConcentration
+   * @param {number} maxConcentration - mol/L
    * @param {Color} maxColor
    * @constructor
    */
@@ -39,7 +39,7 @@ define( function( require ) {
 
     /**
      * Converts a concentration value to a Color, using a linear interpolation of RGB colors.
-     * @param {number} concentration moles (M)
+     * @param {number} concentration - mol/L
      * @return {Color} color
      */
     concentrationToColor: function( concentration ) {
