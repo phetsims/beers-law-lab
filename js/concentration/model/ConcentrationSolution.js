@@ -90,6 +90,7 @@ define( function( require ) {
           var solventGrams = volume * thisSolution.solvent.gramsPerLiter;
           percentConcentration = 100 * ( soluteGrams / ( soluteGrams + solventGrams ) );
         }
+        assert && assert( percentConcentration >= 0 && percentConcentration <= 100 );
         return percentConcentration;
       }, {
         tandem: tandem.createTandem( 'percentConcentrationProperty' )
