@@ -56,7 +56,7 @@ define( function( require ) {
     this.particlesPerMole = options.particlesPerMole;
 
     // @public (read-only) percent concentration of stock solution, see beers-law-lab#149
-    this.stockSolutionPercentConcentration = 0;
+    this.stockSolutionPercentConcentration = ( molarMass * stockSolutionConcentration ) / Solvent.WATER.gramsPerLiter;
 
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
     tandem.addInstance( this );
