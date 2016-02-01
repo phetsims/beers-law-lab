@@ -29,7 +29,8 @@ define( function( require ) {
    */
   function ConcentrationMeter( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds, tandem ) {
 
-    // @public concentration in mol/L, null if the meter is not reading a value
+    // @public concentration in mol/L or percent, depending on the concentrationMeterUnits query parameter.
+    // null if the meter is not reading a value
     this.valueProperty = new Property( null, { tandem: tandem.createTandem( 'valueProperty' ) } );
 
     // @public (read-only)
