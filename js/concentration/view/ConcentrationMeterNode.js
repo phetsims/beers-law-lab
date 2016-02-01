@@ -93,7 +93,7 @@ define( function( require ) {
       else if ( probeNode.isInStockSolution() ) {
         meter.valueProperty.set( DISPLAY_MOLES_PER_LITER ?
                                  dropper.soluteProperty.get().stockSolutionConcentration :
-                                 dropper.soluteProperty.get().getStockSolutionPercentConcentration() );
+                                 dropper.soluteProperty.get().stockSolutionPercentConcentration );
       }
       else {
         meter.valueProperty.set( null );

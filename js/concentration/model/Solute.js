@@ -45,6 +45,7 @@ define( function( require ) {
       particlesPerMole: 200
     }, options );
 
+    // @public (read-only)
     this.name = name;
     this.formula = formula;
     this.stockSolutionConcentration = stockSolutionConcentration;
@@ -53,6 +54,9 @@ define( function( require ) {
     this.particleColor = options.particleColor;
     this.particleSize = options.particleSize;
     this.particlesPerMole = options.particlesPerMole;
+
+    // @public (read-only) percent concentration of stock solution, see beers-law-lab#149
+    this.stockSolutionPercentConcentration = 0;
 
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
     tandem.addInstance( this );
@@ -65,16 +69,6 @@ define( function( require ) {
     // @public convenience method
     getSaturatedConcentration: function() {
       return this.colorScheme.maxConcentration;
-    },
-
-    /**
-     * Gets percent concentration of the stock solution, see beers-law-lab#149
-     * @returns {number}
-     */
-    getStockSolutionPercentConcentration: function() {
-      //TODO #149 compute, assuming stock solvent is water.
-      //TODO this will be a constant, should it just be another field?
-      return 0;
     }
   } );
 
