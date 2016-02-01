@@ -87,7 +87,7 @@ define( function( require ) {
       function( volume, soluteGrams ) {
         var percentConcentration = 0;
         if ( volume > 0 ) {
-          var solventGrams = volume * thisSolution.solvent.gramsPerLiter;
+          var solventGrams = volume * thisSolution.solvent.density;
           percentConcentration = 100 * ( soluteGrams / ( soluteGrams + solventGrams ) );
         }
         assert && assert( percentConcentration >= 0 && percentConcentration <= 100 );

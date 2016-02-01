@@ -21,18 +21,18 @@ define( function( require ) {
   /**
    * @param {string} name
    * @param {string} formula
-   * @param {number} gramsPerLiter
+   * @param {number} density - g/L
    * @param {Color} color
    * @constructor
    */
-  function Solvent( name, formula, gramsPerLiter, color ) {
+  function Solvent( name, formula, density, color ) {
 
     Fluid.call( this, color );
 
     // @public (read-only)
     this.name = name;
     this.formula = formula;
-    this.gramsPerLiter = gramsPerLiter;
+    this.density = density; // g/L
   }
 
   beersLawLab.register( 'Solvent', Solvent );

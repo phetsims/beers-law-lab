@@ -57,7 +57,7 @@ define( function( require ) {
 
     // @public (read-only) percent concentration [0,100] of stock solution, see beers-law-lab#149
     this.stockSolutionPercentConcentration = 100 *
-      ( molarMass * stockSolutionConcentration ) / ( Solvent.WATER.gramsPerLiter + ( molarMass * stockSolutionConcentration ) );
+      ( molarMass * stockSolutionConcentration ) / ( Solvent.WATER.density + ( molarMass * stockSolutionConcentration ) );
     assert && assert( this.stockSolutionPercentConcentration >= 0 && this.stockSolutionPercentConcentration <= 100 );
 
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
