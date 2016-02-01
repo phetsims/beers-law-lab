@@ -135,8 +135,8 @@ define( function( require ) {
     saturatedIndicator.visible = saturatedIndicatorVisible;
 
     // upper right
-    soluteControls.left = beakerNode.right - 120;
-    soluteControls.top = 20;
+    soluteControls.right = this.layoutBounds.right - 20;
+    soluteControls.top = this.layoutBounds.top + 20;
 
     // left-aligned below beaker
     evaporationControl.left = modelViewTransform.modelToViewPosition( model.beaker.location ).x - modelViewTransform.modelToViewDeltaX( model.beaker.size.width / 2 );

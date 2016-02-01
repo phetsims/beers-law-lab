@@ -64,16 +64,16 @@ define( function( require ) {
 
     // @public
     thisModel.solution = new ConcentrationSolution( thisModel.soluteProperty, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue, tandem.createTandem( 'solution' ) );
-    thisModel.beaker = new Beaker( new Vector2( 400, 550 ), new Dimension2( 600, 300 ), 1 );
+    thisModel.beaker = new Beaker( new Vector2( 350, 550 ), new Dimension2( 600, 300 ), 1 );
     thisModel.precipitate = new Precipitate( thisModel.solution, thisModel.beaker );
-    thisModel.shaker = new Shaker( new Vector2( thisModel.beaker.location.x, 170 ), new Bounds2( 225, 50, 625, 210 ), 0.75 * Math.PI,
+    thisModel.shaker = new Shaker( new Vector2( thisModel.beaker.location.x, 170 ), new Bounds2( 250, 50, 575, 210 ), 0.75 * Math.PI,
       thisModel.soluteProperty, SHAKER_MAX_DISPENSING_RATE, thisModel.soluteFormProperty.get() === 'solid', tandem.createTandem( 'shaker' ) );
     thisModel.shakerParticles = new ShakerParticles( thisModel.shaker, thisModel.solution, thisModel.beaker, tandem.createTandem( 'shakerParticles' ) );
-    thisModel.dropper = new Dropper( new Vector2( thisModel.beaker.location.x, 225 ), new Bounds2( 250, 225, 570, 225 ),
+    thisModel.dropper = new Dropper( new Vector2( thisModel.beaker.location.x, 225 ), new Bounds2( 260, 225, 580, 225 ),
       thisModel.soluteProperty, DROPPER_FLOW_RATE, thisModel.soluteFormProperty.get() === 'solution', tandem.createTandem( 'dropper' ) );
     thisModel.evaporator = new Evaporator( MAX_EVAPORATION_RATE, thisModel.solution, tandem.createTandem( 'evaporator' ) );
     thisModel.solventFaucet = new Faucet( new Vector2( 155, 220 ), -400, 45, MAX_INPUT_FLOW_RATE, tandem.createTandem( 'solventFaucet' ) );
-    thisModel.drainFaucet = new Faucet( new Vector2( 800, 630 ), thisModel.beaker.getRight(), 45, MAX_OUTPUT_FLOW_RATE, tandem.createTandem( 'drainFaucet' ) );
+    thisModel.drainFaucet = new Faucet( new Vector2( 750, 630 ), thisModel.beaker.getRight(), 45, MAX_OUTPUT_FLOW_RATE, tandem.createTandem( 'drainFaucet' ) );
     thisModel.concentrationMeter = new ConcentrationMeter( new Vector2( 785, 210 ), new Bounds2( 10, 150, 835, 680 ),
       new Vector2( 750, 370 ), new Bounds2( 30, 150, 966, 680 ), tandem.createTandem( 'concentrationMeter' ) );
 
