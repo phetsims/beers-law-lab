@@ -48,13 +48,12 @@ define( function( require ) {
 
     // @private C : concentration property, wired to the current solution's concentration
     {
-      thisAbsorbance.currentConcentrationProperty = new Property( solutionProperty.get().concentrationProperty.get() ); // @private
+      thisAbsorbance.currentConcentrationProperty = new Property( solutionProperty.get().concentrationProperty.get() );
 
       // Observe the concentration property of the current solution.
       var concentrationObserver = function( concentration ) {
         thisAbsorbance.currentConcentrationProperty.set( concentration );
       };
-      solutionProperty.get().concentrationProperty.link( concentrationObserver );
 
       // Rewire the concentration observer when the solution changes.
       solutionProperty.link( function( newSolution, oldSolution ) {
