@@ -72,7 +72,8 @@ define( function( require ) {
      * @returns {number}
      */
     getStockSolutionPercentConcentration: function() {
-      //TODO #149 compute, assuming stock solvent is water
+      //TODO #149 compute, assuming stock solvent is water.
+      //TODO this will be a constant, should it just be another field?
       return 0;
     }
   } );
