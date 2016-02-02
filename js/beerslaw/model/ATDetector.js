@@ -116,8 +116,8 @@ define( function( require ) {
   }, {
     // @static Modes for the detector
     Mode: {
-      'TRANSMITTANCE': 0,
-      'ABSORBANCE': 1
+      TRANSMITTANCE: 'transmittance',
+      ABSORBANCE: 'absorbance'
     }
   } );
 } );
