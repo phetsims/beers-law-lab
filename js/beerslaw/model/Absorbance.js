@@ -1,23 +1,19 @@
-// Copyright 2013-2015, University of Colorado Boulder
+// Copyright 2013-2016, University of Colorado Boulder
 
 /**
  * Model for computing the absorbance (and transmittance) of light passing through a solution in a cuvette.
- * <p>
+ *
  * Absorbance model: A = abC
- * a : molar absorptivity, units=1/(cm*M)
- * b : path length, synonymous with cuvette width, units=cm
- * C : concentration, units=M
- * <p>
+ *
  * Transmittance model: T = 10^A
- * <p>
+ *
  * where:
- * <ul>
- * <li>A is absorbance
- * <li>T is transmittance (1=fully transmitted, 0=fully absorbed)
- * <li>a is molar absorptivity (1/(cm*M))
- * <li>b is path length (cm)
- * <li>C is concentration (M)
- * </ul>
+ *
+ * A is absorbance
+ * T is transmittance (1=fully transmitted, 0=fully absorbed)
+ * a is molar absorptivity (1/(cm*M))
+ * b is path length, synonymous with cuvette width (cm)
+ * C is concentration (M)
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
