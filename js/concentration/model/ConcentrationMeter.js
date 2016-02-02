@@ -1,8 +1,8 @@
-// Copyright 2013-2015, University of Colorado Boulder
+// Copyright 2013-2016, University of Colorado Boulder
 
 /**
  * Model of the concentration meter.
- * <p/>
+ *
  * NOTE: Determining when the probe is in one of the various fluids is handled in the view,
  * where testing node intersections simplifies the process. Otherwise we'd need to
  * model the shapes of the various fluids, an unnecessary complication.
