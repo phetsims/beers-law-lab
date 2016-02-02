@@ -1,18 +1,49 @@
 Concentration screen:
 
-Concentration of a solution is:
+Quantities and units:
 
-   M = min( (saturatedConcentration (M)), ( (amountOfSolute (moles)) / (volumeOfSolution (L)) ))
+  amountOfSolute - moles
+  amountOfPrecipitate - moles
+  concentration - M or mol/L
+  gramsOfSolute - g
+  gramsOfSolvent - g
+  percentConcentration - %
+  saturatedConcentration - M or mol/L
+  soluteMolarMass - g/mol
+  solventDensity - g/L
+  stockSolutionConcentration - M or mol/L
+  stockSolutionPercentConcentration - %
+  volumeOfSolution - L
+
+Concentration of a solution (M) is:
+
+   concentration = min( stockSolutionConcentration, ( amountOfSolute / volumeOfSolution ) )
 
 When a solution is saturated, the amount of precipitate is:
 
-   precipitate (moles) = ( (amountOfSolute (moles)) / (volumeOfSolution (L)) ) - (saturatedConcentration (M))
+   amountOfPrecipitate = ( amountOfSolute / volumeOfSolution ) - saturatedConcentration
 
 The number of precipitate particles shown in the beaker is:
 
-   numberOfParticles = (precipitate (moles)) * particlesPerMole
+   numberOfParticles = amountOfPrecipitate * particlesPerMole
 
 where particlesPerMole is specified for each solute.
+
+Grams of solute is:
+
+  gramsOfSolute = soluteMolarMass * ( amountOfSolute - amountOfPrecipitate )
+
+Grams of solvent is:
+
+  gramsOfSolvent = volumeOfSolution * solventDensity;
+
+Percent Concentration of a solution is:
+
+  percentConcentration = 100 * gramsOfSolute / ( gramsOfSolute + gramsOfSolvent )
+
+Percent Concentration of a stock solution is:
+
+  stockSolutionPercentConcentration = 100 * ( soluteMolarMass * stockSolutionConcentration ) / ( solventDensity + ( soluteMolarMass * stockSolutionConcentration ) )
 
 The solvent is pure water. Solvent can be added to the solution using the faucet in
 the upper-left corner of the play area.  Solvent can be removed from the solution using
