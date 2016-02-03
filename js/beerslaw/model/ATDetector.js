@@ -1,4 +1,4 @@
-// Copyright 2013-2015, University of Colorado Boulder
+// Copyright 2013-2016, University of Colorado Boulder
 
 /**
  * Detector for absorbance (A) and percent transmittance (%T)
@@ -116,8 +116,8 @@ define( function( require ) {
   }, {
     // @static Modes for the detector
     Mode: {
-      'TRANSMITTANCE': 0,
-      'ABSORBANCE': 1
+      TRANSMITTANCE: 'transmittance',
+      ABSORBANCE: 'absorbance'
     }
   } );
 } );
