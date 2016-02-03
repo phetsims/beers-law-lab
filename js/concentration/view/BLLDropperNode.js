@@ -36,7 +36,7 @@ define( function( require ) {
       dispensingProperty: dropper.dispensingProperty,
       enabledProperty: dropper.enabledProperty,
       emptyProperty: dropper.emptyProperty,
-      tandem: tandem // supertype handles tandem registration for the momentary button
+      tandem: tandem.createSupertypeTandem() // supertype handles tandem registration for the momentary button
     } );
 
     // label background, so the label shows up on various fluid colors
