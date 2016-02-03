@@ -107,8 +107,3 @@ define( function( require ) {
     }
   } );
 } );
-
-
-
-
-
