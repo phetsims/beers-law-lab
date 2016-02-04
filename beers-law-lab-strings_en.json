@@ -23,7 +23,7 @@
   "evaporation": {
     "value": "Evaporation"
   },
-  "fixed": {
+  "preset": {
     "value": "preset"
   },
   "lots": {

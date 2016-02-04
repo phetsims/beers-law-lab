@@ -29,7 +29,7 @@ define( function( require ) {
   // strings
   var pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
   var pattern0Value1UnitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
-  var fixedString = require( 'string!BEERS_LAW_LAB/fixed' );
+  var presetString = require( 'string!BEERS_LAW_LAB/preset' );
   var unitsNmString = require( 'string!BEERS_LAW_LAB/units.nm' );
   var variableString = require( 'string!BEERS_LAW_LAB/variable' );
   var wavelengthString = require( 'string!BEERS_LAW_LAB/wavelength' );
@@ -78,9 +78,9 @@ define( function( require ) {
       spacing: 15,
       maxWidth: 250, // constrain width for i18n
       children: [
-        // fixed
+        // preset
         new AquaRadioButton( this.variableWavelengthProperty, false,
-          new Text( fixedString, {
+          new Text( presetString, {
             font: new PhetFont( 18 ),
             fill: 'black'
           } ), {
