@@ -46,11 +46,11 @@ define( function( require ) {
   var BODY_IS_DRAGGABLE = true;
   var DECIMAL_PLACES_MOLES_PER_LITER = 3;
   var DECIMAL_PLACES_PERCENT = 1;
-  var NO_VALUE = '-';
+  var READOUT_NO_VALUE = '-'; // displayed in the readout when the meter is not measuring anything
   var BODY_X_MARGIN = 15;
   var BODY_Y_MARGIN = 15;
-  var VALUE_X_MARGIN = 8;
-  var VALUE_Y_MARGIN = 4;
+  var READOUT_X_MARGIN = 8;
+  var READOUT_Y_MARGIN = 4;
   var PROBE_COLOR = 'rgb( 135, 4, 72 )';
   var DISPLAY_MOLES_PER_LITER = ( BLLQueryParameters.CONCENTRATION_METER_UNITS === 'molesPerLiter' );
 
@@ -132,26 +132,27 @@ define( function( require ) {
       cursor: 'pointer'
     } );
 
-    // text nodes
     var maxTextWidth = 225; // constrain text width for i18n, determined empirically
+
+    // title
     var titleNode = new Text( concentrationString,
       { font: new PhetFont( 18 ), fill: 'white', maxWidth: maxTextWidth } );
-    var valueNode = new Text( StringUtils.format( pattern0Value1UnitsString, Util.toFixed( 1, DECIMAL_PLACES_MOLES_PER_LITER ), unitsMolesPerLiterString ),
-      { font: new PhetFont( 24 ), fill: 'black', maxWidth: maxTextWidth } );
 
-    // display area for the value
-    var valueWidth = Math.max( titleNode.width, valueNode.width ) + ( 2 * VALUE_X_MARGIN );
-    var valueHeight = valueNode.height + ( 2 * VALUE_Y_MARGIN );
-    var valueBackgroundNode = new ShadedRectangle( new Bounds2( 0, 0, valueWidth, valueHeight ), {
+    // readout for the value + units
+    var readoutNode = new Text( StringUtils.format( pattern0Value1UnitsString, Util.toFixed( 1, DECIMAL_PLACES_MOLES_PER_LITER ), unitsMolesPerLiterString ),
+      { font: new PhetFont( 24 ), fill: 'black', maxWidth: maxTextWidth } );
+    var readoutWidth = Math.max( titleNode.width, readoutNode.width ) + ( 2 * READOUT_X_MARGIN );
+    var readoutHeight = readoutNode.height + ( 2 * READOUT_Y_MARGIN );
+    var readoutBackgroundNode = new ShadedRectangle( new Bounds2( 0, 0, readoutWidth, readoutHeight ), {
       baseColor: 'white',
       lightSource: 'rightBottom'
     } );
-    valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN;
-    valueNode.bottom = valueBackgroundNode.bottom - VALUE_Y_MARGIN;
+    readoutNode.right = readoutBackgroundNode.right - READOUT_X_MARGIN;
+    readoutNode.bottom = readoutBackgroundNode.bottom - READOUT_Y_MARGIN;
 
     // vertical arrangement of stuff in the meter
     var vBox = new LayoutBox( {
-      children: [ titleNode, new Node( { children: [ valueBackgroundNode, valueNode ] } ) ],
+      children: [ titleNode, new Node( { children: [ readoutBackgroundNode, readoutNode ] } ) ],
       orientation: 'vertical',
       align: 'center',
       spacing: 18
@@ -186,29 +187,32 @@ define( function( require ) {
       thisNode.translation = modelViewTransform.modelToViewPosition( location );
     } );
 
-    // what the user sees (value & units), for the PhET-iO data stream
-    var readoutProperty = new Property( NO_VALUE, tandem.createTandem( 'readoutProperty' ) );
-
-    // displayed value & units
-    meter.valueProperty.link( function( value ) {
-
-      if ( value === null ) {
-        valueNode.setText( NO_VALUE );
-        valueNode.centerX = valueBackgroundNode.centerX; // center justified
+    // {string} what the user sees (value & units), for the PhET-iO data stream
+    var readoutProperty = new Property( READOUT_NO_VALUE, { tandem: tandem.createTandem( 'readoutProperty' ) } );
+    readoutProperty.link( function( readout ) {
+      readoutNode.text = readout;
+      if ( readout === READOUT_NO_VALUE ) {
+        readoutNode.centerX = readoutBackgroundNode.centerX; // center justified
       }
       else {
+        readoutNode.right = readoutBackgroundNode.right - READOUT_X_MARGIN; // right justified
+      }
+    } );
+
+    // when the value changes, update the readout
+    meter.valueProperty.link( function( value ) {
+      var readout = READOUT_NO_VALUE; // {string}
+      if ( value !== null ) {
 
         // display concentration as 'mol/L' or '%', see beers-law-lab#149
         if ( DISPLAY_MOLES_PER_LITER ) {
-          valueNode.setText( StringUtils.format( pattern0Value1UnitsString, Util.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), unitsMolesPerLiterString ) );
+          readout = StringUtils.format( pattern0Value1UnitsString, Util.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), unitsMolesPerLiterString );
         }
         else {
-          valueNode.setText( StringUtils.format( pattern0PercentString, Util.toFixed( value, DECIMAL_PLACES_PERCENT ) ) );
+          readout = StringUtils.format( pattern0PercentString, Util.toFixed( value, DECIMAL_PLACES_PERCENT ) );
         }
-        valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN; // right justified
       }
-
-      readoutProperty.set( valueNode.getText() );
+      readoutProperty.set( readout );
     } );
   }
 
