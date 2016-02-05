@@ -20,7 +20,7 @@
     ],
     "phet-io": {
       "preload": [
-        "../together/js/api/beers-law-lab-api.js"
+        "../phet-io/js/api/beers-law-lab-api.js"
       ]
     }
   }
