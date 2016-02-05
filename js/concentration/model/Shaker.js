@@ -39,7 +39,7 @@ define( function( require ) {
     thisShaker.emptyProperty = new Property( false );
     thisShaker.dispensingRateProperty = new Property( 0 );
 
-    // @public (together)
+    // @public (phet-io)
     thisShaker.previousLocation = location;
 
     // set the dispensing rate to zero when the shaker becomes empty or invisible

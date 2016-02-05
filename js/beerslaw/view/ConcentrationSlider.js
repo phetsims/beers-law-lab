@@ -56,10 +56,10 @@ define( function( require ) {
     Node.call( thisNode );
 
     // nodes
-    // @private (together)
+    // @private (phet-io)
     this.track = new Track( TRACK_SIZE, solutionProperty, tandem.createTandem( 'track' ) );
 
-    // @private (together)
+    // @private (phet-io)
     this.thumb = new Thumb( THUMB_SIZE, TRACK_SIZE, solutionProperty, tandem.createTandem( 'thumb' ) );
     var minTickLine = new TickLine();
     var maxTickLine = new TickLine();

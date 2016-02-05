@@ -63,7 +63,7 @@ define( function( require ) {
     // interactivity
     thisNode.cursor = 'pointer';
 
-    // @private (together)
+    // @private (phet-io)
     this.movableDragHandler = new MovableDragHandler( ruler.locationProperty, {
       tandem: tandem.createTandem( 'movableDragHandler' ),
       dragBounds: ruler.dragBounds,
