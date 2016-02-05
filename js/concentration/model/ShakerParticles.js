@@ -155,8 +155,8 @@ define( function( require ) {
     },
 
     /**
-     * For together, load the state of all the particles.
-     * This is declared here instead of in together.js because of the methods + logic required here,
+     * For phet-io, load the state of all the particles.
+     * This is declared here instead of in phetio.js because of the methods + logic required here,
      * and since the concentration-api.js file does cannot easily replicate the code below since
      * it runs in a preload script, and types such as ShakerParticle are not available globally.
      * The argument is defined in concentration-api.js.
