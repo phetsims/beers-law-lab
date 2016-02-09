@@ -47,6 +47,8 @@ define( function( require ) {
       thisParticles.removeAllParticles();
     } );
 
+    this.shakerParticleGroupTandem = tandem.createGroupTandem( 'shakerParticle' );
+
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
     tandem.addInstance( this );
   }
@@ -75,7 +77,7 @@ define( function( require ) {
 
     // @public
     reset: function() {
-       this.removeAllParticles();
+      this.removeAllParticles();
     },
 
     // @public Particle animation and delivery to the solution, called when the simulation clock ticks.
@@ -105,8 +107,15 @@ define( function( require ) {
       if ( shaker.dispensingRateProperty.get() > 0 ) {
         var numberOfParticles = Math.round( Math.max( 1, shaker.dispensingRateProperty.get() * solution.soluteProperty.get().particlesPerMole * deltaSeconds ) );
         for ( var j = 0; j < numberOfParticles; j++ ) {
-          this.addParticle( new ShakerParticle( solution.soluteProperty.get(), getRandomLocation( this.shaker.locationProperty.get() ), getRandomOrientation(),
-            this.getInitialVelocity(), this.getGravitationalAcceleration() ) );
+          var shakerParticle = new ShakerParticle(
+            solution.soluteProperty.get(),
+            getRandomLocation( this.shaker.locationProperty.get() ),
+            getRandomOrientation(),
+            this.getInitialVelocity(),
+            this.getGravitationalAcceleration(),
+            this.shakerParticleGroupTandem.createNextTandem()
+          );
+          this.addParticle( shakerParticle );
         }
       }
 
@@ -135,6 +144,7 @@ define( function( require ) {
     // @private
     removeParticle: function( particle ) {
       this.particles.splice( this.particles.indexOf( particle ), 1 );
+      particle.dispose();
     },
 
     // @public

@@ -22,21 +22,33 @@ define( function( require ) {
    * @param {number} orientation in radians
    * @param {Vector2} initialVelocity
    * @param {Vector2} acceleration
+   * @param {Tandem} tandem
    * @constructor
    */
-  function ShakerParticle( solute, location, orientation, initialVelocity, acceleration ) {
+  function ShakerParticle( solute, location, orientation, initialVelocity, acceleration, tandem ) {
 
     SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation );
 
-    // @private
+    // @public (phet-io, read-only)
     this.solute = solute;
     this.velocity = initialVelocity;
     this.acceleration = acceleration;
+    this.tandem = tandem;
+
+    tandem.addInstance( this );
+
+    this.disposeShakerParticle = function() {
+      tandem.removeInstance( this );
+    };
   }
 
   beersLawLab.register( 'ShakerParticle', ShakerParticle );
 
   return inherit( SoluteParticle, ShakerParticle, {
+
+    dispose: function() {
+      this.disposeShakerParticle();
+    },
 
     /**
      *  Propagates the particle to a new location.
