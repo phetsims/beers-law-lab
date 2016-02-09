@@ -65,7 +65,7 @@ define( function( require ) {
     // @public
     thisModel.solution = new ConcentrationSolution( thisModel.soluteProperty, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue, tandem.createTandem( 'solution' ) );
     thisModel.beaker = new Beaker( new Vector2( 350, 550 ), new Dimension2( 600, 300 ), 1 );
-    thisModel.precipitate = new Precipitate( thisModel.solution, thisModel.beaker );
+    thisModel.precipitate = new Precipitate( thisModel.solution, thisModel.beaker, tandem.createTandem( 'precipitate' ) );
     thisModel.shaker = new Shaker( new Vector2( thisModel.beaker.location.x, 170 ), new Bounds2( 250, 50, 575, 210 ), 0.75 * Math.PI,
       thisModel.soluteProperty, SHAKER_MAX_DISPENSING_RATE, thisModel.soluteFormProperty.get() === 'solid', tandem.createTandem( 'shaker' ) );
     thisModel.shakerParticles = new ShakerParticles( thisModel.shaker, thisModel.solution, thisModel.beaker, tandem.createTandem( 'shakerParticles' ) );

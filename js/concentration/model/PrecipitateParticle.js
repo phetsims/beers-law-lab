@@ -19,13 +19,31 @@ define( function( require ) {
    * @param {Solute} solute
    * @param {Vector2} location location in the beaker's coordinate frame
    * @param {number} orientation in radians
+   * @param {Tandem} tandem
    * @constructor
    */
-  function PrecipitateParticle( solute, location, orientation ) {
+  function PrecipitateParticle( solute, location, orientation, tandem ) {
     SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation );
+
+    // @public (phet-io)
+    this.solute = solute;
+    this.tandem = tandem;
+
+    tandem.addInstance( this );
+
+    // @private
+    this.disposePrecipitateParticle = function() {
+      tandem.removeInstance( this );
+    };
   }
 
   beersLawLab.register( 'PrecipitateParticle', PrecipitateParticle );
 
-  return inherit( SoluteParticle, PrecipitateParticle );
+  return inherit( SoluteParticle, PrecipitateParticle, {
+
+    // @public
+    dispose: function() {
+      this.disposePrecipitateParticle();
+    }
+  } );
 } );

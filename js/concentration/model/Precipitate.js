@@ -19,9 +19,10 @@ define( function( require ) {
   /**
    * @param {ConcentrationSolution} solution
    * @param {Beaker} beaker
+   * @param {Tandem} tandem
    * @constructor
    */
-  function Precipitate( solution, beaker ) {
+  function Precipitate( solution, beaker, tandem ) {
 
     Particles.call( this );
 
@@ -41,6 +42,11 @@ define( function( require ) {
       thisPrecipitate.removeAllParticles();
       thisPrecipitate.updateParticles();
     } );
+
+    this.precipitateParticleGroupTandem = tandem.createGroupTandem( 'precipitateParticle' );
+
+    // Persists for the life of the sim, no need to be disposed
+    tandem.addInstance( this );
   }
 
   beersLawLab.register( 'Precipitate', Precipitate );
@@ -76,7 +82,12 @@ define( function( require ) {
       else {
         // add some particles
         while ( numberOfParticles > this.particles.length ) {
-          this.particles.push( new PrecipitateParticle( this.solution.soluteProperty.get(), this.getRandomOffset(), getRandomOrientation() ) );
+          this.particles.push( new PrecipitateParticle(
+            this.solution.soluteProperty.get(),
+            this.getRandomOffset(),
+            getRandomOrientation(),
+            this.precipitateParticleGroupTandem.createNextTandem()
+          ) );
         }
       }
       assert && assert( this.particles.length === numberOfParticles );
@@ -85,6 +96,9 @@ define( function( require ) {
 
     // @private
     removeAllParticles: function() {
+      for ( var i = 0; i < this.particles.length; i++ ) {
+        this.particles[ i ].dispose();
+      }
       this.particles = [];
     },
 
