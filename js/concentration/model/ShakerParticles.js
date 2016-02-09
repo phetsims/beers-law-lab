@@ -162,29 +162,6 @@ define( function( require ) {
       for ( var i = 0; i < changedCallbacks.length; i++ ) {
         changedCallbacks[ i ]();
       }
-    },
-
-    /**
-     * For phet-io, load the state of all the particles.
-     * This is declared here instead of in phetio.js because of the methods + logic required here,
-     * and since the concentration-api.js file does cannot easily replicate the code below since
-     * it runs in a preload script, and types such as ShakerParticle are not available globally.
-     * The argument is defined in concentration-api.js.
-     * TODO: beers-law-lab#103 To fully support save/load, we must also capture the particle velocities, solute type, orientation, etc.
-     * @param {Object} value - the state as loaded by concentration-api.js
-     * @public
-     */
-    setValue: function( value ) {
-      this.removeAllParticles();
-      for ( var i = 0; i < value.length; i++ ) {
-        var particle = value[ i ];
-        this.addParticle( new ShakerParticle(
-          this.solution.soluteProperty.get(),
-          new Vector2( particle.x, particle.y ),
-          getRandomOrientation(),
-          this.getInitialVelocity(),
-          this.getGravitationalAcceleration() ) );
-      }
     }
   } );
 } );
