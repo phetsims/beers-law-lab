@@ -45,9 +45,11 @@ define( function( require ) {
       particlesPerMole: 200
     }, options );
 
-    // @public (read-only)
+    // @public (read-only), (read-write, phet-io)
     this.name = name;
     this.formula = formula;
+
+    // @public (read-only)
     this.stockSolutionConcentration = stockSolutionConcentration; // mol/L
     this.molarMass = molarMass; // g/mol
     this.colorScheme = colorScheme;
