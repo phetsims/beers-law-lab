@@ -37,6 +37,7 @@ define( function( require ) {
 
     tandem.addInstance( this );
 
+    // @private
     this.disposeShakerParticle = function() {
       tandem.removeInstance( this );
     };
@@ -46,6 +47,7 @@ define( function( require ) {
 
   return inherit( SoluteParticle, ShakerParticle, {
 
+    // @public
     dispose: function() {
       this.disposeShakerParticle();
     },
