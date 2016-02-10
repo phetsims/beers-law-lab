@@ -29,7 +29,7 @@ define( function( require ) {
 
     SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation );
 
-    // @public (phet-io, read-only)
+    // @public (read-only, phet-io)
     this.solute = solute;
     this.velocity = initialVelocity;
     this.acceleration = acceleration;
