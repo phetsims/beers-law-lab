@@ -1,67 +1,67 @@
 {
-  "comment": "# beers-law-lab 1.4.0-dev.3 Mon Feb 01 2016 15:22:24 GMT-0700 (MST)",
+  "comment": "# beers-law-lab 1.4.0-dev.4 Thu Feb 11 2016 16:59:07 GMT-0700 (MST)",
   "assert": {
-    "sha": "d4909677d27ed571d5d859d709a0612bf7811db8",
+    "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "master"
   },
   "axon": {
-    "sha": "3a5c7fb6500d5fcbe0957fb8cec51e9a3db0a49b",
+    "sha": "60213ff7028991c5be284cf5f1d436739fe87f97",
     "branch": "master"
   },
   "beers-law-lab": {
-    "sha": "287243e47e8c3235a70f5e7a93519cf47281e43f",
+    "sha": "f9c06868e9f4b562c8da59c28f50611cdefec88e",
     "branch": "master"
   },
   "brand": {
-    "sha": "8c6f9c0402d8d445e61b8692c25b78b0ef09f279",
+    "sha": "ac9ccaa74427844b170dcd1582f3e9bb931edef4",
     "branch": "master"
   },
   "chipper": {
-    "sha": "82bae9a3489f48f67a10e6286d8060c6c303fadc",
+    "sha": "a0be095e20c438757fe5ad1ea3043d978bb4065c",
     "branch": "master"
   },
   "dot": {
-    "sha": "ddf82014392e9956043fab8608d5b8222e6134dc",
+    "sha": "da78031b6f080d20bc8346beaa1d37148188371e",
     "branch": "master"
   },
   "joist": {
-    "sha": "4c228a327558f18681a136f64c23a28006f16b9f",
+    "sha": "c61635d6c247bac0c06e50861636c578cb517d7e",
     "branch": "master"
   },
   "kite": {
-    "sha": "4a947119f6e57cb6a6d9d1bf4596502ca721464c",
+    "sha": "10ca8bf2b2712307ff528352de8451c0c8afe093",
     "branch": "master"
   },
   "nitroglycerin": {
-    "sha": "ef8c55a2b61db794e3725f3d21165ab5ab1ce6f9",
+    "sha": "c5f340811dc0283cb9deeacfdfaded8dabf75728",
     "branch": "master"
   },
   "phet-core": {
-    "sha": "874a703dc94ace52f052a7339ea8b26cfefce482",
+    "sha": "c48bf32035dc5a4ed092ad611012fcbdeb5c6351",
     "branch": "master"
   },
   "phetcommon": {
-    "sha": "3db92af30d53b7d6bb3ce3c47c632f622f17986c",
+    "sha": "35c2abc1378ec6a00435124922a360b721576a72",
     "branch": "master"
   },
   "scenery": {
-    "sha": "d0753b38f4d2500602e9a70ac6e1d1fcf2bb03af",
+    "sha": "6bd54e23257cbb6d2557e332bd2cbf1e0a5b6f27",
     "branch": "master"
   },
   "scenery-phet": {
-    "sha": "2a28aee5309e67c69c33b2e2c9398e821419263f",
+    "sha": "f995e3eec6116e904f7c0ee1184aac1ecd55297d",
     "branch": "master"
   },
   "sherpa": {
-    "sha": "bf82eb95d808250f7191328b3b30179ec1f44090",
+    "sha": "bb68bbbc6e8e3ce98fc37a956f1e19fe8365c107",
     "branch": "master"
   },
   "sun": {
-    "sha": "36a0486f740a248ee0a7d1b2a08e3c225c323c6f",
+    "sha": "2f236352156037a4eec24680a709a4f6b50ea18e",
     "branch": "master"
   },
   "tandem": {
-    "sha": "5388a9e411c9b75bcfde1c4ca504c2774e630f11",
+    "sha": "d0be78ddaf3bbbba746ecd7a4bf891fef99fc7ee",
     "branch": "master"
   }
 }
