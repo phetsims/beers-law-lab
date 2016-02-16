@@ -28,7 +28,6 @@ define( function( require ) {
   var Path = require( 'SCENERY/nodes/Path' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var ProbeNode = require( 'SCENERY_PHET/ProbeNode' );
-  var Property = require( 'AXON/Property' );
   var ShadedRectangle = require( 'SCENERY_PHET/ShadedRectangle' );
   var Shape = require( 'KITE/Shape' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
@@ -195,18 +194,6 @@ define( function( require ) {
     // body location
     meter.body.locationProperty.link( function( location ) {
       thisNode.translation = modelViewTransform.modelToViewPosition( location );
-    } );
-
-    // {string} what the user sees (value & units), for the PhET-iO data stream
-    var readoutProperty = new Property( READOUT_NO_VALUE, { tandem: tandem.createTandem( 'readoutProperty' ) } );
-    readoutProperty.link( function( readout ) {
-      readoutTextNode.text = readout;
-      if ( readout === READOUT_NO_VALUE ) {
-        readoutTextNode.centerX = readoutBackgroundNode.centerX; // center justified
-      }
-      else {
-        readoutTextNode.right = readoutBackgroundNode.right - READOUT_X_MARGIN; // right justified
-      }
     } );
 
     // when the value changes, update the readout
