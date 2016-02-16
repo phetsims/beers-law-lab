@@ -35,6 +35,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
   var Vector2 = require( 'DOT/Vector2' );
+  var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
 
   // strings
   var concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
@@ -139,20 +140,29 @@ define( function( require ) {
       { font: new PhetFont( 18 ), fill: 'white', maxWidth: maxTextWidth } );
 
     // readout for the value + units
-    var readoutNode = new Text( StringUtils.format( pattern0Value1UnitsString, Util.toFixed( 1, DECIMAL_PLACES_MOLES_PER_LITER ), unitsMolesPerLiterString ),
-      { font: new PhetFont( 24 ), fill: 'black', maxWidth: maxTextWidth } );
-    var readoutWidth = Math.max( titleNode.width, readoutNode.width ) + ( 2 * READOUT_X_MARGIN );
-    var readoutHeight = readoutNode.height + ( 2 * READOUT_Y_MARGIN );
+    var formattedText = StringUtils.format(
+      pattern0Value1UnitsString,
+      Util.toFixed( 1, DECIMAL_PLACES_MOLES_PER_LITER ),
+      unitsMolesPerLiterString
+    );
+    var readoutTextNode = new TandemText( formattedText, {
+      font: new PhetFont( 24 ),
+      fill: 'black',
+      maxWidth: maxTextWidth,
+      tandem: tandem.createTandem( 'readoutTextNode' )
+    } );
+    var readoutWidth = Math.max( titleNode.width, readoutTextNode.width ) + ( 2 * READOUT_X_MARGIN );
+    var readoutHeight = readoutTextNode.height + ( 2 * READOUT_Y_MARGIN );
     var readoutBackgroundNode = new ShadedRectangle( new Bounds2( 0, 0, readoutWidth, readoutHeight ), {
       baseColor: 'white',
       lightSource: 'rightBottom'
     } );
-    readoutNode.right = readoutBackgroundNode.right - READOUT_X_MARGIN;
-    readoutNode.bottom = readoutBackgroundNode.bottom - READOUT_Y_MARGIN;
+    readoutTextNode.right = readoutBackgroundNode.right - READOUT_X_MARGIN;
+    readoutTextNode.bottom = readoutBackgroundNode.bottom - READOUT_Y_MARGIN;
 
     // vertical arrangement of stuff in the meter
     var vBox = new LayoutBox( {
-      children: [ titleNode, new Node( { children: [ readoutBackgroundNode, readoutNode ] } ) ],
+      children: [ titleNode, new Node( { children: [ readoutBackgroundNode, readoutTextNode ] } ) ],
       orientation: 'vertical',
       align: 'center',
       spacing: 18
@@ -190,29 +200,35 @@ define( function( require ) {
     // {string} what the user sees (value & units), for the PhET-iO data stream
     var readoutProperty = new Property( READOUT_NO_VALUE, { tandem: tandem.createTandem( 'readoutProperty' ) } );
     readoutProperty.link( function( readout ) {
-      readoutNode.text = readout;
+      readoutTextNode.text = readout;
       if ( readout === READOUT_NO_VALUE ) {
-        readoutNode.centerX = readoutBackgroundNode.centerX; // center justified
+        readoutTextNode.centerX = readoutBackgroundNode.centerX; // center justified
       }
       else {
-        readoutNode.right = readoutBackgroundNode.right - READOUT_X_MARGIN; // right justified
+        readoutTextNode.right = readoutBackgroundNode.right - READOUT_X_MARGIN; // right justified
       }
     } );
 
     // when the value changes, update the readout
     meter.valueProperty.link( function( value ) {
-      var readout = READOUT_NO_VALUE; // {string}
-      if ( value !== null ) {
+
+      if ( value === null ) {
+        readoutTextNode.setText( READOUT_NO_VALUE );
+        readoutTextNode.centerX = readoutBackgroundNode.centerX; // center justified
+      }
+      else {
 
         // display concentration as 'mol/L' or '%', see beers-law-lab#149
+        var readoutText = null;
         if ( DISPLAY_MOLES_PER_LITER ) {
-          readout = StringUtils.format( pattern0Value1UnitsString, Util.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), unitsMolesPerLiterString );
+          readoutText = StringUtils.format( pattern0Value1UnitsString, Util.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), unitsMolesPerLiterString );
         }
         else {
-          readout = StringUtils.format( pattern0PercentString, Util.toFixed( value, DECIMAL_PLACES_PERCENT ) );
+          readoutText = StringUtils.format( pattern0PercentString, Util.toFixed( value, DECIMAL_PLACES_PERCENT ) );
         }
+        readoutTextNode.setText( readoutText );
+        readoutTextNode.right = readoutBackgroundNode.right - READOUT_X_MARGIN; // right justified
       }
-      readoutProperty.set( readout );
     } );
   }
 
