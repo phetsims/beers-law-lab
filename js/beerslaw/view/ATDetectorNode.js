@@ -27,6 +27,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
   var Vector2 = require( 'DOT/Vector2' );
+  var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
 
   //strings
   var absorbanceString = require( 'string!BEERS_LAW_LAB/absorbance' );
@@ -101,9 +102,10 @@ define( function( require ) {
 
     // value
     var maxValue = 100;
-    var valueNode = new Text( StringUtils.format( pattern0PercentString, Util.toFixed( maxValue, TRANSMITTANCE_DECIMAL_PLACES ) ), {
+    var valueNode = new TandemText( StringUtils.format( pattern0PercentString, Util.toFixed( maxValue, TRANSMITTANCE_DECIMAL_PLACES ) ), {
       font: new PhetFont( 24 ),
-      maxWidth: 150
+      maxWidth: 150,
+      tandem: tandem.createTandem( 'valueNode' )
     } );
 
     // display area for the value
