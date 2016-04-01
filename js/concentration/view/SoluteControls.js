@@ -52,6 +52,8 @@ define( function( require ) {
     soluteFormNode.top = soluteComboBox.bottom + 15;
 
     Panel.call( this, contentNode, options );
+
+    tandem.addInstance( this );
   }
 
   beersLawLab.register( 'SoluteControls', SoluteControls );
