@@ -32,8 +32,7 @@ define( function( require ) {
   var SOLUTION_VOLUME_RANGE = new Range( 0, BEAKER_VOLUME, 0.5 ); // L
   var SOLUTE_AMOUNT_RANGE = new Range( 0, 6, 0 ); // moles
   var MAX_EVAPORATION_RATE = 0.25; // L/sec
-  var MAX_INPUT_FLOW_RATE = 0.25; // L/sec
-  var MAX_OUTPUT_FLOW_RATE = MAX_INPUT_FLOW_RATE; // L/sec
+  var MAX_FAUCET_FLOW_RATE = 0.25; // L/sec
   var DROPPER_FLOW_RATE = 0.05; // L/sec
   var SHAKER_MAX_DISPENSING_RATE = 0.2; // mol/sec
 
@@ -71,8 +70,8 @@ define( function( require ) {
     thisModel.dropper = new Dropper( new Vector2( thisModel.beaker.location.x, 225 ), new Bounds2( 260, 225, 580, 225 ),
       thisModel.soluteProperty, DROPPER_FLOW_RATE, thisModel.soluteFormProperty.get() === 'solution', tandem.createTandem( 'dropper' ) );
     thisModel.evaporator = new Evaporator( MAX_EVAPORATION_RATE, thisModel.solution, tandem.createTandem( 'evaporator' ) );
-    thisModel.solventFaucet = new Faucet( new Vector2( 155, 220 ), -400, 45, MAX_INPUT_FLOW_RATE, tandem.createTandem( 'solventFaucet' ) );
-    thisModel.drainFaucet = new Faucet( new Vector2( 750, 630 ), thisModel.beaker.getRight(), 45, MAX_OUTPUT_FLOW_RATE, tandem.createTandem( 'drainFaucet' ) );
+    thisModel.solventFaucet = new Faucet( new Vector2( 155, 220 ), -400, 45, MAX_FAUCET_FLOW_RATE, tandem.createTandem( 'solventFaucet' ) );
+    thisModel.drainFaucet = new Faucet( new Vector2( 750, 630 ), thisModel.beaker.getRight(), 45, MAX_FAUCET_FLOW_RATE, tandem.createTandem( 'drainFaucet' ) );
     thisModel.concentrationMeter = new ConcentrationMeter( new Vector2( 785, 210 ), new Bounds2( 10, 150, 835, 680 ),
       new Vector2( 750, 370 ), new Bounds2( 30, 150, 966, 680 ), tandem.createTandem( 'concentrationMeter' ) );
 
