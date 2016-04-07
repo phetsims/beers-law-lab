@@ -31,7 +31,6 @@ define( function( require ) {
   var BEAKER_VOLUME = 1; // L
   var SOLUTION_VOLUME_RANGE = new Range( 0, BEAKER_VOLUME, 0.5 ); // L
   var SOLUTE_AMOUNT_RANGE = new Range( 0, 6, 0 ); // moles
-  var DEFAULT_SOLUTE_AMOUNT = 0; // moles
   var MAX_EVAPORATION_RATE = 0.25; // L/sec
   var MAX_INPUT_FLOW_RATE = 0.25; // L/sec
   var MAX_OUTPUT_FLOW_RATE = MAX_INPUT_FLOW_RATE; // L/sec
@@ -63,7 +62,7 @@ define( function( require ) {
     thisModel.soluteFormProperty = new Property( 'solid', { tandem: tandem.createTandem( 'soluteFormProperty' ) } ); // 'solid' or 'solution'
 
     // @public
-    thisModel.solution = new ConcentrationSolution( thisModel.soluteProperty, DEFAULT_SOLUTE_AMOUNT, SOLUTION_VOLUME_RANGE.defaultValue, tandem.createTandem( 'solution' ) );
+    thisModel.solution = new ConcentrationSolution( thisModel.soluteProperty, SOLUTE_AMOUNT_RANGE.defaultValue, SOLUTION_VOLUME_RANGE.defaultValue, tandem.createTandem( 'solution' ) );
     thisModel.beaker = new Beaker( new Vector2( 350, 550 ), new Dimension2( 600, 300 ), 1 );
     thisModel.precipitate = new Precipitate( thisModel.solution, thisModel.beaker, tandem.createTandem( 'precipitate' ) );
     thisModel.shaker = new Shaker( new Vector2( thisModel.beaker.location.x, 170 ), new Bounds2( 250, 50, 575, 210 ), 0.75 * Math.PI,
