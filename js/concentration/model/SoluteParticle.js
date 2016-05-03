@@ -9,7 +9,6 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var beaker = require( 'BEAKER/beaker' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var Property = require( 'AXON/Property' );
 
@@ -32,7 +31,7 @@ define( function( require ) {
 
   }
 
-  beaker.register( 'SoluteParticle', SoluteParticle );
+  beersLawLab.register( 'SoluteParticle', SoluteParticle );
 
   return SoluteParticle;
 } );
