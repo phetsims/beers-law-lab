@@ -66,6 +66,8 @@ define( function( require ) {
     slider.centerY = label.centerY;
 
     Panel.call( thisControl, content, options );
+
+    tandem.addInstance( this );
   }
 
   beersLawLab.register( 'EvaporationControl', EvaporationControl );
