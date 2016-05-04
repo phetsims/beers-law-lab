@@ -45,8 +45,9 @@ define( function( require ) {
     ScreenView.call( thisView, BLLConstants.SCREEN_VIEW_OPTIONS );
 
     // Beaker and stuff inside it
-    var beakerNode = new BeakerNode( model.beaker, modelViewTransform );
+    var beakerNode = new BeakerNode( model.beaker, modelViewTransform, tandem.createTandem( 'beakerNode' ) );
     var solutionNode = new SolutionNode( model.solution, model.beaker, modelViewTransform );
+
     // Precipitate particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
     var precipitateNode = new ParticlesNode( model.precipitate, modelViewTransform, new Bounds2(
       modelViewTransform.modelToViewX( model.beaker.getLeft() ), modelViewTransform.modelToViewY( model.beaker.location.y ) - 100,

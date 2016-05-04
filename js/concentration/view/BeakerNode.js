@@ -18,7 +18,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Shape = require( 'KITE/Shape' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  var Text = require( 'SCENERY/nodes/Text' );
+  var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
 
   //strings
   var pattern0Value1UnitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
@@ -39,9 +39,10 @@ define( function( require ) {
   /**
    * @param {Beaker} beaker
    * @param {ModelViewTransform2} modelViewTransform
+   * @param {Tandem} tandem
    * @constructor
    */
-  function BeakerNode( beaker, modelViewTransform ) {
+  function BeakerNode( beaker, modelViewTransform, tandem ) {
 
     var thisNode = this;
     Node.call( thisNode, { pickable: false } );
@@ -93,10 +94,11 @@ define( function( require ) {
 
           // display ticks in liters or milliliters, see beers-law-lab#150
           var label = ( BLLQueryParameters.BEAKER_UNITS === 'liters' ) ?
-            StringUtils.format( pattern0Value1UnitsString, MAJOR_TICK_VALUES_LITERS[ labelIndex ], unitsLitersString ) :
-            StringUtils.format( pattern0Value1UnitsString, MAJOR_TICK_VALUES_MILLILITERS[ labelIndex ], unitsMillilitersString );
+                      StringUtils.format( pattern0Value1UnitsString, MAJOR_TICK_VALUES_LITERS[ labelIndex ], unitsLitersString ) :
+                      StringUtils.format( pattern0Value1UnitsString, MAJOR_TICK_VALUES_MILLILITERS[ labelIndex ], unitsMillilitersString );
 
-          ticksParent.addChild( new Text( label, {
+          ticksParent.addChild( new TandemText( label, {
+            tandem: tandem.createTandem( 'tickLabel' + labelIndex ),
             font: new PhetFont( 24 ),
             fill: 'black',
             x: rightX + TICK_LABEL_X_SPACING,
@@ -110,6 +112,8 @@ define( function( require ) {
     var location = modelViewTransform.modelToViewPosition( beaker.location );
     thisNode.x = location.x;
     thisNode.y = location.y;
+
+    tandem.addInstance( this );
   }
 
   beersLawLab.register( 'BeakerNode', BeakerNode );
