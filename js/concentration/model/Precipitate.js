@@ -32,6 +32,8 @@ define( function( require ) {
     thisPrecipitate.solution = solution;
     thisPrecipitate.beaker = beaker;
 
+    this.precipitateParticleGroupTandem = tandem.createGroupTandem( 'precipitateParticle' );
+
     // when the saturation changes, update the number of precipitate particles
     thisPrecipitate.solution.precipitateAmountProperty.link( function() {
       thisPrecipitate.updateParticles();
@@ -42,8 +44,6 @@ define( function( require ) {
       thisPrecipitate.removeAllParticles();
       thisPrecipitate.updateParticles();
     } );
-
-    this.precipitateParticleGroupTandem = tandem.createGroupTandem( 'precipitateParticle' );
 
     // Persists for the life of the sim, no need to be disposed
     tandem.addInstance( this );
