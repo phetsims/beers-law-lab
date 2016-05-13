@@ -103,16 +103,15 @@ define( function( require ) {
   return inherit( Object, ConcentrationModel, {
 
     /*
-     * May be called from PhET-iO before the UI is constructed to choose a different set of solutes.  If the current solute
-     * is not available in the specified list, the selected solute changes to the first item in the list.
+     * May be called from PhET-iO before the UI is constructed to choose a different set of solutes.  The first solute
+     * becomes the selected solute
      * @param {Array.<Solute>} solutes
      * @public
      */
     setSolutes: function( solutes ) {
+      assert && assert( solutes.length > 0, 'Must specify at least one solute' );
       this.solutes = solutes;
-      if ( solutes.indexOf( this.soluteProperty.value ) < 0 ) {
-        this.soluteProperty.value = solutes[ 0 ];
-      }
+      this.soluteProperty.value = solutes[ 0 ];
     },
 
     // @public Resets all model elements
