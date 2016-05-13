@@ -94,11 +94,22 @@ define( function( require ) {
       thisModel.dropper.emptyProperty.set( containsMaxSolute );
       thisModel.dropper.enabledProperty.set( !thisModel.dropper.emptyProperty.get() && !containsMaxSolute && thisModel.solution.volumeProperty.get() < SOLUTION_VOLUME_RANGE.max );
     } );
+
+    tandem.addInstance( this );
   }
 
   beersLawLab.register( 'ConcentrationModel', ConcentrationModel );
 
   return inherit( Object, ConcentrationModel, {
+
+    /*
+     * May be called from PhET-iO before the UI is constructed to choose a different set of solutes.
+     * @param {Array.<Solute>} solutes
+     * @public
+     */
+    setSolutes: function( solutes ) {
+      this.solutes = solutes;
+    },
 
     // @public Resets all model elements
     reset: function() {
