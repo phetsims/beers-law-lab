@@ -14,7 +14,6 @@ define( function( require ) {
   var Sim = require( 'JOIST/Sim' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
   var Tandem = require( 'TANDEM/Tandem' );
-  var BeersLawSolution = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolution' );
 
   var BeersLawLabAPI = require( 'ifphetio!PHET_IO/api/beers-law-lab-api' );
   var phetio = require( 'ifphetio!PHET_IO/phetio' );
