@@ -112,95 +112,94 @@ define( function( require ) {
       var valueText = Util.toFixed( this.concentrationTransform.modelToView( concentration ), 0 );
       return StringUtils.format( pattern0Value1UnitsString, valueText, this.concentrationTransform.units );
     }
+  }, {
+    initStatic: function( tandem ) {
+      //-------------------------------------------------------------------------------------------
+      // Specific solutions below ...
+      //-------------------------------------------------------------------------------------------
+
+      BeersLawSolution.DRINK_MIX = new BeersLawSolution(
+        drinkMixString,
+        BLLSymbols.DRINK_MIX,
+        MolarAbsorptivityData.DRINK_MIX,
+        new Range( 0, 0.400, 0.100 ),
+        ConcentrationTransform.mM,
+        new ColorRange( new Color( 255, 225, 225 ), Color.RED ),
+        tandem.createTandem( 'drinkMix' )
+      );
+
+      BeersLawSolution.COBALT_II_NITRATE = new BeersLawSolution(
+        cobaltIINitrateString,
+        BLLSymbols.COBALT_II_NITRATE,
+        MolarAbsorptivityData.COBALT_II_NITRATE,
+        new Range( 0, 0.400, 0.100 ),
+        ConcentrationTransform.mM,
+        new ColorRange( new Color( 255, 225, 225 ), Color.RED ),
+        tandem.createTandem( 'cobaltIINitrate' )
+      );
+
+      BeersLawSolution.COBALT_CHLORIDE = new BeersLawSolution(
+        cobaltChlorideString,
+        BLLSymbols.COBALT_CHLORIDE,
+        MolarAbsorptivityData.COBALT_CHLORIDE,
+        new Range( 0, 0.250, 0.100 ),
+        ConcentrationTransform.mM,
+        new ColorRange( new Color( 255, 242, 242 ), new Color( 255, 106, 106 ) ),
+        tandem.createTandem( 'cobaltChloride' )
+      );
+
+      BeersLawSolution.POTASSIUM_DICHROMATE = new BeersLawSolution(
+        potassiumDichromateString,
+        BLLSymbols.POTASSIUM_DICHROMATE,
+        MolarAbsorptivityData.POTASSIUM_DICHROMATE,
+        new Range( 0, 0.000500, 0.000100 ),
+        ConcentrationTransform.uM,
+        new ColorRange( new Color( 255, 232, 210 ), new Color( 255, 127, 0 ) ),
+        tandem.createTandem( 'potassiumDichromate' )
+      );
+
+      BeersLawSolution.POTASSIUM_CHROMATE = new BeersLawSolution(
+        potassiumChromateString,
+        BLLSymbols.POTASSIUM_CHROMATE,
+        MolarAbsorptivityData.POTASSIUM_CHROMATE,
+        new Range( 0, 0.000400, 0.000100 ),
+        ConcentrationTransform.uM,
+        new ColorRange( new Color( 255, 255, 199 ), new Color( 255, 255, 0 ) ),
+        tandem.createTandem( 'potassiumChromate' )
+      );
+
+      BeersLawSolution.NICKEL_II_CHLORIDE = new BeersLawSolution(
+        nickelIIChlorideString,
+        BLLSymbols.NICKEL_II_CHLORIDE,
+        MolarAbsorptivityData.NICKEL_II_CHLORIDE,
+        new Range( 0, 0.350, 0.100 ),
+        ConcentrationTransform.mM,
+        new ColorRange( new Color( 234, 244, 234 ), new Color( 0, 128, 0 ) ),
+        tandem.createTandem( 'nickelIIChloride' )
+      );
+
+      BeersLawSolution.COPPER_SULFATE = new BeersLawSolution(
+        copperSulfateString,
+        BLLSymbols.COPPER_SULFATE,
+        MolarAbsorptivityData.COPPER_SULFATE,
+        new Range( 0, 0.200, 0.100 ),
+        ConcentrationTransform.mM,
+        new ColorRange( new Color( 222, 238, 255 ), new Color( 30, 144, 255 ) ),
+        tandem.createTandem( 'copperSulfate' )
+      );
+
+      BeersLawSolution.POTASSIUM_PERMANGANATE = new BeersLawSolution(
+        potassiumPermanganateString,
+        BLLSymbols.POTASSIUM_PERMANGANATE,
+        MolarAbsorptivityData.POTASSIUM_PERMANGANATE,
+        new Range( 0, 0.000800, 0.000100 ),
+        ConcentrationTransform.uM,
+        new ColorRange( new Color( 255, 235, 255 ), new Color( 255, 0, 255 ) ),
+        tandem.createTandem( 'potassiumPermanganate' ),
+        { saturatedColor: new Color( 80, 0, 120 ) } // has a special saturated color
+      );
+    }
   } );
-
-  // A new tandem instance is required here since the solutes are created statically.
-  var tandem = Tandem.createStaticTandem( 'solutions' );
-
-  //-------------------------------------------------------------------------------------------
-  // Specific solutions below ...
-  //-------------------------------------------------------------------------------------------
-
-  BeersLawSolution.DRINK_MIX = new BeersLawSolution(
-    drinkMixString,
-    BLLSymbols.DRINK_MIX,
-    MolarAbsorptivityData.DRINK_MIX,
-    new Range( 0, 0.400, 0.100 ),
-    ConcentrationTransform.mM,
-    new ColorRange( new Color( 255, 225, 225 ), Color.RED ),
-    tandem.createTandem( 'drinkMix' )
-  );
-
-  BeersLawSolution.COBALT_II_NITRATE = new BeersLawSolution(
-    cobaltIINitrateString,
-    BLLSymbols.COBALT_II_NITRATE,
-    MolarAbsorptivityData.COBALT_II_NITRATE,
-    new Range( 0, 0.400, 0.100 ),
-    ConcentrationTransform.mM,
-    new ColorRange( new Color( 255, 225, 225 ), Color.RED ),
-    tandem.createTandem( 'cobaltIINitrate' )
-  );
-
-  BeersLawSolution.COBALT_CHLORIDE = new BeersLawSolution(
-    cobaltChlorideString,
-    BLLSymbols.COBALT_CHLORIDE,
-    MolarAbsorptivityData.COBALT_CHLORIDE,
-    new Range( 0, 0.250, 0.100 ),
-    ConcentrationTransform.mM,
-    new ColorRange( new Color( 255, 242, 242 ), new Color( 255, 106, 106 ) ),
-    tandem.createTandem( 'cobaltChloride' )
-  );
-
-  BeersLawSolution.POTASSIUM_DICHROMATE = new BeersLawSolution(
-    potassiumDichromateString,
-    BLLSymbols.POTASSIUM_DICHROMATE,
-    MolarAbsorptivityData.POTASSIUM_DICHROMATE,
-    new Range( 0, 0.000500, 0.000100 ),
-    ConcentrationTransform.uM,
-    new ColorRange( new Color( 255, 232, 210 ), new Color( 255, 127, 0 ) ),
-    tandem.createTandem( 'potassiumDichromate' )
-  );
-
-  BeersLawSolution.POTASSIUM_CHROMATE = new BeersLawSolution(
-    potassiumChromateString,
-    BLLSymbols.POTASSIUM_CHROMATE,
-    MolarAbsorptivityData.POTASSIUM_CHROMATE,
-    new Range( 0, 0.000400, 0.000100 ),
-    ConcentrationTransform.uM,
-    new ColorRange( new Color( 255, 255, 199 ), new Color( 255, 255, 0 ) ),
-    tandem.createTandem( 'potassiumChromate' )
-  );
-
-  BeersLawSolution.NICKEL_II_CHLORIDE = new BeersLawSolution(
-    nickelIIChlorideString,
-    BLLSymbols.NICKEL_II_CHLORIDE,
-    MolarAbsorptivityData.NICKEL_II_CHLORIDE,
-    new Range( 0, 0.350, 0.100 ),
-    ConcentrationTransform.mM,
-    new ColorRange( new Color( 234, 244, 234 ), new Color( 0, 128, 0 ) ),
-    tandem.createTandem( 'nickelIIChloride' )
-  );
-
-  BeersLawSolution.COPPER_SULFATE = new BeersLawSolution(
-    copperSulfateString,
-    BLLSymbols.COPPER_SULFATE,
-    MolarAbsorptivityData.COPPER_SULFATE,
-    new Range( 0, 0.200, 0.100 ),
-    ConcentrationTransform.mM,
-    new ColorRange( new Color( 222, 238, 255 ), new Color( 30, 144, 255 ) ),
-    tandem.createTandem( 'copperSulfate' )
-  );
-
-  BeersLawSolution.POTASSIUM_PERMANGANATE = new BeersLawSolution(
-    potassiumPermanganateString,
-    BLLSymbols.POTASSIUM_PERMANGANATE,
-    MolarAbsorptivityData.POTASSIUM_PERMANGANATE,
-    new Range( 0, 0.000800, 0.000100 ),
-    ConcentrationTransform.uM,
-    new ColorRange( new Color( 255, 235, 255 ), new Color( 255, 0, 255 ) ),
-    tandem.createTandem( 'potassiumPermanganate' ),
-    { saturatedColor: new Color( 80, 0, 120 ) } // has a special saturated color
-  );
 
   return BeersLawSolution;
 } );

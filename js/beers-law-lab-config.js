@@ -35,6 +35,7 @@ require.config( {
     SCENERY_PHET: '../../scenery-phet/js',
     SUN: '../../sun/js',
     TANDEM: '../../tandem/js',
+    PHET_IO: '../../phet-io/js',
 
     // this sim
     BEERS_LAW_LAB: '.'
