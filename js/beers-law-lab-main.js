@@ -14,7 +14,6 @@ define( function( require ) {
   var Sim = require( 'JOIST/Sim' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
   var Tandem = require( 'TANDEM/Tandem' );
-  var Solute = require( 'BEERS_LAW_LAB/concentration/model/Solute' );
   var BeersLawSolution = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolution' );
 
   var BeersLawLabAPI = require( 'ifphetio!PHET_IO/api/beers-law-lab-api' );
@@ -44,8 +43,8 @@ define( function( require ) {
   };
 
   window.phetLaunchSimulation = function() {
+    Tandem.launch();
     SimLauncher.launch( function() {
-      Solute.initStatic( tandem.createTandem( 'solutes' ) );
       BeersLawSolution.initStatic( tandem.createTandem( 'solutions' ) );
       var sim = new Sim( beersLawLabTitleString, [
         new ConcentrationScreen( tandem.createTandem( 'concentrationScreen' ) ),
