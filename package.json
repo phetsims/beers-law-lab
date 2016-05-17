@@ -17,10 +17,6 @@
     "requirejsNamespace": "BEERS_LAW_LAB",
     "phetLibs": [
       "nitroglycerin"
-    ],
-    "phet-io": {
-      "preload": [
-      ]
-    }
+    ]
   }
 }
