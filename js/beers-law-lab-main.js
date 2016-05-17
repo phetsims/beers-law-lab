@@ -51,5 +51,7 @@ define( function( require ) {
     } );
   };
   SimIFrameAPI.initialize();
-
+  if ( phet.chipper.getQueryParameter( 'phet-io.standalone' ) ) {
+    window.phetLaunchSimulation();
+  }
 } );
