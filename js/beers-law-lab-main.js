@@ -19,7 +19,6 @@ define( function( require ) {
   var phetio = require( 'ifphetio!PHET_IO/phetio' );
   var SimIFrameAPI = require( 'ifphetio!PHET_IO/SimIFrameAPI' );
 
-  window.phetio = phetio; // export for other iframes
   // strings
   var beersLawLabTitleString = require( 'string!BEERS_LAW_LAB/beers-law-lab.title' );
 
