@@ -45,7 +45,6 @@ define( function( require ) {
   window.phetLaunchSimulation = function() {
     Tandem.launch();
     SimLauncher.launch( function() {
-      BeersLawSolution.initStatic( tandem.createTandem( 'solutions' ) );
       var sim = new Sim( beersLawLabTitleString, [
         new ConcentrationScreen( tandem.createTandem( 'concentrationScreen' ) ),
         new BeersLawScreen( tandem.createTandem( 'beersLawScreen' ) )
