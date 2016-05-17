@@ -14,9 +14,10 @@ define( function( require ) {
   var Sim = require( 'JOIST/Sim' );
   var SimLauncher = require( 'JOIST/SimLauncher' );
   var Tandem = require( 'TANDEM/Tandem' );
-  var BeersLawLabAPI = require( 'PHET_IO/api/beers-law-lab-api' );
   var Solute = require( 'BEERS_LAW_LAB/concentration/model/Solute' );
   var BeersLawSolution = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolution' );
+
+  var BeersLawLabAPI = require( 'PHET_IO/api/beers-law-lab-api' );
   var phetio = require( 'PHET_IO/phetio' );
   var SimIFrameAPI = require( 'PHET_IO/SimIFrameAPI' );
 
@@ -51,7 +52,7 @@ define( function( require ) {
     } );
   };
   SimIFrameAPI.initialize();
-  if ( phet.chipper.getQueryParameter( 'phet-io.standalone' ) ) {
+  if ( phet.chipper.getQueryParameter( 'phet-io.standalone' ) || phet.chipper.brand !== 'phet-io' ) {
     window.phetLaunchSimulation();
   }
 } );
