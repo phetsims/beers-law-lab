@@ -23,6 +23,7 @@ define( function( require ) {
 
   console.log( 'brand is ', phet.chipper.brand );
   console.log( 'phetio is ', phetio );
+  window.phetio = phetio; // export for other iframes
   // strings
   var beersLawLabTitleString = require( 'string!BEERS_LAW_LAB/beers-law-lab.title' );
 
