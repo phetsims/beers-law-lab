@@ -17,17 +17,21 @@ define( function( require ) {
   var Solute = require( 'BEERS_LAW_LAB/concentration/model/Solute' );
   var BeersLawSolution = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolution' );
 
-  var BeersLawLabAPI = require( 'PHET_IO/api/beers-law-lab-api' );
-  var phetio = require( 'PHET_IO/phetio' );
-  var SimIFrameAPI = require( 'PHET_IO/SimIFrameAPI' );
+  var BeersLawLabAPI = require( 'ifphetio!PHET_IO/api/beers-law-lab-api' );
+  var phetio = require( 'ifphetio!PHET_IO/phetio' );
+  var SimIFrameAPI = require( 'ifphetio!PHET_IO/SimIFrameAPI' );
 
+  console.log( 'brand is ', phet.chipper.brand );
+  console.log( 'phetio is ', phetio );
   // strings
   var beersLawLabTitleString = require( 'string!BEERS_LAW_LAB/beers-law-lab.title' );
 
   // constants
   var tandem = Tandem.createRootTandem();
-  phetio.api = BeersLawLabAPI;
-  new Tandem( 'phetio' ).addInstance( phetio );
+  if ( phetio ) {
+    phetio.api = BeersLawLabAPI;
+    new Tandem( 'phetio' ).addInstance( phetio );
+  }
 
   var simOptions = {
     credits: {
@@ -51,7 +55,9 @@ define( function( require ) {
       sim.start();
     } );
   };
-  SimIFrameAPI.initialize();
+  if ( phetio ) {
+    SimIFrameAPI.initialize();
+  }
   if ( phet.chipper.getQueryParameter( 'phet-io.standalone' ) || phet.chipper.brand !== 'phet-io' ) {
     window.phetLaunchSimulation();
   }
