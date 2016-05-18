@@ -26,6 +26,7 @@ define( function( require ) {
   var potassiumChromateString = require( 'string!BEERS_LAW_LAB/potassiumChromate' );
   var potassiumDichromateString = require( 'string!BEERS_LAW_LAB/potassiumDichromate' );
   var potassiumPermanganateString = require( 'string!BEERS_LAW_LAB/potassiumPermanganate' );
+  var sodiumChlorideString = require( 'string!BEERS_LAW_LAB/sodiumChloride' );
 
   /**
    * @param {string} name
@@ -153,6 +154,15 @@ define( function( require ) {
     tandem.createTandem( 'potassiumPermanganate' ), {
       particleColor: Color.BLACK
     }
+  );
+
+  Solute.SODIUM_CHLORIDE = new Solute(
+    sodiumChlorideString,
+    BLLSymbols.SODIUM_CHLORIDE,
+    5.50, // stockSolutionConcentration, mol/L
+    58.443, // molarMass, g/mol
+    new SoluteColorScheme( 0, Solvent.WATER_COLOR, 5.00, new Color( 225, 250, 250 ), 6.15, new Color( 225, 240, 240 ) ),
+    tandem.createTandem( 'sodiumChloride' )
   );
 
   return Solute;

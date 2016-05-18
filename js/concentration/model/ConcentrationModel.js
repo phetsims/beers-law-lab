@@ -53,7 +53,8 @@ define( function( require ) {
       Solute.POTASSIUM_CHROMATE,
       Solute.NICKEL_II_CHLORIDE,
       Solute.COPPER_SULFATE,
-      Solute.POTASSIUM_PERMANGANATE
+      Solute.POTASSIUM_PERMANGANATE,
+      Solute.SODIUM_CHLORIDE
     ];
 
     // @public
