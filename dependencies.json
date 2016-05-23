@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.4.0-dev.7 Wed May 18 2016 14:58:23 GMT-0600 (MDT)",
+  "comment": "# beers-law-lab 1.4.0-rc.1 Mon May 23 2016 09:41:34 GMT-0600 (MDT)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "master"
@@ -9,15 +9,15 @@
     "branch": "master"
   },
   "beers-law-lab": {
-    "sha": "cc18c08a0c17650c3d9bb17e9374c6decde471e2",
-    "branch": "master"
+    "sha": "27ef4131244bb1c3e22ae8090053f4478a58a115",
+    "branch": "1.4"
   },
   "brand": {
     "sha": "bb1cfcc63c3d007d800ede089994d8705db6d47b",
     "branch": "master"
   },
   "chipper": {
-    "sha": "2413d31037a2f6cf72b019e770ca91a2205c1dc1",
+    "sha": "22a9ffe2c2459f170413df31031d67f11365735e",
     "branch": "master"
   },
   "dot": {
@@ -45,11 +45,11 @@
     "branch": "master"
   },
   "scenery": {
-    "sha": "204093556dd415cb4a2796e1374dccdd04b4bcaa",
+    "sha": "d36b3155914d419aa7e7205d3fac81e251139a4e",
     "branch": "master"
   },
   "scenery-phet": {
-    "sha": "ad4e99a6ec9048601f4d3d7aa98166463bac365b",
+    "sha": "2b60b8e4d52c4bbfbc4226e905c5cc56ceb0e0cb",
     "branch": "master"
   },
   "sherpa": {
