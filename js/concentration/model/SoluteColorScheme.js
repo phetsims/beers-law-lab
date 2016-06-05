@@ -20,7 +20,7 @@ define( function( require ) {
    * @param {Color} minColor
    * @param {number} midConcentration - mol/L
    * @param {Color} midColor
-   * @param {number} maxConcentration - mol/L
+   * @param {number} maxConcentration - mol/L (saturation point)
    * @param {Color} maxColor
    * @constructor
    */
