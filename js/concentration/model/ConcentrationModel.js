@@ -11,6 +11,7 @@ define( function( require ) {
   // modules
   var Beaker = require( 'BEERS_LAW_LAB/concentration/model/Beaker' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var ConcentrationMeter = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationMeter' );
   var ConcentrationSolution = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationSolution' );
@@ -30,7 +31,7 @@ define( function( require ) {
   // constants
   var BEAKER_VOLUME = 1; // L
   var SOLUTION_VOLUME_RANGE = new Range( 0, BEAKER_VOLUME, 0.5 ); // L
-  var SOLUTE_AMOUNT_RANGE = new Range( 0, 6, 0 ); // moles
+  var SOLUTE_AMOUNT_RANGE = BLLConstants.SOLUTE_AMOUNT_RANGE; // moles
   var MAX_EVAPORATION_RATE = 0.25; // L/sec
   var MAX_FAUCET_FLOW_RATE = 0.25; // L/sec
   var DROPPER_FLOW_RATE = 0.05; // L/sec
