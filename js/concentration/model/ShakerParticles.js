@@ -11,6 +11,7 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Particles = require( 'BEERS_LAW_LAB/concentration/model/Particles' );
   var ShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticle' );
@@ -99,7 +100,11 @@ define( function( require ) {
         var solutionSurfaceY = beaker.location.y - ( percentFull * beaker.size.height ) - solution.soluteProperty.get().particleSize;
         if ( particle.locationProperty.get().y > solutionSurfaceY ) {
           this.removeParticle( particle );
-          solution.soluteAmountProperty.set( solution.soluteAmountProperty.get() + ( 1 / solution.soluteProperty.get().particlesPerMole ) );
+          var soluteAmount = Math.min(
+            BLLConstants.SOLUTE_AMOUNT_RANGE.max,
+            solution.soluteAmountProperty.get() + ( 1 / solution.soluteProperty.get().particlesPerMole )
+          );
+          solution.soluteAmountProperty.set( soluteAmount );
         }
       }
 
