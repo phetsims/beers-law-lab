@@ -87,7 +87,7 @@ define( function( require ) {
       return instance.phetioID;
     },
     api: {
-      concentrationProperty: TProperty( TNumber )
+      concentrationProperty: TProperty( TNumber( 'moles/liter' ) )
     }
   } );
 
@@ -309,12 +309,12 @@ define( function( require ) {
           soluteProperty: TProperty( TSolute ),
 
           solution: {
-            soluteAmountProperty: TProperty( TNumber, { units: 'moles' } ),
-            soluteGramsProperty: TDerivedProperty( TNumber, { units: 'grams' } ),
-            volumeProperty: TProperty( TNumber, { units: 'L', min: 0, max: 1 } ),
-            concentrationProperty: TDerivedProperty( TNumber, { units: 'moles/Liter' } ),
-            percentConcentrationProperty: TDerivedProperty( TNumber, { units: 'percent' } ),
-            precipitateAmountProperty: TDerivedProperty( TNumber, { units: 'moles' } ),
+            soluteAmountProperty: TProperty( TNumber( 'moles' ) ),
+            soluteGramsProperty: TDerivedProperty( TNumber( 'grams' ) ),
+            volumeProperty: TProperty( TNumber( 'liters' ), { min: 0, max: 1 } ),
+            concentrationProperty: TDerivedProperty( TNumber( 'moles/Liter' ) ),
+            percentConcentrationProperty: TDerivedProperty( TNumber( 'percent' ) ),
+            precipitateAmountProperty: TDerivedProperty( TNumber( 'moles' ) ),
             saturatedProperty: TDerivedProperty( TBoolean )
           },
 
@@ -329,27 +329,27 @@ define( function( require ) {
           } ),
 
           dropper: {
-            flowRateProperty: TProperty( TNumber ),
+            flowRateProperty: TProperty( TNumber( 'liters/second' ) ),
             locationProperty: TProperty( TVector2 ),
             dispensingProperty: TProperty( TBoolean ),
             emptyProperty: TProperty( TBoolean )
           },
 
           evaporator: {
-            evaporationRateProperty: TProperty( TNumber, { units: 'Liters/second' } ),
+            evaporationRateProperty: TProperty( TNumber( 'liters/second' ) ),
             enabledProperty: TProperty( TBoolean )
           },
 
           solventFaucet: {
-            flowRateProperty: TProperty( TNumber )
+            flowRateProperty: TProperty( TNumber( 'liters/second' ) )
           },
 
           drainFaucet: {
-            flowRateProperty: TProperty( TNumber )
+            flowRateProperty: TProperty( TNumber( 'liters/second' ) )
           },
 
           concentrationMeter: {
-            valueProperty: TProperty( TNumber ),
+            valueProperty: TProperty( TNumber( 'moles/liter' ) ),
             probe: {
               locationProperty: TProperty( TVector2 )
             },
@@ -424,12 +424,12 @@ define( function( require ) {
           solutionProperty: TProperty( TSolution ),
 
           cuvette: {
-            widthProperty: TProperty( TNumber ) // goes from 0.5 to 2 cm
+            widthProperty: TProperty( TNumber( 'meters' ), { min: 0.005, max: 0.02 } ) // goes from 0.5 to 2 cm
           },
 
           light: {
             onProperty: TProperty( TBoolean ),
-            wavelengthProperty: TProperty( TNumber )
+            wavelengthProperty: TProperty( TNumber( 'meters' ) )
           },
 
           ruler: {
@@ -438,7 +438,7 @@ define( function( require ) {
 
           detector: {
             modeProperty: TProperty( TString ), // 'transmittance'|'absorbance'
-            valueProperty: TDerivedProperty( TNumber ),
+            valueProperty: TDerivedProperty( TNumber( 'percent' ) ),
             body: {
               locationProperty: TProperty( TVector2 )
             },
