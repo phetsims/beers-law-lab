@@ -312,7 +312,7 @@ define( function( require ) {
             soluteAmountProperty: TProperty( TNumber( 'moles' ) ),
             soluteGramsProperty: TDerivedProperty( TNumber( 'grams' ) ),
             volumeProperty: TProperty( TNumber( 'liters' ), { min: 0, max: 1 } ),
-            concentrationProperty: TDerivedProperty( TNumber( 'moles/Liter' ) ),
+            concentrationProperty: TDerivedProperty( TNumber( 'moles/liter' ) ),
             percentConcentrationProperty: TDerivedProperty( TNumber( 'percent' ) ),
             precipitateAmountProperty: TDerivedProperty( TNumber( 'moles' ) ),
             saturatedProperty: TDerivedProperty( TBoolean )
