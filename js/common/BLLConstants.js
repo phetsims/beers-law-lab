@@ -16,7 +16,7 @@ define( function( require ) {
   var BLLConstants = {
     SCREEN_VIEW_OPTIONS: { layoutBounds: new Bounds2( 0, 0, 1100, 700 ) },
     RADIO_BUTTON_RADIUS: 11,
-    SOLUTE_AMOUNT_RANGE: new Range( 0, 6, 0 ) // moles
+    SOLUTE_AMOUNT_RANGE: new Range( 0, 7, 0 ) // moles
   };
 
   beersLawLab.register( 'BLLConstants', BLLConstants );
