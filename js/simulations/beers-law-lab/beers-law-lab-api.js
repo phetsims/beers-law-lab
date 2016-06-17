@@ -424,7 +424,7 @@ define( function( require ) {
           solutionProperty: TProperty( TSolution ),
 
           cuvette: {
-            widthProperty: TProperty( TNumber( 'meters', { min: 0.005, max: 0.02 } ) ) // goes from 0.5 to 2 cm
+            widthProperty: TProperty( TNumber( 'centimeters', { min: 0.5, max: 2 } ) ) // goes from 0.5 to 2 cm
           },
 
           light: {
