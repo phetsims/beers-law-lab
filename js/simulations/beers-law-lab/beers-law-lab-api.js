@@ -10,17 +10,15 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var assertInstanceOf = require( 'PHET_IO/assertions/assertInstanceOf' );
   var PhETIOCommon = require( 'PHET_IO/PhETIOCommon' );
   var phetio = require( 'PHET_IO/phetio' );
-  var phetioInherit = require( 'PHET_IO/phetioInherit' );
   var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
   var Tandem = require( 'TANDEM/Tandem' );
-  var TArray = require( 'PHET_IO/types/TArray' );
   var TBoolean = require( 'PHET_IO/types/TBoolean' );
   var TButton = require( 'PHET_IO/types/sun/buttons/TButton' );
   var TColor = require( 'PHET_IO/types/scenery/util/TColor' );
   var TComboBox = require( 'PHET_IO/types/sun/TComboBox' );
+  var TConcentrationModel = require( 'PHET_IO/simulations/beers-law-lab/types/TConcentrationModel' );
   var TDerivedProperty = require( 'PHET_IO/types/axon/TDerivedProperty' );
   var TFaucet = require( 'PHET_IO/types/scenery-phet/TFaucet' );
   var TGroup = require( 'PHET_IO/types/TGroup' );
@@ -28,14 +26,15 @@ define( function( require ) {
   var TMomentaryButton = require( 'PHET_IO/types/sun/buttons/TMomentaryButton' );
   var TNode = require( 'PHET_IO/types/scenery/nodes/TNode' );
   var TNumber = require( 'PHET_IO/types/TNumber' );
-  var TObject = require( 'PHET_IO/types/TObject' );
   var TPanel = require( 'PHET_IO/types/sun/TPanel' );
+  var TPrecipitate = require( 'PHET_IO/simulations/beers-law-lab/types/TPrecipitate' );
   var TPrecipitateParticle = require( 'PHET_IO/simulations/beers-law-lab/types/TPrecipitateParticle' );
   var TProperty = require( 'PHET_IO/types/axon/TProperty' );
   var TRadioButton = require( 'PHET_IO/types/sun/buttons/TRadioButton' );
   var TResetAllButton = require( 'PHET_IO/types/sun/buttons/TResetAllButton' );
   var TShaker = require( 'PHET_IO/simulations/beers-law-lab/types/TShaker' );
   var TShakerParticle = require( 'PHET_IO/simulations/beers-law-lab/types/TShakerParticle' );
+  var TShakerParticles = require( 'PHET_IO/simulations/beers-law-lab/types/TShakerParticles' );
   var TSolute = require( 'PHET_IO/simulations/beers-law-lab/types/TSolute' );
   var TSolution = require( 'PHET_IO/simulations/beers-law-lab/types/TSolution' );
   var TString = require( 'PHET_IO/types/TString' );
@@ -43,64 +42,7 @@ define( function( require ) {
   var TTandemText = require( 'PHET_IO/types/tandem/scenery/nodes/TTandemText' );
   var TToggleButton = require( 'PHET_IO/types/sun/buttons/TToggleButton' );
   var TVector2 = require( 'PHET_IO/types/dot/TVector2' );
-  var TVoid = require( 'PHET_IO/types/TVoid' );
   var TWavelengthSlider = require( 'PHET_IO/types/scenery-phet/TWavelengthSlider' );
-
-  var TShakerParticles = phetioInherit( TObject, 'TShakerParticles', function( instance, phetioID ) {
-    TObject.call( this, instance, phetioID );
-    assertInstanceOf( instance, phet.beersLawLab.ShakerParticles );
-  }, {
-    setValue: {
-      implementation: function() {
-        this.instance.removeAllParticles();
-      }
-    }
-  }, {
-    toStateObject: function( instance ) {
-
-      // TODO: Just returning a string from here doesn't work.... why?
-      return { phetioID: instance.phetioID };
-    },
-    fromStateObject: function( stateObject ) {
-      return phetio.getInstance( stateObject.phetioID );
-    }
-  } );
-
-  var TPrecipitate = phetioInherit( TObject, 'TPrecipitate', function( instance, phetioID ) {
-    TObject.call( this, instance, phetioID );
-    assertInstanceOf( instance, phet.beersLawLab.Precipitate );
-  }, {
-    setValue: {
-      implementation: function() {
-        this.instance.removeAllParticles();
-      }
-    }
-  }, {
-    toStateObject: function( instance ) {
-
-      // TODO: Just returning a string from here doesn't work.... why?
-      return { phetioID: instance.phetioID };
-    },
-    fromStateObject: function( stateObject ) {
-      return phetio.getInstance( stateObject.phetioID );
-    }
-  } );
-
-  var TConcentrationModel = phetioInherit( TObject, 'TConcentrationModel', function( instance, phetioID ) {
-    TObject.call( this, instance, phetioID );
-    assertInstanceOf( instance, phet.beersLawLab.ConcentrationModel );
-  }, {
-
-    // For instance:
-    // http://localhost/concentration/concentration_en.html?ea&brand=phet-io&phet-io.standalone&phet-io.log=lines&phet-io.expressions=[["concentration.concentrationScreen.model","setSolutes",[["concentration.solutes.cobaltIINitrate","concentration.solutes.cobaltChloride","concentration.solutes.drinkMix"]]]]
-    setSolutes: {
-      parameterTypes: [ TArray( TSolute ) ],
-      returnType: TVoid,
-      implementation: function( solutes ) {
-        this.instance.setSolutes( solutes );
-      }
-    }
-  }, {} );
 
   var beersLawLabAPI = PhETIOCommon.createAPI( {
 
