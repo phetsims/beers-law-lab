@@ -33,6 +33,7 @@ define( function( require ) {
   var TNumber = require( 'PHET_IO/types/TNumber' );
   var TObject = require( 'PHET_IO/types/TObject' );
   var TPanel = require( 'PHET_IO/types/sun/TPanel' );
+  var TSolute = require( 'PHET_IO/simulations/beers-law-lab/types/TSolute' );
   var TString = require( 'PHET_IO/types/TString' );
   var TTandem = require( 'PHET_IO/types/tandem/TTandem' );
   var TTandemDragHandler = require( 'PHET_IO/types/tandem/scenery/input/TTandemDragHandler' );
@@ -48,33 +49,6 @@ define( function( require ) {
     rootTandem = rootTandem || phet.tandem.Tandem.createRootTandem();
     return rootTandem;
   }
-
-  var TSolute = phetioInherit( TObject, 'TSolute', function( instance, phetioID ) {
-    TObject.call( this, instance, phetioID );
-    assertInstanceOf( instance, phet.beersLawLab.Solute );
-  }, {
-    setName: {
-      returnType: TVoid,
-      parameterTypes: [ TString ],
-      implementation: function( text ) {
-        this.instance.name = text;
-      }
-    },
-    setFormula: {
-      returnType: TVoid,
-      parameterTypes: [ TString ],
-      implementation: function( text ) {
-        this.instance.formula = text;
-      }
-    }
-  }, {
-    fromStateObject: function( stateObject ) {
-      return phetio.getWrapper( stateObject ).instance;
-    },
-    toStateObject: function( instance ) {
-      return instance.phetioID;
-    }
-  } );
 
   var TSolution = phetioInherit( TObject, 'TSolution', function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
