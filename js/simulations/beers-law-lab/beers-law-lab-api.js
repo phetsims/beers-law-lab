@@ -25,108 +25,26 @@ define( function( require ) {
   var TFaucet = require( 'PHET_IO/types/scenery-phet/TFaucet' );
   var TGroup = require( 'PHET_IO/types/TGroup' );
   var THSlider = require( 'PHET_IO/types/sun/THSlider' );
-  var TProperty = require( 'PHET_IO/types/axon/TProperty' );
-  var TResetAllButton = require( 'PHET_IO/types/sun/buttons/TResetAllButton' );
-  var TRadioButton = require( 'PHET_IO/types/sun/buttons/TRadioButton' );
   var TMomentaryButton = require( 'PHET_IO/types/sun/buttons/TMomentaryButton' );
   var TNode = require( 'PHET_IO/types/scenery/nodes/TNode' );
   var TNumber = require( 'PHET_IO/types/TNumber' );
   var TObject = require( 'PHET_IO/types/TObject' );
   var TPanel = require( 'PHET_IO/types/sun/TPanel' );
+  var TPrecipitateParticle = require( 'PHET_IO/simulations/beers-law-lab/types/TPrecipitateParticle' );
+  var TProperty = require( 'PHET_IO/types/axon/TProperty' );
+  var TRadioButton = require( 'PHET_IO/types/sun/buttons/TRadioButton' );
+  var TResetAllButton = require( 'PHET_IO/types/sun/buttons/TResetAllButton' );
+  var TShaker = require( 'PHET_IO/simulations/beers-law-lab/types/TShaker' );
+  var TShakerParticle = require( 'PHET_IO/simulations/beers-law-lab/types/TShakerParticle' );
   var TSolute = require( 'PHET_IO/simulations/beers-law-lab/types/TSolute' );
   var TSolution = require( 'PHET_IO/simulations/beers-law-lab/types/TSolution' );
   var TString = require( 'PHET_IO/types/TString' );
-  var TTandem = require( 'PHET_IO/types/tandem/TTandem' );
   var TTandemDragHandler = require( 'PHET_IO/types/tandem/scenery/input/TTandemDragHandler' );
   var TTandemText = require( 'PHET_IO/types/tandem/scenery/nodes/TTandemText' );
   var TToggleButton = require( 'PHET_IO/types/sun/buttons/TToggleButton' );
   var TVector2 = require( 'PHET_IO/types/dot/TVector2' );
   var TVoid = require( 'PHET_IO/types/TVoid' );
   var TWavelengthSlider = require( 'PHET_IO/types/scenery-phet/TWavelengthSlider' );
-
-  // Look up the root tandem at runtime to support two sims (beers-law-lab and concentration)
-  var rootTandem = null; // filled in when Tandem exists
-  function getRootTandem() {
-    rootTandem = rootTandem || phet.tandem.Tandem.createRootTandem();
-    return rootTandem;
-  }
-
-  var TShaker = phetioInherit( TObject, 'TShaker', function( instance, phetioID ) {
-    TObject.call( this, instance, phetioID );
-    assertInstanceOf( instance, phet.beersLawLab.Shaker );
-  }, {
-    setValue: {
-      returnType: TVoid,
-      parameterTypes: [ TObject ],
-      implementation: function( value ) {
-        this.instance.previousLocation.set( TVector2.fromStateObject( value ) );
-      },
-      documentation: 'Load the values recorded in getState'
-    }
-  }, {
-    toStateObject: function( instance ) {
-      return TVector2.toStateObject( instance.previousLocation );
-    },
-    fromStateObject: function( stateObject ) {
-      return stateObject; // no coercion necessary for a plain object with primitives
-    }
-  } );
-
-  var TShakerParticle = phetioInherit( TObject, 'TShakerParticle', function( instance, phetioID ) {
-    TObject.call( this, instance, phetioID );
-    assertInstanceOf( instance, phet.beersLawLab.ShakerParticle );
-  }, {
-    setValue: {
-      implementation: function( value ) {
-        //TODO grouped item, should have value set with create.  What is this for?  I don't know.
-      }
-    }
-  }, {
-
-    /**
-     * When the state is loaded back, create a ShakerParticle.
-     * @param {string} id - the full phetioID to be registered with a tandem
-     * @param {Object} value - the value that would be used with setValue, which can be used to customize the object creation.
-     * @returns {ChargedParticle}
-     */
-    create: function( id, value ) {
-
-      var model = phetio.getInstance( getRootTandem().id + '.concentrationScreen.model.shakerParticles' );
-
-      // solute, location, orientation, initialVelocity, acceleration, tandem
-      model.addParticle( new phet.beersLawLab.ShakerParticle(
-        value.solute,
-        value.location,
-        value.orientation,
-        value.velocity,
-        value.acceleration,
-        value.tandem
-      ) );
-      model.fireParticlesChanged();
-    },
-    fromStateObject: function( stateObject ) {
-
-      // TODO: reduce boilerplate
-      return {
-        solute: TSolute.fromStateObject( stateObject.solute ),
-        location: TVector2.fromStateObject( stateObject.location ),
-        orientation: TNumber.fromStateObject( stateObject.orientation ),
-        velocity: TVector2.fromStateObject( stateObject.velocity ),
-        acceleration: TVector2.fromStateObject( stateObject.acceleration ),
-        tandem: TTandem.fromStateObject( stateObject.tandem )
-      };
-    },
-    toStateObject: function( value ) {
-      return {
-        solute: TSolute.toStateObject( value.solute ),
-        location: TVector2.toStateObject( value.locationProperty.get() ),
-        orientation: TNumber.toStateObject( value.orientation ),
-        velocity: TVector2.toStateObject( value.velocity ),
-        acceleration: TVector2.toStateObject( value.acceleration ),
-        tandem: TTandem.toStateObject( value.tandem )
-      };
-    }
-  } );
 
   var TShakerParticles = phetioInherit( TObject, 'TShakerParticles', function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
@@ -183,56 +101,6 @@ define( function( require ) {
       }
     }
   }, {} );
-
-  var TPrecipitateParticle = phetioInherit( TObject, 'TPrecipitateParticle', function( instance, phetioID ) {
-    TObject.call( this, instance, phetioID );
-    assertInstanceOf( instance, phet.beersLawLab.PrecipitateParticle );
-  }, {
-    setValue: {
-      implementation: function( value ) {
-        // grouped item, should have value set with create.  What is this for?  I don't know.
-      }
-    }
-  }, {
-
-    /**
-     * When the state is loaded back, create a ShakerParticle.
-     * @param {string} id - the full phetioID to be registered with a tandem
-     * @param {Object} value - the value that would be used with setValue, which can be used to customize the object creation.
-     * @returns {ChargedParticle}
-     */
-    create: function( id, value ) {
-
-      var model = phetio.getInstance( getRootTandem().id + '.concentrationScreen.model.precipitate' );
-
-      // solute, location, orientation, initialVelocity, acceleration, tandem
-      model.particles.push( new phet.beersLawLab.PrecipitateParticle(
-        value.solute,
-        value.location,
-        value.orientation,
-        value.tandem
-      ) );
-      model.fireChanged();
-    },
-    fromStateObject: function( stateObject ) {
-
-      // TODO: reduce boilerplate or factor out with TShakerParticle
-      return {
-        solute: TSolute.fromStateObject( stateObject.solute ),
-        location: TVector2.fromStateObject( stateObject.location ),
-        orientation: TNumber.fromStateObject( stateObject.orientation ),
-        tandem: TTandem.fromStateObject( stateObject.tandem )
-      };
-    },
-    toStateObject: function( value ) {
-      return {
-        solute: TSolute.toStateObject( value.solute ),
-        location: TVector2.toStateObject( value.locationProperty.get() ),
-        orientation: TNumber.toStateObject( value.orientation ),
-        tandem: TTandem.toStateObject( value.tandem )
-      };
-    }
-  } );
 
   var beersLawLabAPI = PhETIOCommon.createAPI( {
 
