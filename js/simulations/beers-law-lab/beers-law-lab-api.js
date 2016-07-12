@@ -34,6 +34,7 @@ define( function( require ) {
   var TObject = require( 'PHET_IO/types/TObject' );
   var TPanel = require( 'PHET_IO/types/sun/TPanel' );
   var TSolute = require( 'PHET_IO/simulations/beers-law-lab/types/TSolute' );
+  var TSolution = require( 'PHET_IO/simulations/beers-law-lab/types/TSolution' );
   var TString = require( 'PHET_IO/types/TString' );
   var TTandem = require( 'PHET_IO/types/tandem/TTandem' );
   var TTandemDragHandler = require( 'PHET_IO/types/tandem/scenery/input/TTandemDragHandler' );
@@ -49,21 +50,6 @@ define( function( require ) {
     rootTandem = rootTandem || phet.tandem.Tandem.createRootTandem();
     return rootTandem;
   }
-
-  var TSolution = phetioInherit( TObject, 'TSolution', function( instance, phetioID ) {
-    TObject.call( this, instance, phetioID );
-    assertInstanceOf( instance, phet.beersLawLab.BeersLawSolution );
-  }, {}, {
-    fromStateObject: function( stateObject ) {
-      return phetio.getWrapper( stateObject ).instance;
-    },
-    toStateObject: function( instance ) {
-      return instance.phetioID;
-    },
-    api: {
-      concentrationProperty: TProperty( TNumber( 'moles/liter' ) )
-    }
-  } );
 
   var TShaker = phetioInherit( TObject, 'TShaker', function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
