@@ -10,6 +10,9 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var BeersLawModel = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawModel' );
+  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+  var ConcentrationModel = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationModel' );
   var PhETIOCommon = require( 'PHET_IO/PhETIOCommon' );
   var phetio = require( 'PHET_IO/phetio' );
   var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
@@ -79,9 +82,9 @@ define( function( require ) {
           soluteProperty: TProperty( TSolute ),
 
           solution: {
-            soluteAmountProperty: TProperty( TNumber( 'moles' ) ),
+            soluteAmountProperty: TProperty( TNumber( 'moles', { range: BLLConstants.SOLUTE_AMOUNT_RANGE } ) ),
             soluteGramsProperty: TDerivedProperty( TNumber( 'grams' ) ),
-            volumeProperty: TProperty( TNumber( 'liters' ), { min: 0, max: 1 } ),
+            volumeProperty: TProperty( TNumber( 'liters', { range: ConcentrationModel.SOLUTION_VOLUME_RANGE } ) ),
             concentrationProperty: TDerivedProperty( TNumber( 'moles/liter' ) ),
             percentConcentrationProperty: TDerivedProperty( TNumber( 'percent' ) ),
             precipitateAmountProperty: TDerivedProperty( TNumber( 'moles' ) ),
@@ -194,7 +197,7 @@ define( function( require ) {
           solutionProperty: TProperty( TSolution ),
 
           cuvette: {
-            widthProperty: TProperty( TNumber( 'centimeters', { min: 0.5, max: 2 } ) ) // goes from 0.5 to 2 cm
+            widthProperty: TProperty( TNumber( 'centimeters', BeersLawModel.CUVETTE_WIDTH_RANGE ) )
           },
 
           light: {
