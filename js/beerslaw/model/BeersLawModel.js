@@ -23,6 +23,8 @@ define( function( require ) {
   var Ruler = require( 'BEERS_LAW_LAB/beerslaw/model/Ruler' );
   var Vector2 = require( 'DOT/Vector2' );
 
+  var CUVETTE_WIDTH_RANGE = new Range( 0.5, 2.0, 1.0 );
+
   /**
    * @param {ModelViewTransform2} modelViewTransform
    * @param {Tandem} tandem
@@ -50,7 +52,7 @@ define( function( require ) {
     } );
 
     // @public NOTE: All locations are relative to the location of the cuvette.
-    thisModel.cuvette = new Cuvette( new Vector2( 3.3, 0.5 ), new Range( 0.5, 2.0, 1.0 ), 3, tandem.createTandem( 'cuvette' ) );
+    thisModel.cuvette = new Cuvette( new Vector2( 3.3, 0.5 ), CUVETTE_WIDTH_RANGE, 3, tandem.createTandem( 'cuvette' ) );
 
     // @public
     thisModel.light = new Light( new Vector2( thisModel.cuvette.location.x - 1.5, thisModel.cuvette.location.y + ( thisModel.cuvette.height / 2 ) ),
@@ -94,5 +96,8 @@ define( function( require ) {
       this.detector.reset();
       this.ruler.reset();
     }
+  }, {
+    CUVETTE_WIDTH_RANGE: CUVETTE_WIDTH_RANGE // Exported for access to phet-io API
   } );
 } );
+

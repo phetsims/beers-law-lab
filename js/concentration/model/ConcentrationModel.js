@@ -236,5 +236,7 @@ define( function( require ) {
         return 0;
       }
     }
+  }, {
+    SOLUTION_VOLUME_RANGE: SOLUTION_VOLUME_RANGE // Exported for access to phet-io API
   } );
 } );
