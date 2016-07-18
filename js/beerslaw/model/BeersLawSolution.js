@@ -24,7 +24,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var MolarAbsorptivityData = require( 'BEERS_LAW_LAB/beerslaw/model/MolarAbsorptivityData' );
   var Property = require( 'AXON/Property' );
-  var Range = require( 'DOT/Range' );
+  var RangeWithValue = require( 'DOT/RangeWithValue' );
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Util = require( 'DOT/Util' );
@@ -125,7 +125,7 @@ define( function( require ) {
     drinkMixString,
     BLLSymbols.DRINK_MIX,
     MolarAbsorptivityData.DRINK_MIX,
-    new Range( 0, 0.400, 0.100 ),
+    new RangeWithValue( 0, 0.400, 0.100 ),
     ConcentrationTransform.mM,
     new ColorRange( new Color( 255, 225, 225 ), Color.RED ),
     tandem.createTandem( 'drinkMix' )
@@ -135,7 +135,7 @@ define( function( require ) {
     cobaltIINitrateString,
     BLLSymbols.COBALT_II_NITRATE,
     MolarAbsorptivityData.COBALT_II_NITRATE,
-    new Range( 0, 0.400, 0.100 ),
+    new RangeWithValue( 0, 0.400, 0.100 ),
     ConcentrationTransform.mM,
     new ColorRange( new Color( 255, 225, 225 ), Color.RED ),
     tandem.createTandem( 'cobaltIINitrate' )
@@ -145,7 +145,7 @@ define( function( require ) {
     cobaltChlorideString,
     BLLSymbols.COBALT_CHLORIDE,
     MolarAbsorptivityData.COBALT_CHLORIDE,
-    new Range( 0, 0.250, 0.100 ),
+    new RangeWithValue( 0, 0.250, 0.100 ),
     ConcentrationTransform.mM,
     new ColorRange( new Color( 255, 242, 242 ), new Color( 255, 106, 106 ) ),
     tandem.createTandem( 'cobaltChloride' )
@@ -155,7 +155,7 @@ define( function( require ) {
     potassiumDichromateString,
     BLLSymbols.POTASSIUM_DICHROMATE,
     MolarAbsorptivityData.POTASSIUM_DICHROMATE,
-    new Range( 0, 0.000500, 0.000100 ),
+    new RangeWithValue( 0, 0.000500, 0.000100 ),
     ConcentrationTransform.uM,
     new ColorRange( new Color( 255, 232, 210 ), new Color( 255, 127, 0 ) ),
     tandem.createTandem( 'potassiumDichromate' )
@@ -165,7 +165,7 @@ define( function( require ) {
     potassiumChromateString,
     BLLSymbols.POTASSIUM_CHROMATE,
     MolarAbsorptivityData.POTASSIUM_CHROMATE,
-    new Range( 0, 0.000400, 0.000100 ),
+    new RangeWithValue( 0, 0.000400, 0.000100 ),
     ConcentrationTransform.uM,
     new ColorRange( new Color( 255, 255, 199 ), new Color( 255, 255, 0 ) ),
     tandem.createTandem( 'potassiumChromate' )
@@ -175,7 +175,7 @@ define( function( require ) {
     nickelIIChlorideString,
     BLLSymbols.NICKEL_II_CHLORIDE,
     MolarAbsorptivityData.NICKEL_II_CHLORIDE,
-    new Range( 0, 0.350, 0.100 ),
+    new RangeWithValue( 0, 0.350, 0.100 ),
     ConcentrationTransform.mM,
     new ColorRange( new Color( 234, 244, 234 ), new Color( 0, 128, 0 ) ),
     tandem.createTandem( 'nickelIIChloride' )
@@ -185,7 +185,7 @@ define( function( require ) {
     copperSulfateString,
     BLLSymbols.COPPER_SULFATE,
     MolarAbsorptivityData.COPPER_SULFATE,
-    new Range( 0, 0.200, 0.100 ),
+    new RangeWithValue( 0, 0.200, 0.100 ),
     ConcentrationTransform.mM,
     new ColorRange( new Color( 222, 238, 255 ), new Color( 30, 144, 255 ) ),
     tandem.createTandem( 'copperSulfate' )
@@ -195,7 +195,7 @@ define( function( require ) {
     potassiumPermanganateString,
     BLLSymbols.POTASSIUM_PERMANGANATE,
     MolarAbsorptivityData.POTASSIUM_PERMANGANATE,
-    new Range( 0, 0.000800, 0.000100 ),
+    new RangeWithValue( 0, 0.000800, 0.000100 ),
     ConcentrationTransform.uM,
     new ColorRange( new Color( 255, 235, 255 ), new Color( 255, 0, 255 ) ),
     tandem.createTandem( 'potassiumPermanganate' ),

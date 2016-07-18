@@ -19,11 +19,11 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Light = require( 'BEERS_LAW_LAB/beerslaw/model/Light' );
   var Property = require( 'AXON/Property' );
-  var Range = require( 'DOT/Range' );
+  var RangeWithValue = require( 'DOT/RangeWithValue' );
   var Ruler = require( 'BEERS_LAW_LAB/beerslaw/model/Ruler' );
   var Vector2 = require( 'DOT/Vector2' );
 
-  var CUVETTE_WIDTH_RANGE = new Range( 0.5, 2.0, 1.0 );
+  var CUVETTE_WIDTH_RANGE = new RangeWithValue( 0.5, 2.0, 1.0 );
 
   /**
    * @param {ModelViewTransform2} modelViewTransform

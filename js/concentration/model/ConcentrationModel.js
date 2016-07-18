@@ -22,7 +22,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Precipitate = require( 'BEERS_LAW_LAB/concentration/model/Precipitate' );
   var Property = require( 'AXON/Property' );
-  var Range = require( 'DOT/Range' );
+  var RangeWithValue = require( 'DOT/RangeWithValue' );
   var Shaker = require( 'BEERS_LAW_LAB/concentration/model/Shaker' );
   var ShakerParticles = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticles' );
   var Solute = require( 'BEERS_LAW_LAB/concentration/model/Solute' );
@@ -30,7 +30,7 @@ define( function( require ) {
 
   // constants
   var BEAKER_VOLUME = 1; // L
-  var SOLUTION_VOLUME_RANGE = new Range( 0, BEAKER_VOLUME, 0.5 ); // L
+  var SOLUTION_VOLUME_RANGE = new RangeWithValue( 0, BEAKER_VOLUME, 0.5 ); // L
   var SOLUTE_AMOUNT_RANGE = BLLConstants.SOLUTE_AMOUNT_RANGE; // moles
   var MAX_EVAPORATION_RATE = 0.25; // L/sec
   var MAX_FAUCET_FLOW_RATE = 0.25; // L/sec
