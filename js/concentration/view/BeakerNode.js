@@ -20,6 +20,9 @@ define( function( require ) {
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
 
+  // phet-io modules
+  var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
+
   //strings
   var pattern0Value1UnitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
   var unitsLitersString = require( 'string!BEERS_LAW_LAB/units.liters' );
@@ -113,7 +116,7 @@ define( function( require ) {
     thisNode.x = location.x;
     thisNode.y = location.y;
 
-    tandem.addInstance( this );
+    tandem.addInstance( this, TNode );
   }
 
   beersLawLab.register( 'BeakerNode', BeakerNode );

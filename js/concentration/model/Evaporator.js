@@ -12,6 +12,8 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
 
   /**
    * @param {number} maxEvaporationRate L/sec
@@ -26,8 +28,14 @@ define( function( require ) {
     thisEvaporator.maxEvaporationRate = maxEvaporationRate; // @public (read-only) L/sec
 
     // @public
-    thisEvaporator.evaporationRateProperty = new Property( 0, { tandem: tandem.createTandem( 'evaporationRateProperty' ) } ); // L/sec
-    thisEvaporator.enabledProperty = new Property( true, { tandem: tandem.createTandem( 'enabledProperty' ) } );
+    thisEvaporator.evaporationRateProperty = new Property( 0, {
+      tandem: tandem.createTandem( 'evaporationRateProperty' ),
+      type: TNumber( 'liters/second' )
+    } ); // L/sec
+    thisEvaporator.enabledProperty = new Property( true, {
+      tandem: tandem.createTandem( 'enabledProperty' ),
+      type: TBoolean
+    } );
 
     // disable when the volume gets to zero
     solution.volumeProperty.link( function( volume ) {

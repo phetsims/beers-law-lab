@@ -18,6 +18,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
 
   /**
    * @param {Vector2} bodyLocation
@@ -31,7 +32,10 @@ define( function( require ) {
 
     // @public concentration in mol/L or percent, depending on the concentrationMeterUnits query parameter.
     // null if the meter is not reading a value
-    this.valueProperty = new Property( null, { tandem: tandem.createTandem( 'valueProperty' ) } );
+    this.valueProperty = new Property( null, {
+      tandem: tandem.createTandem( 'valueProperty' ),
+      type: TNumber( 'moles/liter' )
+    } );
 
     // @public (read-only)
     this.body = new Movable( bodyLocation, bodyDragBounds, tandem.createTandem( 'body' ) );

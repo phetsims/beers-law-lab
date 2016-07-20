@@ -13,6 +13,7 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
 
   /**
    * @param {Vector2} location center of output pipe
@@ -35,7 +36,10 @@ define( function( require ) {
     thisFaucet.maxFlowRate = maxFlowRate;
 
     // @public
-    thisFaucet.flowRateProperty = new Property( 0, { tandem: tandem.createTandem( 'flowRateProperty' ) } );
+    thisFaucet.flowRateProperty = new Property( 0, {
+      tandem: tandem.createTandem( 'flowRateProperty' ),
+      type: TNumber( 'liters/second' )
+    } );
     thisFaucet.enabledProperty = new Property( true );
 
     // when disabled, turn off the faucet.

@@ -36,6 +36,9 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
   var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
 
+  // phet-io modules
+  var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
+
   // strings
   var concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
   var pattern0PercentString = require( 'string!BEERS_LAW_LAB/pattern.0percent' );
@@ -113,7 +116,7 @@ define( function( require ) {
     solventFluidNode.addEventListener( 'bounds', updateValue );
     drainFluidNode.addEventListener( 'bounds', updateValue );
 
-    tandem.addInstance( this );
+    tandem.addInstance( this, TNode );
   }
 
   beersLawLab.register( 'ConcentrationMeterNode', ConcentrationMeterNode );
@@ -190,7 +193,7 @@ define( function( require ) {
       thisNode.addInputListener( movableDragHandler );
 
       // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
-      tandem.addInstance( this );
+      tandem.addInstance( this, TNode );
     }
 
     // body location
@@ -295,7 +298,7 @@ define( function( require ) {
     };
 
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
-    tandem.addInstance( this );
+    tandem.addInstance( this, TNode );
   }
 
   beersLawLab.register( 'ConcentrationMeterNode.ConcentrationProbeNode', ConcentrationProbeNode );

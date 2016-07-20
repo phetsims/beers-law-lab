@@ -20,6 +20,9 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
   var SubSupText = require( 'SCENERY_PHET/SubSupText' );
 
+  // phet-io modules
+  var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
+
   /**
    * @param {Dropper} dropper
    * @param {Solvent} solvent
@@ -99,7 +102,7 @@ define( function( require ) {
 
     // Supertype registers the momentary button, but not itself, so register here in the subtype.
     // No corresponding removeInstance is needed because this object exists for the lifetime of the sim
-    tandem.addInstance( this );
+    tandem.addInstance( this, TNode );
   }
 
   beersLawLab.register( 'BLLDropperNode', BLLDropperNode );

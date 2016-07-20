@@ -19,6 +19,9 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var SubSupText = require( 'SCENERY_PHET/SubSupText' );
 
+  // phet-io modules
+  var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
+
   // images
   var shakerImage = require( 'image!BEERS_LAW_LAB/shaker.png' );
 
@@ -123,7 +126,7 @@ define( function( require ) {
     } );
 
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
-    tandem.addInstance( this );
+    tandem.addInstance( this, TNode );
   }
 
   beersLawLab.register( 'ShakerNode', ShakerNode );
