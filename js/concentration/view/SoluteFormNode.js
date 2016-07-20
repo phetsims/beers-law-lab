@@ -19,6 +19,9 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Text = require( 'SCENERY/nodes/Text' );
 
+  // phet-io types
+  var TString = require( 'ifphetio!PHET_IO/types/TString' );
+
   // strings
   var solidString = require( 'string!BEERS_LAW_LAB/solid' );
   var solutionString = require( 'string!BEERS_LAW_LAB/solution' );
@@ -42,7 +45,8 @@ define( function( require ) {
     var shakerButton = new AquaRadioButton( soluteFormProperty, 'solid',
       new TextAndIconNode( solidString, shakerIconImage, TEXT_OPTIONS ), {
         radius: BLLConstants.RADIO_BUTTON_RADIUS,
-        tandem: tandem.createTandem( 'solidRadioButton' )
+        tandem: tandem.createTandem( 'solidRadioButton' ),
+        type: TString
       } );
 
     // vertical separator
@@ -57,7 +61,8 @@ define( function( require ) {
       new TextAndIconNode( solutionString, dropperIconImage, TEXT_OPTIONS ), {
         radius: BLLConstants.RADIO_BUTTON_RADIUS,
         left: separator.right + SEPARATOR_SPACING,
-        tandem: tandem.createTandem( 'solutionRadioButton' )
+        tandem: tandem.createTandem( 'solutionRadioButton' ),
+        type: TString
       } );
 
     Node.call( this, { children: [ shakerButton, separator, dropperButton ] } );
