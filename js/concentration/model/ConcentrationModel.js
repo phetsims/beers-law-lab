@@ -108,7 +108,7 @@ define( function( require ) {
       thisModel.dropper.enabledProperty.set( !thisModel.dropper.emptyProperty.get() && !containsMaxSolute && thisModel.solution.volumeProperty.get() < SOLUTION_VOLUME_RANGE.max );
     } );
 
-    tandem.addInstance( this, TConcentrationModel );
+    TConcentrationModel && tandem.addInstance( this, TConcentrationModel );
   }
 
   beersLawLab.register( 'ConcentrationModel', ConcentrationModel );

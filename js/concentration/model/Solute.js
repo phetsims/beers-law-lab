@@ -65,7 +65,7 @@ define( function( require ) {
     assert && assert( this.stockSolutionPercentConcentration >= 0 && this.stockSolutionPercentConcentration <= 100 );
 
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
-    tandem.addInstance( this, TSolute );
+    TSolute && tandem.addInstance( this, TSolute );
   }
 
   beersLawLab.register( 'Solute', Solute );

@@ -52,7 +52,7 @@ define( function( require ) {
     this.shakerParticleGroupTandem = tandem.createGroupTandem( 'shakerParticle' );
 
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
-    tandem.addInstance( this, TShakerParticles );
+    TShakerParticles && tandem.addInstance( this, TShakerParticles );
   }
 
   beersLawLab.register( 'ShakerParticles', ShakerParticles );

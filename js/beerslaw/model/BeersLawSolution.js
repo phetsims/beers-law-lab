@@ -71,7 +71,7 @@ define( function( require ) {
     thisSolution.molarAbsorptivityData = molarAbsorptivityData;
     thisSolution.concentrationProperty = new Property( concentrationRange.defaultValue, {
       tandem: tandem.createTandem( 'concentrationProperty' ),
-      type: TNumber( 'moles/liter' )
+      type: TNumber && TNumber( 'moles/liter' )
     } );
     thisSolution.concentrationRange = concentrationRange;
     thisSolution.concentrationTransform = concentrationTransform;
@@ -90,7 +90,7 @@ define( function( require ) {
       } );
 
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
-    tandem.addInstance( this, TSolution );
+    TSolution && tandem.addInstance( this, TSolution );
   }
 
   beersLawLab.register( 'BeersLawSolution', BeersLawSolution );

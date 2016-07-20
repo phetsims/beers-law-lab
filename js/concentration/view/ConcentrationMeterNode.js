@@ -116,7 +116,7 @@ define( function( require ) {
     solventFluidNode.addEventListener( 'bounds', updateValue );
     drainFluidNode.addEventListener( 'bounds', updateValue );
 
-    tandem.addInstance( this, TNode );
+    TNode && tandem.addInstance( this, TNode );
   }
 
   beersLawLab.register( 'ConcentrationMeterNode', ConcentrationMeterNode );
@@ -193,7 +193,7 @@ define( function( require ) {
       thisNode.addInputListener( movableDragHandler );
 
       // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
-      tandem.addInstance( this, TNode );
+      TNode && tandem.addInstance( this, TNode );
     }
 
     // body location
@@ -298,7 +298,7 @@ define( function( require ) {
     };
 
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
-    tandem.addInstance( this, TNode );
+    TNode && tandem.addInstance( this, TNode );
   }
 
   beersLawLab.register( 'ConcentrationMeterNode.ConcentrationProbeNode', ConcentrationProbeNode );
