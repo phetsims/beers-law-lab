@@ -29,6 +29,8 @@ define( function( require ) {
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Util = require( 'DOT/Util' );
   var Tandem = require( 'TANDEM/Tandem' );
+  var TNumber = require( 'PHET_IO/types/TNumber' );
+  var TSolution = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TSolution' );
 
   // strings
   var cobaltChlorideString = require( 'string!BEERS_LAW_LAB/cobaltChloride' );
@@ -68,7 +70,8 @@ define( function( require ) {
     thisSolution.formula = formula;
     thisSolution.molarAbsorptivityData = molarAbsorptivityData;
     thisSolution.concentrationProperty = new Property( concentrationRange.defaultValue, {
-      tandem: tandem.createTandem( 'concentrationProperty' )
+      tandem: tandem.createTandem( 'concentrationProperty' ),
+      type: TNumber( 'moles/liter' )
     } );
     thisSolution.concentrationRange = concentrationRange;
     thisSolution.concentrationTransform = concentrationTransform;
@@ -87,7 +90,7 @@ define( function( require ) {
       } );
 
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
-    tandem.addInstance( this );
+    tandem.addInstance( this, TSolution );
   }
 
   beersLawLab.register( 'BeersLawSolution', BeersLawSolution );

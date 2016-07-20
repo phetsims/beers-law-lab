@@ -13,6 +13,8 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
+  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
 
   /**
    * @param {Vector2} location
@@ -31,10 +33,19 @@ define( function( require ) {
     // @public
     thisDropper.soluteProperty = soluteProperty;
     thisDropper.visibleProperty = new Property( visible );
-    thisDropper.dispensingProperty = new Property( false, { tandem: tandem.createTandem( 'dispensingProperty' ) } ); // true if the dropper is dispensing solution
+    thisDropper.dispensingProperty = new Property( false, {
+      tandem: tandem.createTandem( 'dispensingProperty' ),
+      type: TBoolean
+    } ); // true if the dropper is dispensing solution
     thisDropper.enabledProperty = new Property( true );
-    thisDropper.emptyProperty = new Property( false, { tandem: tandem.createTandem( 'emptyProperty' ) } );
-    thisDropper.flowRateProperty = new Property( 0, { tandem: tandem.createTandem( 'flowRateProperty' ) } ); // L/sec
+    thisDropper.emptyProperty = new Property( false, {
+      tandem: tandem.createTandem( 'emptyProperty' ),
+      type: TBoolean
+    } );
+    thisDropper.flowRateProperty = new Property( 0, {
+      tandem: tandem.createTandem( 'flowRateProperty' ),
+      type: TNumber( 'liters/second' )
+    } ); // L/sec
 
     // Turn off the dropper when it's disabled.
     thisDropper.enabledProperty.link( function( enabled ) {

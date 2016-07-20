@@ -17,6 +17,8 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
 
   /**
    * @param {Property.<Solute>} soluteProperty
@@ -33,8 +35,14 @@ define( function( require ) {
 
     // @public
     thisSolution.soluteProperty = soluteProperty;
-    thisSolution.soluteAmountProperty = new Property( soluteAmount, { tandem: tandem.createTandem( 'soluteAmountProperty' ) } ); // moles
-    thisSolution.volumeProperty = new Property( volume, { tandem: tandem.createTandem( 'volumeProperty' ) } ); // L
+    thisSolution.soluteAmountProperty = new Property( soluteAmount, {
+      tandem: tandem.createTandem( 'soluteAmountProperty' ),
+      type: TNumber( 'moles' )
+    } );
+    thisSolution.volumeProperty = new Property( volume, {
+      tandem: tandem.createTandem( 'volumeProperty' ),
+      type: TNumber( 'liters' )
+    } ); // L
 
     // @public for deferring update of precipitateAmount until we've changed both volume and soluteAmount, see concentration#1
     thisSolution.updatePrecipitateAmount = true;
@@ -50,7 +58,8 @@ define( function( require ) {
           return thisSolution.precipitateAmountProperty.get();
         }
       }, {
-        tandem: tandem.createTandem( 'precipitateAmountProperty' )
+        tandem: tandem.createTandem( 'precipitateAmountProperty' ),
+        type: TNumber( 'moles' )
       }
     );
 
@@ -60,7 +69,8 @@ define( function( require ) {
       function( solute, soluteAmount, volume ) {
         return ( volume > 0 ) ? Math.min( thisSolution.getSaturatedConcentration(), soluteAmount / volume ) : 0;
       }, {
-        tandem: tandem.createTandem( 'concentrationProperty' )
+        tandem: tandem.createTandem( 'concentrationProperty' ),
+        type: TNumber( 'moles/liter' )
       }
     );
 
@@ -69,7 +79,8 @@ define( function( require ) {
       function( solute, soluteAmount, volume ) {
         return ( volume > 0 ) && ( soluteAmount / volume ) > solute.getSaturatedConcentration();
       }, {
-        tandem: tandem.createTandem( 'saturatedProperty' )
+        tandem: tandem.createTandem( 'saturatedProperty' ),
+        type: TBoolean
       }
     );
 
@@ -78,7 +89,8 @@ define( function( require ) {
       function( solute, soluteAmount, precipitateAmount ) {
         return solute.molarMass * ( soluteAmount - precipitateAmount );
       }, {
-        tandem: tandem.createTandem( 'soluteGramsProperty' )
+        tandem: tandem.createTandem( 'soluteGramsProperty' ),
+        type: TNumber( 'grams' )
       }
     );
 
@@ -93,7 +105,8 @@ define( function( require ) {
         assert && assert( percentConcentration >= 0 && percentConcentration <= 100 );
         return percentConcentration;
       }, {
-        tandem: tandem.createTandem( 'percentConcentrationProperty' )
+        tandem: tandem.createTandem( 'percentConcentrationProperty' ),
+        type: TNumber( 'percent' )
       }
     );
 

@@ -16,6 +16,7 @@ define( function( require ) {
   var Particles = require( 'BEERS_LAW_LAB/concentration/model/Particles' );
   var ShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticle' );
   var Vector2 = require( 'DOT/Vector2' );
+  var TShakerParticles = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TShakerParticles' );
 
   // Units for speed and acceleration are not meaningful here, adjust these so that it looks good.
   var INITIAL_SPEED = 100;
@@ -51,7 +52,7 @@ define( function( require ) {
     this.shakerParticleGroupTandem = tandem.createGroupTandem( 'shakerParticle' );
 
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
-    tandem.addInstance( this );
+    tandem.addInstance( this, TShakerParticles );
   }
 
   beersLawLab.register( 'ShakerParticles', ShakerParticles );

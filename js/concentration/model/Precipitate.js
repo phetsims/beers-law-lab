@@ -15,6 +15,7 @@ define( function( require ) {
   var Particles = require( 'BEERS_LAW_LAB/concentration/model/Particles' );
   var PrecipitateParticle = require( 'BEERS_LAW_LAB/concentration/model/PrecipitateParticle' );
   var Vector2 = require( 'DOT/Vector2' );
+  var TPrecipitate = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TPrecipitate' );
 
   /**
    * @param {ConcentrationSolution} solution
@@ -46,7 +47,7 @@ define( function( require ) {
     } );
 
     // Persists for the life of the sim, no need to be disposed
-    tandem.addInstance( this );
+    tandem.addInstance( this, TPrecipitate );
   }
 
   beersLawLab.register( 'Precipitate', Precipitate );

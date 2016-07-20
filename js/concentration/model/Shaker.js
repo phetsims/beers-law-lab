@@ -13,6 +13,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
+  var TShaker = require( 'PHET_IO/simulations/beers-law-lab/types/TShaker' );
 
   /**
    * @param {Vector2} location
@@ -51,7 +52,7 @@ define( function( require ) {
     thisShaker.emptyProperty.link( observer );
     thisShaker.visibleProperty.link( observer );
 
-    tandem.addInstance( this );
+    tandem.addInstance( this, TShaker );
   }
 
   beersLawLab.register( 'Shaker', Shaker );

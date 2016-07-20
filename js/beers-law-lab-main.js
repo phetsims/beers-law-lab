@@ -15,9 +15,6 @@ define( function( require ) {
   var SimLauncher = require( 'JOIST/SimLauncher' );
   var Tandem = require( 'TANDEM/Tandem' );
 
-  // If running as phet-io, load the API
-  require( 'ifphetio!PHET_IO/simulations/beers-law-lab/beers-law-lab-api' );
-
   // strings
   var beersLawLabTitleString = require( 'string!BEERS_LAW_LAB/beers-law-lab.title' );
 

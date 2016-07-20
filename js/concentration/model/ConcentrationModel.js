@@ -27,6 +27,8 @@ define( function( require ) {
   var ShakerParticles = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticles' );
   var Solute = require( 'BEERS_LAW_LAB/concentration/model/Solute' );
   var Vector2 = require( 'DOT/Vector2' );
+  var TSolute = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TSolute' );
+  var TString = require( 'PHET_IO/types/TString' );
 
   // constants
   var BEAKER_VOLUME = 1; // L
@@ -59,8 +61,14 @@ define( function( require ) {
     ];
 
     // @public
-    thisModel.soluteProperty = new Property( thisModel.solutes[ 0 ], { tandem: tandem.createTandem( 'soluteProperty' ) } );
-    thisModel.soluteFormProperty = new Property( 'solid', { tandem: tandem.createTandem( 'soluteFormProperty' ) } ); // 'solid' or 'solution'
+    thisModel.soluteProperty = new Property( thisModel.solutes[ 0 ], {
+      tandem: tandem.createTandem( 'soluteProperty' ),
+      type: TSolute
+    } );
+    thisModel.soluteFormProperty = new Property( 'solid', {
+      tandem: tandem.createTandem( 'soluteFormProperty' ),
+      type: TString
+    } ); // 'solid' or 'solution'
 
     // @public
     thisModel.solution = new ConcentrationSolution( thisModel.soluteProperty, SOLUTE_AMOUNT_RANGE.defaultValue, SOLUTION_VOLUME_RANGE.defaultValue, tandem.createTandem( 'solution' ) );
