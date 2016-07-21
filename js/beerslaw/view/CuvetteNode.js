@@ -21,6 +21,9 @@ define( function( require ) {
   var TandemDragHandler = require( 'TANDEM/scenery/input/TandemDragHandler' );
   var Util = require( 'DOT/Util' );
 
+  // phet-io modules
+  var TNode = require( 'PHET_IO/types/scenery/nodes/TNode' );
+
   // constants
   var PERCENT_FULL = 0.92;
   var SOLUTION_ALPHA = 0.6;
@@ -108,7 +111,7 @@ define( function( require ) {
     thisNode.x = position.x;
     thisNode.y = position.y;
 
-    tandem.addInstance( this );
+    TNode && tandem.addInstance( this, TNode );
   }
 
   beersLawLab.register( 'CuvetteNode', CuvetteNode );

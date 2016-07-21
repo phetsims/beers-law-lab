@@ -17,6 +17,9 @@ define( function( require ) {
   var RulerNode = require( 'SCENERY_PHET/RulerNode' );
   var Shape = require( 'KITE/Shape' );
 
+  // phet-io modules
+  var TNode = require( 'PHET_IO/types/scenery/nodes/TNode' );
+
   // strings
   var unitsCentimetersString = require( 'string!BEERS_LAW_LAB/units.centimeters' );
 
@@ -71,7 +74,7 @@ define( function( require ) {
     } );
     thisNode.addInputListener( this.movableDragHandler );
 
-    tandem.addInstance( this );
+    TNode && tandem.addInstance( this, TNode );
   }
 
   beersLawLab.register( 'BLLRulerNode', BLLRulerNode );

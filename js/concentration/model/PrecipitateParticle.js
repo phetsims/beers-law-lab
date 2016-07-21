@@ -15,6 +15,9 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
 
+  // phet-io modules
+  var TPrecipitateParticle = require( 'PHET_IO/simulations/beers-law-lab/types/TPrecipitateParticle' );
+
   /**
    * @param {Solute} solute
    * @param {Vector2} location location in the beaker's coordinate frame

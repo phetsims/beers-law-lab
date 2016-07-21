@@ -29,6 +29,9 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
 
+  // phet-io modules
+  var TNode = require( 'PHET_IO/types/scenery/nodes/TNode' );
+
   // track constants
   var TRACK_SIZE = new Dimension2( 200, 15 );
 
@@ -128,7 +131,7 @@ define( function( require ) {
       solution.concentrationProperty.link( concentrationObserver );
     } );
 
-    tandem.addInstance( this );
+    TNode && tandem.addInstance( this, TNode );
   }
 
   beersLawLab.register( 'ConcentrationSlider', ConcentrationSlider );

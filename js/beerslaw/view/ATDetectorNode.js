@@ -29,6 +29,9 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
   var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
 
+  // phet-io modules
+  var TNode = require( 'PHET_IO/types/scenery/nodes/TNode' );
+
   //strings
   var absorbanceString = require( 'string!BEERS_LAW_LAB/absorbance' );
   var pattern0PercentString = require( 'string!BEERS_LAW_LAB/pattern.0percent' );
@@ -163,7 +166,7 @@ define( function( require ) {
     detector.valueProperty.link( valueUpdater );
     detector.modeProperty.link( valueUpdater );
 
-    tandem.addInstance( this );
+    TNode && tandem.addInstance( this, TNode );
   }
 
   beersLawLab.register( 'ATDetectorNode.BodyNode', BodyNode );
@@ -219,7 +222,7 @@ define( function( require ) {
     // touch area
     thisNode.touchArea = thisNode.localBounds.dilatedXY( 0.25 * thisNode.width, 0 );
 
-    tandem.addInstance( this );
+    TNode && tandem.addInstance( this, TNode );
   }
 
   inherit( Node, ATProbeNode );
