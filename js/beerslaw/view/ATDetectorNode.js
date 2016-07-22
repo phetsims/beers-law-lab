@@ -30,7 +30,7 @@ define( function( require ) {
   var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
 
   // phet-io modules
-  var TNode = require( 'PHET_IO/types/scenery/nodes/TNode' );
+  var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
 
   //strings
   var absorbanceString = require( 'string!BEERS_LAW_LAB/absorbance' );

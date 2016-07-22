@@ -18,7 +18,7 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
 
   // phet-io modules
-  var TNode = require( 'PHET_IO/types/scenery/nodes/TNode' );
+  var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
 
   // strings
   var unitsCentimetersString = require( 'string!BEERS_LAW_LAB/units.centimeters' );
