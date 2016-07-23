@@ -34,8 +34,8 @@ define( function( require ) {
   var TConcentrationModel = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TConcentrationModel' );
 
   // constants
-  var BEAKER_VOLUME = 1; // L
-  var SOLUTION_VOLUME_RANGE = new RangeWithValue( 0, BEAKER_VOLUME, 0.5 ); // L
+  var BEAKER_VOLUME = BLLConstants.BEAKER_VOLUME;
+  var SOLUTION_VOLUME_RANGE = BLLConstants.SOLUTION_VOLUME_RANGE; // L
   var SOLUTE_AMOUNT_RANGE = BLLConstants.SOLUTE_AMOUNT_RANGE; // moles
   var MAX_EVAPORATION_RATE = 0.25; // L/sec
   var MAX_FAUCET_FLOW_RATE = 0.25; // L/sec
