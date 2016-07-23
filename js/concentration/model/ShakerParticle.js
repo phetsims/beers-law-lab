@@ -15,6 +15,7 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
+  var TShakerParticle = require( 'PHET_IO/simulations/beers-law-lab/types/TShakerParticle' );
 
   /**
    * @param {Solute} solute
@@ -35,7 +36,7 @@ define( function( require ) {
     this.acceleration = acceleration;
     this.tandem = tandem;
 
-    tandem.addInstance( this );
+    TShakerParticle && tandem.addInstance( this, TShakerParticle );
 
     // @private
     this.disposeShakerParticle = function() {
