@@ -50,8 +50,6 @@ define( function( require ) {
       model.fireChanged();
     },
     fromStateObject: function( stateObject ) {
-
-      // TODO: reduce boilerplate or factor out with TShakerParticle
       return {
         solute: TSolute.fromStateObject( stateObject.solute ),
         location: TVector2.fromStateObject( stateObject.location ),

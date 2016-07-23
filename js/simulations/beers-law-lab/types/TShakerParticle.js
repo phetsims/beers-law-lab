@@ -55,8 +55,6 @@ define( function( require ) {
       model.fireParticlesChanged();
     },
     fromStateObject: function( stateObject ) {
-
-      // TODO: reduce boilerplate
       return {
         solute: TSolute.fromStateObject( stateObject.solute ),
         location: TVector2.fromStateObject( stateObject.location ),
