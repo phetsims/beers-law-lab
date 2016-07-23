@@ -19,6 +19,7 @@ define( function( require ) {
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
   var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
 
   /**
    * @param {Property.<Solute>} soluteProperty
@@ -37,7 +38,7 @@ define( function( require ) {
     thisSolution.soluteProperty = soluteProperty;
     thisSolution.soluteAmountProperty = new Property( soluteAmount, {
       tandem: tandem.createTandem( 'soluteAmountProperty' ),
-      type: TNumber && TNumber( 'moles' )
+      type: TNumber && TNumber( 'moles', { range: BLLConstants.SOLUTE_AMOUNT_RANGE } )
     } );
     thisSolution.volumeProperty = new Property( volume, {
       tandem: tandem.createTandem( 'volumeProperty' ),
