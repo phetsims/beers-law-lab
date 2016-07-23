@@ -13,12 +13,15 @@ define( function( require ) {
   var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
   var phetioInherit = require( 'PHET_IO/phetioInherit' );
   var TObject = require( 'PHET_IO/types/TObject' );
+  var TVoid = require( 'PHET_IO/types/TVoid' );
 
   var TPrecipitate = phetioInherit( TObject, 'TPrecipitate', function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.Precipitate );
   }, {
     setValue: {
+      returnType: TVoid,
+      parameterTypes: [],
       implementation: function() {
         this.instance.removeAllParticles();
       }
