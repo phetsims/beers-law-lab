@@ -16,6 +16,10 @@ define( function( require ) {
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
 
+  // phet-io modules
+  var TString = require( 'ifphetio!PHET_IO/types/TString' );
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+
   /**
    * @param {Vector2} bodyLocation
    * @param {Bounds2} bodyDragBounds
@@ -37,7 +41,8 @@ define( function( require ) {
 
     // @public for switching between absorbance (A) and percent transmittance (%T)
     thisDetector.modeProperty = new Property( ATDetector.Mode.TRANSMITTANCE, {
-      tandem: tandem.createTandem( 'modeProperty' )
+      tandem: tandem.createTandem( 'modeProperty' ),
+      type: TString
     } );
 
     // @public value is either absorbance (A) or percent transmittance (%T) depending on mode
@@ -63,7 +68,8 @@ define( function( require ) {
         }
         return value;
       }, {
-        tandem: tandem.createTandem( 'valueProperty' )
+        tandem: tandem.createTandem( 'valueProperty' ),
+        type: TNumber( 'unitless' )
       } );
   }
 

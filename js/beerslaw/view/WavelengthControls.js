@@ -34,6 +34,9 @@ define( function( require ) {
   var variableString = require( 'string!BEERS_LAW_LAB/variable' );
   var wavelengthString = require( 'string!BEERS_LAW_LAB/wavelength' );
 
+  // phet-io modules
+  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+
   /**
    * @param {Property.<BeersLawSolution>} solutionProperty
    * @param {Light} light
@@ -45,7 +48,10 @@ define( function( require ) {
     var thisNode = this;
 
     // @private is the wavelength variable or fixed?
-    this.variableWavelengthProperty = new Property( false, { tandem: tandem.createTandem( 'variableWavelengthProperty' ) } );
+    this.variableWavelengthProperty = new Property( false, {
+      tandem: tandem.createTandem( 'variableWavelengthProperty' ),
+      type: TBoolean
+    } );
 
     var xMargin = 7;
     var yMargin = 3;
@@ -85,7 +91,8 @@ define( function( require ) {
             fill: 'black'
           } ), {
             radius: BLLConstants.RADIO_BUTTON_RADIUS,
-            tandem: tandem.createTandem( 'presetWavelengthRadioButton' )
+            tandem: tandem.createTandem( 'presetWavelengthRadioButton' ),
+            type: TBoolean
           } ),
         // variable
         new AquaRadioButton( this.variableWavelengthProperty, true,
@@ -94,7 +101,8 @@ define( function( require ) {
             fill: 'black'
           } ), {
             radius: BLLConstants.RADIO_BUTTON_RADIUS,
-            tandem: tandem.createTandem( 'variableWavelengthRadioButton' )
+            tandem: tandem.createTandem( 'variableWavelengthRadioButton' ),
+            type: TBoolean
           } )
       ]
     } );

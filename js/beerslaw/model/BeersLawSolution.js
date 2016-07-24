@@ -29,7 +29,9 @@ define( function( require ) {
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Util = require( 'DOT/Util' );
   var Tandem = require( 'TANDEM/Tandem' );
-  var TNumber = require( 'PHET_IO/types/TNumber' );
+
+  // phet-io modules
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
   var TSolution = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TSolution' );
 
   // strings

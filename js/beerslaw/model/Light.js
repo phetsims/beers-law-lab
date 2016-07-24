@@ -14,6 +14,10 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
 
+  // phet-io modules
+  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+
   /**
    * @param {Vector2} location cm
    * @param {boolean} on
@@ -31,9 +35,13 @@ define( function( require ) {
     thisLight.lensDiameter = lensDiameter;
 
     // @public
-    thisLight.onProperty = new Property( on, { tandem: tandem.createTandem( 'onProperty' ) } );
+    thisLight.onProperty = new Property( on, {
+      tandem: tandem.createTandem( 'onProperty' ),
+      type: TBoolean
+    } );
     thisLight.wavelengthProperty = new Property( solutionProperty.get().molarAbsorptivityData.lambdaMax /*nm*/, {
-      tandem: tandem.createTandem( 'wavelengthProperty' )
+      tandem: tandem.createTandem( 'wavelengthProperty' ),
+      type: TNumber( 'nanometers' )
     } );
 
     // when the solution changes, set the light to the solution's lambdaMax wavelength

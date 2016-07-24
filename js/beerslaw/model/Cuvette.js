@@ -19,6 +19,9 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
 
+  // phet-io modules
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+
   /**
    * @param {Vector2} location fixed location, cm
    * @param {Range} widthRange variable width, cm
@@ -30,7 +33,10 @@ define( function( require ) {
     // @public (read-only)
     this.location = location;
     this.widthRange = widthRange;
-    this.widthProperty = new Property( widthRange.defaultValue, { tandem: tandem.createTandem( 'widthProperty' ) } );
+    this.widthProperty = new Property( widthRange.defaultValue, {
+      tandem: tandem.createTandem( 'widthProperty' ),
+      type: TNumber( 'centimeters', { range: widthRange } )
+    } );
     this.height = height;
   }
 

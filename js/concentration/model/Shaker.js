@@ -13,7 +13,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
-  var TShaker = require( 'PHET_IO/simulations/beers-law-lab/types/TShaker' );
+  var TShaker = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TShaker' );
 
   /**
    * @param {Vector2} location

@@ -16,7 +16,7 @@ define( function( require ) {
   var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
 
   // phet-io modules
-  var TPrecipitateParticle = require( 'PHET_IO/simulations/beers-law-lab/types/TPrecipitateParticle' );
+  var TPrecipitateParticle = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TPrecipitateParticle' );
 
   /**
    * @param {Solute} solute
@@ -32,7 +32,7 @@ define( function( require ) {
     this.solute = solute;
     this.tandem = tandem;
 
-    tandem.addInstance( this );
+    tandem.addInstance( this, TPrecipitateParticle );
 
     // @private
     this.disposePrecipitateParticle = function() {
