@@ -17,9 +17,11 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
+  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+
+  // phet-io modules
   var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
-  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
 
   /**
    * @param {Property.<Solute>} soluteProperty

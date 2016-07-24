@@ -19,7 +19,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Text = require( 'SCENERY/nodes/Text' );
 
-  // phet-io types
+  // phet-io modules
   var TString = require( 'ifphetio!PHET_IO/types/TString' );
 
   // strings

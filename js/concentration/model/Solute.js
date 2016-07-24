@@ -16,6 +16,8 @@ define( function( require ) {
   var SoluteColorScheme = require( 'BEERS_LAW_LAB/concentration/model/SoluteColorScheme' );
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
   var Tandem = require( 'TANDEM/Tandem' );
+
+  // phet-io modules
   var TSolute = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TSolute' );
 
   // strings

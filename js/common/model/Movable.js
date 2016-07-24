@@ -13,6 +13,8 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
+
+  // phet-io modules
   var TVector2 = require( 'ifphetio!PHET_IO/types/dot/TVector2' );
 
   /**

@@ -18,7 +18,7 @@ define( function( require ) {
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
 
-  // phet-io types
+  // phet-io modules
   var TSolute = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TSolute' );
 
   // strings

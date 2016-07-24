@@ -16,6 +16,8 @@ define( function( require ) {
   var Particles = require( 'BEERS_LAW_LAB/concentration/model/Particles' );
   var ShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticle' );
   var Vector2 = require( 'DOT/Vector2' );
+
+  // phet-io modules
   var TShakerParticles = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TShakerParticles' );
 
   // Units for speed and acceleration are not meaningful here, adjust these so that it looks good.

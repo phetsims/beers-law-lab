@@ -15,6 +15,8 @@ define( function( require ) {
   var Particles = require( 'BEERS_LAW_LAB/concentration/model/Particles' );
   var PrecipitateParticle = require( 'BEERS_LAW_LAB/concentration/model/PrecipitateParticle' );
   var Vector2 = require( 'DOT/Vector2' );
+
+  // phet-io modules
   var TPrecipitate = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TPrecipitate' );
 
   /**
