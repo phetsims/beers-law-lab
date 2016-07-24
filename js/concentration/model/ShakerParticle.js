@@ -14,7 +14,9 @@ define( function( require ) {
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var SoluteParticle = require( 'ifphetio!BEERS_LAW_LAB/concentration/model/SoluteParticle' );
+  var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
+
+  // phet-io modules
   var TShakerParticle = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TShakerParticle' );
 
   /**
