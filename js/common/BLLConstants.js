@@ -13,7 +13,9 @@ define( function( require ) {
   var Bounds2 = require( 'DOT/Bounds2' );
   var RangeWithValue = require( 'DOT/RangeWithValue' );
 
+  // constants used to compute other constants
   var BEAKER_VOLUME = 1;// L
+
   var BLLConstants = {
     SCREEN_VIEW_OPTIONS: { layoutBounds: new Bounds2( 0, 0, 1100, 700 ) },
     RADIO_BUTTON_RADIUS: 11,
