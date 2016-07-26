@@ -18,9 +18,11 @@ define( function( require ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.BeersLawSolution );
   }, {}, {
+
     fromStateObject: function( stateObject ) {
       return phetio.getWrapper( stateObject ).instance;
     },
+
     toStateObject: function( instance ) {
       return instance.phetioID;
     }

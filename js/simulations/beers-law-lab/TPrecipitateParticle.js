@@ -49,6 +49,7 @@ define( function( require ) {
       ) );
       model.fireChanged();
     },
+
     fromStateObject: function( stateObject ) {
       return {
         solute: TSolute.fromStateObject( stateObject.solute ),
@@ -57,6 +58,7 @@ define( function( require ) {
         tandem: TTandem.fromStateObject( stateObject.tandem )
       };
     },
+
     toStateObject: function( value ) {
       return {
         solute: TSolute.toStateObject( value.solute ),

@@ -20,6 +20,7 @@ define( function( require ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.Shaker );
   }, {
+
     setValue: {
       returnType: TVoid,
       parameterTypes: [ TObject ],
@@ -29,9 +30,11 @@ define( function( require ) {
       documentation: 'Load the values recorded in getState'
     }
   }, {
+
     toStateObject: function( instance ) {
       return TVector2.toStateObject( instance.previousLocation );
     },
+
     fromStateObject: function( stateObject ) {
       return stateObject; // no coercion necessary for a plain object with primitives
     }

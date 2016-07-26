@@ -20,6 +20,7 @@ define( function( require ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.Solute );
   }, {
+
     setName: {
       returnType: TVoid,
       parameterTypes: [ TString ],
@@ -27,6 +28,7 @@ define( function( require ) {
         this.instance.name = text;
       }
     },
+
     setFormula: {
       returnType: TVoid,
       parameterTypes: [ TString ],
@@ -35,9 +37,11 @@ define( function( require ) {
       }
     }
   }, {
+
     fromStateObject: function( stateObject ) {
       return phetio.getWrapper( stateObject ).instance;
     },
+
     toStateObject: function( instance ) {
       return instance.phetioID;
     }

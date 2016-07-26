@@ -23,6 +23,7 @@ define( function( require ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.ShakerParticle );
   }, {
+
     setValue: {
       returnType: TVoid,
       parameterTypes: [],
@@ -54,6 +55,7 @@ define( function( require ) {
       ) );
       model.fireParticlesChanged();
     },
+
     fromStateObject: function( stateObject ) {
       return {
         solute: TSolute.fromStateObject( stateObject.solute ),
@@ -64,6 +66,7 @@ define( function( require ) {
         tandem: TTandem.fromStateObject( stateObject.tandem )
       };
     },
+
     toStateObject: function( value ) {
       return {
         solute: TSolute.toStateObject( value.solute ),
