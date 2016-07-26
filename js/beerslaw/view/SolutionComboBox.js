@@ -20,7 +20,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
 
   // phet-io modules
-  var TSolution = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TSolution' );
+  var TSolution = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/TSolution' );
 
   // strings
   var pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );

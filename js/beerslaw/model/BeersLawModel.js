@@ -24,7 +24,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules
-  var TSolution = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TSolution' );
+  var TSolution = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/TSolution' );
 
   var CUVETTE_WIDTH_RANGE = new RangeWithValue( 0.5, 2.0, 1.0 );
 

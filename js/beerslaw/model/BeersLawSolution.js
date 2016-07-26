@@ -32,7 +32,7 @@ define( function( require ) {
 
   // phet-io modules
   var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
-  var TSolution = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TSolution' );
+  var TSolution = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/TSolution' );
 
   // strings
   var cobaltChlorideString = require( 'string!BEERS_LAW_LAB/cobaltChloride' );

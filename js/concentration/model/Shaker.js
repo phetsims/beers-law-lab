@@ -15,7 +15,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
 
   // phet-io modules
-  var TShaker = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TShaker' );
+  var TShaker = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/TShaker' );
 
   /**
    * @param {Vector2} location

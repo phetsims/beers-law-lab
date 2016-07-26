@@ -17,7 +17,7 @@ define( function( require ) {
   var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
 
   // phet-io modules
-  var TShakerParticle = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TShakerParticle' );
+  var TShakerParticle = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/TShakerParticle' );
 
   /**
    * @param {Solute} solute

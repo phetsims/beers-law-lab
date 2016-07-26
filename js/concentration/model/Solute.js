@@ -18,7 +18,7 @@ define( function( require ) {
   var Tandem = require( 'TANDEM/Tandem' );
 
   // phet-io modules
-  var TSolute = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TSolute' );
+  var TSolute = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/TSolute' );
 
   // strings
   var cobaltChlorideString = require( 'string!BEERS_LAW_LAB/cobaltChloride' );

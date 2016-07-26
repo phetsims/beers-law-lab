@@ -17,7 +17,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules
-  var TPrecipitate = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/types/TPrecipitate' );
+  var TPrecipitate = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/TPrecipitate' );
 
   /**
    * @param {ConcentrationSolution} solution
