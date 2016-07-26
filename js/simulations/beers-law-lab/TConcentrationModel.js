@@ -14,7 +14,7 @@ define( function( require ) {
   var phetioInherit = require( 'PHET_IO/phetioInherit' );
   var TArray = require( 'PHET_IO/types/TArray' );
   var TObject = require( 'PHET_IO/types/TObject' );
-  var TSolute = require( 'PHET_IO/simulations/beers-law-lab/types/TSolute' );
+  var TSolute = require( 'PHET_IO/simulations/beers-law-lab/TSolute' );
   var TVoid = require( 'PHET_IO/types/TVoid' );
 
   var TConcentrationModel = phetioInherit( TObject, 'TConcentrationModel', function( instance, phetioID ) {
