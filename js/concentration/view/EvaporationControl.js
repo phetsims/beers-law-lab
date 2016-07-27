@@ -40,7 +40,8 @@ define( function( require ) {
       fill: '#F0F0F0',
       stroke: 'gray',
       lineWidth: 1,
-      resize: false
+      resize: false,
+      tandem: tandem
     }, options );
 
     var thisControl = this;

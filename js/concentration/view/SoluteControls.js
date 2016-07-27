@@ -34,7 +34,8 @@ define( function( require ) {
       yMargin: 15,
       fill: '#F0F0F0',
       stroke: 'gray',
-      lineWidth: 1
+      lineWidth: 1,
+      tandem: tandem
     }, options );
 
     // solute combo box
