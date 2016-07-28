@@ -116,7 +116,7 @@ define( function( require ) {
     solventFluidNode.addEventListener( 'bounds', updateValue );
     drainFluidNode.addEventListener( 'bounds', updateValue );
 
-    TNode && tandem.addInstance( this, TNode );
+    tandem.addInstance( this, TNode );
   }
 
   beersLawLab.register( 'ConcentrationMeterNode', ConcentrationMeterNode );

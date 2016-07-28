@@ -83,7 +83,7 @@ define( function( require ) {
         return ( volume > 0 ) && ( soluteAmount / volume ) > solute.getSaturatedConcentration();
       }, {
         tandem: tandem.createTandem( 'saturatedProperty' ),
-        type: TBoolean && TBoolean
+        type: TBoolean
       }
     );
 

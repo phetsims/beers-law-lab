@@ -126,7 +126,7 @@ define( function( require ) {
     } );
 
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
-    TNode && tandem.addInstance( this, TNode );
+    tandem.addInstance( this, TNode );
   }
 
   beersLawLab.register( 'ShakerNode', ShakerNode );
