@@ -41,7 +41,7 @@ define( function( require ) {
     } );
     thisLight.wavelengthProperty = new Property( solutionProperty.get().molarAbsorptivityData.lambdaMax /*nm*/, {
       tandem: tandem.createTandem( 'wavelengthProperty' ),
-      type: TNumber && TNumber( 'nanometers' )
+      type: TNumber( 'nanometers' )
     } );
 
     // when the solution changes, set the light to the solution's lambdaMax wavelength

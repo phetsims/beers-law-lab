@@ -69,7 +69,7 @@ define( function( require ) {
         return value;
       }, {
         tandem: tandem.createTandem( 'valueProperty' ),
-        type: TNumber && TNumber( 'unitless' )
+        type: TNumber( 'unitless' )
       } );
   }
 

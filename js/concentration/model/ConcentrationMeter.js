@@ -36,7 +36,7 @@ define( function( require ) {
     // null if the meter is not reading a value
     this.valueProperty = new Property( null, {
       tandem: tandem.createTandem( 'valueProperty' ),
-      type: TNumber && TNumber( 'moles/liter' )
+      type: TNumber( 'moles/liter' )
     } );
 
     // @public (read-only)

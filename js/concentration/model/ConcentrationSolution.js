@@ -40,11 +40,11 @@ define( function( require ) {
     thisSolution.soluteProperty = soluteProperty;
     thisSolution.soluteAmountProperty = new Property( soluteAmount, {
       tandem: tandem.createTandem( 'soluteAmountProperty' ),
-      type: TNumber && TNumber( 'moles', { range: BLLConstants.SOLUTE_AMOUNT_RANGE } )
+      type: TNumber( 'moles', { range: BLLConstants.SOLUTE_AMOUNT_RANGE } )
     } );
     thisSolution.volumeProperty = new Property( volume, {
       tandem: tandem.createTandem( 'volumeProperty' ),
-      type: TNumber && TNumber( 'liters', { range: BLLConstants.SOLUTION_VOLUME_RANGE } )
+      type: TNumber( 'liters', { range: BLLConstants.SOLUTION_VOLUME_RANGE } )
     } ); // L
 
     // @public for deferring update of precipitateAmount until we've changed both volume and soluteAmount, see concentration#1
@@ -62,7 +62,7 @@ define( function( require ) {
         }
       }, {
         tandem: tandem.createTandem( 'precipitateAmountProperty' ),
-        type: TNumber && TNumber( 'moles' )
+        type: TNumber( 'moles' )
       }
     );
 
@@ -73,7 +73,7 @@ define( function( require ) {
         return ( volume > 0 ) ? Math.min( thisSolution.getSaturatedConcentration(), soluteAmount / volume ) : 0;
       }, {
         tandem: tandem.createTandem( 'concentrationProperty' ),
-        type: TNumber && TNumber( 'moles/liter' )
+        type: TNumber( 'moles/liter' )
       }
     );
 
@@ -93,7 +93,7 @@ define( function( require ) {
         return solute.molarMass * ( soluteAmount - precipitateAmount );
       }, {
         tandem: tandem.createTandem( 'soluteGramsProperty' ),
-        type: TNumber && TNumber( 'grams' )
+        type: TNumber( 'grams' )
       }
     );
 
@@ -109,7 +109,7 @@ define( function( require ) {
         return percentConcentration;
       }, {
         tandem: tandem.createTandem( 'percentConcentrationProperty' ),
-        type: TNumber && TNumber( 'percent' )
+        type: TNumber( 'percent' )
       }
     );
 
