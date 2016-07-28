@@ -169,7 +169,7 @@ define( function( require ) {
     detector.valueProperty.link( valueUpdater );
     detector.modeProperty.link( valueUpdater );
 
-    TNode && tandem.addInstance( this, TNode );
+    tandem.addInstance( this, TNode );
   }
 
   beersLawLab.register( 'ATDetectorNode.BodyNode', BodyNode );
@@ -225,7 +225,7 @@ define( function( require ) {
     // touch area
     thisNode.touchArea = thisNode.localBounds.dilatedXY( 0.25 * thisNode.width, 0 );
 
-    TNode && tandem.addInstance( this, TNode );
+    tandem.addInstance( this, TNode );
   }
 
   inherit( Node, ATProbeNode );

@@ -111,7 +111,7 @@ define( function( require ) {
     thisNode.x = position.x;
     thisNode.y = position.y;
 
-    TNode && tandem.addInstance( this, TNode );
+    tandem.addInstance( this, TNode );
   }
 
   beersLawLab.register( 'CuvetteNode', CuvetteNode );

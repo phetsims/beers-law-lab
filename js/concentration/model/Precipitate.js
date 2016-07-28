@@ -49,7 +49,7 @@ define( function( require ) {
     } );
 
     // Persists for the life of the sim, no need to be disposed
-    TPrecipitate && tandem.addInstance( this, TPrecipitate );
+    tandem.addInstance( this, TPrecipitate );
   }
 
   beersLawLab.register( 'Precipitate', Precipitate );

@@ -131,7 +131,7 @@ define( function( require ) {
       solution.concentrationProperty.link( concentrationObserver );
     } );
 
-    TNode && tandem.addInstance( this, TNode );
+    tandem.addInstance( this, TNode );
   }
 
   beersLawLab.register( 'ConcentrationSlider', ConcentrationSlider );

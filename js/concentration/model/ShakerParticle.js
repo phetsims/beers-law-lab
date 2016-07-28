@@ -38,7 +38,7 @@ define( function( require ) {
     this.acceleration = acceleration;
     this.tandem = tandem;
 
-    TShakerParticle && tandem.addInstance( this, TShakerParticle );
+    tandem.addInstance( this, TShakerParticle );
 
     // @private
     this.disposeShakerParticle = function() {

@@ -74,7 +74,7 @@ define( function( require ) {
     } );
     thisNode.addInputListener( this.movableDragHandler );
 
-    TNode && tandem.addInstance( this, TNode );
+    tandem.addInstance( this, TNode );
   }
 
   beersLawLab.register( 'BLLRulerNode', BLLRulerNode );

@@ -54,7 +54,7 @@ define( function( require ) {
     thisShaker.emptyProperty.link( observer );
     thisShaker.visibleProperty.link( observer );
 
-    TShaker && tandem.addInstance( this, TShaker );
+    tandem.addInstance( this, TShaker );
   }
 
   beersLawLab.register( 'Shaker', Shaker );
