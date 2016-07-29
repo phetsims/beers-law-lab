@@ -32,11 +32,11 @@ define( function( require ) {
     // @public
     thisEvaporator.evaporationRateProperty = new Property( 0, {
       tandem: tandem.createTandem( 'evaporationRateProperty' ),
-      type: TNumber( 'liters/second' )
+      phetioValueType: TNumber( 'liters/second' )
     } ); // L/sec
     thisEvaporator.enabledProperty = new Property( true, {
       tandem: tandem.createTandem( 'enabledProperty' ),
-      type: TBoolean
+      phetioValueType: TBoolean
     } );
 
     // disable when the volume gets to zero

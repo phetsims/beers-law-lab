@@ -52,7 +52,7 @@ define( function( require ) {
     // @public
     thisModel.solutionProperty = new Property( thisModel.solutions[ 0 ], {
       tandem: tandem.createTandem( 'solutionProperty' ),
-      type: TSolution
+      phetioValueType: TSolution
     } );
 
     // @public NOTE: All locations are relative to the location of the cuvette.

@@ -51,7 +51,7 @@ define( function( require ) {
       itemYMargin: 12,
       itemHighlightFill: 'rgb(218,255,255)',
       tandem: tandem,
-      type: TSolute
+      phetioValueType: TSolute
     } );
   }
 

@@ -73,7 +73,7 @@ define( function( require ) {
     thisSolution.molarAbsorptivityData = molarAbsorptivityData;
     thisSolution.concentrationProperty = new Property( concentrationRange.defaultValue, {
       tandem: tandem.createTandem( 'concentrationProperty' ),
-      type: TNumber( 'moles/liter' )
+      phetioValueType: TNumber( 'moles/liter' )
     } );
     thisSolution.concentrationRange = concentrationRange;
     thisSolution.concentrationTransform = concentrationTransform;

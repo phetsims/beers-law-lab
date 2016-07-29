@@ -46,7 +46,7 @@ define( function( require ) {
       new TextAndIconNode( solidString, shakerIconImage, TEXT_OPTIONS ), {
         radius: BLLConstants.RADIO_BUTTON_RADIUS,
         tandem: tandem.createTandem( 'solidRadioButton' ),
-        type: TString
+        phetioValueType: TString
       } );
 
     // vertical separator
@@ -62,7 +62,7 @@ define( function( require ) {
         radius: BLLConstants.RADIO_BUTTON_RADIUS,
         left: separator.right + SEPARATOR_SPACING,
         tandem: tandem.createTandem( 'solutionRadioButton' ),
-        type: TString
+        phetioValueType: TString
       } );
 
     Node.call( this, { children: [ shakerButton, separator, dropperButton ] } );

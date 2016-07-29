@@ -50,7 +50,7 @@ define( function( require ) {
     // @private is the wavelength variable or fixed?
     this.variableWavelengthProperty = new Property( false, {
       tandem: tandem.createTandem( 'variableWavelengthProperty' ),
-      type: TBoolean
+      phetioValueType: TBoolean
     } );
 
     var xMargin = 7;
@@ -92,7 +92,7 @@ define( function( require ) {
           } ), {
             radius: BLLConstants.RADIO_BUTTON_RADIUS,
             tandem: tandem.createTandem( 'presetWavelengthRadioButton' ),
-            type: TBoolean
+            phetioValueType: TBoolean
           } ),
         // variable
         new AquaRadioButton( this.variableWavelengthProperty, true,
@@ -102,7 +102,7 @@ define( function( require ) {
           } ), {
             radius: BLLConstants.RADIO_BUTTON_RADIUS,
             tandem: tandem.createTandem( 'variableWavelengthRadioButton' ),
-            type: TBoolean
+            phetioValueType: TBoolean
           } )
       ]
     } );

@@ -40,7 +40,7 @@ define( function( require ) {
     // @public
     thisFaucet.flowRateProperty = new Property( 0, {
       tandem: tandem.createTandem( 'flowRateProperty' ),
-      type: TNumber( 'liters/second' )
+      phetioValueType: TNumber( 'liters/second' )
     } );
     thisFaucet.enabledProperty = new Property( true );
 

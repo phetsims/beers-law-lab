@@ -64,11 +64,11 @@ define( function( require ) {
     // @public
     thisModel.soluteProperty = new Property( thisModel.solutes[ 0 ], {
       tandem: tandem.createTandem( 'soluteProperty' ),
-      type: TSolute
+      phetioValueType: TSolute
     } );
     thisModel.soluteFormProperty = new Property( 'solid', {
       tandem: tandem.createTandem( 'soluteFormProperty' ),
-      type: TString
+      phetioValueType: TString
     } ); // 'solid' or 'solution'
 
     // @public

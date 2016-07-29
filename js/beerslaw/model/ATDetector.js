@@ -42,7 +42,7 @@ define( function( require ) {
     // @public for switching between absorbance (A) and percent transmittance (%T)
     thisDetector.modeProperty = new Property( ATDetector.Mode.TRANSMITTANCE, {
       tandem: tandem.createTandem( 'modeProperty' ),
-      type: TString
+      phetioValueType: TString
     } );
 
     // @public value is either absorbance (A) or percent transmittance (%T) depending on mode
@@ -69,7 +69,7 @@ define( function( require ) {
         return value;
       }, {
         tandem: tandem.createTandem( 'valueProperty' ),
-        type: TNumber( 'unitless' )
+        phetioValueType: TNumber( 'unitless' )
       } );
   }
 

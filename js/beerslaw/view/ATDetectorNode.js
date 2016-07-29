@@ -89,12 +89,12 @@ define( function( require ) {
     var transmittanceRadioButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.TRANSMITTANCE, new Text( transmittanceString, textOptions ), {
       radius: BLLConstants.RADIO_BUTTON_RADIUS,
       tandem: tandem.createTandem( 'transmittanceRadioButton' ),
-      type: TString
+      phetioValueType: TString
     } );
     var absorbanceRadioButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.ABSORBANCE, new Text( absorbanceString, textOptions ), {
       radius: BLLConstants.RADIO_BUTTON_RADIUS,
       tandem: tandem.createTandem( 'absorbanceRadioButton' ),
-      type: TString
+      phetioValueType: TString
     } );
 
     // group the buttons

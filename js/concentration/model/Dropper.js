@@ -37,16 +37,16 @@ define( function( require ) {
     thisDropper.visibleProperty = new Property( visible );
     thisDropper.dispensingProperty = new Property( false, {
       tandem: tandem.createTandem( 'dispensingProperty' ),
-      type: TBoolean
+      phetioValueType: TBoolean
     } ); // true if the dropper is dispensing solution
     thisDropper.enabledProperty = new Property( true );
     thisDropper.emptyProperty = new Property( false, {
       tandem: tandem.createTandem( 'emptyProperty' ),
-      type: TBoolean
+      phetioValueType: TBoolean
     } );
     thisDropper.flowRateProperty = new Property( 0, {
       tandem: tandem.createTandem( 'flowRateProperty' ),
-      type: TNumber( 'liters/second' )
+      phetioValueType: TNumber( 'liters/second' )
     } ); // L/sec
 
     // Turn off the dropper when it's disabled.

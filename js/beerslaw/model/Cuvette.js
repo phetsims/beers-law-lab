@@ -35,7 +35,7 @@ define( function( require ) {
     this.widthRange = widthRange;
     this.widthProperty = new Property( widthRange.defaultValue, {
       tandem: tandem.createTandem( 'widthProperty' ),
-      type: TNumber( 'centimeters', { range: widthRange } )
+      phetioValueType: TNumber( 'centimeters', { range: widthRange } )
     } );
     this.height = height;
   }

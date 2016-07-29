@@ -37,11 +37,11 @@ define( function( require ) {
     // @public
     thisLight.onProperty = new Property( on, {
       tandem: tandem.createTandem( 'onProperty' ),
-      type: TBoolean
+      phetioValueType: TBoolean
     } );
     thisLight.wavelengthProperty = new Property( solutionProperty.get().molarAbsorptivityData.lambdaMax /*nm*/, {
       tandem: tandem.createTandem( 'wavelengthProperty' ),
-      type: TNumber( 'nanometers' )
+      phetioValueType: TNumber( 'nanometers' )
     } );
 
     // when the solution changes, set the light to the solution's lambdaMax wavelength

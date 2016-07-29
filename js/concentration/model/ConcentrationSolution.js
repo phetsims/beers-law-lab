@@ -40,11 +40,11 @@ define( function( require ) {
     thisSolution.soluteProperty = soluteProperty;
     thisSolution.soluteAmountProperty = new Property( soluteAmount, {
       tandem: tandem.createTandem( 'soluteAmountProperty' ),
-      type: TNumber( 'moles', { range: BLLConstants.SOLUTE_AMOUNT_RANGE } )
+      phetioValueType: TNumber( 'moles', { range: BLLConstants.SOLUTE_AMOUNT_RANGE } )
     } );
     thisSolution.volumeProperty = new Property( volume, {
       tandem: tandem.createTandem( 'volumeProperty' ),
-      type: TNumber( 'liters', { range: BLLConstants.SOLUTION_VOLUME_RANGE } )
+      phetioValueType: TNumber( 'liters', { range: BLLConstants.SOLUTION_VOLUME_RANGE } )
     } ); // L
 
     // @public for deferring update of precipitateAmount until we've changed both volume and soluteAmount, see concentration#1
@@ -62,7 +62,7 @@ define( function( require ) {
         }
       }, {
         tandem: tandem.createTandem( 'precipitateAmountProperty' ),
-        type: TNumber( 'moles' )
+        phetioValueType: TNumber( 'moles' )
       }
     );
 
@@ -73,7 +73,7 @@ define( function( require ) {
         return ( volume > 0 ) ? Math.min( thisSolution.getSaturatedConcentration(), soluteAmount / volume ) : 0;
       }, {
         tandem: tandem.createTandem( 'concentrationProperty' ),
-        type: TNumber( 'moles/liter' )
+        phetioValueType: TNumber( 'moles/liter' )
       }
     );
 
@@ -83,7 +83,7 @@ define( function( require ) {
         return ( volume > 0 ) && ( soluteAmount / volume ) > solute.getSaturatedConcentration();
       }, {
         tandem: tandem.createTandem( 'saturatedProperty' ),
-        type: TBoolean
+        phetioValueType: TBoolean
       }
     );
 
@@ -93,7 +93,7 @@ define( function( require ) {
         return solute.molarMass * ( soluteAmount - precipitateAmount );
       }, {
         tandem: tandem.createTandem( 'soluteGramsProperty' ),
-        type: TNumber( 'grams' )
+        phetioValueType: TNumber( 'grams' )
       }
     );
 
@@ -109,7 +109,7 @@ define( function( require ) {
         return percentConcentration;
       }, {
         tandem: tandem.createTandem( 'percentConcentrationProperty' ),
-        type: TNumber( 'percent' )
+        phetioValueType: TNumber( 'percent' )
       }
     );
 

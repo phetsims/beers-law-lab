@@ -26,7 +26,7 @@ define( function( require ) {
   function Movable( location, dragBounds, tandem ) {
     this.locationProperty = new Property( location, {
       tandem: tandem.createTandem( 'locationProperty' ),
-      type: TVector2
+      phetioValueType: TVector2
     } ); // @public
     this.dragBounds = dragBounds; // @public (read-only)
   }
