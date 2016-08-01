@@ -86,16 +86,18 @@ define( function( require ) {
 
     // buttons for changing the detector 'mode'
     var textOptions = { font: new PhetFont( 18 ), fill: 'white' };
-    var transmittanceRadioButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.TRANSMITTANCE, new Text( transmittanceString, textOptions ), {
-      radius: BLLConstants.RADIO_BUTTON_RADIUS,
-      tandem: tandem.createTandem( 'transmittanceRadioButton' ),
-      phetioValueType: TString
-    } );
-    var absorbanceRadioButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.ABSORBANCE, new Text( absorbanceString, textOptions ), {
-      radius: BLLConstants.RADIO_BUTTON_RADIUS,
-      tandem: tandem.createTandem( 'absorbanceRadioButton' ),
-      phetioValueType: TString
-    } );
+    var transmittanceRadioButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.TRANSMITTANCE,
+      new Text( transmittanceString, textOptions ), {
+        radius: BLLConstants.RADIO_BUTTON_RADIUS,
+        tandem: tandem.createTandem( 'transmittanceRadioButton' ),
+        phetioValueType: TString
+      } );
+    var absorbanceRadioButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.ABSORBANCE,
+      new Text( absorbanceString, textOptions ), {
+        radius: BLLConstants.RADIO_BUTTON_RADIUS,
+        tandem: tandem.createTandem( 'absorbanceRadioButton' ),
+        phetioValueType: TString
+      } );
 
     // group the buttons
     var buttonGroup = new LayoutBox( {
@@ -155,12 +157,10 @@ define( function( require ) {
       if ( value === null ) {
         valueNode.text = NO_VALUE;
         valueNode.centerX = valueBackgroundNode.centerX;
-      }
-      else {
+      } else {
         if ( detector.modeProperty.get() === ATDetector.Mode.TRANSMITTANCE ) {
           valueNode.text = StringUtils.format( pattern0PercentString, Util.toFixed( value, TRANSMITTANCE_DECIMAL_PLACES ) );
-        }
-        else {
+        } else {
           valueNode.text = Util.toFixed( value, ABSORBANCE_DECIMAL_PLACES );
         }
         valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN; // right justified
@@ -277,3 +277,4 @@ define( function( require ) {
 
   return inherit( Node, ATDetectorNode );
 } );
+
