@@ -13,7 +13,6 @@ define( function( require ) {
   var BeersLawModel = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawModel' );
   var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var ConcentrationModel = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationModel' );
-  var PhETIOCommon = require( 'PHET_IO/PhETIOCommon' );
   var phetio = require( 'PHET_IO/phetio' );
   var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
   var Tandem = require( 'TANDEM/Tandem' );
@@ -47,9 +46,9 @@ define( function( require ) {
   var TVector2 = require( 'PHET_IO/types/dot/TVector2' );
   var TWavelengthSlider = require( 'PHET_IO/types/scenery-phet/TWavelengthSlider' );
 
-  var beersLawLabAPI = PhETIOCommon.createAPI( {
+  var beersLawLabAPI = createAPI( {
 
-    beersLawLab: PhETIOCommon.createSim( {
+    beersLawLab: createSim( {
       solutes: {
 
         // Available Solutes
