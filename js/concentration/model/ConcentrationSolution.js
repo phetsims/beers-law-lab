@@ -93,7 +93,7 @@ define( function( require ) {
         return solute.molarMass * ( soluteAmount - precipitateAmount );
       }, {
         tandem: tandem.createTandem( 'soluteGramsProperty' ),
-        phetioValueType: TNumber( {units:'grams'} )
+        phetioValueType: TNumber( { units: 'grams' } )
       }
     );
 
@@ -109,7 +109,7 @@ define( function( require ) {
         return percentConcentration;
       }, {
         tandem: tandem.createTandem( 'percentConcentrationProperty' ),
-        phetioValueType: TNumber( {units:'percent'} )
+        phetioValueType: TNumber( { units: 'percent' } )
       }
     );
 
