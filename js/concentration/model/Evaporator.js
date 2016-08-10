@@ -32,7 +32,7 @@ define( function( require ) {
     // @public
     thisEvaporator.evaporationRateProperty = new Property( 0, {
       tandem: tandem.createTandem( 'evaporationRateProperty' ),
-      phetioValueType: TNumber( 'liters/second' )
+      phetioValueType: TNumber( { units: 'liters/second' } )
     } ); // L/sec
     thisEvaporator.enabledProperty = new Property( true, {
       tandem: tandem.createTandem( 'enabledProperty' ),

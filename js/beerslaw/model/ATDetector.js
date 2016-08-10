@@ -69,7 +69,7 @@ define( function( require ) {
         return value;
       }, {
         tandem: tandem.createTandem( 'valueProperty' ),
-        phetioValueType: TNumber( 'unitless' )
+        phetioValueType: TNumber()
       } );
   }
 

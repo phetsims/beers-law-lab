@@ -46,7 +46,7 @@ define( function( require ) {
     } );
     thisDropper.flowRateProperty = new Property( 0, {
       tandem: tandem.createTandem( 'flowRateProperty' ),
-      phetioValueType: TNumber( 'liters/second' )
+      phetioValueType: TNumber( { units: 'liters/second' } )
     } ); // L/sec
 
     // Turn off the dropper when it's disabled.

@@ -40,11 +40,11 @@ define( function( require ) {
     thisSolution.soluteProperty = soluteProperty;
     thisSolution.soluteAmountProperty = new Property( soluteAmount, {
       tandem: tandem.createTandem( 'soluteAmountProperty' ),
-      phetioValueType: TNumber( 'moles', { range: BLLConstants.SOLUTE_AMOUNT_RANGE } )
+      phetioValueType: TNumber( { units: 'moles', range: BLLConstants.SOLUTE_AMOUNT_RANGE } )
     } );
     thisSolution.volumeProperty = new Property( volume, {
       tandem: tandem.createTandem( 'volumeProperty' ),
-      phetioValueType: TNumber( 'liters', { range: BLLConstants.SOLUTION_VOLUME_RANGE } )
+      phetioValueType: TNumber( { units: 'liters', range: BLLConstants.SOLUTION_VOLUME_RANGE } )
     } ); // L
 
     // @public for deferring update of precipitateAmount until we've changed both volume and soluteAmount, see concentration#1
@@ -62,7 +62,7 @@ define( function( require ) {
         }
       }, {
         tandem: tandem.createTandem( 'precipitateAmountProperty' ),
-        phetioValueType: TNumber( 'moles' )
+        phetioValueType: TNumber( { units: 'moles' } )
       }
     );
 
@@ -73,7 +73,7 @@ define( function( require ) {
         return ( volume > 0 ) ? Math.min( thisSolution.getSaturatedConcentration(), soluteAmount / volume ) : 0;
       }, {
         tandem: tandem.createTandem( 'concentrationProperty' ),
-        phetioValueType: TNumber( 'moles/liter' )
+        phetioValueType: TNumber( { units: 'moles/liter' } )
       }
     );
 
@@ -93,7 +93,7 @@ define( function( require ) {
         return solute.molarMass * ( soluteAmount - precipitateAmount );
       }, {
         tandem: tandem.createTandem( 'soluteGramsProperty' ),
-        phetioValueType: TNumber( 'grams' )
+        phetioValueType: TNumber( {units:'grams'} )
       }
     );
 
@@ -109,7 +109,7 @@ define( function( require ) {
         return percentConcentration;
       }, {
         tandem: tandem.createTandem( 'percentConcentrationProperty' ),
-        phetioValueType: TNumber( 'percent' )
+        phetioValueType: TNumber( {units:'percent'} )
       }
     );
 
