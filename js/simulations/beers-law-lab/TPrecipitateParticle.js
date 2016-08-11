@@ -18,10 +18,13 @@ define( function( require ) {
   var TTandem = require( 'PHET_IO/types/tandem/TTandem' );
   var TVector2 = require( 'PHET_IO/types/dot/TVector2' );
 
-  var TPrecipitateParticle = phetioInherit( TObject, 'TPrecipitateParticle', function( instance, phetioID ) {
+  var TPrecipitateParticle = function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.PrecipitateParticle );
-  }, {
+  };
+
+  phetioInherit( TObject, 'TPrecipitateParticle', TPrecipitateParticle, {
+
     setValue: {
       implementation: function( value ) {
         // grouped item, should have value set with create.  What is this for?  I don't know.

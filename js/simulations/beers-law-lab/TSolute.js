@@ -8,7 +8,7 @@
 define( function( require ) {
   'use strict';
 
-   // modules
+  // modules
   var assertInstanceOf = require( 'PHET_IO/assertions/assertInstanceOf' );
   var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
   var phetioInherit = require( 'PHET_IO/phetioInherit' );
@@ -16,10 +16,12 @@ define( function( require ) {
   var TString = require( 'PHET_IO/types/TString' );
   var TVoid = require( 'PHET_IO/types/TVoid' );
 
-  var TSolute = phetioInherit( TObject, 'TSolute', function( instance, phetioID ) {
+  var TSolute = function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.Solute );
-  }, {
+  };
+
+  phetioInherit( TObject, 'TSolute', TSolute, {
 
     setName: {
       returnType: TVoid,

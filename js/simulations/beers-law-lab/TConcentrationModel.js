@@ -17,10 +17,12 @@ define( function( require ) {
   var TSolute = require( 'PHET_IO/simulations/beers-law-lab/TSolute' );
   var TVoid = require( 'PHET_IO/types/TVoid' );
 
-  var TConcentrationModel = phetioInherit( TObject, 'TConcentrationModel', function( instance, phetioID ) {
+  var TConcentrationModel = function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.ConcentrationModel );
-  }, {
+  };
+
+  phetioInherit( TObject, 'TConcentrationModel', TConcentrationModel, {
 
     // For instance:
     // http://localhost/concentration/concentration_en.html?ea&brand=phet-io&phet-io.standalone&phet-io.log=lines&phet-io.expressions=[["concentration.concentrationScreen.model","setSolutes",[["concentration.solutes.cobaltIINitrate","concentration.solutes.cobaltChloride","concentration.solutes.drinkMix"]]]]

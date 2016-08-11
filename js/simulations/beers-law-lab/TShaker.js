@@ -8,7 +8,7 @@
 define( function( require ) {
   'use strict';
 
-   // modules
+  // modules
   var assertInstanceOf = require( 'PHET_IO/assertions/assertInstanceOf' );
   var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
   var phetioInherit = require( 'PHET_IO/phetioInherit' );
@@ -16,10 +16,12 @@ define( function( require ) {
   var TVector2 = require( 'PHET_IO/types/dot/TVector2' );
   var TVoid = require( 'PHET_IO/types/TVoid' );
 
-  var TShaker = phetioInherit( TObject, 'TShaker', function( instance, phetioID ) {
+  var TShaker = function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.Shaker );
-  }, {
+  };
+
+  phetioInherit( TObject, 'TShaker', TShaker, {
 
     setValue: {
       returnType: TVoid,

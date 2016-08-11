@@ -15,10 +15,12 @@ define( function( require ) {
   var TObject = require( 'PHET_IO/types/TObject' );
   var TVoid = require( 'PHET_IO/types/TVoid' );
 
-  var TPrecipitate = phetioInherit( TObject, 'TPrecipitate', function( instance, phetioID ) {
+  var TPrecipitate = function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.Precipitate );
-  }, {
+  };
+
+  phetioInherit( TObject, 'TPrecipitate', TPrecipitate, {
     setValue: {
       returnType: TVoid,
       parameterTypes: [],

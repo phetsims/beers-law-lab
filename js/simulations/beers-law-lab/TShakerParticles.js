@@ -15,10 +15,12 @@ define( function( require ) {
   var TObject = require( 'PHET_IO/types/TObject' );
   var TVoid = require( 'PHET_IO/types/TVoid' );
 
-  var TShakerParticles = phetioInherit( TObject, 'TShakerParticles', function( instance, phetioID ) {
+  var TShakerParticles = function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.ShakerParticles );
-  }, {
+  };
+
+  phetioInherit( TObject, 'TShakerParticles', TShakerParticles, {
     setValue: {
       returnType: TVoid,
       parameterTypes: [],
