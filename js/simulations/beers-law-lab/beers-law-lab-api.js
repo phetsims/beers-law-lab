@@ -46,9 +46,9 @@ define( function( require ) {
   var TVector2 = require( 'PHET_IO/types/dot/TVector2' );
   var TWavelengthSlider = require( 'PHET_IO/types/scenery-phet/TWavelengthSlider' );
 
-  var beersLawLabAPI = createAPI( {
+  var beersLawLabAPI = ( {
 
-    beersLawLab: createSim( {
+    beersLawLab: ( {
       solutes: {
 
         // Available Solutes
