@@ -56,7 +56,7 @@ define( function( require ) {
 
   // Gets a random orientation, in radians.
   var getRandomOrientation = function() {
-    return Math.random() * 2 * Math.PI;
+    return phet.joist.random.nextDouble() * 2 * Math.PI;
   };
 
   return inherit( Particles, Precipitate, {
@@ -119,7 +119,7 @@ define( function( require ) {
       // particles are square, largest margin required is the diagonal length
       var margin = Math.sqrt( particleSize * particleSize );
       // offset
-      var x = this.beaker.location.x - ( this.beaker.size.width / 2 ) + margin + ( Math.random() * ( this.beaker.size.width - ( 2 * margin ) ) );
+      var x = this.beaker.location.x - ( this.beaker.size.width / 2 ) + margin + ( phet.joist.random.nextDouble() * ( this.beaker.size.width - ( 2 * margin ) ) );
       var y = this.beaker.location.y - margin; // this was tweaked based on the lineWidth used to stroke the beaker
       return new Vector2( x, y );
     }

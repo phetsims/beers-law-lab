@@ -61,20 +61,14 @@ define( function( require ) {
 
   // Gets a random location relative to some origin
   var getRandomLocation = function( origin ) {
-    // (Math.floor(Math.random() * (randNumMax - randNumMin + 1)) + randNumMin);
-    var xOffset = getRandomInt( -MAX_X_OFFSET, MAX_X_OFFSET ); // positive or negative
-    var yOffset = getRandomInt( 0, MAX_Y_OFFSET ); // positive only
+    var xOffset = phet.joist.random.randomIntegerBetween( -MAX_X_OFFSET, MAX_X_OFFSET ); // positive or negative
+    var yOffset = phet.joist.random.randomIntegerBetween( 0, MAX_Y_OFFSET ); // positive only
     return new Vector2( origin.x + xOffset, origin.y + yOffset );
-  };
-
-  // Gets a random number in a range
-  var getRandomInt = function( min, max ) {
-    return (Math.floor( Math.random() * (max - min + 1) ) + min);
   };
 
   // Gets a random orientation, in radians.
   var getRandomOrientation = function() {
-    return Math.random() * 2 * Math.PI;
+    return phet.joist.random.nextDouble() * 2 * Math.PI;
   };
 
   return inherit( Particles, ShakerParticles, {
