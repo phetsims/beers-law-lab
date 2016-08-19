@@ -61,8 +61,8 @@ define( function( require ) {
 
   // Gets a random location relative to some origin
   var getRandomLocation = function( origin ) {
-    var xOffset = phet.joist.random.randomIntegerBetween( -MAX_X_OFFSET, MAX_X_OFFSET ); // positive or negative
-    var yOffset = phet.joist.random.randomIntegerBetween( 0, MAX_Y_OFFSET ); // positive only
+    var xOffset = phet.joist.random.nextIntBetween( -MAX_X_OFFSET, MAX_X_OFFSET ); // positive or negative
+    var yOffset = phet.joist.random.nextIntBetween( 0, MAX_Y_OFFSET ); // positive only
     return new Vector2( origin.x + xOffset, origin.y + yOffset );
   };
 
