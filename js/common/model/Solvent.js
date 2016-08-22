@@ -15,9 +15,6 @@ define( function( require ) {
   var Fluid = require( 'BEERS_LAW_LAB/common/model/Fluid' );
   var inherit = require( 'PHET_CORE/inherit' );
 
-  // strings
-  var waterString = require( 'string!BEERS_LAW_LAB/water' );
-
   /**
    * @param {string} name
    * @param {string} formula
@@ -39,7 +36,9 @@ define( function( require ) {
 
   Solvent.WATER_COLOR = new Color( 224, 255, 255 );
 
-  Solvent.WATER = new Solvent( waterString, BLLSymbols.WATER, 1000, Solvent.WATER_COLOR );
+  // 'water' is not currently presented to the user, since this sim supports only 1 solvent.
+  // See https://github.com/phetsims/beers-law-lab/issues/190
+  Solvent.WATER = new Solvent( 'water', BLLSymbols.WATER, 1000, Solvent.WATER_COLOR );
 
   return inherit( Fluid, Solvent );
 } );
