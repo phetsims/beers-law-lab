@@ -17,7 +17,7 @@ define( function( require ) {
   var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
   var Tandem = require( 'TANDEM/Tandem' );
   var TBoolean = require( 'PHET_IO/types/TBoolean' );
-  var TButton = require( 'PHET_IO/types/sun/buttons/TButton' );
+  var TPushButton = require( 'PHET_IO/types/sun/buttons/TPushButton' );
   var TColor = require( 'PHET_IO/types/scenery/util/TColor' );
   var TComboBox = require( 'PHET_IO/types/sun/TComboBox' );
   var TConcentrationModel = require( 'PHET_IO/simulations/beers-law-lab/TConcentrationModel' );
@@ -140,7 +140,7 @@ define( function( require ) {
         view: {
           resetAllButton: TResetAllButton,
 
-          removeSoluteButton: TButton,
+          removeSoluteButton: TPushButton,
 
           shakerNode: TNode.extend( {
             inputListener: TTandemDragHandler
@@ -245,8 +245,8 @@ define( function( require ) {
             presetWavelengthRadioButton: TRadioButton( TBoolean ),
             variableWavelengthRadioButton: TRadioButton( TBoolean ),
             wavelengthSlider: TWavelengthSlider.extend( {
-              plusButton: TButton,
-              minusButton: TButton
+              plusButton: TPushButton,
+              minusButton: TPushButton
             } )
           },
 
@@ -276,8 +276,8 @@ define( function( require ) {
                 track: {
                   inputListener: TTandemDragHandler
                 },
-                plusButton: TButton,
-                minusButton: TButton
+                plusButton: TPushButton,
+                minusButton: TPushButton
               } )
             }
           }
