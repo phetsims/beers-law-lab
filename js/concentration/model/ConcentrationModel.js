@@ -86,8 +86,9 @@ define( function( require ) {
     thisModel.concentrationMeter = new ConcentrationMeter( new Vector2( 785, 210 ), new Bounds2( 10, 150, 835, 680 ),
       new Vector2( 750, 370 ), new Bounds2( 30, 150, 966, 680 ), tandem.createTandem( 'concentrationMeter' ) );
 
-    // Things to do when the solute is changed.
-    thisModel.soluteProperty.link( function() {
+    // When the solute is changed, the amount of solute resets to 0.  This is a lazyLink instead of link so that
+    // the simulation can be launched with a nonzero solute amount (using PhET-iO)
+    thisModel.soluteProperty.lazyLink( function() {
       thisModel.solution.soluteAmountProperty.set( 0 );
     } );
 
