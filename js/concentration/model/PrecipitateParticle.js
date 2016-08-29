@@ -30,7 +30,6 @@ define( function( require ) {
 
     // @public (phet-io)
     this.solute = solute;
-    this.tandem = tandem;
 
     tandem.addInstance( this, TPrecipitateParticle );
 

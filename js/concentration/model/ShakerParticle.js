@@ -36,7 +36,6 @@ define( function( require ) {
     this.solute = solute;
     this.velocity = initialVelocity;
     this.acceleration = acceleration;
-    this.tandem = tandem;
 
     tandem.addInstance( this, TShakerParticle );
 
