@@ -13,6 +13,7 @@ define( function( require ) {
   var BeamNode = require( 'BEERS_LAW_LAB/beerslaw/view/BeamNode' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+  var BLLQueryParameters = require( 'BEERS_LAW_LAB/common/BLLQueryParameters' );
   var BLLRulerNode = require( 'BEERS_LAW_LAB/beerslaw/view/BLLRulerNode' );
   var CuvetteNode = require( 'BEERS_LAW_LAB/beerslaw/view/CuvetteNode' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -35,7 +36,7 @@ define( function( require ) {
     ScreenView.call( thisView, BLLConstants.SCREEN_VIEW_OPTIONS );
 
     var lightNode = new LightNode( model.light, modelViewTransform, tandem.createTandem( 'lightNode' ) );
-    var cuvetteNode = new CuvetteNode( model.cuvette, model.solutionProperty, modelViewTransform, 0.1 /* snapInterval, cm */, tandem.createTandem( 'cuvetteNode' ) );
+    var cuvetteNode = new CuvetteNode( model.cuvette, model.solutionProperty, modelViewTransform, BLLQueryParameters.CUVETTE_SNAP_INTERVAL, tandem.createTandem( 'cuvetteNode' ) );
     var beamNode = new BeamNode( model.beam );
     var detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform, tandem.createTandem( 'detectorNode' ) );
     var wavelengthControls = new WavelengthControls( model.solutionProperty, model.light, tandem.createTandem( 'wavelengthControls' ) );

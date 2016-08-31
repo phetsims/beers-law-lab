@@ -149,10 +149,13 @@ define( function( require ) {
       },
 
       end: function() {
-        var numberOfIntervals = Math.floor( ( cuvette.widthProperty.get() + ( snapInterval / 2 ) ) / snapInterval );
-        var newWidth = numberOfIntervals * snapInterval;
 
-        cuvette.widthProperty.set( newWidth );
+        // snapInterval can be customized via query parameter
+        if ( snapInterval > 0 ) {
+          var numberOfIntervals = Math.floor( ( cuvette.widthProperty.get() + ( snapInterval / 2 ) ) / snapInterval );
+          var newWidth = numberOfIntervals * snapInterval;
+          cuvette.widthProperty.set( newWidth );
+        }
       }
     } );
   }

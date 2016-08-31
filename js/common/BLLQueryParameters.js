@@ -10,10 +10,10 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-
-  var getQueryParameter = phet.chipper.getQueryParameter;
+  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
 
   // constants - valid values, 0th element is the default
+  var getQueryParameter = phet.chipper.getQueryParameter;
   var CONCENTRATION_METER_UNITS_VALUES = [ 'molesPerLiter', 'percent' ];
   var BEAKER_TICK_UNITS_VALUES = [ 'liters', 'milliliters' ];
 
@@ -26,7 +26,12 @@ define( function( require ) {
     CONCENTRATION_METER_UNITS: getQueryParameter( 'concentrationMeterUnits' ) || CONCENTRATION_METER_UNITS_VALUES[ 0 ],
 
     // {string} units for beaker ticks, see beers-law-lab#150
-    BEAKER_UNITS: getQueryParameter( 'beakerUnits' ) || BEAKER_TICK_UNITS_VALUES[ 0 ]
+    BEAKER_UNITS: getQueryParameter( 'beakerUnits' ) || BEAKER_TICK_UNITS_VALUES[ 0 ],
+
+    // {number} snap interval for the cuvette in centimeters, or 0 for no snap
+    CUVETTE_SNAP_INTERVAL: getQueryParameter( 'cuvetteSnapInterval' ) ?
+                           parseInt( getQueryParameter( 'cuvetteSnapInterval' ), 10 ) :
+                           BLLConstants.DEFAULT_CUVETTE_SNAP_INTERVAL
   };
 
   // validation - use Error instead of assert, because these are user errors, not programming errors
