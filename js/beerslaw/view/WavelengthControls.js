@@ -22,6 +22,7 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
+  var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
   var Util = require( 'DOT/Util' );
   var VBox = require( 'SCENERY/nodes/VBox' );
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
@@ -36,6 +37,7 @@ define( function( require ) {
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+  var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
 
   /**
    * @param {Property.<BeersLawSolution>} solutionProperty
@@ -56,15 +58,17 @@ define( function( require ) {
     var xMargin = 7;
     var yMargin = 3;
 
-    var label = new Text( StringUtils.format( pattern0LabelString, wavelengthString ), {
-      font: new PhetFont( 20 ),
-      fill: 'black'
-    } );
-
-    var valueDisplay = new Text( formatWavelength( light.wavelengthProperty.get() ), {
+    var label = new TandemText( StringUtils.format( pattern0LabelString, wavelengthString ), {
       font: new PhetFont( 20 ),
       fill: 'black',
-      y: label.y // align baselines
+      tandem: tandem.createTandem( 'label' )
+    } );
+
+    var valueDisplay = new TandemText( formatWavelength( light.wavelengthProperty.get() ), {
+      font: new PhetFont( 20 ),
+      fill: 'black',
+      y: label.y, // align baselines
+      tandem: tandem.createTandem( 'valueDisplay' )
     } );
 
     var valueBackground = new Rectangle( 0, 0, valueDisplay.width + xMargin + xMargin, valueDisplay.height + yMargin + yMargin, {
@@ -73,6 +77,7 @@ define( function( require ) {
       left: label.right + 10,
       centerY: valueDisplay.centerY
     } );
+    tandem.createTandem( 'valueBackground' ).addInstance( valueBackground, TNode );
     valueDisplay.right = valueBackground.right - xMargin; // right aligned
 
     var valueParent = new Node( {
