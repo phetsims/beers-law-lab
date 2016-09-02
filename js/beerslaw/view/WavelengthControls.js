@@ -139,17 +139,15 @@ define( function( require ) {
 
     // When the radio button selection changes...
     this.variableWavelengthProperty.link( function( isVariable ) {
-      if ( isVariable ) {
 
-        // When running in PhET-iO, the variableWavelengthProperty can start out as true and we must protect against
-        // adding the wavelength slider twice, see https://github.com/phetsims/beers-law-lab/issues/192
-        if ( !content.hasChild( wavelengthSlider ) ) {
-          content.addChild( wavelengthSlider );
-        }
+      // add/remove the slider so that the panel resizes
+      if ( isVariable ) {
+        !content.hasChild( wavelengthSlider ) && content.addChild( wavelengthSlider );
       }
       else {
-        content.removeChild( wavelengthSlider );
+        content.hasChild( wavelengthSlider ) && content.removeChild( wavelengthSlider );
       }
+
       if ( !isVariable ) {
         // Set the light to the current solution's lambdaMax wavelength.
         light.wavelengthProperty.set( solutionProperty.get().molarAbsorptivityData.lambdaMax );
