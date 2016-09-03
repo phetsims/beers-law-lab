@@ -18,6 +18,7 @@ define( function( require ) {
   var TTandem = require( 'PHET_IO/types/tandem/TTandem' );
   var TVector2 = require( 'PHET_IO/types/dot/TVector2' );
   var TVoid = require( 'PHET_IO/types/TVoid' );
+  var phetio = require( 'PHET_IO/phetio' );
 
   var TShakerParticle = function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );

@@ -14,6 +14,7 @@ define( function( require ) {
   var phetioInherit = require( 'PHET_IO/phetioInherit' );
   var TObject = require( 'PHET_IO/types/TObject' );
   var TVoid = require( 'PHET_IO/types/TVoid' );
+  var phetio = require( 'PHET_IO/phetio' );
 
   var TPrecipitate = function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );

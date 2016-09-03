@@ -15,6 +15,7 @@ define( function( require ) {
   var TObject = require( 'PHET_IO/types/TObject' );
   var TString = require( 'PHET_IO/types/TString' );
   var TVoid = require( 'PHET_IO/types/TVoid' );
+  var phetio = require( 'PHET_IO/phetio' );
 
   var TSolute = function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
