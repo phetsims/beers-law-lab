@@ -33,14 +33,16 @@ define( function( require ) {
     // No offset, scale 125x when going from model to view (1cm == 125 pixels)
     var modelViewTransform = ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 125 );
 
+    var options = {
+      name: screenBeersLawString,
+      homeScreenIcon: new Image( screenIcon ),
+      tandem: tandem
+    };
+
     Screen.call( this,
-      screenBeersLawString,
-      new Image( screenIcon ),
       function() { return new BeersLawModel( modelViewTransform, tandem.createTandem( 'model' ) ); },
-      function( model ) { return new BeersLawView( model, modelViewTransform, tandem.createTandem( 'view' ) ); }, {
-        tandem: tandem
-      }
-    );
+      function( model ) { return new BeersLawView( model, modelViewTransform, tandem.createTandem( 'view' ) ); },
+      options );
   }
 
   beersLawLab.register( 'BeersLawScreen', BeersLawScreen );

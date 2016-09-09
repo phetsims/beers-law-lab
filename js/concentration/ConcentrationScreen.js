@@ -31,14 +31,16 @@ define( function( require ) {
 
     var modelViewTransform = ModelViewTransform2.createIdentity();
 
+    var options = {
+      name: screenConcentrationString,
+      homeScreenIcon: new Image( screenIcon ),
+      tandem: tandem
+    };
+
     Screen.call( this,
-      screenConcentrationString,
-      new Image( screenIcon ),
       function() { return new ConcentrationModel( tandem.createTandem( 'model' ) ); },
-      function( model ) { return new ConcentrationView( model, modelViewTransform, tandem.createTandem( 'view' ) ); }, {
-        tandem: tandem
-      }
-    );
+      function( model ) { return new ConcentrationView( model, modelViewTransform, tandem.createTandem( 'view' ) ); },
+      options );
   }
 
   beersLawLab.register( 'ConcentrationScreen', ConcentrationScreen );
