@@ -23,14 +23,7 @@ define( function( require ) {
     assertInstanceOf( instance, phet.beersLawLab.PrecipitateParticle );
   };
 
-  phetioInherit( TObject, 'TPrecipitateParticle', TPrecipitateParticle, {
-
-    setValue: {
-      implementation: function( value ) {
-        // grouped item, should have value set with create.  What is this for?  I don't know.
-      }
-    }
-  }, {
+  phetioInherit( TObject, 'TPrecipitateParticle', TPrecipitateParticle, {}, {
 
     /**
      * When the state is loaded back, create a ShakerParticle.
