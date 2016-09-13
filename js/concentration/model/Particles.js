@@ -12,6 +12,9 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
 
+  /**
+   * @constructor
+   */
   function Particles() {
     this.particles = []; // @public the particles in the collection
     this.changedCallbacks = []; // @protected called when the collection of particles changes
