@@ -32,8 +32,7 @@ define( function( require ) {
    */
   function BeersLawView( model, modelViewTransform, tandem ) {
 
-    var thisView = this;
-    ScreenView.call( thisView, BLLConstants.SCREEN_VIEW_OPTIONS );
+    ScreenView.call( this, BLLConstants.SCREEN_VIEW_OPTIONS );
 
     var lightNode = new LightNode( model.light, modelViewTransform, tandem.createTandem( 'lightNode' ) );
     var cuvetteNode = new CuvetteNode( model.cuvette, model.solutionProperty, modelViewTransform, BLLQueryParameters.CUVETTE_SNAP_INTERVAL, tandem.createTandem( 'cuvetteNode' ) );
@@ -55,15 +54,15 @@ define( function( require ) {
     } );
 
     // Rendering order
-    thisView.addChild( wavelengthControls );
-    thisView.addChild( resetAllButton );
-    thisView.addChild( solutionControls );
-    thisView.addChild( detectorNode );
-    thisView.addChild( cuvetteNode );
-    thisView.addChild( beamNode );
-    thisView.addChild( lightNode );
-    thisView.addChild( rulerNode );
-    thisView.addChild( comboBoxListParent ); // last, so that combo box list is on top
+    this.addChild( wavelengthControls );
+    this.addChild( resetAllButton );
+    this.addChild( solutionControls );
+    this.addChild( detectorNode );
+    this.addChild( cuvetteNode );
+    this.addChild( beamNode );
+    this.addChild( lightNode );
+    this.addChild( rulerNode );
+    this.addChild( comboBoxListParent ); // last, so that combo box list is on top
 
     // Layout for things that don't have a location in the model.
     {

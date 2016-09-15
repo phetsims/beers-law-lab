@@ -34,8 +34,8 @@ define( function( require ) {
    */
   function BLLRulerNode( ruler, modelViewTransform, tandem ) {
 
-    var thisNode = this;
-    Node.call( thisNode );
+    var self = this;
+    Node.call( this );
 
     // Compute tick labels, 1 major tick for every 0.5 unit of length, labels on the ticks that correspond to integer values.
     var majorTickLabels = [];
@@ -48,23 +48,23 @@ define( function( require ) {
     var width = modelViewTransform.modelToViewDeltaX( ruler.length );
     var height = modelViewTransform.modelToViewDeltaY( ruler.height );
     var majorTickWidth = modelViewTransform.modelToViewDeltaX( MAJOR_TICK_WIDTH );
-    thisNode.addChild( new RulerNode( width, height, majorTickWidth, majorTickLabels, unitsCentimetersString,
+    this.addChild( new RulerNode( width, height, majorTickWidth, majorTickLabels, unitsCentimetersString,
       { minorTicksPerMajorTick: 4, insetsWidth: 0 } ) );
 
     // touch area
-    var dx = 0.05 * thisNode.width;
-    var dy = 0.5 * thisNode.height;
-    thisNode.touchArea = Shape.rectangle( -dx, -dy, thisNode.width + dx + dx, thisNode.height + dy + dy );
+    var dx = 0.05 * this.width;
+    var dy = 0.5 * this.height;
+    this.touchArea = Shape.rectangle( -dx, -dy, this.width + dx + dx, this.height + dy + dy );
 
     // sync with model
     ruler.locationProperty.link( function( location ) {
       var position = modelViewTransform.modelToViewPosition( location );
-      thisNode.x = position.x;
-      thisNode.y = position.y;
+      self.x = position.x;
+      self.y = position.y;
     } );
 
     // interactivity
-    thisNode.cursor = 'pointer';
+    this.cursor = 'pointer';
 
     // @private (phet-io)
     this.movableDragHandler = new MovableDragHandler( ruler.locationProperty, {
@@ -72,7 +72,7 @@ define( function( require ) {
       dragBounds: ruler.dragBounds,
       modelViewTransform: modelViewTransform
     } );
-    thisNode.addInputListener( this.movableDragHandler );
+    this.addInputListener( this.movableDragHandler );
 
     tandem.addInstance( this, TNode );
   }

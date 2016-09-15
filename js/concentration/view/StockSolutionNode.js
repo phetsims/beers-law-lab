@@ -25,21 +25,21 @@ define( function( require ) {
    */
   function StockSolutionNode( solvent, soluteProperty, dropper, beaker, tipWidth, modelViewTransform ) {
 
-    var thisNode = this;
+    var self = this;
 
-    Rectangle.call( thisNode, 0, 0, 0, 0, { lineWidth: 1 } );
+    Rectangle.call( this, 0, 0, 0, 0, { lineWidth: 1 } );
 
     // shape and location
     var updateShapeAndLocation = function() {
       // path
       if ( dropper.dispensingProperty.get() && !dropper.emptyProperty.get() ) {
-        thisNode.setRect( -tipWidth / 2, 0, tipWidth, beaker.location.y - dropper.locationProperty.get().y );
+        self.setRect( -tipWidth / 2, 0, tipWidth, beaker.location.y - dropper.locationProperty.get().y );
       }
       else {
-        thisNode.setRect( 0, 0, 0, 0 );
+        self.setRect( 0, 0, 0, 0 );
       }
       // move this node to the dropper's location
-      thisNode.translation = modelViewTransform.modelToViewPosition( dropper.locationProperty.get() );
+      self.translation = modelViewTransform.modelToViewPosition( dropper.locationProperty.get() );
     };
     dropper.locationProperty.link( updateShapeAndLocation );
     dropper.dispensingProperty.link( updateShapeAndLocation );
@@ -48,13 +48,13 @@ define( function( require ) {
     // set color to match solute
     soluteProperty.link( function( solute ) {
       var color = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
-      thisNode.fill = color;
-      thisNode.stroke = color.darkerColor();
+      self.fill = color;
+      self.stroke = color.darkerColor();
     } );
 
     // hide this node when the dropper is invisible
     dropper.visibleProperty.link( function( visible ) {
-      thisNode.setVisible( visible );
+      self.setVisible( visible );
     } );
   }
 

@@ -23,15 +23,15 @@ define( function( require ) {
    */
   function ParticlesNode( particles, modelViewTransform, canvasBounds ) {
 
-    var thisNode = this;
+    var self = this;
 
-    thisNode.particles = particles;  // @public
-    thisNode.modelViewTransform = modelViewTransform; // @public
+    this.particles = particles;  // @public
+    this.modelViewTransform = modelViewTransform; // @public
 
-    CanvasNode.call( thisNode, { pickable: false, canvasBounds: canvasBounds } );
+    CanvasNode.call( this, { pickable: false, canvasBounds: canvasBounds } );
 
     particles.registerChangedCallback( function() {
-      thisNode.invalidatePaint();
+      self.invalidatePaint();
     } );
   }
 

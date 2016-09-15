@@ -46,8 +46,9 @@ define( function( require ) {
    */
   function ShakerNode( shaker, modelViewTransform, tandem ) {
 
-    var thisNode = this;
-    Node.call( thisNode, {
+    var self = this;
+
+    Node.call( this, {
       // Performance optimization so Scenery won't fit blocks around this.
       // See https://github.com/phetsims/beers-law-lab/issues/113
       preventFit: true
@@ -75,20 +76,20 @@ define( function( require ) {
 
     // common parent, to simplify rotation and label alignment.
     var parentNode = new Node( { children: [ imageNode, labelNode, upArrowNode, downArrowNode ] } );
-    thisNode.addChild( parentNode );
+    this.addChild( parentNode );
     parentNode.rotate( shaker.orientation - Math.PI ); // assumes that shaker points to the left in the image file
     // Manually adjust these values until the origin is in the middle hole of the shaker.
     parentNode.translate( -12, -imageNode.height / 2 );
 
     // origin
     if ( DEBUG_ORIGIN ) {
-      thisNode.addChild( new Circle( { radius: 3, fill: 'red' } ) );
+      this.addChild( new Circle( { radius: 3, fill: 'red' } ) );
     }
 
     // sync location with model
     var shakerWasMoved = false;
     shaker.locationProperty.link( function( location ) {
-      thisNode.translation = modelViewTransform.modelToViewPosition( location );
+      self.translation = modelViewTransform.modelToViewPosition( location );
       shakerWasMoved = true;
       upArrowNode.visible = downArrowNode.visible = false;
     } );
@@ -96,7 +97,7 @@ define( function( require ) {
 
     // sync visibility with model
     shaker.visibleProperty.link( function( visible ) {
-      thisNode.setVisible( visible );
+      self.setVisible( visible );
     } );
 
     // sync solute with model
@@ -110,13 +111,13 @@ define( function( require ) {
     } );
 
     // interactivity
-    thisNode.cursor = 'pointer';
-    thisNode.addInputListener( new MovableDragHandler( shaker.locationProperty, {
+    this.cursor = 'pointer';
+    this.addInputListener( new MovableDragHandler( shaker.locationProperty, {
       tandem: tandem.createTandem( 'inputListener' ),
       dragBounds: shaker.dragBounds,
       modelViewTransform: modelViewTransform
     } ) );
-    thisNode.addInputListener( {
+    this.addInputListener( {
       enter: function() {
         upArrowNode.visible = downArrowNode.visible = !shakerWasMoved;
       },

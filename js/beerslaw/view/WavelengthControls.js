@@ -47,8 +47,6 @@ define( function( require ) {
    */
   function WavelengthControls( solutionProperty, light, tandem ) {
 
-    var thisNode = this;
-
     // @private is the wavelength variable or fixed?
     this.variableWavelengthProperty = new Property( false, {
       tandem: tandem.createTandem( 'variableWavelengthProperty' ),
@@ -129,7 +127,7 @@ define( function( require ) {
     // add a horizontal strut to prevent width changes
     content.addChild( new HStrut( Math.max( content.width, wavelengthSlider.width ) ) );
 
-    Panel.call( thisNode, content, {
+    Panel.call( this, content, {
       xMargin: 20,
       yMargin: 20,
       fill: '#F0F0F0',

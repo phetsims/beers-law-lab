@@ -33,9 +33,9 @@ define( function( require ) {
    */
   function BLLDropperNode( dropper, solvent, soluteProperty, modelViewTransform, tandem ) {
 
-    var thisNode = this;
+    var self = this;
 
-    EyeDropperNode.call( thisNode, {
+    EyeDropperNode.call( this, {
       dispensingProperty: dropper.dispensingProperty,
       enabledProperty: dropper.enabledProperty,
       emptyProperty: dropper.emptyProperty,
@@ -46,7 +46,7 @@ define( function( require ) {
     var labelBackground = new Path( null, {
       fill: 'rgba( 240, 240, 240, 0.6 )' // translucent gray
     } );
-    thisNode.addChild( labelBackground );
+    this.addChild( labelBackground );
 
     // label
     var label = new SubSupText( '', {
@@ -54,16 +54,16 @@ define( function( require ) {
       font: new PhetFont( { size: 18, weight: 'bold' } ),
       fill: 'black'
     } );
-    thisNode.addChild( label );
+    this.addChild( label );
 
     // location
     dropper.locationProperty.link( function( location ) {
-      thisNode.translation = modelViewTransform.modelToViewPosition( location );
+      self.translation = modelViewTransform.modelToViewPosition( location );
     } );
 
     // visibility
     dropper.visibleProperty.link( function( visible ) {
-      thisNode.visible = visible;
+      self.visible = visible;
       if ( !visible ) { dropper.flowRateProperty.set( 0 ); }
     } );
 
@@ -71,7 +71,7 @@ define( function( require ) {
     soluteProperty.link( function( solute ) {
 
       // fluid color
-      thisNode.fluidColor = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
+      self.fluidColor = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
 
       // label, centered in the dropper's glass
       label.text = solute.formula;
@@ -90,7 +90,7 @@ define( function( require ) {
     } );
 
     // dilate touch area
-    thisNode.touchArea = thisNode.localBounds.dilatedX( 0.25 * thisNode.width );
+    this.touchArea = this.localBounds.dilatedX( 0.25 * this.width );
 
     // move the dropper
     var movableDragHandler = new MovableDragHandler( dropper.locationProperty, {
@@ -98,7 +98,7 @@ define( function( require ) {
       dragBounds: dropper.dragBounds,
       modelViewTransform: modelViewTransform
     } );
-    thisNode.addInputListener( movableDragHandler );
+    this.addInputListener( movableDragHandler );
 
     // Supertype registers the momentary button, but not itself, so register here in the subtype.
     // No corresponding removeInstance is needed because this object exists for the lifetime of the sim

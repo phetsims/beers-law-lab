@@ -35,10 +35,8 @@ define( function( require ) {
    */
   function BeersLawModel( modelViewTransform, tandem ) {
 
-    var thisModel = this;
-
     // @public Solutions, in rainbow (ROYGBIV) order.
-    thisModel.solutions = [
+    this.solutions = [
       BeersLawSolution.DRINK_MIX,
       BeersLawSolution.COBALT_II_NITRATE,
       BeersLawSolution.COBALT_CHLORIDE,
@@ -50,39 +48,39 @@ define( function( require ) {
     ];
 
     // @public
-    thisModel.solutionProperty = new Property( thisModel.solutions[ 0 ], {
+    this.solutionProperty = new Property( this.solutions[ 0 ], {
       tandem: tandem.createTandem( 'solutionProperty' ),
       phetioValueType: TSolution
     } );
 
     // @public NOTE: All locations are relative to the location of the cuvette.
-    thisModel.cuvette = new Cuvette( new Vector2( 3.3, 0.5 ), CUVETTE_WIDTH_RANGE, 3, tandem.createTandem( 'cuvette' ) );
+    this.cuvette = new Cuvette( new Vector2( 3.3, 0.5 ), CUVETTE_WIDTH_RANGE, 3, tandem.createTandem( 'cuvette' ) );
 
     // @public
-    thisModel.light = new Light( new Vector2( thisModel.cuvette.location.x - 1.5, thisModel.cuvette.location.y + ( thisModel.cuvette.height / 2 ) ),
-      false, 0.45, thisModel.solutionProperty, tandem.createTandem( 'light' ) );
+    this.light = new Light( new Vector2( this.cuvette.location.x - 1.5, this.cuvette.location.y + ( this.cuvette.height / 2 ) ),
+      false, 0.45, this.solutionProperty, tandem.createTandem( 'light' ) );
 
     // @public
-    thisModel.ruler = new Ruler( 2.1, 0.1, 0.35,
-      new Vector2( thisModel.cuvette.location.x - 2.6, thisModel.cuvette.location.y + 4 ),
+    this.ruler = new Ruler( 2.1, 0.1, 0.35,
+      new Vector2( this.cuvette.location.x - 2.6, this.cuvette.location.y + 4 ),
       new Bounds2( 0, 0, 6, 5 ),
       tandem.createTandem( 'ruler' )
     );
 
     // @public
-    this.absorbance = new Absorbance( thisModel.light, thisModel.solutionProperty, thisModel.cuvette );
+    this.absorbance = new Absorbance( this.light, this.solutionProperty, this.cuvette );
 
     // @pubic
-    this.detector = new ATDetector( new Vector2( thisModel.cuvette.location.x + 3, thisModel.cuvette.location.y - 0.3 ),
+    this.detector = new ATDetector( new Vector2( this.cuvette.location.x + 3, this.cuvette.location.y - 0.3 ),
       new Bounds2( 0, 0, 7.9, 5.25 ),
-      new Vector2( thisModel.cuvette.location.x + 3, thisModel.light.location.y ),
+      new Vector2( this.cuvette.location.x + 3, this.light.location.y ),
       new Bounds2( 0, 0, 7.9, 5.25 ),
-      thisModel.light, thisModel.cuvette, thisModel.absorbance,
+      this.light, this.cuvette, this.absorbance,
       tandem.createTandem( 'detector' )
     );
 
     // @public
-    this.beam = new Beam( thisModel.light, thisModel.cuvette, thisModel.detector, thisModel.absorbance, modelViewTransform );
+    this.beam = new Beam( this.light, this.cuvette, this.detector, this.absorbance, modelViewTransform );
   }
 
   beersLawLab.register( 'BeersLawModel', BeersLawModel );

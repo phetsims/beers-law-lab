@@ -132,8 +132,9 @@ define( function( require ) {
    */
   function BodyNode( meter, modelViewTransform, tandem ) {
 
-    var thisNode = this;
-    Node.call( thisNode, {
+    var self = this;
+
+    Node.call( this, {
       cursor: 'pointer'
     } );
 
@@ -180,8 +181,8 @@ define( function( require ) {
       lightOffset: 0.95
     } );
 
-    thisNode.addChild( bodyNode );
-    thisNode.addChild( vBox );
+    this.addChild( bodyNode );
+    this.addChild( vBox );
     vBox.center = bodyNode.center;
 
     if ( BODY_IS_DRAGGABLE ) {
@@ -190,7 +191,7 @@ define( function( require ) {
         dragBounds: meter.body.dragBounds,
         modelViewTransform: modelViewTransform
       } );
-      thisNode.addInputListener( movableDragHandler );
+      this.addInputListener( movableDragHandler );
 
       // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
       TNode && tandem.addInstance( this, TNode );
@@ -198,7 +199,7 @@ define( function( require ) {
 
     // body location
     meter.body.locationProperty.link( function( location ) {
-      thisNode.translation = modelViewTransform.modelToViewPosition( location );
+      self.translation = modelViewTransform.modelToViewPosition( location );
     } );
 
     // when the value changes, update the readout
@@ -241,9 +242,9 @@ define( function( require ) {
    */
   function ConcentrationProbeNode( probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, tandem ) {
 
-    var thisNode = this;
+    var self = this;
 
-    ProbeNode.call( thisNode, {
+    ProbeNode.call( this, {
       sensorTypeFunction: ProbeNode.crosshairs( {
         intersectionRadius: 6
       } ),
@@ -260,11 +261,11 @@ define( function( require ) {
 
     // probe location
     probe.locationProperty.link( function( location ) {
-      thisNode.translation = modelViewTransform.modelToViewPosition( location );
+      self.translation = modelViewTransform.modelToViewPosition( location );
     } );
 
     // touch area
-    thisNode.touchArea = thisNode.localBounds.dilatedXY( 0.25 * thisNode.width, 0.25 * thisNode.height );
+    this.touchArea = this.localBounds.dilatedXY( 0.25 * this.width, 0.25 * this.height );
 
     // drag handler
     var movableDragHandler = new MovableDragHandler( probe.locationProperty, {
@@ -272,7 +273,7 @@ define( function( require ) {
       dragBounds: probe.dragBounds,
       modelViewTransform: modelViewTransform
     } );
-    thisNode.addInputListener( movableDragHandler );
+    this.addInputListener( movableDragHandler );
 
     var isInNode = function( node ) {
       var localPoint = node.parentToLocalPoint( probe.locationProperty.get() );
@@ -281,19 +282,19 @@ define( function( require ) {
       return shapeBounds.getWidth() > 0 && shapeBounds.getHeight() > 0 && nodeShape.containsPoint( localPoint ); // see issue #65
     };
 
-    thisNode.isInSolution = function() {
+    this.isInSolution = function() {
       return isInNode( solutionNode );
     };
 
-    thisNode.isInSolvent = function() {
+    this.isInSolvent = function() {
       return isInNode( solventFluidNode );
     };
 
-    thisNode.isInDrainFluid = function() {
+    this.isInDrainFluid = function() {
       return isInNode( drainFluidNode );
     };
 
-    thisNode.isInStockSolution = function() {
+    this.isInStockSolution = function() {
       return isInNode( stockSolutionNode );
     };
 
@@ -315,8 +316,9 @@ define( function( require ) {
    */
   function WireNode( body, probe, bodyNode, probeNode ) {
 
-    var thisNode = this;
-    Path.call( thisNode, new Shape(), {
+    var self = this;
+
+    Path.call( this, new Shape(), {
       stroke: 'gray',
       lineWidth: 8,
       lineCap: 'square',
@@ -337,7 +339,7 @@ define( function( require ) {
       var c1 = new Vector2( bodyConnectionPoint.x + c1Offset.x, bodyConnectionPoint.y + c1Offset.y );
       var c2 = new Vector2( probeConnectionPoint.x + c2Offset.x, probeConnectionPoint.y + c2Offset.y );
 
-      thisNode.shape = new Shape()
+      self.shape = new Shape()
         .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
         .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
     };

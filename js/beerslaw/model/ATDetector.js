@@ -33,33 +33,33 @@ define( function( require ) {
    */
   function ATDetector( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds, light, cuvette, absorbance, tandem ) {
 
-    var thisDetector = this;
+    var self = this;
 
-    thisDetector.light = light; // @private
-    thisDetector.body = new Movable( bodyLocation, bodyDragBounds, tandem.createTandem( 'body' ) ); // @public
-    thisDetector.probe = new Probe( probeLocation, probeDragBounds, 0.57, tandem.createTandem( 'probe' ) ); // @public
+    this.light = light; // @private
+    this.body = new Movable( bodyLocation, bodyDragBounds, tandem.createTandem( 'body' ) ); // @public
+    this.probe = new Probe( probeLocation, probeDragBounds, 0.57, tandem.createTandem( 'probe' ) ); // @public
 
     // @public for switching between absorbance (A) and percent transmittance (%T)
-    thisDetector.modeProperty = new Property( ATDetector.Mode.TRANSMITTANCE, {
+    this.modeProperty = new Property( ATDetector.Mode.TRANSMITTANCE, {
       tandem: tandem.createTandem( 'modeProperty' ),
       phetioValueType: TString
     } );
 
     // @public value is either absorbance (A) or percent transmittance (%T) depending on mode
-    thisDetector.valueProperty = new DerivedProperty( [
-        thisDetector.probe.locationProperty,
-        thisDetector.light.onProperty,
-        thisDetector.modeProperty,
+    this.valueProperty = new DerivedProperty( [
+        this.probe.locationProperty,
+        this.light.onProperty,
+        this.modeProperty,
         cuvette.widthProperty,
         absorbance.absorbanceProperty
       ],
       function( probeLocation, lightOn, mode, cuvetteWidth, absorbanceValue ) {
         // Computes the displayed value, null if the light is off or the probe is outside the beam.
         var value = null;
-        if ( thisDetector.probeInBeam() ) {
+        if ( self.probeInBeam() ) {
           // path length is between 0 and cuvette width
           var pathLength = Math.min( Math.max( 0, probeLocation.x - cuvette.location.x ), cuvetteWidth );
-          if ( thisDetector.modeProperty.get() === ATDetector.Mode.ABSORBANCE ) {
+          if ( self.modeProperty.get() === ATDetector.Mode.ABSORBANCE ) {
             value = absorbance.getAbsorbanceAt( pathLength );
           }
           else {

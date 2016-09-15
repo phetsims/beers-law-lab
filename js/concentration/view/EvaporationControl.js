@@ -44,8 +44,6 @@ define( function( require ) {
       tandem: tandem
     }, options );
 
-    var thisControl = this;
-
     var label = new Text( StringUtils.format( pattern0LabelString, evaporationString ), { font: new PhetFont( 22 ) } );
 
     var slider = new HSlider( evaporator.evaporationRateProperty, new RangeWithValue( 0, evaporator.maxEvaporationRate ), {
@@ -66,7 +64,7 @@ define( function( require ) {
     slider.left = label.right + 10;
     slider.centerY = label.centerY;
 
-    Panel.call( thisControl, content, options );
+    Panel.call( this, content, options );
   }
 
   beersLawLab.register( 'EvaporationControl', EvaporationControl );

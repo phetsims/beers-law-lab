@@ -26,20 +26,21 @@ define( function( require ) {
    */
   function SolutionNode( solution, beaker, modelViewTransform ) {
 
-    var thisNode = this;
-    Rectangle.call( thisNode, 0, 0, 1, 1, { lineWidth: 1 } );
+    var self = this;
+
+    Rectangle.call( this, 0, 0, 1, 1, { lineWidth: 1 } );
 
     // @private
-    thisNode.solution = solution;
-    thisNode.beaker = beaker;
+    this.solution = solution;
+    this.beaker = beaker;
 
     /*
      * Updates the color of the solution, accounting for saturation.
      * @param {Color} color
      */
     solution.colorProperty.link( function( color ) {
-      thisNode.fill = color;
-      thisNode.stroke = color.darkerColor();
+      self.fill = color;
+      self.stroke = color.darkerColor();
     } );
 
     /*
@@ -59,7 +60,7 @@ define( function( require ) {
 
       // convert to view coordinates and create shape
       var viewHeight = modelViewTransform.modelToViewDeltaY( solutionHeight );
-      thisNode.setRect( viewLocation.x - (viewWidth / 2), viewLocation.y - viewHeight, viewWidth, viewHeight );
+      self.setRect( viewLocation.x - (viewWidth / 2), viewLocation.y - viewHeight, viewWidth, viewHeight );
     } );
   }
 

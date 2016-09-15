@@ -64,29 +64,29 @@ define( function( require ) {
       saturatedColor: colorRange.max // {Color} color to use when the solution is saturated
     }, options );
 
-    var thisSolution = this;
+    var self = this;
 
     // @public
-    thisSolution.solvent = Solvent.WATER;
-    thisSolution.name = name;
-    thisSolution.formula = formula;
-    thisSolution.molarAbsorptivityData = molarAbsorptivityData;
-    thisSolution.concentrationProperty = new Property( concentrationRange.defaultValue, {
+    this.solvent = Solvent.WATER;
+    this.name = name;
+    this.formula = formula;
+    this.molarAbsorptivityData = molarAbsorptivityData;
+    this.concentrationProperty = new Property( concentrationRange.defaultValue, {
       tandem: tandem.createTandem( 'concentrationProperty' ),
       phetioValueType: TNumber( { units: 'moles/liter' } )
     } );
-    thisSolution.concentrationRange = concentrationRange;
-    thisSolution.concentrationTransform = concentrationTransform;
-    thisSolution.colorRange = colorRange;
-    thisSolution.saturatedColor = options.saturatedColor;
+    this.concentrationRange = concentrationRange;
+    this.concentrationTransform = concentrationTransform;
+    this.colorRange = colorRange;
+    this.saturatedColor = options.saturatedColor;
 
     // @public Solution color is derived from concentration
-    thisSolution.fluidColorProperty = new DerivedProperty( [ thisSolution.concentrationProperty ],
+    this.fluidColorProperty = new DerivedProperty( [ this.concentrationProperty ],
       function( concentration ) {
-        var color = thisSolution.solvent.colorProperty.get();
+        var color = self.solvent.colorProperty.get();
         if ( concentration > 0 ) {
-          var distance = Util.linear( thisSolution.concentrationRange.min, thisSolution.concentrationRange.max, 0, 1, concentration );
-          color = thisSolution.colorRange.interpolateLinear( distance );
+          var distance = Util.linear( self.concentrationRange.min, self.concentrationRange.max, 0, 1, concentration );
+          color = self.colorRange.interpolateLinear( distance );
         }
         return color;
       } );

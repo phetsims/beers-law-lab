@@ -34,21 +34,21 @@ define( function( require ) {
    */
   function Absorbance( light, solutionProperty, cuvette ) {
 
-    var thisAbsorbance = this;
+    var self = this;
 
     // @private a : molar absorptivity
-    thisAbsorbance.molarAbsorptivityProperty = new DerivedProperty( [ solutionProperty, light.wavelengthProperty ],
+    this.molarAbsorptivityProperty = new DerivedProperty( [ solutionProperty, light.wavelengthProperty ],
       function( solution, wavelength ) {
         return solution.molarAbsorptivityData.wavelengthToMolarAbsorptivity( wavelength );
       } );
 
     // @private C : concentration property, wired to the current solution's concentration
     {
-      thisAbsorbance.currentConcentrationProperty = new Property( solutionProperty.get().concentrationProperty.get() );
+      this.currentConcentrationProperty = new Property( solutionProperty.get().concentrationProperty.get() );
 
       // Observe the concentration property of the current solution.
       var concentrationObserver = function( concentration ) {
-        thisAbsorbance.currentConcentrationProperty.set( concentration );
+        self.currentConcentrationProperty.set( concentration );
       };
 
       // Rewire the concentration observer when the solution changes.
@@ -61,7 +61,7 @@ define( function( require ) {
     }
 
     // @public absorbance: A = abC
-    thisAbsorbance.absorbanceProperty = new DerivedProperty( [ thisAbsorbance.molarAbsorptivityProperty, cuvette.widthProperty, thisAbsorbance.currentConcentrationProperty ],
+    this.absorbanceProperty = new DerivedProperty( [ this.molarAbsorptivityProperty, cuvette.widthProperty, this.currentConcentrationProperty ],
       function( molarAbsorptivity, pathLength, concentration ) {
         return getAbsorbance( molarAbsorptivity, pathLength, concentration );
       } );

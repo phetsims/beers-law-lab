@@ -29,30 +29,30 @@ define( function( require ) {
    */
   function Shaker( location, dragBounds, orientation, soluteProperty, maxDispensingRate, visible, tandem ) {
 
-    var thisShaker = this;
-    Movable.call( thisShaker, location, dragBounds, tandem );
+    var self = this;
+    Movable.call( this, location, dragBounds, tandem );
 
     // @public (read-only)
-    thisShaker.orientation = orientation;
-    thisShaker.maxDispensingRate = maxDispensingRate;
+    this.orientation = orientation;
+    this.maxDispensingRate = maxDispensingRate;
 
     // @public
-    thisShaker.soluteProperty = soluteProperty;
-    thisShaker.visibleProperty = new Property( visible );
-    thisShaker.emptyProperty = new Property( false );
-    thisShaker.dispensingRateProperty = new Property( 0 );
+    this.soluteProperty = soluteProperty;
+    this.visibleProperty = new Property( visible );
+    this.emptyProperty = new Property( false );
+    this.dispensingRateProperty = new Property( 0 );
 
     // @public (phet-io)
-    thisShaker.previousLocation = location;
+    this.previousLocation = location;
 
     // set the dispensing rate to zero when the shaker becomes empty or invisible
     var observer = function() {
-      if ( thisShaker.emptyProperty.get() || !thisShaker.visibleProperty.get() ) {
-        thisShaker.dispensingRateProperty.set( 0 );
+      if ( self.emptyProperty.get() || !self.visibleProperty.get() ) {
+        self.dispensingRateProperty.set( 0 );
       }
     };
-    thisShaker.emptyProperty.link( observer );
-    thisShaker.visibleProperty.link( observer );
+    this.emptyProperty.link( observer );
+    this.visibleProperty.link( observer );
 
     tandem.addInstance( this, TShaker );
   }
@@ -72,16 +72,15 @@ define( function( require ) {
 
     // @public Sets the dispensing rate if the shaker is moving.
     step: function() {
-      var thisShaker = this;
-      if ( thisShaker.visibleProperty.get() && !thisShaker.emptyProperty.get() ) {
-        if ( thisShaker.previousLocation.equals( thisShaker.locationProperty.get() ) ) {
-          thisShaker.dispensingRateProperty.set( 0 ); // shaker is not moving, don't dispense anything
+      if ( this.visibleProperty.get() && !this.emptyProperty.get() ) {
+        if ( this.previousLocation.equals( this.locationProperty.get() ) ) {
+          this.dispensingRateProperty.set( 0 ); // shaker is not moving, don't dispense anything
         }
         else {
-          thisShaker.dispensingRateProperty.set( thisShaker.maxDispensingRate ); // max rate seems to work fine
+          this.dispensingRateProperty.set( this.maxDispensingRate ); // max rate seems to work fine
         }
       }
-      thisShaker.previousLocation = thisShaker.locationProperty.get();
+      this.previousLocation = this.locationProperty.get();
     }
   } );
 } );

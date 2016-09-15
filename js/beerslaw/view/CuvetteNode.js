@@ -43,7 +43,6 @@ define( function( require ) {
    */
   function CuvetteNode( cuvette, solutionProperty, modelViewTransform, snapInterval, tandem ) {
 
-    var thisNode = this;
     Node.call( this );
 
     // nodes
@@ -60,9 +59,9 @@ define( function( require ) {
     } );
 
     // rendering order
-    thisNode.addChild( solutionNode );
-    thisNode.addChild( cuvetteNode );
-    thisNode.addChild( arrowNode );
+    this.addChild( solutionNode );
+    this.addChild( cuvetteNode );
+    this.addChild( arrowNode );
 
     // when the cuvette width changes ...
     cuvette.widthProperty.link( function() {
@@ -108,8 +107,8 @@ define( function( require ) {
 
     // location of the cuvette
     var position = modelViewTransform.modelToViewPosition( cuvette.location );
-    thisNode.x = position.x;
-    thisNode.y = position.y;
+    this.x = position.x;
+    this.y = position.y;
 
     tandem.addInstance( this, TNode );
   }

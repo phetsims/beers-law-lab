@@ -19,22 +19,22 @@ define( function( require ) {
    */
   function BeamNode( beam ) {
 
-    var thisNode = this;
+    var self = this;
     Path.call( this, null, { stroke: 'rgba( 192, 192, 192, 0.8 )', lineWidth: 0.5, pickable: false } );
 
     // shape
     beam.shapeProperty.link( function( shape ) {
-      thisNode.setShape( shape );
+      self.setShape( shape );
     } );
 
     // fill
     beam.fillProperty.link( function( fill ) {
-      thisNode.fill = fill;
+      self.fill = fill;
     } );
 
     // visibility
     beam.visibleProperty.link( function( visible ) {
-      thisNode.setVisible( visible );
+      self.setVisible( visible );
     } );
   }
 

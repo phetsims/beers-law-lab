@@ -41,8 +41,7 @@ define( function( require ) {
    */
   function ConcentrationView( model, modelViewTransform, tandem ) {
 
-    var thisView = this;
-    ScreenView.call( thisView, BLLConstants.SCREEN_VIEW_OPTIONS );
+    ScreenView.call( this, BLLConstants.SCREEN_VIEW_OPTIONS );
 
     // Beaker and stuff inside it
     var beakerNode = new BeakerNode( model.beaker, modelViewTransform, tandem.createTandem( 'beakerNode' ) );
@@ -59,7 +58,7 @@ define( function( require ) {
 
     // Shaker particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
     var shakerParticlesNode = new ParticlesNode( model.shakerParticles, modelViewTransform, new Bounds2(
-      modelViewTransform.modelToViewX( model.beaker.getLeft() ), thisView.layoutBounds.minY,
+      modelViewTransform.modelToViewX( model.beaker.getLeft() ), this.layoutBounds.minY,
       modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.location.y ) ) );
 
     // Dropper
@@ -105,25 +104,25 @@ define( function( require ) {
     } );
 
     // Rendering order
-    thisView.addChild( solventFluidNode );
-    thisView.addChild( solventFaucetNode );
-    thisView.addChild( drainFluidNode );
-    thisView.addChild( drainFaucetNode );
-    thisView.addChild( stockSolutionNode );
-    thisView.addChild( solutionNode );
-    thisView.addChild( beakerNode.mutate( { layerSplit: true } ) ); // beaker is static, put in its own layer
-    thisView.addChild( precipitateNode );
-    thisView.addChild( saturatedIndicator );
-    thisView.addChild( shakerParticlesNode );
-    thisView.addChild( shakerNode );
-    thisView.addChild( dropperNode );
-    thisView.addChild( evaporationControl );
-    thisView.addChild( soluteGramsNode );
-    thisView.addChild( removeSoluteButton );
-    thisView.addChild( resetAllButton );
-    thisView.addChild( soluteControls );
-    thisView.addChild( concentrationMeterNode );
-    thisView.addChild( soluteListParent ); // last, so that combo box list is on top
+    this.addChild( solventFluidNode );
+    this.addChild( solventFaucetNode );
+    this.addChild( drainFluidNode );
+    this.addChild( drainFaucetNode );
+    this.addChild( stockSolutionNode );
+    this.addChild( solutionNode );
+    this.addChild( beakerNode.mutate( { layerSplit: true } ) ); // beaker is static, put in its own layer
+    this.addChild( precipitateNode );
+    this.addChild( saturatedIndicator );
+    this.addChild( shakerParticlesNode );
+    this.addChild( shakerNode );
+    this.addChild( dropperNode );
+    this.addChild( evaporationControl );
+    this.addChild( soluteGramsNode );
+    this.addChild( removeSoluteButton );
+    this.addChild( resetAllButton );
+    this.addChild( soluteControls );
+    this.addChild( concentrationMeterNode );
+    this.addChild( soluteListParent ); // last, so that combo box list is on top
 
     ////////
     // Layout for things that don't have a location in the model.

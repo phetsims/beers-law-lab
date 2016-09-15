@@ -55,8 +55,7 @@ define( function( require ) {
    */
   function ConcentrationSlider( solutionProperty, tandem ) {
 
-    var thisNode = this;
-    Node.call( thisNode );
+    Node.call( this );
 
     // nodes
     // @private (phet-io)
@@ -86,14 +85,14 @@ define( function( require ) {
     } );
 
     // rendering order
-    thisNode.addChild( minTickLine );
-    thisNode.addChild( maxTickLine );
-    thisNode.addChild( minTickLabel );
-    thisNode.addChild( maxTickLabel );
-    thisNode.addChild( this.track );
-    thisNode.addChild( this.thumb );
-    thisNode.addChild( plusButton );
-    thisNode.addChild( minusButton );
+    this.addChild( minTickLine );
+    this.addChild( maxTickLine );
+    this.addChild( minTickLabel );
+    this.addChild( maxTickLabel );
+    this.addChild( this.track );
+    this.addChild( this.thumb );
+    this.addChild( plusButton );
+    this.addChild( minusButton );
 
     // layout
     minTickLine.left = this.track.left;
@@ -148,9 +147,9 @@ define( function( require ) {
    */
   function Track( trackSize, solutionProperty, tandem ) {
 
-    var thisNode = this;
+    var self = this;
 
-    Rectangle.call( thisNode, 0, 0, trackSize.width, trackSize.height,
+    Rectangle.call( this, 0, 0, trackSize.width, trackSize.height,
       { cursor: 'pointer', stroke: 'black', lineWidth: 1 } );
 
     // sync view with model
@@ -161,18 +160,18 @@ define( function( require ) {
       positionToConcentration = new LinearFunction( 0, trackSize.width, concentrationRange.min, concentrationRange.max, true /* clamp */ );
 
       // fill with a gradient that matches the solution's color range
-      thisNode.fill = new LinearGradient( 0, 0, trackSize.width, 0 )
+      self.fill = new LinearGradient( 0, 0, trackSize.width, 0 )
         .addColorStop( 0, solution.colorRange.min )
         .addColorStop( 1, solution.colorRange.max );
     } );
 
     // click in the track to change the value, continue dragging if desired
     var handleEvent = function( event ) {
-      var x = thisNode.globalToLocalPoint( event.pointer.point ).x;
+      var x = self.globalToLocalPoint( event.pointer.point ).x;
       var concentration = positionToConcentration( x );
       solutionProperty.get().concentrationProperty.set( concentration );
     };
-    thisNode.addInputListener( new TandemDragHandler( {
+    this.addInputListener( new TandemDragHandler( {
       tandem: tandem.createTandem( 'inputListener' ),
       start: function( event ) {
         handleEvent( event );
@@ -205,12 +204,12 @@ define( function( require ) {
    * @constructor
    */
   function TickLabel( value ) {
-    var thisNode = this;
-    Text.call( thisNode, '?', { font: TICK_FONT, fill: 'black' } );
-    thisNode.setValue = function( value ) {
-      thisNode.text = Util.toFixed( value, TICK_DECIMAL_PLACES );
+    var self = this;
+    Text.call( this, '?', { font: TICK_FONT, fill: 'black' } );
+    this.setValue = function( value ) {
+      self.text = Util.toFixed( value, TICK_DECIMAL_PLACES );
     };
-    thisNode.setValue( value );
+    this.setValue( value );
   }
 
   beersLawLab.register( 'ConcentrationSlider.TickLabel', TickLabel );
@@ -227,8 +226,8 @@ define( function( require ) {
    */
   function Thumb( thumbSize, trackSize, solutionProperty, tandem ) {
 
-    var thisNode = this;
-    Node.call( thisNode, { cursor: 'pointer' } );
+    var self = this;
+    Node.call( this, { cursor: 'pointer' } );
 
     // nodes
     var arcWidth = 0.25 * thumbSize.width;
@@ -238,16 +237,16 @@ define( function( require ) {
     var centerLine = new Path( Shape.lineSegment( 0, -( thumbSize.height / 2 ) + centerLineYMargin, 0, ( thumbSize.height / 2 ) - centerLineYMargin ), { stroke: THUMB_CENTER_LINE_STROKE } );
 
     // rendering order
-    thisNode.addChild( body );
-    thisNode.addChild( centerLine );
+    this.addChild( body );
+    this.addChild( centerLine );
 
     // interactivity
     body.addInputListener( new FillHighlightListener( THUMB_FILL_NORMAL, THUMB_FILL_HIGHLIGHT ) );
 
     // touch area
-    var dx = 0.25 * thisNode.width;
-    var dy = 0.5 * thisNode.height;
-    thisNode.touchArea = Shape.rectangle( ( -thisNode.width / 2 ) - dx, ( -thisNode.height / 2 ) - dy, thisNode.width + dx + dx, thisNode.height + dy + dy );
+    var dx = 0.25 * this.width;
+    var dy = 0.5 * this.height;
+    this.touchArea = Shape.rectangle( ( -this.width / 2 ) - dx, ( -this.height / 2 ) - dy, this.width + dx + dx, this.height + dy + dy );
 
     // set the drag handler and mapping function for the selected solution
     var dragHandler;
@@ -255,13 +254,13 @@ define( function( require ) {
     var setSolution = function( solution ) {
       // drag handler with solution's concentration range
       if ( dragHandler ) {
-        thisNode.removeInputListener( dragHandler );
+        self.removeInputListener( dragHandler );
         dragHandler.dispose();
       }
-      dragHandler = new ThumbDragHandler( thisNode, solution.concentrationProperty,
+      dragHandler = new ThumbDragHandler( self, solution.concentrationProperty,
         new LinearFunction( 0, trackSize.width, solution.concentrationRange.min, solution.concentrationRange.max, true /* clamp */ ),
         tandem.createTandem( 'dragHandler' ) );
-      thisNode.addInputListener( dragHandler );
+      self.addInputListener( dragHandler );
 
       // linear mapping function with solution's concentration range
       concentrationToPosition = new LinearFunction( solution.concentrationRange.min, solution.concentrationRange.max, 0, trackSize.width, true /* clamp */ );
@@ -270,7 +269,7 @@ define( function( require ) {
 
     // move the slider thumb to reflect the concentration value
     var concentrationObserver = function( concentration ) {
-      thisNode.x = concentrationToPosition( concentration );
+      self.x = concentrationToPosition( concentration );
     };
     solutionProperty.get().concentrationProperty.link( concentrationObserver );
 

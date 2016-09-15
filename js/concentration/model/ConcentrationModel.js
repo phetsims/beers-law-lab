@@ -46,10 +46,10 @@ define( function( require ) {
    */
   function ConcentrationModel( tandem ) {
 
-    var thisModel = this;
+    var self = this;
 
     // @public Solutes, in rainbow (ROYGBIV) order.
-    thisModel.solutes = [
+    this.solutes = [
       Solute.DRINK_MIX,
       Solute.COBALT_II_NITRATE,
       Solute.COBALT_CHLORIDE,
@@ -62,49 +62,49 @@ define( function( require ) {
     ];
 
     // @public
-    thisModel.soluteProperty = new Property( thisModel.solutes[ 0 ], {
+    this.soluteProperty = new Property( this.solutes[ 0 ], {
       tandem: tandem.createTandem( 'soluteProperty' ),
       phetioValueType: TSolute
     } );
-    thisModel.soluteFormProperty = new Property( 'solid', {
+    this.soluteFormProperty = new Property( 'solid', {
       tandem: tandem.createTandem( 'soluteFormProperty' ),
       phetioValueType: TString
     } ); // 'solid' or 'solution'
 
     // @public
-    thisModel.solution = new ConcentrationSolution( thisModel.soluteProperty, SOLUTE_AMOUNT_RANGE.defaultValue, SOLUTION_VOLUME_RANGE.defaultValue, tandem.createTandem( 'solution' ) );
-    thisModel.beaker = new Beaker( new Vector2( 350, 550 ), new Dimension2( 600, 300 ), 1 );
-    thisModel.precipitate = new Precipitate( thisModel.solution, thisModel.beaker, tandem.createTandem( 'precipitate' ) );
-    thisModel.shaker = new Shaker( new Vector2( thisModel.beaker.location.x, 170 ), new Bounds2( 250, 50, 575, 210 ), 0.75 * Math.PI,
-      thisModel.soluteProperty, SHAKER_MAX_DISPENSING_RATE, thisModel.soluteFormProperty.get() === 'solid', tandem.createTandem( 'shaker' ) );
-    thisModel.shakerParticles = new ShakerParticles( thisModel.shaker, thisModel.solution, thisModel.beaker, tandem.createTandem( 'shakerParticles' ) );
-    thisModel.dropper = new Dropper( new Vector2( thisModel.beaker.location.x, 225 ), new Bounds2( 260, 225, 580, 225 ),
-      thisModel.soluteProperty, DROPPER_FLOW_RATE, thisModel.soluteFormProperty.get() === 'solution', tandem.createTandem( 'dropper' ) );
-    thisModel.evaporator = new Evaporator( MAX_EVAPORATION_RATE, thisModel.solution, tandem.createTandem( 'evaporator' ) );
-    thisModel.solventFaucet = new Faucet( new Vector2( 155, 220 ), -400, 45, MAX_FAUCET_FLOW_RATE, tandem.createTandem( 'solventFaucet' ) );
-    thisModel.drainFaucet = new Faucet( new Vector2( 750, 630 ), thisModel.beaker.getRight(), 45, MAX_FAUCET_FLOW_RATE, tandem.createTandem( 'drainFaucet' ) );
-    thisModel.concentrationMeter = new ConcentrationMeter( new Vector2( 785, 210 ), new Bounds2( 10, 150, 835, 680 ),
+    this.solution = new ConcentrationSolution( this.soluteProperty, SOLUTE_AMOUNT_RANGE.defaultValue, SOLUTION_VOLUME_RANGE.defaultValue, tandem.createTandem( 'solution' ) );
+    this.beaker = new Beaker( new Vector2( 350, 550 ), new Dimension2( 600, 300 ), 1 );
+    this.precipitate = new Precipitate( this.solution, this.beaker, tandem.createTandem( 'precipitate' ) );
+    this.shaker = new Shaker( new Vector2( this.beaker.location.x, 170 ), new Bounds2( 250, 50, 575, 210 ), 0.75 * Math.PI,
+      this.soluteProperty, SHAKER_MAX_DISPENSING_RATE, this.soluteFormProperty.get() === 'solid', tandem.createTandem( 'shaker' ) );
+    this.shakerParticles = new ShakerParticles( this.shaker, this.solution, this.beaker, tandem.createTandem( 'shakerParticles' ) );
+    this.dropper = new Dropper( new Vector2( this.beaker.location.x, 225 ), new Bounds2( 260, 225, 580, 225 ),
+      this.soluteProperty, DROPPER_FLOW_RATE, this.soluteFormProperty.get() === 'solution', tandem.createTandem( 'dropper' ) );
+    this.evaporator = new Evaporator( MAX_EVAPORATION_RATE, this.solution, tandem.createTandem( 'evaporator' ) );
+    this.solventFaucet = new Faucet( new Vector2( 155, 220 ), -400, 45, MAX_FAUCET_FLOW_RATE, tandem.createTandem( 'solventFaucet' ) );
+    this.drainFaucet = new Faucet( new Vector2( 750, 630 ), this.beaker.getRight(), 45, MAX_FAUCET_FLOW_RATE, tandem.createTandem( 'drainFaucet' ) );
+    this.concentrationMeter = new ConcentrationMeter( new Vector2( 785, 210 ), new Bounds2( 10, 150, 835, 680 ),
       new Vector2( 750, 370 ), new Bounds2( 30, 150, 966, 680 ), tandem.createTandem( 'concentrationMeter' ) );
 
     // When the solute is changed, the amount of solute resets to 0.  This is a lazyLink instead of link so that
     // the simulation can be launched with a nonzero solute amount (using PhET-iO)
-    thisModel.soluteProperty.lazyLink( function() {
-      thisModel.solution.soluteAmountProperty.set( 0 );
+    this.soluteProperty.lazyLink( function() {
+      self.solution.soluteAmountProperty.set( 0 );
     } );
 
     // Enable faucets and dropper based on amount of solution in the beaker.
-    thisModel.solution.volumeProperty.link( function( volume ) {
-      thisModel.solventFaucet.enabledProperty.set( volume < SOLUTION_VOLUME_RANGE.max );
-      thisModel.drainFaucet.enabledProperty.set( volume > SOLUTION_VOLUME_RANGE.min );
-      thisModel.dropper.enabledProperty.set( !thisModel.dropper.emptyProperty.get() && ( volume < SOLUTION_VOLUME_RANGE.max ) );
+    this.solution.volumeProperty.link( function( volume ) {
+      self.solventFaucet.enabledProperty.set( volume < SOLUTION_VOLUME_RANGE.max );
+      self.drainFaucet.enabledProperty.set( volume > SOLUTION_VOLUME_RANGE.min );
+      self.dropper.enabledProperty.set( !self.dropper.emptyProperty.get() && ( volume < SOLUTION_VOLUME_RANGE.max ) );
     } );
 
     // Empty shaker and dropper when max solute is reached.
-    thisModel.solution.soluteAmountProperty.link( function( soluteAmount ) {
+    this.solution.soluteAmountProperty.link( function( soluteAmount ) {
       var containsMaxSolute = ( soluteAmount >= SOLUTE_AMOUNT_RANGE.max );
-      thisModel.shaker.emptyProperty.set( containsMaxSolute );
-      thisModel.dropper.emptyProperty.set( containsMaxSolute );
-      thisModel.dropper.enabledProperty.set( !thisModel.dropper.emptyProperty.get() && !containsMaxSolute && thisModel.solution.volumeProperty.get() < SOLUTION_VOLUME_RANGE.max );
+      self.shaker.emptyProperty.set( containsMaxSolute );
+      self.dropper.emptyProperty.set( containsMaxSolute );
+      self.dropper.enabledProperty.set( !self.dropper.emptyProperty.get() && !containsMaxSolute && self.solution.volumeProperty.get() < SOLUTION_VOLUME_RANGE.max );
     } );
 
     tandem.addInstance( this, TConcentrationModel );

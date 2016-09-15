@@ -39,16 +39,16 @@ define( function( require ) {
 
     Particles.call( this );
 
-    var thisParticles = this;
+    var self = this;
 
     // @private
-    thisParticles.shaker = shaker;
-    thisParticles.solution = solution;
-    thisParticles.beaker = beaker;
+    this.shaker = shaker;
+    this.solution = solution;
+    this.beaker = beaker;
 
     // when the solute changes, remove all particles
     solution.soluteProperty.link( function() {
-      thisParticles.removeAllParticles();
+      self.removeAllParticles();
     } );
 
     this.shakerParticleGroupTandem = tandem.createGroupTandem( 'shakerParticle' );

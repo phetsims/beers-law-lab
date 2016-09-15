@@ -29,25 +29,25 @@ define( function( require ) {
 
     assert && assert( pipeMinX < location.x ); // pipe enters the faucet from the left
 
-    var thisFaucet = this;
+    var self = this;
 
     // @public (read-only)
-    thisFaucet.location = location;
-    thisFaucet.pipeMinX = pipeMinX;
-    thisFaucet.spoutWidth = spoutWidth;
-    thisFaucet.maxFlowRate = maxFlowRate;
+    this.location = location;
+    this.pipeMinX = pipeMinX;
+    this.spoutWidth = spoutWidth;
+    this.maxFlowRate = maxFlowRate;
 
     // @public
-    thisFaucet.flowRateProperty = new Property( 0, {
+    this.flowRateProperty = new Property( 0, {
       tandem: tandem.createTandem( 'flowRateProperty' ),
       phetioValueType: TNumber( { units: 'liters/second' } )
     } );
-    thisFaucet.enabledProperty = new Property( true );
+    this.enabledProperty = new Property( true );
 
     // when disabled, turn off the faucet.
-    thisFaucet.enabledProperty.link( function( enabled ) {
+    this.enabledProperty.link( function( enabled ) {
       if ( !enabled ) {
-        thisFaucet.flowRateProperty.set( 0 );
+        self.flowRateProperty.set( 0 );
       }
     } );
   }

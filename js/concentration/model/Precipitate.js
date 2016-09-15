@@ -29,23 +29,23 @@ define( function( require ) {
 
     Particles.call( this );
 
-    var thisPrecipitate = this;
+    var self = this;
 
     // @private
-    thisPrecipitate.solution = solution;
-    thisPrecipitate.beaker = beaker;
+    this.solution = solution;
+    this.beaker = beaker;
 
     this.precipitateParticleGroupTandem = tandem.createGroupTandem( 'precipitateParticle' );
 
     // when the saturation changes, update the number of precipitate particles
-    thisPrecipitate.solution.precipitateAmountProperty.link( function() {
-      thisPrecipitate.updateParticles();
+    this.solution.precipitateAmountProperty.link( function() {
+      self.updateParticles();
     } );
 
     // when the solute changes, remove all particles and create new particles for the solute
-    thisPrecipitate.solution.soluteProperty.link( function() {
-      thisPrecipitate.removeAllParticles();
-      thisPrecipitate.updateParticles();
+    this.solution.soluteProperty.link( function() {
+      self.removeAllParticles();
+      self.updateParticles();
     } );
 
     // Persists for the life of the sim, no need to be disposed

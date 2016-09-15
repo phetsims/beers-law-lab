@@ -34,9 +34,9 @@ define( function( require ) {
       tandem: tandem
     }, options );
 
-    var thisButton = this;
+    var self = this;
 
-    TextPushButton.call( thisButton, removeSoluteString, options );
+    TextPushButton.call( this, removeSoluteString, options );
 
     this.addListener( function() {
       solution.soluteAmountProperty.set( 0 );
@@ -45,7 +45,7 @@ define( function( require ) {
 
     // change the text fill to indicate whether the button is enabled
     solution.soluteAmountProperty.link( function( soluteAmount ) {
-      thisButton.enabled = ( soluteAmount > 0 );
+      self.enabled = ( soluteAmount > 0 );
     } );
   }
 

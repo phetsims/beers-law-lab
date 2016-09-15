@@ -26,8 +26,9 @@ define( function( require ) {
    */
   function SaturatedIndicator( solution ) {
 
-    var thisNode = this;
-    Node.call( thisNode );
+    var self = this;
+    
+    Node.call( this );
 
     var label = new Text( saturatedString, { font: new PhetFont( 20 ), maxWidth: 400 } );
 
@@ -36,8 +37,8 @@ define( function( require ) {
       { fill: 'rgba( 240, 240, 240, 0.6 )' } );
 
     // rendering order
-    thisNode.addChild( background );
-    thisNode.addChild( label );
+    this.addChild( background );
+    this.addChild( label );
 
     // layout
     label.centerX = background.centerX;
@@ -45,7 +46,7 @@ define( function( require ) {
 
     // make this node visible when the solution is saturated
     solution.saturatedProperty.link( function( saturated ) {
-      thisNode.setVisible( saturated );
+      self.setVisible( saturated );
     } );
   }
 

@@ -33,8 +33,7 @@ define( function( require ) {
    */
   function ConcentrationControl( solutionProperty, tandem ) {
 
-    var thisNode = this;
-    Node.call( thisNode );
+    Node.call( this );
 
     // nodes
     var label = new Text( StringUtils.format( pattern0LabelString, concentrationString ), { font: FONT } );
@@ -46,10 +45,10 @@ define( function( require ) {
       { fill: 'white', stroke: 'lightGray' } );
 
     // rendering order
-    thisNode.addChild( label );
-    thisNode.addChild( slider );
-    thisNode.addChild( valueBackground );
-    thisNode.addChild( valueDisplay );
+    this.addChild( label );
+    this.addChild( slider );
+    this.addChild( valueBackground );
+    this.addChild( valueDisplay );
 
     // layout
     valueBackground.left = label.right + 6;

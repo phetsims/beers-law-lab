@@ -29,42 +29,42 @@ define( function( require ) {
    */
   function Dropper( location, dragBounds, soluteProperty, maxFlowRate, visible, tandem ) {
 
-    var thisDropper = this;
-    Movable.call( thisDropper, location, dragBounds, tandem );
+    var self = this;
+    Movable.call( this, location, dragBounds, tandem );
 
     // @public
-    thisDropper.soluteProperty = soluteProperty;
-    thisDropper.visibleProperty = new Property( visible );
-    thisDropper.dispensingProperty = new Property( false, {
+    this.soluteProperty = soluteProperty;
+    this.visibleProperty = new Property( visible );
+    this.dispensingProperty = new Property( false, {
       tandem: tandem.createTandem( 'dispensingProperty' ),
       phetioValueType: TBoolean
     } ); // true if the dropper is dispensing solution
-    thisDropper.enabledProperty = new Property( true );
-    thisDropper.emptyProperty = new Property( false, {
+    this.enabledProperty = new Property( true );
+    this.emptyProperty = new Property( false, {
       tandem: tandem.createTandem( 'emptyProperty' ),
       phetioValueType: TBoolean
     } );
-    thisDropper.flowRateProperty = new Property( 0, {
+    this.flowRateProperty = new Property( 0, {
       tandem: tandem.createTandem( 'flowRateProperty' ),
       phetioValueType: TNumber( { units: 'liters/second' } )
     } ); // L/sec
 
     // Turn off the dropper when it's disabled.
-    thisDropper.enabledProperty.link( function( enabled ) {
+    this.enabledProperty.link( function( enabled ) {
       if ( !enabled ) {
-        thisDropper.dispensingProperty.set( false );
+        self.dispensingProperty.set( false );
       }
     } );
 
     // Toggle the flow rate when the dropper is turned on/off.
-    thisDropper.dispensingProperty.link( function( dispensing ) {
-      thisDropper.flowRateProperty.set( dispensing ? maxFlowRate : 0 );
+    this.dispensingProperty.link( function( dispensing ) {
+      self.flowRateProperty.set( dispensing ? maxFlowRate : 0 );
     } );
 
     // When the dropper becomes empty, disable it.
-    thisDropper.emptyProperty.link( function( empty ) {
+    this.emptyProperty.link( function( empty ) {
       if ( empty ) {
-        thisDropper.enabledProperty.set( false );
+        self.enabledProperty.set( false );
       }
     } );
   }

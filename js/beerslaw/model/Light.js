@@ -28,25 +28,25 @@ define( function( require ) {
    */
   function Light( location, on, lensDiameter, solutionProperty, tandem ) {
 
-    var thisLight = this;
+    var self = this;
 
     // @public (read-only)
-    thisLight.location = location;
-    thisLight.lensDiameter = lensDiameter;
+    this.location = location;
+    this.lensDiameter = lensDiameter;
 
     // @public
-    thisLight.onProperty = new Property( on, {
+    this.onProperty = new Property( on, {
       tandem: tandem.createTandem( 'onProperty' ),
       phetioValueType: TBoolean
     } );
-    thisLight.wavelengthProperty = new Property( solutionProperty.get().molarAbsorptivityData.lambdaMax /*nm*/, {
+    this.wavelengthProperty = new Property( solutionProperty.get().molarAbsorptivityData.lambdaMax /*nm*/, {
       tandem: tandem.createTandem( 'wavelengthProperty' ),
       phetioValueType: TNumber( { units: 'nanometers' } )
     } );
 
     // when the solution changes, set the light to the solution's lambdaMax wavelength
     solutionProperty.link( function( solution ) {
-      thisLight.wavelengthProperty.set( solution.molarAbsorptivityData.lambdaMax );
+      self.wavelengthProperty.set( solution.molarAbsorptivityData.lambdaMax );
     } );
   }
 

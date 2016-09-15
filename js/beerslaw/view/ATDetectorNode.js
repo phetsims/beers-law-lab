@@ -81,8 +81,9 @@ define( function( require ) {
    */
   function BodyNode( detector, modelViewTransform, tandem ) {
 
-    var thisNode = this;
-    Node.call( thisNode );
+    var self = this;
+
+    Node.call( this );
 
     // buttons for changing the detector 'mode'
     var textOptions = { font: new PhetFont( 18 ), fill: 'white' };
@@ -142,13 +143,13 @@ define( function( require ) {
       lightOffset: 0.95
     } );
 
-    thisNode.addChild( bodyNode );
-    thisNode.addChild( vBox );
+    this.addChild( bodyNode );
+    this.addChild( vBox );
     vBox.center = bodyNode.center;
 
     // body location
     detector.body.locationProperty.link( function( location ) {
-      thisNode.translation = modelViewTransform.modelToViewPosition( location );
+      self.translation = modelViewTransform.modelToViewPosition( location );
     } );
 
     // update the value display
@@ -186,9 +187,9 @@ define( function( require ) {
    */
   function ATProbeNode( probe, light, modelViewTransform, tandem ) {
 
-    var thisNode = this;
+    var self = this;
 
-    ProbeNode.call( thisNode, {
+    ProbeNode.call( this, {
       radius: 53,
       innerRadius: 40,
       handleWidth: 68,
@@ -200,11 +201,11 @@ define( function( require ) {
 
     // location
     probe.locationProperty.link( function( location ) {
-      thisNode.translation = modelViewTransform.modelToViewPosition( location );
+      self.translation = modelViewTransform.modelToViewPosition( location );
     } );
 
     // interactivity
-    thisNode.cursor = 'pointer';
+    this.cursor = 'pointer';
 
     var movableDragHandler = new MovableDragHandler( probe.locationProperty, {
       tandem: tandem.createTandem( 'movableDragHandler' ),
@@ -218,12 +219,12 @@ define( function( require ) {
         }
       }
     } );
-    thisNode.addInputListener( movableDragHandler );
+    this.addInputListener( movableDragHandler );
 
     beersLawLab.register( 'ATDetectorNode.ATProbeNode', ATProbeNode );
 
     // touch area
-    thisNode.touchArea = thisNode.localBounds.dilatedXY( 0.25 * thisNode.width, 0 );
+    this.touchArea = this.localBounds.dilatedXY( 0.25 * this.width, 0 );
 
     tandem.addInstance( this, TNode );
   }
@@ -240,7 +241,8 @@ define( function( require ) {
    */
   function WireNode( body, probe, bodyNode, probeNode ) {
 
-    var thisNode = this;
+    var self = this;
+
     Path.call( this, new Shape(), {
       stroke: 'gray',
       lineWidth: 8,
@@ -263,7 +265,7 @@ define( function( require ) {
       var c2 = new Vector2( probeConnectionPoint.x + c2Offset.x, probeConnectionPoint.y + c2Offset.y );
 
       // cubic curve
-      thisNode.shape = new Shape()
+      self.shape = new Shape()
         .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
         .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
     };

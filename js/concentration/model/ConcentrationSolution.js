@@ -32,33 +32,33 @@ define( function( require ) {
    */
   function ConcentrationSolution( soluteProperty, soluteAmount, volume, tandem ) {
 
-    var thisSolution = this;
+    var self = this;
 
-    thisSolution.solvent = Solvent.WATER; // @public (read-only)
+    this.solvent = Solvent.WATER; // @public (read-only)
 
     // @public
-    thisSolution.soluteProperty = soluteProperty;
-    thisSolution.soluteAmountProperty = new Property( soluteAmount, {
+    this.soluteProperty = soluteProperty;
+    this.soluteAmountProperty = new Property( soluteAmount, {
       tandem: tandem.createTandem( 'soluteAmountProperty' ),
       phetioValueType: TNumber( { units: 'moles', range: BLLConstants.SOLUTE_AMOUNT_RANGE } )
     } );
-    thisSolution.volumeProperty = new Property( volume, {
+    this.volumeProperty = new Property( volume, {
       tandem: tandem.createTandem( 'volumeProperty' ),
       phetioValueType: TNumber( { units: 'liters', range: BLLConstants.SOLUTION_VOLUME_RANGE } )
     } ); // L
 
     // @public for deferring update of precipitateAmount until we've changed both volume and soluteAmount, see concentration#1
-    thisSolution.updatePrecipitateAmount = true;
+    this.updatePrecipitateAmount = true;
 
     // @public derive amount of precipitate (moles)
-    thisSolution.precipitateAmountProperty = new DerivedProperty(
-      [ thisSolution.soluteProperty, thisSolution.soluteAmountProperty, thisSolution.volumeProperty ],
+    this.precipitateAmountProperty = new DerivedProperty(
+      [ this.soluteProperty, this.soluteAmountProperty, this.volumeProperty ],
       function( solute, soluteAmount, volume ) {
-        if ( thisSolution.updatePrecipitateAmount ) {
-          return Math.max( 0, soluteAmount - ( volume * thisSolution.getSaturatedConcentration() ) );
+        if ( self.updatePrecipitateAmount ) {
+          return Math.max( 0, soluteAmount - ( volume * self.getSaturatedConcentration() ) );
         }
         else {
-          return thisSolution.precipitateAmountProperty.get();
+          return self.precipitateAmountProperty.get();
         }
       }, {
         tandem: tandem.createTandem( 'precipitateAmountProperty' ),
@@ -67,10 +67,10 @@ define( function( require ) {
     );
 
     // @public derive concentration (M = mol/L)
-    thisSolution.concentrationProperty = new DerivedProperty(
-      [ thisSolution.soluteProperty, thisSolution.soluteAmountProperty, thisSolution.volumeProperty ],
+    this.concentrationProperty = new DerivedProperty(
+      [ this.soluteProperty, this.soluteAmountProperty, this.volumeProperty ],
       function( solute, soluteAmount, volume ) {
-        return ( volume > 0 ) ? Math.min( thisSolution.getSaturatedConcentration(), soluteAmount / volume ) : 0;
+        return ( volume > 0 ) ? Math.min( self.getSaturatedConcentration(), soluteAmount / volume ) : 0;
       }, {
         tandem: tandem.createTandem( 'concentrationProperty' ),
         phetioValueType: TNumber( { units: 'moles/liter' } )
@@ -102,7 +102,7 @@ define( function( require ) {
       function( volume, soluteGrams ) {
         var percentConcentration = 0;
         if ( volume > 0 ) {
-          var solventGrams = volume * thisSolution.solvent.density;
+          var solventGrams = volume * self.solvent.density;
           percentConcentration = 100 * ( soluteGrams / ( soluteGrams + solventGrams ) );
         }
         assert && assert( percentConcentration >= 0 && percentConcentration <= 100 );
@@ -113,14 +113,14 @@ define( function( require ) {
       }
     );
 
-    Fluid.call( thisSolution, ConcentrationSolution.createColor( thisSolution.solvent, thisSolution.soluteProperty.get(), thisSolution.concentrationProperty.get() ) );
+    Fluid.call( this, ConcentrationSolution.createColor( this.solvent, this.soluteProperty.get(), this.concentrationProperty.get() ) );
 
     // derive the solution color
     var updateColor = function() {
-      thisSolution.colorProperty.set( ConcentrationSolution.createColor( thisSolution.solvent, thisSolution.soluteProperty.get(), thisSolution.concentrationProperty.get() ) );
+      self.colorProperty.set( ConcentrationSolution.createColor( self.solvent, self.soluteProperty.get(), self.concentrationProperty.get() ) );
     };
-    thisSolution.soluteProperty.lazyLink( updateColor );
-    thisSolution.concentrationProperty.lazyLink( updateColor );
+    this.soluteProperty.lazyLink( updateColor );
+    this.concentrationProperty.lazyLink( updateColor );
   }
 
   beersLawLab.register( 'ConcentrationSolution', ConcentrationSolution );

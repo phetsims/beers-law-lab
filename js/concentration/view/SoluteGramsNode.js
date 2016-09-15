@@ -33,11 +33,12 @@ define( function( require ) {
       font: new PhetFont( 22 )
     }, options );
 
-    var thisNode = this;
+    var self = this;
+
     Text.call( this, '', options );
 
     soluteGramsProperty.link( function( soluteGrams ) {
-      thisNode.text = StringUtils.format( pattern0SoluteAmountString, Util.toFixed( soluteGrams, DECIMAL_PLACES ) );
+      self.text = StringUtils.format( pattern0SoluteAmountString, Util.toFixed( soluteGrams, DECIMAL_PLACES ) );
     } );
   }
 

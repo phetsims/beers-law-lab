@@ -47,8 +47,7 @@ define( function( require ) {
    */
   function BeakerNode( beaker, modelViewTransform, tandem ) {
 
-    var thisNode = this;
-    Node.call( thisNode, { pickable: false } );
+    Node.call( this, { pickable: false } );
 
     // outline of the beaker, starting from upper left
     var width = modelViewTransform.modelToViewDeltaX( beaker.size.width );
@@ -60,17 +59,16 @@ define( function( require ) {
       .lineTo( width / 2, 0 )
       .lineTo( width / 2, -height )
       .lineTo( (width / 2) + RIM_OFFSET, -height - RIM_OFFSET );
-    thisNode.addChild( new Path( outlineShape,
-      {
-        stroke: 'black',
-        lineWidth: 3,
-        lineCap: 'round',
-        lineJoin: 'round'
-      } ) );
+    this.addChild( new Path( outlineShape, {
+      stroke: 'black',
+      lineWidth: 3,
+      lineCap: 'round',
+      lineJoin: 'round'
+    } ) );
 
     // horizontal tick marks, left edge, from bottom up
     var ticksParent = new Node();
-    thisNode.addChild( ticksParent );
+    this.addChild( ticksParent );
     var numberOfTicks = Math.round( beaker.volume / MINOR_TICK_SPACING );
     var deltaY = height / numberOfTicks;
     for ( var i = 1; i <= numberOfTicks; i++ ) {
@@ -113,8 +111,8 @@ define( function( require ) {
     }
 
     var location = modelViewTransform.modelToViewPosition( beaker.location );
-    thisNode.x = location.x;
-    thisNode.y = location.y;
+    this.x = location.x;
+    this.y = location.y;
 
     tandem.addInstance( this, TNode );
   }
