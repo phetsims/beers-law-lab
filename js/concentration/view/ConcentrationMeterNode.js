@@ -72,17 +72,17 @@ define( function( require ) {
   function ConcentrationMeterNode( meter, solution, dropper, solutionNode, stockSolutionNode, solventFluidNode,
                                    drainFluidNode, modelViewTransform, tandem ) {
 
-    var thisNode = this;
-    Node.call( thisNode );
+    var self = this;
+    Node.call( self );
 
     var bodyNode = new BodyNode( meter, modelViewTransform, tandem.createTandem( 'bodyNode' ) );
     var probeNode = new ConcentrationProbeNode( meter.probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, tandem.createTandem( 'probeNode' ) );
     var wireNode = new WireNode( meter.body, meter.probe, bodyNode, probeNode );
 
     // rendering order
-    thisNode.addChild( wireNode );
-    thisNode.addChild( bodyNode );
-    thisNode.addChild( probeNode );
+    self.addChild( wireNode );
+    self.addChild( bodyNode );
+    self.addChild( probeNode );
 
     var updateValue = function() {
       if ( probeNode.isInSolution() || probeNode.isInDrainFluid() ) {
