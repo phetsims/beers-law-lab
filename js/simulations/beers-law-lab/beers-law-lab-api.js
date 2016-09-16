@@ -32,7 +32,7 @@ define( function( require ) {
   var TPrecipitate = require( 'PHET_IO/simulations/beers-law-lab/TPrecipitate' );
   var TPrecipitateParticle = require( 'PHET_IO/simulations/beers-law-lab/TPrecipitateParticle' );
   var TProperty = require( 'PHET_IO/types/axon/TProperty' );
-  var TRadioButton = require( 'PHET_IO/types/sun/buttons/TRadioButton' );
+  var TRadioButton = require( 'PHET_IO/types/sun/TRadioButton' );
   var TResetAllButton = require( 'PHET_IO/types/sun/buttons/TResetAllButton' );
   var TShaker = require( 'PHET_IO/simulations/beers-law-lab/TShaker' );
   var TShakerParticle = require( 'PHET_IO/simulations/beers-law-lab/TShakerParticle' );
