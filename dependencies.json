@@ -1,15 +1,15 @@
 {
-  "comment": "# beers-law-lab 1.5.0-phetio.4 Tue Sep 27 2016 12:19:17 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# beers-law-lab 1.5.0-phetio.4 Tue Sep 27 2016 14:52:20 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "845be6b591cb746b0b05b7023208aef2e49a8855",
     "branch": "master"
   },
   "axon": {
-    "sha": "64e7ee640c70dd0350511517c9cae7e9b63a851f",
+    "sha": "b1f8bf797de415389bd7b1af80be40f8ca25ebe3",
     "branch": "master"
   },
   "beers-law-lab": {
-    "sha": "5ea7740e8dd4568991dca0bdb5c569d47cfdbf2a",
+    "sha": "3093baa660bd7ed958d85d8a0863caae75efada4",
     "branch": "master"
   },
   "brand": {
@@ -41,7 +41,7 @@
     "branch": "master"
   },
   "phet-io": {
-    "sha": "68133fea463a99a81302d22a335bc3c68d737145",
+    "sha": "5bb36b44b4116372d1833a190b9d14384c9296df",
     "branch": "master"
   },
   "phetcommon": {
@@ -65,7 +65,7 @@
     "branch": "master"
   },
   "sun": {
-    "sha": "49ee61f8eea83ccdc0ff39dbecf69809c6e67d90",
+    "sha": "831ccd59b02ba170d73069ea43f1613b517b213e",
     "branch": "master"
   },
   "tandem": {
