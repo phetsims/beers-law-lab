@@ -57,6 +57,9 @@ define( function( require ) {
           var h = modelViewTransform.modelToViewDeltaY( light.lensDiameter );
           return Shape.rect( x, y, w, h );
         }
+        else {
+          return null;
+        }
       } );
 
     // @public beam color, a left-to-right linear gradient that transitions inside the solution
