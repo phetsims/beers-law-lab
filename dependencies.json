@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.5.1-phetio Thu Oct 13 2016 21:19:09 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# beers-law-lab 1.5.1-phetio Thu Oct 13 2016 21:24:03 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "845be6b591cb746b0b05b7023208aef2e49a8855",
     "branch": "master"
@@ -9,7 +9,7 @@
     "branch": "master"
   },
   "beers-law-lab": {
-    "sha": "43f5e0fce1d9360da7ddd21becc99af19bf4b5e5",
+    "sha": "52273e20b252e8cdcca15384b9aeee55b5218fa6",
     "branch": "1.5-phetio"
   },
   "brand": {
