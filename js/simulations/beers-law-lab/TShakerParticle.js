@@ -32,7 +32,8 @@ define( function( require ) {
       parameterTypes: [],
       implementation: function( value ) {
         //TODO grouped item, should have value set with create.  What is this for?  I don't know.
-      }
+      },
+      documentation: 'TODO'
     }
   }, {
 
