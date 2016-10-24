@@ -26,12 +26,14 @@ define( function( require ) {
 
     // For instance:
     // http://localhost/concentration/concentration_en.html?ea&brand=phet-io&phet-io.standalone&phet-io.log=lines&phet-io.expressions=[["concentration.concentrationScreen.model","setSolutes",[["concentration.solutes.cobaltIINitrate","concentration.solutes.cobaltChloride","concentration.solutes.drinkMix"]]]]
+    // TODO: Rename to setAllowedSolutes?
     setSolutes: {
       parameterTypes: [ TArray( TSolute ) ],
       returnType: TVoid,
       implementation: function( solutes ) {
         this.instance.setSolutes( solutes );
-      }
+      },
+      documentation: 'Set which solutes are allowed for selection'
     }
   }, {} );
 

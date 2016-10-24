@@ -22,13 +22,16 @@ define( function( require ) {
   };
 
   phetioInherit( TObject, 'TShakerParticles', TShakerParticles, {
-    setValue: {
-      returnType: TVoid,
-      parameterTypes: [],
-      implementation: function() {
-        this.instance.removeAllParticles();
-      }
-    }
+
+    // TODO: rename this to a more specific name
+    // setValue: {
+    //   returnType: TVoid,
+    //   parameterTypes: [],
+    //   implementation: function() {
+    //     this.instance.removeAllParticles();
+    //   },
+    //   documentation: 'Set the formula of the solute'
+    // }
   }, {
     toStateObject: function( instance ) {
 

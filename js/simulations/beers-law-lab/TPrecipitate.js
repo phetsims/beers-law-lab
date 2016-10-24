@@ -22,12 +22,14 @@ define( function( require ) {
   };
 
   phetioInherit( TObject, 'TPrecipitate', TPrecipitate, {
+    // TODO: Rename to setAmount
     setValue: {
       returnType: TVoid,
       parameterTypes: [],
       implementation: function() {
         this.instance.removeAllParticles();
-      }
+      },
+      documentation: 'Sets the amount of a precipitate'
     }
   }, {
 

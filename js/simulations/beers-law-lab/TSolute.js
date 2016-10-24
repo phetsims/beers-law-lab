@@ -29,7 +29,8 @@ define( function( require ) {
       parameterTypes: [ TString ],
       implementation: function( text ) {
         this.instance.name = text;
-      }
+      },
+      documentation: 'Set the name of the solute'
     },
 
     setFormula: {
@@ -37,7 +38,8 @@ define( function( require ) {
       parameterTypes: [ TString ],
       implementation: function( text ) {
         this.instance.formula = text;
-      }
+      },
+      documentation: 'Set the formula of the solute'
     }
   }, {
 
