@@ -94,7 +94,7 @@ define( function( require ) {
         if ( labelIndex < MAJOR_TICK_VALUES_LITERS.length ) {
 
           // display ticks in liters or milliliters, see beers-law-lab#150
-          var label = ( BLLQueryParameters.BEAKER_UNITS === 'liters' ) ?
+          var label = ( BLLQueryParameters.beakerUnits === 'liters' ) ?
                       StringUtils.format( pattern0Value1UnitsString, MAJOR_TICK_VALUES_LITERS[ labelIndex ], unitsLitersString ) :
                       StringUtils.format( pattern0Value1UnitsString, MAJOR_TICK_VALUES_MILLILITERS[ labelIndex ], unitsMillilitersString );
 
