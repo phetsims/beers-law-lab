@@ -12,37 +12,35 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
 
-  // constants - valid values, 0th element is the default
-  var getQueryParameter = phet.chipper.getQueryParameter;
-  var CONCENTRATION_METER_UNITS_VALUES = [ 'molesPerLiter', 'percent' ];
-  var BEAKER_TICK_UNITS_VALUES = [ 'liters', 'milliliters' ];
-
-  var BLLQueryParameters = {
+  var BLLQueryParameters = QueryStringMachine.getAll( {
 
     // {boolean} whether the solute amount (in grams) is visible on the Concentration screen, see beers-law-lab#148
-    SHOW_SOLUTE_AMOUNT: !!getQueryParameter( 'showSoluteAmount' ) || false,
+    showSoluteAmount: { type: 'flag' },
 
     // {string} units on the concentration meter, see beers-law-lab#149
-    CONCENTRATION_METER_UNITS: getQueryParameter( 'concentrationMeterUnits' ) || CONCENTRATION_METER_UNITS_VALUES[ 0 ],
+    concentrationMeterUnits: {
+      type: 'string',
+      validValues: [ 'molesPerLiter', 'percent' ],
+      defaultValue: 'molesPerLiter'
+    },
 
     // {string} units for beaker ticks, see beers-law-lab#150
-    BEAKER_UNITS: getQueryParameter( 'beakerUnits' ) || BEAKER_TICK_UNITS_VALUES[ 0 ],
+    beakerUnits: {
+      type: 'string',
+      validValues: [ 'liters', 'milliliters' ],
+      defaultValue: 'liters'
+    },
 
     // {number} snap interval for the cuvette in centimeters, or 0 for no snap
-    CUVETTE_SNAP_INTERVAL: getQueryParameter( 'cuvetteSnapInterval' ) ?
-                           parseInt( getQueryParameter( 'cuvetteSnapInterval' ), 10 ) :
-                           BLLConstants.DEFAULT_CUVETTE_SNAP_INTERVAL
-  };
+    cuvetteSnapInterval: {
+      type: 'number',
+      defaultValue: BLLConstants.DEFAULT_CUVETTE_SNAP_INTERVAL
+    }
+  } );
 
   // validation - use Error instead of assert, because these are user errors, not programming errors
-  if ( typeof BLLQueryParameters.SHOW_SOLUTE_AMOUNT !== 'boolean' ) {
-    throw new Error( 'invalid value for showSoluteAmount query parameter: ' + BLLQueryParameters.SHOW_SOLUTE_AMOUNT );
-  }
-  if ( _.indexOf( CONCENTRATION_METER_UNITS_VALUES, BLLQueryParameters.CONCENTRATION_METER_UNITS ) === -1 ) {
-    throw new Error( 'invalid value for concentrationMeterUnits query parameter: ' + BLLQueryParameters.CONCENTRATION_METER_UNITS );
-  }
-  if ( _.indexOf( BEAKER_TICK_UNITS_VALUES, BLLQueryParameters.BEAKER_UNITS ) === -1 ) {
-    throw new Error( 'invalid value for beakerUnits query parameter: ' + BLLQueryParameters.BEAKER_UNITS );
+  if ( BLLQueryParameters.cuvetteSnapInterval < 0 ) {
+    throw new Error( 'cuvetteSnapInterval must be >= 0: ' + BLLQueryParameters.cuvetteSnapInterval );
   }
 
   beersLawLab.register( 'BLLQueryParameters', BLLQueryParameters );

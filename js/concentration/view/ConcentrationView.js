@@ -88,7 +88,7 @@ define( function( require ) {
     // Solute amount, in grams
     var soluteGramsNode = new SoluteGramsNode( model.solution.soluteGramsProperty, {
       maxWidth: 200,
-      visible: BLLQueryParameters.SHOW_SOLUTE_AMOUNT
+      visible: BLLQueryParameters.showSoluteAmount
     } );
 
     // Remove Solute button

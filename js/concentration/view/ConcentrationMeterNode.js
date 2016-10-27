@@ -55,7 +55,7 @@ define( function( require ) {
   var READOUT_X_MARGIN = 8;
   var READOUT_Y_MARGIN = 4;
   var PROBE_COLOR = 'rgb( 135, 4, 72 )';
-  var DISPLAY_MOLES_PER_LITER = ( BLLQueryParameters.CONCENTRATION_METER_UNITS === 'molesPerLiter' );
+  var DISPLAY_MOLES_PER_LITER = ( BLLQueryParameters.concentrationMeterUnits === 'molesPerLiter' );
 
   /**
    * @param {ConcentrationMeter} meter
