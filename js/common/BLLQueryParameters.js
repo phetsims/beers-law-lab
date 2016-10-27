@@ -34,14 +34,12 @@ define( function( require ) {
     // {number} snap interval for the cuvette in centimeters, or 0 for no snap
     cuvetteSnapInterval: {
       type: 'number',
-      defaultValue: BLLConstants.DEFAULT_CUVETTE_SNAP_INTERVAL
+      defaultValue: BLLConstants.DEFAULT_CUVETTE_SNAP_INTERVAL,
+      isValidValue: function( value ) {
+        return value >= 0;
+      }
     }
   } );
-
-  // validation - use Error instead of assert, because these are user errors, not programming errors
-  if ( BLLQueryParameters.cuvetteSnapInterval < 0 ) {
-    throw new Error( 'cuvetteSnapInterval must be >= 0: ' + BLLQueryParameters.cuvetteSnapInterval );
-  }
 
   beersLawLab.register( 'BLLQueryParameters', BLLQueryParameters );
 
