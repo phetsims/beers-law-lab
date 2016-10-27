@@ -1,5 +1,5 @@
 {
-  "comment": "# faradays-law 1.2.3-phetiorc.2 Wed Oct 26 2016 22:37:56 GMT-0600 (MDT)",
+  "comment": "# beers-law-lab 1.5.2-phetiorc.1 Thu Oct 27 2016 14:33:27 GMT-0600 (MDT)",
   "assert": {
     "sha": "845be6b591cb746b0b05b7023208aef2e49a8855",
     "branch": "HEAD"
@@ -7,6 +7,10 @@
   "axon": {
     "sha": "bd3a64f41c8ad53c79dbefe3ec2e63865ee380d9",
     "branch": "HEAD"
+  },
+  "beers-law-lab": {
+    "sha": "f8bd36249b67260262190be10617d775e3afcd38",
+    "branch": "1.5-phetio"
   },
   "brand": {
     "sha": "880a18ded11185580cf5950e568931cf0df4eb87",
@@ -27,6 +31,10 @@
   "kite": {
     "sha": "d506825f0e044f9715f94b2aac23dbd52b139a82",
     "branch": "HEAD"
+  },
+  "nitroglycerin": {
+    "sha": "b19c167e47ee5a7dd879d4fe9f35c66d03a5362d",
+    "branch": "master"
   },
   "phet-core": {
     "sha": "4222a05a927792580846b3bf9b1b53decf154943",
@@ -66,10 +74,6 @@
   },
   "tandem": {
     "sha": "dc9f3cae2963b261ea7c0c505b204a57241d573a",
-    "branch": "HEAD"
-  },
-  "vibe": {
-    "sha": "2dba4d4b71cb0bf43c1f6a4779cc482adc9baed6",
     "branch": "HEAD"
   }
 }
