@@ -73,7 +73,7 @@ define( function( require ) {
     this.molarAbsorptivityData = molarAbsorptivityData;
     this.concentrationProperty = new Property( concentrationRange.defaultValue, {
       tandem: tandem.createTandem( 'concentrationProperty' ),
-      phetioValueType: TNumber( { units: 'moles/liter' } )
+      phetioValueType: TNumber( { units: 'moles/liter', range: concentrationRange } )
     } );
     this.concentrationRange = concentrationRange;
     this.concentrationTransform = concentrationTransform;
@@ -120,7 +120,7 @@ define( function( require ) {
   } );
 
   // A new tandem instance is required here since the solutes are created statically.
-  var tandem = Tandem.createStaticTandem( 'solutions' );
+  var tandem = Tandem.createStaticTandem( 'beersLawScreen' ).createTandem( 'solutions' );
 
   //-------------------------------------------------------------------------------------------
   // Specific solutions below ...
