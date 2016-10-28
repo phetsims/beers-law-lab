@@ -36,6 +36,7 @@ define( function( require ) {
     this.solute = solute;
     this.velocity = initialVelocity;
     this.acceleration = acceleration;
+    this.tandem = tandem; // Used in TShakerParticle to serialize the tandem name
 
     tandem.addInstance( this, TShakerParticle );
 
