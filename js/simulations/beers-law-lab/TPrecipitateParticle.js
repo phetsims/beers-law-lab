@@ -59,7 +59,7 @@ define( function( require ) {
       return {
         solute: TSolute.toStateObject( value.solute ),
         location: TVector2.toStateObject( value.locationProperty.get() ),
-        orientation: TNumber.toStateObject( value.orientation ),
+        orientation: TNumber().toStateObject( value.orientation ),
         tandem: TTandem.toStateObject( value.tandem )
       };
     }
