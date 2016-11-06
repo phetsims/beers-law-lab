@@ -18,9 +18,6 @@ define( function( require ) {
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
 
-  // phet-io modules
-  var TSolute = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/TSolute' );
-
   // strings
   var pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
   var soluteString = require( 'string!BEERS_LAW_LAB/solute' );
@@ -50,8 +47,7 @@ define( function( require ) {
       listPosition: 'below',
       itemYMargin: 12,
       itemHighlightFill: 'rgb(218,255,255)',
-      tandem: tandem,
-      phetioValueType: TSolute
+      tandem: tandem
     } );
   }
 

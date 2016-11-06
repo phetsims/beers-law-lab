@@ -19,9 +19,6 @@ define( function( require ) {
   var SubSupText = require( 'SCENERY_PHET/SubSupText' );
   var Text = require( 'SCENERY/nodes/Text' );
 
-  // phet-io modules
-  var TSolution = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/TSolution' );
-
   // strings
   var pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
   var solutionString = require( 'string!BEERS_LAW_LAB/solution' );
@@ -50,8 +47,7 @@ define( function( require ) {
       listPosition: 'above',
       itemYMargin: 12,
       itemHighlightFill: 'rgb(218,255,255)',
-      tandem: tandem,
-      phetioValueType: TSolution
+      tandem: tandem
     } );
   }
 
