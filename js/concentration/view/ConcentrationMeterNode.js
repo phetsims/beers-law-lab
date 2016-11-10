@@ -111,10 +111,10 @@ define( function( require ) {
     else {
       solution.percentConcentrationProperty.link( updateValue );
     }
-    solutionNode.addEventListener( 'bounds', updateValue );
-    stockSolutionNode.addEventListener( 'bounds', updateValue );
-    solventFluidNode.addEventListener( 'bounds', updateValue );
-    drainFluidNode.addEventListener( 'bounds', updateValue );
+    solutionNode.on( 'bounds', updateValue );
+    stockSolutionNode.on( 'bounds', updateValue );
+    solventFluidNode.on( 'bounds', updateValue );
+    drainFluidNode.on( 'bounds', updateValue );
 
     tandem.addInstance( this, TNode );
   }
