@@ -34,7 +34,7 @@ define( function( require ) {
     },
 
     setValue: function( instance, value ) {
-      this.instance.removeAllParticles();
+      instance.removeAllParticles();
     }
   } );
 
