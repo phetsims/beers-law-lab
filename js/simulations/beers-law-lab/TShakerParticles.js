@@ -13,29 +13,71 @@ define( function( require ) {
   var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
   var phetioInherit = require( 'PHET_IO/phetioInherit' );
   var TObject = require( 'PHET_IO/types/TObject' );
-  var phetio = require( 'PHET_IO/phetio' );
+  var TNumber = require( 'PHET_IO/types/TNumber' );
+  var TSolute = require( 'PHET_IO/simulations/beers-law-lab/TSolute' );
+  var TTandem = require( 'PHET_IO/types/tandem/TTandem' );
+  var TVector2 = require( 'PHET_IO/types/dot/TVector2' );
 
   var TShakerParticles = function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.ShakerParticles );
   };
 
-  phetioInherit( TObject, 'TShakerParticles', TShakerParticles, {
+  phetioInherit( TObject, 'TShakerParticles', TShakerParticles, {}, {
 
-  }, {
-    toStateObject: function( instance ) {
+    clearPhetioInstances: function( instance ) {
+      instance.removeAllParticles();
+    },
 
-      // TODO: Just returning a string from here doesn't work.... why?
-      return { phetioID: instance.phetioID };
+    /**
+     * Create a dynamic particle as specified by the phetioID and state.
+     * @param {Object} instance
+     * @param {Tandem} tandem
+     * @param {Object} value
+     * @returns {ChargedParticle}
+     */
+    createPhetioInstance: function( instance, tandem, stateObject ) {
+
+      var value = TShakerParticles.fromStateObject( stateObject );
+
+      assert && assert( value.acceleration instanceof phet.dot.Vector2, 'acceleration should be a Vector2' );
+
+      // solute, location, orientation, initialVelocity, acceleration, tandem
+      instance.addParticle( new phet.beersLawLab.ShakerParticle(
+        value.solute,
+        value.location,
+        value.orientation,
+        value.velocity,
+        value.acceleration,
+        tandem
+      ) );
+      instance.fireParticlesChanged();
     },
 
     fromStateObject: function( stateObject ) {
-      return phetio.getInstance( stateObject.phetioID );
-    },
-
-    setValue: function( instance, value){
-      instance.removeAllParticles();
+      return {
+        solute: TSolute.fromStateObject( stateObject.solute ),
+        location: TVector2.fromStateObject( stateObject.location ),
+        orientation: TNumber().fromStateObject( stateObject.orientation ),
+        velocity: TVector2.fromStateObject( stateObject.velocity ),
+        acceleration: TVector2.fromStateObject( stateObject.acceleration ),
+        tandem: TTandem.fromStateObject( stateObject.tandem )
+      };
     }
+    // ,
+    // toStateObject: function( instance ) {
+    //
+    //   // TODO: Just returning a string from here doesn't work.... why?
+    //   return { phetioID: instance.phetioID };
+    // },
+    //
+    // fromStateObject: function( stateObject ) {
+    //   return phetio.getInstance( stateObject.phetioID );
+    // },
+    //
+    // setValue: function( instance, value ) {
+    //   instance.removeAllParticles();
+    // }
 
   } );
 

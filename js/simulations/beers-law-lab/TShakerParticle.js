@@ -24,8 +24,7 @@ define( function( require ) {
     assertInstanceOf( instance, phet.beersLawLab.ShakerParticle );
   };
 
-  phetioInherit( TObject, 'TShakerParticle', TShakerParticle, {
-  }, {
+  phetioInherit( TObject, 'TShakerParticle', TShakerParticle, {}, {
 
     /**
      * When the state is loaded back, create a ShakerParticle.
@@ -35,19 +34,6 @@ define( function( require ) {
      */
     create: function( id, value ) {
 
-      var rootTandem = phet.tandem.Tandem.createRootTandem();
-      var model = phetio.getInstance( rootTandem.id + '.concentrationScreen.model.shakerParticles' );
-
-      // solute, location, orientation, initialVelocity, acceleration, tandem
-      model.addParticle( new phet.beersLawLab.ShakerParticle(
-        value.solute,
-        value.location,
-        value.orientation,
-        value.velocity,
-        value.acceleration,
-        value.tandem
-      ) );
-      model.fireParticlesChanged();
     },
 
     fromStateObject: function( stateObject ) {
@@ -72,7 +58,7 @@ define( function( require ) {
       };
     },
 
-    setValue: function( instance, value){}
+    setValue: function( instance, value ) {}
   } );
 
   phetioNamespace.register( 'TShakerParticle', TShakerParticle );
