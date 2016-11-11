@@ -23,14 +23,6 @@ define( function( require ) {
 
   phetioInherit( TObject, 'TShakerParticles', TShakerParticles, {
 
-    setValue: {
-      returnType: TVoid,
-      parameterTypes: [],
-      implementation: function() {
-        this.instance.removeAllParticles();
-      },
-      documentation: 'Clear the particles so their states can be restored individually'
-    }
   }, {
     toStateObject: function( instance ) {
 
@@ -40,7 +32,12 @@ define( function( require ) {
 
     fromStateObject: function( stateObject ) {
       return phetio.getInstance( stateObject.phetioID );
+    },
+
+    setValue: function( instance, value){
+      instance.removeAllParticles();
     }
+
   } );
 
   phetioNamespace.register( 'TShakerParticles', TShakerParticles );

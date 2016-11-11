@@ -39,6 +39,10 @@ define( function( require ) {
 
     fromStateObject: function( stateObject ) {
       return stateObject; // no coercion necessary for a plain object with primitives
+    },
+
+    setValue: function( instance, value ) {
+      instance.previousLocation.set( TVector2.fromStateObject( value ) );
     }
   } );
 

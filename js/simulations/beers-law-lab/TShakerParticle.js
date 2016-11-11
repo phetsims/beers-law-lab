@@ -26,15 +26,6 @@ define( function( require ) {
   };
 
   phetioInherit( TObject, 'TShakerParticle', TShakerParticle, {
-
-    setValue: {
-      returnType: TVoid,
-      parameterTypes: [],
-      implementation: function( value ) {
-        //TODO grouped item, should have value set with create.  What is this for?  I don't know.
-      },
-      documentation: 'TODO'
-    }
   }, {
 
     /**
@@ -80,7 +71,9 @@ define( function( require ) {
         acceleration: TVector2.toStateObject( value.acceleration ),
         tandem: TTandem.toStateObject( value.tandem )
       };
-    }
+    },
+
+    setValue: function( instance, value){}
   } );
 
   phetioNamespace.register( 'TShakerParticle', TShakerParticle );

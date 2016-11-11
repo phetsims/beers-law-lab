@@ -21,17 +21,7 @@ define( function( require ) {
     assertInstanceOf( instance, phet.beersLawLab.Precipitate );
   };
 
-  phetioInherit( TObject, 'TPrecipitate', TPrecipitate, {
-    // TODO: Rename to setAmount
-    setValue: {
-      returnType: TVoid,
-      parameterTypes: [],
-      implementation: function() {
-        this.instance.removeAllParticles();
-      },
-      documentation: 'Sets the amount of a precipitate'
-    }
-  }, {
+  phetioInherit( TObject, 'TPrecipitate', TPrecipitate, {}, {
 
     toStateObject: function( instance ) {
 
@@ -41,6 +31,10 @@ define( function( require ) {
 
     fromStateObject: function( stateObject ) {
       return phetio.getInstance( stateObject.phetioID );
+    },
+
+    setValue: function( instance, value ) {
+      this.instance.removeAllParticles();
     }
   } );
 
