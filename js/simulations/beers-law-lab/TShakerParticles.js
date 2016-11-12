@@ -22,7 +22,7 @@ define( function( require ) {
 
   phetioInherit( TObject, 'TShakerParticles', TShakerParticles, {}, {
 
-    clearChildren: function( instance ) {
+    clearChildInstances: function( instance ) {
       instance.removeAllParticles();
     },
 
