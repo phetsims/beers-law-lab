@@ -25,6 +25,7 @@ define( function( require ) {
 
     clearChildInstances: function( instance ) {
       instance.removeAllParticles();
+      instance.fireChanged();
     },
 
     /**
