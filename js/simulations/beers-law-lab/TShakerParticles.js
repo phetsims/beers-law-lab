@@ -25,7 +25,7 @@ define( function( require ) {
 
   phetioInherit( TObject, 'TShakerParticles', TShakerParticles, {}, {
 
-    clearPhetioInstances: function( instance ) {
+    clearChildren: function( instance ) {
       instance.removeAllParticles();
     },
 
@@ -33,10 +33,10 @@ define( function( require ) {
      * Create a dynamic particle as specified by the phetioID and state.
      * @param {Object} instance
      * @param {Tandem} tandem
-     * @param {Object} value
+     * @param {Object} stateObject
      * @returns {ChargedParticle}
      */
-    createPhetioInstance: function( instance, tandem, stateObject ) {
+    addChildInstance: function( instance, tandem, stateObject ) {
 
       var value = TShakerParticles.fromStateObject( stateObject );
 
@@ -64,25 +64,9 @@ define( function( require ) {
         tandem: TTandem.fromStateObject( stateObject.tandem )
       };
     }
-    // ,
-    // toStateObject: function( instance ) {
-    //
-    //   // TODO: Just returning a string from here doesn't work.... why?
-    //   return { phetioID: instance.phetioID };
-    // },
-    //
-    // fromStateObject: function( stateObject ) {
-    //   return phetio.getInstance( stateObject.phetioID );
-    // },
-    //
-    // setValue: function( instance, value ) {
-    //   instance.removeAllParticles();
-    // }
-
   } );
 
   phetioNamespace.register( 'TShakerParticles', TShakerParticles );
 
   return TShakerParticles;
 } );
-
