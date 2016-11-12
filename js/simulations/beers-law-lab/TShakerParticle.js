@@ -47,7 +47,10 @@ define( function( require ) {
       };
     },
 
-    setValue: function( instance, value ) {}
+    setValue: function( instance, value ) {
+
+      // Values set in the constructor, nothing else to do here
+    }
   } );
 
   phetioNamespace.register( 'TShakerParticle', TShakerParticle );
