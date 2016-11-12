@@ -97,7 +97,7 @@ define( function( require ) {
       this.fireChanged();
     },
 
-    // @private
+    // @private (phet-io)
     removeAllParticles: function() {
       for ( var i = 0; i < this.particles.length; i++ ) {
         this.particles[ i ].dispose();
