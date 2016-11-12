@@ -14,6 +14,7 @@ define( function( require ) {
   var phetioInherit = require( 'PHET_IO/phetioInherit' );
   var TObject = require( 'PHET_IO/types/TObject' );
   var phetio = require( 'PHET_IO/phetio' );
+  var TPrecipitateParticle = require( 'PHET_IO/simulations/beers-law-lab/TPrecipitateParticle' );
 
   var TPrecipitate = function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
@@ -21,6 +22,30 @@ define( function( require ) {
   };
 
   phetioInherit( TObject, 'TPrecipitate', TPrecipitate, {}, {
+
+    clearChildInstances: function( instance ) {
+      instance.removeAllParticles();
+    },
+
+    /**
+     * Create a dynamic particle as specified by the phetioID and state.
+     * @param {Object} instance
+     * @param {Tandem} tandem
+     * @param {Object} stateObject
+     * @returns {ChargedParticle}
+     */
+    addChildInstance: function( instance, tandem, stateObject ) {
+
+      var value = TPrecipitateParticle.fromStateObject( stateObject );
+
+      instance.particles.push( new phet.beersLawLab.PrecipitateParticle(
+        value.solute,
+        value.location,
+        value.orientation,
+        tandem
+      ) );
+      instance.fireChanged();
+    },
 
     toStateObject: function( instance ) {
 

@@ -50,8 +50,7 @@ define( function( require ) {
       return {
         solute: TSolute.fromStateObject( stateObject.solute ),
         location: TVector2.fromStateObject( stateObject.location ),
-        orientation: TNumber.fromStateObject( stateObject.orientation ),
-        tandem: TTandem.fromStateObject( stateObject.tandem )
+        orientation: TNumber().fromStateObject( stateObject.orientation )
       };
     },
 
@@ -59,9 +58,12 @@ define( function( require ) {
       return {
         solute: TSolute.toStateObject( value.solute ),
         location: TVector2.toStateObject( value.locationProperty.get() ),
-        orientation: TNumber().toStateObject( value.orientation ),
-        tandem: TTandem.toStateObject( value.tandem )
+        orientation: TNumber().toStateObject( value.orientation )
       };
+    },
+
+    setValue: function( instance, value ) {
+      // done in constructor, nothing else to do here
     }
   } );
 
