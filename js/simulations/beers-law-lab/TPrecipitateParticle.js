@@ -25,27 +25,6 @@ define( function( require ) {
 
   phetioInherit( TObject, 'TPrecipitateParticle', TPrecipitateParticle, {}, {
 
-    /**
-     * When the state is loaded back, create a ShakerParticle.
-     * @param {string} id - the full phetioID to be registered with a tandem
-     * @param {Object} value - the value that would be used with setValue, which can be used to customize the object creation.
-     * @returns {ChargedParticle}
-     */
-    create: function( id, value ) {
-
-      var rootTandem = phet.tandem.Tandem.createRootTandem();
-      var model = phetio.getInstance( rootTandem.id + '.concentrationScreen.model.precipitate' );
-
-      // solute, location, orientation, initialVelocity, acceleration, tandem
-      model.particles.push( new phet.beersLawLab.PrecipitateParticle(
-        value.solute,
-        value.location,
-        value.orientation,
-        value.tandem
-      ) );
-      model.fireChanged();
-    },
-
     fromStateObject: function( stateObject ) {
       return {
         solute: TSolute.fromStateObject( stateObject.solute ),
