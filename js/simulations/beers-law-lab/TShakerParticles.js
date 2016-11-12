@@ -13,10 +13,7 @@ define( function( require ) {
   var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
   var phetioInherit = require( 'PHET_IO/phetioInherit' );
   var TObject = require( 'PHET_IO/types/TObject' );
-  var TNumber = require( 'PHET_IO/types/TNumber' );
-  var TSolute = require( 'PHET_IO/simulations/beers-law-lab/TSolute' );
-  var TTandem = require( 'PHET_IO/types/tandem/TTandem' );
-  var TVector2 = require( 'PHET_IO/types/dot/TVector2' );
+  var TShakerParticle = require( 'PHET_IO/simulations/beers-law-lab/TShakerParticle' );
 
   var TShakerParticles = function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
@@ -38,7 +35,7 @@ define( function( require ) {
      */
     addChildInstance: function( instance, tandem, stateObject ) {
 
-      var value = TShakerParticles.fromStateObject( stateObject );
+      var value = TShakerParticle.fromStateObject( stateObject );
 
       assert && assert( value.acceleration instanceof phet.dot.Vector2, 'acceleration should be a Vector2' );
 
@@ -52,17 +49,6 @@ define( function( require ) {
         tandem
       ) );
       instance.fireParticlesChanged();
-    },
-
-    fromStateObject: function( stateObject ) {
-      return {
-        solute: TSolute.fromStateObject( stateObject.solute ),
-        location: TVector2.fromStateObject( stateObject.location ),
-        orientation: TNumber().fromStateObject( stateObject.orientation ),
-        velocity: TVector2.fromStateObject( stateObject.velocity ),
-        acceleration: TVector2.fromStateObject( stateObject.acceleration ),
-        tandem: TTandem.fromStateObject( stateObject.tandem )
-      };
     }
   } );
 
