@@ -70,7 +70,7 @@ define( function( require ) {
     textNode.left = colorNode.right + 5;
     textNode.centerY = colorNode.centerY;
 
-    return ComboBox.createItem( node, solute );
+    return ComboBox.createItem( node, solute, {tandemName: solute.tandemName} );
   };
 
   return inherit( ComboBox, SoluteComboBox );

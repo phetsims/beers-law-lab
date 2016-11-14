@@ -68,6 +68,7 @@ define( function( require ) {
 
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
     tandem.addInstance( this, TSolute );
+    this.tandemName = tandem.tail;
   }
 
   beersLawLab.register( 'Solute', Solute );
