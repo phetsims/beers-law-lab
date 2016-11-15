@@ -74,7 +74,7 @@ define( function( require ) {
     solutionName.left = colorSquare.right + 5;
     solutionName.centerY = colorSquare.centerY;
 
-    return ComboBox.createItem( node, solution, { tandem: tandem } );
+    return ComboBox.createItem( node, solution, { tandemName: solution.tandemName } );
   };
 
   return inherit( ComboBox, SolutionComboBox );
