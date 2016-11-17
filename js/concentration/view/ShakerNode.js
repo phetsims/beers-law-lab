@@ -66,11 +66,15 @@ define( function( require ) {
     } );
 
     // arrows
-    var downArrowNode = new ArrowNode( 0, 0, 0, ARROW_LENGTH, ARROW_OPTIONS );
+    var downArrowNode = new ArrowNode( 0, 0, 0, ARROW_LENGTH, _.extend( {
+      tandem: tandem.createTandem( 'downArrowNode' )
+    }, ARROW_OPTIONS ) );
     downArrowNode.top = imageNode.bottom + 4;
     downArrowNode.centerX = imageNode.centerX;
 
-    var upArrowNode = new ArrowNode( 0, 0, 0, -ARROW_LENGTH, ARROW_OPTIONS );
+    var upArrowNode = new ArrowNode( 0, 0, 0, -ARROW_LENGTH, _.extend( {
+      tandem: tandem.createTandem( 'upArrowNode' )
+    }, ARROW_OPTIONS ) );
     upArrowNode.bottom = imageNode.top - 4;
     upArrowNode.centerX = imageNode.centerX;
 

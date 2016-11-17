@@ -55,7 +55,8 @@ define( function( require ) {
       doubleHead: true,
       fill: ARROW_FILL,
       stroke: 'black',
-      lineWidth: 1
+      lineWidth: 1,
+      tandem: tandem.createTandem( 'arrowNode' )
     } );
 
     // rendering order
