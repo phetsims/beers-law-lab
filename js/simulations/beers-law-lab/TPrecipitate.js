@@ -48,16 +48,6 @@ define( function( require ) {
       instance.fireChanged();
     },
 
-    toStateObject: function( instance ) {
-
-      // TODO: Just returning a string from here doesn't work.... why?
-      return { phetioID: instance.phetioID };
-    },
-
-    fromStateObject: function( stateObject ) {
-      return phetio.getInstance( stateObject.phetioID );
-    },
-
     setValue: function( instance, value ) {
       instance.removeAllParticles();
     }
