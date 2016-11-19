@@ -25,7 +25,7 @@ define( function( require ) {
   phetioInherit( TObject, 'TConcentrationModel', TConcentrationModel, {
 
     // For instance:
-    // http://localhost/concentration/concentration_en.html?ea&brand=phet-io&phet-io.standalone&phet-io.log=lines&phet-io.expressions=[["concentration.concentrationScreen.model","setSolutes",[["concentration.solutes.cobaltIINitrate","concentration.solutes.cobaltChloride","concentration.solutes.drinkMix"]]]]
+    // http://localhost/concentration/concentration_en.html?ea&brand=phet-io&phetioStandalone&phetioLog=lines&phetioExpressions=[["concentration.concentrationScreen.model","setSolutes",[["concentration.solutes.cobaltIINitrate","concentration.solutes.cobaltChloride","concentration.solutes.drinkMix"]]]]
     setSolutes: {
       parameterTypes: [ TArray( TSolute ) ],
       returnType: TVoid,
