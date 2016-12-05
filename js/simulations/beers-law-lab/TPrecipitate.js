@@ -28,11 +28,10 @@ define( function( require ) {
     },
 
     /**
-     * Create a dynamic particle as specified by the phetioID and state.
+     * Adds a precipitate particle as specified by the phetioID and state.
      * @param {Object} instance
      * @param {Tandem} tandem
      * @param {Object} stateObject
-     * @returns {ChargedParticle}
      */
     addChildInstance: function( instance, tandem, stateObject ) {
 
@@ -47,6 +46,7 @@ define( function( require ) {
       instance.fireChanged();
     },
 
+    // TODO: is this method no longer called?
     setValue: function( instance, value ) {
       instance.removeAllParticles();
     }
