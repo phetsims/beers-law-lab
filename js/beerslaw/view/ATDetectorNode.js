@@ -31,7 +31,6 @@ define( function( require ) {
 
   // phet-io modules
   var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
-  var TString = require( 'ifphetio!PHET_IO/types/TString' );
 
   //strings
   var absorbanceString = require( 'string!BEERS_LAW_LAB/absorbance' );
@@ -90,14 +89,12 @@ define( function( require ) {
     var transmittanceRadioButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.TRANSMITTANCE,
       new Text( transmittanceString, textOptions ), {
         radius: BLLConstants.RADIO_BUTTON_RADIUS,
-        tandem: tandem.createTandem( 'transmittanceRadioButton' ),
-        phetioValueType: TString
+        tandem: tandem.createTandem( 'transmittanceRadioButton' )
       } );
     var absorbanceRadioButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.ABSORBANCE,
       new Text( absorbanceString, textOptions ), {
         radius: BLLConstants.RADIO_BUTTON_RADIUS,
-        tandem: tandem.createTandem( 'absorbanceRadioButton' ),
-        phetioValueType: TString
+        tandem: tandem.createTandem( 'absorbanceRadioButton' )
       } );
 
     // group the buttons

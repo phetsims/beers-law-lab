@@ -94,8 +94,7 @@ define( function( require ) {
             fill: 'black'
           } ), {
             radius: BLLConstants.RADIO_BUTTON_RADIUS,
-            tandem: tandem.createTandem( 'presetWavelengthRadioButton' ),
-            phetioValueType: TBoolean
+            tandem: tandem.createTandem( 'presetWavelengthRadioButton' )
           } ),
         // variable
         new AquaRadioButton( this.variableWavelengthProperty, true,
@@ -104,8 +103,7 @@ define( function( require ) {
             fill: 'black'
           } ), {
             radius: BLLConstants.RADIO_BUTTON_RADIUS,
-            tandem: tandem.createTandem( 'variableWavelengthRadioButton' ),
-            phetioValueType: TBoolean
+            tandem: tandem.createTandem( 'variableWavelengthRadioButton' )
           } )
       ]
     } );
