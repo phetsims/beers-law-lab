@@ -48,8 +48,14 @@ define( function( require ) {
     var width = modelViewTransform.modelToViewDeltaX( ruler.length );
     var height = modelViewTransform.modelToViewDeltaY( ruler.height );
     var majorTickWidth = modelViewTransform.modelToViewDeltaX( MAJOR_TICK_WIDTH );
-    this.addChild( new RulerNode( width, height, majorTickWidth, majorTickLabels, unitsCentimetersString,
-      { minorTicksPerMajorTick: 4, insetsWidth: 0 } ) );
+    this.addChild( new RulerNode(
+      width,
+      height,
+      majorTickWidth,
+      majorTickLabels,
+      unitsCentimetersString,
+      { minorTicksPerMajorTick: 4, insetsWidth: 0, tandem: tandem.createTandem( 'ruler' ) } )
+    );
 
     // touch area
     var dx = 0.05 * this.width;
