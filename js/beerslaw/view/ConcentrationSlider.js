@@ -25,7 +25,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Shape = require( 'KITE/Shape' );
-  var TandemDragHandler = require( 'TANDEM/scenery/input/TandemDragHandler' );
+  var TandemSimpleDragHandler = require( 'TANDEM/scenery/input/TandemSimpleDragHandler' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
 
@@ -171,7 +171,7 @@ define( function( require ) {
       var concentration = positionToConcentration( x );
       solutionProperty.get().concentrationProperty.set( concentration );
     };
-    this.addInputListener( new TandemDragHandler( {
+    this.addInputListener( new TandemSimpleDragHandler( {
       tandem: tandem.createTandem( 'inputListener' ),
       start: function( event ) {
         handleEvent( event );
@@ -297,7 +297,7 @@ define( function( require ) {
    */
   function ThumbDragHandler( dragNode, concentrationProperty, positionToValue, tandem ) {
     var clickXOffset; // x-offset between initial click and thumb's origin
-    TandemDragHandler.call( this, {
+    TandemSimpleDragHandler.call( this, {
       tandem: tandem,
       allowTouchSnag: true,
       start: function( event ) {
@@ -313,7 +313,7 @@ define( function( require ) {
 
   beersLawLab.register( 'ConcentrationSlider.ThumbDragHandler', ThumbDragHandler );
 
-  inherit( TandemDragHandler, ThumbDragHandler );
+  inherit( TandemSimpleDragHandler, ThumbDragHandler );
 
   return inherit( Node, ConcentrationSlider );
 } );
