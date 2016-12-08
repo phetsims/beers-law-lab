@@ -40,7 +40,7 @@ define( function( require ) {
   var TSolute = require( 'PHET_IO/simulations/beers-law-lab/TSolute' );
   var TSolution = require( 'PHET_IO/simulations/beers-law-lab/TSolution' );
   var TString = require( 'PHET_IO/types/TString' );
-  var TTandemDragHandler = require( 'PHET_IO/types/tandem/scenery/input/TTandemDragHandler' );
+  var TTandemSimpleDragHandler = require( 'PHET_IO/types/tandem/scenery/input/TTandemSimpleDragHandler' );
   var TTandemText = require( 'PHET_IO/types/tandem/scenery/nodes/TTandemText' );
   var TToggleButton = require( 'PHET_IO/types/sun/buttons/TToggleButton' );
   var TVector2 = require( 'PHET_IO/types/dot/TVector2' );
@@ -143,12 +143,12 @@ define( function( require ) {
           removeSoluteButton: TPushButton,
 
           shakerNode: TNode.extend( {
-            inputListener: TTandemDragHandler
+            inputListener: TTandemSimpleDragHandler
           } ),
 
           dropperNode: TNode.extend( {
             button: TMomentaryButton,
-            movableDragHandler: TTandemDragHandler
+            movableDragHandler: TTandemSimpleDragHandler
           } ),
 
           solventFaucetNode: TFaucet,
@@ -168,10 +168,10 @@ define( function( require ) {
               // and may be mol/L (the default) or percent concentration. The units and order of
               // value and units are subject to i18n, so parsing this string is not advised.
               readoutTextNode: TTandemText,
-              movableDragHandler: TTandemDragHandler
+              movableDragHandler: TTandemSimpleDragHandler
             } ),
             probeNode: TNode.extend( {
-              movableDragHandler: TTandemDragHandler
+              movableDragHandler: TTandemSimpleDragHandler
             } )
           } ),
 
@@ -236,7 +236,7 @@ define( function( require ) {
               absorbanceRadioButton: TRadioButton( TString )
             } ),
             probeNode: TNode.extend( {
-              movableDragHandler: TTandemDragHandler
+              movableDragHandler: TTandemSimpleDragHandler
             } )
           },
 
@@ -251,16 +251,16 @@ define( function( require ) {
           },
 
           cuvetteNode: TNode.extend( {
-            cuvetteDragHandler: TTandemDragHandler
+            cuvetteDragHandler: TTandemSimpleDragHandler
           } ),
 
           rulerNode: TNode.extend( {
-            movableDragHandler: TTandemDragHandler
+            movableDragHandler: TTandemSimpleDragHandler
           } ),
 
           solutionControls: {
             track: {
-              inputListener: TTandemDragHandler
+              inputListener: TTandemSimpleDragHandler
             },
 
             // TSolute Combo Box
@@ -271,10 +271,10 @@ define( function( require ) {
             concentrationControl: {
               slider: TNode.extend( {
                 thumb: TNode.extend( {
-                  dragHandler: TTandemDragHandler
+                  dragHandler: TTandemSimpleDragHandler
                 } ),
                 track: {
-                  inputListener: TTandemDragHandler
+                  inputListener: TTandemSimpleDragHandler
                 },
                 plusButton: TPushButton,
                 minusButton: TPushButton
