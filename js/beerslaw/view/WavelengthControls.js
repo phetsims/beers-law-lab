@@ -130,7 +130,8 @@ define( function( require ) {
       yMargin: 20,
       fill: '#F0F0F0',
       stroke: 'gray',
-      lineWidth: 1
+      lineWidth: 1,
+      tandem: tandem
     } );
 
     // When the radio button selection changes...
