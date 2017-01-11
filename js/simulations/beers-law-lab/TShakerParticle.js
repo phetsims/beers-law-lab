@@ -45,11 +45,6 @@ define( function( require ) {
         acceleration: TVector2.toStateObject( value.acceleration ),
         tandem: TTandem.toStateObject( value.tandem )
       };
-    },
-
-    setValue: function( instance, value ) {
-
-      // Values set in the constructor, nothing else to do here
     }
   } );
 

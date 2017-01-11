@@ -38,10 +38,6 @@ define( function( require ) {
         location: TVector2.toStateObject( value.locationProperty.get() ),
         orientation: TNumber().toStateObject( value.orientation )
       };
-    },
-
-    setValue: function( instance, value ) {
-      // done in constructor, nothing else to do here
     }
   } );
 

@@ -29,11 +29,6 @@ define( function( require ) {
 
     toStateObject: function( instance ) {
       return instance.phetioID;
-    },
-
-    // TODO: get rid of setValue functions that are empty
-    setValue: function( what ) {
-      // huh?
     }
   } );
 
