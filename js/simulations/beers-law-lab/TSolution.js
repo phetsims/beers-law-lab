@@ -22,12 +22,18 @@ define( function( require ) {
 
   phetioInherit( TObject, 'TSolution', TSolution, {}, {
 
+    // Because the simulation has a Property that contains BeersLawSolution, the Property relies on these methods for saving and loading the values.
     fromStateObject: function( stateObject ) {
       return phetio.getWrapper( stateObject ).instance;
     },
 
     toStateObject: function( instance ) {
       return instance.phetioID;
+    },
+
+    // TODO: get rid of setValue functions that are empty
+    setValue: function( what ) {
+      // huh?
     }
   } );
 
