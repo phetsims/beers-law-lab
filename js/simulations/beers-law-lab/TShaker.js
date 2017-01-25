@@ -37,12 +37,12 @@ define( function( require ) {
       return TVector2.toStateObject( instance.previousLocation );
     },
 
-    fromStateObject: function( stateObject ) {
-      return stateObject; // no coercion necessary for a plain object with primitives
+    fromStateObject: function( vector2StateObject ) {
+      return TVector2.fromStateObject( vector2StateObject ); // no coercion necessary for a plain object with primitives
     },
 
     setValue: function( instance, value ) {
-      instance.previousLocation.set( TVector2.fromStateObject( value ) );
+      instance.previousLocation.set( value );
     }
   } );
 
