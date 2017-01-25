@@ -44,12 +44,8 @@ define( function( require ) {
         tandem
       ) );
       instance.fireChanged();
-    },
-
-    // TODO: is this method no longer called?
-    setValue: function( instance, value ) {
-      instance.removeAllParticles();
     }
+
   } );
 
   phetioNamespace.register( 'TPrecipitate', TPrecipitate );
