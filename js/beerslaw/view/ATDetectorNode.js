@@ -27,7 +27,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
   var Vector2 = require( 'DOT/Vector2' );
-  var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   // phet-io modules
   var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
@@ -108,7 +108,7 @@ define( function( require ) {
 
     // value
     var maxValue = 100;
-    var valueNode = new TandemText( StringUtils.format( pattern0PercentString, Util.toFixed( maxValue, TRANSMITTANCE_DECIMAL_PLACES ) ), {
+    var valueNode = new Text( StringUtils.format( pattern0PercentString, Util.toFixed( maxValue, TRANSMITTANCE_DECIMAL_PLACES ) ), {
       font: new PhetFont( 24 ),
       maxWidth: 150,
       tandem: tandem.createTandem( 'valueNode' )

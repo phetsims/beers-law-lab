@@ -34,7 +34,7 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
   var Vector2 = require( 'DOT/Vector2' );
-  var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
+  var Text = require( 'SCENERY/nodes/Text' );
 
   // phet-io modules
   var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
@@ -150,7 +150,7 @@ define( function( require ) {
       Util.toFixed( 1, DECIMAL_PLACES_MOLES_PER_LITER ),
       unitsMolesPerLiterString
     );
-    var readoutTextNode = new TandemText( formattedText, {
+    var readoutTextNode = new Text( formattedText, {
       font: new PhetFont( 24 ),
       fill: 'black',
       maxWidth: maxTextWidth,

@@ -21,7 +21,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  var TandemText = require( 'TANDEM/scenery/nodes/TandemText' );
+  var Text = require( 'SCENERY/nodes/Text' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
   var VBox = require( 'SCENERY/nodes/VBox' );
@@ -56,13 +56,13 @@ define( function( require ) {
     var xMargin = 7;
     var yMargin = 3;
 
-    var label = new TandemText( StringUtils.format( pattern0LabelString, wavelengthString ), {
+    var label = new Text( StringUtils.format( pattern0LabelString, wavelengthString ), {
       font: new PhetFont( 20 ),
       fill: 'black',
       tandem: tandem.createTandem( 'label' )
     } );
 
-    var valueDisplay = new TandemText( formatWavelength( light.wavelengthProperty.get() ), {
+    var valueDisplay = new Text( formatWavelength( light.wavelengthProperty.get() ), {
       font: new PhetFont( 20 ),
       fill: 'black',
       y: label.y, // align baselines
