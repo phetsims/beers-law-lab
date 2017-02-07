@@ -28,6 +28,8 @@ define( function( require ) {
   function PrecipitateParticle( solute, location, orientation, tandem ) {
     SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation );
 
+    var self = this;
+
     // @public (phet-io)
     this.solute = solute;
     this.tandem = tandem; // Used in TPrecipitateParticle to serialize the tandem name
@@ -36,7 +38,7 @@ define( function( require ) {
 
     // @private
     this.disposePrecipitateParticle = function() {
-      tandem.removeInstance( this );
+      tandem.removeInstance( self );
     };
   }
 

@@ -32,6 +32,8 @@ define( function( require ) {
 
     SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation );
 
+    var self = this;
+
     // @public (read-only, phet-io)
     this.solute = solute;
     this.velocity = initialVelocity;
@@ -42,7 +44,7 @@ define( function( require ) {
 
     // @private
     this.disposeShakerParticle = function() {
-      tandem.removeInstance( this );
+      tandem.removeInstance( self );
     };
   }
 
