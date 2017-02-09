@@ -49,6 +49,7 @@ define( function( require ) {
     // @public
     dispose: function() {
       this.disposePrecipitateParticle();
+      SoluteParticle.prototype.dispose && SoluteParticle.prototype.dispose.call( this );
     }
   } );
 } );

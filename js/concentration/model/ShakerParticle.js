@@ -55,6 +55,7 @@ define( function( require ) {
     // @public
     dispose: function() {
       this.disposeShakerParticle();
+      SoluteParticle.prototype.dispose && SoluteParticle.prototype.dispose.call( this );
     },
 
     /**
