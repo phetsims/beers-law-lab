@@ -31,7 +31,9 @@ define( function( require ) {
       font: new PhetFont( 22 ),
       textFill: 'black',
       xMargin: 10,
-      tandem: tandem
+
+      // Pass the supertypeTandem to the parent, then mutate ours to addInstance at the end of the constructor
+      tandem: tandem.createSupertypeTandem()
     }, options );
 
     var self = this;
@@ -47,6 +49,8 @@ define( function( require ) {
     solution.soluteAmountProperty.link( function( soluteAmount ) {
       self.enabled = ( soluteAmount > 0 );
     } );
+
+    this.mutate({tandem: tandem});
   }
 
   beersLawLab.register( 'RemoveSoluteButton', RemoveSoluteButton );
