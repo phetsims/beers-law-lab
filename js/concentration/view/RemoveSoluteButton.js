@@ -50,7 +50,7 @@ define( function( require ) {
       self.enabled = ( soluteAmount > 0 );
     } );
 
-    this.mutate({tandem: tandem});
+    this.mutate( { tandem: tandem } );
   }
 
   beersLawLab.register( 'RemoveSoluteButton', RemoveSoluteButton );
