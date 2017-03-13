@@ -33,10 +33,10 @@ define( function( require ) {
   var unitsNmString = require( 'string!BEERS_LAW_LAB/units.nm' );
   var variableString = require( 'string!BEERS_LAW_LAB/variable' );
   var wavelengthString = require( 'string!BEERS_LAW_LAB/wavelength' );
+  var TNode = require( 'SCENERY/nodes/TNode' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
-  var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
 
   /**
    * @param {Property.<BeersLawSolution>} solutionProperty

@@ -20,9 +20,7 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
   var TandemSimpleDragHandler = require( 'TANDEM/scenery/input/TandemSimpleDragHandler' );
   var Util = require( 'DOT/Util' );
-
-  // phet-io modules
-  var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
+  var TNode = require( 'SCENERY/nodes/TNode' );
 
   // constants
   var PERCENT_FULL = 0.92;

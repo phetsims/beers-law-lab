@@ -18,9 +18,7 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var SubSupText = require( 'SCENERY_PHET/SubSupText' );
-
-  // phet-io modules
-  var TNode = require( 'ifphetio!PHET_IO/types/scenery/nodes/TNode' );
+  var TNode = require( 'SCENERY/nodes/TNode' );
 
   // images
   var shakerImage = require( 'image!BEERS_LAW_LAB/shaker.png' );
