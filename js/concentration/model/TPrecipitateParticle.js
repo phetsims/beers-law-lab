@@ -15,7 +15,7 @@ define( function( require ) {
   var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
   var TSolute = require( 'BEERS_LAW_LAB/concentration/model/TSolute' );
-  var TVector2 = require( 'ifphetio!PHET_IO/types/dot/TVector2' );
+  var TVector2 = require( 'DOT/TVector2' );
 
   var TPrecipitateParticle = function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
