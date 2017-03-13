@@ -15,7 +15,7 @@ define( function( require ) {
   var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
   var TSolute = require( 'BEERS_LAW_LAB/concentration/model/TSolute' );
-  var TTandem = require( 'ifphetio!PHET_IO/types/tandem/TTandem' );
+  var TTandem = require( 'TANDEM/TTandem' );
   var TVector2 = require( 'DOT/TVector2' );
 
   var TShakerParticle = function( instance, phetioID ) {
