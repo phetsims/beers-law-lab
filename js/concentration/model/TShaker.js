@@ -9,12 +9,12 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var assertInstanceOf = require( 'PHET_IO/assertions/assertInstanceOf' );
-  var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
-  var phetioInherit = require( 'PHET_IO/phetioInherit' );
-  var TObject = require( 'PHET_IO/types/TObject' );
-  var TVector2 = require( 'PHET_IO/types/dot/TVector2' );
-  var TVoid = require( 'PHET_IO/types/TVoid' );
+  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertions/assertInstanceOf' );
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
+  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var TVector2 = require( 'ifphetio!PHET_IO/types/dot/TVector2' );
+  var TVoid = require( 'ifphetio!PHET_IO/types/TVoid' );
 
   var TShaker = function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
@@ -46,7 +46,7 @@ define( function( require ) {
     }
   } );
 
-  phetioNamespace.register( 'TShaker', TShaker );
+   beersLawLab.register( 'TShaker', TShaker );
 
   return TShaker;
 } );

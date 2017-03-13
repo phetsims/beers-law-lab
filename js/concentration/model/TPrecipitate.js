@@ -9,11 +9,11 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var assertInstanceOf = require( 'PHET_IO/assertions/assertInstanceOf' );
-  var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
-  var phetioInherit = require( 'PHET_IO/phetioInherit' );
-  var TObject = require( 'PHET_IO/types/TObject' );
-  var TPrecipitateParticle = require( 'PHET_IO/simulations/beers-law-lab/TPrecipitateParticle' );
+  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertions/assertInstanceOf' );
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
+  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var TPrecipitateParticle = require( 'BEERS_LAW_LAB/concentration/model/TPrecipitateParticle' );
 
   var TPrecipitate = function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
@@ -48,7 +48,7 @@ define( function( require ) {
 
   } );
 
-  phetioNamespace.register( 'TPrecipitate', TPrecipitate );
+   beersLawLab.register( 'TPrecipitate', TPrecipitate );
 
   return TPrecipitate;
 } );

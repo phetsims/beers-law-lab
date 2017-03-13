@@ -24,7 +24,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules
-  var TSolution = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/TSolution' );
+  var TBeersLawSolution = require( 'BEERS_LAW_LAB/beerslaw/model/TBeersLawSolution' );
 
   var CUVETTE_WIDTH_RANGE = new RangeWithValue( 0.5, 2.0, 1.0 );
 
@@ -50,7 +50,7 @@ define( function( require ) {
     // @public
     this.solutionProperty = new Property( this.solutions[ 0 ], {
       tandem: tandem.createTandem( 'solutionProperty' ),
-      phetioValueType: TSolution
+      phetioValueType: TBeersLawSolution
     } );
 
     // @public NOTE: All locations are relative to the location of the cuvette.

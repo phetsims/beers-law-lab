@@ -9,14 +9,14 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var assertInstanceOf = require( 'PHET_IO/assertions/assertInstanceOf' );
-  var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
-  var phetioInherit = require( 'PHET_IO/phetioInherit' );
-  var TNumber = require( 'PHET_IO/types/TNumber' );
-  var TObject = require( 'PHET_IO/types/TObject' );
-  var TSolute = require( 'PHET_IO/simulations/beers-law-lab/TSolute' );
-  var TTandem = require( 'PHET_IO/types/tandem/TTandem' );
-  var TVector2 = require( 'PHET_IO/types/dot/TVector2' );
+  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertions/assertInstanceOf' );
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var TSolute = require( 'BEERS_LAW_LAB/concentration/model/TSolute' );
+  var TTandem = require( 'ifphetio!PHET_IO/types/tandem/TTandem' );
+  var TVector2 = require( 'ifphetio!PHET_IO/types/dot/TVector2' );
 
   var TShakerParticle = function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
@@ -48,7 +48,7 @@ define( function( require ) {
     }
   } );
 
-  phetioNamespace.register( 'TShakerParticle', TShakerParticle );
+   beersLawLab.register( 'TShakerParticle', TShakerParticle );
 
   return TShakerParticle;
 } );

@@ -28,9 +28,9 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules
-  var TSolute = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/TSolute' );
+  var TSolute = require( 'BEERS_LAW_LAB/concentration/model/TSolute' );
   var TString = require( 'ifphetio!PHET_IO/types/TString' );
-  var TConcentrationModel = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/TConcentrationModel' );
+  var TConcentrationModel = require( 'BEERS_LAW_LAB/concentration/model/TConcentrationModel' );
 
   // constants
   var SOLUTION_VOLUME_RANGE = BLLConstants.SOLUTION_VOLUME_RANGE; // L

@@ -9,13 +9,13 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var assertInstanceOf = require( 'PHET_IO/assertions/assertInstanceOf' );
-  var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
-  var phetioInherit = require( 'PHET_IO/phetioInherit' );
-  var TObject = require( 'PHET_IO/types/TObject' );
-  var TString = require( 'PHET_IO/types/TString' );
-  var TVoid = require( 'PHET_IO/types/TVoid' );
-  var phetio = require( 'PHET_IO/phetio' );
+  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertions/assertInstanceOf' );
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
+  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var TString = require( 'ifphetio!PHET_IO/types/TString' );
+  var TVoid = require( 'ifphetio!PHET_IO/types/TVoid' );
+  var phetio = require( 'ifphetio!PHET_IO/phetio' );
 
   var TSolute = function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
@@ -52,7 +52,7 @@ define( function( require ) {
     }
   } );
 
-  phetioNamespace.register( 'TSolute', TSolute );
+   beersLawLab.register( 'TSolute', TSolute );
 
   return TSolute;
 } );

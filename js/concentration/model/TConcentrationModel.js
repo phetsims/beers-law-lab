@@ -9,13 +9,13 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var assertInstanceOf = require( 'PHET_IO/assertions/assertInstanceOf' );
-  var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
-  var phetioInherit = require( 'PHET_IO/phetioInherit' );
-  var TArray = require( 'PHET_IO/types/TArray' );
-  var TObject = require( 'PHET_IO/types/TObject' );
-  var TSolute = require( 'PHET_IO/simulations/beers-law-lab/TSolute' );
-  var TVoid = require( 'PHET_IO/types/TVoid' );
+  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertions/assertInstanceOf' );
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
+  var TArray = require( 'ifphetio!PHET_IO/types/TArray' );
+  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var TSolute = require( 'BEERS_LAW_LAB/concentration/model/TSolute' );
+  var TVoid = require( 'ifphetio!PHET_IO/types/TVoid' );
 
   var TConcentrationModel = function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
@@ -36,7 +36,7 @@ define( function( require ) {
     }
   }, {} );
 
-  phetioNamespace.register( 'TConcentrationModel', TConcentrationModel );
+   beersLawLab.register( 'TConcentrationModel', TConcentrationModel );
 
   return TConcentrationModel;
 } );

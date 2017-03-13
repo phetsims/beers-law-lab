@@ -32,7 +32,7 @@ define( function( require ) {
 
   // phet-io modules
   var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
-  var TSolution = require( 'ifphetio!PHET_IO/simulations/beers-law-lab/TSolution' );
+  var TBeersLawSolution = require( 'BEERS_LAW_LAB/beerslaw/model/TBeersLawSolution' );
 
   // strings
   var cobaltChlorideString = require( 'string!BEERS_LAW_LAB/cobaltChloride' );
@@ -92,7 +92,7 @@ define( function( require ) {
       } );
 
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
-    tandem.addInstance( this, TSolution );
+    tandem.addInstance( this, TBeersLawSolution );
     this.tandemName = tandem.tail;
   }
 

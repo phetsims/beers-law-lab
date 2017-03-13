@@ -9,18 +9,19 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var assertInstanceOf = require( 'PHET_IO/assertions/assertInstanceOf' );
-  var phetioNamespace = require( 'PHET_IO/phetioNamespace' );
-  var phetioInherit = require( 'PHET_IO/phetioInherit' );
-  var TObject = require( 'PHET_IO/types/TObject' );
-  var phetio = require( 'PHET_IO/phetio' );
+  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertions/assertInstanceOf' );
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
+  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var phetio = require( 'ifphetio!PHET_IO/phetio' );
 
-  var TSolution = function( instance, phetioID ) {
+
+  var TBeersLawSolution = function( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.BeersLawSolution );
   };
 
-  phetioInherit( TObject, 'TSolution', TSolution, {}, {
+  phetioInherit( TObject, 'TBeersLawSolution', TBeersLawSolution, {}, {
 
     // Because the simulation has a Property that contains BeersLawSolution, the Property relies on these methods for saving and loading the values.
     fromStateObject: function( stateObject ) {
@@ -32,8 +33,8 @@ define( function( require ) {
     }
   } );
 
-  phetioNamespace.register( 'TSolution', TSolution );
+   beersLawLab.register( 'TBeersLawSolution', TBeersLawSolution );
 
-  return TSolution;
+  return TBeersLawSolution;
 } );
 
