@@ -1,8 +1,7 @@
-// Copyright 2013-2015, University of Colorado Boulder
+// Copyright 2013-2017, University of Colorado Boulder
 
 /**
  * Slider for changing a solution's concentration.
- * <p>
  * Note that this slider has some things in common with HSlider, but also subtle differences.
  * So it's probably more trouble than it's worth to factor out a base class.
  *

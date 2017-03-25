@@ -1,9 +1,9 @@
-// Copyright 2013-2015, University of Colorado Boulder
+// Copyright 2013-2017, University of Colorado Boulder
 
 /**
  * Manages the transformation between how concentration values are stored in
  * the model, and how they are presented in the view.
- * <p>
+ *
  * In the model, concentration is stored in moles per liter (M) for all solutions.
  * In the view, the concentration units will vary by solution, such that the
  * concentration can be displayed as integral values (no decimals, no scientific notation.)

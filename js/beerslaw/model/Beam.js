@@ -1,4 +1,4 @@
-// Copyright 2013-2015, University of Colorado Boulder
+// Copyright 2013-2017, University of Colorado Boulder
 
 /**
  * Model of the light as a solid beam.
@@ -6,7 +6,7 @@
  * Consists of 3 segments: left (between light and cuvette), center (inside cuvette), and right (to right of cuvette).
  * Beam may be intercepted at any point by the Absorbance-Transmittance detector.
  * The beam is in the probe if the entire beam is in contact with the probe lens.
- * <p>
+ *
  * Unlike most model types, properties are in view coordinates.
  * This makes it convenient to describe the beam's shape and gradient fill.
  *

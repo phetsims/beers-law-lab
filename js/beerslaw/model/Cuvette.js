@@ -1,10 +1,10 @@
-// Copyright 2013-2015, University of Colorado Boulder
+// Copyright 2013-2017, University of Colorado Boulder
 
 /**
  * A cuvette is a small tube of circular or square cross section, sealed at one end,
  * made of plastic, glass, or fused quartz (for UV light) and designed to hold samples
  * for spectroscopic experiments.
- * <p>
+ *
  * In this case, the cuvette is the vessel that holds the solution.
  * It has a fixed height, but a variable width, making it possible to change
  * the path length. Location is fixed.  Origin is at the upper-left corner.
