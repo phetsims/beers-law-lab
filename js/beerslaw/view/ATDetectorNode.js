@@ -14,6 +14,7 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var Bounds2 = require( 'DOT/Bounds2' );
+  var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LayoutBox = require( 'SCENERY/nodes/LayoutBox' );
   var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
@@ -43,6 +44,8 @@ define( function( require ) {
   var VALUE_X_MARGIN = 6;
   var VALUE_Y_MARGIN = 4;
   var PROBE_COLOR = 'rgb( 8, 133, 54 )';
+  var MIN_VALUE_SIZE = new Dimension2( 150, 36 );
+  var MIN_BODY_SIZE = new Dimension2( 185, 140 );
 
   /**
    * @param {ATDetector} detector
@@ -112,14 +115,14 @@ define( function( require ) {
     } );
 
     // display area for the value
-    var valueWidth = Math.max( buttonGroup.width, valueNode.width ) + ( 2 * VALUE_X_MARGIN );
-    var valueHeight = valueNode.height + ( 2 * VALUE_Y_MARGIN );
+    var valueWidth = Math.max( MIN_VALUE_SIZE.width, Math.max( buttonGroup.width, valueNode.width ) + ( 2 * VALUE_X_MARGIN ) );
+    var valueHeight = Math.max( MIN_VALUE_SIZE.height, valueNode.height + ( 2 * VALUE_Y_MARGIN ) );
     var valueBackgroundNode = new ShadedRectangle( new Bounds2( 0, 0, valueWidth, valueHeight ), {
       baseColor: 'white',
       lightSource: 'rightBottom'
     } );
     valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN;
-    valueNode.bottom = valueBackgroundNode.bottom - VALUE_Y_MARGIN;
+    valueNode.centerY = valueBackgroundNode.centerY;
 
     // vertical arrangement of stuff in the meter
     var vBox = new LayoutBox( {
@@ -130,8 +133,8 @@ define( function( require ) {
     } );
 
     // meter body
-    var bodyWidth = vBox.width + ( 2 * BODY_X_MARGIN );
-    var bodyHeight = vBox.height + ( 2 * BODY_Y_MARGIN );
+    var bodyWidth = Math.max( MIN_BODY_SIZE.width, vBox.width + ( 2 * BODY_X_MARGIN ) );
+    var bodyHeight = Math.max( MIN_BODY_SIZE.height, vBox.height + ( 2 * BODY_Y_MARGIN ) );
     var bodyNode = new ShadedRectangle( new Bounds2( 0, 0, bodyWidth, bodyHeight ), {
       baseColor: PROBE_COLOR,
       lightOffset: 0.95
@@ -151,15 +154,18 @@ define( function( require ) {
       var value = detector.valueProperty.get();
       if ( value === null ) {
         valueNode.text = NO_VALUE;
-        valueNode.centerX = valueBackgroundNode.centerX;
-      } else {
+        valueNode.centerX = valueBackgroundNode.centerX; // centered
+      }
+      else {
         if ( detector.modeProperty.get() === ATDetector.Mode.TRANSMITTANCE ) {
           valueNode.text = StringUtils.format( pattern0PercentString, Util.toFixed( value, TRANSMITTANCE_DECIMAL_PLACES ) );
-        } else {
+        }
+        else {
           valueNode.text = Util.toFixed( value, ABSORBANCE_DECIMAL_PLACES );
         }
         valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN; // right justified
       }
+      valueNode.centerY = valueBackgroundNode.centerY;
     };
     detector.valueProperty.link( valueUpdater );
     detector.modeProperty.link( valueUpdater );

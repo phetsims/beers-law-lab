@@ -21,6 +21,7 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLQueryParameters = require( 'BEERS_LAW_LAB/common/BLLQueryParameters' );
   var Bounds2 = require( 'DOT/Bounds2' );
+  var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LayoutBox = require( 'SCENERY/nodes/LayoutBox' );
   var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
@@ -49,11 +50,13 @@ define( function( require ) {
   var READOUT_NO_VALUE = '-'; // displayed in the readout when the meter is not measuring anything
   var BODY_X_MARGIN = 15;
   var BODY_Y_MARGIN = 15;
-  var READOUT_X_MARGIN = 8;
+  var READOUT_X_MARGIN = 15;
   var READOUT_Y_MARGIN = 4;
   var PROBE_COLOR = 'rgb( 135, 4, 72 )';
   var DISPLAY_MOLES_PER_LITER = ( BLLQueryParameters.concentrationMeterUnits === 'molesPerLiter' );
-
+  var MIN_VALUE_SIZE = new Dimension2( 140, 35 );
+  var MIN_BODY_SIZE = new Dimension2( 170, 100 );
+  
   /**
    * @param {ConcentrationMeter} meter
    * @param {ConcentrationSolution} solution
@@ -153,14 +156,14 @@ define( function( require ) {
       maxWidth: maxTextWidth,
       tandem: tandem.createTandem( 'readoutTextNode' )
     } );
-    var readoutWidth = Math.max( titleNode.width, readoutTextNode.width ) + ( 2 * READOUT_X_MARGIN );
-    var readoutHeight = readoutTextNode.height + ( 2 * READOUT_Y_MARGIN );
+    var readoutWidth = Math.max( MIN_VALUE_SIZE.width, Math.max( titleNode.width, readoutTextNode.width ) + ( 2 * READOUT_X_MARGIN ) );
+    var readoutHeight = Math.max( MIN_VALUE_SIZE.height, readoutTextNode.height + ( 2 * READOUT_Y_MARGIN ) );
     var readoutBackgroundNode = new ShadedRectangle( new Bounds2( 0, 0, readoutWidth, readoutHeight ), {
       baseColor: 'white',
       lightSource: 'rightBottom'
     } );
     readoutTextNode.right = readoutBackgroundNode.right - READOUT_X_MARGIN;
-    readoutTextNode.bottom = readoutBackgroundNode.bottom - READOUT_Y_MARGIN;
+    readoutTextNode.centerY = readoutBackgroundNode.centerY;
 
     // vertical arrangement of stuff in the meter
     var vBox = new LayoutBox( {
@@ -171,8 +174,8 @@ define( function( require ) {
     } );
 
     // meter body
-    var bodyWidth = vBox.width + ( 2 * BODY_X_MARGIN );
-    var bodyHeight = vBox.height + ( 2 * BODY_Y_MARGIN );
+    var bodyWidth = Math.max( MIN_BODY_SIZE.width, vBox.width + ( 2 * BODY_X_MARGIN ) );
+    var bodyHeight = Math.max( MIN_BODY_SIZE.height, vBox.height + ( 2 * BODY_Y_MARGIN ) );
     var bodyNode = new ShadedRectangle( new Bounds2( 0, 0, bodyWidth, bodyHeight ), {
       baseColor: PROBE_COLOR,
       lightOffset: 0.95
@@ -219,6 +222,7 @@ define( function( require ) {
         readoutTextNode.setText( readoutText );
         readoutTextNode.right = readoutBackgroundNode.right - READOUT_X_MARGIN; // right justified
       }
+      readoutTextNode.centerY = readoutBackgroundNode.centerY;
     } );
   }
 
