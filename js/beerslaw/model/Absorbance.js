@@ -74,7 +74,7 @@ define( function( require ) {
    * @param {number} molarAbsorptivity
    * @param {number} pathLength
    * @param {number} concentration
-   * @return {number}
+   * @returns {number}
    */
   var getAbsorbance = function( molarAbsorptivity, pathLength, concentration ) {
     return molarAbsorptivity * pathLength * concentration;
@@ -83,7 +83,7 @@ define( function( require ) {
   /*
    * General model of transmittance: T = 10^A
    * @param {number} absorbance
-   * @return {number}
+   * @returns {number}
    */
   var getTransmittance = function( absorbance ) {
     return Math.pow( 10, -absorbance );

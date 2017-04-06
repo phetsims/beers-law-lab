@@ -30,7 +30,7 @@ define( function( require ) {
   /*
    * Maps a visible wavelength to its corresponding molar absorptivity.
    * @param {number} wavelength
-   * @return {number}
+   * @returns {number}
    */
   MolarAbsorptivityData.prototype.wavelengthToMolarAbsorptivity = function( wavelength ) {
     assert && assert( wavelength >= VisibleColor.MIN_WAVELENGTH && wavelength <= VisibleColor.MAX_WAVELENGTH );
@@ -42,7 +42,7 @@ define( function( require ) {
    * Finds the wavelength with the maximum molar absorptivity.
    * If there are identical maximums, the lower value is returned.
    * @param {number[]} molarAbsorptivity
-   * @return {number}
+   * @returns {number}
    */
   MolarAbsorptivityData._getLambdaMax = function( molarAbsorptivity ) {
     var indexMax = 0;

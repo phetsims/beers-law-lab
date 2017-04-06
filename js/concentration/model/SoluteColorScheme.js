@@ -40,7 +40,7 @@ define( function( require ) {
     /**
      * Converts a concentration value to a Color, using a linear interpolation of RGB colors.
      * @param {number} concentration - mol/L
-     * @return {Color} color
+     * @returns {Color} color
      */
     concentrationToColor: function( concentration ) {
       if ( concentration >= this.maxConcentration ) {
