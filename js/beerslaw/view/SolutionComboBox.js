@@ -16,7 +16,7 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  var SubSupText = require( 'SCENERY_PHET/SubSupText' );
+  var RichText = require( 'SCENERY_PHET/RichText' );
   var Text = require( 'SCENERY/nodes/Text' );
 
   // strings
@@ -68,7 +68,7 @@ define( function( require ) {
       fill: solution.saturatedColor,
       stroke: solution.saturatedColor.darkerColor()
     } );
-    var solutionName = new SubSupText( solution.getDisplayName(), { font: new PhetFont( 20 ) } );
+    var solutionName = new RichText( solution.getDisplayName(), { font: new PhetFont( 20 ) } );
     node.addChild( colorSquare );
     node.addChild( solutionName );
     solutionName.left = colorSquare.right + 5;
