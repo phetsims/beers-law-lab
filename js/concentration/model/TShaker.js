@@ -32,6 +32,7 @@ define( function( require ) {
       documentation: 'Load the values recorded in getState'
     }
   }, {
+    documentation: 'The Shaker that releases solute',
 
     toStateObject: function( instance ) {
       return TVector2.toStateObject( instance.previousLocation );

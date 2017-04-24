@@ -22,6 +22,7 @@ define( function( require ) {
   };
 
   phetioInherit( TObject, 'TBeersLawSolution', TBeersLawSolution, {}, {
+    documentation: 'The solution for the sim',
 
     // Because the simulation has a Property that contains BeersLawSolution, the Property relies on these methods for saving and loading the values.
     fromStateObject: function( stateObject ) {

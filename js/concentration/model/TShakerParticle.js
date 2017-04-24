@@ -24,6 +24,7 @@ define( function( require ) {
   };
 
   phetioInherit( TObject, 'TShakerParticle', TShakerParticle, {}, {
+    documentation: 'A particle that comes from the shaker.',
 
     fromStateObject: function( stateObject ) {
       return {

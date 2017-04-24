@@ -42,6 +42,7 @@ define( function( require ) {
       documentation: 'Set the formula of the solute'
     }
   }, {
+    documentation: 'The Solute for the sim.',
 
     fromStateObject: function( stateObject ) {
       return phetio.getWrapper( stateObject ).instance;

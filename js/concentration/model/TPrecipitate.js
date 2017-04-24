@@ -21,6 +21,7 @@ define( function( require ) {
   };
 
   phetioInherit( TObject, 'TPrecipitate', TPrecipitate, {}, {
+    documentation: 'The precipitate that comes from the solution',
 
     clearChildInstances: function( instance ) {
       instance.removeAllParticles();

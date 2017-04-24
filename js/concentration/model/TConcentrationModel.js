@@ -34,9 +34,9 @@ define( function( require ) {
       },
       documentation: 'Set which solutes are allowed for selection'
     }
-  }, {} );
+  }, { documentation: 'The model for the concentration screen.' } );
 
-   beersLawLab.register( 'TConcentrationModel', TConcentrationModel );
+  beersLawLab.register( 'TConcentrationModel', TConcentrationModel );
 
   return TConcentrationModel;
 } );

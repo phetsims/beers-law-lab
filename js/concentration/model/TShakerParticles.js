@@ -21,6 +21,7 @@ define( function( require ) {
   };
 
   phetioInherit( TObject, 'TShakerParticles', TShakerParticles, {}, {
+    documentation: 'The particles that are shaken from the shaker.',
 
     clearChildInstances: function( instance ) {
       instance.removeAllParticles();
@@ -52,7 +53,7 @@ define( function( require ) {
     }
   } );
 
-   beersLawLab.register( 'TShakerParticles', TShakerParticles );
+  beersLawLab.register( 'TShakerParticles', TShakerParticles );
 
   return TShakerParticles;
 } );
