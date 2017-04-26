@@ -70,7 +70,7 @@ define( function( require ) {
     // @public
     this.absorbance = new Absorbance( this.light, this.solutionProperty, this.cuvette );
 
-    // @pubic
+    // @public
     this.detector = new ATDetector( new Vector2( this.cuvette.location.x + 3, this.cuvette.location.y - 0.3 ),
       new Bounds2( 0, 0, 7.9, 5.25 ),
       new Vector2( this.cuvette.location.x + 3, this.light.location.y ),
