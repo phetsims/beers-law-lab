@@ -38,7 +38,8 @@ define( function( require ) {
         location: TVector2.toStateObject( value.locationProperty.get() ),
         orientation: TNumber().toStateObject( value.orientation )
       };
-    }
+    },
+    documentation: 'A particle that shows at the bottom of a saturated solution.'
   } );
 
    beersLawLab.register( 'TPrecipitateParticle', TPrecipitateParticle );
