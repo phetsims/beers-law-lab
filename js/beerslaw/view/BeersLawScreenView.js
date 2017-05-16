@@ -30,7 +30,7 @@ define( function( require ) {
    * @param {Tandem} tandem
    * @constructor
    */
-  function BeersLawView( model, modelViewTransform, tandem ) {
+  function BeersLawScreenView( model, modelViewTransform, tandem ) {
 
     ScreenView.call( this, BLLConstants.SCREEN_VIEW_OPTIONS );
 
@@ -78,7 +78,7 @@ define( function( require ) {
     }
   }
 
-  beersLawLab.register( 'BeersLawView', BeersLawView );
+  beersLawLab.register( 'BeersLawScreenView', BeersLawScreenView );
 
-  return inherit( ScreenView, BeersLawView );
+  return inherit( ScreenView, BeersLawScreenView );
 } );

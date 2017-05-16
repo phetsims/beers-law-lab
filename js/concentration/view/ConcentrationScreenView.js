@@ -39,7 +39,7 @@ define( function( require ) {
    * @param {Tandem} tandem
    * @constructor
    */
-  function ConcentrationView( model, modelViewTransform, tandem ) {
+  function ConcentrationScreenView( model, modelViewTransform, tandem ) {
 
     ScreenView.call( this, BLLConstants.SCREEN_VIEW_OPTIONS );
 
@@ -161,7 +161,7 @@ define( function( require ) {
     resetAllButton.bottom = this.layoutBounds.bottom - 30;
   }
 
-  beersLawLab.register( 'ConcentrationView', ConcentrationView );
+  beersLawLab.register( 'ConcentrationScreenView', ConcentrationScreenView );
 
-  return inherit( ScreenView, ConcentrationView );
+  return inherit( ScreenView, ConcentrationScreenView );
 } );

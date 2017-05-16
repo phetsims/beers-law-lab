@@ -11,7 +11,7 @@ define( function( require ) {
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BeersLawModel = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawModel' );
-  var BeersLawView = require( 'BEERS_LAW_LAB/beerslaw/view/BeersLawView' );
+  var BeersLawScreenView = require( 'BEERS_LAW_LAB/beerslaw/view/BeersLawScreenView' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
@@ -41,7 +41,7 @@ define( function( require ) {
 
     Screen.call( this,
       function() { return new BeersLawModel( modelViewTransform, tandem.createTandem( 'model' ) ); },
-      function( model ) { return new BeersLawView( model, modelViewTransform, tandem.createTandem( 'view' ) ); },
+      function( model ) { return new BeersLawScreenView( model, modelViewTransform, tandem.createTandem( 'view' ) ); },
       options );
   }
 

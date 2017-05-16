@@ -11,7 +11,7 @@ define( function( require ) {
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var ConcentrationModel = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationModel' );
-  var ConcentrationView = require( 'BEERS_LAW_LAB/concentration/view/ConcentrationView' );
+  var ConcentrationScreenView = require( 'BEERS_LAW_LAB/concentration/view/ConcentrationScreenView' );
   var Image = require( 'SCENERY/nodes/Image' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
@@ -39,7 +39,7 @@ define( function( require ) {
 
     Screen.call( this,
       function() { return new ConcentrationModel( tandem.createTandem( 'model' ) ); },
-      function( model ) { return new ConcentrationView( model, modelViewTransform, tandem.createTandem( 'view' ) ); },
+      function( model ) { return new ConcentrationScreenView( model, modelViewTransform, tandem.createTandem( 'view' ) ); },
       options );
   }
 
