@@ -16,10 +16,16 @@ define( function( require ) {
   var TVector2 = require( 'DOT/TVector2' );
   var TVoid = require( 'ifphetio!PHET_IO/types/TVoid' );
 
-  var TShaker = function( instance, phetioID ) {
+  /**
+   *
+   * @param instance
+   * @param phetioID
+   * @constructor
+   */
+  function TShaker( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.Shaker );
-  };
+  }
 
   phetioInherit( TObject, 'TShaker', TShaker, {
 

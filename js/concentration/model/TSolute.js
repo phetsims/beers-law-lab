@@ -17,10 +17,16 @@ define( function( require ) {
   var TVoid = require( 'ifphetio!PHET_IO/types/TVoid' );
   var phetio = require( 'ifphetio!PHET_IO/phetio' );
 
-  var TSolute = function( instance, phetioID ) {
+  /**
+   *
+   * @param instance
+   * @param phetioID
+   * @constructor
+   */
+  function TSolute( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.Solute );
-  };
+  }
 
   phetioInherit( TObject, 'TSolute', TSolute, {
 

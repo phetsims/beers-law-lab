@@ -16,10 +16,16 @@ define( function( require ) {
   var phetio = require( 'ifphetio!PHET_IO/phetio' );
 
 
-  var TBeersLawSolution = function( instance, phetioID ) {
+  /**
+   *
+   * @param instance
+   * @param phetioID
+   * @constructor
+   */
+  function TBeersLawSolution( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.BeersLawSolution );
-  };
+  }
 
   phetioInherit( TObject, 'TBeersLawSolution', TBeersLawSolution, {}, {
     documentation: 'The solution for the sim',

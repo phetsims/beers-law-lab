@@ -17,10 +17,16 @@ define( function( require ) {
   var TSolute = require( 'BEERS_LAW_LAB/concentration/model/TSolute' );
   var TVector2 = require( 'DOT/TVector2' );
 
-  var TPrecipitateParticle = function( instance, phetioID ) {
+  /**
+   *
+   * @param instance
+   * @param phetioID
+   * @constructor
+   */
+  function TPrecipitateParticle( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.PrecipitateParticle );
-  };
+  }
 
   phetioInherit( TObject, 'TPrecipitateParticle', TPrecipitateParticle, {}, {
 

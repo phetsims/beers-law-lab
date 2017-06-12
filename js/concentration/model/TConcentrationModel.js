@@ -17,10 +17,16 @@ define( function( require ) {
   var TSolute = require( 'BEERS_LAW_LAB/concentration/model/TSolute' );
   var TVoid = require( 'ifphetio!PHET_IO/types/TVoid' );
 
-  var TConcentrationModel = function( instance, phetioID ) {
+  /**
+   * 
+   * @param instance
+   * @param phetioID
+   * @constructor
+   */
+  function TConcentrationModel( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.ConcentrationModel );
-  };
+  }
 
   phetioInherit( TObject, 'TConcentrationModel', TConcentrationModel, {
 

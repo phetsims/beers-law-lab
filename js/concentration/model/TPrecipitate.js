@@ -15,10 +15,16 @@ define( function( require ) {
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
   var TPrecipitateParticle = require( 'BEERS_LAW_LAB/concentration/model/TPrecipitateParticle' );
 
-  var TPrecipitate = function( instance, phetioID ) {
+  /**
+   *
+   * @param instance
+   * @param phetioID
+   * @constructor
+   */
+  function TPrecipitate( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.Precipitate );
-  };
+  }
 
   phetioInherit( TObject, 'TPrecipitate', TPrecipitate, {}, {
     documentation: 'The precipitate that comes from the solution',

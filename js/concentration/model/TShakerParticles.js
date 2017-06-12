@@ -15,10 +15,16 @@ define( function( require ) {
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
   var TShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/TShakerParticle' );
 
-  var TShakerParticles = function( instance, phetioID ) {
+  /**
+   *
+   * @param instance
+   * @param phetioID
+   * @constructor
+   */
+  function TShakerParticles( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.ShakerParticles );
-  };
+  }
 
   phetioInherit( TObject, 'TShakerParticles', TShakerParticles, {}, {
     documentation: 'The particles that are shaken from the shaker.',

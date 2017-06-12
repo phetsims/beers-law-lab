@@ -18,10 +18,16 @@ define( function( require ) {
   var TTandem = require( 'TANDEM/TTandem' );
   var TVector2 = require( 'DOT/TVector2' );
 
-  var TShakerParticle = function( instance, phetioID ) {
+  /**
+   *
+   * @param instance
+   * @param phetioID
+   * @constructor
+   */
+  function TShakerParticle( instance, phetioID ) {
     TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.ShakerParticle );
-  };
+  }
 
   phetioInherit( TObject, 'TShakerParticle', TShakerParticle, {}, {
     documentation: 'A particle that comes from the shaker.',
