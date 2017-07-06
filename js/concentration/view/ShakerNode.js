@@ -18,7 +18,6 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var RichText = require( 'SCENERY_PHET/RichText' );
-  var TNode = require( 'SCENERY/nodes/TNode' );
 
   // images
   var shakerImage = require( 'image!BEERS_LAW_LAB/shaker.png' );
@@ -128,8 +127,10 @@ define( function( require ) {
       }
     } );
 
-    // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
-    tandem.addInstance( this, TNode );
+    // tandem support
+    this.mutate( {
+      tandem: tandem
+    } );
   }
 
   beersLawLab.register( 'ShakerNode', ShakerNode );

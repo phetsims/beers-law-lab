@@ -28,7 +28,6 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
   var Vector2 = require( 'DOT/Vector2' );
-  var TNode = require( 'SCENERY/nodes/TNode' );
 
   //strings
   var absorbanceString = require( 'string!BEERS_LAW_LAB/absorbance' );
@@ -170,7 +169,10 @@ define( function( require ) {
     detector.valueProperty.link( valueUpdater );
     detector.modeProperty.link( valueUpdater );
 
-    tandem.addInstance( this, TNode );
+    // tandem support
+    this.mutate( {
+      tandem: tandem
+    } );
   }
 
   beersLawLab.register( 'ATDetectorNode.BodyNode', BodyNode );
@@ -226,7 +228,10 @@ define( function( require ) {
     // touch area
     this.touchArea = this.localBounds.dilatedXY( 0.25 * this.width, 0 );
 
-    tandem.addInstance( this, TNode );
+    // tandem support
+    this.mutate( {
+      tandem: tandem
+    } );
   }
 
   inherit( Node, ATProbeNode );

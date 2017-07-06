@@ -35,7 +35,6 @@ define( function( require ) {
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
   var Vector2 = require( 'DOT/Vector2' );
-  var TNode = require( 'SCENERY/nodes/TNode' );
 
   // strings
   var concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
@@ -56,7 +55,7 @@ define( function( require ) {
   var DISPLAY_MOLES_PER_LITER = ( BLLQueryParameters.concentrationMeterUnits === 'molesPerLiter' );
   var MIN_VALUE_SIZE = new Dimension2( 140, 35 );
   var MIN_BODY_SIZE = new Dimension2( 170, 100 );
-  
+
   /**
    * @param {ConcentrationMeter} meter
    * @param {ConcentrationSolution} solution
@@ -73,7 +72,7 @@ define( function( require ) {
                                    drainFluidNode, modelViewTransform, tandem ) {
 
     var self = this;
-    Node.call( self );
+    Node.call( this );
 
     var bodyNode = new BodyNode( meter, modelViewTransform, tandem.createTandem( 'bodyNode' ) );
     var probeNode = new ConcentrationProbeNode( meter.probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, tandem.createTandem( 'probeNode' ) );
@@ -116,7 +115,10 @@ define( function( require ) {
     solventFluidNode.on( 'bounds', updateValue );
     drainFluidNode.on( 'bounds', updateValue );
 
-    tandem.addInstance( this, TNode );
+    // tandem support
+    this.mutate( {
+      tandem: tandem
+    } );
   }
 
   beersLawLab.register( 'ConcentrationMeterNode', ConcentrationMeterNode );
@@ -193,8 +195,10 @@ define( function( require ) {
       } );
       this.addInputListener( movableDragHandler );
 
-      // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
-      TNode && tandem.addInstance( this, TNode );
+      // tandem support
+      this.mutate( {
+        tandem: tandem
+      } );
     }
 
     // body location
@@ -299,8 +303,10 @@ define( function( require ) {
       return isInNode( stockSolutionNode );
     };
 
-    // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
-    TNode && tandem.addInstance( this, TNode );
+    // tandem support
+    this.mutate( {
+      tandem: tandem
+    } );
   }
 
   beersLawLab.register( 'ConcentrationMeterNode.ConcentrationProbeNode', ConcentrationProbeNode );

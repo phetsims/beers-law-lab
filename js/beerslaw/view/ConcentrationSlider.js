@@ -27,7 +27,6 @@ define( function( require ) {
   var TandemSimpleDragHandler = require( 'TANDEM/scenery/input/TandemSimpleDragHandler' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
-  var TNode = require( 'SCENERY/nodes/TNode' );
 
   // track constants
   var TRACK_SIZE = new Dimension2( 200, 15 );
@@ -127,7 +126,10 @@ define( function( require ) {
       solution.concentrationProperty.link( concentrationObserver );
     } );
 
-    tandem.addInstance( this, TNode );
+    // tandem support
+    this.mutate( {
+      tandem: tandem
+    } );
   }
 
   beersLawLab.register( 'ConcentrationSlider', ConcentrationSlider );

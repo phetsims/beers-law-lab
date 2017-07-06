@@ -19,7 +19,6 @@ define( function( require ) {
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Shape = require( 'KITE/Shape' );
   var RichText = require( 'SCENERY_PHET/RichText' );
-  var TNode = require( 'SCENERY/nodes/TNode' );
 
   /**
    * @param {Dropper} dropper
@@ -98,9 +97,10 @@ define( function( require ) {
     } );
     this.addInputListener( movableDragHandler );
 
-    // Supertype registers the momentary button, but not itself, so register here in the subtype.
-    // No corresponding removeInstance is needed because this object exists for the lifetime of the sim
-    tandem.addInstance( this, TNode );
+    // tandem support
+    this.mutate( {
+      tandem: tandem
+    } );
   }
 
   beersLawLab.register( 'BLLDropperNode', BLLDropperNode );

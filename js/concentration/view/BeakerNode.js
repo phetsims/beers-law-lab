@@ -19,7 +19,6 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
-  var TNode = require( 'SCENERY/nodes/TNode' );
 
   //strings
   var pattern0Value1UnitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
@@ -112,7 +111,10 @@ define( function( require ) {
     this.x = location.x;
     this.y = location.y;
 
-    tandem.addInstance( this, TNode );
+    // tandem support
+    this.mutate( {
+      tandem: tandem
+    } );
   }
 
   beersLawLab.register( 'BeakerNode', BeakerNode );

@@ -16,7 +16,6 @@ define( function( require ) {
   var Node = require( 'SCENERY/nodes/Node' );
   var RulerNode = require( 'SCENERY_PHET/RulerNode' );
   var Shape = require( 'KITE/Shape' );
-  var TNode = require( 'SCENERY/nodes/TNode' );
 
   // strings
   var unitsCentimetersString = require( 'string!BEERS_LAW_LAB/units.centimeters' );
@@ -78,7 +77,10 @@ define( function( require ) {
     } );
     this.addInputListener( this.movableDragHandler );
 
-    tandem.addInstance( this, TNode );
+    // tandem support
+    this.mutate( {
+      tandem: tandem
+    } );
   }
 
   beersLawLab.register( 'BLLRulerNode', BLLRulerNode );

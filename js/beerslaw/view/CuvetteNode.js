@@ -20,7 +20,6 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
   var TandemSimpleDragHandler = require( 'TANDEM/scenery/input/TandemSimpleDragHandler' );
   var Util = require( 'DOT/Util' );
-  var TNode = require( 'SCENERY/nodes/TNode' );
 
   // constants
   var PERCENT_FULL = 0.92;
@@ -109,7 +108,10 @@ define( function( require ) {
     this.x = position.x;
     this.y = position.y;
 
-    tandem.addInstance( this, TNode );
+    // tandem support
+    this.mutate( {
+      tandem: tandem
+    } );
   }
 
   beersLawLab.register( 'CuvetteNode', CuvetteNode );
