@@ -68,7 +68,10 @@ define( function( require ) {
       fill: solution.saturatedColor,
       stroke: solution.saturatedColor.darkerColor()
     } );
-    var solutionName = new RichText( solution.getDisplayName(), { font: new PhetFont( 20 ) } );
+    var solutionName = new RichText( solution.getDisplayName(), {
+      font: new PhetFont( 20 ),
+      tandem: tandem.createTandem( solution.tandemName + '.text' )
+    } );
     node.addChild( colorSquare );
     node.addChild( solutionName );
     solutionName.left = colorSquare.right + 5;

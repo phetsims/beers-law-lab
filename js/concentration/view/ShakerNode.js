@@ -59,7 +59,8 @@ define( function( require ) {
     var labelNode = new RichText( shaker.soluteProperty.get().formula, {
       font: new PhetFont( { size: 22, weight: 'bold' } ),
       fill: 'black',
-      maxWidth: 0.5 * imageNode.width // constrain width for i18n
+      maxWidth: 0.5 * imageNode.width, // constrain width for i18n
+      tandem: tandem.createTandem( 'labelNode' )
     } );
 
     // arrows

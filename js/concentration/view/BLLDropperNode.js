@@ -49,7 +49,8 @@ define( function( require ) {
     var label = new RichText( '', {
       maxWidth: 80, // determined empirically, to cover only the glass portion of the dropper
       font: new PhetFont( { size: 18, weight: 'bold' } ),
-      fill: 'black'
+      fill: 'black',
+      tandem: tandem.createTandem( 'label' )
     } );
     this.addChild( label );
 
