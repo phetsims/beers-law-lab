@@ -56,7 +56,7 @@ define( function( require ) {
   /**
    * Creates a combo box item.
    * @private
-   * @param {Solution} solution
+   * @param {BeersLawSolution} solution
    * @param {Tandem} tandem
    * @returns {{node: *, value: *}}
    */
