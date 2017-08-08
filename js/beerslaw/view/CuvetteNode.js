@@ -18,7 +18,7 @@ define( function( require ) {
   var Path = require( 'SCENERY/nodes/Path' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Shape = require( 'KITE/Shape' );
-  var TandemSimpleDragHandler = require( 'TANDEM/scenery/input/TandemSimpleDragHandler' );
+  var SimpleDragHandler = require( 'SCENERY/input/SimpleDragHandler' );
   var Util = require( 'DOT/Util' );
 
   // constants
@@ -130,7 +130,7 @@ define( function( require ) {
     var startX; // x coordinate of mouse click
     var startWidth; // width of the cuvette when the drag started
 
-    TandemSimpleDragHandler.call( this, {
+    SimpleDragHandler.call( this, {
 
       tandem: tandem,
       allowTouchSnag: true,
@@ -162,7 +162,7 @@ define( function( require ) {
 
   beersLawLab.register( 'CuvetteNode.CuvetteDragHandler', CuvetteDragHandler );
 
-  inherit( TandemSimpleDragHandler, CuvetteDragHandler );
+  inherit( SimpleDragHandler, CuvetteDragHandler );
 
   return inherit( Node, CuvetteNode );
 } );
