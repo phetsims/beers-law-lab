@@ -13,6 +13,8 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
+  var Range = require( 'DOT/Range' );
+  var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
@@ -41,7 +43,10 @@ define( function( require ) {
     } );
     this.wavelengthProperty = new Property( solutionProperty.get().molarAbsorptivityData.lambdaMax /*nm*/, {
       tandem: tandem.createTandem( 'wavelengthProperty' ),
-      phetioValueType: TNumber( { units: 'nanometers' } )
+      phetioValueType: TNumber( {
+        units: 'nanometers',
+        range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH )
+      } )
     } );
 
     // when the solution changes, set the light to the solution's lambdaMax wavelength
