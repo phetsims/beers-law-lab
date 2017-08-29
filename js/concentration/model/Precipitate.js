@@ -68,41 +68,66 @@ define( function( require ) {
      * @private
      */
     updateParticles: function() {
-      var numberOfParticles = this.solution.getNumberOfPrecipitateParticles(); // number of particles desired after this update
+
+      // number of particles desired after this update
+      var numberOfParticles = this.solution.getNumberOfPrecipitateParticles();
+
       if ( numberOfParticles === this.particles.length ) {
-        // no change, do nothing
-        return;
-      }
-      else if ( numberOfParticles === 0 ) {
-        // remove all particles
-        this.removeAllParticles();
+        return; // no change, do nothing
       }
       else if ( numberOfParticles < this.particles.length ) {
-        // remove some particles
-        var numberToRemove = this.particles.length - numberOfParticles;
-        this.particles.splice( this.particles.length - 1 - numberToRemove, numberToRemove );
+        this.removeParticles( this.particles.length - numberOfParticles );
       }
       else {
-        // add some particles
-        while ( numberOfParticles > this.particles.length ) {
-          this.particles.push( new PrecipitateParticle(
-            this.solution.soluteProperty.get(),
-            this.getRandomOffset(),
-            getRandomOrientation(),
-            this.precipitateParticleGroupTandem.createNextTandem()
-          ) );
-        }
+        this.addParticles( numberOfParticles - this.particles.length );
       }
       assert && assert( this.particles.length === numberOfParticles );
+
       this.fireChanged();
     },
 
-    // @private (phet-io)
-    removeAllParticles: function() {
-      for ( var i = 0; i < this.particles.length; i++ ) {
-        this.particles[ i ].dispose();
+    /**
+     * Adds particles to the precipitate.
+     * @param {number} numberToAdd
+     * @private
+     */
+    addParticles: function( numberToAdd ) {
+      assert && assert( numberToAdd > 0, 'invalid numberToAdd: ' + numberToAdd );
+      for ( var i = 0; i < numberToAdd; i++ ) {
+        this.particles.push( new PrecipitateParticle(
+          this.solution.soluteProperty.get(),
+          this.getRandomOffset(),
+          getRandomOrientation(),
+          this.precipitateParticleGroupTandem.createNextTandem()
+        ) );
       }
-      this.particles = [];
+    },
+
+    /**
+     * Removes particles from the precipitate.
+     * @param {number} numberToRemove
+     * @private
+     */
+    removeParticles: function( numberToRemove ) {
+      assert && assert( numberToRemove > 0 && numberToRemove <= this.particles.length,
+        'invalid numberToRemove: ' + numberToRemove );
+
+      var removedParticles = this.particles.splice( this.particles.length - numberToRemove, numberToRemove );
+      assert && assert( removedParticles && removedParticles.length === numberToRemove );
+
+      for ( var i = 0; i < removedParticles.length; i++ ) {
+        removedParticles[ i ].dispose();
+      }
+    },
+
+    /**
+     * Removes all particles from the precipitate.
+     * @private
+     */
+    removeAllParticles: function() {
+      if ( this.particles.length > 0 ) {
+        this.removeParticles( this.particles.length );
+      }
     },
 
     // @private Notify that the precipitate has changed.
