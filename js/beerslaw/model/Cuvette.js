@@ -24,7 +24,7 @@ define( function( require ) {
 
   /**
    * @param {Vector2} location fixed location, cm
-   * @param {Range} widthRange variable width, cm
+   * @param {RangeWithValue} widthRange variable width, cm
    * @param {number} height fixed height, cm
    * @param {Tandem} tandem
    * @constructor

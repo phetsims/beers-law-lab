@@ -50,7 +50,7 @@ define( function( require ) {
    * @param {string} name
    * @param {string} formula
    * @param {MolarAbsorptivityData} molarAbsorptivityData
-   * @param {Range} concentrationRange
+   * @param {RangeWithValue} concentrationRange
    * @param {ConcentrationTransform} concentrationTransform
    * @param {ColorRange} colorRange
    * @param {Tandem} tandem
