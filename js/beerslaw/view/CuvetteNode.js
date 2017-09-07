@@ -78,7 +78,6 @@ define( function( require ) {
       solutionNode.fill = color.withAlpha( SOLUTION_ALPHA );
       solutionNode.stroke = color.darkerColor();
     };
-    solutionProperty.get().fluidColorProperty.link( colorObserver );
 
     // when the solution changes, rewire the color observer
     solutionProperty.link( function( newSolution, oldSolution ) {

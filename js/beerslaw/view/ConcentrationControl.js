@@ -62,7 +62,6 @@ define( function( require ) {
       valueDisplay.text = solutionProperty.get().getDisplayConcentration( concentration );
       valueDisplay.right = valueBackground.right - xMargin; // right aligned
     };
-    solutionProperty.get().concentrationProperty.link( concentrationObserver );
 
     // when solution changes, rewire the concentration observer
     solutionProperty.link( function( newSolution, oldSolution ) {

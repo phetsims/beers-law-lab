@@ -270,7 +270,6 @@ define( function( require ) {
     var concentrationObserver = function( concentration ) {
       self.x = concentrationToPosition( concentration );
     };
-    solutionProperty.get().concentrationProperty.link( concentrationObserver );
 
     // when the solution changes, wire up to the current solution
     solutionProperty.link( function( newSolution, oldSolution ) {
