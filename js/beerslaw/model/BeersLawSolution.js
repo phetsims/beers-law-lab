@@ -15,20 +15,20 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var DerivedProperty = require( 'AXON/DerivedProperty' );
-  var NumberProperty = require( 'AXON/NumberProperty' );
-  var ConcentrationTransform = require( 'BEERS_LAW_LAB/beerslaw/model/ConcentrationTransform' );
-  var MolarAbsorptivityData = require( 'BEERS_LAW_LAB/beerslaw/model/MolarAbsorptivityData' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
-  var ColorRange = require( 'BEERS_LAW_LAB/common/model/ColorRange' );
-  var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
-  var RangeWithValue = require( 'DOT/RangeWithValue' );
-  var Util = require( 'DOT/Util' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Color = require( 'SCENERY/util/Color' );
+  var ColorRange = require( 'BEERS_LAW_LAB/common/model/ColorRange' );
+  var ConcentrationTransform = require( 'BEERS_LAW_LAB/beerslaw/model/ConcentrationTransform' );
+  var DerivedProperty = require( 'AXON/DerivedProperty' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var MolarAbsorptivityData = require( 'BEERS_LAW_LAB/beerslaw/model/MolarAbsorptivityData' );
+  var NumberProperty = require( 'AXON/NumberProperty' );
+  var RangeWithValue = require( 'DOT/RangeWithValue' );
+  var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
+  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Tandem = require( 'TANDEM/Tandem' );
+  var Util = require( 'DOT/Util' );
 
   // phet-io modules
   var TBeersLawSolution = require( 'BEERS_LAW_LAB/beerslaw/model/TBeersLawSolution' );

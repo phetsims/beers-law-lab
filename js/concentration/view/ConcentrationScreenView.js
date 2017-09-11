@@ -12,11 +12,11 @@ define( function( require ) {
   var BeakerNode = require( 'BEERS_LAW_LAB/concentration/view/BeakerNode' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+  var BLLDropperNode = require( 'BEERS_LAW_LAB/concentration/view/BLLDropperNode' );
   var BLLFaucetNode = require( 'BEERS_LAW_LAB/concentration/view/BLLFaucetNode' );
   var BLLQueryParameters = require( 'BEERS_LAW_LAB/common/BLLQueryParameters' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var ConcentrationMeterNode = require( 'BEERS_LAW_LAB/concentration/view/ConcentrationMeterNode' );
-  var BLLDropperNode = require( 'BEERS_LAW_LAB/concentration/view/BLLDropperNode' );
   var EvaporationControl = require( 'BEERS_LAW_LAB/concentration/view/EvaporationControl' );
   var EyeDropperNode = require( 'SCENERY_PHET/EyeDropperNode' );
   var FaucetFluidNode = require( 'BEERS_LAW_LAB/concentration/view/FaucetFluidNode' );
@@ -28,8 +28,8 @@ define( function( require ) {
   var SaturatedIndicator = require( 'BEERS_LAW_LAB/concentration/view/SaturatedIndicator' );
   var ScreenView = require( 'JOIST/ScreenView' );
   var ShakerNode = require( 'BEERS_LAW_LAB/concentration/view/ShakerNode' );
-  var SoluteGramsNode = require( 'BEERS_LAW_LAB/concentration/view/SoluteGramsNode' );
   var SoluteControls = require( 'BEERS_LAW_LAB/concentration/view/SoluteControls' );
+  var SoluteGramsNode = require( 'BEERS_LAW_LAB/concentration/view/SoluteGramsNode' );
   var SolutionNode = require( 'BEERS_LAW_LAB/concentration/view/SolutionNode' );
   var StockSolutionNode = require( 'BEERS_LAW_LAB/concentration/view/StockSolutionNode' );
 

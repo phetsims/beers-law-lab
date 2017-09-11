@@ -9,8 +9,8 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var ATDetector = require( 'BEERS_LAW_LAB/beerslaw/model/ATDetector' );
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  var ATDetector = require( 'BEERS_LAW_LAB/beerslaw/model/ATDetector' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var Bounds2 = require( 'DOT/Bounds2' );

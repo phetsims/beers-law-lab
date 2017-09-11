@@ -24,8 +24,8 @@ define( function( require ) {
   var solutionString = require( 'string!BEERS_LAW_LAB/solution' );
 
   // images
-  var shakerIconImage = require( 'image!BEERS_LAW_LAB/shaker-icon.png' );
   var dropperIconImage = require( 'image!BEERS_LAW_LAB/dropper-icon.png' );
+  var shakerIconImage = require( 'image!BEERS_LAW_LAB/shaker-icon.png' );
 
   /**
    * @param {Property.<string>} soluteFormProperty form of the solute, 'solid' or 'solution'

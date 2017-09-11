@@ -17,8 +17,8 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
 
   // phet-io modules
-  var TString = require( 'ifphetio!PHET_IO/types/TString' );
   var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+  var TString = require( 'ifphetio!PHET_IO/types/TString' );
 
   /**
    * @param {Vector2} bodyLocation

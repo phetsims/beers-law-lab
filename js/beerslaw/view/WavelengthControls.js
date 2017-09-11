@@ -30,10 +30,10 @@ define( function( require ) {
   var pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
   var pattern0Value1UnitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
   var presetString = require( 'string!BEERS_LAW_LAB/preset' );
+  var TNode = require( 'SCENERY/nodes/TNode' );
   var unitsNmString = require( 'string!BEERS_LAW_LAB/units.nm' );
   var variableString = require( 'string!BEERS_LAW_LAB/variable' );
   var wavelengthString = require( 'string!BEERS_LAW_LAB/wavelength' );
-  var TNode = require( 'SCENERY/nodes/TNode' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );

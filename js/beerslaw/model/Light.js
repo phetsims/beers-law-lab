@@ -10,11 +10,11 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var inherit = require( 'PHET_CORE/inherit' );
   var NumberProperty = require( 'AXON/NumberProperty' );
   var Property = require( 'AXON/Property' );
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var Range = require( 'DOT/Range' );
-  var inherit = require( 'PHET_CORE/inherit' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   // phet-io modules

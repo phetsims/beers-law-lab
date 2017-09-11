@@ -11,13 +11,13 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var DerivedProperty = require( 'AXON/DerivedProperty' );
-  var NumberProperty = require( 'AXON/NumberProperty' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+  var DerivedProperty = require( 'AXON/DerivedProperty' );
   var Fluid = require( 'BEERS_LAW_LAB/common/model/Fluid' );
-  var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var NumberProperty = require( 'AXON/NumberProperty' );
+  var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );

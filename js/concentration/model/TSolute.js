@@ -11,11 +11,11 @@ define( function( require ) {
   // modules
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertions/assertInstanceOf' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var phetio = require( 'ifphetio!PHET_IO/phetio' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
   var TString = require( 'ifphetio!PHET_IO/types/TString' );
   var TVoid = require( 'ifphetio!PHET_IO/types/TVoid' );
-  var phetio = require( 'ifphetio!PHET_IO/phetio' );
 
   /**
    *

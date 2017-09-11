@@ -9,11 +9,11 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var NumberProperty = require( 'AXON/NumberProperty' );
   var Property = require( 'AXON/Property' );
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
-  var inherit = require( 'PHET_CORE/inherit' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
