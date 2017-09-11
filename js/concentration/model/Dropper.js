@@ -9,14 +9,14 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
+  var NumberProperty = require( 'AXON/NumberProperty' );
   var Property = require( 'AXON/Property' );
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
+  var inherit = require( 'PHET_CORE/inherit' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
-  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
 
   /**
    * @param {Vector2} location
@@ -44,9 +44,9 @@ define( function( require ) {
       tandem: tandem.createTandem( 'emptyProperty' ),
       phetioValueType: TBoolean
     } );
-    this.flowRateProperty = new Property( 0, {
+    this.flowRateProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'flowRateProperty' ),
-      phetioValueType: TNumber( { units: 'liters/second' } )
+      units: 'liters/second'
     } ); // L/sec
 
     // Turn off the dropper when it's disabled.

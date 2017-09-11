@@ -10,12 +10,10 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var NumberProperty = require( 'AXON/NumberProperty' );
+  var Property = require( 'AXON/Property' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Property = require( 'AXON/Property' );
-
-  // phet-io modules
-  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
 
   /**
    * @param {Vector2} location center of output pipe
@@ -38,9 +36,9 @@ define( function( require ) {
     this.maxFlowRate = maxFlowRate;
 
     // @public
-    this.flowRateProperty = new Property( 0, {
+    this.flowRateProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'flowRateProperty' ),
-      phetioValueType: TNumber( { units: 'liters/second' } )
+      units: 'liters/second'
     } );
     this.enabledProperty = new Property( true );
 

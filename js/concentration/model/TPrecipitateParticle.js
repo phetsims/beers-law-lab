@@ -34,7 +34,7 @@ define( function( require ) {
       return {
         solute: TSolute.fromStateObject( stateObject.solute ),
         location: TVector2.fromStateObject( stateObject.location ),
-        orientation: TNumber().fromStateObject( stateObject.orientation )
+        orientation: TNumber.fromStateObject( stateObject.orientation )
       };
     },
 
@@ -42,7 +42,7 @@ define( function( require ) {
       return {
         solute: TSolute.toStateObject( value.solute ),
         location: TVector2.toStateObject( value.locationProperty.get() ),
-        orientation: TNumber().toStateObject( value.orientation )
+        orientation: TNumber.toStateObject( value.orientation )
       };
     },
     documentation: 'A particle that shows at the bottom of a saturated solution.'

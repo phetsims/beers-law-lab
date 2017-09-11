@@ -11,17 +11,17 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var DerivedProperty = require( 'AXON/DerivedProperty' );
-  var Fluid = require( 'BEERS_LAW_LAB/common/model/Fluid' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Property = require( 'AXON/Property' );
-  var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
+  var NumberProperty = require( 'AXON/NumberProperty' );
+  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+  var Fluid = require( 'BEERS_LAW_LAB/common/model/Fluid' );
+  var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
+  var inherit = require( 'PHET_CORE/inherit' );
 
   // phet-io modules
-  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
 
   /**
    * @param {Property.<Solute>} soluteProperty
@@ -38,13 +38,14 @@ define( function( require ) {
 
     // @public
     this.soluteProperty = soluteProperty;
-    this.soluteAmountProperty = new Property( soluteAmount, {
-      tandem: tandem.createTandem( 'soluteAmountProperty' ),
-      phetioValueType: TNumber( { units: 'moles', range: BLLConstants.SOLUTE_AMOUNT_RANGE } )
+    this.soluteAmountProperty = new NumberProperty( soluteAmount, {
+      units: 'moles',
+      range: BLLConstants.SOLUTE_AMOUNT_RANGE,
+      tandem: tandem.createTandem( 'soluteAmountProperty' )
     } );
-    this.volumeProperty = new Property( volume, {
+    this.volumeProperty = new NumberProperty( volume, {
+      units: 'liters', range: BLLConstants.SOLUTION_VOLUME_RANGE,
       tandem: tandem.createTandem( 'volumeProperty' ),
-      phetioValueType: TNumber( { units: 'liters', range: BLLConstants.SOLUTION_VOLUME_RANGE } )
     } ); // L
 
     // @public for deferring update of precipitateAmount until we've changed both volume and soluteAmount, see concentration#1
@@ -62,7 +63,8 @@ define( function( require ) {
         }
       }, {
         tandem: tandem.createTandem( 'precipitateAmountProperty' ),
-        phetioValueType: TNumber( { units: 'moles' } )
+        units: 'moles',
+        phetioValueType: TNumber
       }
     );
 
@@ -73,7 +75,8 @@ define( function( require ) {
         return ( volume > 0 ) ? Math.min( self.getSaturatedConcentration(), soluteAmount / volume ) : 0;
       }, {
         tandem: tandem.createTandem( 'concentrationProperty' ),
-        phetioValueType: TNumber( { units: 'moles/liter' } )
+        units: 'moles/liter',
+        phetioValueType: TNumber
       }
     );
 
@@ -93,7 +96,8 @@ define( function( require ) {
         return solute.molarMass * ( soluteAmount - precipitateAmount );
       }, {
         tandem: tandem.createTandem( 'soluteGramsProperty' ),
-        phetioValueType: TNumber( { units: 'grams' } )
+        units: 'grams',
+        phetioValueType: TNumber
       }
     );
 
@@ -109,7 +113,8 @@ define( function( require ) {
         return percentConcentration;
       }, {
         tandem: tandem.createTandem( 'percentConcentrationProperty' ),
-        phetioValueType: TNumber( { units: 'percent' } )
+        phetioValueType: TNumber,
+        units: 'percent'
       }
     );
 

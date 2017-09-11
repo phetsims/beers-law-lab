@@ -9,12 +9,12 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var NumberProperty = require( 'AXON/NumberProperty' );
+  var Property = require( 'AXON/Property' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Property = require( 'AXON/Property' );
 
   // phet-io modules
-  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
 
   /**
@@ -30,9 +30,9 @@ define( function( require ) {
     this.maxEvaporationRate = maxEvaporationRate; // @public (read-only) L/sec
 
     // @public
-    this.evaporationRateProperty = new Property( 0, {
+    this.evaporationRateProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'evaporationRateProperty' ),
-      phetioValueType: TNumber( { units: 'liters/second' } )
+      units: 'liters/second'
     } ); // L/sec
     this.enabledProperty = new Property( true, {
       tandem: tandem.createTandem( 'enabledProperty' ),

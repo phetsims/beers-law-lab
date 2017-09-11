@@ -36,7 +36,7 @@ define( function( require ) {
       return {
         solute: TSolute.fromStateObject( stateObject.solute ),
         location: TVector2.fromStateObject( stateObject.location ),
-        orientation: TNumber().fromStateObject( stateObject.orientation ),
+        orientation: TNumber.fromStateObject( stateObject.orientation ),
         velocity: TVector2.fromStateObject( stateObject.velocity ),
         acceleration: TVector2.fromStateObject( stateObject.acceleration ),
         tandem: TTandem.fromStateObject( stateObject.tandem )
@@ -47,7 +47,7 @@ define( function( require ) {
       return {
         solute: TSolute.toStateObject( value.solute ),
         location: TVector2.toStateObject( value.locationProperty.get() ),
-        orientation: TNumber().toStateObject( value.orientation ),
+        orientation: TNumber.toStateObject( value.orientation ),
         velocity: TVector2.toStateObject( value.velocity ),
         acceleration: TVector2.toStateObject( value.acceleration ),
         tandem: TTandem.toStateObject( value.tandem )

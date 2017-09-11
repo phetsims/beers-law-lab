@@ -15,23 +15,22 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var DerivedProperty = require( 'AXON/DerivedProperty' );
+  var NumberProperty = require( 'AXON/NumberProperty' );
+  var ConcentrationTransform = require( 'BEERS_LAW_LAB/beerslaw/model/ConcentrationTransform' );
+  var MolarAbsorptivityData = require( 'BEERS_LAW_LAB/beerslaw/model/MolarAbsorptivityData' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
-  var Color = require( 'SCENERY/util/Color' );
   var ColorRange = require( 'BEERS_LAW_LAB/common/model/ColorRange' );
-  var ConcentrationTransform = require( 'BEERS_LAW_LAB/beerslaw/model/ConcentrationTransform' );
-  var DerivedProperty = require( 'AXON/DerivedProperty' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var MolarAbsorptivityData = require( 'BEERS_LAW_LAB/beerslaw/model/MolarAbsorptivityData' );
-  var Property = require( 'AXON/Property' );
-  var RangeWithValue = require( 'DOT/RangeWithValue' );
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
-  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var RangeWithValue = require( 'DOT/RangeWithValue' );
   var Util = require( 'DOT/Util' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var Color = require( 'SCENERY/util/Color' );
   var Tandem = require( 'TANDEM/Tandem' );
 
   // phet-io modules
-  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
   var TBeersLawSolution = require( 'BEERS_LAW_LAB/beerslaw/model/TBeersLawSolution' );
 
   // strings
@@ -71,9 +70,10 @@ define( function( require ) {
     this.name = name;
     this.formula = formula;
     this.molarAbsorptivityData = molarAbsorptivityData;
-    this.concentrationProperty = new Property( concentrationRange.defaultValue, {
+    this.concentrationProperty = new NumberProperty( concentrationRange.defaultValue, {
+      units: 'moles/liter',
+      range: concentrationRange,
       tandem: tandem.createTandem( 'concentrationProperty' ),
-      phetioValueType: TNumber( { units: 'moles/liter', range: concentrationRange } )
     } );
     this.concentrationRange = concentrationRange;
     this.concentrationTransform = concentrationTransform;

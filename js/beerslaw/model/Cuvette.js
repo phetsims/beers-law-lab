@@ -15,12 +15,9 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var NumberProperty = require( 'AXON/NumberProperty' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Property = require( 'AXON/Property' );
-
-  // phet-io modules
-  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
 
   /**
    * @param {Vector2} location fixed location, cm
@@ -34,9 +31,10 @@ define( function( require ) {
     // @public (read-only)
     this.location = location;
     this.widthRange = widthRange;
-    this.widthProperty = new Property( widthRange.defaultValue, {
+    this.widthProperty = new NumberProperty( widthRange.defaultValue, {
       tandem: tandem.createTandem( 'widthProperty' ),
-      phetioValueType: TNumber( { range: widthRange, units: 'centimeters' } )
+      range: widthRange,
+      units: 'centimeters'
     } );
     this.height = height;
   }
