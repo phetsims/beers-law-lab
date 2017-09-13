@@ -32,7 +32,9 @@ define( function( require ) {
    */
   function BeersLawScreenView( model, modelViewTransform, tandem ) {
 
-    ScreenView.call( this, BLLConstants.SCREEN_VIEW_OPTIONS );
+    ScreenView.call( this, _.extend( {
+        tandem: tandem
+      }, BLLConstants.SCREEN_VIEW_OPTIONS ) );
 
     var lightNode = new LightNode( model.light, modelViewTransform, tandem.createTandem( 'lightNode' ) );
     var cuvetteNode = new CuvetteNode( model.cuvette, model.solutionProperty, modelViewTransform, BLLQueryParameters.cuvetteSnapInterval, tandem.createTandem( 'cuvetteNode' ) );

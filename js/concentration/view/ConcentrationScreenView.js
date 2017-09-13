@@ -41,7 +41,9 @@ define( function( require ) {
    */
   function ConcentrationScreenView( model, modelViewTransform, tandem ) {
 
-    ScreenView.call( this, BLLConstants.SCREEN_VIEW_OPTIONS );
+    ScreenView.call( this, _.extend( {
+      tandem: tandem
+    }, BLLConstants.SCREEN_VIEW_OPTIONS ) );
 
     // Beaker and stuff inside it
     var beakerNode = new BeakerNode( model.beaker, modelViewTransform, tandem.createTandem( 'beakerNode' ) );
