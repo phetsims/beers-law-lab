@@ -44,13 +44,7 @@ define( function( require ) {
   beersLawLab.register( 'BLLQueryParameters', BLLQueryParameters );
 
   // log the values of all sim-specific query parameters
-  if ( phet.log ) {
-    for ( var property in BLLQueryParameters ) {
-      if ( BLLQueryParameters.hasOwnProperty( property ) ) {
-        phet.log( property + '=' + BLLQueryParameters[ property ] );
-      }
-    }
-  }
+  phet.log && phet.log( 'query parameters: ' + JSON.stringify( BLLQueryParameters, null, 2 ) );
 
   return BLLQueryParameters;
 } );
