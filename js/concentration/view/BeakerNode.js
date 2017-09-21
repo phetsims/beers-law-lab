@@ -1,4 +1,4 @@
-// Copyright 2013-2016, University of Colorado Boulder
+// Copyright 2013-2017, University of Colorado Boulder
 
 /**
  * Visual representation of a beaker that is filled to the top with a solution.
