@@ -109,7 +109,8 @@ define( function( require ) {
           var solventGrams = volume * self.solvent.density;
           percentConcentration = 100 * ( soluteGrams / ( soluteGrams + solventGrams ) );
         }
-        assert && assert( percentConcentration >= 0 && percentConcentration <= 100 );
+        assert && assert( percentConcentration >= 0 && percentConcentration <= 100,
+          'percentConcentration out of range: ' + percentConcentration );
         return percentConcentration;
       }, {
         tandem: tandem.createTandem( 'percentConcentrationProperty' ),
