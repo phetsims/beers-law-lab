@@ -45,7 +45,7 @@ define( function( require ) {
     } );
     this.volumeProperty = new NumberProperty( volume, {
       units: 'liters', range: BLLConstants.SOLUTION_VOLUME_RANGE,
-      tandem: tandem.createTandem( 'volumeProperty' ),
+      tandem: tandem.createTandem( 'volumeProperty' )
     } ); // L
 
     // @public for deferring update of precipitateAmount until we've changed both volume and soluteAmount, see concentration#1
