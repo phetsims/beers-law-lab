@@ -81,7 +81,8 @@ define( function( require ) {
     );
 
     // @public boolean property indicating whether the solution is saturated or not.
-    this.saturatedProperty = new DerivedProperty( [ this.soluteProperty, this.soluteAmountProperty, this.volumeProperty ],
+    this.saturatedProperty = new DerivedProperty(
+      [ this.soluteProperty, this.soluteAmountProperty, this.volumeProperty ],
       function( solute, soluteAmount, volume ) {
         return ( volume > 0 ) && ( soluteAmount / volume ) > solute.getSaturatedConcentration();
       }, {
@@ -91,7 +92,8 @@ define( function( require ) {
     );
 
     // @public {number} amount of solute, in grams
-    this.soluteGramsProperty = new DerivedProperty( [ this.soluteProperty, this.soluteAmountProperty, this.precipitateAmountProperty ],
+    this.soluteGramsProperty = new DerivedProperty(
+      [ this.soluteProperty, this.soluteAmountProperty, this.precipitateAmountProperty ],
       function( solute, soluteAmount, precipitateAmount ) {
         var soluteGrams = solute.molarMass * ( soluteAmount - precipitateAmount );
         assert && assert( soluteGrams >= 0, 'invalid soluteGrams: ' + soluteGrams );
@@ -104,7 +106,8 @@ define( function( require ) {
     );
 
     // @public {number} percent concentration [0,100]
-    this.percentConcentrationProperty = new DerivedProperty( [ this.volumeProperty, this.soluteGramsProperty ],
+    this.percentConcentrationProperty = new DerivedProperty( 
+      [ this.volumeProperty, this.soluteGramsProperty ],
       function( volume, soluteGrams ) {
         var percentConcentration = 0;
         if ( volume > 0 ) {
