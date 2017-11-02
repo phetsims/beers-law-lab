@@ -16,6 +16,7 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
   var Color = require( 'SCENERY/util/Color' );
   var ColorRange = require( 'BEERS_LAW_LAB/common/model/ColorRange' );
@@ -27,7 +28,6 @@ define( function( require ) {
   var RangeWithValue = require( 'DOT/RangeWithValue' );
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  var Tandem = require( 'TANDEM/Tandem' );
   var Util = require( 'DOT/Util' );
 
   // phet-io modules
@@ -120,8 +120,9 @@ define( function( require ) {
     }
   } );
 
-  // A new tandem instance is required here since the solutes are created statically.
-  var tandem = Tandem.createStaticTandem( 'beersLawScreen' ).createTandem( 'solutions' );
+  // A new tandem instance is required here since the solutes are created statically.  Signify that these solutions
+  // are only used in the beers law screen
+  var tandem = BLLConstants.BEERS_LAW_SCREEN_TANDEM.createTandem( 'solutions' );
 
   //-------------------------------------------------------------------------------------------
   // Specific solutions below ...

@@ -10,12 +10,12 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
   var Color = require( 'SCENERY/util/Color' );
   var inherit = require( 'PHET_CORE/inherit' );
   var SoluteColorScheme = require( 'BEERS_LAW_LAB/concentration/model/SoluteColorScheme' );
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
-  var Tandem = require( 'TANDEM/Tandem' );
 
   // phet-io modules
   var TSolute = require( 'BEERS_LAW_LAB/concentration/model/TSolute' );
@@ -67,6 +67,7 @@ define( function( require ) {
     assert && assert( this.stockSolutionPercentConcentration >= 0 && this.stockSolutionPercentConcentration <= 100 );
 
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
+
     tandem.addInstance( this, TSolute, options );
     this.tandemName = tandem.tail;
   }
@@ -83,8 +84,9 @@ define( function( require ) {
 
   // Specific solutes ===========================================
 
-  // A new tandem instance is required here since the solutes are created statically.
-  var tandem = Tandem.createStaticTandem( 'concentrationScreen' ).createTandem( 'solutes' );
+  // A new tandem instance is required here since the solutes are created statically. Signify that these solutes are
+  // only used in the concentration screen
+  var tandem = BLLConstants.CONCENTRATION_SCREEN_TANDEM.createTandem( 'solutes' );
 
   Solute.DRINK_MIX = new Solute(
     drinkMixString,
