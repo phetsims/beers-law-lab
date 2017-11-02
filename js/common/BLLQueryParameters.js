@@ -15,11 +15,11 @@ define( function( require ) {
   var BLLQueryParameters = QueryStringMachine.getAll( {
 
     // {boolean} whether the solute amount (in grams) is visible on the Concentration screen
-    // This query parameter is intended for public use, see https://github.com/phetsims/beers-law-lab/issues/148
+    // This query parameter is intended for external use, see https://github.com/phetsims/beers-law-lab/issues/148
     showSoluteAmount: { type: 'flag' },
 
     // {string} units on the concentration meter
-    // This query parameter is intended for public use, see https://github.com/phetsims/beers-law-lab/issues/149
+    // This query parameter is intended for external use, see https://github.com/phetsims/beers-law-lab/issues/149
     concentrationMeterUnits: {
       type: 'string',
       validValues: [ 'molesPerLiter', 'percent' ],
@@ -27,7 +27,7 @@ define( function( require ) {
     },
 
     // {string} units for beaker ticks
-    // This query parameter is intended for public use, see https://github.com/phetsims/beers-law-lab/issues/150
+    // This query parameter is intended for external use, see https://github.com/phetsims/beers-law-lab/issues/150
     beakerUnits: {
       type: 'string',
       validValues: [ 'liters', 'milliliters' ],
@@ -35,7 +35,7 @@ define( function( require ) {
     },
 
     // {number} snap interval for the cuvette in centimeters, or 0 for no snap
-    // This query parameter is intended for public use, see https://github.com/phetsims/phet-io/issues/568
+    // This query parameter is intended for external use, see https://github.com/phetsims/phet-io/issues/568
     cuvetteSnapInterval: {
       type: 'number',
       defaultValue: BLLConstants.DEFAULT_CUVETTE_SNAP_INTERVAL,
