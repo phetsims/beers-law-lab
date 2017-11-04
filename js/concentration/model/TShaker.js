@@ -28,7 +28,6 @@ define( function( require ) {
   }
 
   phetioInherit( TObject, 'TShaker', TShaker, {
-
     setValue: {
       returnType: TVoid,
       parameterTypes: [ TObject ],
@@ -41,19 +40,19 @@ define( function( require ) {
     documentation: 'The Shaker that releases solute',
 
     toStateObject: function( instance ) {
-      return TVector2.toStateObject( instance.previousLocation );
+      return { location: TVector2.toStateObject( instance.previousLocation ) };
     },
 
-    fromStateObject: function( vector2StateObject ) {
-      return TVector2.fromStateObject( vector2StateObject ); // no coercion necessary for a plain object with primitives
+    fromStateObject: function( stateObject ) {
+      return { location: TVector2.fromStateObject( stateObject.location ) };
     },
 
-    setValue: function( instance, value ) {
-      instance.previousLocation.set( value );
+    setValue: function( instance, valueFromStateObject ) {
+      instance.previousLocation.set( valueFromStateObject.location );
     }
   } );
 
-   beersLawLab.register( 'TShaker', TShaker );
+  beersLawLab.register( 'TShaker', TShaker );
 
   return TShaker;
 } );
