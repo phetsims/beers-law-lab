@@ -22,8 +22,8 @@ define( function( require ) {
    * @constructor
    */
   function TShakerParticles( instance, phetioID ) {
-    TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.ShakerParticles );
+    TObject.call( this, instance, phetioID );
   }
 
   phetioInherit( TObject, 'TShakerParticles', TShakerParticles, {}, {

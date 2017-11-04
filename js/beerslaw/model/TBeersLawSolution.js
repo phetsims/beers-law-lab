@@ -23,8 +23,8 @@ define( function( require ) {
    * @constructor
    */
   function TBeersLawSolution( instance, phetioID ) {
-    TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.BeersLawSolution );
+    TObject.call( this, instance, phetioID );
   }
 
   phetioInherit( TObject, 'TBeersLawSolution', TBeersLawSolution, {}, {

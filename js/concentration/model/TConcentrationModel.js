@@ -24,8 +24,8 @@ define( function( require ) {
    * @constructor
    */
   function TConcentrationModel( instance, phetioID ) {
-    TObject.call( this, instance, phetioID );
     assertInstanceOf( instance, phet.beersLawLab.ConcentrationModel );
+    TObject.call( this, instance, phetioID );
   }
 
   phetioInherit( TObject, 'TConcentrationModel', TConcentrationModel, {
