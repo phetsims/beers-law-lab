@@ -24,7 +24,7 @@ define( function( require ) {
    * @constructor
    */
   function TSolute( instance, phetioID ) {
-    assertInstanceOf( instance, phet.beersLawLab.Solute );
+    assert && assertInstanceOf( instance, phet.beersLawLab.Solute );
     TObject.call( this, instance, phetioID );
   }
 

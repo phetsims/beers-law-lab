@@ -24,7 +24,7 @@ define( function( require ) {
    * @constructor
    */
   function TPrecipitateParticle( instance, phetioID ) {
-    assertInstanceOf( instance, phet.beersLawLab.PrecipitateParticle );
+    assert && assertInstanceOf( instance, phet.beersLawLab.PrecipitateParticle );
     TObject.call( this, instance, phetioID );
   }
 

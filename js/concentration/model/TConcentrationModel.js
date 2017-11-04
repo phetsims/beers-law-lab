@@ -24,7 +24,7 @@ define( function( require ) {
    * @constructor
    */
   function TConcentrationModel( instance, phetioID ) {
-    assertInstanceOf( instance, phet.beersLawLab.ConcentrationModel );
+    assert && assertInstanceOf( instance, phet.beersLawLab.ConcentrationModel );
     TObject.call( this, instance, phetioID );
   }
 
