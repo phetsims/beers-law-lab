@@ -32,7 +32,7 @@ define( function( require ) {
 
     // @public (phet-io)
     this.solute = solute;
-    this.tandem = tandem; // Used in TPrecipitateParticle to serialize the tandem name
+    this.precipitateParticleTandem = tandem; // Used in TPrecipitateParticle to serialize the tandem name
 
     tandem.addInstance( this, TPrecipitateParticle );
 
