@@ -85,7 +85,7 @@ define( function( require ) {
   // Specific solutes ===========================================
 
   // A new tandem instance is required here since the solutes are created statically. Signify that these solutes are
-  // only used in the concentration screen
+  // only used in the concentration screen by attaching them to that screen's tandem.
   var tandem = BLLConstants.CONCENTRATION_SCREEN_TANDEM.createTandem( 'solutes' );
 
   Solute.DRINK_MIX = new Solute(

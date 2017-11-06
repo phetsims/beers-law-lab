@@ -121,7 +121,7 @@ define( function( require ) {
   } );
 
   // A new tandem instance is required here since the solutes are created statically.  Signify that these solutions
-  // are only used in the beers law screen
+  // are only used in the beers law screen by attaching them to that screen's tandem.
   var tandem = BLLConstants.BEERS_LAW_SCREEN_TANDEM.createTandem( 'solutions' );
 
   //-------------------------------------------------------------------------------------------
