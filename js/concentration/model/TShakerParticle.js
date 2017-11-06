@@ -39,7 +39,7 @@ define( function( require ) {
         orientation: TNumber.fromStateObject( stateObject.orientation ),
         velocity: TVector2.fromStateObject( stateObject.velocity ),
         acceleration: TVector2.fromStateObject( stateObject.acceleration ),
-        tandem: TTandem.fromStateObject( stateObject.shakerParticleTandem )
+        shakerParticleTandem: TTandem.fromStateObject( stateObject.tandem )
       };
     },
 
