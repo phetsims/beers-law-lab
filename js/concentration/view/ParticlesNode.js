@@ -30,7 +30,7 @@ define( function( require ) {
 
     CanvasNode.call( this, { pickable: false, canvasBounds: canvasBounds } );
 
-    particles.registerChangedCallback( function() {
+    particles.addChangedListener( function() {
       self.invalidatePaint();
     } );
   }

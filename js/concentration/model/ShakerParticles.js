@@ -124,7 +124,7 @@ define( function( require ) {
       changed = changed || this.particles.length > 0;
 
       if ( changed ) {
-        this.fireParticlesChanged();
+        this.fireChanged();
       }
     },
 
@@ -155,15 +155,7 @@ define( function( require ) {
       for ( var i = 0; i < particles.length; i++ ) {
         this.removeParticle( particles[ i ] );
       }
-      this.fireParticlesChanged();
-    },
-
-    // @private Notify that at least one particle was added, removed, or moved
-    fireParticlesChanged: function() {
-      var changedCallbacks = this.changedCallbacks.slice( 0 );
-      for ( var i = 0; i < changedCallbacks.length; i++ ) {
-        changedCallbacks[ i ]();
-      }
+      this.fireChanged();
     }
   } );
 } );

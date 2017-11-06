@@ -10,6 +10,7 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var Emitter = require( 'AXON/Emitter' );
   var inherit = require( 'PHET_CORE/inherit' );
 
   /**
@@ -17,7 +18,7 @@ define( function( require ) {
    */
   function Particles() {
     this.particles = []; // @public the particles in the collection
-    this.changedCallbacks = []; // @protected called when the collection of particles changes
+    this.changedEmitter = new Emitter(); // @private emit is called when the collection of particles changes
   }
 
   beersLawLab.register( 'Particles', Particles );
@@ -25,13 +26,21 @@ define( function( require ) {
   return inherit( Object, Particles, {
 
     /**
-     * Registers a callback that will be called when the collection of particles changes in some way
+     * Registers a listener that will be called when the collection of particles has changed in some way
      * (eg, number of particles, particles move, ...)
-     * @param {function} callback
+     * @param {function} listener
      * @public
      */
-    registerChangedCallback: function( callback ) {
-      this.changedCallbacks.push( callback );
+    addChangedListener: function( listener ) {
+      this.changedEmitter.addListener( listener );
+    },
+
+    /**
+     * Notify listeners that the particles have changed.
+     * @protected
+     */
+    fireChanged: function() {
+      this.changedEmitter.emit();
     }
   } );
 } );

@@ -55,7 +55,7 @@ define( function( require ) {
         value.acceleration,
         tandem
       ) );
-      instance.fireParticlesChanged();
+      instance.fireChanged();
     }
   } );
 
