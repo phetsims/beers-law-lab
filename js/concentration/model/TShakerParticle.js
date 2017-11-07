@@ -39,7 +39,6 @@ define( function( require ) {
         orientation: TNumber.fromStateObject( stateObject.orientation ),
         velocity: TVector2.fromStateObject( stateObject.velocity ),
         acceleration: TVector2.fromStateObject( stateObject.acceleration ),
-        shakerParticleTandem: TTandem.fromStateObject( stateObject.tandem )
       };
     },
 
@@ -49,8 +48,7 @@ define( function( require ) {
         location: TVector2.toStateObject( value.locationProperty.get() ),
         orientation: TNumber.toStateObject( value.orientation ),
         velocity: TVector2.toStateObject( value.velocity ),
-        acceleration: TVector2.toStateObject( value.acceleration ),
-        tandem: TTandem.toStateObject( value.shakerParticleTandem )
+        acceleration: TVector2.toStateObject( value.acceleration )
       };
     }
   } );
