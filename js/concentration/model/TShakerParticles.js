@@ -55,6 +55,8 @@ define( function( require ) {
         value.acceleration,
         tandem
       ) );
+
+      // ShakerParticles.step is not called in playback mode, so this needs to be called explicitly to update the view.
       instance.fireChanged();
     }
   } );
