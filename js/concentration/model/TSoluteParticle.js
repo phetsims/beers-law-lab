@@ -17,14 +17,13 @@ define( function( require ) {
   var TVector2 = require( 'DOT/TVector2' );
 
   /**
-   *
-   * @param instance
-   * @param phetioID
+   * @param {SoluteParticle} soluteParticle
+   * @param {string} phetioID
    * @constructor
    */
-  function TSoluteParticle( instance, phetioID ) {
-    assert && assertInstanceOf( instance, phet.beersLawLab.PrecipitateParticle );
-    TObject.call( this, instance, phetioID );
+  function TSoluteParticle( soluteParticle, phetioID ) {
+    assert && assertInstanceOf( soluteParticle, phet.beersLawLab.SoluteParticle );
+    TObject.call( this, soluteParticle, phetioID );
   }
 
   phetioInherit( TObject, 'TSoluteParticle', TSoluteParticle, {}, {

@@ -12,46 +12,43 @@ define( function( require ) {
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
-  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
   var TSolute = require( 'BEERS_LAW_LAB/concentration/model/TSolute' );
+  var TSoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/TSoluteParticle' );
   var TVector2 = require( 'DOT/TVector2' );
 
   /**
-   * @param instance
-   * @param phetioID
+   * @param {ShakerParticle} shakerParticle
+   * @param {string} phetioID
    * @constructor
    */
-  function TShakerParticle( instance, phetioID ) {
-    assert && assertInstanceOf( instance, phet.beersLawLab.ShakerParticle );
-    TObject.call( this, instance, phetioID );
+  function TShakerParticle( shakerParticle, phetioID ) {
+    assert && assertInstanceOf( shakerParticle, phet.beersLawLab.ShakerParticle );
+    TSoluteParticle.call( this, shakerParticle, phetioID );
   }
 
-  phetioInherit( TObject, 'TShakerParticle', TShakerParticle, {}, {
+  phetioInherit( TSoluteParticle, 'TShakerParticle', TShakerParticle, {}, {
     documentation: 'A particle that comes from the shaker.',
 
     fromStateObject: function( stateObject ) {
-      return {
+      var soluteParticle = TSoluteParticle.fromStateObject( stateObject );
+      return _.extend( soluteParticle, {
         solute: TSolute.fromStateObject( stateObject.solute ),
-        location: TVector2.fromStateObject( stateObject.location ),
-        orientation: TNumber.fromStateObject( stateObject.orientation ),
         velocity: TVector2.fromStateObject( stateObject.velocity ),
         acceleration: TVector2.fromStateObject( stateObject.acceleration ),
-      };
+      } );
     },
 
-    toStateObject: function( value ) {
-      return {
-        solute: TSolute.toStateObject( value.solute ),
-        location: TVector2.toStateObject( value.locationProperty.get() ),
-        orientation: TNumber.toStateObject( value.orientation ),
-        velocity: TVector2.toStateObject( value.velocity ),
-        acceleration: TVector2.toStateObject( value.acceleration )
-      };
+    toStateObject: function( shakerParticle ) {
+      var soluteParticle = TSoluteParticle.toStateObject( shakerParticle );
+      return _.extend( soluteParticle, {
+        solute: TSolute.toStateObject( shakerParticle.solute ),
+        velocity: TVector2.toStateObject( shakerParticle.velocity ),
+        acceleration: TVector2.toStateObject( shakerParticle.acceleration )
+      } );
     }
   } );
 
-   beersLawLab.register( 'TShakerParticle', TShakerParticle );
+  beersLawLab.register( 'TShakerParticle', TShakerParticle );
 
   return TShakerParticle;
 } );
