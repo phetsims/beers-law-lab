@@ -12,43 +12,34 @@ define( function( require ) {
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
-  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
   var TSolute = require( 'BEERS_LAW_LAB/concentration/model/TSolute' );
-  var TVector2 = require( 'DOT/TVector2' );
+  var TSoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/TSoluteParticle' );
 
   /**
-   *
    * @param instance
    * @param phetioID
    * @constructor
    */
   function TPrecipitateParticle( instance, phetioID ) {
     assert && assertInstanceOf( instance, phet.beersLawLab.PrecipitateParticle );
-    TObject.call( this, instance, phetioID );
+    TSoluteParticle.call( this, instance, phetioID );
   }
 
-  phetioInherit( TObject, 'TPrecipitateParticle', TPrecipitateParticle, {}, {
+  phetioInherit( TSoluteParticle, 'TPrecipitateParticle', TPrecipitateParticle, {}, {
 
     fromStateObject: function( stateObject ) {
-      return {
-        solute: TSolute.fromStateObject( stateObject.solute ),
-        location: TVector2.fromStateObject( stateObject.location ),
-        orientation: TNumber.fromStateObject( stateObject.orientation )
-      };
+      var soluteParticle = TSoluteParticle.fromStateObject( stateObject );
+      return _.extend( soluteParticle, { solute: TSolute.fromStateObject( stateObject.solute ) } );
     },
 
     toStateObject: function( value ) {
-      return {
-        solute: TSolute.toStateObject( value.solute ),
-        location: TVector2.toStateObject( value.locationProperty.get() ),
-        orientation: TNumber.toStateObject( value.orientation )
-      };
+      var soluteParticle = TSoluteParticle.toStateObject( value );
+      return _.extend( soluteParticle, { solute: TSolute.toStateObject( value.solute ) } );
     },
     documentation: 'A particle that shows at the bottom of a saturated solution.'
   } );
 
-   beersLawLab.register( 'TPrecipitateParticle', TPrecipitateParticle );
+  beersLawLab.register( 'TPrecipitateParticle', TPrecipitateParticle );
 
   return TPrecipitateParticle;
 } );
