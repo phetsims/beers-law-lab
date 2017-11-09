@@ -34,7 +34,7 @@ define( function( require ) {
       return _.extend( soluteParticle, {
         solute: TSolute.fromStateObject( stateObject.solute ),
         velocity: TVector2.fromStateObject( stateObject.velocity ),
-        acceleration: TVector2.fromStateObject( stateObject.acceleration ),
+        acceleration: TVector2.fromStateObject( stateObject.acceleration )
       } );
     },
 
