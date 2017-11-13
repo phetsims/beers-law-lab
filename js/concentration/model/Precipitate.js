@@ -35,6 +35,7 @@ define( function( require ) {
     this.solution = solution;
     this.beaker = beaker;
 
+    // @private
     this.precipitateParticleGroupTandem = tandem.createGroupTandem( 'precipitateParticle' );
 
     // when the saturation changes, update the number of precipitate particles

@@ -51,6 +51,7 @@ define( function( require ) {
       self.removeAllParticles();
     } );
 
+    // @private
     this.shakerParticleGroupTandem = tandem.createGroupTandem( 'shakerParticle' );
 
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
