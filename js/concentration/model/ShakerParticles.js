@@ -139,18 +139,16 @@ define( function( require ) {
       return new Vector2( 0, GRAVITATIONAL_ACCELERATION_MAGNITUDE );
     },
 
-    // @public (phet-io)
-    addParticle: function( particle ) {
-      this.particles.push( particle );
-    },
-
     // @private
     removeParticle: function( particle ) {
       this.particles.splice( this.particles.indexOf( particle ), 1 );
       particle.dispose();
     },
 
-    // @public
+    /**
+     * @public
+     * @override
+     */
     removeAllParticles: function() {
       var particles = this.particles.slice( 0 );
       for ( var i = 0; i < particles.length; i++ ) {

@@ -123,7 +123,8 @@ define( function( require ) {
 
     /**
      * Removes all particles from the precipitate.
-     * @private
+     * @public
+     * @override
      */
     removeAllParticles: function() {
       if ( this.particles.length > 0 ) {

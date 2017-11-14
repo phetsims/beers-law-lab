@@ -1,7 +1,7 @@
 // Copyright 2015-2017, University of Colorado Boulder
 
 /**
- * Base type for a collection of particles.
+ * Abstract base type for a collection of particles.
  *
  * @author Chris Malley
  */
@@ -32,6 +32,15 @@ define( function( require ) {
      */
     addParticle: function( particle ) {
       this.particles.push( particle );
+    },
+
+    /**
+     * Removes all particles.
+     * @public
+     * @abstract
+     */
+    removeAllParticles: function() {
+       throw new Error( 'must be implemented by subtype' );
     },
 
     /**
