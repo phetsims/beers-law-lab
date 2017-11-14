@@ -27,6 +27,10 @@ define( function( require ) {
   phetioInherit( TObject, 'TParticles', TParticles, {}, {
     documentation: 'The particles that are shaken from the shaker.',
 
+    /**
+     * @param {Particles} particles
+     * @public - called by subclasses
+     */
     clearChildInstances: function( particles ) {
       particles.removeAllParticles();
 
@@ -38,6 +42,7 @@ define( function( require ) {
      * Create a dynamic particle as specified by the phetioID and state.
      * @param {Particles} particles
      * @param {Particle} particle
+     * @public - called by subclasses
      */
     addParticle: function( particles, particle ) {
       particles.addParticle( particle );
