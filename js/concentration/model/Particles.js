@@ -26,6 +26,15 @@ define( function( require ) {
   return inherit( Object, Particles, {
 
     /**
+     * Adds a particle.
+     * @param {SoluteParticle} particle
+     * @public called by TParticles and subclasses
+     */
+    addParticle: function( particle ) {
+      this.particles.push( particle );
+    },
+
+    /**
      * Registers a listener that will be called when the collection of particles has changed in some way
      * (eg, number of particles, particles move, ...)
      * @param {function} listener

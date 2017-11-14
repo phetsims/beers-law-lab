@@ -95,7 +95,7 @@ define( function( require ) {
     addParticles: function( numberToAdd ) {
       assert && assert( numberToAdd > 0, 'invalid numberToAdd: ' + numberToAdd );
       for ( var i = 0; i < numberToAdd; i++ ) {
-        this.particles.push( new PrecipitateParticle(
+        this.addParticle( new PrecipitateParticle(
           this.solution.soluteProperty.get(),
           this.getRandomOffset(),
           getRandomOrientation(),

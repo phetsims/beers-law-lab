@@ -14,6 +14,7 @@ define( function( require ) {
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
   var TShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/TShakerParticle' );
+  var TParticles = require( 'BEERS_LAW_LAB/concentration/model/TParticles' );
 
   /**
    *
@@ -23,14 +24,14 @@ define( function( require ) {
    */
   function TShakerParticles( instance, phetioID ) {
     assert && assertInstanceOf( instance, phet.beersLawLab.ShakerParticles );
-    TObject.call( this, instance, phetioID );
+    TParticles.call( this, instance, phetioID );
   }
 
   phetioInherit( TObject, 'TShakerParticles', TShakerParticles, {}, {
-    documentation: 'The particles that are shaken from the shaker.',
+    documentation: 'Base type for a group of particles.',
 
     clearChildInstances: function( instance ) {
-      instance.removeAllParticles();
+      TParticles.clearChildInstances( instance );
     },
 
     /**
@@ -41,13 +42,9 @@ define( function( require ) {
      * @returns {ChargedParticle}
      */
     addChildInstance: function( instance, tandem, stateObject ) {
-
       var value = TShakerParticle.fromStateObject( stateObject );
-
       assert && assert( value.acceleration instanceof phet.dot.Vector2, 'acceleration should be a Vector2' );
-
-      // solute, location, orientation, initialVelocity, acceleration, tandem
-      instance.addParticle( new phet.beersLawLab.ShakerParticle(
+      TParticles.addParticle( instance, new phet.beersLawLab.ShakerParticle(
         value.solute,
         value.location,
         value.orientation,
@@ -55,9 +52,6 @@ define( function( require ) {
         value.acceleration,
         tandem
       ) );
-
-      // ShakerParticles.step is not called in playback mode, so this needs to be called explicitly to update the view.
-      instance.fireChanged();
     }
   } );
 
