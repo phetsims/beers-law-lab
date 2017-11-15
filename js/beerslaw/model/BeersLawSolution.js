@@ -60,7 +60,8 @@ define( function( require ) {
                              colorRange, tandem, options ) {
 
     options = _.extend( {
-      saturatedColor: colorRange.max // {Color} color to use when the solution is saturated
+      saturatedColor: colorRange.max, // {Color} color to use when the solution is saturated
+      phetioType: TBeersLawSolution
     }, options );
 
     var self = this;
@@ -92,7 +93,7 @@ define( function( require ) {
       } );
 
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
-    tandem.addInstance( this, TBeersLawSolution, options );
+    tandem.addInstance( this, options );
     this.tandemName = tandem.tail;
   }
 

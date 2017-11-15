@@ -36,7 +36,7 @@ define( function( require ) {
       dispensingProperty: dropper.dispensingProperty,
       enabledProperty: dropper.enabledProperty,
       emptyProperty: dropper.emptyProperty,
-      tandem: tandem.createSupertypeTandem() // supertype handles tandem registration for the momentary button
+      tandem: tandem
     } );
 
     // label background, so the label shows up on various fluid colors
@@ -97,11 +97,6 @@ define( function( require ) {
       modelViewTransform: modelViewTransform
     } );
     this.addInputListener( movableDragHandler );
-
-    // tandem support
-    this.mutate( {
-      tandem: tandem
-    } );
   }
 
   beersLawLab.register( 'BLLDropperNode', BLLDropperNode );

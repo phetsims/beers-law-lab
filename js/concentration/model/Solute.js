@@ -46,7 +46,8 @@ define( function( require ) {
     options = _.extend( {
       particleColor: colorScheme.maxColor,
       particleSize: 5,
-      particlesPerMole: 200
+      particlesPerMole: 200,
+      phetioType: TSolute
     }, options );
 
     // @public (read-only), (read-write, phet-io)
@@ -68,7 +69,7 @@ define( function( require ) {
 
     // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
 
-    tandem.addInstance( this, TSolute, options );
+    tandem.addInstance( this, options );
     this.tandemName = tandem.tail;
   }
 

@@ -18,6 +18,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
+  var TProperty = require( 'AXON/TProperty' );
 
   // phet-io modules
   var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
@@ -37,7 +38,7 @@ define( function( require ) {
     this.valueProperty = new Property( null, {
       tandem: tandem.createTandem( 'valueProperty' ),
       units: 'moles/liter',
-      phetioValueType: TNumber
+      phetioType: TProperty( TNumber )
     } );
 
     // @public (read-only)

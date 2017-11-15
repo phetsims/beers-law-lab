@@ -15,6 +15,8 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
+  var TDerivedProperty = require( 'AXON/TDerivedProperty' );
+  var TProperty = require( 'AXON/TProperty' );
 
   // phet-io modules
   var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
@@ -42,7 +44,7 @@ define( function( require ) {
     // @public for switching between absorbance (A) and percent transmittance (%T)
     this.modeProperty = new Property( ATDetector.Mode.TRANSMITTANCE, {
       tandem: tandem.createTandem( 'modeProperty' ),
-      phetioValueType: TString
+      phetioType: TProperty( TString )
     } );
 
     // @public value is either absorbance (A) or percent transmittance (%T) depending on mode
@@ -69,7 +71,7 @@ define( function( require ) {
         return value;
       }, {
         tandem: tandem.createTandem( 'valueProperty' ),
-        phetioValueType: TNumber
+        phetioType: TDerivedProperty( TNumber )
       } );
   }
 

@@ -25,6 +25,7 @@ define( function( require ) {
   var Util = require( 'DOT/Util' );
   var VBox = require( 'SCENERY/nodes/VBox' );
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
+  var TProperty = require( 'AXON/TProperty' );
 
   // strings
   var pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
@@ -48,7 +49,7 @@ define( function( require ) {
     // @private is the wavelength variable or fixed?
     this.variableWavelengthProperty = new Property( false, {
       tandem: tandem.createTandem( 'variableWavelengthProperty' ),
-      phetioValueType: TBoolean
+      phetioType: TProperty( TBoolean )
     } );
 
     var xMargin = 7;

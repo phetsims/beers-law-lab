@@ -13,6 +13,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var NumberProperty = require( 'AXON/NumberProperty' );
   var Property = require( 'AXON/Property' );
+  var TProperty = require( 'AXON/TProperty' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
@@ -36,7 +37,7 @@ define( function( require ) {
     } ); // L/sec
     this.enabledProperty = new Property( true, {
       tandem: tandem.createTandem( 'enabledProperty' ),
-      phetioValueType: TBoolean
+      phetioType: TProperty( TBoolean )
     } );
 
     // disable when the volume gets to zero

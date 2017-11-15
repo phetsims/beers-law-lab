@@ -31,9 +31,7 @@ define( function( require ) {
       font: new PhetFont( 22 ),
       textFill: 'black',
       xMargin: 10,
-
-      // Pass the supertypeTandem to the parent, then mutate ours to addInstance at the end of the constructor
-      tandem: tandem.createSupertypeTandem()
+      tandem: tandem
     }, options );
 
     var self = this;
@@ -48,11 +46,6 @@ define( function( require ) {
     // change the text fill to indicate whether the button is enabled
     solution.soluteAmountProperty.link( function( soluteAmount ) {
       self.enabled = ( soluteAmount > 0 );
-    } );
-
-    // tandem support
-    this.mutate( {
-      tandem: tandem
     } );
   }
 

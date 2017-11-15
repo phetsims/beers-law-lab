@@ -21,6 +21,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
   var RangeWithValue = require( 'DOT/RangeWithValue' );
   var Ruler = require( 'BEERS_LAW_LAB/beerslaw/model/Ruler' );
+  var TProperty = require( 'AXON/TProperty' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules
@@ -50,7 +51,7 @@ define( function( require ) {
     // @public
     this.solutionProperty = new Property( this.solutions[ 0 ], {
       tandem: tandem.createTandem( 'solutionProperty' ),
-      phetioValueType: TBeersLawSolution
+      phetioType: TProperty( TBeersLawSolution )
     } );
 
     // @public NOTE: All locations are relative to the location of the cuvette.

@@ -54,7 +54,7 @@ define( function( require ) {
     this.emptyProperty.link( observer );
     this.visibleProperty.link( observer );
 
-    tandem.addInstance( this, TShaker );
+    tandem.addInstance( this, { phetioType: TShaker } );
   }
 
   beersLawLab.register( 'Shaker', Shaker );
