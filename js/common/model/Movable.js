@@ -14,7 +14,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Property = require( 'AXON/Property' );
   var PropertyIO = require( 'AXON/PropertyIO' );
-  var TVector2 = require( 'DOT/TVector2' );
+  var Vector2IO = require( 'DOT/Vector2IO' );
 
   /**
    * @param {Vector2} location
@@ -25,7 +25,7 @@ define( function( require ) {
   function Movable( location, dragBounds, tandem ) {
     this.locationProperty = new Property( location, {
       tandem: tandem.createTandem( 'locationProperty' ),
-      phetioType: PropertyIO( TVector2 )
+      phetioType: PropertyIO( Vector2IO )
     } ); // @public
     this.dragBounds = dragBounds; // @public (read-only)
   }

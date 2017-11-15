@@ -14,7 +14,7 @@ define( function( require ) {
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var NumberIO = require( 'ifphetio!PHET_IO/types/NumberIO' );
   var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
-  var TVector2 = require( 'DOT/TVector2' );
+  var Vector2IO = require( 'DOT/Vector2IO' );
 
   /**
    * @param {SoluteParticle} soluteParticle
@@ -30,14 +30,14 @@ define( function( require ) {
 
     fromStateObject: function( stateObject ) {
       return {
-        location: TVector2.fromStateObject( stateObject.location ),
+        location: Vector2IO.fromStateObject( stateObject.location ),
         orientation: NumberIO.fromStateObject( stateObject.orientation )
       };
     },
 
     toStateObject: function( value ) {
       return {
-        location: TVector2.toStateObject( value.locationProperty.get() ),
+        location: Vector2IO.toStateObject( value.locationProperty.get() ),
         orientation: NumberIO.toStateObject( value.orientation )
       };
     },

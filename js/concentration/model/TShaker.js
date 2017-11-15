@@ -13,7 +13,7 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
-  var TVector2 = require( 'DOT/TVector2' );
+  var Vector2IO = require( 'DOT/Vector2IO' );
   var VoidIO = require( 'ifphetio!PHET_IO/types/VoidIO' );
 
   /**
@@ -32,7 +32,7 @@ define( function( require ) {
       returnType: VoidIO,
       parameterTypes: [ ObjectIO ],
       implementation: function( value ) {
-        this.instance.previousLocation.set( TVector2.fromStateObject( value ) );
+        this.instance.previousLocation.set( Vector2IO.fromStateObject( value ) );
       },
       documentation: 'Load the values recorded in getState'
     }
@@ -40,11 +40,11 @@ define( function( require ) {
     documentation: 'The Shaker that releases solute',
 
     toStateObject: function( instance ) {
-      return { location: TVector2.toStateObject( instance.previousLocation ) };
+      return { location: Vector2IO.toStateObject( instance.previousLocation ) };
     },
 
     fromStateObject: function( stateObject ) {
-      return { location: TVector2.fromStateObject( stateObject.location ) };
+      return { location: Vector2IO.fromStateObject( stateObject.location ) };
     },
 
     setValue: function( instance, valueFromStateObject ) {

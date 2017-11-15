@@ -14,7 +14,7 @@ define( function( require ) {
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var TSolute = require( 'BEERS_LAW_LAB/concentration/model/TSolute' );
   var TSoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/TSoluteParticle' );
-  var TVector2 = require( 'DOT/TVector2' );
+  var Vector2IO = require( 'DOT/Vector2IO' );
 
   /**
    * @param {ShakerParticle} shakerParticle
@@ -33,8 +33,8 @@ define( function( require ) {
       var soluteParticle = TSoluteParticle.fromStateObject( stateObject );
       return _.extend( soluteParticle, {
         solute: TSolute.fromStateObject( stateObject.solute ),
-        velocity: TVector2.fromStateObject( stateObject.velocity ),
-        acceleration: TVector2.fromStateObject( stateObject.acceleration )
+        velocity: Vector2IO.fromStateObject( stateObject.velocity ),
+        acceleration: Vector2IO.fromStateObject( stateObject.acceleration )
       } );
     },
 
@@ -42,8 +42,8 @@ define( function( require ) {
       var soluteParticle = TSoluteParticle.toStateObject( shakerParticle );
       return _.extend( soluteParticle, {
         solute: TSolute.toStateObject( shakerParticle.solute ),
-        velocity: TVector2.toStateObject( shakerParticle.velocity ),
-        acceleration: TVector2.toStateObject( shakerParticle.acceleration )
+        velocity: Vector2IO.toStateObject( shakerParticle.velocity ),
+        acceleration: Vector2IO.toStateObject( shakerParticle.acceleration )
       } );
     }
   } );
