@@ -13,9 +13,9 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
-  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
   var TSolute = require( 'BEERS_LAW_LAB/concentration/model/TSolute' );
-  var TVoid = require( 'ifphetio!PHET_IO/types/TVoid' );
+  var VoidIO = require( 'ifphetio!PHET_IO/types/VoidIO' );
 
   /**
    * 
@@ -25,16 +25,16 @@ define( function( require ) {
    */
   function TConcentrationModel( instance, phetioID ) {
     assert && assertInstanceOf( instance, phet.beersLawLab.ConcentrationModel );
-    TObject.call( this, instance, phetioID );
+    ObjectIO.call( this, instance, phetioID );
   }
 
-  phetioInherit( TObject, 'TConcentrationModel', TConcentrationModel, {
+  phetioInherit( ObjectIO, 'TConcentrationModel', TConcentrationModel, {
 
     // For instance:
     // http://localhost/concentration/concentration_en.html?ea&brand=phet-io&phetioStandalone&phetioLog=lines
     setSolutes: {
       parameterTypes: [ ArrayIO( TSolute ) ],
-      returnType: TVoid,
+      returnType: VoidIO,
       implementation: function( solutes ) {
         this.instance.setSolutes( solutes );
       },

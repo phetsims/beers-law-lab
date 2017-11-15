@@ -12,9 +12,9 @@ define( function( require ) {
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
   var TVector2 = require( 'DOT/TVector2' );
-  var TVoid = require( 'ifphetio!PHET_IO/types/TVoid' );
+  var VoidIO = require( 'ifphetio!PHET_IO/types/VoidIO' );
 
   /**
    *
@@ -24,13 +24,13 @@ define( function( require ) {
    */
   function TShaker( instance, phetioID ) {
     assert && assertInstanceOf( instance, phet.beersLawLab.Shaker );
-    TObject.call( this, instance, phetioID );
+    ObjectIO.call( this, instance, phetioID );
   }
 
-  phetioInherit( TObject, 'TShaker', TShaker, {
+  phetioInherit( ObjectIO, 'TShaker', TShaker, {
     setValue: {
-      returnType: TVoid,
-      parameterTypes: [ TObject ],
+      returnType: VoidIO,
+      parameterTypes: [ ObjectIO ],
       implementation: function( value ) {
         this.instance.previousLocation.set( TVector2.fromStateObject( value ) );
       },

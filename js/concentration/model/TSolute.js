@@ -13,9 +13,9 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var phetio = require( 'ifphetio!PHET_IO/phetio' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
-  var TString = require( 'ifphetio!PHET_IO/types/TString' );
-  var TVoid = require( 'ifphetio!PHET_IO/types/TVoid' );
+  var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
+  var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
+  var VoidIO = require( 'ifphetio!PHET_IO/types/VoidIO' );
 
   /**
    *
@@ -25,14 +25,14 @@ define( function( require ) {
    */
   function TSolute( instance, phetioID ) {
     assert && assertInstanceOf( instance, phet.beersLawLab.Solute );
-    TObject.call( this, instance, phetioID );
+    ObjectIO.call( this, instance, phetioID );
   }
 
-  phetioInherit( TObject, 'TSolute', TSolute, {
+  phetioInherit( ObjectIO, 'TSolute', TSolute, {
 
     setName: {
-      returnType: TVoid,
-      parameterTypes: [ TString ],
+      returnType: VoidIO,
+      parameterTypes: [ StringIO ],
       implementation: function( text ) {
         this.instance.name = text;
       },
@@ -40,8 +40,8 @@ define( function( require ) {
     },
 
     setFormula: {
-      returnType: TVoid,
-      parameterTypes: [ TString ],
+      returnType: VoidIO,
+      parameterTypes: [ StringIO ],
       implementation: function( text ) {
         this.instance.formula = text;
       },

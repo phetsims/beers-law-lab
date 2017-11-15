@@ -31,7 +31,7 @@ define( function( require ) {
   // phet-io modules
   var TConcentrationModel = require( 'BEERS_LAW_LAB/concentration/model/TConcentrationModel' );
   var TSolute = require( 'BEERS_LAW_LAB/concentration/model/TSolute' );
-  var TString = require( 'ifphetio!PHET_IO/types/TString' );
+  var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
 
   // constants
   var SOLUTION_VOLUME_RANGE = BLLConstants.SOLUTION_VOLUME_RANGE; // L
@@ -69,7 +69,7 @@ define( function( require ) {
     } );
     this.soluteFormProperty = new Property( 'solid', {
       tandem: tandem.createTandem( 'soluteFormProperty' ),
-      phetioType: PropertyIO( TString )
+      phetioType: PropertyIO( StringIO )
     } ); // 'solid' or 'solution'
 
     // @public

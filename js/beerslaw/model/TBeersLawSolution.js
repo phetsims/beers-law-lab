@@ -13,7 +13,7 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var phetio = require( 'ifphetio!PHET_IO/phetio' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
 
 
   /**
@@ -24,10 +24,10 @@ define( function( require ) {
    */
   function TBeersLawSolution( instance, phetioID ) {
     assert && assertInstanceOf( instance, phet.beersLawLab.BeersLawSolution );
-    TObject.call( this, instance, phetioID );
+    ObjectIO.call( this, instance, phetioID );
   }
 
-  phetioInherit( TObject, 'TBeersLawSolution', TBeersLawSolution, {}, {
+  phetioInherit( ObjectIO, 'TBeersLawSolution', TBeersLawSolution, {}, {
     documentation: 'The solution for the sim',
 
     // Because the simulation has a Property that contains BeersLawSolution, the Property relies on these methods for saving and loading the values.

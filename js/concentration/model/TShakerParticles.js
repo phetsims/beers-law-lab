@@ -12,7 +12,7 @@ define( function( require ) {
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
   var TShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/TShakerParticle' );
 
   /**
@@ -23,10 +23,10 @@ define( function( require ) {
    */
   function TShakerParticles( shakerParticles, phetioID ) {
     assert && assertInstanceOf( shakerParticles, phet.beersLawLab.ShakerParticles );
-    TObject.call( this, shakerParticles, phetioID );
+    ObjectIO.call( this, shakerParticles, phetioID );
   }
 
-  phetioInherit( TObject, 'TShakerParticles', TShakerParticles, {}, {
+  phetioInherit( ObjectIO, 'TShakerParticles', TShakerParticles, {}, {
 
     documentation: 'Base type for a group of particles.',
 

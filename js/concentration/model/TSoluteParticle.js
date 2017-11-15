@@ -13,7 +13,7 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var NumberIO = require( 'ifphetio!PHET_IO/types/NumberIO' );
-  var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
+  var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
   var TVector2 = require( 'DOT/TVector2' );
 
   /**
@@ -23,10 +23,10 @@ define( function( require ) {
    */
   function TSoluteParticle( soluteParticle, phetioID ) {
     assert && assertInstanceOf( soluteParticle, phet.beersLawLab.SoluteParticle );
-    TObject.call( this, soluteParticle, phetioID );
+    ObjectIO.call( this, soluteParticle, phetioID );
   }
 
-  phetioInherit( TObject, 'TSoluteParticle', TSoluteParticle, {}, {
+  phetioInherit( ObjectIO, 'TSoluteParticle', TSoluteParticle, {}, {
 
     fromStateObject: function( stateObject ) {
       return {

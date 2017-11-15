@@ -20,7 +20,7 @@ define( function( require ) {
 
   // phet-io modules
   var NumberIO = require( 'ifphetio!PHET_IO/types/NumberIO' );
-  var TString = require( 'ifphetio!PHET_IO/types/TString' );
+  var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
 
   /**
    * @param {Vector2} bodyLocation
@@ -44,7 +44,7 @@ define( function( require ) {
     // @public for switching between absorbance (A) and percent transmittance (%T)
     this.modeProperty = new Property( ATDetector.Mode.TRANSMITTANCE, {
       tandem: tandem.createTandem( 'modeProperty' ),
-      phetioType: PropertyIO( TString )
+      phetioType: PropertyIO( StringIO )
     } );
 
     // @public value is either absorbance (A) or percent transmittance (%T) depending on mode
