@@ -25,7 +25,7 @@ define( function( require ) {
   var Shaker = require( 'BEERS_LAW_LAB/concentration/model/Shaker' );
   var ShakerParticles = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticles' );
   var Solute = require( 'BEERS_LAW_LAB/concentration/model/Solute' );
-  var TProperty = require( 'AXON/TProperty' );
+  var PropertyIO = require( 'AXON/PropertyIO' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules
@@ -65,11 +65,11 @@ define( function( require ) {
     // @public
     this.soluteProperty = new Property( this.solutes[ 0 ], {
       tandem: tandem.createTandem( 'soluteProperty' ),
-      phetioType: TProperty( TSolute )
+      phetioType: PropertyIO( TSolute )
     } );
     this.soluteFormProperty = new Property( 'solid', {
       tandem: tandem.createTandem( 'soluteFormProperty' ),
-      phetioType: TProperty( TString )
+      phetioType: PropertyIO( TString )
     } ); // 'solid' or 'solution'
 
     // @public

@@ -14,7 +14,7 @@ define( function( require ) {
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var NumberProperty = require( 'AXON/NumberProperty' );
   var Property = require( 'AXON/Property' );
-  var TProperty = require( 'AXON/TProperty' );
+  var PropertyIO = require( 'AXON/PropertyIO' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
@@ -38,12 +38,12 @@ define( function( require ) {
     this.visibleProperty = new Property( visible );
     this.dispensingProperty = new Property( false, {
       tandem: tandem.createTandem( 'dispensingProperty' ),
-      phetioType: TProperty( TBoolean )
+      phetioType: PropertyIO( TBoolean )
     } ); // true if the dropper is dispensing solution
     this.enabledProperty = new Property( true );
     this.emptyProperty = new Property( false, {
       tandem: tandem.createTandem( 'emptyProperty' ),
-      phetioType: TProperty( TBoolean )
+      phetioType: PropertyIO( TBoolean )
     } );
     this.flowRateProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'flowRateProperty' ),
