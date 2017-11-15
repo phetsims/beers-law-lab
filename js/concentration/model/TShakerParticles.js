@@ -14,37 +14,42 @@ define( function( require ) {
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
   var TShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/TShakerParticle' );
-  var TParticles = require( 'BEERS_LAW_LAB/concentration/model/TParticles' );
 
   /**
    *
-   * @param instance
+   * @param {ShakerParticles} shakerParticles
    * @param phetioID
    * @constructor
    */
-  function TShakerParticles( instance, phetioID ) {
-    assert && assertInstanceOf( instance, phet.beersLawLab.ShakerParticles );
-    TParticles.call( this, instance, phetioID );
+  function TShakerParticles( shakerParticles, phetioID ) {
+    assert && assertInstanceOf( shakerParticles, phet.beersLawLab.ShakerParticles );
+    TObject.call( this, shakerParticles, phetioID );
   }
 
   phetioInherit( TObject, 'TShakerParticles', TShakerParticles, {}, {
+
     documentation: 'Base type for a group of particles.',
 
-    clearChildInstances: function( instance ) {
-      TParticles.clearChildInstances( instance );
+    clearChildInstances: function( shakerParticles ) {
+      shakerParticles.removeAllParticles();
+
+      // Particles.step is not called in playback mode, so this needs to be called explicitly to update the view.
+      shakerParticles.fireChanged();
     },
 
     /**
      * Create a dynamic particle as specified by the phetioID and state.
-     * @param {Object} instance
+     * @param {ShakerParticles} shakerParticles
      * @param {Tandem} tandem
      * @param {Object} stateObject
      * @returns {ChargedParticle}
      */
-    addChildInstance: function( instance, tandem, stateObject ) {
+    addChildInstance: function( shakerParticles, tandem, stateObject ) {
+
       var value = TShakerParticle.fromStateObject( stateObject );
       assert && assert( value.acceleration instanceof phet.dot.Vector2, 'acceleration should be a Vector2' );
-      TParticles.addParticle( instance, new phet.beersLawLab.ShakerParticle(
+
+      shakerParticles.addParticle( new phet.beersLawLab.ShakerParticle(
         value.solute,
         value.location,
         value.orientation,
@@ -52,6 +57,9 @@ define( function( require ) {
         value.acceleration,
         tandem
       ) );
+
+      // Particles.step is not called in playback mode, so this needs to be called explicitly to update the view.
+      shakerParticles.fireChanged();
     }
   } );
 

@@ -16,9 +16,6 @@ define( function( require ) {
   var PrecipitateParticle = require( 'BEERS_LAW_LAB/concentration/model/PrecipitateParticle' );
   var Vector2 = require( 'DOT/Vector2' );
 
-  // phet-io modules
-  var TPrecipitate = require( 'BEERS_LAW_LAB/concentration/model/TPrecipitate' );
-
   /**
    * @param {ConcentrationSolution} solution
    * @param {Beaker} beaker
@@ -49,8 +46,9 @@ define( function( require ) {
       self.updateParticles();
     } );
 
-    // Persists for the life of the sim, no need to be disposed
-    tandem.addInstance( this, { phetioType: TPrecipitate } );
+    // We're not calling tandem.addInstance for Precipitate because it doesn't add any new attributes or methods.
+    // And individual particles are derived from the model, so restoring individual particles (as part of saved
+    // state) is problematic.  See https://github.com/phetsims/beers-law-lab/issues/213
   }
 
   beersLawLab.register( 'Precipitate', Precipitate );

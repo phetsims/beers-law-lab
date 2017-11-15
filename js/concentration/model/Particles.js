@@ -28,19 +28,10 @@ define( function( require ) {
     /**
      * Adds a particle.
      * @param {SoluteParticle} particle
-     * @public called by TParticles and subclasses
+     * @protected
      */
     addParticle: function( particle ) {
       this.particles.push( particle );
-    },
-
-    /**
-     * Removes all particles.
-     * @public
-     * @abstract
-     */
-    removeAllParticles: function() {
-       throw new Error( 'must be implemented by subtype' );
     },
 
     /**

@@ -147,7 +147,6 @@ define( function( require ) {
 
     /**
      * @public
-     * @override
      */
     removeAllParticles: function() {
       var particles = this.particles.slice( 0 );
