@@ -21,7 +21,7 @@ define( function( require ) {
   var PropertyIO = require( 'AXON/PropertyIO' );
 
   // phet-io modules
-  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+  var NumberIO = require( 'ifphetio!PHET_IO/types/NumberIO' );
 
   /**
    * @param {Vector2} bodyLocation
@@ -38,7 +38,7 @@ define( function( require ) {
     this.valueProperty = new Property( null, {
       tandem: tandem.createTandem( 'valueProperty' ),
       units: 'moles/liter',
-      phetioType: PropertyIO( TNumber )
+      phetioType: PropertyIO( NumberIO )
     } );
 
     // @public (read-only)

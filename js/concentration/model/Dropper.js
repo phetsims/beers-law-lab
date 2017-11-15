@@ -17,7 +17,7 @@ define( function( require ) {
   var PropertyIO = require( 'AXON/PropertyIO' );
 
   // phet-io modules
-  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+  var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
 
   /**
    * @param {Vector2} location
@@ -38,12 +38,12 @@ define( function( require ) {
     this.visibleProperty = new Property( visible );
     this.dispensingProperty = new Property( false, {
       tandem: tandem.createTandem( 'dispensingProperty' ),
-      phetioType: PropertyIO( TBoolean )
+      phetioType: PropertyIO( BooleanIO )
     } ); // true if the dropper is dispensing solution
     this.enabledProperty = new Property( true );
     this.emptyProperty = new Property( false, {
       tandem: tandem.createTandem( 'emptyProperty' ),
-      phetioType: PropertyIO( TBoolean )
+      phetioType: PropertyIO( BooleanIO )
     } );
     this.flowRateProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'flowRateProperty' ),

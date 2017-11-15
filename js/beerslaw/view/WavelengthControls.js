@@ -36,7 +36,7 @@ define( function( require ) {
   var wavelengthString = require( 'string!BEERS_LAW_LAB/wavelength' );
 
   // phet-io modules
-  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+  var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
 
   /**
    * @param {Property.<BeersLawSolution>} solutionProperty
@@ -49,7 +49,7 @@ define( function( require ) {
     // @private is the wavelength variable or fixed?
     this.variableWavelengthProperty = new Property( false, {
       tandem: tandem.createTandem( 'variableWavelengthProperty' ),
-      phetioType: PropertyIO( TBoolean )
+      phetioType: PropertyIO( BooleanIO )
     } );
 
     var xMargin = 7;

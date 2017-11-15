@@ -12,7 +12,7 @@ define( function( require ) {
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+  var NumberIO = require( 'ifphetio!PHET_IO/types/NumberIO' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
   var TVector2 = require( 'DOT/TVector2' );
 
@@ -31,14 +31,14 @@ define( function( require ) {
     fromStateObject: function( stateObject ) {
       return {
         location: TVector2.fromStateObject( stateObject.location ),
-        orientation: TNumber.fromStateObject( stateObject.orientation )
+        orientation: NumberIO.fromStateObject( stateObject.orientation )
       };
     },
 
     toStateObject: function( value ) {
       return {
         location: TVector2.toStateObject( value.locationProperty.get() ),
-        orientation: TNumber.toStateObject( value.orientation )
+        orientation: NumberIO.toStateObject( value.orientation )
       };
     },
     documentation: 'A particle that shows at the bottom of a saturated solution.'

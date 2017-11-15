@@ -19,7 +19,7 @@ define( function( require ) {
   var PropertyIO = require( 'AXON/PropertyIO' );
 
   // phet-io modules
-  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+  var NumberIO = require( 'ifphetio!PHET_IO/types/NumberIO' );
   var TString = require( 'ifphetio!PHET_IO/types/TString' );
 
   /**
@@ -71,7 +71,7 @@ define( function( require ) {
         return value;
       }, {
         tandem: tandem.createTandem( 'valueProperty' ),
-        phetioType: DerivedPropertyIO( TNumber )
+        phetioType: DerivedPropertyIO( NumberIO )
       } );
   }
 

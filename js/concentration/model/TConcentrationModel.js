@@ -12,7 +12,7 @@ define( function( require ) {
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var TArray = require( 'ifphetio!PHET_IO/types/TArray' );
+  var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
   var TObject = require( 'ifphetio!PHET_IO/types/TObject' );
   var TSolute = require( 'BEERS_LAW_LAB/concentration/model/TSolute' );
   var TVoid = require( 'ifphetio!PHET_IO/types/TVoid' );
@@ -33,7 +33,7 @@ define( function( require ) {
     // For instance:
     // http://localhost/concentration/concentration_en.html?ea&brand=phet-io&phetioStandalone&phetioLog=lines
     setSolutes: {
-      parameterTypes: [ TArray( TSolute ) ],
+      parameterTypes: [ ArrayIO( TSolute ) ],
       returnType: TVoid,
       implementation: function( solutes ) {
         this.instance.setSolutes( solutes );

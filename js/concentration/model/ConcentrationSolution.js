@@ -21,8 +21,8 @@ define( function( require ) {
   var DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
 
   // phet-io modules
-  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
-  var TNumber = require( 'ifphetio!PHET_IO/types/TNumber' );
+  var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
+  var NumberIO = require( 'ifphetio!PHET_IO/types/NumberIO' );
 
   /**
    * @param {Property.<Solute>} soluteProperty
@@ -65,7 +65,7 @@ define( function( require ) {
       }, {
         tandem: tandem.createTandem( 'precipitateAmountProperty' ),
         units: 'moles',
-        phetioType: DerivedPropertyIO( TNumber )
+        phetioType: DerivedPropertyIO( NumberIO )
       }
     );
 
@@ -77,7 +77,7 @@ define( function( require ) {
       }, {
         tandem: tandem.createTandem( 'concentrationProperty' ),
         units: 'moles/liter',
-        phetioType: DerivedPropertyIO( TNumber )
+        phetioType: DerivedPropertyIO( NumberIO )
       }
     );
 
@@ -88,7 +88,7 @@ define( function( require ) {
         return ( volume > 0 ) && ( soluteAmount / volume ) > solute.getSaturatedConcentration();
       }, {
         tandem: tandem.createTandem( 'saturatedProperty' ),
-        phetioType: DerivedPropertyIO( TBoolean )
+        phetioType: DerivedPropertyIO( BooleanIO )
       }
     );
 
@@ -102,7 +102,7 @@ define( function( require ) {
       }, {
         tandem: tandem.createTandem( 'soluteGramsProperty' ),
         units: 'grams',
-        phetioType: DerivedPropertyIO( TNumber )
+        phetioType: DerivedPropertyIO( NumberIO )
       }
     );
 
@@ -120,7 +120,7 @@ define( function( require ) {
         return percentConcentration;
       }, {
         tandem: tandem.createTandem( 'percentConcentrationProperty' ),
-        phetioType: DerivedPropertyIO( TNumber ),
+        phetioType: DerivedPropertyIO( NumberIO ),
         units: 'percent'
       }
     );

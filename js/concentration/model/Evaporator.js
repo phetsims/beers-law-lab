@@ -16,7 +16,7 @@ define( function( require ) {
   var PropertyIO = require( 'AXON/PropertyIO' );
 
   // phet-io modules
-  var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
+  var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
 
   /**
    * @param {number} maxEvaporationRate L/sec
@@ -37,7 +37,7 @@ define( function( require ) {
     } ); // L/sec
     this.enabledProperty = new Property( true, {
       tandem: tandem.createTandem( 'enabledProperty' ),
-      phetioType: PropertyIO( TBoolean )
+      phetioType: PropertyIO( BooleanIO )
     } );
 
     // disable when the volume gets to zero
