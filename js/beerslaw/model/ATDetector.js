@@ -15,7 +15,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
-  var TDerivedProperty = require( 'AXON/TDerivedProperty' );
+  var DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   var PropertyIO = require( 'AXON/PropertyIO' );
 
   // phet-io modules
@@ -71,7 +71,7 @@ define( function( require ) {
         return value;
       }, {
         tandem: tandem.createTandem( 'valueProperty' ),
-        phetioType: TDerivedProperty( TNumber )
+        phetioType: DerivedPropertyIO( TNumber )
       } );
   }
 

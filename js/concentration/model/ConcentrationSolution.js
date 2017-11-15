@@ -18,7 +18,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var NumberProperty = require( 'AXON/NumberProperty' );
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
-  var TDerivedProperty = require( 'AXON/TDerivedProperty' );
+  var DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
 
   // phet-io modules
   var TBoolean = require( 'ifphetio!PHET_IO/types/TBoolean' );
@@ -65,7 +65,7 @@ define( function( require ) {
       }, {
         tandem: tandem.createTandem( 'precipitateAmountProperty' ),
         units: 'moles',
-        phetioType: TDerivedProperty( TNumber )
+        phetioType: DerivedPropertyIO( TNumber )
       }
     );
 
@@ -77,7 +77,7 @@ define( function( require ) {
       }, {
         tandem: tandem.createTandem( 'concentrationProperty' ),
         units: 'moles/liter',
-        phetioType: TDerivedProperty( TNumber )
+        phetioType: DerivedPropertyIO( TNumber )
       }
     );
 
@@ -88,7 +88,7 @@ define( function( require ) {
         return ( volume > 0 ) && ( soluteAmount / volume ) > solute.getSaturatedConcentration();
       }, {
         tandem: tandem.createTandem( 'saturatedProperty' ),
-        phetioType: TDerivedProperty( TBoolean )
+        phetioType: DerivedPropertyIO( TBoolean )
       }
     );
 
@@ -102,7 +102,7 @@ define( function( require ) {
       }, {
         tandem: tandem.createTandem( 'soluteGramsProperty' ),
         units: 'grams',
-        phetioType: TDerivedProperty( TNumber )
+        phetioType: DerivedPropertyIO( TNumber )
       }
     );
 
@@ -120,7 +120,7 @@ define( function( require ) {
         return percentConcentration;
       }, {
         tandem: tandem.createTandem( 'percentConcentrationProperty' ),
-        phetioType: TDerivedProperty( TNumber ),
+        phetioType: DerivedPropertyIO( TNumber ),
         units: 'percent'
       }
     );
