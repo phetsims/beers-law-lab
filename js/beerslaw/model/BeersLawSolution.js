@@ -31,7 +31,7 @@ define( function( require ) {
   var Util = require( 'DOT/Util' );
 
   // phet-io modules
-  var TBeersLawSolution = require( 'BEERS_LAW_LAB/beerslaw/model/TBeersLawSolution' );
+  var BeersLawSolutionIO = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolutionIO' );
 
   // strings
   var cobaltChlorideString = require( 'string!BEERS_LAW_LAB/cobaltChloride' );
@@ -61,7 +61,7 @@ define( function( require ) {
 
     options = _.extend( {
       saturatedColor: colorRange.max, // {Color} color to use when the solution is saturated
-      phetioType: TBeersLawSolution
+      phetioType: BeersLawSolutionIO
     }, options );
 
     var self = this;
