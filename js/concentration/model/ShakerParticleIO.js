@@ -12,8 +12,8 @@ define( function( require ) {
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var TSolute = require( 'BEERS_LAW_LAB/concentration/model/TSolute' );
-  var TSoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/TSoluteParticle' );
+  var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
+  var SoluteParticleIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticleIO' );
   var Vector2IO = require( 'DOT/Vector2IO' );
 
   /**
@@ -21,35 +21,35 @@ define( function( require ) {
    * @param {string} phetioID
    * @constructor
    */
-  function TShakerParticle( shakerParticle, phetioID ) {
+  function ShakerParticleIO( shakerParticle, phetioID ) {
     assert && assertInstanceOf( shakerParticle, phet.beersLawLab.ShakerParticle );
-    TSoluteParticle.call( this, shakerParticle, phetioID );
+    SoluteParticleIO.call( this, shakerParticle, phetioID );
   }
 
-  phetioInherit( TSoluteParticle, 'TShakerParticle', TShakerParticle, {}, {
+  phetioInherit( SoluteParticleIO, 'ShakerParticleIO', ShakerParticleIO, {}, {
     documentation: 'A particle that comes from the shaker.',
 
     fromStateObject: function( stateObject ) {
-      var soluteParticle = TSoluteParticle.fromStateObject( stateObject );
+      var soluteParticle = SoluteParticleIO.fromStateObject( stateObject );
       return _.extend( soluteParticle, {
-        solute: TSolute.fromStateObject( stateObject.solute ),
+        solute: SoluteIO.fromStateObject( stateObject.solute ),
         velocity: Vector2IO.fromStateObject( stateObject.velocity ),
         acceleration: Vector2IO.fromStateObject( stateObject.acceleration )
       } );
     },
 
     toStateObject: function( shakerParticle ) {
-      var soluteParticle = TSoluteParticle.toStateObject( shakerParticle );
+      var soluteParticle = SoluteParticleIO.toStateObject( shakerParticle );
       return _.extend( soluteParticle, {
-        solute: TSolute.toStateObject( shakerParticle.solute ),
+        solute: SoluteIO.toStateObject( shakerParticle.solute ),
         velocity: Vector2IO.toStateObject( shakerParticle.velocity ),
         acceleration: Vector2IO.toStateObject( shakerParticle.acceleration )
       } );
     }
   } );
 
-  beersLawLab.register( 'TShakerParticle', TShakerParticle );
+  beersLawLab.register( 'ShakerParticleIO', ShakerParticleIO );
 
-  return TShakerParticle;
+  return ShakerParticleIO;
 } );
 

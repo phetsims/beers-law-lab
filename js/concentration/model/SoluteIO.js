@@ -23,12 +23,12 @@ define( function( require ) {
    * @param phetioID
    * @constructor
    */
-  function TSolute( instance, phetioID ) {
+  function SoluteIO( instance, phetioID ) {
     assert && assertInstanceOf( instance, phet.beersLawLab.Solute );
     ObjectIO.call( this, instance, phetioID );
   }
 
-  phetioInherit( ObjectIO, 'TSolute', TSolute, {
+  phetioInherit( ObjectIO, 'SoluteIO', SoluteIO, {
 
     setName: {
       returnType: VoidIO,
@@ -59,8 +59,8 @@ define( function( require ) {
     }
   } );
 
-   beersLawLab.register( 'TSolute', TSolute );
+  beersLawLab.register( 'SoluteIO', SoluteIO );
 
-  return TSolute;
+  return SoluteIO;
 } );
 

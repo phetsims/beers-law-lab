@@ -13,7 +13,7 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
-  var TShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/TShakerParticle' );
+  var ShakerParticleIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticleIO' );
 
   /**
    *
@@ -21,12 +21,12 @@ define( function( require ) {
    * @param phetioID
    * @constructor
    */
-  function TShakerParticles( shakerParticles, phetioID ) {
+  function ShakerParticlesIO( shakerParticles, phetioID ) {
     assert && assertInstanceOf( shakerParticles, phet.beersLawLab.ShakerParticles );
     ObjectIO.call( this, shakerParticles, phetioID );
   }
 
-  phetioInherit( ObjectIO, 'TShakerParticles', TShakerParticles, {}, {
+  phetioInherit( ObjectIO, 'ShakerParticlesIO', ShakerParticlesIO, {}, {
 
     documentation: 'Base type for a group of particles.',
 
@@ -46,7 +46,7 @@ define( function( require ) {
      */
     addChildInstance: function( shakerParticles, tandem, stateObject ) {
 
-      var value = TShakerParticle.fromStateObject( stateObject );
+      var value = ShakerParticleIO.fromStateObject( stateObject );
       assert && assert( value.acceleration instanceof phet.dot.Vector2, 'acceleration should be a Vector2' );
 
       shakerParticles.addParticle( new phet.beersLawLab.ShakerParticle(
@@ -63,7 +63,7 @@ define( function( require ) {
     }
   } );
 
-  beersLawLab.register( 'TShakerParticles', TShakerParticles );
+  beersLawLab.register( 'ShakerParticlesIO', ShakerParticlesIO );
 
-  return TShakerParticles;
+  return ShakerParticlesIO;
 } );

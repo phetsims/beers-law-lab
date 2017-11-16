@@ -18,7 +18,7 @@ define( function( require ) {
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
 
   // phet-io modules
-  var TSolute = require( 'BEERS_LAW_LAB/concentration/model/TSolute' );
+  var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
 
   // strings
   var cobaltChlorideString = require( 'string!BEERS_LAW_LAB/cobaltChloride' );
@@ -47,7 +47,7 @@ define( function( require ) {
       particleColor: colorScheme.maxColor,
       particleSize: 5,
       particlesPerMole: 200,
-      phetioType: TSolute
+      phetioType: SoluteIO
     }, options );
 
     // @public (read-only), (read-write, phet-io)

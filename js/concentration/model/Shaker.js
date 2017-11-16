@@ -15,7 +15,7 @@ define( function( require ) {
   var Property = require( 'AXON/Property' );
 
   // phet-io modules
-  var TShaker = require( 'BEERS_LAW_LAB/concentration/model/TShaker' );
+  var ShakerIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerIO' );
 
   /**
    * @param {Vector2} location
@@ -54,7 +54,7 @@ define( function( require ) {
     this.emptyProperty.link( observer );
     this.visibleProperty.link( observer );
 
-    tandem.addInstance( this, { phetioType: TShaker } );
+    tandem.addInstance( this, { phetioType: ShakerIO } );
   }
 
   beersLawLab.register( 'Shaker', Shaker );

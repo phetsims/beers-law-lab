@@ -14,7 +14,7 @@ define( function( require ) {
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
   var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
-  var TSolute = require( 'BEERS_LAW_LAB/concentration/model/TSolute' );
+  var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
   var VoidIO = require( 'ifphetio!PHET_IO/types/VoidIO' );
 
   /**
@@ -23,17 +23,17 @@ define( function( require ) {
    * @param phetioID
    * @constructor
    */
-  function TConcentrationModel( instance, phetioID ) {
+  function ConcentrationModelIO( instance, phetioID ) {
     assert && assertInstanceOf( instance, phet.beersLawLab.ConcentrationModel );
     ObjectIO.call( this, instance, phetioID );
   }
 
-  phetioInherit( ObjectIO, 'TConcentrationModel', TConcentrationModel, {
+  phetioInherit( ObjectIO, 'ConcentrationModelIO', ConcentrationModelIO, {
 
     // For instance:
     // http://localhost/concentration/concentration_en.html?ea&brand=phet-io&phetioStandalone&phetioLog=lines
     setSolutes: {
-      parameterTypes: [ ArrayIO( TSolute ) ],
+      parameterTypes: [ ArrayIO( SoluteIO ) ],
       returnType: VoidIO,
       implementation: function( solutes ) {
         this.instance.setSolutes( solutes );
@@ -42,8 +42,8 @@ define( function( require ) {
     }
   }, { documentation: 'The model for the concentration screen.' } );
 
-  beersLawLab.register( 'TConcentrationModel', TConcentrationModel );
+  beersLawLab.register( 'ConcentrationModelIO', ConcentrationModelIO );
 
-  return TConcentrationModel;
+  return ConcentrationModelIO;
 } );
 

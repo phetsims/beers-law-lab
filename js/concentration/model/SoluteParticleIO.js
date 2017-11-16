@@ -21,12 +21,12 @@ define( function( require ) {
    * @param {string} phetioID
    * @constructor
    */
-  function TSoluteParticle( soluteParticle, phetioID ) {
+  function SoluteParticleIO( soluteParticle, phetioID ) {
     assert && assertInstanceOf( soluteParticle, phet.beersLawLab.SoluteParticle );
     ObjectIO.call( this, soluteParticle, phetioID );
   }
 
-  phetioInherit( ObjectIO, 'TSoluteParticle', TSoluteParticle, {}, {
+  phetioInherit( ObjectIO, 'SoluteParticleIO', SoluteParticleIO, {}, {
 
     fromStateObject: function( stateObject ) {
       return {
@@ -44,7 +44,7 @@ define( function( require ) {
     documentation: 'A particle that shows at the bottom of a saturated solution.'
   } );
 
-  beersLawLab.register( 'TSoluteParticle', TSoluteParticle );
+  beersLawLab.register( 'SoluteParticleIO', SoluteParticleIO );
 
-  return TSoluteParticle;
+  return SoluteParticleIO;
 } );

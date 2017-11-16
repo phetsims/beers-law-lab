@@ -29,8 +29,8 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules
-  var TConcentrationModel = require( 'BEERS_LAW_LAB/concentration/model/TConcentrationModel' );
-  var TSolute = require( 'BEERS_LAW_LAB/concentration/model/TSolute' );
+  var ConcentrationModelIO = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationModelIO' );
+  var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
   var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
 
   // constants
@@ -65,7 +65,7 @@ define( function( require ) {
     // @public
     this.soluteProperty = new Property( this.solutes[ 0 ], {
       tandem: tandem.createTandem( 'soluteProperty' ),
-      phetioType: PropertyIO( TSolute )
+      phetioType: PropertyIO( SoluteIO )
     } );
     this.soluteFormProperty = new Property( 'solid', {
       tandem: tandem.createTandem( 'soluteFormProperty' ),
@@ -108,7 +108,7 @@ define( function( require ) {
       self.dropper.enabledProperty.set( !self.dropper.emptyProperty.get() && !containsMaxSolute && self.solution.volumeProperty.get() < SOLUTION_VOLUME_RANGE.max );
     } );
 
-    tandem.addInstance( this, { phetioType: TConcentrationModel } );
+    tandem.addInstance( this, { phetioType: ConcentrationModelIO } );
   }
 
   beersLawLab.register( 'ConcentrationModel', ConcentrationModel );

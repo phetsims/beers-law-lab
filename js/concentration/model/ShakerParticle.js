@@ -17,7 +17,7 @@ define( function( require ) {
   var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
 
   // phet-io modules
-  var TShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/TShakerParticle' );
+  var ShakerParticleIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticleIO' );
 
   /**
    * @param {Solute} solute
@@ -39,7 +39,7 @@ define( function( require ) {
     this.velocity = initialVelocity;
     this.acceleration = acceleration;
 
-    tandem.addInstance( this, { phetioType: TShakerParticle } );
+    tandem.addInstance( this, { phetioType: ShakerParticleIO } );
 
     // @private
     this.disposeShakerParticle = function() {

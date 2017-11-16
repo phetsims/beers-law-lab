@@ -22,12 +22,12 @@ define( function( require ) {
    * @param phetioID
    * @constructor
    */
-  function TShaker( instance, phetioID ) {
+  function ShakerIO( instance, phetioID ) {
     assert && assertInstanceOf( instance, phet.beersLawLab.Shaker );
     ObjectIO.call( this, instance, phetioID );
   }
 
-  phetioInherit( ObjectIO, 'TShaker', TShaker, {
+  phetioInherit( ObjectIO, 'ShakerIO', ShakerIO, {
     setValue: {
       returnType: VoidIO,
       parameterTypes: [ ObjectIO ],
@@ -52,8 +52,8 @@ define( function( require ) {
     }
   } );
 
-  beersLawLab.register( 'TShaker', TShaker );
+  beersLawLab.register( 'ShakerIO', ShakerIO );
 
-  return TShaker;
+  return ShakerIO;
 } );
 
