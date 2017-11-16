@@ -11,9 +11,9 @@ define( function( require ) {
   // modules
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var NumberIO = require( 'ifphetio!PHET_IO/types/NumberIO' );
   var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
+  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var Vector2IO = require( 'DOT/Vector2IO' );
 
   /**

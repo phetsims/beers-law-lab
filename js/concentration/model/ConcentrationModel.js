@@ -22,10 +22,10 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Precipitate = require( 'BEERS_LAW_LAB/concentration/model/Precipitate' );
   var Property = require( 'AXON/Property' );
+  var PropertyIO = require( 'AXON/PropertyIO' );
   var Shaker = require( 'BEERS_LAW_LAB/concentration/model/Shaker' );
   var ShakerParticles = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticles' );
   var Solute = require( 'BEERS_LAW_LAB/concentration/model/Solute' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules

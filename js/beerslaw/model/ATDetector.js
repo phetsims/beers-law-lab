@@ -12,10 +12,10 @@ define( function( require ) {
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var DerivedProperty = require( 'AXON/DerivedProperty' );
+  var DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
-  var DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   var PropertyIO = require( 'AXON/PropertyIO' );
 
   // phet-io modules

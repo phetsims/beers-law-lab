@@ -19,13 +19,13 @@ define( function( require ) {
   var Panel = require( 'SUN/Panel' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Property = require( 'AXON/Property' );
+  var PropertyIO = require( 'AXON/PropertyIO' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
   var VBox = require( 'SCENERY/nodes/VBox' );
   var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
 
   // strings
   var pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );

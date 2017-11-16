@@ -19,9 +19,9 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Light = require( 'BEERS_LAW_LAB/beerslaw/model/Light' );
   var Property = require( 'AXON/Property' );
+  var PropertyIO = require( 'AXON/PropertyIO' );
   var RangeWithValue = require( 'DOT/RangeWithValue' );
   var Ruler = require( 'BEERS_LAW_LAB/beerslaw/model/Ruler' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules

@@ -9,11 +9,11 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
   var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
+  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
   var VoidIO = require( 'ifphetio!PHET_IO/types/VoidIO' );
 

@@ -11,9 +11,9 @@ define( function( require ) {
   // modules
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
   var phetio = require( 'ifphetio!PHET_IO/phetio' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
 
   /**
    * @param {BeersLawSolution} beersLawSolution
