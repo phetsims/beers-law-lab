@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.4.3 Fri Apr 14 2017 17:10:53 GMT-0600 (MDT)",
+  "comment": "# beers-law-lab 1.4.3 Fri Nov 17 2017 01:51:09 GMT-0700 (MST)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -9,7 +9,7 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "5428e1ae1deab419c089f8167bf3b5af32ed8040",
+    "sha": "52ba2a0462e5daa8296a2a6d6cdec29569bc89fb",
     "branch": "1.4"
   },
   "brand": {
@@ -17,16 +17,16 @@
     "branch": "HEAD"
   },
   "chipper": {
-    "sha": "22a9ffe2c2459f170413df31031d67f11365735e",
-    "branch": "HEAD"
+    "sha": "cd9308530e7eaf9453ffe77e4e407577269cae10",
+    "branch": "beers-law-lab-1.4"
   },
   "dot": {
     "sha": "04efe0bcba227b3a0a75a734313fc0d92469aa8d",
     "branch": "HEAD"
   },
   "joist": {
-    "sha": "11dcec112175fb84e42922bb1977b66d38372b2e",
-    "branch": "HEAD"
+    "sha": "18b2bcd37f1f9e3953ec1ad95a0ea0fdd1c65053",
+    "branch": "beers-law-lab-1.4"
   },
   "kite": {
     "sha": "dce9765e6fcb535970ef17c1a1bcb8db95599b08",
