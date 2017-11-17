@@ -22,6 +22,7 @@ define( function( require ) {
 
   // phet-io modules
   var NumberIO = require( 'ifphetio!PHET_IO/types/NumberIO' );
+  var NullableIO = require( 'ifphetio!PHET_IO/types/NullableIO' );
 
   /**
    * @param {Vector2} bodyLocation
@@ -38,7 +39,7 @@ define( function( require ) {
     this.valueProperty = new Property( null, {
       tandem: tandem.createTandem( 'valueProperty' ),
       units: 'moles/liter',
-      phetioType: PropertyIO( NumberIO )
+      phetioType: PropertyIO( NullableIO( NumberIO ) )
     } );
 
     // @public (read-only)
