@@ -55,6 +55,7 @@ define( function( require ) {
     },
 
     toStateObject: function( instance ) {
+      assert && assertInstanceOf( instance, phet.beersLawLab.Solute );
       return instance.phetioID;
     }
   } );

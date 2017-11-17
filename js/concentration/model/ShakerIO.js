@@ -40,6 +40,7 @@ define( function( require ) {
     documentation: 'The Shaker that releases solute',
 
     toStateObject: function( instance ) {
+      assert && assertInstanceOf( instance, phet.beersLawLab.Shaker );
       return { location: Vector2IO.toStateObject( instance.previousLocation ) };
     },
 
@@ -48,6 +49,7 @@ define( function( require ) {
     },
 
     setValue: function( instance, valueFromStateObject ) {
+      assert && assertInstanceOf( instance, phet.beersLawLab.Shaker );
       instance.previousLocation.set( valueFromStateObject.location );
     }
   } );
@@ -56,4 +58,3 @@ define( function( require ) {
 
   return ShakerIO;
 } );
-

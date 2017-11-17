@@ -31,6 +31,8 @@ define( function( require ) {
     documentation: 'Base type for a group of particles.',
 
     clearChildInstances: function( shakerParticles ) {
+      assert && assertInstanceOf( shakerParticles, phet.beersLawLab.ShakerParticles );
+
       shakerParticles.removeAllParticles();
 
       // Particles.step is not called in playback mode, so this needs to be called explicitly to update the view.
@@ -45,6 +47,7 @@ define( function( require ) {
      * @returns {ChargedParticle}
      */
     addChildInstance: function( shakerParticles, tandem, stateObject ) {
+      assert && assertInstanceOf( shakerParticles, phet.beersLawLab.ShakerParticles );
 
       var value = ShakerParticleIO.fromStateObject( stateObject );
       assert && assert( value.acceleration instanceof phet.dot.Vector2, 'acceleration should be a Vector2' );

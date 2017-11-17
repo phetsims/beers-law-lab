@@ -39,6 +39,7 @@ define( function( require ) {
     },
 
     toStateObject: function( shakerParticle ) {
+      assert && assertInstanceOf( shakerParticle, phet.beersLawLab.ShakerParticle );
       var soluteParticle = SoluteParticleIO.toStateObject( shakerParticle );
       return _.extend( soluteParticle, {
         solute: SoluteIO.toStateObject( shakerParticle.solute ),

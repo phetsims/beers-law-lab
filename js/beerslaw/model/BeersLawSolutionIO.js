@@ -33,8 +33,9 @@ define( function( require ) {
       return phetio.getWrapper( stateObject ).instance;
     },
 
-    toStateObject: function( instance ) {
-      return instance.phetioID;
+    toStateObject: function( beersLawSolution ) {
+      assert && assertInstanceOf( beersLawSolution, phet.beersLawLab.BeersLawSolution );
+      return beersLawSolution.phetioID;
     }
   } );
 

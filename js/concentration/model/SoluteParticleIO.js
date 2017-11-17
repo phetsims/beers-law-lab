@@ -35,10 +35,11 @@ define( function( require ) {
       };
     },
 
-    toStateObject: function( value ) {
+    toStateObject: function( soluteParticle ) {
+      assert && assertInstanceOf( soluteParticle, phet.beersLawLab.SoluteParticle );
       return {
-        location: Vector2IO.toStateObject( value.locationProperty.get() ),
-        orientation: NumberIO.toStateObject( value.orientation )
+        location: Vector2IO.toStateObject( soluteParticle.locationProperty.get() ),
+        orientation: NumberIO.toStateObject( soluteParticle.orientation )
       };
     },
     documentation: 'A particle that shows at the bottom of a saturated solution.'

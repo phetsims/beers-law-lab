@@ -32,9 +32,10 @@ define( function( require ) {
       return _.extend( soluteParticle, { solute: SoluteIO.fromStateObject( stateObject.solute ) } );
     },
 
-    toStateObject: function( value ) {
-      var soluteParticle = SoluteParticleIO.toStateObject( value );
-      return _.extend( soluteParticle, { solute: SoluteIO.toStateObject( value.solute ) } );
+    toStateObject: function( precipitateParticle ) {
+      assert && assertInstanceOf( precipitateParticle, phet.beersLawLab.PrecipitateParticle );
+      var soluteParticle = SoluteParticleIO.toStateObject( precipitateParticle );
+      return _.extend( soluteParticle, { solute: SoluteIO.toStateObject( precipitateParticle.solute ) } );
     },
     documentation: 'A particle that shows at the bottom of a saturated solution.'
   } );
