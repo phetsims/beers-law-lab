@@ -18,14 +18,13 @@ define( function( require ) {
   var VoidIO = require( 'ifphetio!PHET_IO/types/VoidIO' );
 
   /**
-   *
-   * @param instance
-   * @param phetioID
+   * @param {Solute} solute
+   * @param {string} phetioID
    * @constructor
    */
-  function SoluteIO( instance, phetioID ) {
-    assert && assertInstanceOf( instance, phet.beersLawLab.Solute );
-    ObjectIO.call( this, instance, phetioID );
+  function SoluteIO( solute, phetioID ) {
+    assert && assertInstanceOf( solute, phet.beersLawLab.Solute );
+    ObjectIO.call( this, solute, phetioID );
   }
 
   phetioInherit( ObjectIO, 'SoluteIO', SoluteIO, {

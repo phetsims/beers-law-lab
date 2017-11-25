@@ -18,7 +18,7 @@ define( function( require ) {
   /**
    *
    * @param {ShakerParticles} shakerParticles
-   * @param phetioID
+   * @param {string} phetioID
    * @constructor
    */
   function ShakerParticlesIO( shakerParticles, phetioID ) {

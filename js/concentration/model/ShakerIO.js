@@ -17,14 +17,13 @@ define( function( require ) {
   var VoidIO = require( 'ifphetio!PHET_IO/types/VoidIO' );
 
   /**
-   *
-   * @param instance
-   * @param phetioID
+   * @param {Shaker} shaker
+   * @param {string} phetioID
    * @constructor
    */
-  function ShakerIO( instance, phetioID ) {
-    assert && assertInstanceOf( instance, phet.beersLawLab.Shaker );
-    ObjectIO.call( this, instance, phetioID );
+  function ShakerIO( shaker, phetioID ) {
+    assert && assertInstanceOf( shaker, phet.beersLawLab.Shaker );
+    ObjectIO.call( this, shaker, phetioID );
   }
 
   phetioInherit( ObjectIO, 'ShakerIO', ShakerIO, {
