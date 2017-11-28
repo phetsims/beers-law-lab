@@ -47,7 +47,8 @@ define( function( require ) {
       particleColor: colorScheme.maxColor,
       particleSize: 5,
       particlesPerMole: 200,
-      phetioType: SoluteIO
+      phetioType: SoluteIO,
+      phetioState: true
     }, options );
 
     // @public (read-only), (read-write, phet-io)

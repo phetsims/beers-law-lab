@@ -33,7 +33,10 @@ define( function( require ) {
     // @public (phet-io)
     this.solute = solute;
 
-    tandem.addInstance( this, { phetioType: PrecipitateParticleIO } );
+    tandem.addInstance( this, {
+      phetioState: true,
+      phetioType: PrecipitateParticleIO
+    } );
 
     // @private
     this.disposePrecipitateParticle = function() {

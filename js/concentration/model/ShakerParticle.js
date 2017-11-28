@@ -39,7 +39,7 @@ define( function( require ) {
     this.velocity = initialVelocity;
     this.acceleration = acceleration;
 
-    tandem.addInstance( this, { phetioType: ShakerParticleIO } );
+    tandem.addInstance( this, { phetioState: true, phetioType: ShakerParticleIO } );
 
     // @private
     this.disposeShakerParticle = function() {
