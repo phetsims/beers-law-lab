@@ -14,6 +14,7 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
+  var Tandem = require( 'TANDEM/Tandem' );
 
   // phet-io modules
   var PrecipitateParticleIO = require( 'BEERS_LAW_LAB/concentration/model/PrecipitateParticleIO' );
@@ -22,36 +23,23 @@ define( function( require ) {
    * @param {Solute} solute
    * @param {Vector2} location location in the beaker's coordinate frame
    * @param {number} orientation in radians
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    * @constructor
    */
-  function PrecipitateParticle( solute, location, orientation, tandem ) {
-    SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation );
-
-    var self = this;
-
-    // @public (phet-io)
-    this.solute = solute;
-
-    tandem.addInstance( this, {
+  function PrecipitateParticle( solute, location, orientation, options ) {
+    options = _.extend( {
+      tandem: Tandem.required,
       phetioState: true,
       phetioType: PrecipitateParticleIO
-    } );
+    }, options );
+    SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation, options );
 
-    // @private
-    this.disposePrecipitateParticle = function() {
-      tandem.removeInstance( self );
-    };
+    assert && assert( !!solute, 'solute should exist' );
+    // @public (phet-io)
+    this.solute = solute;
   }
 
   beersLawLab.register( 'PrecipitateParticle', PrecipitateParticle );
 
-  return inherit( SoluteParticle, PrecipitateParticle, {
-
-    // @public
-    dispose: function() {
-      this.disposePrecipitateParticle();
-      SoluteParticle.prototype.dispose && SoluteParticle.prototype.dispose.call( this );
-    }
-  } );
+  return inherit( SoluteParticle, PrecipitateParticle );
 } );

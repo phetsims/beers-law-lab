@@ -96,8 +96,9 @@ define( function( require ) {
         this.addParticle( new PrecipitateParticle(
           this.solution.soluteProperty.get(),
           this.getRandomOffset(),
-          getRandomOrientation(),
-          this.precipitateParticleGroupTandem.createNextTandem()
+          getRandomOrientation(), {
+            tandem: this.precipitateParticleGroupTandem.createNextTandem()
+          }
         ) );
       }
     },
