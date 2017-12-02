@@ -12,18 +12,28 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var Emitter = require( 'AXON/Emitter' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var IOObject = require( 'TANDEM/IOObject' );
+  var Tandem = require( 'TANDEM/Tandem' );
 
   /**
+   * @param {Object} [options]
    * @constructor
    */
-  function Particles() {
+  function Particles( options ) {
+    options = _.extend( {
+
+      // ShakerParticles is instrumented but Precipitate is not
+      tandem: Tandem.optional
+    }, options );
     this.particles = []; // @public the particles in the collection
     this.changedEmitter = new Emitter(); // @private emit is called when the collection of particles changes
+
+    IOObject.call( this, options );
   }
 
   beersLawLab.register( 'Particles', Particles );
 
-  return inherit( Object, Particles, {
+  return inherit( IOObject, Particles, {
 
     /**
      * Adds a particle.

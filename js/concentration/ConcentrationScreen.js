@@ -38,7 +38,7 @@ define( function( require ) {
     };
 
     Screen.call( this,
-      function() { return new ConcentrationModel( tandem.createTandem( 'model' ) ); },
+      function() { return new ConcentrationModel( { tandem: tandem.createTandem( 'model' ) } ); },
       function( model ) { return new ConcentrationScreenView( model, modelViewTransform, tandem.createTandem( 'view' ) ); },
       options );
   }

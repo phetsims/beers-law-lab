@@ -25,28 +25,28 @@ define( function( require ) {
    * @param {Property.<Solute>} soluteProperty
    * @param {number} maxFlowRate
    * @param {boolean} visible
-   * @param {Tandem} tandem
+   * @param {Object} [tandem]
    * @constructor
    */
-  function Dropper( location, dragBounds, soluteProperty, maxFlowRate, visible, tandem ) {
+  function Dropper( location, dragBounds, soluteProperty, maxFlowRate, visible, options ) {
 
     var self = this;
-    Movable.call( this, location, dragBounds, tandem );
+    Movable.call( this, location, dragBounds, options );
 
     // @public
     this.soluteProperty = soluteProperty;
     this.visibleProperty = new Property( visible );
     this.dispensingProperty = new Property( false, {
-      tandem: tandem.createTandem( 'dispensingProperty' ),
+      tandem: options.tandem.createTandem( 'dispensingProperty' ),
       phetioType: PropertyIO( BooleanIO )
     } ); // true if the dropper is dispensing solution
     this.enabledProperty = new Property( true );
     this.emptyProperty = new Property( false, {
-      tandem: tandem.createTandem( 'emptyProperty' ),
+      tandem: options.tandem.createTandem( 'emptyProperty' ),
       phetioType: PropertyIO( BooleanIO )
     } );
     this.flowRateProperty = new NumberProperty( 0, {
-      tandem: tandem.createTandem( 'flowRateProperty' ),
+      tandem: options.tandem.createTandem( 'flowRateProperty' ),
       units: 'liters/second'
     } ); // L/sec
 

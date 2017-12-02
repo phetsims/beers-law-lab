@@ -15,6 +15,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Particles = require( 'BEERS_LAW_LAB/concentration/model/Particles' );
   var ShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticle' );
+  var Tandem = require( 'TANDEM/Tandem' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules
@@ -32,12 +33,16 @@ define( function( require ) {
    * @param {Shaker} shaker
    * @param {ConcentrationSolution} solution
    * @param {Beaker} beaker
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    * @constructor
    */
-  function ShakerParticles( shaker, solution, beaker, tandem ) {
+  function ShakerParticles( shaker, solution, beaker, options ) {
 
-    Particles.call( this );
+    options = _.extend( {
+      tandem: Tandem.required,
+      phetioType: ShakerParticlesIO
+    }, options );
+    Particles.call( this, options );
 
     var self = this;
 
@@ -52,10 +57,7 @@ define( function( require ) {
     } );
 
     // @private
-    this.shakerParticleGroupTandem = tandem.createGroupTandem( 'shakerParticle' );
-
-    // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
-    tandem.addInstance( this, { phetioType: ShakerParticlesIO } );
+    this.shakerParticleGroupTandem = options.tandem.createGroupTandem( 'shakerParticle' );
   }
 
   beersLawLab.register( 'ShakerParticles', ShakerParticles );
@@ -115,8 +117,9 @@ define( function( require ) {
             getRandomLocation( this.shaker.locationProperty.get() ),
             getRandomOrientation(),
             this.getInitialVelocity(),
-            this.getGravitationalAcceleration(),
-            this.shakerParticleGroupTandem.createNextTandem()
+            this.getGravitationalAcceleration(), {
+              tandem: this.shakerParticleGroupTandem.createNextTandem()
+            }
           );
           this.addParticle( shakerParticle );
         }

@@ -20,12 +20,14 @@ define( function( require ) {
   var Evaporator = require( 'BEERS_LAW_LAB/concentration/model/Evaporator' );
   var Faucet = require( 'BEERS_LAW_LAB/concentration/model/Faucet' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var IOObject = require( 'TANDEM/IOObject' );
   var Precipitate = require( 'BEERS_LAW_LAB/concentration/model/Precipitate' );
   var Property = require( 'AXON/Property' );
   var PropertyIO = require( 'AXON/PropertyIO' );
   var Shaker = require( 'BEERS_LAW_LAB/concentration/model/Shaker' );
   var ShakerParticles = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticles' );
   var Solute = require( 'BEERS_LAW_LAB/concentration/model/Solute' );
+  var Tandem = require( 'TANDEM/Tandem' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules
@@ -42,12 +44,18 @@ define( function( require ) {
   var SHAKER_MAX_DISPENSING_RATE = 0.2; // mol/sec
 
   /**
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    * @constructor
    */
-  function ConcentrationModel( tandem ) {
+  function ConcentrationModel( options ) {
 
     var self = this;
+
+    options = _.extend( {
+      tandem: Tandem.required,
+      phetioType: ConcentrationModelIO
+    }, options );
+    var tandem = options.tandem;
 
     // @public Solutes, in rainbow (ROYGBIV) order.
     this.solutes = [
@@ -75,17 +83,34 @@ define( function( require ) {
     // @public
     this.solution = new ConcentrationSolution( this.soluteProperty, SOLUTE_AMOUNT_RANGE.defaultValue, SOLUTION_VOLUME_RANGE.defaultValue, tandem.createTandem( 'solution' ) );
     this.beaker = new Beaker( new Vector2( 350, 550 ), new Dimension2( 600, 300 ), 1 );
-    this.precipitate = new Precipitate( this.solution, this.beaker, tandem.createTandem( 'precipitate' ) );
-    this.shaker = new Shaker( new Vector2( this.beaker.location.x, 170 ), new Bounds2( 250, 50, 575, 210 ), 0.75 * Math.PI,
-      this.soluteProperty, SHAKER_MAX_DISPENSING_RATE, this.soluteFormProperty.get() === 'solid', tandem.createTandem( 'shaker' ) );
-    this.shakerParticles = new ShakerParticles( this.shaker, this.solution, this.beaker, tandem.createTandem( 'shakerParticles' ) );
-    this.dropper = new Dropper( new Vector2( this.beaker.location.x, 225 ), new Bounds2( 260, 225, 580, 225 ),
-      this.soluteProperty, DROPPER_FLOW_RATE, this.soluteFormProperty.get() === 'solution', tandem.createTandem( 'dropper' ) );
+    this.precipitate = new Precipitate( this.solution, this.beaker, { tandem: tandem.createTandem( 'precipitate' ) } );
+    this.shaker = new Shaker(
+      new Vector2( this.beaker.location.x, 170 ),
+      new Bounds2( 250, 50, 575, 210 ),
+      0.75 * Math.PI,
+      this.soluteProperty,
+      SHAKER_MAX_DISPENSING_RATE,
+      this.soluteFormProperty.get() === 'solid', {
+        tandem: tandem.createTandem( 'shaker' )
+      } );
+    this.shakerParticles = new ShakerParticles( this.shaker, this.solution, this.beaker, { tandem: tandem.createTandem( 'shakerParticles' ) } );
+    this.dropper = new Dropper(
+      new Vector2( this.beaker.location.x, 225 ),
+      new Bounds2( 260, 225, 580, 225 ),
+      this.soluteProperty,
+      DROPPER_FLOW_RATE,
+      this.soluteFormProperty.get() === 'solution', {
+        tandem: tandem.createTandem( 'dropper' )
+      }
+    );
     this.evaporator = new Evaporator( MAX_EVAPORATION_RATE, this.solution, tandem.createTandem( 'evaporator' ) );
     this.solventFaucet = new Faucet( new Vector2( 155, 220 ), -400, 45, MAX_FAUCET_FLOW_RATE, tandem.createTandem( 'solventFaucet' ) );
     this.drainFaucet = new Faucet( new Vector2( 750, 630 ), this.beaker.getRight(), 45, MAX_FAUCET_FLOW_RATE, tandem.createTandem( 'drainFaucet' ) );
-    this.concentrationMeter = new ConcentrationMeter( new Vector2( 785, 210 ), new Bounds2( 10, 150, 835, 680 ),
-      new Vector2( 750, 370 ), new Bounds2( 30, 150, 966, 680 ), tandem.createTandem( 'concentrationMeter' ) );
+    this.concentrationMeter = new ConcentrationMeter(
+      new Vector2( 785, 210 ), new Bounds2( 10, 150, 835, 680 ),
+      new Vector2( 750, 370 ), new Bounds2( 30, 150, 966, 680 ), {
+        tandem: tandem.createTandem( 'concentrationMeter' )
+      } );
 
     // When the solute is changed, the amount of solute resets to 0.  This is a lazyLink instead of link so that
     // the simulation can be launched with a nonzero solute amount (using PhET-iO)
@@ -108,12 +133,12 @@ define( function( require ) {
       self.dropper.enabledProperty.set( !self.dropper.emptyProperty.get() && !containsMaxSolute && self.solution.volumeProperty.get() < SOLUTION_VOLUME_RANGE.max );
     } );
 
-    tandem.addInstance( this, { phetioType: ConcentrationModelIO } );
+    IOObject.call( this, options );
   }
 
   beersLawLab.register( 'ConcentrationModel', ConcentrationModel );
 
-  return inherit( Object, ConcentrationModel, {
+  return inherit( IOObject, ConcentrationModel, {
 
     /*
      * May be called from PhET-iO before the UI is constructed to choose a different set of solutes.  The first solute

@@ -23,11 +23,13 @@ define( function( require ) {
   var ConcentrationTransform = require( 'BEERS_LAW_LAB/beerslaw/model/ConcentrationTransform' );
   var DerivedProperty = require( 'AXON/DerivedProperty' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var IOObject = require( 'TANDEM/IOObject' );
   var MolarAbsorptivityData = require( 'BEERS_LAW_LAB/beerslaw/model/MolarAbsorptivityData' );
   var NumberProperty = require( 'AXON/NumberProperty' );
   var RangeWithValue = require( 'DOT/RangeWithValue' );
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var Tandem = require( 'TANDEM/Tandem' );
   var Util = require( 'DOT/Util' );
 
   // phet-io modules
@@ -52,18 +54,20 @@ define( function( require ) {
    * @param {RangeWithValue} concentrationRange
    * @param {ConcentrationTransform} concentrationTransform
    * @param {ColorRange} colorRange
-   * @param {Tandem} tandem
    * @param {Object} [options]
    * @constructor
    */
   function BeersLawSolution( name, formula, molarAbsorptivityData, concentrationRange, concentrationTransform,
-                             colorRange, tandem, options ) {
+                             colorRange, options ) {
 
     options = _.extend( {
       saturatedColor: colorRange.max, // {Color} color to use when the solution is saturated
       phetioType: BeersLawSolutionIO,
-      phetioState: true
+      phetioState: true,
+      tandem: Tandem.required
     }, options );
+
+    IOObject.call( this, options );
 
     var self = this;
 
@@ -75,7 +79,7 @@ define( function( require ) {
     this.concentrationProperty = new NumberProperty( concentrationRange.defaultValue, {
       units: 'moles/liter',
       range: concentrationRange,
-      tandem: tandem.createTandem( 'concentrationProperty' ),
+      tandem: options.tandem.createTandem( 'concentrationProperty' )
     } );
     this.concentrationRange = concentrationRange;
     this.concentrationTransform = concentrationTransform;
@@ -93,14 +97,12 @@ define( function( require ) {
         return color;
       } );
 
-    // no corresponding removeInstance is needed because this object exists for the lifetime of the sim
-    tandem.addInstance( this, options );
-    this.tandemName = tandem.tail;
+    this.tandemName = options.tandem.tail;
   }
 
   beersLawLab.register( 'BeersLawSolution', BeersLawSolution );
 
-  inherit( Object, BeersLawSolution, {
+  inherit( IOObject, BeersLawSolution, {
 
     // @public
     reset: function() {
@@ -136,8 +138,9 @@ define( function( require ) {
     MolarAbsorptivityData.DRINK_MIX,
     new RangeWithValue( 0, 0.400, 0.100 ),
     ConcentrationTransform.mM,
-    new ColorRange( new Color( 255, 225, 225 ), Color.RED ),
-    tandem.createTandem( 'drinkMix' )
+    new ColorRange( new Color( 255, 225, 225 ), Color.RED ), {
+      tandem: tandem.createTandem( 'drinkMix' )
+    }
   );
 
   BeersLawSolution.COBALT_II_NITRATE = new BeersLawSolution(
@@ -146,8 +149,9 @@ define( function( require ) {
     MolarAbsorptivityData.COBALT_II_NITRATE,
     new RangeWithValue( 0, 0.400, 0.100 ),
     ConcentrationTransform.mM,
-    new ColorRange( new Color( 255, 225, 225 ), Color.RED ),
-    tandem.createTandem( 'cobaltIINitrate' )
+    new ColorRange( new Color( 255, 225, 225 ), Color.RED ), {
+      tandem: tandem.createTandem( 'cobaltIINitrate' )
+    }
   );
 
   BeersLawSolution.COBALT_CHLORIDE = new BeersLawSolution(
@@ -156,8 +160,9 @@ define( function( require ) {
     MolarAbsorptivityData.COBALT_CHLORIDE,
     new RangeWithValue( 0, 0.250, 0.100 ),
     ConcentrationTransform.mM,
-    new ColorRange( new Color( 255, 242, 242 ), new Color( 255, 106, 106 ) ),
-    tandem.createTandem( 'cobaltChloride' )
+    new ColorRange( new Color( 255, 242, 242 ), new Color( 255, 106, 106 ) ), {
+      tandem: tandem.createTandem( 'cobaltChloride' )
+    }
   );
 
   BeersLawSolution.POTASSIUM_DICHROMATE = new BeersLawSolution(
@@ -166,8 +171,9 @@ define( function( require ) {
     MolarAbsorptivityData.POTASSIUM_DICHROMATE,
     new RangeWithValue( 0, 0.000500, 0.000100 ),
     ConcentrationTransform.uM,
-    new ColorRange( new Color( 255, 232, 210 ), new Color( 255, 127, 0 ) ),
-    tandem.createTandem( 'potassiumDichromate' )
+    new ColorRange( new Color( 255, 232, 210 ), new Color( 255, 127, 0 ) ), {
+      tandem: tandem.createTandem( 'potassiumDichromate' )
+    }
   );
 
   BeersLawSolution.POTASSIUM_CHROMATE = new BeersLawSolution(
@@ -176,8 +182,9 @@ define( function( require ) {
     MolarAbsorptivityData.POTASSIUM_CHROMATE,
     new RangeWithValue( 0, 0.000400, 0.000100 ),
     ConcentrationTransform.uM,
-    new ColorRange( new Color( 255, 255, 199 ), new Color( 255, 255, 0 ) ),
-    tandem.createTandem( 'potassiumChromate' )
+    new ColorRange( new Color( 255, 255, 199 ), new Color( 255, 255, 0 ) ), {
+      tandem: tandem.createTandem( 'potassiumChromate' )
+    }
   );
 
   BeersLawSolution.NICKEL_II_CHLORIDE = new BeersLawSolution(
@@ -186,8 +193,9 @@ define( function( require ) {
     MolarAbsorptivityData.NICKEL_II_CHLORIDE,
     new RangeWithValue( 0, 0.350, 0.100 ),
     ConcentrationTransform.mM,
-    new ColorRange( new Color( 234, 244, 234 ), new Color( 0, 128, 0 ) ),
-    tandem.createTandem( 'nickelIIChloride' )
+    new ColorRange( new Color( 234, 244, 234 ), new Color( 0, 128, 0 ) ), {
+      tandem: tandem.createTandem( 'nickelIIChloride' )
+    }
   );
 
   BeersLawSolution.COPPER_SULFATE = new BeersLawSolution(
@@ -196,8 +204,9 @@ define( function( require ) {
     MolarAbsorptivityData.COPPER_SULFATE,
     new RangeWithValue( 0, 0.200, 0.100 ),
     ConcentrationTransform.mM,
-    new ColorRange( new Color( 222, 238, 255 ), new Color( 30, 144, 255 ) ),
-    tandem.createTandem( 'copperSulfate' )
+    new ColorRange( new Color( 222, 238, 255 ), new Color( 30, 144, 255 ) ), {
+      tandem: tandem.createTandem( 'copperSulfate' )
+    }
   );
 
   BeersLawSolution.POTASSIUM_PERMANGANATE = new BeersLawSolution(
@@ -206,9 +215,12 @@ define( function( require ) {
     MolarAbsorptivityData.POTASSIUM_PERMANGANATE,
     new RangeWithValue( 0, 0.000800, 0.000100 ),
     ConcentrationTransform.uM,
-    new ColorRange( new Color( 255, 235, 255 ), new Color( 255, 0, 255 ) ),
-    tandem.createTandem( 'potassiumPermanganate' ),
-    { saturatedColor: new Color( 80, 0, 120 ) } // has a special saturated color
+    new ColorRange( new Color( 255, 235, 255 ), new Color( 255, 0, 255 ) ), {
+      tandem: tandem.createTandem( 'potassiumPermanganate' ),
+
+      // has a special saturated color
+      saturatedColor: new Color( 80, 0, 120 )
+    }
   );
 
   return BeersLawSolution;

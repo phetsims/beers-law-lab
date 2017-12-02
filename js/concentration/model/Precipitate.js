@@ -14,17 +14,21 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Particles = require( 'BEERS_LAW_LAB/concentration/model/Particles' );
   var PrecipitateParticle = require( 'BEERS_LAW_LAB/concentration/model/PrecipitateParticle' );
+  var Tandem = require( 'TANDEM/Tandem' );
   var Vector2 = require( 'DOT/Vector2' );
 
   /**
    * @param {ConcentrationSolution} solution
    * @param {Beaker} beaker
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    * @constructor
    */
-  function Precipitate( solution, beaker, tandem ) {
+  function Precipitate( solution, beaker, options ) {
+    options = _.extend( {
+      tandem: Tandem.required
+    }, options );
 
-    Particles.call( this );
+    Particles.call( this, options );
 
     var self = this;
 
@@ -33,7 +37,7 @@ define( function( require ) {
     this.beaker = beaker;
 
     // @private
-    this.precipitateParticleGroupTandem = tandem.createGroupTandem( 'precipitateParticle' );
+    this.precipitateParticleGroupTandem = options.tandem.createGroupTandem( 'precipitateParticle' );
 
     // when the saturation changes, update the number of precipitate particles
     this.solution.precipitateAmountProperty.link( function() {
@@ -46,8 +50,7 @@ define( function( require ) {
       self.updateParticles();
     } );
 
-    // We're not calling tandem.addInstance for Precipitate because it doesn't add any new attributes or methods.
-    // And individual particles are derived from the model, so restoring individual particles (as part of saved
+    // Individual particles are derived from the model, so restoring individual particles (as part of saved
     // state) is problematic.  See https://github.com/phetsims/beers-law-lab/issues/213
   }
 

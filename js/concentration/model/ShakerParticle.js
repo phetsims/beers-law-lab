@@ -14,10 +14,9 @@ define( function( require ) {
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
-
-  // phet-io modules
   var ShakerParticleIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticleIO' );
+  var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
+  var Tandem = require( 'TANDEM/Tandem' );
 
   /**
    * @param {Solute} solute
@@ -25,37 +24,25 @@ define( function( require ) {
    * @param {number} orientation in radians
    * @param {Vector2} initialVelocity
    * @param {Vector2} acceleration
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    * @constructor
    */
-  function ShakerParticle( solute, location, orientation, initialVelocity, acceleration, tandem ) {
-
-    SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation );
-
-    var self = this;
+  function ShakerParticle( solute, location, orientation, initialVelocity, acceleration, options ) {
+    options = _.extend( {
+      tandem: Tandem.required,
+      phetioType: ShakerParticleIO
+    }, options );
+    SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation, options );
 
     // @public (read-only, phet-io)
     this.solute = solute;
     this.velocity = initialVelocity;
     this.acceleration = acceleration;
-
-    tandem.addInstance( this, { phetioState: true, phetioType: ShakerParticleIO } );
-
-    // @private
-    this.disposeShakerParticle = function() {
-      tandem.removeInstance( self );
-    };
   }
 
   beersLawLab.register( 'ShakerParticle', ShakerParticle );
 
   return inherit( SoluteParticle, ShakerParticle, {
-
-    // @public
-    dispose: function() {
-      this.disposeShakerParticle();
-      SoluteParticle.prototype.dispose && SoluteParticle.prototype.dispose.call( this );
-    },
 
     /**
      *  Propagates the particle to a new location.
