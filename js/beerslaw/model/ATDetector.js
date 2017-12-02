@@ -18,6 +18,7 @@ define( function( require ) {
   var NullableIO = require( 'ifphetio!PHET_IO/types/NullableIO' );
   var Property = require( 'AXON/Property' );
   var PropertyIO = require( 'AXON/PropertyIO' );
+  var Tandem = require( 'TANDEM/Tandem' );
 
   // phet-io modules
   var NumberIO = require( 'ifphetio!PHET_IO/types/NumberIO' );
@@ -31,20 +32,26 @@ define( function( require ) {
    * @param {Light} light
    * @param {Cuvette} cuvette
    * @param {Absorbance} absorbance
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    * @constructor
    */
-  function ATDetector( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds, light, cuvette, absorbance, tandem ) {
+  function ATDetector( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds, light, cuvette, absorbance, options ) {
 
     var self = this;
 
+    options = _.extend( { tandem: Tandem.required }, options );
+
     this.light = light; // @private
-    this.body = new Movable( bodyLocation, bodyDragBounds, tandem.createTandem( 'body' ) ); // @public
-    this.probe = new Probe( probeLocation, probeDragBounds, 0.57, tandem.createTandem( 'probe' ) ); // @public
+    this.body = new Movable( bodyLocation, bodyDragBounds, {
+      tandem: options.tandem.createTandem( 'body' )
+    } ); // @public
+    this.probe = new Probe( probeLocation, probeDragBounds, 0.57, {
+      tandem: options.tandem.createTandem( 'probe' )
+    } ); // @public
 
     // @public for switching between absorbance (A) and percent transmittance (%T)
     this.modeProperty = new Property( ATDetector.Mode.TRANSMITTANCE, {
-      tandem: tandem.createTandem( 'modeProperty' ),
+      tandem: options.tandem.createTandem( 'modeProperty' ),
       phetioType: PropertyIO( StringIO )
     } );
 
@@ -71,7 +78,7 @@ define( function( require ) {
         }
         return value;
       }, {
-        tandem: tandem.createTandem( 'valueProperty' ),
+        tandem: options.tandem.createTandem( 'valueProperty' ),
         phetioType: DerivedPropertyIO( NullableIO( NumberIO ) )
       } );
   }
