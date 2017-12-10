@@ -31,7 +31,6 @@ define( function( require ) {
   function Shaker( location, dragBounds, orientation, soluteProperty, maxDispensingRate, visible, options ) {
 
     options = _.extend( {
-      tandem: Tandem.required,
       phetioType: ShakerIO
     }, options );
     var self = this;
