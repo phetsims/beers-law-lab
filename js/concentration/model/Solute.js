@@ -47,7 +47,6 @@ define( function( require ) {
       particleSize: 5,
       particlesPerMole: 200,
       phetioType: SoluteIO,
-      phetioState: true,
       tandem: Tandem.required
     }, options );
 

@@ -63,7 +63,6 @@ define( function( require ) {
     options = _.extend( {
       saturatedColor: colorRange.max, // {Color} color to use when the solution is saturated
       phetioType: BeersLawSolutionIO,
-      phetioState: true,
       tandem: Tandem.required
     }, options );
 

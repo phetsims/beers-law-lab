@@ -27,12 +27,9 @@ define( function( require ) {
    */
   function PrecipitateParticle( solute, location, orientation, options ) {
     options = _.extend( {
-      phetioState: true,
       phetioType: PrecipitateParticleIO
     }, options );
     SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation, options );
-
-    assert && assert( !!solute, 'solute should exist' );
 
     // @public (phet-io)
     this.solute = solute;
