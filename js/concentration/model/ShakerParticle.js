@@ -16,7 +16,6 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var ShakerParticleIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticleIO' );
   var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
-  var Tandem = require( 'TANDEM/Tandem' );
 
   /**
    * @param {Solute} solute
@@ -29,7 +28,6 @@ define( function( require ) {
    */
   function ShakerParticle( solute, location, orientation, initialVelocity, acceleration, options ) {
     options = _.extend( {
-      tandem: Tandem.required,
       phetioType: ShakerParticleIO
     }, options );
     SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation, options );

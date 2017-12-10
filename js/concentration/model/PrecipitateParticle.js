@@ -14,7 +14,6 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
-  var Tandem = require( 'TANDEM/Tandem' );
 
   // phet-io modules
   var PrecipitateParticleIO = require( 'BEERS_LAW_LAB/concentration/model/PrecipitateParticleIO' );
@@ -28,13 +27,13 @@ define( function( require ) {
    */
   function PrecipitateParticle( solute, location, orientation, options ) {
     options = _.extend( {
-      tandem: Tandem.required,
       phetioState: true,
       phetioType: PrecipitateParticleIO
     }, options );
     SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation, options );
 
     assert && assert( !!solute, 'solute should exist' );
+
     // @public (phet-io)
     this.solute = solute;
   }

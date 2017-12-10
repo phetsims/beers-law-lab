@@ -9,6 +9,7 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var Tandem = require( 'TANDEM/Tandem' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var IOObject = require( 'TANDEM/IOObject' );
@@ -23,6 +24,10 @@ define( function( require ) {
    * @constructor
    */
   function SoluteParticle( color, size, location, orientation, options ) {
+
+    options = _.extend( {
+      tandem: Tandem.required
+    }, options );
 
     // @public (read-only)
     this.color = color;
