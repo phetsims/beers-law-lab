@@ -23,6 +23,7 @@ define( function( require ) {
   var Bounds2 = require( 'DOT/Bounds2' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var IOObject = require( 'TANDEM/IOObject' );
   var LayoutBox = require( 'SCENERY/nodes/LayoutBox' );
   var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
@@ -72,7 +73,7 @@ define( function( require ) {
                                    drainFluidNode, modelViewTransform, tandem ) {
 
     var self = this;
-    Node.call( this );
+    Node.call( this, IOObject.getOptions( { tandem: tandem } ) );
 
     var bodyNode = new BodyNode( meter, modelViewTransform, tandem.createTandem( 'bodyNode' ) );
     var probeNode = new ConcentrationProbeNode( meter.probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, tandem.createTandem( 'probeNode' ) );
@@ -114,11 +115,6 @@ define( function( require ) {
     stockSolutionNode.on( 'bounds', updateValue );
     solventFluidNode.on( 'bounds', updateValue );
     drainFluidNode.on( 'bounds', updateValue );
-
-    // tandem support
-    this.mutate( {
-      tandem: tandem
-    } );
   }
 
   beersLawLab.register( 'ConcentrationMeterNode', ConcentrationMeterNode );
@@ -137,6 +133,7 @@ define( function( require ) {
     var self = this;
 
     Node.call( this, {
+      tandem: tandem,
       cursor: 'pointer'
     } );
 
@@ -194,11 +191,6 @@ define( function( require ) {
         modelViewTransform: modelViewTransform
       } );
       this.addInputListener( movableDragHandler );
-
-      // tandem support
-      this.mutate( {
-        tandem: tandem
-      } );
     }
 
     // body location
@@ -261,7 +253,8 @@ define( function( require ) {
       lightAngle: 1.75 * Math.PI,
       color: PROBE_COLOR,
       rotation: -Math.PI / 2,
-      cursor: 'pointer'
+      cursor: 'pointer',
+      tandem: tandem
     } );
 
     // probe location
@@ -302,11 +295,6 @@ define( function( require ) {
     this.isInStockSolution = function() {
       return isInNode( stockSolutionNode );
     };
-
-    // tandem support
-    this.mutate( {
-      tandem: tandem
-    } );
   }
 
   beersLawLab.register( 'ConcentrationMeterNode.ConcentrationProbeNode', ConcentrationProbeNode );

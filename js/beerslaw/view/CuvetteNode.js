@@ -40,8 +40,6 @@ define( function( require ) {
    */
   function CuvetteNode( cuvette, solutionProperty, modelViewTransform, snapInterval, tandem ) {
 
-    Node.call( this );
-
     // nodes
     var cuvetteNode = new Path( null, { stroke: 'black', lineWidth: 3 } );
     var solutionNode = new Rectangle( 0, 0, 1, 1, { lineWidth: 0.5 } );
@@ -55,6 +53,8 @@ define( function( require ) {
       lineWidth: 1,
       tandem: tandem.createTandem( 'arrowNode' )
     } );
+
+    Node.call( this, { tandem: tandem } );
 
     // rendering order
     this.addChild( solutionNode );
@@ -106,11 +106,6 @@ define( function( require ) {
     var position = modelViewTransform.modelToViewPosition( cuvette.location );
     this.x = position.x;
     this.y = position.y;
-
-    // tandem support
-    this.mutate( {
-      tandem: tandem
-    } );
   }
 
   beersLawLab.register( 'CuvetteNode', CuvetteNode );

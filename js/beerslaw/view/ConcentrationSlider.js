@@ -51,7 +51,7 @@ define( function( require ) {
    */
   function ConcentrationSlider( solutionProperty, tandem ) {
 
-    Node.call( this );
+    Node.call( this, { tandem: tandem } );
 
     // nodes
     // @private (phet-io)
@@ -124,11 +124,6 @@ define( function( require ) {
         oldSolution.concentrationProperty.unlink( concentrationObserver );
       }
       solution.concentrationProperty.link( concentrationObserver );
-    } );
-
-    // tandem support
-    this.mutate( {
-      tandem: tandem
     } );
   }
 

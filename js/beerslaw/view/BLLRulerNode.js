@@ -32,7 +32,7 @@ define( function( require ) {
   function BLLRulerNode( ruler, modelViewTransform, tandem ) {
 
     var self = this;
-    Node.call( this );
+    Node.call( this, { tandem: tandem } );
 
     // Compute tick labels, 1 major tick for every 0.5 unit of length, labels on the ticks that correspond to integer values.
     var majorTickLabels = [];
@@ -76,11 +76,6 @@ define( function( require ) {
       modelViewTransform: modelViewTransform
     } );
     this.addInputListener( this.movableDragHandler );
-
-    // tandem support
-    this.mutate( {
-      tandem: tandem
-    } );
   }
 
   beersLawLab.register( 'BLLRulerNode', BLLRulerNode );

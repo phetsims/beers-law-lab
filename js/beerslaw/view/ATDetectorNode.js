@@ -81,7 +81,7 @@ define( function( require ) {
 
     var self = this;
 
-    Node.call( this );
+    Node.call( this, { tandem: tandem } );
 
     // buttons for changing the detector 'mode'
     var textOptions = { font: new PhetFont( 18 ), fill: 'white' };
@@ -168,11 +168,6 @@ define( function( require ) {
     };
     detector.valueProperty.link( valueUpdater );
     detector.modeProperty.link( valueUpdater );
-
-    // tandem support
-    this.mutate( {
-      tandem: tandem
-    } );
   }
 
   beersLawLab.register( 'ATDetectorNode.BodyNode', BodyNode );
@@ -192,6 +187,7 @@ define( function( require ) {
     var self = this;
 
     ProbeNode.call( this, {
+      tandem: tandem,
       radius: 53,
       innerRadius: 40,
       handleWidth: 68,
@@ -227,11 +223,6 @@ define( function( require ) {
 
     // touch area
     this.touchArea = this.localBounds.dilatedXY( 0.25 * this.width, 0 );
-
-    // tandem support
-    this.mutate( {
-      tandem: tandem
-    } );
   }
 
   inherit( Node, ATProbeNode );

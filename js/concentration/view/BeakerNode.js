@@ -44,18 +44,18 @@ define( function( require ) {
    */
   function BeakerNode( beaker, modelViewTransform, tandem ) {
 
-    Node.call( this, { pickable: false } );
+    Node.call( this, { pickable: false, tandem: tandem } );
 
     // outline of the beaker, starting from upper left
     var width = modelViewTransform.modelToViewDeltaX( beaker.size.width );
     var height = modelViewTransform.modelToViewDeltaY( beaker.size.height );
     var outlineShape = new Shape()
-      .moveTo( -(width / 2 ) - RIM_OFFSET, -height - RIM_OFFSET )
-      .lineTo( -(width / 2), -height )
-      .lineTo( -(width / 2), 0 )
+      .moveTo( -( width / 2 ) - RIM_OFFSET, -height - RIM_OFFSET )
+      .lineTo( -( width / 2 ), -height )
+      .lineTo( -( width / 2 ), 0 )
       .lineTo( width / 2, 0 )
       .lineTo( width / 2, -height )
-      .lineTo( (width / 2) + RIM_OFFSET, -height - RIM_OFFSET );
+      .lineTo( ( width / 2 ) + RIM_OFFSET, -height - RIM_OFFSET );
     this.addChild( new Path( outlineShape, {
       stroke: 'black',
       lineWidth: 3,
@@ -110,11 +110,6 @@ define( function( require ) {
     var location = modelViewTransform.modelToViewPosition( beaker.location );
     this.x = location.x;
     this.y = location.y;
-
-    // tandem support
-    this.mutate( {
-      tandem: tandem
-    } );
   }
 
   beersLawLab.register( 'BeakerNode', BeakerNode );

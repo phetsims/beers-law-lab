@@ -46,6 +46,8 @@ define( function( require ) {
     var self = this;
 
     Node.call( this, {
+      tandem: tandem,
+
       // Performance optimization so Scenery won't fit blocks around this.
       // See https://github.com/phetsims/beers-law-lab/issues/113
       preventFit: true
@@ -126,11 +128,6 @@ define( function( require ) {
       exit: function() {
         upArrowNode.visible = downArrowNode.visible = false;
       }
-    } );
-
-    // tandem support
-    this.mutate( {
-      tandem: tandem
     } );
   }
 
