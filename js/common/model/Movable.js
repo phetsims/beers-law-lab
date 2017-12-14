@@ -12,27 +12,34 @@ define( function( require ) {
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var PhetioObject = require( 'TANDEM/PhetioObject' );
   var Property = require( 'AXON/Property' );
   var PropertyIO = require( 'AXON/PropertyIO' );
+  var Tandem = require( 'TANDEM/Tandem' );
   var Vector2IO = require( 'DOT/Vector2IO' );
 
   /**
    * @param {Vector2} location
    * @param {Bounds2} dragBounds
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    * @constructor
    */
-  function Movable( location, dragBounds, tandem ) {
+  function Movable( location, dragBounds, options ) {
+    options = _.extend( {
+      tandem: Tandem.required
+    }, options );
     this.locationProperty = new Property( location, {
-      tandem: tandem.createTandem( 'locationProperty' ),
+      tandem: options.tandem.createTandem( 'locationProperty' ),
       phetioType: PropertyIO( Vector2IO )
     } ); // @public
     this.dragBounds = dragBounds; // @public (read-only)
+
+    PhetioObject.call( this, options );
   }
 
   beersLawLab.register( 'Movable', Movable );
 
-  return inherit( Object, Movable, {
+  return inherit( PhetioObject, Movable, {
 
     // @public
     reset: function() {

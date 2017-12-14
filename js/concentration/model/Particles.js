@@ -12,18 +12,22 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var Emitter = require( 'AXON/Emitter' );
   var inherit = require( 'PHET_CORE/inherit' );
+  var PhetioObject = require( 'TANDEM/PhetioObject' );
 
   /**
+   * @param {Object} [options]
    * @constructor
    */
-  function Particles() {
+  function Particles( options ) {
     this.particles = []; // @public the particles in the collection
     this.changedEmitter = new Emitter(); // @private emit is called when the collection of particles changes
+
+    PhetioObject.call( this, options );
   }
 
   beersLawLab.register( 'Particles', Particles );
 
-  return inherit( Object, Particles, {
+  return inherit( PhetioObject, Particles, {
 
     /**
      * Adds a particle.

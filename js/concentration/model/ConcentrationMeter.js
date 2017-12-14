@@ -19,32 +19,37 @@ define( function( require ) {
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
   var PropertyIO = require( 'AXON/PropertyIO' );
+  var Tandem = require( 'TANDEM/Tandem' );
 
   // phet-io modules
-  var NumberIO = require( 'ifphetio!PHET_IO/types/NumberIO' );
   var NullableIO = require( 'ifphetio!PHET_IO/types/NullableIO' );
+  var NumberIO = require( 'ifphetio!PHET_IO/types/NumberIO' );
 
   /**
    * @param {Vector2} bodyLocation
    * @param {Bounds2} bodyDragBounds
    * @param {Vector2} probeLocation
    * @param {Bounds2} probeDragBounds
-   * @param {Tandem} tandem
+   * @param {Object} options
    * @constructor
    */
-  function ConcentrationMeter( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds, tandem ) {
+  function ConcentrationMeter( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds, options ) {
+
+    options = _.extend( {
+      tandem: Tandem.required
+    }, options );
 
     // @public concentration in mol/L or percent, depending on the concentrationMeterUnits query parameter.
     // null if the meter is not reading a value
     this.valueProperty = new Property( null, {
-      tandem: tandem.createTandem( 'valueProperty' ),
+      tandem: options.tandem.createTandem( 'valueProperty' ),
       units: 'moles/liter',
       phetioType: PropertyIO( NullableIO( NumberIO ) )
     } );
 
     // @public (read-only)
-    this.body = new Movable( bodyLocation, bodyDragBounds, tandem.createTandem( 'body' ) );
-    this.probe = new Movable( probeLocation, probeDragBounds, tandem.createTandem( 'probe' ) );
+    this.body = new Movable( bodyLocation, bodyDragBounds, { tandem: options.tandem.createTandem( 'body' ) } );
+    this.probe = new Movable( probeLocation, probeDragBounds, { tandem: options.tandem.createTandem( 'probe' ) } );
   }
 
   beersLawLab.register( 'ConcentrationMeter', ConcentrationMeter );

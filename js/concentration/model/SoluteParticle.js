@@ -9,7 +9,10 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var Tandem = require( 'TANDEM/Tandem' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var inherit = require( 'PHET_CORE/inherit' );
+  var PhetioObject = require( 'TANDEM/PhetioObject' );
   var Property = require( 'AXON/Property' );
 
   /**
@@ -17,9 +20,14 @@ define( function( require ) {
    * @param {number} size particles are square, this is the length of one side
    * @param {Vector2} location location of the particle in the beaker's coordinate frame
    * @param {number} orientation in radians
+   * @param {Object} [options]
    * @constructor
    */
-  function SoluteParticle( color, size, location, orientation ) {
+  function SoluteParticle( color, size, location, orientation, options ) {
+
+    options = _.extend( {
+      tandem: Tandem.required
+    }, options );
 
     // @public (read-only)
     this.color = color;
@@ -29,9 +37,10 @@ define( function( require ) {
     // @public
     this.locationProperty = new Property( location );
 
+    PhetioObject.call( this, options );
   }
 
   beersLawLab.register( 'SoluteParticle', SoluteParticle );
 
-  return SoluteParticle;
+  return inherit( PhetioObject, SoluteParticle );
 } );

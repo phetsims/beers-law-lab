@@ -64,8 +64,9 @@ define( function( require ) {
     // @public
     this.ruler = new Ruler( 2.1, 0.1, 0.35,
       new Vector2( this.cuvette.location.x - 2.6, this.cuvette.location.y + 4 ),
-      new Bounds2( 0, 0, 6, 5 ),
-      tandem.createTandem( 'ruler' )
+      new Bounds2( 0, 0, 6, 5 ), {
+        tandem: tandem.createTandem( 'ruler' )
+      }
     );
 
     // @public
@@ -76,8 +77,9 @@ define( function( require ) {
       new Bounds2( 0, 0, 7.9, 5.25 ),
       new Vector2( this.cuvette.location.x + 3, this.light.location.y ),
       new Bounds2( 0, 0, 7.9, 5.25 ),
-      this.light, this.cuvette, this.absorbance,
-      tandem.createTandem( 'detector' )
+      this.light, this.cuvette, this.absorbance, {
+        tandem: tandem.createTandem( 'detector' )
+      }
     );
 
     // @public

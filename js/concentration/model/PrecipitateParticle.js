@@ -22,36 +22,20 @@ define( function( require ) {
    * @param {Solute} solute
    * @param {Vector2} location location in the beaker's coordinate frame
    * @param {number} orientation in radians
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    * @constructor
    */
-  function PrecipitateParticle( solute, location, orientation, tandem ) {
-    SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation );
-
-    var self = this;
+  function PrecipitateParticle( solute, location, orientation, options ) {
+    options = _.extend( {
+      phetioType: PrecipitateParticleIO
+    }, options );
+    SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation, options );
 
     // @public (phet-io)
     this.solute = solute;
-
-    tandem.addInstance( this, {
-      phetioState: true,
-      phetioType: PrecipitateParticleIO
-    } );
-
-    // @private
-    this.disposePrecipitateParticle = function() {
-      tandem.removeInstance( self );
-    };
   }
 
   beersLawLab.register( 'PrecipitateParticle', PrecipitateParticle );
 
-  return inherit( SoluteParticle, PrecipitateParticle, {
-
-    // @public
-    dispose: function() {
-      this.disposePrecipitateParticle();
-      SoluteParticle.prototype.dispose && SoluteParticle.prototype.dispose.call( this );
-    }
-  } );
+  return inherit( SoluteParticle, PrecipitateParticle );
 } );

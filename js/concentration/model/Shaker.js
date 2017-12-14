@@ -13,6 +13,7 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
+  var Tandem = require( 'TANDEM/Tandem' );
 
   // phet-io modules
   var ShakerIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerIO' );
@@ -24,13 +25,16 @@ define( function( require ) {
    * @param {Property.<Solute>} soluteProperty
    * @param {number} maxDispensingRate
    * @param {boolean} visible
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    * @constructor
    */
-  function Shaker( location, dragBounds, orientation, soluteProperty, maxDispensingRate, visible, tandem ) {
+  function Shaker( location, dragBounds, orientation, soluteProperty, maxDispensingRate, visible, options ) {
 
+    options = _.extend( {
+      phetioType: ShakerIO
+    }, options );
     var self = this;
-    Movable.call( this, location, dragBounds, tandem );
+    Movable.call( this, location, dragBounds, options );
 
     // @public (read-only)
     this.orientation = orientation;
@@ -53,8 +57,6 @@ define( function( require ) {
     };
     this.emptyProperty.link( observer );
     this.visibleProperty.link( observer );
-
-    tandem.addInstance( this, { phetioState: true, phetioType: ShakerIO } );
   }
 
   beersLawLab.register( 'Shaker', Shaker );
