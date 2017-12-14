@@ -20,7 +20,7 @@ define( function( require ) {
   var Evaporator = require( 'BEERS_LAW_LAB/concentration/model/Evaporator' );
   var Faucet = require( 'BEERS_LAW_LAB/concentration/model/Faucet' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var IOObject = require( 'TANDEM/IOObject' );
+  var PhetioObject = require( 'TANDEM/PhetioObject' );
   var Precipitate = require( 'BEERS_LAW_LAB/concentration/model/Precipitate' );
   var Property = require( 'AXON/Property' );
   var PropertyIO = require( 'AXON/PropertyIO' );
@@ -133,12 +133,12 @@ define( function( require ) {
       self.dropper.enabledProperty.set( !self.dropper.emptyProperty.get() && !containsMaxSolute && self.solution.volumeProperty.get() < SOLUTION_VOLUME_RANGE.max );
     } );
 
-    IOObject.call( this, options );
+    PhetioObject.call( this, options );
   }
 
   beersLawLab.register( 'ConcentrationModel', ConcentrationModel );
 
-  return inherit( IOObject, ConcentrationModel, {
+  return inherit( PhetioObject, ConcentrationModel, {
 
     /*
      * May be called from PhET-iO before the UI is constructed to choose a different set of solutes.  The first solute

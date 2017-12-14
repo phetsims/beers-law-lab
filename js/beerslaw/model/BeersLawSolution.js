@@ -23,7 +23,7 @@ define( function( require ) {
   var ConcentrationTransform = require( 'BEERS_LAW_LAB/beerslaw/model/ConcentrationTransform' );
   var DerivedProperty = require( 'AXON/DerivedProperty' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var IOObject = require( 'TANDEM/IOObject' );
+  var PhetioObject = require( 'TANDEM/PhetioObject' );
   var MolarAbsorptivityData = require( 'BEERS_LAW_LAB/beerslaw/model/MolarAbsorptivityData' );
   var NumberProperty = require( 'AXON/NumberProperty' );
   var RangeWithValue = require( 'DOT/RangeWithValue' );
@@ -66,7 +66,7 @@ define( function( require ) {
       tandem: Tandem.required
     }, options );
 
-    IOObject.call( this, options );
+    PhetioObject.call( this, options );
 
     var self = this;
 
@@ -101,7 +101,7 @@ define( function( require ) {
 
   beersLawLab.register( 'BeersLawSolution', BeersLawSolution );
 
-  inherit( IOObject, BeersLawSolution, {
+  inherit( PhetioObject, BeersLawSolution, {
 
     // @public
     reset: function() {

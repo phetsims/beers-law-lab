@@ -12,7 +12,7 @@ define( function( require ) {
   var Tandem = require( 'TANDEM/Tandem' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var IOObject = require( 'TANDEM/IOObject' );
+  var PhetioObject = require( 'TANDEM/PhetioObject' );
   var Property = require( 'AXON/Property' );
 
   /**
@@ -37,10 +37,10 @@ define( function( require ) {
     // @public
     this.locationProperty = new Property( location );
 
-    IOObject.call( this, options );
+    PhetioObject.call( this, options );
   }
 
   beersLawLab.register( 'SoluteParticle', SoluteParticle );
 
-  return inherit( IOObject, SoluteParticle );
+  return inherit( PhetioObject, SoluteParticle );
 } );

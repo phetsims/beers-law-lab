@@ -14,7 +14,7 @@ define( function( require ) {
   var BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
   var Color = require( 'SCENERY/util/Color' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var IOObject = require( 'TANDEM/IOObject' );
+  var PhetioObject = require( 'TANDEM/PhetioObject' );
   var SoluteColorScheme = require( 'BEERS_LAW_LAB/concentration/model/SoluteColorScheme' );
   var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
@@ -72,7 +72,7 @@ define( function( require ) {
 
   beersLawLab.register( 'Solute', Solute );
 
-  inherit( IOObject, Solute, {
+  inherit( PhetioObject, Solute, {
 
     // @public gets the saturated concentration, in mol/L
     getSaturatedConcentration: function() {

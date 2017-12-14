@@ -12,7 +12,7 @@ define( function( require ) {
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var IOObject = require( 'TANDEM/IOObject' );
+  var PhetioObject = require( 'TANDEM/PhetioObject' );
   var Property = require( 'AXON/Property' );
   var PropertyIO = require( 'AXON/PropertyIO' );
   var Tandem = require( 'TANDEM/Tandem' );
@@ -34,12 +34,12 @@ define( function( require ) {
     } ); // @public
     this.dragBounds = dragBounds; // @public (read-only)
 
-    IOObject.call( this, options );
+    PhetioObject.call( this, options );
   }
 
   beersLawLab.register( 'Movable', Movable );
 
-  return inherit( IOObject, Movable, {
+  return inherit( PhetioObject, Movable, {
 
     // @public
     reset: function() {
