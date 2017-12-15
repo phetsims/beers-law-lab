@@ -55,7 +55,7 @@ define( function( require ) {
 
     // nodes
     // @private (phet-io)
-    this.track = new Track( TRACK_SIZE, solutionProperty, tandem.createTandem( 'track' ) );
+    this.track = new Track( TRACK_SIZE, solutionProperty, { tandem: tandem.createTandem( 'track' ) } );
 
     // @private (phet-io)
     this.thumb = new Thumb( THUMB_SIZE, TRACK_SIZE, solutionProperty, tandem.createTandem( 'thumb' ) );
