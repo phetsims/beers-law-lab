@@ -27,9 +27,11 @@ define( function( require ) {
    * @constructor
    */
   function ShakerParticle( solute, location, orientation, initialVelocity, acceleration, options ) {
+
     options = _.extend( {
       phetioType: ShakerParticleIO
     }, options );
+
     SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation, options );
 
     // @public (read-only, phet-io)

@@ -33,7 +33,9 @@ define( function( require ) {
     options = _.extend( {
       phetioType: ShakerIO
     }, options );
+
     var self = this;
+
     Movable.call( this, location, dragBounds, options );
 
     // @public (read-only)

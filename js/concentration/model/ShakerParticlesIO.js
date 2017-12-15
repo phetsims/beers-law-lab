@@ -16,7 +16,6 @@ define( function( require ) {
   var ShakerParticleIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticleIO' );
 
   /**
-   *
    * @param {ShakerParticles} shakerParticles
    * @param {string} phetioID
    * @constructor

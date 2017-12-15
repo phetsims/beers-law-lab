@@ -25,13 +25,17 @@ define( function( require ) {
    * @constructor
    */
   function Movable( location, dragBounds, options ) {
+
     options = _.extend( {
       tandem: Tandem.required
     }, options );
+
+    // @public
     this.locationProperty = new Property( location, {
       tandem: options.tandem.createTandem( 'locationProperty' ),
       phetioType: PropertyIO( Vector2IO )
-    } ); // @public
+    } );
+
     this.dragBounds = dragBounds; // @public (read-only)
 
     PhetioObject.call( this, options );

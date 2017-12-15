@@ -55,6 +55,7 @@ define( function( require ) {
       tandem: Tandem.required,
       phetioType: ConcentrationModelIO
     }, options );
+
     var tandem = options.tandem;
 
     // @public Solutes, in rainbow (ROYGBIV) order.

@@ -24,11 +24,13 @@ define( function( require ) {
   function BLLFaucetNode( faucet, modelViewTransform, tandem, options ) {
     var scale = 0.75;
     var horizontalPipeLength = modelViewTransform.modelToViewX( faucet.location.x - faucet.pipeMinX ) / scale;
+
     options = _.extend( {
       horizontalPipeLength: horizontalPipeLength,
       scale: scale,
       tandem: tandem
     }, options );
+
     FaucetNode.call( this, faucet.maxFlowRate, faucet.flowRateProperty, faucet.enabledProperty, options );
     this.translation = modelViewTransform.modelToViewPosition( faucet.location );
   }

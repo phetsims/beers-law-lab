@@ -26,9 +26,11 @@ define( function( require ) {
    * @constructor
    */
   function PrecipitateParticle( solute, location, orientation, options ) {
+
     options = _.extend( {
       phetioType: PrecipitateParticleIO
     }, options );
+
     SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation, options );
 
     // @public (phet-io)

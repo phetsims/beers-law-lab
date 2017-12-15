@@ -42,6 +42,7 @@ define( function( require ) {
       tandem: Tandem.required,
       phetioType: ShakerParticlesIO
     }, options );
+
     Particles.call( this, options );
 
     var self = this;
