@@ -136,15 +136,18 @@ define( function( require ) {
    *
    * @param {Dimension2} trackSize
    * @param {Property.<BeersLawSolution>} solutionProperty
-   * @param {Tandem} tandem
+   * @param {Object} options - required, contains tandem
    * @constructor
    */
-  function Track( trackSize, solutionProperty, tandem ) {
+  function Track( trackSize, solutionProperty, options ) {
 
     var self = this;
 
-    Rectangle.call( this, 0, 0, trackSize.width, trackSize.height,
-      { cursor: 'pointer', stroke: 'black', lineWidth: 1 } );
+    Rectangle.call( this, 0, 0, trackSize.width, trackSize.height, {
+      cursor: 'pointer',
+      stroke: 'black',
+      lineWidth: 1
+    } );
 
     // sync view with model
     var positionToConcentration;
@@ -166,7 +169,7 @@ define( function( require ) {
       solutionProperty.get().concentrationProperty.set( concentration );
     };
     this.addInputListener( new SimpleDragHandler( {
-      tandem: tandem.createTandem( 'inputListener' ),
+      tandem: options.tandem.createTandem( 'inputListener' ),
       start: function( event ) {
         handleEvent( event );
       },
