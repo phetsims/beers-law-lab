@@ -9,11 +9,11 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var Tandem = require( 'TANDEM/Tandem' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var PhetioObject = require( 'TANDEM/PhetioObject' );
   var Property = require( 'AXON/Property' );
+  var Tandem = require( 'TANDEM/Tandem' );
 
   /**
    * @param {Color} color

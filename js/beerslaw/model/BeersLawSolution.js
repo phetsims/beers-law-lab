@@ -23,9 +23,9 @@ define( function( require ) {
   var ConcentrationTransform = require( 'BEERS_LAW_LAB/beerslaw/model/ConcentrationTransform' );
   var DerivedProperty = require( 'AXON/DerivedProperty' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var PhetioObject = require( 'TANDEM/PhetioObject' );
   var MolarAbsorptivityData = require( 'BEERS_LAW_LAB/beerslaw/model/MolarAbsorptivityData' );
   var NumberProperty = require( 'AXON/NumberProperty' );
+  var PhetioObject = require( 'TANDEM/PhetioObject' );
   var RangeWithValue = require( 'DOT/RangeWithValue' );
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
