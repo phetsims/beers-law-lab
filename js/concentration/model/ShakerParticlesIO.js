@@ -1,7 +1,7 @@
 // Copyright 2017, University of Colorado Boulder
 
 /**
- *
+ * IO type for ShakerParticles.
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Andrew Adare (PhET Interactive Simulations)
  */
@@ -29,6 +29,10 @@ define( function( require ) {
 
     documentation: 'Base type for a group of particles.',
 
+    /**
+     * Clears the children from the model so it can be deserialized.
+     * @param {ShakerParticles} shakerParticles
+     */
     clearChildInstances: function( shakerParticles ) {
       assert && assertInstanceOf( shakerParticles, phet.beersLawLab.ShakerParticles );
 

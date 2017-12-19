@@ -1,7 +1,7 @@
 // Copyright 2017, University of Colorado Boulder
 
 /**
- *
+ * IO type for BeersLawSolution.
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Andrew Adare (PhET Interactive Simulations)
  */
@@ -28,11 +28,22 @@ define( function( require ) {
   phetioInherit( ObjectIO, 'BeersLawSolutionIO', BeersLawSolutionIO, {}, {
     documentation: 'The solution for the sim',
 
-    // Because the simulation has a Property that contains BeersLawSolution, the Property relies on these methods for saving and loading the values.
+    /**
+     * Deserializes an instance.
+     * Because the simulation has a Property that contains BeersLawSolution,
+     * the Property relies on these methods for saving and loading the values.
+     * @param {Object} stateObject
+     * @returns {BeersLawSolution}
+     */
     fromStateObject: function( stateObject ) {
       return phetio.getWrapper( stateObject ).instance;
     },
 
+    /**
+     * Serializes an instance.
+     * @param {BeersLawSolution} beersLawSolution
+     * @returns {Object}
+     */
     toStateObject: function( beersLawSolution ) {
       assert && assertInstanceOf( beersLawSolution, phet.beersLawLab.BeersLawSolution );
       return beersLawSolution.phetioID;

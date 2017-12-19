@@ -1,7 +1,7 @@
 // Copyright 2017, University of Colorado Boulder
 
 /**
- *
+ * IO type for ShakerParticle.
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Andrew Adare (PhET Interactive Simulations)
  */
@@ -29,6 +29,11 @@ define( function( require ) {
   phetioInherit( SoluteParticleIO, 'ShakerParticleIO', ShakerParticleIO, {}, {
     documentation: 'A particle that comes from the shaker.',
 
+    /**
+     * Deserializes an instance.
+     * @param {Object} stateObject
+     * @returns {ShakerParticle}
+     */
     fromStateObject: function( stateObject ) {
       var soluteParticle = SoluteParticleIO.fromStateObject( stateObject );
       return _.extend( soluteParticle, {
@@ -38,6 +43,11 @@ define( function( require ) {
       } );
     },
 
+    /**
+     * Serializes an instance.
+     * @param {ShakerParticle} shakerParticle
+     * @returns {Object}
+     */
     toStateObject: function( shakerParticle ) {
       assert && assertInstanceOf( shakerParticle, phet.beersLawLab.ShakerParticle );
       var soluteParticle = SoluteParticleIO.toStateObject( shakerParticle );

@@ -1,7 +1,7 @@
 // Copyright 2017, University of Colorado Boulder
 
 /**
- *
+ * IO type for SoluteParticle.
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Andrew Adare (PhET Interactive Simulations)
  */
@@ -28,6 +28,11 @@ define( function( require ) {
 
   phetioInherit( ObjectIO, 'SoluteParticleIO', SoluteParticleIO, {}, {
 
+    /**
+     * Deserializes an instance.
+     * @param {Object} stateObject
+     * @returns {{location: Vector2, orientation: number}}
+     */
     fromStateObject: function( stateObject ) {
       return {
         location: Vector2IO.fromStateObject( stateObject.location ),
@@ -35,6 +40,11 @@ define( function( require ) {
       };
     },
 
+    /**
+     * Serializes an instance
+     * @param soluteParticle
+     * @returns {Object}
+     */
     toStateObject: function( soluteParticle ) {
       assert && assertInstanceOf( soluteParticle, phet.beersLawLab.SoluteParticle );
       return {
