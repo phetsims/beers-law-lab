@@ -58,9 +58,9 @@ define( function( require ) {
     },
 
     /**
-     * TODO document
+     * TODO #222 document
      * @param {Shaker} shaker
-     * @param valueFromStateObject TODO type expression
+     * @param valueFromStateObject TODO #222 type expression
      */
     setValue: function( shaker, valueFromStateObject ) {
       assert && assertInstanceOf( shaker, phet.beersLawLab.Shaker );
