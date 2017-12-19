@@ -38,15 +38,30 @@ define( function( require ) {
   }, {
     documentation: 'The Shaker that releases solute',
 
+    /**
+     * Serializes an instance.
+     * @param {Shaker} shaker
+     * @returns {Object}
+     */
     toStateObject: function( shaker ) {
       assert && assertInstanceOf( shaker, phet.beersLawLab.Shaker );
       return { location: Vector2IO.toStateObject( shaker.previousLocation ) };
     },
 
+    /**
+     * Deserializes an instance.
+     * @param {Object} stateObject
+     * @returns {{location: Vector2}}
+     */
     fromStateObject: function( stateObject ) {
       return { location: Vector2IO.fromStateObject( stateObject.location ) };
     },
 
+    /**
+     * TODO document
+     * @param {Shaker} shaker
+     * @param valueFromStateObject TODO type expression
+     */
     setValue: function( shaker, valueFromStateObject ) {
       assert && assertInstanceOf( shaker, phet.beersLawLab.Shaker );
       shaker.previousLocation.set( valueFromStateObject.location );
