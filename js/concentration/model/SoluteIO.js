@@ -53,9 +53,9 @@ define( function( require ) {
       return phetio.getWrapper( stateObject ).instance;
     },
 
-    toStateObject: function( instance ) {
-      assert && assertInstanceOf( instance, phet.beersLawLab.Solute );
-      return instance.phetioID;
+    toStateObject: function( solute ) {
+      assert && assertInstanceOf( solute, phet.beersLawLab.Solute );
+      return solute.phetioID;
     }
   } );
 

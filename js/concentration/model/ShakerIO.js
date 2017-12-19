@@ -38,18 +38,18 @@ define( function( require ) {
   }, {
     documentation: 'The Shaker that releases solute',
 
-    toStateObject: function( instance ) {
-      assert && assertInstanceOf( instance, phet.beersLawLab.Shaker );
-      return { location: Vector2IO.toStateObject( instance.previousLocation ) };
+    toStateObject: function( shaker ) {
+      assert && assertInstanceOf( shaker, phet.beersLawLab.Shaker );
+      return { location: Vector2IO.toStateObject( shaker.previousLocation ) };
     },
 
     fromStateObject: function( stateObject ) {
       return { location: Vector2IO.fromStateObject( stateObject.location ) };
     },
 
-    setValue: function( instance, valueFromStateObject ) {
-      assert && assertInstanceOf( instance, phet.beersLawLab.Shaker );
-      instance.previousLocation.set( valueFromStateObject.location );
+    setValue: function( shaker, valueFromStateObject ) {
+      assert && assertInstanceOf( shaker, phet.beersLawLab.Shaker );
+      shaker.previousLocation.set( valueFromStateObject.location );
     }
   } );
 

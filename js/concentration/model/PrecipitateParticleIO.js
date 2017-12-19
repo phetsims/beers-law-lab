@@ -16,13 +16,13 @@ define( function( require ) {
   var SoluteParticleIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticleIO' );
 
   /**
-   * @param instance
-   * @param phetioID
+   * @param {PrecipitateParticle} precipitateParticle
+   * @param {string} phetioID
    * @constructor
    */
-  function PrecipitateParticleIO( instance, phetioID ) {
-    assert && assertInstanceOf( instance, phet.beersLawLab.PrecipitateParticle );
-    SoluteParticleIO.call( this, instance, phetioID );
+  function PrecipitateParticleIO( precipitateParticle, phetioID ) {
+    assert && assertInstanceOf( precipitateParticle, phet.beersLawLab.PrecipitateParticle );
+    SoluteParticleIO.call( this, precipitateParticle, phetioID );
   }
 
   phetioInherit( SoluteParticleIO, 'PrecipitateParticleIO', PrecipitateParticleIO, {}, {

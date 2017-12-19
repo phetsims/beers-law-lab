@@ -18,14 +18,13 @@ define( function( require ) {
   var VoidIO = require( 'ifphetio!PHET_IO/types/VoidIO' );
 
   /**
-   * 
-   * @param instance
-   * @param phetioID
+   * @param {ConcentrationModel} concentrationModel
+   * @param {string} phetioID
    * @constructor
    */
-  function ConcentrationModelIO( instance, phetioID ) {
-    assert && assertInstanceOf( instance, phet.beersLawLab.ConcentrationModel );
-    ObjectIO.call( this, instance, phetioID );
+  function ConcentrationModelIO( concentrationModel, phetioID ) {
+    assert && assertInstanceOf( concentrationModel, phet.beersLawLab.ConcentrationModel );
+    ObjectIO.call( this, concentrationModel, phetioID );
   }
 
   phetioInherit( ObjectIO, 'ConcentrationModelIO', ConcentrationModelIO, {
