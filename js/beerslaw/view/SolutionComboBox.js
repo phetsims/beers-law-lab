@@ -70,7 +70,7 @@ define( function( require ) {
     } );
     var solutionName = new RichText( solution.getDisplayName(), {
       font: new PhetFont( 20 ),
-      tandem: tandem.createTandem( solution.tandemName + '.text' )
+      tandem: tandem.createTandem( solution.tandemName + 'Text' )
     } );
     node.addChild( colorSquare );
     node.addChild( solutionName );
