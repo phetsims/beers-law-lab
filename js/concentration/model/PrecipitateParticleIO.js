@@ -2,6 +2,7 @@
 
 /**
  * IO type for PrecipitateParticle.
+ * 
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Andrew Adare (PhET Interactive Simulations)
  */

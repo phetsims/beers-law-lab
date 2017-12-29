@@ -2,6 +2,7 @@
 
 /**
  * IO type for ShakerParticles.
+ *
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Andrew Adare (PhET Interactive Simulations)
  */
