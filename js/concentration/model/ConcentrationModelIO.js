@@ -29,9 +29,6 @@ define( function( require ) {
   }
 
   phetioInherit( ObjectIO, 'ConcentrationModelIO', ConcentrationModelIO, {
-
-    // For instance:
-    // http://localhost/concentration/concentration_en.html?ea&brand=phet-io&phetioStandalone&phetioLog=lines
     setSolutes: {
       parameterTypes: [ ArrayIO( SoluteIO ) ],
       returnType: VoidIO,
