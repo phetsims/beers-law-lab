@@ -68,6 +68,7 @@ define( function( require ) {
     assert && assert( this.stockSolutionPercentConcentration >= 0 && this.stockSolutionPercentConcentration <= 100 );
 
     this.tandemName = options.tandem.tail;
+    PhetioObject.call( this, options );
   }
 
   beersLawLab.register( 'Solute', Solute );
