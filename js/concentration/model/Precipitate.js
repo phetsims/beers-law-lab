@@ -25,7 +25,8 @@ define( function( require ) {
    */
   function Precipitate( solution, beaker, options ) {
     options = _.extend( {
-      tandem: Tandem.required
+      tandem: Tandem.required,
+      phetioState: false
     }, options );
 
     Particles.call( this, options );

@@ -27,7 +27,8 @@ define( function( require ) {
   function Movable( location, dragBounds, options ) {
 
     options = _.extend( {
-      tandem: Tandem.required
+      tandem: Tandem.required,
+      phetioState: false // location is through composition
     }, options );
 
     // @public

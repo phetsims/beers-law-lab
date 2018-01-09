@@ -53,7 +53,8 @@ define( function( require ) {
 
     options = _.extend( {
       tandem: Tandem.required,
-      phetioType: ConcentrationModelIO
+      phetioType: ConcentrationModelIO,
+      phetioState: false // does not contribute self-state, all of the state is from child instances (via composition)
     }, options );
 
     var tandem = options.tandem;
