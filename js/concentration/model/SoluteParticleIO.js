@@ -52,8 +52,7 @@ define( function( require ) {
         location: Vector2IO.toStateObject( soluteParticle.locationProperty.get() ),
         orientation: NumberIO.toStateObject( soluteParticle.orientation )
       };
-    },
-    documentation: 'A particle that shows at the bottom of a saturated solution.'
+    }
   } );
 
   beersLawLab.register( 'SoluteParticleIO', SoluteParticleIO );
