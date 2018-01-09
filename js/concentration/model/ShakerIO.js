@@ -62,11 +62,11 @@ define( function( require ) {
      * Set the location of the shaker using the value parsed in fromStateObject.  This method is automatically called by
      * phetio.js when setting the state.
      * @param {Shaker} shaker
-     * @param {{location: Vector2}} valueFromStateObject - the value returned by fromStateObject
+     * @param {{location: Vector2}} fromStateObject - the value returned by fromStateObject
      */
-    setValue: function( shaker, valueFromStateObject ) {
+    setValue: function( shaker, fromStateObject ) {
       assert && assertInstanceOf( shaker, phet.beersLawLab.Shaker );
-      shaker.previousLocation.set( valueFromStateObject.location );
+      shaker.previousLocation.set( fromStateObject.location );
     }
   } );
 
