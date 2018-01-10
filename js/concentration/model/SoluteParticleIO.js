@@ -30,7 +30,7 @@ define( function( require ) {
   phetioInherit( ObjectIO, 'SoluteParticleIO', SoluteParticleIO, {}, {
 
     /**
-     * Deserializes an instance.
+     * Deserializes an instance.  Not called by PhET-iO directly, but rather called from its subtypes.
      * @param {Object} stateObject
      * @returns {{location: Vector2, orientation: number}}
      */
@@ -42,7 +42,7 @@ define( function( require ) {
     },
 
     /**
-     * Serializes an instance
+     * Serializes an instance.  Not called by PhET-iO directly, but rather called from its subtypes.
      * @param soluteParticle
      * @returns {Object}
      */
