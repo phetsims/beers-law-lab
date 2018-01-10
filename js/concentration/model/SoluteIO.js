@@ -51,15 +51,6 @@ define( function( require ) {
     documentation: 'The Solute for the sim.',
 
     /**
-     * Deserializes an instance.
-     * @param {Object} stateObject
-     * @returns {Solute}
-     */
-    fromStateObject: function( stateObject ) {
-      return phetio.getWrapper( stateObject ).instance;
-    },
-
-    /**
      * Serializes an instance.
      * @param {Solute} solute
      * @returns {Object}
@@ -67,6 +58,15 @@ define( function( require ) {
     toStateObject: function( solute ) {
       assert && assertInstanceOf( solute, phet.beersLawLab.Solute );
       return solute.phetioID;
+    },
+
+    /**
+     * Deserializes an instance.
+     * @param {Object} stateObject
+     * @returns {Solute}
+     */
+    fromStateObject: function( stateObject ) {
+      return phetio.getWrapper( stateObject ).instance;
     }
   } );
 

@@ -2,7 +2,7 @@
 
 /**
  * IO type for PrecipitateParticle.
- * 
+ *
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Andrew Adare (PhET Interactive Simulations)
  */
@@ -29,16 +29,6 @@ define( function( require ) {
   phetioInherit( SoluteParticleIO, 'PrecipitateParticleIO', PrecipitateParticleIO, {}, {
 
     /**
-     * Deserializes an instance.
-     * @param {Object} stateObject
-     * @returns {PrecipitateParticle}
-     */
-    fromStateObject: function( stateObject ) {
-      var soluteParticle = SoluteParticleIO.fromStateObject( stateObject );
-      return _.extend( soluteParticle, { solute: SoluteIO.fromStateObject( stateObject.solute ) } );
-    },
-
-    /**
      * Serializes an instance.
      * @param {PrecipitateParticle} precipitateParticle
      * @returns {Object}
@@ -48,6 +38,17 @@ define( function( require ) {
       var soluteParticle = SoluteParticleIO.toStateObject( precipitateParticle );
       return _.extend( soluteParticle, { solute: SoluteIO.toStateObject( precipitateParticle.solute ) } );
     },
+
+    /**
+     * Deserializes an instance.
+     * @param {Object} stateObject
+     * @returns {PrecipitateParticle}
+     */
+    fromStateObject: function( stateObject ) {
+      var soluteParticle = SoluteParticleIO.fromStateObject( stateObject );
+      return _.extend( soluteParticle, { solute: SoluteIO.fromStateObject( stateObject.solute ) } );
+    },
+
     documentation: 'A particle that shows at the bottom of a saturated solution.'
   } );
 

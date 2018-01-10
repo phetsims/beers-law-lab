@@ -31,20 +31,6 @@ define( function( require ) {
     documentation: 'A particle that comes from the shaker.',
 
     /**
-     * Deserializes an instance.
-     * @param {Object} stateObject
-     * @returns {ShakerParticle}
-     */
-    fromStateObject: function( stateObject ) {
-      var soluteParticle = SoluteParticleIO.fromStateObject( stateObject );
-      return _.extend( soluteParticle, {
-        solute: SoluteIO.fromStateObject( stateObject.solute ),
-        velocity: Vector2IO.fromStateObject( stateObject.velocity ),
-        acceleration: Vector2IO.fromStateObject( stateObject.acceleration )
-      } );
-    },
-
-    /**
      * Serializes an instance.
      * @param {ShakerParticle} shakerParticle
      * @returns {Object}
@@ -56,6 +42,20 @@ define( function( require ) {
         solute: SoluteIO.toStateObject( shakerParticle.solute ),
         velocity: Vector2IO.toStateObject( shakerParticle.velocity ),
         acceleration: Vector2IO.toStateObject( shakerParticle.acceleration )
+      } );
+    },
+
+    /**
+     * Deserializes an instance.
+     * @param {Object} stateObject
+     * @returns {ShakerParticle}
+     */
+    fromStateObject: function( stateObject ) {
+      var soluteParticle = SoluteParticleIO.fromStateObject( stateObject );
+      return _.extend( soluteParticle, {
+        solute: SoluteIO.fromStateObject( stateObject.solute ),
+        velocity: Vector2IO.fromStateObject( stateObject.velocity ),
+        acceleration: Vector2IO.fromStateObject( stateObject.acceleration )
       } );
     }
   } );

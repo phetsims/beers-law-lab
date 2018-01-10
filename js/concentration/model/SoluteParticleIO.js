@@ -30,18 +30,6 @@ define( function( require ) {
   phetioInherit( ObjectIO, 'SoluteParticleIO', SoluteParticleIO, {}, {
 
     /**
-     * Deserializes an instance.  Not called by PhET-iO directly, but rather called from its subtypes.
-     * @param {Object} stateObject
-     * @returns {{location: Vector2, orientation: number}}
-     */
-    fromStateObject: function( stateObject ) {
-      return {
-        location: Vector2IO.fromStateObject( stateObject.location ),
-        orientation: NumberIO.fromStateObject( stateObject.orientation )
-      };
-    },
-
-    /**
      * Serializes an instance.  Not called by PhET-iO directly, but rather called from its subtypes.
      * @param soluteParticle
      * @returns {Object}
@@ -51,6 +39,18 @@ define( function( require ) {
       return {
         location: Vector2IO.toStateObject( soluteParticle.locationProperty.get() ),
         orientation: NumberIO.toStateObject( soluteParticle.orientation )
+      };
+    },
+
+    /**
+     * Deserializes an instance.  Not called by PhET-iO directly, but rather called from its subtypes.
+     * @param {Object} stateObject
+     * @returns {{location: Vector2, orientation: number}}
+     */
+    fromStateObject: function( stateObject ) {
+      return {
+        location: Vector2IO.fromStateObject( stateObject.location ),
+        orientation: NumberIO.fromStateObject( stateObject.orientation )
       };
     }
   } );
