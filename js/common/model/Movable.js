@@ -12,7 +12,6 @@ define( function( require ) {
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var PhetioObject = require( 'TANDEM/PhetioObject' );
   var Property = require( 'AXON/Property' );
   var PropertyIO = require( 'AXON/PropertyIO' );
   var Tandem = require( 'TANDEM/Tandem' );
@@ -27,8 +26,7 @@ define( function( require ) {
   function Movable( location, dragBounds, options ) {
 
     options = _.extend( {
-      tandem: Tandem.required,
-      phetioState: false // location is through composition
+      tandem: Tandem.required
     }, options );
 
     // @public
@@ -38,13 +36,11 @@ define( function( require ) {
     } );
 
     this.dragBounds = dragBounds; // @public (read-only)
-
-    PhetioObject.call( this, options );
   }
 
   beersLawLab.register( 'Movable', Movable );
 
-  return inherit( PhetioObject, Movable, {
+  return inherit( Object, Movable, {
 
     // @public
     reset: function() {
