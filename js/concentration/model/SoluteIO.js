@@ -57,7 +57,7 @@ define( function( require ) {
      */
     toStateObject: function( solute ) {
       assert && assertInstanceOf( solute, phet.beersLawLab.Solute );
-      return solute.phetioID;
+      return solute.phetioObjectTandem.phetioID;
     },
 
     /**
