@@ -33,7 +33,6 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules
-
   var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
 
   // constants
