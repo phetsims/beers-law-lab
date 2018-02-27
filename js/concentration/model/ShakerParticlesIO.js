@@ -10,13 +10,15 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
-  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
   var ShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticle' );
   var ShakerParticleIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticleIO' );
   var Vector2 = require( 'DOT/Vector2' );
+
+  // phet-io modules
+  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
+  var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
+  var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
 
   /**
    * @param {ShakerParticles} shakerParticles

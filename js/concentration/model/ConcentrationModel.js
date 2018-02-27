@@ -14,6 +14,7 @@ define( function( require ) {
   var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var ConcentrationMeter = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationMeter' );
+  var ConcentrationModelIO = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationModelIO' );
   var ConcentrationSolution = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationSolution' );
   var Dimension2 = require( 'DOT/Dimension2' );
   var Dropper = require( 'BEERS_LAW_LAB/concentration/model/Dropper' );
@@ -27,12 +28,12 @@ define( function( require ) {
   var Shaker = require( 'BEERS_LAW_LAB/concentration/model/Shaker' );
   var ShakerParticles = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticles' );
   var Solute = require( 'BEERS_LAW_LAB/concentration/model/Solute' );
+  var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
   var Tandem = require( 'TANDEM/Tandem' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // phet-io modules
-  var ConcentrationModelIO = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationModelIO' );
-  var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
+
   var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
 
   // constants
