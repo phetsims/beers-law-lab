@@ -49,7 +49,7 @@ define( function( require ) {
      * @returns {BeersLawSolution}
      */
     fromStateObject: function( stateObject ) {
-      return phetio.getWrapper( stateObject ).instance;
+      return phetio.getInstance( stateObject );
     }
   } );
 

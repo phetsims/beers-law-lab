@@ -68,7 +68,7 @@ define( function( require ) {
      * @returns {Solute}
      */
     fromStateObject: function( stateObject ) {
-      return phetio.getWrapper( stateObject ).instance;
+      return phetio.getInstance( stateObject );
     }
   } );
 
