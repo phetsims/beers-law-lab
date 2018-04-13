@@ -96,6 +96,7 @@ define( function( require ) {
         return color;
       } );
 
+    // @public - the name of the solution in tandem id format. Used to other make tandems that pertain to this solution.
     this.tandemName = options.tandem.tail;
   }
 

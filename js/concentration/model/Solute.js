@@ -67,6 +67,7 @@ define( function( require ) {
                                              ( Solvent.WATER.density + ( molarMass * stockSolutionConcentration ) );
     assert && assert( this.stockSolutionPercentConcentration >= 0 && this.stockSolutionPercentConcentration <= 100 );
 
+    // @public - the name of the solute in tandem id format. Used to other make tandems that pertain to this solute.
     this.tandemName = options.tandem.tail;
     PhetioObject.call( this, options );
   }
