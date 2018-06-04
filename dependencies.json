@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.5.5 Mon Jun 04 2018 12:30:33 GMT-0600 (MDT)",
+  "comment": "# beers-law-lab 1.5.6-phetiorc.1 Mon Jun 04 2018 14:37:35 GMT-0600 (MDT)",
   "assert": {
     "sha": "845be6b591cb746b0b05b7023208aef2e49a8855",
     "branch": "HEAD"
@@ -9,7 +9,7 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "97b8f82e93ae2cdad9fba2f679f6b939c5974841",
+    "sha": "6132cc4ebe09572b79fe25b4e71b8a2b08e7ea4d",
     "branch": "1.5-phetio"
   },
   "brand": {
@@ -40,6 +40,14 @@
     "sha": "4222a05a927792580846b3bf9b1b53decf154943",
     "branch": "HEAD"
   },
+  "phet-io": {
+    "sha": "6352e95738b27ebba901b66bb776cb81d554d55e",
+    "branch": "HEAD"
+  },
+  "phet-io-website": {
+    "sha": "528402554ab49e7dd2eb5de3044cd90ab8100e8f",
+    "branch": "HEAD"
+  },
   "phetcommon": {
     "sha": "8df1bf7d38949062dd6bf08800a0eebdce838d98",
     "branch": "HEAD"
@@ -50,7 +58,7 @@
   },
   "scenery": {
     "sha": "c2398d6e78d8ce9f26684331b2dc36df14a76dfc",
-    "branch": "beers-law-lab-1.5-phetio"
+    "branch": "HEAD"
   },
   "scenery-phet": {
     "sha": "5ced4569a646e71adc900dcb918ca76644207a9e",
