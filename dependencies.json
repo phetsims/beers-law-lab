@@ -1,79 +1,71 @@
 {
-  "comment": "# beers-law-lab 1.5.5-phetio Thu Nov 03 2016 21:15:09 GMT-0600 (MDT)",
+  "comment": "# beers-law-lab 1.5.5 Mon Jun 04 2018 12:30:33 GMT-0600 (MDT)",
   "assert": {
     "sha": "845be6b591cb746b0b05b7023208aef2e49a8855",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "axon": {
     "sha": "ae6c9fcaf1d96aabdadb17a007d9eeff37cb6fc7",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "0cf3c1a4b8d06c6cf406bb37a550132c3b41a02a",
+    "sha": "97b8f82e93ae2cdad9fba2f679f6b939c5974841",
     "branch": "1.5-phetio"
   },
   "brand": {
     "sha": "880a18ded11185580cf5950e568931cf0df4eb87",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "chipper": {
     "sha": "135e20644856fc923f67360d19084638be1b280d",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "dot": {
     "sha": "cf5237a34d2ee239658fcc65a83c78bab21a52ce",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "joist": {
     "sha": "b8a63f2e955dde0b959bf728a66932b33424aa24",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "kite": {
     "sha": "d506825f0e044f9715f94b2aac23dbd52b139a82",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "nitroglycerin": {
     "sha": "b19c167e47ee5a7dd879d4fe9f35c66d03a5362d",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "phet-core": {
     "sha": "4222a05a927792580846b3bf9b1b53decf154943",
-    "branch": "master"
-  },
-  "phet-io": {
-    "sha": "6352e95738b27ebba901b66bb776cb81d554d55e",
-    "branch": "master"
-  },
-  "phet-io-website": {
-    "sha": "528402554ab49e7dd2eb5de3044cd90ab8100e8f",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "phetcommon": {
     "sha": "8df1bf7d38949062dd6bf08800a0eebdce838d98",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "query-string-machine": {
     "sha": "53531ef190ec03d090c8eb123833b20d976b0a04",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "scenery": {
-    "sha": "2a1b78887e5769a27093d176a1fa6e630b18ae5b",
-    "branch": "master"
+    "sha": "c2398d6e78d8ce9f26684331b2dc36df14a76dfc",
+    "branch": "beers-law-lab-1.5-phetio"
   },
   "scenery-phet": {
     "sha": "5ced4569a646e71adc900dcb918ca76644207a9e",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "sherpa": {
     "sha": "7a7b88b0658d2ee65bdf66cf232a46a6c20c9917",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "sun": {
     "sha": "b17e495df32a5118e4924399a49ae13499f19ed5",
-    "branch": "master"
+    "branch": "HEAD"
   },
   "tandem": {
     "sha": "9319527488a8d5d298e52f2b165db27fab7944a1",
-    "branch": "master"
+    "branch": "HEAD"
   }
 }
