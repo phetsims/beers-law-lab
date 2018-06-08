@@ -15,7 +15,7 @@ define( function( require ) {
   var SoluteParticleIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticleIO' );
   var Vector2IO = require( 'DOT/Vector2IO' );
 
-  // phet-io modules
+  // ifphetio
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
 

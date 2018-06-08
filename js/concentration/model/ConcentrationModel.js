@@ -32,7 +32,7 @@ define( function( require ) {
   var Tandem = require( 'TANDEM/Tandem' );
   var Vector2 = require( 'DOT/Vector2' );
 
-  // phet-io modules
+  // ifphetio
   var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
 
   // constants

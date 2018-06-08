@@ -35,7 +35,7 @@ define( function( require ) {
   var variableString = require( 'string!BEERS_LAW_LAB/variable' );
   var wavelengthString = require( 'string!BEERS_LAW_LAB/wavelength' );
 
-  // phet-io modules
+  // ifphetio
   var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
 
   /**

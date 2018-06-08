@@ -18,7 +18,7 @@ define( function( require ) {
   var Tandem = require( 'TANDEM/Tandem' );
   var Vector2 = require( 'DOT/Vector2' );
 
-  // phet-io modules
+  // ifphetio
   var ShakerParticlesIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticlesIO' );
 
   // Units for speed and acceleration are not meaningful here, adjust these so that it looks good.

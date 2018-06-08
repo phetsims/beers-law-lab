@@ -13,7 +13,7 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
 
-  // phet-io modules
+  // ifphetio
   var ArrayIO = require( 'ifphetio!PHET_IO/types/ArrayIO' );
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );

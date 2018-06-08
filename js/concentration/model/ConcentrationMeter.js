@@ -21,7 +21,7 @@ define( function( require ) {
   var PropertyIO = require( 'AXON/PropertyIO' );
   var Tandem = require( 'TANDEM/Tandem' );
 
-  // phet-io modules
+  // ifphetio
   var NullableIO = require( 'ifphetio!PHET_IO/types/NullableIO' );
   var NumberIO = require( 'ifphetio!PHET_IO/types/NumberIO' );
 

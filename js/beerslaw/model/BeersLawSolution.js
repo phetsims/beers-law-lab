@@ -32,7 +32,7 @@ define( function( require ) {
   var Tandem = require( 'TANDEM/Tandem' );
   var Util = require( 'DOT/Util' );
 
-  // phet-io modules
+  // ifphetio
   var BeersLawSolutionIO = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolutionIO' );
 
   // strings

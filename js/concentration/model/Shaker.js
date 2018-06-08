@@ -14,7 +14,7 @@ define( function( require ) {
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
 
-  // phet-io modules
+  // ifphetio
   var ShakerIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerIO' );
 
   /**

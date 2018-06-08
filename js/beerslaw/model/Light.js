@@ -18,7 +18,7 @@ define( function( require ) {
   var Range = require( 'DOT/Range' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
-  // phet-io modules
+  // ifphetio
   var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
 
   /**

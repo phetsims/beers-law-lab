@@ -20,7 +20,7 @@ define( function( require ) {
   var NumberProperty = require( 'AXON/NumberProperty' );
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
 
-  // phet-io modules
+  // ifphetio
   var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
   var NumberIO = require( 'ifphetio!PHET_IO/types/NumberIO' );
 

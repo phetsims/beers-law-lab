@@ -24,7 +24,7 @@ define( function( require ) {
   var Ruler = require( 'BEERS_LAW_LAB/beerslaw/model/Ruler' );
   var Vector2 = require( 'DOT/Vector2' );
 
-  // phet-io modules
+  // ifphetio
   var BeersLawSolutionIO = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolutionIO' );
 
   var CUVETTE_WIDTH_RANGE = new RangeWithValue( 0.5, 2.0, 1.0 );
