@@ -38,6 +38,7 @@ define( function( require ) {
   var THUMB_FILL_HIGHLIGHT = THUMB_FILL_NORMAL.brighterColor();
   var THUMB_STROKE = Color.BLACK;
   var THUMB_CENTER_LINE_STROKE = Color.WHITE;
+  var THUMB_INTERVAL = 5; // see https://github.com/phetsims/beers-law-lab/issues/229
 
   // tick constants
   var TICK_LENGTH = 16;
@@ -254,7 +255,7 @@ define( function( require ) {
         self.removeInputListener( dragHandler );
         dragHandler.dispose();
       }
-      dragHandler = new ThumbDragHandler( self, solution.concentrationProperty,
+      dragHandler = new ThumbDragHandler( self, solution,
         new LinearFunction( 0, trackSize.width, solution.concentrationRange.min, solution.concentrationRange.max, true /* clamp */ ),
         tandem.createTandem( 'dragHandler' ) );
       self.addInputListener( dragHandler );
@@ -286,12 +287,12 @@ define( function( require ) {
   /**
    * Drag handler for the slider thumb.
    * @param {Node} dragNode
-   * @param {Property.<number>} concentrationProperty
+   * @param {BeersLawSolution} solution
    * @param {LinearFunction} positionToValue
    * @param {Tandem} tandem
    * @constructor
    */
-  function ThumbDragHandler( dragNode, concentrationProperty, positionToValue, tandem ) {
+  function ThumbDragHandler( dragNode, solution, positionToValue, tandem ) {
     var clickXOffset; // x-offset between initial click and thumb's origin
     SimpleDragHandler.call( this, {
       tandem: tandem,
@@ -301,8 +302,9 @@ define( function( require ) {
       },
       drag: function( event ) {
         var x = dragNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
-        var newValue = positionToValue( x );
-        concentrationProperty.set( newValue );
+        var interval = solution.concentrationTransform.viewToModel( THUMB_INTERVAL );
+        var newValue = Util.roundToInterval( positionToValue( x ), interval );
+        solution.concentrationProperty.set( newValue );
       }
     } );
   }
