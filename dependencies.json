@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.6.5-phetio Fri Jul 13 2018 12:05:35 GMT-0600 (MDT)",
+  "comment": "# beers-law-lab 1.6.5-phetio Fri Jul 13 2018 12:34:50 GMT-0600 (MDT)",
   "assert": {
     "sha": "1ea1df653504bc6eeb454051cedc7fb970a10cac",
     "branch": "HEAD"
@@ -9,7 +9,7 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "efde1630090a2c62968c5ff7df9bd6449af5d03c",
+    "sha": "2470508d96dcefea7283c54f27a5e48246c29ae1",
     "branch": "1.6-phetio"
   },
   "brand": {
