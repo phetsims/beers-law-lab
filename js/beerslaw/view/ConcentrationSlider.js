@@ -42,6 +42,7 @@ define( function( require ) {
   var THUMB_FILL_HIGHLIGHT = THUMB_FILL_NORMAL.brighterColor();
   var THUMB_STROKE = Color.BLACK;
   var THUMB_CENTER_LINE_STROKE = Color.WHITE;
+  var THUMB_INTERVAL = 5; // see https://github.com/phetsims/beers-law-lab/issues/229
 
   // tick constants
   var TICK_LENGTH = 16;
@@ -257,7 +258,7 @@ define( function( require ) {
         self.removeInputListener( dragHandler );
         dragHandler.dispose();
       }
-      dragHandler = new ThumbDragHandler( self, solution.concentrationProperty,
+      dragHandler = new ThumbDragHandler( self, solution,
         new LinearFunction( 0, trackSize.width, solution.concentrationRange.min, solution.concentrationRange.max, true /* clamp */ ),
         tandem.createTandem( 'dragHandler' ) );
       self.addInputListener( dragHandler );
@@ -290,12 +291,12 @@ define( function( require ) {
   /**
    * Drag handler for the slider thumb.
    * @param {Node} dragNode
-   * @param {Property.<number>} concentrationProperty
+   * @param {BeersLawSolution} solution
    * @param {LinearFunction} positionToValue
    * @param {Tandem} tandem
    * @constructor
    */
-  function ThumbDragHandler( dragNode, concentrationProperty, positionToValue, tandem ) {
+  function ThumbDragHandler( dragNode, solution, positionToValue, tandem ) {
     var clickXOffset; // x-offset between initial click and thumb's origin
     TandemDragHandler.call( this, {
       tandem: tandem,
@@ -305,8 +306,9 @@ define( function( require ) {
       },
       drag: function( event ) {
         var x = dragNode.globalToParentPoint( event.pointer.point ).x - clickXOffset;
-        var newValue = positionToValue( x );
-        concentrationProperty.set( newValue );
+        var interval = solution.concentrationTransform.viewToModel( THUMB_INTERVAL );
+        var newValue = roundToInterval( positionToValue( x ), interval );
+        solution.concentrationProperty.set( newValue );
       }
     } );
   }
@@ -314,6 +316,24 @@ define( function( require ) {
   beersLawLab.register( 'ConcentrationSlider.ThumbDragHandler', ThumbDragHandler );
 
   inherit( TandemDragHandler, ThumbDragHandler );
+
+  // Patch for https://github.com/phetsims/beers-law-lab/issues/229,
+  // missing from DOT/Util in 1.6-phetio release branch dependencies.
+  function roundToInterval( value, interval ) {
+    return Util.toFixedNumber( Util.roundSymmetric( value / interval ) * interval, numberOfDecimalPlaces( interval ) );
+  }
+
+  // Patch for https://github.com/phetsims/beers-law-lab/issues/229,
+  // missing from DOT/Util in 1.6-phetio release branch dependencies.
+  function numberOfDecimalPlaces( value ) {
+    var count = 0;
+    var multiplier = 1;
+    while ( ( value * multiplier ) % 1 !== 0 ) {
+      count++;
+      multiplier *= 10;
+    }
+    return count;
+  }
 
   return inherit( Node, ConcentrationSlider );
 } );
