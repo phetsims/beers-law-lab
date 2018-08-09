@@ -1,15 +1,15 @@
 Beer's Law Lab
 =============
-"Beer's Law Lab" is an educational simulation in HTML5, by <a href="http://phet.colorado.edu/" target="_blank">PhET Interactive Simulations</a>
+"Beer's Law Lab" is an educational simulation in HTML5, by <a href="https://phet.colorado.edu/" target="_blank">PhET Interactive Simulations</a>
 at the University of Colorado Boulder.
 For a description of this simulation, associated resources, and a link to the published version,
-<a href="http://phet.colorado.edu/en/simulation/beers-law-lab" target="_blank">visit the simulation's web page</a>.
+<a href="https://phet.colorado.edu/en/simulation/beers-law-lab" target="_blank">visit the simulation's web page</a>.
 
 ### Try it!
 
-<a href="http://phet.colorado.edu/sims/html/beers-law-lab/latest/beers-law-lab_en.html" target="_blank">Click here to run "Beer's Law Lab".</a>
+<a href="https://phet.colorado.edu/sims/html/beers-law-lab/latest/beers-law-lab_en.html" target="_blank">Click here to run "Beer's Law Lab".</a>
 
-<a href="http://phet.colorado.edu/sims/html/beers-law-lab/latest/beers-law-lab_en.html" target="_blank">
+<a href="https://phet.colorado.edu/sims/html/beers-law-lab/latest/beers-law-lab_en.html" target="_blank">
 <img src="https://raw.githubusercontent.com/phetsims/beers-law-lab/master/assets/beers-law-lab-screenshot.png" alt="Screenshot" style="width: 400px;"/>
 </a>
 
