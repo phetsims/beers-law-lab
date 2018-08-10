@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.6.6-phetio Wed Aug 08 2018 15:14:44 GMT-0600 (MDT)",
+  "comment": "# beers-law-lab 1.6.6-phetio Thu Aug 09 2018 23:19:46 GMT-0600 (MDT)",
   "assert": {
     "sha": "1ea1df653504bc6eeb454051cedc7fb970a10cac",
     "branch": "HEAD"
@@ -9,7 +9,7 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "fb7661e187add2bd01b218a59a96cc5b22dceb32",
+    "sha": "b7afb48b57af227614f9282639c7454d8db82a82",
     "branch": "1.6-phetio"
   },
   "brand": {
@@ -17,8 +17,8 @@
     "branch": "HEAD"
   },
   "chipper": {
-    "sha": "9da21cf2afdef7d6831cb4f9e65ded65b6d22c2d",
-    "branch": "HEAD"
+    "sha": "a169325627df9068a220160380d2bcf875116f06",
+    "branch": "beers-law-lab-1.6-phetio"
   },
   "dot": {
     "sha": "56d026b65ec9142f7299d8f3999177c17ca8ca3a",
@@ -49,8 +49,8 @@
     "branch": "HEAD"
   },
   "phetcommon": {
-    "sha": "1238594252b94003f9794d9f3c72a35df6411d0d",
-    "branch": "HEAD"
+    "sha": "9ef3abd3fb973142e1ce05e22b010f862a0ebc16",
+    "branch": "beers-law-lab-1.6-phetio"
   },
   "query-string-machine": {
     "sha": "24ad72efe69d4bd6301e0b05fab98b4cca2635fc",
