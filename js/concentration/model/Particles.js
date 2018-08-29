@@ -3,7 +3,7 @@
 /**
  * Abstract base type for a collection of particles.
  *
- * @author Chris Malley
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   'use strict';

@@ -3,7 +3,7 @@
 /**
  * Control for wavelength.
  *
- * @author Chris Malley (PixelZoom, Inc)
+ * @author Chris Malley (PixelZoom, Inc.)
  */
 define( function( require ) {
   'use strict';
