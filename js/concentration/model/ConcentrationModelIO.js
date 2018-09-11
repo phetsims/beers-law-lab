@@ -37,7 +37,8 @@ define( function( require ) {
       implementation: function( solutes ) {
         this.instance.setSolutes( solutes );
       },
-      documentation: 'Set which solutes are allowed for selection'
+      documentation: 'Set which solutes are allowed for selection',
+      canBeInvokedForReadOnlyInstances: false
     }
   }, { documentation: 'The model for the concentration screen.' } );
 

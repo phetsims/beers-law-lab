@@ -38,7 +38,8 @@ define( function( require ) {
       implementation: function( text ) {
         this.instance.name = text;
       },
-      documentation: 'Set the name of the solute'
+      documentation: 'Set the name of the solute',
+      canBeInvokedForReadOnlyInstances: false
     },
 
     setFormula: {
@@ -47,7 +48,8 @@ define( function( require ) {
       implementation: function( text ) {
         this.instance.formula = text;
       },
-      documentation: 'Set the formula of the solute'
+      documentation: 'Set the formula of the solute',
+      canBeInvokedForReadOnlyInstances: false
     }
   }, {
     documentation: 'The Solute for the sim.',
