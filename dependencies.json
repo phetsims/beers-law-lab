@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.4.9-rc.1 Fri Sep 21 2018 19:10:40 GMT-0600 (MDT)",
+  "comment": "# beers-law-lab 1.4.9 Mon Sep 24 2018 17:58:40 GMT-0600 (MDT)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -9,7 +9,7 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "0329f0a895b648624e93af88fc94f9c683d73bf6",
+    "sha": "3ae07e1537389c0782d44ffaa4a289ee5ec61f8e",
     "branch": "1.4"
   },
   "brand": {
