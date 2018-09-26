@@ -39,7 +39,7 @@ define( function( require ) {
         this.instance.name = text;
       },
       documentation: 'Set the name of the solute',
-      canBeInvokedForReadOnlyInstances: false
+      invocableForReadOnlyInstances: false
     },
 
     setFormula: {
@@ -49,7 +49,7 @@ define( function( require ) {
         this.instance.formula = text;
       },
       documentation: 'Set the formula of the solute',
-      canBeInvokedForReadOnlyInstances: false
+      invocableForReadOnlyInstances: false
     }
   }, {
     documentation: 'The Solute for the sim.',
