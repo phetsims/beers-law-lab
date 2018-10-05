@@ -35,6 +35,7 @@ define( function( require ) {
      * Serializes an instance.
      * @param {BeersLawSolution} beersLawSolution
      * @returns {Object}
+     * @override
      */
     toStateObject: function( beersLawSolution ) {
       assert && assertInstanceOf( beersLawSolution, phet.beersLawLab.BeersLawSolution );
@@ -47,6 +48,7 @@ define( function( require ) {
      * the Property relies on these methods for saving and loading the values.
      * @param {Object} stateObject
      * @returns {BeersLawSolution}
+     * @override
      */
     fromStateObject: function( stateObject ) {
       return phetio.getInstance( stateObject );
