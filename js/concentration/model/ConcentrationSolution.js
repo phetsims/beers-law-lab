@@ -21,8 +21,8 @@ define( function( require ) {
   var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
 
   // ifphetio
-  var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
-  var NumberIO = require( 'ifphetio!PHET_IO/types/NumberIO' );
+  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
+  var NumberIO = require( 'TANDEM/types/NumberIO' );
 
   /**
    * @param {Property.<Solute>} soluteProperty

@@ -36,7 +36,7 @@ define( function( require ) {
   var wavelengthString = require( 'string!BEERS_LAW_LAB/wavelength' );
 
   // ifphetio
-  var BooleanIO = require( 'ifphetio!PHET_IO/types/BooleanIO' );
+  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
 
   /**
    * @param {Property.<BeersLawSolution>} solutionProperty

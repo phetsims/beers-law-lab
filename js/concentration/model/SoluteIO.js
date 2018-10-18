@@ -14,11 +14,11 @@ define( function( require ) {
 
   // ifphetio
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
-  var ObjectIO = require( 'ifphetio!PHET_IO/types/ObjectIO' );
+  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var phetio = require( 'ifphetio!PHET_IO/phetio' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var StringIO = require( 'ifphetio!PHET_IO/types/StringIO' );
-  var VoidIO = require( 'ifphetio!PHET_IO/types/VoidIO' );
+  var StringIO = require( 'TANDEM/types/StringIO' );
+  var VoidIO = require( 'TANDEM/types/VoidIO' );
 
   /**
    * @param {Solute} solute
