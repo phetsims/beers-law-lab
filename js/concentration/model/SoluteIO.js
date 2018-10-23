@@ -11,14 +11,14 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
+  var StringIO = require( 'TANDEM/types/StringIO' );
+  var VoidIO = require( 'TANDEM/types/VoidIO' );
 
   // ifphetio
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
-  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var phetio = require( 'ifphetio!PHET_IO/phetio' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var StringIO = require( 'TANDEM/types/StringIO' );
-  var VoidIO = require( 'TANDEM/types/VoidIO' );
 
   /**
    * @param {Solute} solute

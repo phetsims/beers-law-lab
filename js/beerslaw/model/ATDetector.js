@@ -15,14 +15,12 @@ define( function( require ) {
   var DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
-  var Property = require( 'AXON/Property' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
-  var Tandem = require( 'TANDEM/Tandem' );
-
-  // ifphetio
   var NullableIO = require( 'TANDEM/types/NullableIO' );
   var NumberIO = require( 'TANDEM/types/NumberIO' );
+  var Property = require( 'AXON/Property' );
+  var PropertyIO = require( 'AXON/PropertyIO' );
   var StringIO = require( 'TANDEM/types/StringIO' );
+  var Tandem = require( 'TANDEM/Tandem' );
 
   /**
    * @param {Vector2} bodyLocation

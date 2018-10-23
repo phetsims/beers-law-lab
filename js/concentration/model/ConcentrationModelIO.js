@@ -10,15 +10,15 @@ define( function( require ) {
   'use strict';
 
   // modules
+  var ArrayIO = require( 'TANDEM/types/ArrayIO' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
+  var VoidIO = require( 'TANDEM/types/VoidIO' );
 
   // ifphetio
-  var ArrayIO = require( 'TANDEM/types/ArrayIO' );
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
-  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
-  var VoidIO = require( 'TANDEM/types/VoidIO' );
 
   /**
    * @param {ConcentrationModel} concentrationModel

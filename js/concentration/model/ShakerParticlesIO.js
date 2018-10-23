@@ -11,13 +11,13 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var ShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticle' );
   var ShakerParticleIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticleIO' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // ifphetio
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
-  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var phetioInherit = require( 'ifphetio!PHET_IO/phetioInherit' );
 
   /**

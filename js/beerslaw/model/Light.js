@@ -11,15 +11,13 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
   var inherit = require( 'PHET_CORE/inherit' );
   var NumberProperty = require( 'AXON/NumberProperty' );
   var Property = require( 'AXON/Property' );
   var PropertyIO = require( 'AXON/PropertyIO' );
   var Range = require( 'DOT/Range' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
-
-  // ifphetio
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
 
   /**
    * @param {Vector2} location cm

@@ -10,14 +10,12 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var NumberProperty = require( 'AXON/NumberProperty' );
   var Property = require( 'AXON/Property' );
   var PropertyIO = require( 'AXON/PropertyIO' );
-
-  // ifphetio
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
 
   /**
    * @param {Vector2} location

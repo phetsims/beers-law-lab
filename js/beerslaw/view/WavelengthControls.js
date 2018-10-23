@@ -12,6 +12,7 @@ define( function( require ) {
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
   var HBox = require( 'SCENERY/nodes/HBox' );
   var HStrut = require( 'SCENERY/nodes/HStrut' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -34,9 +35,6 @@ define( function( require ) {
   var unitsNmString = require( 'string!BEERS_LAW_LAB/units.nm' );
   var variableString = require( 'string!BEERS_LAW_LAB/variable' );
   var wavelengthString = require( 'string!BEERS_LAW_LAB/wavelength' );
-
-  // ifphetio
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
 
   /**
    * @param {Property.<BeersLawSolution>} solutionProperty

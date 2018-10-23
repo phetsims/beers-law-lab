@@ -17,13 +17,11 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
+  var NullableIO = require( 'TANDEM/types/NullableIO' );
+  var NumberIO = require( 'TANDEM/types/NumberIO' );
   var Property = require( 'AXON/Property' );
   var PropertyIO = require( 'AXON/PropertyIO' );
   var Tandem = require( 'TANDEM/Tandem' );
-
-  // ifphetio
-  var NullableIO = require( 'TANDEM/types/NullableIO' );
-  var NumberIO = require( 'TANDEM/types/NumberIO' );
 
   /**
    * @param {Vector2} bodyLocation
