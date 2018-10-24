@@ -15,11 +15,9 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Particles = require( 'BEERS_LAW_LAB/concentration/model/Particles' );
   var ShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticle' );
+  var ShakerParticlesIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticlesIO' );
   var Tandem = require( 'TANDEM/Tandem' );
   var Vector2 = require( 'DOT/Vector2' );
-
-  // ifphetio
-  var ShakerParticlesIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticlesIO' );
 
   // Units for speed and acceleration are not meaningful here, adjust these so that it looks good.
   var INITIAL_SPEED = 100;

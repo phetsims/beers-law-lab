@@ -14,6 +14,7 @@ define( function( require ) {
   var Beam = require( 'BEERS_LAW_LAB/beerslaw/model/Beam' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BeersLawSolution = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolution' );
+  var BeersLawSolutionIO = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolutionIO' );
   var Bounds2 = require( 'DOT/Bounds2' );
   var Cuvette = require( 'BEERS_LAW_LAB/beerslaw/model/Cuvette' );
   var inherit = require( 'PHET_CORE/inherit' );
@@ -23,9 +24,6 @@ define( function( require ) {
   var RangeWithValue = require( 'DOT/RangeWithValue' );
   var Ruler = require( 'BEERS_LAW_LAB/beerslaw/model/Ruler' );
   var Vector2 = require( 'DOT/Vector2' );
-
-  // ifphetio
-  var BeersLawSolutionIO = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolutionIO' );
 
   var CUVETTE_WIDTH_RANGE = new RangeWithValue( 0.5, 2.0, 1.0 );
 

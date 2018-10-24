@@ -13,10 +13,8 @@ define( function( require ) {
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
-
-  // ifphetio
   var PrecipitateParticleIO = require( 'BEERS_LAW_LAB/concentration/model/PrecipitateParticleIO' );
+  var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
 
   /**
    * @param {Solute} solute

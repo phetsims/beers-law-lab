@@ -16,6 +16,7 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var BeersLawSolutionIO = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolutionIO' );
   var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   var BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
   var Color = require( 'SCENERY/util/Color' );
@@ -31,9 +32,6 @@ define( function( require ) {
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Tandem = require( 'TANDEM/Tandem' );
   var Util = require( 'DOT/Util' );
-
-  // ifphetio
-  var BeersLawSolutionIO = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolutionIO' );
 
   // strings
   var cobaltChlorideString = require( 'string!BEERS_LAW_LAB/cobaltChloride' );

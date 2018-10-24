@@ -13,8 +13,6 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var Property = require( 'AXON/Property' );
-
-  // ifphetio
   var ShakerIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerIO' );
 
   /**
