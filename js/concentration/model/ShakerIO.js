@@ -12,9 +12,9 @@ define( function( require ) {
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
+  var phetioInherit = require( 'TANDEM/phetioInherit' );
   var Vector2IO = require( 'DOT/Vector2IO' );
   var VoidIO = require( 'TANDEM/types/VoidIO' );
-  var phetioInherit = require( 'TANDEM/phetioInherit' );
 
   // ifphetio
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );

@@ -13,9 +13,9 @@ define( function( require ) {
   var ArrayIO = require( 'TANDEM/types/ArrayIO' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
+  var phetioInherit = require( 'TANDEM/phetioInherit' );
   var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
   var VoidIO = require( 'TANDEM/types/VoidIO' );
-  var phetioInherit = require( 'TANDEM/phetioInherit' );
 
   // ifphetio
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
