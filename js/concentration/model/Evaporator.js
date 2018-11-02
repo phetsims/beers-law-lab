@@ -10,11 +10,9 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
+  var BooleanProperty = require( 'AXON/BooleanProperty' );
   var inherit = require( 'PHET_CORE/inherit' );
   var NumberProperty = require( 'AXON/NumberProperty' );
-  var Property = require( 'AXON/Property' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
 
   /**
    * @param {number} maxEvaporationRate L/sec
@@ -33,9 +31,8 @@ define( function( require ) {
       tandem: tandem.createTandem( 'evaporationRateProperty' ),
       units: 'liters/second'
     } ); // L/sec
-    this.enabledProperty = new Property( true, {
-      tandem: tandem.createTandem( 'enabledProperty' ),
-      phetioType: PropertyIO( BooleanIO )
+    this.enabledProperty = new BooleanProperty( true, {
+      tandem: tandem.createTandem( 'enabledProperty' )
     } );
 
     // disable when the volume gets to zero

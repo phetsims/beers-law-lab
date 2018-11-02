@@ -12,15 +12,13 @@ define( function( require ) {
   var AquaRadioButton = require( 'SUN/AquaRadioButton' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
+  var BooleanProperty = require( 'AXON/BooleanProperty' );
   var HBox = require( 'SCENERY/nodes/HBox' );
   var HStrut = require( 'SCENERY/nodes/HStrut' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Panel = require( 'SUN/Panel' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var Property = require( 'AXON/Property' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
@@ -45,9 +43,8 @@ define( function( require ) {
   function WavelengthControls( solutionProperty, light, tandem ) {
 
     // @private is the wavelength variable or fixed?
-    this.variableWavelengthProperty = new Property( false, {
-      tandem: tandem.createTandem( 'variableWavelengthProperty' ),
-      phetioType: PropertyIO( BooleanIO )
+    this.variableWavelengthProperty = new BooleanProperty( false, {
+      tandem: tandem.createTandem( 'variableWavelengthProperty' )
     } );
 
     var xMargin = 7;

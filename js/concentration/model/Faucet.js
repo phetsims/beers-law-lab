@@ -11,9 +11,9 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var BooleanProperty = require( 'AXON/BooleanProperty' );
   var inherit = require( 'PHET_CORE/inherit' );
   var NumberProperty = require( 'AXON/NumberProperty' );
-  var Property = require( 'AXON/Property' );
 
   /**
    * @param {Vector2} location center of output pipe
@@ -40,7 +40,7 @@ define( function( require ) {
       tandem: tandem.createTandem( 'flowRateProperty' ),
       units: 'liters/second'
     } );
-    this.enabledProperty = new Property( true );
+    this.enabledProperty = new BooleanProperty( true );
 
     // when disabled, turn off the faucet.
     this.enabledProperty.link( function( enabled ) {

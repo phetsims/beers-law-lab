@@ -17,9 +17,7 @@ define( function( require ) {
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var NullableIO = require( 'TANDEM/types/NullableIO' );
   var NumberIO = require( 'TANDEM/types/NumberIO' );
-  var Property = require( 'AXON/Property' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
-  var StringIO = require( 'TANDEM/types/StringIO' );
+  var StringProperty = require( 'AXON/StringProperty' );
   var Tandem = require( 'TANDEM/Tandem' );
 
   /**
@@ -48,9 +46,8 @@ define( function( require ) {
     } ); // @public
 
     // @public for switching between absorbance (A) and percent transmittance (%T)
-    this.modeProperty = new Property( ATDetector.Mode.TRANSMITTANCE, {
-      tandem: options.tandem.createTandem( 'modeProperty' ),
-      phetioType: PropertyIO( StringIO )
+    this.modeProperty = new StringProperty( ATDetector.Mode.TRANSMITTANCE, {
+      tandem: options.tandem.createTandem( 'modeProperty' )
     } );
 
     // @public value is either absorbance (A) or percent transmittance (%T) depending on mode

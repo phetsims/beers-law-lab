@@ -10,9 +10,10 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  var BooleanProperty = require( 'AXON/BooleanProperty' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
-  var Property = require( 'AXON/Property' );
+  var NumberProperty = require( 'AXON/NumberProperty' );
   var ShakerIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerIO' );
 
   /**
@@ -41,9 +42,9 @@ define( function( require ) {
 
     // @public
     this.soluteProperty = soluteProperty;
-    this.visibleProperty = new Property( visible );
-    this.emptyProperty = new Property( false );
-    this.dispensingRateProperty = new Property( 0 );
+    this.visibleProperty = new BooleanProperty( visible );
+    this.emptyProperty = new BooleanProperty( false );
+    this.dispensingRateProperty = new NumberProperty( 0 );
 
     // @public (phet-io)
     this.previousLocation = location;

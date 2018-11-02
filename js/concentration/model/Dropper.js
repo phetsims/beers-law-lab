@@ -10,12 +10,10 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
+  var BooleanProperty = require( 'AXON/BooleanProperty' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   var NumberProperty = require( 'AXON/NumberProperty' );
-  var Property = require( 'AXON/Property' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
 
   /**
    * @param {Vector2} location
@@ -33,15 +31,13 @@ define( function( require ) {
 
     // @public
     this.soluteProperty = soluteProperty;
-    this.visibleProperty = new Property( visible );
-    this.dispensingProperty = new Property( false, {
-      tandem: options.tandem.createTandem( 'dispensingProperty' ),
-      phetioType: PropertyIO( BooleanIO )
+    this.visibleProperty = new BooleanProperty( visible );
+    this.dispensingProperty = new BooleanProperty( false, {
+      tandem: options.tandem.createTandem( 'dispensingProperty' )
     } ); // true if the dropper is dispensing solution
-    this.enabledProperty = new Property( true );
-    this.emptyProperty = new Property( false, {
-      tandem: options.tandem.createTandem( 'emptyProperty' ),
-      phetioType: PropertyIO( BooleanIO )
+    this.enabledProperty = new BooleanProperty( true );
+    this.emptyProperty = new BooleanProperty( false, {
+      tandem: options.tandem.createTandem( 'emptyProperty' )
     } );
     this.flowRateProperty = new NumberProperty( 0, {
       tandem: options.tandem.createTandem( 'flowRateProperty' ),

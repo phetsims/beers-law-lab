@@ -29,7 +29,7 @@ define( function( require ) {
   var ShakerParticles = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticles' );
   var Solute = require( 'BEERS_LAW_LAB/concentration/model/Solute' );
   var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
-  var StringIO = require( 'TANDEM/types/StringIO' );
+  var StringProperty = require( 'AXON/StringProperty' );
   var Tandem = require( 'TANDEM/Tandem' );
   var Vector2 = require( 'DOT/Vector2' );
 
@@ -75,10 +75,10 @@ define( function( require ) {
       tandem: tandem.createTandem( 'soluteProperty' ),
       phetioType: PropertyIO( SoluteIO )
     } );
-    this.soluteFormProperty = new Property( 'solid', {
-      tandem: tandem.createTandem( 'soluteFormProperty' ),
-      phetioType: PropertyIO( StringIO )
-    } ); // 'solid' or 'solution'
+    this.soluteFormProperty = new StringProperty( 'solid', {
+      validValues: [ 'solid', 'solution' ],
+      tandem: tandem.createTandem( 'soluteFormProperty' )
+    } );
 
     // @public
     this.solution = new ConcentrationSolution( this.soluteProperty, SOLUTE_AMOUNT_RANGE.defaultValue, SOLUTION_VOLUME_RANGE.defaultValue, tandem.createTandem( 'solution' ) );

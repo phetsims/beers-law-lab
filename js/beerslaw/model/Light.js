@@ -11,11 +11,9 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
+  var BooleanProperty = require( 'AXON/BooleanProperty' );
   var inherit = require( 'PHET_CORE/inherit' );
   var NumberProperty = require( 'AXON/NumberProperty' );
-  var Property = require( 'AXON/Property' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
   var Range = require( 'DOT/Range' );
   var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
@@ -36,9 +34,8 @@ define( function( require ) {
     this.lensDiameter = lensDiameter;
 
     // @public
-    this.onProperty = new Property( on, {
-      tandem: tandem.createTandem( 'onProperty' ),
-      phetioType: PropertyIO( BooleanIO )
+    this.onProperty = new BooleanProperty( on, {
+      tandem: tandem.createTandem( 'onProperty' )
     } );
     this.wavelengthProperty = new NumberProperty( solutionProperty.get().molarAbsorptivityData.lambdaMax /*nm*/, {
       tandem: tandem.createTandem( 'wavelengthProperty' ),
