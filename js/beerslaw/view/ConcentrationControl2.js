@@ -57,8 +57,6 @@ define( function( require ) {
       }
     }, options );
 
-    console.log( 'phetioID=' + options.tandem.phetioID );
-
     // @public (read-only)
     this.solution = solution;
 
