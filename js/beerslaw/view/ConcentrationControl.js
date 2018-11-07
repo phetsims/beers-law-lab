@@ -47,6 +47,7 @@ define( function( require ) {
       arrowButtonScale: 1,
       trackSize: new Dimension2( 200, 15 ),
       thumbSize: new Dimension2( 22, 45 ),
+      valueMinBackgroundWidth: 95, // determined empirically
 
       // single-line horizontal layout
       layoutFunction: function( titleNode, numberDisplay, slider, leftArrowButton, rightArrowButton ) {
