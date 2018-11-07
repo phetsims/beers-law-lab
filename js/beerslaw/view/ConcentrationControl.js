@@ -22,6 +22,7 @@ define( function( require ) {
   var Range = require( 'DOT/Range' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
+  var Util = require( 'DOT/Util' );
 
   // strings
   var concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
@@ -31,6 +32,7 @@ define( function( require ) {
   // constants
   var FONT = new PhetFont( 20 );
   var TICK_FONT = new PhetFont( 16 );
+  var SLIDER_INTERVAL = 5; // in view units
 
   /**
    * @param {BeersLawSolution} solution
@@ -45,8 +47,6 @@ define( function( require ) {
       titleFont: FONT,
       valueFont: FONT,
       arrowButtonScale: 1,
-      trackSize: new Dimension2( 200, 15 ),
-      thumbSize: new Dimension2( 22, 45 ),
       valueMinBackgroundWidth: 95, // determined empirically
 
       // single-line horizontal layout
@@ -55,7 +55,15 @@ define( function( require ) {
           spacing: 5,
           children: [ titleNode, numberDisplay, new HStrut( 5 ), leftArrowButton, slider, rightArrowButton ]
         } );
+      },
+
+      // Slider options, passed through by NumberControl
+      trackSize: new Dimension2( 200, 15 ),
+      thumbSize: new Dimension2( 22, 45 ),
+      constrainValue: function( value ) {
+        return Util.roundToInterval( value, SLIDER_INTERVAL );
       }
+
     }, options );
 
     // @public (read-only)
@@ -97,7 +105,7 @@ define( function( require ) {
       transform.modelToView( solution.concentrationRange.min ),
       transform.modelToView( solution.concentrationRange.max )
     );
-    
+
     // ticks at the min and max of the solution's concentration range
     assert && assert( !options.majorTicks, 'ConcentrationControl sets majorTicks' );
     options.majorTicks = [];
