@@ -44,7 +44,7 @@ define( function( require ) {
     solutions.forEach( function( solution ) {
       concentrationControls.push( new ConcentrationControl( solution, {
         visible: false,
-        tandem: tandem.createTandem( solution.internalName + 'ConcentrationSlider' ),
+        tandem: tandem.createTandem( solution.internalName + 'ConcentrationControl' ),
         phetioDocumentation: 'the concentration control for ' + solution.name
       } ) );
     } );
