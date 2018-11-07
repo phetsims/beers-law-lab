@@ -10,11 +10,12 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var ConcentrationControl = require( 'BEERS_LAW_LAB/beerslaw/view/ConcentrationControl' );
+  var ConcentrationControl2 = require( 'BEERS_LAW_LAB/beerslaw/view/ConcentrationControl2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Panel = require( 'SUN/Panel' );
   var SolutionComboBox = require( 'BEERS_LAW_LAB/beerslaw/view/SolutionComboBox' );
+  var VBox = require( 'SCENERY/nodes/VBox' );
 
   /**
    * @param {BeersLawSolution[]} solutions
@@ -35,20 +36,35 @@ define( function( require ) {
       tandem: tandem
     }, options );
 
-    // nodes
+    // combo box, to select a solution
     var comboBox = new SolutionComboBox( solutions, currentSolutionProperty, solutionListParent, tandem.createTandem( 'comboBox' ) );
-    var concentrationControl = new ConcentrationControl( currentSolutionProperty, tandem.createTandem( 'concentrationControl' ) );
-    var contentNode = new Node();
 
-    // rendering order
-    contentNode.addChild( concentrationControl );
-    contentNode.addChild( comboBox );
+    // concentration controls, one for each solution
+    var concentrationControls = [];
+    solutions.forEach( function( solution ) {
+      concentrationControls.push( new ConcentrationControl2( solution, {
+        visible: false,
+        tandem: tandem.createTandem( solution.internalName + 'ConcentrationSlider' ),
+        phetioDocumentation: 'the concentration control for ' + solution.name
+      } ) );
+    } );
+    
+    var concentrationControlsParent = new Node( { children: concentrationControls } );
 
-    // layout
-    concentrationControl.left = comboBox.left;
-    concentrationControl.top = comboBox.bottom + 15;
+    var contentNode = new VBox( {
+      spacing: 15,
+      align: 'left',
+      children: [ comboBox, concentrationControlsParent ]
+    } );
 
     Panel.call( this, contentNode, options );
+
+    // Make the control visible for the selected solution
+    currentSolutionProperty.link( function( currentSolution ) {
+      concentrationControls.forEach( function( concentrationControl ) {
+        concentrationControl.visible = ( currentSolution === concentrationControl.solution );
+      } );
+    } );
   }
 
   beersLawLab.register( 'SolutionControls', SolutionControls );

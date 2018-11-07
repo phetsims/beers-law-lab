@@ -46,8 +46,9 @@ define( function( require ) {
   var potassiumPermanganateString = require( 'string!BEERS_LAW_LAB/potassiumPermanganate' );
 
   /**
-   * @param {string} name
-   * @param {string} formula
+   * @param {string} internalName - used internally, not displayed to the user
+   * @param {string} name - name that is visible to the user
+   * @param {string} formula - formula that is visible to the user
    * @param {MolarAbsorptivityData} molarAbsorptivityData
    * @param {RangeWithValue} concentrationRange
    * @param {ConcentrationTransform} concentrationTransform
@@ -55,8 +56,10 @@ define( function( require ) {
    * @param {Object} [options]
    * @constructor
    */
-  function BeersLawSolution( name, formula, molarAbsorptivityData, concentrationRange, concentrationTransform,
+  function BeersLawSolution( internalName, name, formula, molarAbsorptivityData, concentrationRange, concentrationTransform,
                              colorRange, options ) {
+    
+    assert && assert( internalName.indexOf( ' ' ) === -1, 'internalName cannot contain spaces: ' + internalName );
 
     options = _.extend( {
       saturatedColor: colorRange.max, // {Color} color to use when the solution is saturated
@@ -68,8 +71,9 @@ define( function( require ) {
 
     var self = this;
 
-    // @public
+    // @public (read-only)
     this.solvent = Solvent.WATER;
+    this.internalName = internalName;
     this.name = name;
     this.formula = formula;
     this.molarAbsorptivityData = molarAbsorptivityData;
@@ -115,6 +119,7 @@ define( function( require ) {
       return StringUtils.format( pattern0Formula1NameString, this.formula, this.name );
     },
 
+    //TODO #126 delete this when ConcentrationControl is rewritten
     // @public
     getDisplayConcentration: function( concentration ) {
       var valueText = Util.toFixed( this.concentrationTransform.modelToView( concentration ), 0 );
@@ -131,6 +136,7 @@ define( function( require ) {
   //-------------------------------------------------------------------------------------------
 
   BeersLawSolution.DRINK_MIX = new BeersLawSolution(
+    'drinkMix',
     drinkMixString,
     BLLSymbols.DRINK_MIX,
     MolarAbsorptivityData.DRINK_MIX,
@@ -142,6 +148,7 @@ define( function( require ) {
   );
 
   BeersLawSolution.COBALT_II_NITRATE = new BeersLawSolution(
+    'cobaltIINitrate',
     cobaltIINitrateString,
     BLLSymbols.COBALT_II_NITRATE,
     MolarAbsorptivityData.COBALT_II_NITRATE,
@@ -153,6 +160,7 @@ define( function( require ) {
   );
 
   BeersLawSolution.COBALT_CHLORIDE = new BeersLawSolution(
+    'cobaltChloride',
     cobaltChlorideString,
     BLLSymbols.COBALT_CHLORIDE,
     MolarAbsorptivityData.COBALT_CHLORIDE,
@@ -164,6 +172,7 @@ define( function( require ) {
   );
 
   BeersLawSolution.POTASSIUM_DICHROMATE = new BeersLawSolution(
+    'potassiumDichromate',
     potassiumDichromateString,
     BLLSymbols.POTASSIUM_DICHROMATE,
     MolarAbsorptivityData.POTASSIUM_DICHROMATE,
@@ -175,6 +184,7 @@ define( function( require ) {
   );
 
   BeersLawSolution.POTASSIUM_CHROMATE = new BeersLawSolution(
+    'potassiumChromate',
     potassiumChromateString,
     BLLSymbols.POTASSIUM_CHROMATE,
     MolarAbsorptivityData.POTASSIUM_CHROMATE,
@@ -186,6 +196,7 @@ define( function( require ) {
   );
 
   BeersLawSolution.NICKEL_II_CHLORIDE = new BeersLawSolution(
+    'nickelIIChloride',
     nickelIIChlorideString,
     BLLSymbols.NICKEL_II_CHLORIDE,
     MolarAbsorptivityData.NICKEL_II_CHLORIDE,
@@ -197,6 +208,7 @@ define( function( require ) {
   );
 
   BeersLawSolution.COPPER_SULFATE = new BeersLawSolution(
+    'copperSulfate',
     copperSulfateString,
     BLLSymbols.COPPER_SULFATE,
     MolarAbsorptivityData.COPPER_SULFATE,
@@ -208,6 +220,7 @@ define( function( require ) {
   );
 
   BeersLawSolution.POTASSIUM_PERMANGANATE = new BeersLawSolution(
+    'potassiumPermanganate',
     potassiumPermanganateString,
     BLLSymbols.POTASSIUM_PERMANGANATE,
     MolarAbsorptivityData.POTASSIUM_PERMANGANATE,
