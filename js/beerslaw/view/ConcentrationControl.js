@@ -37,7 +37,7 @@ define( function( require ) {
    * @param {Object} [options]
    * @constructor
    */
-  function ConcentrationControl2( solution, options ) {
+  function ConcentrationControl( solution, options ) {
 
     options = _.extend( {
 
@@ -65,14 +65,14 @@ define( function( require ) {
     var title = StringUtils.format( pattern0LabelString, concentrationString );
 
     // e.g. display units that are specific to the solution, e.g. '{0} mM'
-    assert && assert( !options.valuePattern, 'ConcentrationControl2 sets valuePattern' );
+    assert && assert( !options.valuePattern, 'ConcentrationControl sets valuePattern' );
     options.valuePattern = StringUtils.format( pattern0Value1UnitsString, '{0}', transform.units );
 
-    assert && assert( options.delta === undefined, 'ConcentrationControl2 sets delta' );
+    assert && assert( options.delta === undefined, 'ConcentrationControl sets delta' );
     options.delta = transform.viewToModel( 1 );
 
     // fill the track with a linear gradient that corresponds to the solution color
-    assert && assert( !options.trackFillEnabled, 'ConcentrationControl2 sets trackFillEnabled' );
+    assert && assert( !options.trackFillEnabled, 'ConcentrationControl sets trackFillEnabled' );
     options.trackFillEnabled = new LinearGradient( 0, 0, options.trackSize.width, 0 )
       .addColorStop( 0, solution.colorRange.min )
       .addColorStop( 1, solution.colorRange.max );
@@ -98,7 +98,7 @@ define( function( require ) {
     );
     
     // ticks at the min and max of the solution's concentration range
-    assert && assert( !options.majorTicks, 'ConcentrationControl2 sets majorTicks' );
+    assert && assert( !options.majorTicks, 'ConcentrationControl sets majorTicks' );
     options.majorTicks = [];
     [ numberRange.min, numberRange.max ].forEach( function( value ) {
       options.majorTicks.push( {
@@ -110,7 +110,7 @@ define( function( require ) {
     NumberControl.call( this, title, numberProperty, numberRange, options );
   }
 
-  beersLawLab.register( 'ConcentrationControl2', ConcentrationControl2 );
+  beersLawLab.register( 'ConcentrationControl', ConcentrationControl );
 
-  return inherit( NumberControl, ConcentrationControl2 );
+  return inherit( NumberControl, ConcentrationControl );
 } );

@@ -10,7 +10,7 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var ConcentrationControl2 = require( 'BEERS_LAW_LAB/beerslaw/view/ConcentrationControl2' );
+  var ConcentrationControl = require( 'BEERS_LAW_LAB/beerslaw/view/ConcentrationControl' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Panel = require( 'SUN/Panel' );
@@ -42,7 +42,7 @@ define( function( require ) {
     // concentration controls, one for each solution
     var concentrationControls = [];
     solutions.forEach( function( solution ) {
-      concentrationControls.push( new ConcentrationControl2( solution, {
+      concentrationControls.push( new ConcentrationControl( solution, {
         visible: false,
         tandem: tandem.createTandem( solution.internalName + 'ConcentrationSlider' ),
         phetioDocumentation: 'the concentration control for ' + solution.name
