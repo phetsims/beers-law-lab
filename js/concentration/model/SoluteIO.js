@@ -18,7 +18,7 @@ define( function( require ) {
 
   // ifphetio
   var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
-  var phetio = require( 'ifphetio!PHET_IO/phetio' );
+  var phetioEngine = require( 'ifphetio!PHET_IO/phetioEngine' );
 
   /**
    * @param {Solute} solute
@@ -70,7 +70,7 @@ define( function( require ) {
      * @returns {Solute}
      */
     fromStateObject: function( stateObject ) {
-      return phetio.getInstance( stateObject );
+      return phetioEngine.getInstance( stateObject );
     }
   } );
 

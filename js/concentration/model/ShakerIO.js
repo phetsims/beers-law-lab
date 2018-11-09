@@ -63,7 +63,7 @@ define( function( require ) {
 
     /**
      * Set the location of the shaker using the value parsed in fromStateObject.  This method is automatically called by
-     * phetio.js when setting the state.
+     * phetioEngine.js when setting the state.
      * @param {Shaker} shaker
      * @param {{location: Vector2}} fromStateObject - the value returned by fromStateObject
      */
