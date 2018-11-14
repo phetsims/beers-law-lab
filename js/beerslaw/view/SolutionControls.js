@@ -53,7 +53,7 @@ define( function( require ) {
     } );
 
     // Makes the control visible for the selected solution
-    var toggleNode = new ToggleNode( toggleNodeElements, currentSolutionProperty );
+    var toggleNode = new ToggleNode( currentSolutionProperty, toggleNodeElements );
 
     var contentNode = new VBox( {
       spacing: 15,
