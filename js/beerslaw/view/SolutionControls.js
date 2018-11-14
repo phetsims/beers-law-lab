@@ -39,17 +39,16 @@ define( function( require ) {
     // combo box, to select a solution
     var comboBox = new SolutionComboBox( solutions, currentSolutionProperty, solutionListParent, tandem.createTandem( 'comboBox' ) );
 
-    // concentration controls, one for each solution
-    var toggleNodeElements = []; // {{value:{BeersLawSolution}, node:{ConcentrationControl}}
-    solutions.forEach( function( solution ) {
-      toggleNodeElements.push( {
+    // {{value:{BeersLawSolution}, node:{ConcentrationControl}} - concentration controls, one for each solution
+    var toggleNodeElements = solutions.map( function( solution ) {
+      return {
         value: solution,
         node: new ConcentrationControl( solution, {
           visible: false,
           tandem: tandem.createTandem( solution.internalName + 'ConcentrationControl' ),
           phetioDocumentation: 'the concentration control for ' + solution.name
         } )
-      } );
+      };
     } );
 
     // Makes the control visible for the selected solution
