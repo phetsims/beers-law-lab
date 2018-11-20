@@ -14,6 +14,7 @@ define( function( require ) {
   var NumberIO = require( 'TANDEM/types/NumberIO' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var phetioInherit = require( 'TANDEM/phetioInherit' );
+  var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
   var Vector2IO = require( 'DOT/Vector2IO' );
 
   // ifphetio
@@ -25,7 +26,7 @@ define( function( require ) {
    * @constructor
    */
   function SoluteParticleIO( soluteParticle, phetioID ) {
-    assert && assertInstanceOf( soluteParticle, phet.beersLawLab.SoluteParticle );
+    assert && assertInstanceOf( soluteParticle, SoluteParticle );
     ObjectIO.call( this, soluteParticle, phetioID );
   }
 
@@ -37,7 +38,7 @@ define( function( require ) {
      * @returns {Object}
      */
     toStateObject: function( soluteParticle ) {
-      assert && assertInstanceOf( soluteParticle, phet.beersLawLab.SoluteParticle );
+      assert && assertInstanceOf( soluteParticle, SoluteParticle );
       return {
         location: Vector2IO.toStateObject( soluteParticle.locationProperty.get() ),
         orientation: NumberIO.toStateObject( soluteParticle.orientation )
