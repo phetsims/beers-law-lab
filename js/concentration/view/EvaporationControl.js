@@ -47,6 +47,7 @@ define( function( require ) {
 
     var slider = new HSlider( evaporator.evaporationRateProperty, new Range( 0, evaporator.maxEvaporationRate ), {
       trackSize: new Dimension2( 150, 6 ),
+      thumbSize: new Dimension2( 22, 45 ),
       enabledProperty: evaporator.enabledProperty,
       endDrag: function() { evaporator.evaporationRateProperty.set( 0 ); },  // at end of drag, snap evaporation rate back to zero
       tandem: tandem.createTandem( 'slider' )
