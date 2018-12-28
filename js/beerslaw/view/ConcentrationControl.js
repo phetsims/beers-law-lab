@@ -46,7 +46,7 @@ define( function( require ) {
       // NumberControl options
       titleFont: FONT,
       valueFont: FONT,
-      arrowButtonScale: 1,
+      arrowButtonOptions: { scale: 1 },
       valueMinBackgroundWidth: 95, // determined empirically
 
       // single-line horizontal layout
