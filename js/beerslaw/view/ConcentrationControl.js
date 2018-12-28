@@ -78,7 +78,7 @@ define( function( require ) {
     options.valuePattern = StringUtils.format( pattern0Value1UnitsString, '{0}', transform.units );
 
     assert && assert( options.delta === undefined, 'ConcentrationControl sets delta' );
-    options.delta = transform.viewToModel( 1 );
+    options.delta = 1; // in view coordinates
 
     // fill the track with a linear gradient that corresponds to the solution color
     assert && assert( !options.trackFillEnabled, 'ConcentrationControl sets trackFillEnabled' );
