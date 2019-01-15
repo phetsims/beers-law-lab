@@ -45,8 +45,10 @@ define( function( require ) {
     ComboBox.call( this, items, selectedSoluteProperty, soluteListParent, {
       labelNode: labelNode,
       listPosition: 'below',
-      itemYMargin: 12,
-      itemHighlightFill: 'rgb(218,255,255)',
+      xMargin: 12,
+      yMargin: 16,
+      arrowHeight: 20,
+      highlightFill: 'rgb( 218, 255, 255 )',
       tandem: tandem
     } );
   }
