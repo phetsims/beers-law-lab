@@ -17,6 +17,7 @@ define( function( require ) {
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LayoutBox = require( 'SCENERY/nodes/LayoutBox' );
+  var MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
@@ -37,7 +38,7 @@ define( function( require ) {
   // constants
   var ABSORBANCE_DECIMAL_PLACES = 2;
   var TRANSMITTANCE_DECIMAL_PLACES = 2;
-  var NO_VALUE = '-';
+  var NO_VALUE = MathSymbols.NO_VALUE;
   var BODY_X_MARGIN = 15;
   var BODY_Y_MARGIN = 15;
   var VALUE_X_MARGIN = 6;

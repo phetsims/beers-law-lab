@@ -24,6 +24,7 @@ define( function( require ) {
   var Dimension2 = require( 'DOT/Dimension2' );
   var inherit = require( 'PHET_CORE/inherit' );
   var LayoutBox = require( 'SCENERY/nodes/LayoutBox' );
+  var MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
   var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   var Node = require( 'SCENERY/nodes/Node' );
   var Path = require( 'SCENERY/nodes/Path' );
@@ -46,7 +47,7 @@ define( function( require ) {
   var BODY_IS_DRAGGABLE = true;
   var DECIMAL_PLACES_MOLES_PER_LITER = 3;
   var DECIMAL_PLACES_PERCENT = 1;
-  var READOUT_NO_VALUE = '-'; // displayed in the readout when the meter is not measuring anything
+  var READOUT_NO_VALUE = MathSymbols.NO_VALUE; // displayed in the readout when the meter is not measuring anything
   var BODY_X_MARGIN = 15;
   var BODY_Y_MARGIN = 15;
   var READOUT_X_MARGIN = 15;
