@@ -49,6 +49,7 @@ define( function( require ) {
       yMargin: 16,
       arrowHeight: 20,
       highlightFill: 'rgb( 218, 255, 255 )',
+      cornerRadius: 8,
       tandem: tandem
     } );
   }
