@@ -48,7 +48,6 @@ define( function( require ) {
       listPosition: 'above',
       xMargin: 12,
       yMargin: 16,
-      arrowHeight: 20,
       highlightFill: 'rgb( 218, 255, 255 )',
       cornerRadius: 8,
       tandem: tandem
