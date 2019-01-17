@@ -17,6 +17,7 @@ define( function( require ) {
   var ShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticle' );
   var ShakerParticlesIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticlesIO' );
   var Tandem = require( 'TANDEM/Tandem' );
+  var Util = require( 'DOT/Util' );
   var Vector2 = require( 'DOT/Vector2' );
 
   // Units for speed and acceleration are not meaningful here, adjust these so that it looks good.
@@ -109,7 +110,7 @@ define( function( require ) {
 
       // create new particles
       if ( shaker.dispensingRateProperty.get() > 0 ) {
-        var numberOfParticles = Math.round( Math.max( 1, shaker.dispensingRateProperty.get() * solution.soluteProperty.get().particlesPerMole * deltaSeconds ) );
+        var numberOfParticles = Util.roundSymmetric( Math.max( 1, shaker.dispensingRateProperty.get() * solution.soluteProperty.get().particlesPerMole * deltaSeconds ) );
         for ( var j = 0; j < numberOfParticles; j++ ) {
           var shakerParticle = new ShakerParticle(
             solution.soluteProperty.get(),

@@ -19,6 +19,7 @@ define( function( require ) {
   var Shape = require( 'KITE/Shape' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   var Text = require( 'SCENERY/nodes/Text' );
+  var Util = require( 'DOT/Util' );
 
   //strings
   var pattern0Value1UnitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
@@ -66,7 +67,7 @@ define( function( require ) {
     // horizontal tick marks, left edge, from bottom up
     var ticksParent = new Node();
     this.addChild( ticksParent );
-    var numberOfTicks = Math.round( beaker.volume / MINOR_TICK_SPACING );
+    var numberOfTicks = Util.roundSymmetric( beaker.volume / MINOR_TICK_SPACING );
     var deltaY = height / numberOfTicks;
     for ( var i = 1; i <= numberOfTicks; i++ ) {
 
