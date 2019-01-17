@@ -11,6 +11,7 @@ define( function( require ) {
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var ComboBox = require( 'SUN/ComboBox' );
+  var ComboBoxItem = require( 'SUN/ComboBoxItem' );
   var inherit = require( 'PHET_CORE/inherit' );
   var Node = require( 'SCENERY/nodes/Node' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -59,7 +60,7 @@ define( function( require ) {
   /**
    * Creates an item for the combo box.
    * @param solute
-   * @returns {*|{node: *, value: *}}
+   * @returns {ComboBoxItem}
    */
   var createItem = function( solute ) {
     var node = new Node();
@@ -73,7 +74,7 @@ define( function( require ) {
     textNode.left = colorNode.right + 5;
     textNode.centerY = colorNode.centerY;
 
-    return ComboBox.createItem( node, solute, {tandemName: solute.tandemName} );
+    return new ComboBoxItem( node, solute, {tandemName: solute.tandemName} );
   };
 
   return inherit( ComboBox, SoluteComboBox );
