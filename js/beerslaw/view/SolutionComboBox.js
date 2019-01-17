@@ -47,7 +47,7 @@ define( function( require ) {
       labelNode: label,
       listPosition: 'above',
       xMargin: 12,
-      yMargin: 16,
+      yMargin: 12,
       highlightFill: 'rgb( 218, 255, 255 )',
       cornerRadius: 8,
       tandem: tandem
