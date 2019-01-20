@@ -9,72 +9,75 @@ define( function( require ) {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var ComboBox = require( 'SUN/ComboBox' );
-  var ComboBoxItem = require( 'SUN/ComboBoxItem' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  var Text = require( 'SCENERY/nodes/Text' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const ComboBox = require( 'SUN/ComboBox' );
+  const ComboBoxItem = require( 'SUN/ComboBoxItem' );
+  const HBox = require( 'SCENERY/nodes/HBox' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const Text = require( 'SCENERY/nodes/Text' );
 
   // strings
-  var pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
-  var soluteString = require( 'string!BEERS_LAW_LAB/solute' );
+  const pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
+  const soluteString = require( 'string!BEERS_LAW_LAB/solute' );
 
-  /**
-   * @param {Solute[]} solutes
-   * @param {Property.<Solute>} selectedSoluteProperty
-   * @param {Node} soluteListParent
-   * @param {Tandem} tandem
-   * @constructor
-   */
-  function SoluteComboBox( solutes, selectedSoluteProperty, soluteListParent, tandem ) {
+  class SoluteComboBox extends ComboBox {
+    /**
+     * @param {Solute[]} solutes
+     * @param {Property.<Solute>} selectedSoluteProperty
+     * @param {Node} soluteListParent
+     * @param {Tandem} tandem
+     * @constructor
+     */
+    constructor( solutes, selectedSoluteProperty, soluteListParent, tandem ) {
 
-    // 'Solute' label
-    var labelNode = new Text( StringUtils.format( pattern0LabelString, soluteString ),
-      { font: new PhetFont( 22 ) } );
+      // 'Solute' label
+      const labelNode = new Text( StringUtils.format( pattern0LabelString, soluteString ),
+        { font: new PhetFont( 22 ) } );
 
-    // items
-    var items = [];
-    for ( var i = 0; i < solutes.length; i++ ) {
-      var solute = solutes[ i ];
-      items[ i ] = createItem( solute );
+      // items
+      const items = solutes.map( createItem );
+
+      super( items, selectedSoluteProperty, soluteListParent, {
+        labelNode: labelNode,
+        listPosition: 'below',
+        xMargin: 12,
+        yMargin: 12,
+        highlightFill: 'rgb( 218, 255, 255 )',
+        cornerRadius: 8,
+        tandem: tandem
+      } );
     }
-
-    ComboBox.call( this, items, selectedSoluteProperty, soluteListParent, {
-      labelNode: labelNode,
-      listPosition: 'below',
-      xMargin: 12,
-      yMargin: 12,
-      highlightFill: 'rgb( 218, 255, 255 )',
-      cornerRadius: 8,
-      tandem: tandem
-    } );
   }
 
   beersLawLab.register( 'SoluteComboBox', SoluteComboBox );
 
   /**
    * Creates an item for the combo box.
-   * @param solute
+   * @param {Solute} solute
    * @returns {ComboBoxItem}
    */
-  var createItem = function( solute ) {
-    var node = new Node();
-    var colorNode = new Rectangle( 0, 0, 20, 20, {
+  const createItem = function( solute ) {
+
+    const colorNode = new Rectangle( 0, 0, 20, 20, {
       fill: solute.colorScheme.maxColor,
       stroke: solute.colorScheme.maxColor.darkerColor()
     } );
-    var textNode = new Text( solute.name, { font: new PhetFont( 20 ) } );
-    node.addChild( colorNode );
-    node.addChild( textNode );
-    textNode.left = colorNode.right + 5;
-    textNode.centerY = colorNode.centerY;
 
-    return new ComboBoxItem( node, solute, {tandemName: solute.tandemName} );
+    const textNode = new Text( solute.name, {
+      font: new PhetFont( 20 )
+    } );
+
+    const hBox = new HBox( {
+      spacing: 5,
+      children: [ colorNode, textNode ]
+    } );
+
+    return new ComboBoxItem( hBox, solute, {
+      tandemName: solute.tandemName
+    } );
   };
 
-  return inherit( ComboBox, SoluteComboBox );
+  return SoluteComboBox;
 } );
