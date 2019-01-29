@@ -45,7 +45,7 @@ define( function( require ) {
 
       // NumberControl options
       titleNodeOptions: {
-        font: FONT,
+        font: FONT
       },
       numberDisplayOptions: {
         font: FONT,
