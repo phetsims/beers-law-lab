@@ -44,10 +44,23 @@ define( function( require ) {
     options = _.extend( {
 
       // NumberControl options
-      titleFont: FONT,
-      valueFont: FONT,
+      titleNodeOptions: {
+        font: FONT,
+      },
+      numberDisplayOptions: {
+        font: FONT,
+        minBackgroundWidth: 95 // determined empirically
+      },
       arrowButtonOptions: { scale: 1 },
-      valueMinBackgroundWidth: 95, // determined empirically
+
+      // Slider options, passed through by NumberControl
+      sliderOptions: {
+        trackSize: new Dimension2( 200, 15 ),
+        thumbSize: new Dimension2( 22, 45 ),
+        constrainValue: function( value ) {
+          return Util.roundToInterval( value, SLIDER_INTERVAL );
+        }
+      },
 
       // single-line horizontal layout
       layoutFunction: function( titleNode, numberDisplay, slider, leftArrowButton, rightArrowButton ) {
@@ -55,15 +68,7 @@ define( function( require ) {
           spacing: 5,
           children: [ titleNode, numberDisplay, new HStrut( 5 ), leftArrowButton, slider, rightArrowButton ]
         } );
-      },
-
-      // Slider options, passed through by NumberControl
-      trackSize: new Dimension2( 200, 15 ),
-      thumbSize: new Dimension2( 22, 45 ),
-      constrainValue: function( value ) {
-        return Util.roundToInterval( value, SLIDER_INTERVAL );
       }
-
     }, options );
 
     // @public (read-only)
@@ -74,15 +79,15 @@ define( function( require ) {
     var title = StringUtils.format( pattern0LabelString, concentrationString );
 
     // e.g. display units that are specific to the solution, e.g. '{0} mM'
-    assert && assert( !options.valuePattern, 'ConcentrationControl sets valuePattern' );
-    options.valuePattern = StringUtils.format( pattern0Value1UnitsString, '{0}', transform.units );
+    assert && assert( !options.numberDisplayOptions.valuePattern, 'ConcentrationControl sets valuePattern' );
+    options.numberDisplayOptions.valuePattern = StringUtils.format( pattern0Value1UnitsString, '{0}', transform.units );
 
     assert && assert( options.delta === undefined, 'ConcentrationControl sets delta' );
     options.delta = 1; // in view coordinates
 
     // fill the track with a linear gradient that corresponds to the solution color
-    assert && assert( !options.trackFillEnabled, 'ConcentrationControl sets trackFillEnabled' );
-    options.trackFillEnabled = new LinearGradient( 0, 0, options.trackSize.width, 0 )
+    assert && assert( !options.sliderOptions.trackFillEnabled, 'ConcentrationControl sets trackFillEnabled' );
+    options.sliderOptions.trackFillEnabled = new LinearGradient( 0, 0, options.sliderOptions.trackSize.width, 0 )
       .addColorStop( 0, solution.colorRange.min )
       .addColorStop( 1, solution.colorRange.max );
 
@@ -107,10 +112,10 @@ define( function( require ) {
     );
 
     // ticks at the min and max of the solution's concentration range
-    assert && assert( !options.majorTicks, 'ConcentrationControl sets majorTicks' );
-    options.majorTicks = [];
+    assert && assert( !options.sliderOptions.majorTicks, 'ConcentrationControl sets majorTicks' );
+    options.sliderOptions.majorTicks = [];
     [ numberRange.min, numberRange.max ].forEach( function( value ) {
-      options.majorTicks.push( {
+      options.sliderOptions.majorTicks.push( {
         value: value,
         label: new Text( value, { font: TICK_FONT } )
       } );
