@@ -17,11 +17,11 @@ define( function( require ) {
   var inherit = require( 'PHET_CORE/inherit' );
   var LinearGradient = require( 'SCENERY/util/LinearGradient' );
   var NumberControl = require( 'SCENERY_PHET/NumberControl' );
-  var NumberDisplay = require( 'SCENERY_PHET/NumberDisplay' );
   var PhetFont = require( 'SCENERY_PHET/PhetFont' );
   var Property = require( 'AXON/Property' );
   var Range = require( 'DOT/Range' );
   var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  var SunConstants = require( 'SUN/SunConstants' );
   var Text = require( 'SCENERY/nodes/Text' );
   var Util = require( 'DOT/Util' );
 
@@ -82,7 +82,7 @@ define( function( require ) {
     // e.g. display units that are specific to the solution, e.g. '{0} mM'
     assert && assert( !options.numberDisplayOptions.valuePattern, 'ConcentrationControl sets valuePattern' );
     options.numberDisplayOptions.valuePattern = StringUtils.format( pattern0Value1UnitsString,
-      NumberDisplay.NUMBERED_PLACEHOLDER, transform.units );
+      SunConstants.VALUE_NUMBERED_PLACEHOLDER, transform.units );
 
     assert && assert( options.delta === undefined, 'ConcentrationControl sets delta' );
     options.delta = 1; // in view coordinates
