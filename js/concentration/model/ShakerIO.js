@@ -15,9 +15,7 @@ define( function( require ) {
   var phetioInherit = require( 'TANDEM/phetioInherit' );
   var Vector2IO = require( 'DOT/Vector2IO' );
   var VoidIO = require( 'TANDEM/types/VoidIO' );
-
-  // ifphetio
-  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
+  var validate = require( 'AXON/validate' );
 
   /**
    * @param {Shaker} shaker
@@ -25,7 +23,6 @@ define( function( require ) {
    * @constructor
    */
   function ShakerIO( shaker, phetioID ) {
-    assert && assertInstanceOf( shaker, phet.beersLawLab.Shaker );
     ObjectIO.call( this, shaker, phetioID );
   }
 
@@ -41,6 +38,7 @@ define( function( require ) {
     }
   }, {
     documentation: 'The Shaker that releases solute',
+    validator: { isValidValue: v => v instanceof phet.beersLawLab.Shaker },
 
     /**
      * Serializes an instance.
@@ -48,7 +46,7 @@ define( function( require ) {
      * @returns {Object}
      */
     toStateObject: function( shaker ) {
-      assert && assertInstanceOf( shaker, phet.beersLawLab.Shaker );
+      validate( shaker, this.validator );
       return { location: Vector2IO.toStateObject( shaker.previousLocation ) };
     },
 
@@ -68,7 +66,7 @@ define( function( require ) {
      * @param {{location: Vector2}} fromStateObject - the value returned by fromStateObject
      */
     setValue: function( shaker, fromStateObject ) {
-      assert && assertInstanceOf( shaker, phet.beersLawLab.Shaker );
+      validate( shaker, this.validator );
       shaker.previousLocation.set( fromStateObject.location );
     }
   } );

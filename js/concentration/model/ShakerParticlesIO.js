@@ -16,9 +16,7 @@ define( function( require ) {
   var ShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticle' );
   var ShakerParticleIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticleIO' );
   var Vector2 = require( 'DOT/Vector2' );
-
-  // ifphetio
-  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
+  var validate = require( 'AXON/validate' );
 
   /**
    * @param {ShakerParticles} shakerParticles
@@ -26,13 +24,13 @@ define( function( require ) {
    * @constructor
    */
   function ShakerParticlesIO( shakerParticles, phetioID ) {
-    assert && assertInstanceOf( shakerParticles, phet.beersLawLab.ShakerParticles );
     ObjectIO.call( this, shakerParticles, phetioID );
   }
 
   phetioInherit( ObjectIO, 'ShakerParticlesIO', ShakerParticlesIO, {}, {
 
     documentation: 'Base type for a group of particles.',
+    validator: { isValidValue: v => v instanceof phet.beersLawLab.ShakerParticles },
 
     /**
      * Overrides the super type toStateObject (which was grabbing JSON for the entire instance) to return an empty instance.
@@ -46,7 +44,7 @@ define( function( require ) {
      * @param {ShakerParticles} shakerParticles
      */
     clearChildInstances: function( shakerParticles ) {
-      assert && assertInstanceOf( shakerParticles, phet.beersLawLab.ShakerParticles );
+      validate( shakerParticles, this.validator );
 
       shakerParticles.removeAllParticles();
 
@@ -62,7 +60,7 @@ define( function( require ) {
      * @returns {ChargedParticle}
      */
     addChildInstance: function( shakerParticles, tandem, stateObject ) {
-      assert && assertInstanceOf( shakerParticles, phet.beersLawLab.ShakerParticles );
+      validate( shakerParticles, this.validator );
 
       var value = ShakerParticleIO.fromStateObject( stateObject );
       assert && assert( value.acceleration instanceof Vector2, 'acceleration should be a Vector2' );

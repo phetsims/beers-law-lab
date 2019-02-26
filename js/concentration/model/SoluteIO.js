@@ -15,9 +15,9 @@ define( function( require ) {
   var phetioInherit = require( 'TANDEM/phetioInherit' );
   var StringIO = require( 'TANDEM/types/StringIO' );
   var VoidIO = require( 'TANDEM/types/VoidIO' );
+  var validate = require( 'AXON/validate' );
 
   // ifphetio
-  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var phetioEngine = require( 'ifphetio!PHET_IO/phetioEngine' );
 
   /**
@@ -26,7 +26,6 @@ define( function( require ) {
    * @constructor
    */
   function SoluteIO( solute, phetioID ) {
-    assert && assertInstanceOf( solute, phet.beersLawLab.Solute );
     ObjectIO.call( this, solute, phetioID );
   }
 
@@ -53,6 +52,7 @@ define( function( require ) {
     }
   }, {
     documentation: 'The Solute for the sim.',
+    validator: { isValidValue: v => v instanceof phet.beersLawLab.Solute },
 
     /**
      * Serializes an instance.
@@ -60,7 +60,7 @@ define( function( require ) {
      * @returns {Object}
      */
     toStateObject: function( solute ) {
-      assert && assertInstanceOf( solute, phet.beersLawLab.Solute );
+      validate( solute, this.validator );
       return solute.tandem.phetioID;
     },
 

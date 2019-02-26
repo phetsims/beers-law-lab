@@ -14,9 +14,7 @@ define( function( require ) {
   var phetioInherit = require( 'TANDEM/phetioInherit' );
   var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
   var SoluteParticleIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticleIO' );
-
-  // ifphetio
-  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
+  var validate = require( 'AXON/validate' );
 
   /**
    * @param {PrecipitateParticle} precipitateParticle
@@ -24,7 +22,6 @@ define( function( require ) {
    * @constructor
    */
   function PrecipitateParticleIO( precipitateParticle, phetioID ) {
-    assert && assertInstanceOf( precipitateParticle, phet.beersLawLab.PrecipitateParticle );
     SoluteParticleIO.call( this, precipitateParticle, phetioID );
   }
 
@@ -36,7 +33,7 @@ define( function( require ) {
      * @returns {Object}
      */
     toStateObject: function( precipitateParticle ) {
-      assert && assertInstanceOf( precipitateParticle, phet.beersLawLab.PrecipitateParticle );
+      validate( precipitateParticle, this.validator );
       var soluteParticle = SoluteParticleIO.toStateObject( precipitateParticle );
       return _.extend( soluteParticle, { solute: SoluteIO.toStateObject( precipitateParticle.solute ) } );
     },
@@ -51,7 +48,8 @@ define( function( require ) {
       return _.extend( soluteParticle, { solute: SoluteIO.fromStateObject( stateObject.solute ) } );
     },
 
-    documentation: 'A particle that shows at the bottom of a saturated solution.'
+    documentation: 'A particle that shows at the bottom of a saturated solution.',
+    validator: { isValidValue: v => v instanceof phet.beersLawLab.PrecipitateParticle }
   } );
 
   beersLawLab.register( 'PrecipitateParticleIO', PrecipitateParticleIO );

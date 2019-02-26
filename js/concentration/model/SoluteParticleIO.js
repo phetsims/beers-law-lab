@@ -16,9 +16,7 @@ define( function( require ) {
   var phetioInherit = require( 'TANDEM/phetioInherit' );
   var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
   var Vector2IO = require( 'DOT/Vector2IO' );
-
-  // ifphetio
-  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
+  var validate = require( 'AXON/validate' );
 
   /**
    * @param {SoluteParticle} soluteParticle
@@ -26,11 +24,11 @@ define( function( require ) {
    * @constructor
    */
   function SoluteParticleIO( soluteParticle, phetioID ) {
-    assert && assertInstanceOf( soluteParticle, SoluteParticle );
     ObjectIO.call( this, soluteParticle, phetioID );
   }
 
   phetioInherit( ObjectIO, 'SoluteParticleIO', SoluteParticleIO, {}, {
+    validator: { valueType: SoluteParticle },
 
     /**
      * Serializes an instance.  Not called by PhET-iO directly, but rather called from its subtypes.
@@ -38,7 +36,7 @@ define( function( require ) {
      * @returns {Object}
      */
     toStateObject: function( soluteParticle ) {
-      assert && assertInstanceOf( soluteParticle, SoluteParticle );
+      validate( soluteParticle, this.validator );
       return {
         location: Vector2IO.toStateObject( soluteParticle.locationProperty.get() ),
         orientation: NumberIO.toStateObject( soluteParticle.orientation )

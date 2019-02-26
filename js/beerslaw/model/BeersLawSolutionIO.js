@@ -13,9 +13,9 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var phetioInherit = require( 'TANDEM/phetioInherit' );
+  var validate = require( 'AXON/validate' );
 
   // ifphetio
-  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
   var phetioEngine = require( 'ifphetio!PHET_IO/phetioEngine' );
 
   /**
@@ -24,12 +24,12 @@ define( function( require ) {
    * @constructor
    */
   function BeersLawSolutionIO( beersLawSolution, phetioID ) {
-    assert && assertInstanceOf( beersLawSolution, phet.beersLawLab.BeersLawSolution );
     ObjectIO.call( this, beersLawSolution, phetioID );
   }
 
   phetioInherit( ObjectIO, 'BeersLawSolutionIO', BeersLawSolutionIO, {}, {
     documentation: 'The solution for the sim',
+    validator: { isValidValue: v => v instanceof phet.beersLawLab.BeersLawSolution },
 
     /**
      * Serializes an instance.
@@ -38,7 +38,7 @@ define( function( require ) {
      * @override
      */
     toStateObject: function( beersLawSolution ) {
-      assert && assertInstanceOf( beersLawSolution, phet.beersLawLab.BeersLawSolution );
+      validate( beersLawSolution, this.validator );
       return beersLawSolution.tandem.phetioID;
     },
 

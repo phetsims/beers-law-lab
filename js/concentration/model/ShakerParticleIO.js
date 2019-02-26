@@ -15,9 +15,7 @@ define( function( require ) {
   var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
   var SoluteParticleIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticleIO' );
   var Vector2IO = require( 'DOT/Vector2IO' );
-
-  // ifphetio
-  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
+  var validate = require( 'AXON/validate' );
 
   /**
    * @param {ShakerParticle} shakerParticle
@@ -25,12 +23,12 @@ define( function( require ) {
    * @constructor
    */
   function ShakerParticleIO( shakerParticle, phetioID ) {
-    assert && assertInstanceOf( shakerParticle, phet.beersLawLab.ShakerParticle );
     SoluteParticleIO.call( this, shakerParticle, phetioID );
   }
 
   phetioInherit( SoluteParticleIO, 'ShakerParticleIO', ShakerParticleIO, {}, {
     documentation: 'A particle that comes from the shaker.',
+    validator: { isValidValue: v => v instanceof phet.beersLawLab.ShakerParticle },
 
     /**
      * Serializes an instance.
@@ -38,7 +36,7 @@ define( function( require ) {
      * @returns {Object}
      */
     toStateObject: function( shakerParticle ) {
-      assert && assertInstanceOf( shakerParticle, phet.beersLawLab.ShakerParticle );
+      validate( shakerParticle, this.validator );
       var soluteParticle = SoluteParticleIO.toStateObject( shakerParticle );
       return _.extend( soluteParticle, {
         solute: SoluteIO.toStateObject( shakerParticle.solute ),

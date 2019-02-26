@@ -2,7 +2,7 @@
 
 /**
  * IO type for ConcentrationModel.
- * 
+ *
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Andrew Adare (PhET Interactive Simulations)
  */
@@ -17,16 +17,12 @@ define( function( require ) {
   var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
   var VoidIO = require( 'TANDEM/types/VoidIO' );
 
-  // ifphetio
-  var assertInstanceOf = require( 'ifphetio!PHET_IO/assertInstanceOf' );
-
   /**
    * @param {ConcentrationModel} concentrationModel
    * @param {string} phetioID
    * @constructor
    */
   function ConcentrationModelIO( concentrationModel, phetioID ) {
-    assert && assertInstanceOf( concentrationModel, phet.beersLawLab.ConcentrationModel );
     ObjectIO.call( this, concentrationModel, phetioID );
   }
 
@@ -40,7 +36,10 @@ define( function( require ) {
       documentation: 'Set which solutes are allowed for selection',
       invocableForReadOnlyInstances: false
     }
-  }, { documentation: 'The model for the concentration screen.' } );
+  }, {
+    documentation: 'The model for the concentration screen.',
+    validator: { isValidValue: v => v instanceof phet.beersLawLab.ConcentrationModel }
+  } );
 
   beersLawLab.register( 'ConcentrationModelIO', ConcentrationModelIO );
 
