@@ -12,10 +12,8 @@ define( function( require ) {
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var inherit = require( 'PHET_CORE/inherit' );
-  var Property = require( 'AXON/Property' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
   var Tandem = require( 'TANDEM/Tandem' );
-  var Vector2IO = require( 'DOT/Vector2IO' );
+  var Vector2Property = require( 'DOT/Vector2Property' );
 
   /**
    * @param {Vector2} location
@@ -30,9 +28,8 @@ define( function( require ) {
     }, options );
 
     // @public
-    this.locationProperty = new Property( location, {
-      tandem: options.tandem.createTandem( 'locationProperty' ),
-      phetioType: PropertyIO( Vector2IO )
+    this.locationProperty = new Vector2Property( location, {
+      tandem: options.tandem.createTandem( 'locationProperty' )
     } );
 
     this.dragBounds = dragBounds; // @public (read-only)
