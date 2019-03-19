@@ -40,6 +40,14 @@
     "sha": "87b5cab337ae4dd283a23b6c813c3b8781e34283",
     "branch": "HEAD"
   },
+  "phet-io": {
+    "sha": "a5356d0d4b092ee8060c22ae1079f9782c6033e2",
+    "branch": "HEAD"
+  },
+  "phet-io-website": {
+    "sha": "c545d6bc60a5856e281559ab4bfce48dc73ff051",
+    "branch": "HEAD"
+  },
   "phetcommon": {
     "sha": "9ef3abd3fb973142e1ce05e22b010f862a0ebc16",
     "branch": "HEAD"
@@ -67,5 +75,9 @@
   "tandem": {
     "sha": "0f1bb8eb3a974bbb4df6ed6657ca124840c62357",
     "branch": "HEAD"
+  },
+  "phetmarks": {
+    "branch": "master",
+    "sha": "6e379ededa81fa42826a1ed68aeb044a23a1f30c"
   }
 }
