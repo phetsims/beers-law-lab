@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.4.10 Tue Nov 06 2018 10:49:33 GMT-0700 (MST)",
+  "comment": "# beers-law-lab 1.4.10 Tue Mar 19 2019 14:41:10 GMT-0400 (EDT)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -9,11 +9,11 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "f685d13f463d5521e22e2ab84a7ffdc40931db3b",
+    "sha": "4e28e30baab651123f3412203d76beba883a08e9",
     "branch": "1.4"
   },
   "brand": {
-    "sha": "2eb57bd4ecd38e3f6e6caafc84503c392a2b8900",
+    "sha": "c054a61ad4ea17b49840d15104762923e1aba7d0",
     "branch": "HEAD"
   },
   "chipper": {
@@ -25,7 +25,7 @@
     "branch": "HEAD"
   },
   "joist": {
-    "sha": "f091c78bab72913a12c4820ebe6f7f1b062de2dc",
+    "sha": "145f28e331e8ad8dd16c40b0ea6ab4299ac65462",
     "branch": "HEAD"
   },
   "kite": {
@@ -63,9 +63,5 @@
   "tandem": {
     "sha": "29f642332a94dbabc1802cdbee2dbb6481a7614f",
     "branch": "HEAD"
-  },
-  "phetmarks": {
-    "branch": "master",
-    "sha": "3fdfece0fe0262594bb06856833b8b16be25deb8"
   }
 }
