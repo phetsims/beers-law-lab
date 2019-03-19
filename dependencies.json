@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.6.9 Tue Mar 19 2019 14:55:48 GMT-0400 (EDT)",
+  "comment": "# beers-law-lab 1.6.9-phetio Tue Mar 19 2019 15:46:56 GMT-0400 (EDT)",
   "assert": {
     "sha": "1ea1df653504bc6eeb454051cedc7fb970a10cac",
     "branch": "HEAD"
@@ -9,16 +9,16 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "8f418b4f1c1e79d13fb10a582007b0145bf1839d",
+    "sha": "9089e184292b151912cf16d6ddc7509e73fea300",
     "branch": "1.6-phetio"
   },
   "brand": {
     "sha": "e7be5f9062e449b3110b4fd227b8d9de17b6ceb5",
-    "branch": "beers-law-lab-1.6-phetio"
+    "branch": "HEAD"
   },
   "chipper": {
-    "sha": "a169325627df9068a220160380d2bcf875116f06",
-    "branch": "HEAD"
+    "sha": "748925cbbf2d71716fb62b2bda36eac60696e74a",
+    "branch": "beers-law-lab-1.6-phetio"
   },
   "dot": {
     "sha": "56d026b65ec9142f7299d8f3999177c17ca8ca3a",
@@ -26,7 +26,7 @@
   },
   "joist": {
     "sha": "adbd1d5a542263a53b27d7be78b90d2aa4eaefce",
-    "branch": "beers-law-lab-1.6-phetio"
+    "branch": "HEAD"
   },
   "kite": {
     "sha": "e5affc4c2cdfa007e7d93ce977f3249d7b449270",
@@ -52,6 +52,10 @@
     "sha": "9ef3abd3fb973142e1ce05e22b010f862a0ebc16",
     "branch": "HEAD"
   },
+  "phetmarks": {
+    "sha": "6e379ededa81fa42826a1ed68aeb044a23a1f30c",
+    "branch": "HEAD"
+  },
   "query-string-machine": {
     "sha": "24ad72efe69d4bd6301e0b05fab98b4cca2635fc",
     "branch": "HEAD"
@@ -75,9 +79,5 @@
   "tandem": {
     "sha": "0f1bb8eb3a974bbb4df6ed6657ca124840c62357",
     "branch": "HEAD"
-  },
-  "phetmarks": {
-    "branch": "master",
-    "sha": "6e379ededa81fa42826a1ed68aeb044a23a1f30c"
   }
 }
