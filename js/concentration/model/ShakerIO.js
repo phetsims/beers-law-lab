@@ -34,7 +34,7 @@ define( function( require ) {
         this.instance.previousLocation.set( Vector2IO.fromStateObject( value ) );
       },
       documentation: 'Load the values recorded in getState',
-      invocableForReadOnlyInstances: false
+      invocableForReadOnlyElements: false
     }
   }, {
     documentation: 'The Shaker that releases solute',
