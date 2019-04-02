@@ -70,7 +70,7 @@ define( function( require ) {
      * @returns {Solute}
      */
     fromStateObject: function( stateObject ) {
-      return phetioEngine.getInstance( stateObject );
+      return phetioEngine.getPhetioObject( stateObject );
     }
   } );
 

@@ -51,7 +51,7 @@ define( function( require ) {
      * @override
      */
     fromStateObject: function( stateObject ) {
-      return phetioEngine.getInstance( stateObject );
+      return phetioEngine.getPhetioObject( stateObject );
     }
   } );
 
