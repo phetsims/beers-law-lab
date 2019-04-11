@@ -105,6 +105,8 @@ define( function( require ) {
       trackWidth: 150,
       trackHeight: 30,
       valueVisible: false,
+      tweakersTouchAreaXDilation: 10,
+      tweakersTouchAreaYDilation: 10,
       tandem: tandem.createTandem( 'wavelengthSlider' )
     } );
 
