@@ -76,29 +76,32 @@ define( function( require ) {
       maxWidth: 250 // constrain width for i18n
     } );
 
+    // preset
+    var presetRadioButton = new AquaRadioButton( this.variableWavelengthProperty, false,
+      new Text( presetString, {
+        font: new PhetFont( 18 ),
+        fill: 'black'
+      } ), {
+        radius: BLLConstants.RADIO_BUTTON_RADIUS,
+        tandem: tandem.createTandem( 'presetWavelengthRadioButton' )
+      } );
+    presetRadioButton.touchArea = presetRadioButton.localBounds.dilatedXY( 6, 8 );
+
+    // variable
+    var variableRadioButton = new AquaRadioButton( this.variableWavelengthProperty, true,
+      new Text( variableString, {
+        font: new PhetFont( 18 ),
+        fill: 'black'
+      } ), {
+        radius: BLLConstants.RADIO_BUTTON_RADIUS,
+        tandem: tandem.createTandem( 'variableWavelengthRadioButton' )
+      } );
+    variableRadioButton.touchArea = variableRadioButton.localBounds.dilatedXY( 6, 8 );
+
     var radioButtons = new HBox( {
-      spacing: 15,
+      spacing: 18,
       maxWidth: 250, // constrain width for i18n
-      children: [
-        // preset
-        new AquaRadioButton( this.variableWavelengthProperty, false,
-          new Text( presetString, {
-            font: new PhetFont( 18 ),
-            fill: 'black'
-          } ), {
-            radius: BLLConstants.RADIO_BUTTON_RADIUS,
-            tandem: tandem.createTandem( 'presetWavelengthRadioButton' )
-          } ),
-        // variable
-        new AquaRadioButton( this.variableWavelengthProperty, true,
-          new Text( variableString, {
-            font: new PhetFont( 18 ),
-            fill: 'black'
-          } ), {
-            radius: BLLConstants.RADIO_BUTTON_RADIUS,
-            tandem: tandem.createTandem( 'variableWavelengthRadioButton' )
-          } )
-      ]
+      children: [ presetRadioButton, variableRadioButton ]
     } );
 
     var wavelengthSlider = new WavelengthSlider( light.wavelengthProperty, {
