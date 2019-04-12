@@ -44,6 +44,7 @@ define( function( require ) {
         radius: BLLConstants.RADIO_BUTTON_RADIUS,
         tandem: tandem.createTandem( 'solidRadioButton' )
       } );
+    shakerButton.touchArea = shakerButton.localBounds.dilatedXY( 10, 2 );
 
     // vertical separator
     var separator = new Line( 0, 0, 0, shakerButton.height, {
@@ -59,6 +60,7 @@ define( function( require ) {
         left: separator.right + SEPARATOR_SPACING,
         tandem: tandem.createTandem( 'solutionRadioButton' )
       } );
+    dropperButton.touchArea = dropperButton.localBounds.dilatedXY( 10, 2 );
 
     Node.call( this, { children: [ shakerButton, separator, dropperButton ] } );
 
