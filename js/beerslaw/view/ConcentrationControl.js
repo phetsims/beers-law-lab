@@ -55,7 +55,7 @@ define( function( require ) {
       arrowButtonOptions: {
         scale: 1,
         touchAreaXDilation: 8,
-        touchAreaYDilation: 15,
+        touchAreaYDilation: 15
       },
 
       // Slider options, passed through by NumberControl
