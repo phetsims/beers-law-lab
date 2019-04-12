@@ -52,7 +52,11 @@ define( function( require ) {
         font: FONT,
         minBackgroundWidth: 95 // determined empirically
       },
-      arrowButtonOptions: { scale: 1 },
+      arrowButtonOptions: {
+        scale: 1,
+        touchAreaXDilation: 8,
+        touchAreaYDilation: 15,
+      },
 
       // Slider options, passed through by NumberControl
       sliderOptions: {
