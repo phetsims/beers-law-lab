@@ -218,8 +218,6 @@ define( function( require ) {
     } );
     this.addInputListener( movableDragHandler );
 
-    beersLawLab.register( 'ATDetectorNode.ATProbeNode', ATProbeNode );
-
     // touch area
     this.touchArea = this.localBounds.dilatedXY( 0.25 * this.width, 0 );
   }
