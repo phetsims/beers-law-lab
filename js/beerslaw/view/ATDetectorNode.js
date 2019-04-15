@@ -171,8 +171,6 @@ define( function( require ) {
     detector.modeProperty.link( valueUpdater );
   }
 
-  beersLawLab.register( 'ATDetectorNode.BodyNode', BodyNode );
-
   inherit( Node, BodyNode );
 
   /**
@@ -269,8 +267,6 @@ define( function( require ) {
     body.locationProperty.link( updateCurve );
     probe.locationProperty.link( updateCurve );
   }
-
-  beersLawLab.register( 'ATDetectorNode.WireNode', WireNode );
 
   inherit( Path, WireNode );
 

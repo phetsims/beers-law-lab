@@ -222,8 +222,6 @@ define( function( require ) {
     } );
   }
 
-  beersLawLab.register( 'ConcentrationMeterNode.BodyNode', BodyNode );
-
   inherit( Node, BodyNode );
 
   /**
@@ -297,8 +295,6 @@ define( function( require ) {
     };
   }
 
-  beersLawLab.register( 'ConcentrationMeterNode.ConcentrationProbeNode', ConcentrationProbeNode );
-
   inherit( Node, ConcentrationProbeNode );
 
   /**
@@ -341,8 +337,6 @@ define( function( require ) {
     body.locationProperty.link( updateCurve );
     probe.locationProperty.link( updateCurve );
   }
-
-  beersLawLab.register( 'ConcentrationMeterNode.WireNode', WireNode );
 
   inherit( Path, WireNode );
 

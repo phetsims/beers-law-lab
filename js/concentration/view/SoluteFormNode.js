@@ -95,8 +95,6 @@ define( function( require ) {
     return new Node( { children: [ textNode, imageNode ] } );
   }
 
-  beersLawLab.register( 'SoluteFormNode.TextAndIconNode', TextAndIconNode );
-
   inherit( Node, TextAndIconNode );
 
   return inherit( Node, SoluteFormNode );

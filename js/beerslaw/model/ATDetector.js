@@ -93,8 +93,6 @@ define( function( require ) {
     this.sensorDiameter = sensorDiameter; // @private
   }
 
-  beersLawLab.register( 'ATDetector.Probe', Probe );
-
   inherit( Movable, Probe, {
 
     // @public

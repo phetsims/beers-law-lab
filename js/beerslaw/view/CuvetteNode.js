@@ -154,8 +154,6 @@ define( function( require ) {
     } );
   }
 
-  beersLawLab.register( 'CuvetteNode.CuvetteDragHandler', CuvetteDragHandler );
-
   inherit( SimpleDragHandler, CuvetteDragHandler );
 
   return inherit( Node, CuvetteNode );
