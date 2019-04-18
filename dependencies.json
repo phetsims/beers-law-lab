@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.4.11 Thu Apr 11 2019 22:06:21 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# beers-law-lab 1.4.12-rc.1 Wed Apr 17 2019 17:16:16 GMT-0800 (Alaskan Daylight Time)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -9,7 +9,7 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "c4d4500fdf0397b1191119d5ed8213cc376555a5",
+    "sha": "dc7979e80a7339d5da6b19a7ac8d7c1b2523906e",
     "branch": "1.4"
   },
   "brand": {
@@ -18,7 +18,7 @@
   },
   "chipper": {
     "sha": "0709707e9da53718dec6d675b2cf6e14acbc6024",
-    "branch": "beers-law-lab-1.4"
+    "branch": "HEAD"
   },
   "dot": {
     "sha": "04efe0bcba227b3a0a75a734313fc0d92469aa8d",
