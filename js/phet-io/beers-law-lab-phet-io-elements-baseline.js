@@ -1222,7 +1222,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~0": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~0": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1233,7 +1233,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~0.opacityProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~0.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1244,7 +1244,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~0.pickableProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~0.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1255,7 +1255,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~0.textProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~0.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1266,7 +1266,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<StringIO>"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~0.visibleProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~0.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1277,7 +1277,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~1": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~1": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1288,7 +1288,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~1.opacityProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~1.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1299,7 +1299,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~1.pickableProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~1.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1310,7 +1310,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~1.textProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~1.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1321,7 +1321,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<StringIO>"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~1.visibleProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~1.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1332,7 +1332,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~2": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~2": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1343,7 +1343,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~2.opacityProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~2.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1354,7 +1354,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~2.pickableProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~2.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1365,7 +1365,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~2.textProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~2.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1376,7 +1376,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<StringIO>"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~2.visibleProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~2.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1387,7 +1387,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~3": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~3": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1398,7 +1398,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~3.opacityProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~3.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1409,7 +1409,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~3.pickableProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~3.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1420,7 +1420,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~3.textProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~3.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1431,7 +1431,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<StringIO>"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~3.visibleProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~3.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1442,7 +1442,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~4": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~4": {
       "phetioDocumentation": "",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1453,7 +1453,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "TextIO"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~4.opacityProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~4.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1464,7 +1464,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~4.pickableProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~4.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1475,7 +1475,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~4.textProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~4.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
       "phetioEventType": "model",
       "phetioFeatured": false,
@@ -1486,7 +1486,7 @@ window.phet.phetio.phetioElementsBaseline =
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO.<StringIO>"
     },
-    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels.element~4.visibleProperty": {
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~4.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioEventType": "model",
       "phetioFeatured": false,
