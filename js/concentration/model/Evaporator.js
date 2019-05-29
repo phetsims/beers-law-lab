@@ -32,7 +32,8 @@ define( function( require ) {
       units: 'liters/second'
     } ); // L/sec
     this.enabledProperty = new BooleanProperty( true, {
-      tandem: tandem.createTandem( 'enabledProperty' )
+      tandem: tandem.createTandem( 'enabledProperty' ),
+      phetioFeatured: true
     } );
 
     // disable when the volume gets to zero
