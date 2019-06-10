@@ -98,7 +98,7 @@ define( function( require ) {
       } );
 
     // @public - the name of the solution in tandem id format. Used to other make tandems that pertain to this solution.
-    this.tandemName = options.tandem.tail;
+    this.tandemName = options.tandem.name;
   }
 
   beersLawLab.register( 'BeersLawSolution', BeersLawSolution );

@@ -68,7 +68,7 @@ define( function( require ) {
     assert && assert( this.stockSolutionPercentConcentration >= 0 && this.stockSolutionPercentConcentration <= 100 );
 
     // @public - the name of the solute in tandem id format. Used to other make tandems that pertain to this solute.
-    this.tandemName = options.tandem.tail;
+    this.tandemName = options.tandem.name;
     PhetioObject.call( this, options );
   }
 
