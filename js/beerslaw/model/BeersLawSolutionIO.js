@@ -32,9 +32,9 @@ define( function( require ) {
     validator: { isValidValue: v => v instanceof phet.beersLawLab.BeersLawSolution },
 
     /**
-     * Serializes an instance.
+     * Serializes the instance into its phetioID.
      * @param {BeersLawSolution} beersLawSolution
-     * @returns {Object}
+     * @returns {string}
      * @override
      */
     toStateObject: function( beersLawSolution ) {
