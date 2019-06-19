@@ -64,7 +64,12 @@ define( function( require ) {
         thumbSize: new Dimension2( 22, 45 ),
         constrainValue: function( value ) {
           return Util.roundToInterval( value, SLIDER_INTERVAL );
-        }
+        },
+
+        // phet-io
+        // {Property.<number>} - keep track of the underlying model Property to form a LinkedElement to from the slider.
+        // This helps support a good PhET-iO Studio interface. See Slider.phetioLinkedProperty
+        phetioLinkedProperty: solution.concentrationProperty
       },
 
       // single-line horizontal layout
