@@ -35,7 +35,7 @@ define( function( require ) {
       returnType: VoidIO,
       parameterTypes: [ StringIO ],
       implementation: function( text ) {
-        this.instance.name = text;
+        this.phetioObject.name = text;
       },
       documentation: 'Set the name of the solute',
       invocableForReadOnlyElements: false
@@ -45,7 +45,7 @@ define( function( require ) {
       returnType: VoidIO,
       parameterTypes: [ StringIO ],
       implementation: function( text ) {
-        this.instance.formula = text;
+        this.phetioObject.formula = text;
       },
       documentation: 'Set the formula of the solute',
       invocableForReadOnlyElements: false

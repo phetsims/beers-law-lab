@@ -31,7 +31,7 @@ define( function( require ) {
       parameterTypes: [ ArrayIO( SoluteIO ) ],
       returnType: VoidIO,
       implementation: function( solutes ) {
-        this.instance.setSolutes( solutes );
+        this.phetioObject.setSolutes( solutes );
       },
       documentation: 'Set which solutes are allowed for selection',
       invocableForReadOnlyElements: false

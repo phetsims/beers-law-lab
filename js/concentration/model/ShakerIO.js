@@ -31,7 +31,7 @@ define( function( require ) {
       returnType: VoidIO,
       parameterTypes: [ ObjectIO ],
       implementation: function( value ) {
-        this.instance.previousLocation.set( Vector2IO.fromStateObject( value ) );
+        this.phetioObject.previousLocation.set( Vector2IO.fromStateObject( value ) );
       },
       documentation: 'Load the values recorded in getState',
       invocableForReadOnlyElements: false
