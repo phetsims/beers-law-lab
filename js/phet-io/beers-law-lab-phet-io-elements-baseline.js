@@ -3,6 +3,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
   {
     "beersLawLab.beersLawScreen.activeProperty": {
       "phetioDocumentation": "Indicates whether the screen is active.  For single-screen simulations, the screen is always active.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -14,6 +15,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.model.cuvette.widthProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -25,6 +27,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.model.detector.body.locationProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -36,6 +39,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.model.detector.modeProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -47,6 +51,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.model.detector.probe.locationProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -58,6 +63,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.model.detector.valueProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -69,6 +75,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.model.light.onProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -80,6 +87,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.model.light.wavelengthProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -91,6 +99,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.model.ruler.locationProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -102,6 +111,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.model.solutionProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -113,6 +123,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.solutions.cobaltChloride": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -124,6 +135,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.solutions.cobaltChloride.concentrationProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -135,6 +147,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.solutions.cobaltIINitrate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -146,6 +159,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.solutions.cobaltIINitrate.concentrationProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -157,6 +171,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.solutions.copperSulfate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -168,6 +183,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -179,6 +195,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.solutions.drinkMix": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -190,6 +207,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.solutions.drinkMix.concentrationProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -201,6 +219,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.solutions.nickelIIChloride": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -212,6 +231,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.solutions.nickelIIChloride.concentrationProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -223,6 +243,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.solutions.potassiumChromate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -234,6 +255,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.solutions.potassiumChromate.concentrationProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -245,6 +267,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.solutions.potassiumDichromate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -256,6 +279,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.solutions.potassiumDichromate.concentrationProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -267,6 +291,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.solutions.potassiumPermanganate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -278,6 +303,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.solutions.potassiumPermanganate.concentrationProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -289,6 +315,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -300,6 +327,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.cuvetteNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -311,6 +339,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.cuvetteNode.arrowNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -322,6 +351,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.cuvetteNode.arrowNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -333,6 +363,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.cuvetteNode.arrowNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -344,6 +375,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.cuvetteNode.arrowNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -355,6 +387,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.cuvetteNode.cuvetteDragHandler": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -366,6 +399,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.cuvetteNode.cuvetteDragHandler.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -377,6 +411,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.cuvetteNode.cuvetteDragHandler.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -388,6 +423,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.cuvetteNode.cuvetteDragHandler.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -399,6 +435,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.cuvetteNode.cuvetteDragHandler.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -410,6 +447,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.cuvetteNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -421,6 +459,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.cuvetteNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -432,6 +471,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.cuvetteNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -443,6 +483,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -454,6 +495,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -465,6 +507,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.enabledProperty": {
       "phetioDocumentation": "Determines whether the AquaRadioButton is enabled (pressable) or disabled (grayed-out)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -476,6 +519,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -487,6 +531,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -498,6 +543,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -509,6 +555,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -520,6 +567,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -531,6 +579,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -542,6 +591,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -553,6 +603,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -564,6 +615,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.transmittanceRadioButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -575,6 +627,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.transmittanceRadioButton.enabledProperty": {
       "phetioDocumentation": "Determines whether the AquaRadioButton is enabled (pressable) or disabled (grayed-out)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -586,6 +639,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.transmittanceRadioButton.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -597,6 +651,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.transmittanceRadioButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -608,6 +663,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.transmittanceRadioButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -619,6 +675,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.transmittanceRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -630,6 +687,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.transmittanceRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -641,6 +699,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.transmittanceRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -652,6 +711,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.valueNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -663,6 +723,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.valueNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -674,6 +735,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.valueNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -685,6 +747,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.valueNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -696,6 +759,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.valueNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -707,6 +771,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -718,6 +783,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.probeNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -729,6 +795,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.probeNode.movableDragHandler": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -740,6 +807,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.probeNode.movableDragHandler.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -751,6 +819,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.probeNode.movableDragHandler.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -762,6 +831,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.probeNode.movableDragHandler.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -773,6 +843,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.probeNode.movableDragHandler.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -784,6 +855,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.probeNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -795,6 +867,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.probeNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -806,6 +879,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.detectorNode.probeNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -817,6 +891,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.lightNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -828,6 +903,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.lightNode.button": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -839,6 +915,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.lightNode.button.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -850,6 +927,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.lightNode.button.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -861,6 +939,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.lightNode.button.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -872,6 +951,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.lightNode.button.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -883,6 +963,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.lightNode.button.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -894,6 +975,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.lightNode.button.toggledEmitter": {
       "phetioDocumentation": "Emits when the button is toggled",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -905,6 +987,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.lightNode.button.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -916,6 +999,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.lightNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -927,6 +1011,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.lightNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -938,6 +1023,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.lightNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -949,6 +1035,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -960,6 +1047,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -971,6 +1059,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.resetAllButton": {
       "phetioDocumentation": "The orange, round button that can be used to restore the initial state",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -982,6 +1071,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.resetAllButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -993,6 +1083,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.resetAllButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1004,6 +1095,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.resetAllButton.isFiringProperty": {
       "phetioDocumentation": "Temporarily becomes true while the Reset All button is firing.  Commonly used to disable audio effects during reset.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1015,6 +1107,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.resetAllButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1026,6 +1119,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.resetAllButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1037,6 +1131,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.resetAllButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1048,6 +1143,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.resetAllButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1059,6 +1155,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.resetAllButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -1070,6 +1167,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1081,6 +1179,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.movableDragHandler": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1092,6 +1191,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.movableDragHandler.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -1103,6 +1203,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.movableDragHandler.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1114,6 +1215,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.movableDragHandler.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1125,6 +1227,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.movableDragHandler.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1136,6 +1239,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1147,6 +1251,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1158,6 +1263,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1169,6 +1275,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.backgroundNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1180,6 +1287,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.backgroundNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1191,6 +1299,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.backgroundNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1202,6 +1311,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.backgroundNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1213,6 +1323,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~0": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1224,6 +1335,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~0.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1235,6 +1347,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~0.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1246,6 +1359,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~0.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1257,6 +1371,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~0.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1268,6 +1383,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~1": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1279,6 +1395,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~1.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1290,6 +1407,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~1.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1301,6 +1419,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~1.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1312,6 +1431,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~1.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1323,6 +1443,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~2": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1334,6 +1455,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~2.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1345,6 +1467,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~2.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1356,6 +1479,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~2.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1367,6 +1491,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~2.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1378,6 +1503,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~3": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1389,6 +1515,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~3.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1400,6 +1527,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~3.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1411,6 +1539,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~3.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1422,6 +1551,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~3.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1433,6 +1563,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~4": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1444,6 +1575,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~4.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1455,6 +1587,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~4.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1466,6 +1599,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~4.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1477,6 +1611,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLabels~4.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1488,6 +1623,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLinesNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1499,6 +1635,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLinesNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1510,6 +1647,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLinesNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1521,6 +1659,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.majorTickLinesNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1532,6 +1671,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.minorTickLinesNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1543,6 +1683,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.minorTickLinesNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1554,6 +1695,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.minorTickLinesNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1565,6 +1707,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.minorTickLinesNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1576,6 +1719,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1587,6 +1731,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1598,6 +1743,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.unitsLabel": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1609,6 +1755,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.unitsLabel.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1620,6 +1767,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.unitsLabel.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1631,6 +1779,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.unitsLabel.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1642,6 +1791,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.unitsLabel.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1653,6 +1803,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1664,6 +1815,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.rulerNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1675,6 +1827,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1686,6 +1839,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl": {
       "phetioDocumentation": "the concentration control for ‪Cobalt(II) chloride‬",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1697,6 +1851,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.leftArrowButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1708,6 +1863,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.leftArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -1719,6 +1875,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.leftArrowButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1730,6 +1887,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.leftArrowButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1741,6 +1899,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.leftArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1752,6 +1911,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.leftArrowButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1763,6 +1923,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.leftArrowButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1774,6 +1935,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.leftArrowButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -1785,6 +1947,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.numberDisplay": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1796,6 +1959,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.numberDisplay.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1807,6 +1971,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.numberDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1818,6 +1983,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.numberDisplay.valueNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1829,6 +1995,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.numberDisplay.valueNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1840,6 +2007,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.numberDisplay.valueNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1851,6 +2019,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.numberDisplay.valueNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1862,6 +2031,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.numberDisplay.valueNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1873,6 +2043,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.numberDisplay.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1884,6 +2055,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1895,6 +2067,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1906,6 +2079,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.rightArrowButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1917,6 +2091,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.rightArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -1928,6 +2103,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.rightArrowButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1939,6 +2115,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.rightArrowButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1950,6 +2127,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.rightArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1961,6 +2139,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.rightArrowButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1972,6 +2151,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.rightArrowButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -1983,6 +2163,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.rightArrowButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -1994,6 +2175,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2005,6 +2187,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.enabledProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2016,6 +2199,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.enabledRangeProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2027,6 +2211,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2038,6 +2223,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2049,6 +2235,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.thumb": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2060,6 +2247,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.thumb.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2071,6 +2259,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2082,6 +2271,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.thumb.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2093,6 +2283,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.thumbInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2104,6 +2295,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.thumbInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -2115,6 +2307,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2126,6 +2319,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2137,6 +2331,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2148,6 +2343,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.track.trackInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2159,6 +2355,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.track.trackInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -2170,6 +2367,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.track.trackInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2181,6 +2379,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.track.trackInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2192,6 +2391,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.track.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2203,6 +2403,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.valueProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2214,6 +2415,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2225,6 +2427,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.titleNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2236,6 +2439,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.titleNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2247,6 +2451,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2258,6 +2463,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.titleNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2269,6 +2475,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.titleNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2280,6 +2487,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2291,6 +2499,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl": {
       "phetioDocumentation": "the concentration control for ‪Cobalt(II) nitrate‬",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2302,6 +2511,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.leftArrowButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2313,6 +2523,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.leftArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2324,6 +2535,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.leftArrowButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2335,6 +2547,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.leftArrowButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2346,6 +2559,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.leftArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2357,6 +2571,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.leftArrowButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2368,6 +2583,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.leftArrowButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2379,6 +2595,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.leftArrowButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2390,6 +2607,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.numberDisplay": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2401,6 +2619,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.numberDisplay.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2412,6 +2631,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.numberDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2423,6 +2643,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.numberDisplay.valueNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2434,6 +2655,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.numberDisplay.valueNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2445,6 +2667,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.numberDisplay.valueNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2456,6 +2679,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.numberDisplay.valueNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2467,6 +2691,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.numberDisplay.valueNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2478,6 +2703,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.numberDisplay.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2489,6 +2715,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2500,6 +2727,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2511,6 +2739,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.rightArrowButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2522,6 +2751,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.rightArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2533,6 +2763,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.rightArrowButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2544,6 +2775,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.rightArrowButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2555,6 +2787,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.rightArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2566,6 +2799,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.rightArrowButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2577,6 +2811,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.rightArrowButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2588,6 +2823,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.rightArrowButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2599,6 +2835,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2610,6 +2847,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.enabledProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2621,6 +2859,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.enabledRangeProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2632,6 +2871,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2643,6 +2883,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2654,6 +2895,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.thumb": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2665,6 +2907,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.thumb.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2676,6 +2919,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2687,6 +2931,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.thumb.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2698,6 +2943,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.thumbInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2709,6 +2955,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.thumbInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -2720,6 +2967,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2731,6 +2979,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2742,6 +2991,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2753,6 +3003,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.track.trackInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2764,6 +3015,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.track.trackInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -2775,6 +3027,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.track.trackInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2786,6 +3039,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.track.trackInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2797,6 +3051,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.track.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2808,6 +3063,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.valueProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2819,6 +3075,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2830,6 +3087,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.titleNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2841,6 +3099,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.titleNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2852,6 +3111,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2863,6 +3123,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.titleNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2874,6 +3135,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.titleNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2885,6 +3147,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2896,6 +3159,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2907,6 +3171,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.button": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2918,6 +3183,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.button.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2929,6 +3195,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.button.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2940,6 +3207,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.button.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2951,6 +3219,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.button.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2962,6 +3231,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.button.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2973,6 +3243,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.button.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -2984,6 +3255,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.button.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -2995,6 +3267,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.cobaltChlorideText": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3006,6 +3279,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.cobaltChlorideText.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3017,6 +3291,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.cobaltChlorideText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3028,6 +3303,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.cobaltChlorideText.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3039,6 +3315,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.cobaltChlorideText.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3050,6 +3327,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.cobaltIINitrateText": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3061,6 +3339,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.cobaltIINitrateText.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3072,6 +3351,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.cobaltIINitrateText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3083,6 +3363,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.cobaltIINitrateText.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3094,6 +3375,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.cobaltIINitrateText.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3105,6 +3387,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.copperSulfateText": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3116,6 +3399,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.copperSulfateText.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3127,6 +3411,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.copperSulfateText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3138,6 +3423,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.copperSulfateText.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3149,6 +3435,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.copperSulfateText.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3160,6 +3447,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.displayOnlyProperty": {
       "phetioDocumentation": "disables interaction with the ComboBox and makes it appear like a display that shows the current selection",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3171,6 +3459,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.drinkMixText": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3182,6 +3471,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.drinkMixText.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3193,6 +3483,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.drinkMixText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3204,6 +3495,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.drinkMixText.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3215,6 +3507,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.drinkMixText.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3226,6 +3519,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.enabledProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3237,6 +3531,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3248,6 +3543,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.cobaltChloride": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3259,6 +3555,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.cobaltChloride.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3270,6 +3567,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.cobaltChloride.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3281,6 +3579,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.cobaltChloride.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3292,6 +3591,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.cobaltIINitrate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3303,6 +3603,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.cobaltIINitrate.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3314,6 +3615,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.cobaltIINitrate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3325,6 +3627,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.cobaltIINitrate.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3336,6 +3639,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.copperSulfate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3347,6 +3651,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.copperSulfate.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3358,6 +3663,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.copperSulfate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3369,6 +3675,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.copperSulfate.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3380,6 +3687,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.drinkMix": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3391,6 +3699,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.drinkMix.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3402,6 +3711,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.drinkMix.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3413,6 +3723,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.drinkMix.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3424,6 +3735,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.fireAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3435,6 +3747,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.nickelIIChloride": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3446,6 +3759,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.nickelIIChloride.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3457,6 +3771,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.nickelIIChloride.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3468,6 +3783,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.nickelIIChloride.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3479,6 +3795,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3490,6 +3807,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3501,6 +3819,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.potassiumChromate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3512,6 +3831,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.potassiumChromate.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3523,6 +3843,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.potassiumChromate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3534,6 +3855,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.potassiumChromate.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3545,6 +3867,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.potassiumDichromate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3556,6 +3879,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.potassiumDichromate.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3567,6 +3891,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.potassiumDichromate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3578,6 +3903,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.potassiumDichromate.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3589,6 +3915,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.potassiumPermanganate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3600,6 +3927,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.potassiumPermanganate.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3611,6 +3939,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.potassiumPermanganate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3622,6 +3951,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.potassiumPermanganate.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3633,6 +3963,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3644,6 +3975,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.nickelIIChlorideText": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3655,6 +3987,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.nickelIIChlorideText.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3666,6 +3999,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.nickelIIChlorideText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3677,6 +4011,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.nickelIIChlorideText.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3688,6 +4023,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.nickelIIChlorideText.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3699,6 +4035,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3710,6 +4047,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3721,6 +4059,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumChromateText": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3732,6 +4071,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumChromateText.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3743,6 +4083,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumChromateText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3754,6 +4095,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumChromateText.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3765,6 +4107,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumChromateText.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3776,6 +4119,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumDichromateText": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3787,6 +4131,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumDichromateText.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3798,6 +4143,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumDichromateText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3809,6 +4155,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumDichromateText.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3820,6 +4167,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumDichromateText.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3831,6 +4179,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumPermanganateText": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3842,6 +4191,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumPermanganateText.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3853,6 +4203,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumPermanganateText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3864,6 +4215,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumPermanganateText.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3875,6 +4227,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumPermanganateText.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3886,6 +4239,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.property": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3897,6 +4251,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3908,6 +4263,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl": {
       "phetioDocumentation": "the concentration control for ‪Copper(II) sulfate‬",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3919,6 +4275,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.leftArrowButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3930,6 +4287,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.leftArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -3941,6 +4299,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.leftArrowButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3952,6 +4311,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.leftArrowButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3963,6 +4323,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.leftArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3974,6 +4335,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.leftArrowButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3985,6 +4347,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.leftArrowButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -3996,6 +4359,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.leftArrowButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4007,6 +4371,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.numberDisplay": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4018,6 +4383,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.numberDisplay.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4029,6 +4395,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.numberDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4040,6 +4407,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.numberDisplay.valueNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4051,6 +4419,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.numberDisplay.valueNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4062,6 +4431,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.numberDisplay.valueNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4073,6 +4443,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.numberDisplay.valueNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4084,6 +4455,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.numberDisplay.valueNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4095,6 +4467,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.numberDisplay.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4106,6 +4479,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4117,6 +4491,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4128,6 +4503,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.rightArrowButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4139,6 +4515,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.rightArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4150,6 +4527,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.rightArrowButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4161,6 +4539,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.rightArrowButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4172,6 +4551,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.rightArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4183,6 +4563,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.rightArrowButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4194,6 +4575,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.rightArrowButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4205,6 +4587,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.rightArrowButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4216,6 +4599,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4227,6 +4611,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.enabledProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4238,6 +4623,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.enabledRangeProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4249,6 +4635,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4260,6 +4647,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4271,6 +4659,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.thumb": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4282,6 +4671,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.thumb.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4293,6 +4683,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4304,6 +4695,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.thumb.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4315,6 +4707,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.thumbInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4326,6 +4719,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.thumbInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -4337,6 +4731,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4348,6 +4743,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4359,6 +4755,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4370,6 +4767,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.track.trackInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4381,6 +4779,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.track.trackInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -4392,6 +4791,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.track.trackInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4403,6 +4803,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.track.trackInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4414,6 +4815,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.track.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4425,6 +4827,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.valueProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4436,6 +4839,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4447,6 +4851,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.titleNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4458,6 +4863,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.titleNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4469,6 +4875,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4480,6 +4887,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.titleNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4491,6 +4899,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.titleNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4502,6 +4911,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4513,6 +4923,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl": {
       "phetioDocumentation": "the concentration control for ‪Drink mix‬",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4524,6 +4935,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.leftArrowButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4535,6 +4947,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.leftArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4546,6 +4959,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.leftArrowButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4557,6 +4971,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.leftArrowButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4568,6 +4983,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.leftArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4579,6 +4995,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.leftArrowButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4590,6 +5007,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.leftArrowButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4601,6 +5019,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.leftArrowButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4612,6 +5031,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.numberDisplay": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4623,6 +5043,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.numberDisplay.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4634,6 +5055,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.numberDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4645,6 +5067,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.numberDisplay.valueNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4656,6 +5079,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.numberDisplay.valueNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4667,6 +5091,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.numberDisplay.valueNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4678,6 +5103,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.numberDisplay.valueNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4689,6 +5115,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.numberDisplay.valueNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4700,6 +5127,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.numberDisplay.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4711,6 +5139,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4722,6 +5151,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4733,6 +5163,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.rightArrowButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4744,6 +5175,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.rightArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4755,6 +5187,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.rightArrowButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4766,6 +5199,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.rightArrowButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4777,6 +5211,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.rightArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4788,6 +5223,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.rightArrowButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4799,6 +5235,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.rightArrowButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4810,6 +5247,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.rightArrowButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4821,6 +5259,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4832,6 +5271,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.enabledProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -4843,6 +5283,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.enabledRangeProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4854,6 +5295,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4865,6 +5307,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4876,6 +5319,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.thumb": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4887,6 +5331,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.thumb.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4898,6 +5343,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4909,6 +5355,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.thumb.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4920,6 +5367,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.thumbInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4931,6 +5379,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.thumbInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -4942,6 +5391,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4953,6 +5403,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4964,6 +5415,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4975,6 +5427,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.track.trackInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -4986,6 +5439,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.track.trackInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -4997,6 +5451,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.track.trackInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5008,6 +5463,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.track.trackInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5019,6 +5475,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.track.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5030,6 +5487,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.valueProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5041,6 +5499,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5052,6 +5511,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.titleNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5063,6 +5523,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.titleNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5074,6 +5535,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5085,6 +5547,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.titleNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5096,6 +5559,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.titleNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5107,6 +5571,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5118,6 +5583,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl": {
       "phetioDocumentation": "the concentration control for ‪Nickel(II) chloride‬",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5129,6 +5595,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.leftArrowButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5140,6 +5607,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.leftArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5151,6 +5619,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.leftArrowButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5162,6 +5631,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.leftArrowButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5173,6 +5643,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.leftArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5184,6 +5655,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.leftArrowButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5195,6 +5667,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.leftArrowButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5206,6 +5679,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.leftArrowButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5217,6 +5691,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.numberDisplay": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5228,6 +5703,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.numberDisplay.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5239,6 +5715,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.numberDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5250,6 +5727,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.numberDisplay.valueNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5261,6 +5739,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.numberDisplay.valueNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5272,6 +5751,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.numberDisplay.valueNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5283,6 +5763,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.numberDisplay.valueNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5294,6 +5775,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.numberDisplay.valueNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5305,6 +5787,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.numberDisplay.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5316,6 +5799,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5327,6 +5811,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5338,6 +5823,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.rightArrowButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5349,6 +5835,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.rightArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5360,6 +5847,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.rightArrowButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5371,6 +5859,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.rightArrowButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5382,6 +5871,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.rightArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5393,6 +5883,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.rightArrowButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5404,6 +5895,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.rightArrowButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5415,6 +5907,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.rightArrowButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5426,6 +5919,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5437,6 +5931,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.enabledProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5448,6 +5943,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.enabledRangeProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5459,6 +5955,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5470,6 +5967,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5481,6 +5979,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.thumb": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5492,6 +5991,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.thumb.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5503,6 +6003,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5514,6 +6015,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.thumb.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5525,6 +6027,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.thumbInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5536,6 +6039,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.thumbInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -5547,6 +6051,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5558,6 +6063,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5569,6 +6075,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5580,6 +6087,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.track.trackInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5591,6 +6099,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.track.trackInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -5602,6 +6111,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.track.trackInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5613,6 +6123,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.track.trackInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5624,6 +6135,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.track.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5635,6 +6147,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.valueProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5646,6 +6159,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5657,6 +6171,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.titleNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5668,6 +6183,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.titleNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5679,6 +6195,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5690,6 +6207,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.titleNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5701,6 +6219,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.titleNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5712,6 +6231,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5723,6 +6243,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5734,6 +6255,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5745,6 +6267,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl": {
       "phetioDocumentation": "the concentration control for ‪Potassium chromate‬",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5756,6 +6279,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.leftArrowButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5767,6 +6291,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.leftArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5778,6 +6303,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.leftArrowButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5789,6 +6315,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.leftArrowButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5800,6 +6327,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.leftArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5811,6 +6339,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.leftArrowButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5822,6 +6351,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.leftArrowButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5833,6 +6363,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.leftArrowButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5844,6 +6375,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.numberDisplay": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5855,6 +6387,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.numberDisplay.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5866,6 +6399,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.numberDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5877,6 +6411,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.numberDisplay.valueNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5888,6 +6423,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.numberDisplay.valueNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5899,6 +6435,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.numberDisplay.valueNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5910,6 +6447,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.numberDisplay.valueNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5921,6 +6459,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.numberDisplay.valueNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5932,6 +6471,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.numberDisplay.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5943,6 +6483,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5954,6 +6495,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5965,6 +6507,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.rightArrowButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5976,6 +6519,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.rightArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -5987,6 +6531,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.rightArrowButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -5998,6 +6543,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.rightArrowButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6009,6 +6555,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.rightArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6020,6 +6567,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.rightArrowButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6031,6 +6579,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.rightArrowButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6042,6 +6591,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.rightArrowButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -6053,6 +6603,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6064,6 +6615,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.enabledProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -6075,6 +6627,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.enabledRangeProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6086,6 +6639,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6097,6 +6651,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6108,6 +6663,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.thumb": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6119,6 +6675,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.thumb.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6130,6 +6687,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6141,6 +6699,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.thumb.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6152,6 +6711,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.thumbInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6163,6 +6723,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.thumbInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -6174,6 +6735,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6185,6 +6747,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6196,6 +6759,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6207,6 +6771,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.track.trackInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6218,6 +6783,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.track.trackInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -6229,6 +6795,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.track.trackInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6240,6 +6807,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.track.trackInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6251,6 +6819,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.track.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6262,6 +6831,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.valueProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6273,6 +6843,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -6284,6 +6855,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.titleNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6295,6 +6867,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.titleNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6306,6 +6879,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6317,6 +6891,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.titleNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6328,6 +6903,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.titleNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6339,6 +6915,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6350,6 +6927,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl": {
       "phetioDocumentation": "the concentration control for ‪Potassium dichromate‬",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6361,6 +6939,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.leftArrowButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6372,6 +6951,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.leftArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -6383,6 +6963,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.leftArrowButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6394,6 +6975,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.leftArrowButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6405,6 +6987,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.leftArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6416,6 +6999,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.leftArrowButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6427,6 +7011,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.leftArrowButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6438,6 +7023,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.leftArrowButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -6449,6 +7035,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.numberDisplay": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6460,6 +7047,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.numberDisplay.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6471,6 +7059,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.numberDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6482,6 +7071,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.numberDisplay.valueNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6493,6 +7083,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.numberDisplay.valueNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6504,6 +7095,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.numberDisplay.valueNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6515,6 +7107,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.numberDisplay.valueNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6526,6 +7119,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.numberDisplay.valueNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6537,6 +7131,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.numberDisplay.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6548,6 +7143,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6559,6 +7155,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6570,6 +7167,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.rightArrowButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6581,6 +7179,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.rightArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -6592,6 +7191,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.rightArrowButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6603,6 +7203,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.rightArrowButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6614,6 +7215,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.rightArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6625,6 +7227,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.rightArrowButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6636,6 +7239,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.rightArrowButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6647,6 +7251,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.rightArrowButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -6658,6 +7263,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6669,6 +7275,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.enabledProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -6680,6 +7287,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.enabledRangeProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6691,6 +7299,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6702,6 +7311,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6713,6 +7323,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.thumb": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6724,6 +7335,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.thumb.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6735,6 +7347,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6746,6 +7359,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.thumb.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6757,6 +7371,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.thumbInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6768,6 +7383,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.thumbInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -6779,6 +7395,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6790,6 +7407,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6801,6 +7419,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6812,6 +7431,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.track.trackInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6823,6 +7443,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.track.trackInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -6834,6 +7455,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.track.trackInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6845,6 +7467,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.track.trackInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6856,6 +7479,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.track.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6867,6 +7491,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.valueProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6878,6 +7503,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -6889,6 +7515,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.titleNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6900,6 +7527,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.titleNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6911,6 +7539,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6922,6 +7551,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.titleNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6933,6 +7563,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.titleNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6944,6 +7575,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6955,6 +7587,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl": {
       "phetioDocumentation": "the concentration control for ‪Potassium permanganate‬",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6966,6 +7599,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.leftArrowButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6977,6 +7611,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.leftArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -6988,6 +7623,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.leftArrowButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -6999,6 +7635,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.leftArrowButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7010,6 +7647,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.leftArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7021,6 +7659,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.leftArrowButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7032,6 +7671,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.leftArrowButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7043,6 +7683,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.leftArrowButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -7054,6 +7695,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.numberDisplay": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7065,6 +7707,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.numberDisplay.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7076,6 +7719,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.numberDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7087,6 +7731,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.numberDisplay.valueNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7098,6 +7743,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.numberDisplay.valueNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7109,6 +7755,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.numberDisplay.valueNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7120,6 +7767,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.numberDisplay.valueNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7131,6 +7779,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.numberDisplay.valueNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7142,6 +7791,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.numberDisplay.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7153,6 +7803,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7164,6 +7815,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7175,6 +7827,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.rightArrowButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7186,6 +7839,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.rightArrowButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -7197,6 +7851,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.rightArrowButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7208,6 +7863,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.rightArrowButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7219,6 +7875,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.rightArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7230,6 +7887,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.rightArrowButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7241,6 +7899,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.rightArrowButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7252,6 +7911,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.rightArrowButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -7263,6 +7923,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7274,6 +7935,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.enabledProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -7285,6 +7947,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.enabledRangeProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7296,6 +7959,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7307,6 +7971,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7318,6 +7983,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.thumb": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7329,6 +7995,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.thumb.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7340,6 +8007,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7351,6 +8019,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.thumb.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7362,6 +8031,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.thumbInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7373,6 +8043,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.thumbInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -7384,6 +8055,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7395,6 +8067,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7406,6 +8079,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7417,6 +8091,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.track.trackInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7428,6 +8103,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.track.trackInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -7439,6 +8115,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.track.trackInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7450,6 +8127,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.track.trackInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7461,6 +8139,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.track.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7472,6 +8151,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.valueProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7483,6 +8163,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -7494,6 +8175,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.titleNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7505,6 +8187,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.titleNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7516,6 +8199,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7527,6 +8211,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.titleNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7538,6 +8223,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.titleNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7549,6 +8235,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7560,6 +8247,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.solutionControls.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7571,6 +8259,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7582,6 +8271,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7593,6 +8283,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.label": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7604,6 +8295,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.label.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7615,6 +8307,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.label.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7626,6 +8319,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.label.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7637,6 +8331,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.label.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7648,6 +8343,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7659,6 +8355,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7670,6 +8367,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.presetWavelengthRadioButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7681,6 +8379,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.presetWavelengthRadioButton.enabledProperty": {
       "phetioDocumentation": "Determines whether the AquaRadioButton is enabled (pressable) or disabled (grayed-out)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7692,6 +8391,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.presetWavelengthRadioButton.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7703,6 +8403,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.presetWavelengthRadioButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7714,6 +8415,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.presetWavelengthRadioButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7725,6 +8427,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.presetWavelengthRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7736,6 +8439,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.presetWavelengthRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7747,6 +8451,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.presetWavelengthRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7758,6 +8463,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.valueDisplay": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7769,6 +8475,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.valueDisplay.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7780,6 +8487,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.valueDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7791,6 +8499,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.valueDisplay.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7802,6 +8511,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.valueDisplay.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7813,6 +8523,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.variableWavelengthProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7824,6 +8535,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.variableWavelengthRadioButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7835,6 +8547,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.variableWavelengthRadioButton.enabledProperty": {
       "phetioDocumentation": "Determines whether the AquaRadioButton is enabled (pressable) or disabled (grayed-out)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7846,6 +8559,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.variableWavelengthRadioButton.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7857,6 +8571,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.variableWavelengthRadioButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7868,6 +8583,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.variableWavelengthRadioButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7879,6 +8595,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.variableWavelengthRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7890,6 +8607,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.variableWavelengthRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7901,6 +8619,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.variableWavelengthRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7912,6 +8631,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7923,6 +8643,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7934,6 +8655,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.minusButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7945,6 +8667,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.minusButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -7956,6 +8679,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.minusButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7967,6 +8691,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.minusButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7978,6 +8703,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.minusButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -7989,6 +8715,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.minusButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8000,6 +8727,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.minusButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8011,6 +8739,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.minusButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -8022,6 +8751,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8033,6 +8763,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8044,6 +8775,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.plusButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8055,6 +8787,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.plusButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -8066,6 +8799,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.plusButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8077,6 +8811,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.plusButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8088,6 +8823,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.plusButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8099,6 +8835,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.plusButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8110,6 +8847,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.plusButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8121,6 +8859,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.plusButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -8132,6 +8871,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.thumbInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8143,6 +8883,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.thumbInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -8154,6 +8895,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8165,6 +8907,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8176,6 +8919,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8187,6 +8931,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.trackInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8198,6 +8943,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.trackInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -8209,6 +8955,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.trackInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8220,6 +8967,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.trackInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8231,6 +8979,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8242,6 +8991,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8253,6 +9003,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.activeProperty": {
       "phetioDocumentation": "Indicates whether the screen is active.  For single-screen simulations, the screen is always active.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8264,6 +9015,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8275,6 +9027,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.concentrationMeter.body.locationProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8286,6 +9039,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.concentrationMeter.probe.locationProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8297,6 +9051,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.concentrationMeter.valueProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8308,6 +9063,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.drainFaucet.flowRateProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8319,6 +9075,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.dropper.dispensingProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8330,6 +9087,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.dropper.emptyProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8341,6 +9099,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.dropper.flowRateProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8352,6 +9111,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.dropper.locationProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8363,6 +9123,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.evaporator.enabledProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -8374,6 +9135,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.evaporator.evaporationRateProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8385,6 +9147,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.precipitate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8396,6 +9159,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.shaker.locationProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8407,6 +9171,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.shakerParticles": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8418,6 +9183,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.soluteFormProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8429,6 +9195,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.soluteProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8440,6 +9207,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.solution.concentrationProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8451,6 +9219,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.solution.percentConcentrationProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8462,6 +9231,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.solution.precipitateAmountProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8473,6 +9243,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.solution.saturatedProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8484,6 +9255,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.solution.soluteAmountProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8495,6 +9267,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.solution.soluteGramsProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8506,6 +9279,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.solution.volumeProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8517,6 +9291,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.model.solventFaucet.flowRateProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8528,6 +9303,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.solutes.cobaltChloride": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8539,6 +9315,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.solutes.cobaltIINitrate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8550,6 +9327,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.solutes.copperSulfate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8561,6 +9339,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.solutes.drinkMix": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8572,6 +9351,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.solutes.nickelIIChloride": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8583,6 +9363,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.solutes.potassiumChromate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8594,6 +9375,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.solutes.potassiumDichromate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8605,6 +9387,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.solutes.potassiumPermanganate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8616,6 +9399,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.solutes.sodiumChloride": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8627,6 +9411,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8638,6 +9423,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.beakerNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8649,6 +9435,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.beakerNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8660,6 +9447,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.beakerNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8671,6 +9459,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.beakerNode.tickLabel0": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8682,6 +9471,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.beakerNode.tickLabel0.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8693,6 +9483,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.beakerNode.tickLabel0.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8704,6 +9495,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.beakerNode.tickLabel0.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8715,6 +9507,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.beakerNode.tickLabel0.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8726,6 +9519,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.beakerNode.tickLabel1": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8737,6 +9531,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.beakerNode.tickLabel1.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8748,6 +9543,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.beakerNode.tickLabel1.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8759,6 +9555,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.beakerNode.tickLabel1.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8770,6 +9567,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.beakerNode.tickLabel1.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8781,6 +9579,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.beakerNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8792,6 +9591,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8803,6 +9603,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.bodyNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8814,6 +9615,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.bodyNode.movableDragHandler": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8825,6 +9627,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.bodyNode.movableDragHandler.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -8836,6 +9639,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.bodyNode.movableDragHandler.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8847,6 +9651,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.bodyNode.movableDragHandler.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8858,6 +9663,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.bodyNode.movableDragHandler.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8869,6 +9675,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.bodyNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8880,6 +9687,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.bodyNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8891,6 +9699,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.bodyNode.readoutTextNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8902,6 +9711,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.bodyNode.readoutTextNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8913,6 +9723,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.bodyNode.readoutTextNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8924,6 +9735,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.bodyNode.readoutTextNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8935,6 +9747,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.bodyNode.readoutTextNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8946,6 +9759,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.bodyNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8957,6 +9771,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8968,6 +9783,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8979,6 +9795,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.probeNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -8990,6 +9807,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.probeNode.movableDragHandler": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9001,6 +9819,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.probeNode.movableDragHandler.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -9012,6 +9831,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.probeNode.movableDragHandler.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9023,6 +9843,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.probeNode.movableDragHandler.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9034,6 +9855,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.probeNode.movableDragHandler.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9045,6 +9867,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.probeNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9056,6 +9879,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.probeNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9067,6 +9891,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.probeNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9078,6 +9903,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9089,6 +9915,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.drainFaucetNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9100,6 +9927,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.drainFaucetNode.inputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9111,6 +9939,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.drainFaucetNode.inputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -9122,6 +9951,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.drainFaucetNode.inputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9133,6 +9963,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.drainFaucetNode.inputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9144,6 +9975,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.drainFaucetNode.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9155,6 +9987,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.drainFaucetNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9166,6 +9999,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.drainFaucetNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9177,6 +10011,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.drainFaucetNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9188,6 +10023,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9199,6 +10035,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.button": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9210,6 +10047,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.button.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -9221,6 +10059,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.button.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9232,6 +10071,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.button.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9243,6 +10083,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.button.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9254,6 +10095,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.button.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9265,6 +10107,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.button.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -9276,6 +10119,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.label": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9287,6 +10131,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.label.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9298,6 +10143,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.label.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9309,6 +10155,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.label.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9320,6 +10167,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.label.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9331,6 +10179,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.movableDragHandler": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9342,6 +10191,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.movableDragHandler.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -9353,6 +10203,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.movableDragHandler.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9364,6 +10215,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.movableDragHandler.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9375,6 +10227,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.movableDragHandler.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9386,6 +10239,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9397,6 +10251,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9408,6 +10263,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.dropperNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9419,6 +10275,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9430,6 +10287,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9441,6 +10299,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9452,6 +10311,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9463,6 +10323,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.enabledRangeProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9474,6 +10335,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9485,6 +10347,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9496,6 +10359,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.thumb": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9507,6 +10371,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.thumb.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9518,6 +10383,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9529,6 +10395,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.thumb.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9540,6 +10407,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.thumbInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9551,6 +10419,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.thumbInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -9562,6 +10431,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.thumbInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9573,6 +10443,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.thumbInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9584,6 +10455,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.thumbInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9595,6 +10467,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.track.trackInputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9606,6 +10479,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.track.trackInputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -9617,6 +10491,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.track.trackInputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9628,6 +10503,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.track.trackInputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9639,6 +10515,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.track.trackInputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9650,6 +10527,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.valueProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9661,6 +10539,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -9672,6 +10551,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9683,6 +10563,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9694,6 +10575,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9705,6 +10587,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.removeSoluteButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9716,6 +10599,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.removeSoluteButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -9727,6 +10611,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.removeSoluteButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9738,6 +10623,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.removeSoluteButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9749,6 +10635,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.removeSoluteButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9760,6 +10647,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.removeSoluteButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9771,6 +10659,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.removeSoluteButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9782,6 +10671,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.removeSoluteButton.textNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9793,6 +10683,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.removeSoluteButton.textNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9804,6 +10695,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.removeSoluteButton.textNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9815,6 +10707,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.removeSoluteButton.textNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9826,6 +10719,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.removeSoluteButton.textNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9837,6 +10731,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.removeSoluteButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -9848,6 +10743,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.resetAllButton": {
       "phetioDocumentation": "The orange, round button that can be used to restore the initial state",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9859,6 +10755,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.resetAllButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -9870,6 +10767,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.resetAllButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9881,6 +10779,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.resetAllButton.isFiringProperty": {
       "phetioDocumentation": "Temporarily becomes true while the Reset All button is firing.  Commonly used to disable audio effects during reset.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9892,6 +10791,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.resetAllButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9903,6 +10803,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.resetAllButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9914,6 +10815,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.resetAllButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9925,6 +10827,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.resetAllButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9936,6 +10839,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.resetAllButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -9947,6 +10851,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9958,6 +10863,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.downArrowNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9969,6 +10875,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.downArrowNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9980,6 +10887,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.downArrowNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -9991,6 +10899,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.downArrowNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10002,6 +10911,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.inputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10013,6 +10923,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.inputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -10024,6 +10935,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.inputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10035,6 +10947,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.inputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10046,6 +10959,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10057,6 +10971,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.labelNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10068,6 +10983,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.labelNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10079,6 +10995,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.labelNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10090,6 +11007,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.labelNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10101,6 +11019,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.labelNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10112,6 +11031,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10123,6 +11043,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10134,6 +11055,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.upArrowNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10145,6 +11067,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.upArrowNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10156,6 +11079,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.upArrowNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10167,6 +11091,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.upArrowNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10178,6 +11103,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.shakerNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10189,6 +11115,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10200,6 +11127,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10211,6 +11139,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10222,6 +11151,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10233,6 +11163,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.button": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10244,6 +11175,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.button.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10255,6 +11187,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.button.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10266,6 +11199,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.button.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10277,6 +11211,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.button.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10288,6 +11223,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.button.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10299,6 +11235,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.button.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10310,6 +11247,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.button.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -10321,6 +11259,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.displayOnlyProperty": {
       "phetioDocumentation": "disables interaction with the ComboBox and makes it appear like a display that shows the current selection",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10332,6 +11271,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.enabledProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10343,6 +11283,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10354,6 +11295,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.cobaltChloride": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10365,6 +11307,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.cobaltChloride.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10376,6 +11319,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.cobaltChloride.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10387,6 +11331,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.cobaltChloride.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10398,6 +11343,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.cobaltIINitrate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10409,6 +11355,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.cobaltIINitrate.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10420,6 +11367,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.cobaltIINitrate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10431,6 +11379,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.cobaltIINitrate.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10442,6 +11391,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.copperSulfate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10453,6 +11403,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.copperSulfate.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10464,6 +11415,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.copperSulfate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10475,6 +11427,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.copperSulfate.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10486,6 +11439,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.drinkMix": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10497,6 +11451,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.drinkMix.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10508,6 +11463,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.drinkMix.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10519,6 +11475,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.drinkMix.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10530,6 +11487,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.fireAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10541,6 +11499,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.nickelIIChloride": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10552,6 +11511,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.nickelIIChloride.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10563,6 +11523,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.nickelIIChloride.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10574,6 +11535,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.nickelIIChloride.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10585,6 +11547,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10596,6 +11559,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10607,6 +11571,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.potassiumChromate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10618,6 +11583,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.potassiumChromate.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10629,6 +11595,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.potassiumChromate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10640,6 +11607,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.potassiumChromate.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10651,6 +11619,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.potassiumDichromate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10662,6 +11631,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.potassiumDichromate.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10673,6 +11643,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.potassiumDichromate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10684,6 +11655,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.potassiumDichromate.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10695,6 +11667,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.potassiumPermanganate": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10706,6 +11679,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.potassiumPermanganate.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10717,6 +11691,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.potassiumPermanganate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10728,6 +11703,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.potassiumPermanganate.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10739,6 +11715,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.sodiumChloride": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10750,6 +11727,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.sodiumChloride.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10761,6 +11739,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.sodiumChloride.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10772,6 +11751,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.sodiumChloride.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10783,6 +11763,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10794,6 +11775,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10805,6 +11787,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10816,6 +11799,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.property": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10827,6 +11811,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10838,6 +11823,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solidRadioButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10849,6 +11835,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solidRadioButton.enabledProperty": {
       "phetioDocumentation": "Determines whether the AquaRadioButton is enabled (pressable) or disabled (grayed-out)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10860,6 +11847,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solidRadioButton.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10871,6 +11859,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solidRadioButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10882,6 +11871,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solidRadioButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10893,6 +11883,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solidRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10904,6 +11895,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solidRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10915,6 +11907,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solidRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10926,6 +11919,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solutionRadioButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10937,6 +11931,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solutionRadioButton.enabledProperty": {
       "phetioDocumentation": "Determines whether the AquaRadioButton is enabled (pressable) or disabled (grayed-out)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10948,6 +11943,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solutionRadioButton.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10959,6 +11955,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solutionRadioButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10970,6 +11967,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solutionRadioButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10981,6 +11979,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solutionRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -10992,6 +11991,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solutionRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11003,6 +12003,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solutionRadioButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11014,6 +12015,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.soluteControls.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11025,6 +12027,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.solventFaucetNode": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11036,6 +12039,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.solventFaucetNode.inputListener": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11047,6 +12051,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.solventFaucetNode.inputListener.dragAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -11058,6 +12063,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.solventFaucetNode.inputListener.dragEndAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11069,6 +12075,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.solventFaucetNode.inputListener.dragStartAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11080,6 +12087,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.solventFaucetNode.inputListener.isDraggingProperty": {
       "phetioDocumentation": "Indicates whether the object is dragging",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11091,6 +12099,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.solventFaucetNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11102,6 +12111,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.solventFaucetNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11113,6 +12123,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.solventFaucetNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11124,6 +12135,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.concentrationScreen.view.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11135,6 +12147,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.activeProperty": {
       "phetioDocumentation": "Determines whether the entire simulation is running and processing user input. Setting this property to false pauses the simulation, and prevents user interaction.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11146,6 +12159,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.barrierRectangle": {
       "phetioDocumentation": "Semi-transparent barrier used to block input events when a dialog is shown, also fades out the background",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11157,6 +12171,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.barrierRectangle.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11168,6 +12183,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.barrierRectangle.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11179,6 +12195,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.barrierRectangle.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11190,6 +12207,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.barrierRectangle.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11201,6 +12219,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.barrierRectangle.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11212,6 +12231,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.barrierRectangle.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11223,6 +12243,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.browserTabVisibleProperty": {
       "phetioDocumentation": "Indicates whether the browser tab containing the simulation is currently visible",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11234,6 +12255,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.controller.input.mouseDownAction": {
       "phetioDocumentation": "Emits when a mouse button is pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11245,6 +12267,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.controller.input.mouseMovedAction": {
       "phetioDocumentation": "Emits when the mouse is moved",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -11256,6 +12279,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.controller.input.mouseOutAction": {
       "phetioDocumentation": "Emits when the mouse moves out of the display",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11267,6 +12291,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.controller.input.mouseOverAction": {
       "phetioDocumentation": "Emits when the mouse is moved over a Node",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11278,6 +12303,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.controller.input.mouseUpAction": {
       "phetioDocumentation": "Emits when a mouse button is released",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11289,6 +12315,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.controller.input.penCancelAction": {
       "phetioDocumentation": "Emits when a pen is canceled",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11300,6 +12327,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.controller.input.penEndAction": {
       "phetioDocumentation": "Emits when a pen is lifted",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11311,6 +12339,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.controller.input.penMoveAction": {
       "phetioDocumentation": "Emits when a pen is moved",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -11322,6 +12351,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.controller.input.penStartAction": {
       "phetioDocumentation": "Emits when a pen touches the screen",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11333,6 +12363,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.controller.input.touchCancelAction": {
       "phetioDocumentation": "Emits when a touch is canceled",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11344,6 +12375,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.controller.input.touchEndAction": {
       "phetioDocumentation": "Emits when a touch ends",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11355,6 +12387,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.controller.input.touchMoveAction": {
       "phetioDocumentation": "Emits when a touch moves",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -11366,6 +12399,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.controller.input.touchStartAction": {
       "phetioDocumentation": "Emits when a touch begins",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11377,6 +12411,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.controller.input.validatePointersAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -11388,6 +12423,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.controller.input.wheelScrollAction": {
       "phetioDocumentation": "Emits when the mouse wheel scrolls",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -11399,6 +12435,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.focusProperty": {
       "phetioDocumentation": "Stores the current focus for the simulation, null if there is not focus. This is not updated based on mouse or touch input, only keyboard and other alternative inputs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11410,6 +12447,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.beersLawScreenButton": {
       "phetioDocumentation": "Button in the navigation bar that selects the 'beersLawScreen' screen",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11421,6 +12459,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.beersLawScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11432,6 +12471,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.beersLawScreenButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11443,6 +12483,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.beersLawScreenButton.icon": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11454,6 +12495,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.beersLawScreenButton.icon.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11465,6 +12507,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.beersLawScreenButton.icon.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11476,6 +12519,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.beersLawScreenButton.icon.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11487,6 +12531,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.beersLawScreenButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11498,6 +12543,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.beersLawScreenButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11509,6 +12555,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.beersLawScreenButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11520,6 +12567,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.beersLawScreenButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11531,6 +12579,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.beersLawScreenButton.text": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11542,6 +12591,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.beersLawScreenButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11553,6 +12603,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.beersLawScreenButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11564,6 +12615,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.beersLawScreenButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11575,6 +12627,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.beersLawScreenButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11586,6 +12639,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.beersLawScreenButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11597,6 +12651,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.concentrationScreenButton": {
       "phetioDocumentation": "Button in the navigation bar that selects the 'concentrationScreen' screen",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11608,6 +12663,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.concentrationScreenButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11619,6 +12675,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.concentrationScreenButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11630,6 +12687,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.concentrationScreenButton.icon": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11641,6 +12699,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.concentrationScreenButton.icon.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11652,6 +12711,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.concentrationScreenButton.icon.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11663,6 +12723,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.concentrationScreenButton.icon.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11674,6 +12735,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.concentrationScreenButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11685,6 +12747,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.concentrationScreenButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11696,6 +12759,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.concentrationScreenButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11707,6 +12771,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.concentrationScreenButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11718,6 +12783,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.concentrationScreenButton.text": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11729,6 +12795,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.concentrationScreenButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11740,6 +12807,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.concentrationScreenButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11751,6 +12819,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.concentrationScreenButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11762,6 +12831,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.concentrationScreenButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11773,6 +12843,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.concentrationScreenButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11784,6 +12855,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.homeButton": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11795,6 +12867,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.homeButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11806,6 +12879,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.homeButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11817,6 +12891,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.homeButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11828,6 +12903,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.homeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11839,6 +12915,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.homeButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11850,6 +12927,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.homeButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11861,6 +12939,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.homeButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11872,6 +12951,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton": {
       "phetioDocumentation": "The button that appears at the right side of the navigation bar, which shows a menu when pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11883,6 +12963,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.enabledProperty": {
       "phetioDocumentation": "When disabled, the button is grayed out and cannot be pressed",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11894,6 +12975,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.firedEmitter": {
       "phetioDocumentation": "Emits when the button is fired",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11905,6 +12987,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.phetMenu": {
       "phetioDocumentation": "This menu is displayed when the PhET button is pressed.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11916,6 +12999,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.aboutMenuItem": {
       "phetioDocumentation": "This menu item shows a dialog with information about the simulation.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11927,6 +13011,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11938,6 +13023,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11949,6 +13035,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.aboutMenuItem.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11960,6 +13047,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.aboutMenuItem.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -11971,6 +13059,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.aboutMenuItem.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11982,6 +13071,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.aboutMenuItem.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -11993,6 +13083,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.screenshotMenuItem": {
       "phetioDocumentation": "This menu item captures a screenshot from the simulation and saves it to the file system.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12004,6 +13095,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12015,6 +13107,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12026,6 +13119,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12037,6 +13131,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12048,6 +13143,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12059,6 +13155,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -12070,6 +13167,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.pickableProperty": {
       "phetioDocumentation": "Set whether the phetButton will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12081,6 +13179,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.pressListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12092,6 +13191,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.phetButton.pressListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12103,6 +13203,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.titleTextNode": {
       "phetioDocumentation": "Displays the title of the simulation in the navigation bar (bottom left)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12114,6 +13215,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.titleTextNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12125,6 +13227,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.titleTextNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12136,6 +13239,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.titleTextNode.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12147,6 +13251,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.navigationBar.titleTextNode.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12158,6 +13263,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.phetioCommandProcessor": {
       "phetioDocumentation": "Processes messages from the wrapper frame and returns the results. This serves as the source of PhET-iO data stream messages when commands are invoked from the wrapper.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12169,6 +13275,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.resizeAction": {
       "phetioDocumentation": "Executes when the sim is resized",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12180,6 +13287,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.screenIndexProperty": {
       "phetioDocumentation": "Indicates which screen is selected (0-indexed)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -12191,6 +13299,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.showHomeScreenProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": true,
       "phetioHighFrequency": false,
@@ -12202,6 +13311,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.soundEnabledProperty": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12213,6 +13323,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.general.stepSimulationAction": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": true,
@@ -12224,6 +13335,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.activeProperty": {
       "phetioDocumentation": "Indicates whether the screen is active.  For single-screen simulations, the screen is always active.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12235,6 +13347,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12246,6 +13359,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenLargeButton": {
       "phetioDocumentation": "A pressable button in the simulation, in the home screen",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12257,6 +13371,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenLargeButton.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12268,6 +13383,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenLargeButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12279,6 +13395,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenLargeButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12290,6 +13407,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenLargeButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12301,6 +13419,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenLargeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12312,6 +13431,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenLargeButton.text": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12323,6 +13443,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenLargeButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12334,6 +13455,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenLargeButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12345,6 +13467,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenLargeButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12356,6 +13479,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenLargeButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12367,6 +13491,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenLargeButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12378,6 +13503,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenSmallButton": {
       "phetioDocumentation": "A pressable button in the simulation, in the home screen",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12389,6 +13515,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenSmallButton.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12400,6 +13527,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenSmallButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12411,6 +13539,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenSmallButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12422,6 +13551,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenSmallButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12433,6 +13563,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenSmallButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12444,6 +13575,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenSmallButton.text": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12455,6 +13587,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenSmallButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12466,6 +13599,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenSmallButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12477,6 +13611,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenSmallButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12488,6 +13623,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenSmallButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12499,6 +13635,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.beersLawScreenSmallButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12510,6 +13647,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenLargeButton": {
       "phetioDocumentation": "A pressable button in the simulation, in the home screen",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12521,6 +13659,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenLargeButton.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12532,6 +13671,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenLargeButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12543,6 +13683,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenLargeButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12554,6 +13695,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenLargeButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12565,6 +13707,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenLargeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12576,6 +13719,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenLargeButton.text": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12587,6 +13731,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenLargeButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12598,6 +13743,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenLargeButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12609,6 +13755,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenLargeButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12620,6 +13767,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenLargeButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12631,6 +13779,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenLargeButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12642,6 +13791,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenSmallButton": {
       "phetioDocumentation": "A pressable button in the simulation, in the home screen",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12653,6 +13803,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenSmallButton.inputListener.firedEmitter": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12664,6 +13815,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenSmallButton.inputListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the Event.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12675,6 +13827,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenSmallButton.inputListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs.",
+      "phetioDynamicElement": false,
       "phetioEventType": "user",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12686,6 +13839,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenSmallButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12697,6 +13851,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenSmallButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12708,6 +13863,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenSmallButton.text": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12719,6 +13875,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenSmallButton.text.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12730,6 +13887,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenSmallButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12741,6 +13899,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenSmallButton.text.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12752,6 +13911,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenSmallButton.text.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12763,6 +13923,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.concentrationScreenSmallButton.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12774,6 +13935,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12785,6 +13947,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12796,6 +13959,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.title": {
       "phetioDocumentation": "",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12807,6 +13971,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.title.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12818,6 +13983,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.title.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12829,6 +13995,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.title.textProperty": {
       "phetioDocumentation": "Property for the displayed text",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12840,6 +14007,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.title.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12851,6 +14019,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "beersLawLab.homeScreen.view.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
@@ -12862,6 +14031,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
     },
     "phetioEngine": {
       "phetioDocumentation": "Central point for PhET-iO interoperability",
+      "phetioDynamicElement": false,
       "phetioEventType": "model",
       "phetioFeatured": false,
       "phetioHighFrequency": false,
