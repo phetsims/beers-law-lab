@@ -46,7 +46,7 @@ define( function( require ) {
         node: new ConcentrationControl( solution, {
           visible: false,
           tandem: tandem.createTandem( solution.internalName + 'ConcentrationControl' ),
-          phetioDocumentation: 'the concentration control for ' + solution.name
+          phetioDocumentation: 'the concentration control for ' + solution.internalName
         } )
       };
     } );

@@ -1394,7 +1394,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "NodeIO"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl": {
-      "phetioDocumentation": "the concentration control for ‪Cobalt(II) chloride‬",
+      "phetioDocumentation": "the concentration control for cobaltChloride",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -2054,7 +2054,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl": {
-      "phetioDocumentation": "the concentration control for ‪Cobalt(II) nitrate‬",
+      "phetioDocumentation": "the concentration control for cobaltIINitrate",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -3818,7 +3818,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl": {
-      "phetioDocumentation": "the concentration control for ‪Copper(II) sulfate‬",
+      "phetioDocumentation": "the concentration control for copperSulfate",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -4478,7 +4478,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl": {
-      "phetioDocumentation": "the concentration control for ‪Drink mix‬",
+      "phetioDocumentation": "the concentration control for drinkMix",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -5138,7 +5138,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl": {
-      "phetioDocumentation": "the concentration control for ‪Nickel(II) chloride‬",
+      "phetioDocumentation": "the concentration control for nickelIIChloride",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -5822,7 +5822,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<NullableIO.<BooleanIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl": {
-      "phetioDocumentation": "the concentration control for ‪Potassium chromate‬",
+      "phetioDocumentation": "the concentration control for potassiumChromate",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -6482,7 +6482,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl": {
-      "phetioDocumentation": "the concentration control for ‪Potassium dichromate‬",
+      "phetioDocumentation": "the concentration control for potassiumDichromate",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
@@ -7142,7 +7142,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioTypeName": "PropertyIO.<BooleanIO>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl": {
-      "phetioDocumentation": "the concentration control for ‪Potassium permanganate‬",
+      "phetioDocumentation": "the concentration control for potassiumPermanganate",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
       "phetioFeatured": false,
