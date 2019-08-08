@@ -29,6 +29,7 @@ define( function( require ) {
 
   phetioInherit( ObjectIO, 'SoluteParticleIO', SoluteParticleIO, {}, {
     validator: { valueType: SoluteParticle },
+    documentation: 'A particle of solute to add to the solution',
 
     /**
      * Serializes an instance.  Not called by PhET-iO directly, but rather called from its subtypes.
