@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.4.14 Mon Aug 05 2019 14:38:59 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# beers-law-lab 1.4.14 Mon Aug 19 2019 12:43:49 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -9,7 +9,7 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "9b432dde9dc186eafcc8262fb2a911d04408f02b",
+    "sha": "b0b3930222660ca47e4f47e9e37182904b284410",
     "branch": "1.4"
   },
   "brand": {
@@ -25,8 +25,8 @@
     "branch": "HEAD"
   },
   "joist": {
-    "sha": "145f28e331e8ad8dd16c40b0ea6ab4299ac65462",
-    "branch": "HEAD"
+    "sha": "18f5825290e1b1b165af49ccb216fab41fffbcb6",
+    "branch": "beers-law-lab-1.4"
   },
   "kite": {
     "sha": "dce9765e6fcb535970ef17c1a1bcb8db95599b08",
@@ -53,8 +53,8 @@
     "branch": "HEAD"
   },
   "scenery-phet": {
-    "sha": "2b60b8e4d52c4bbfbc4226e905c5cc56ceb0e0cb",
-    "branch": "HEAD"
+    "sha": "25df207b359edfc7884bf1c5b04a8d40a79946a9",
+    "branch": "beers-law-lab-1.4"
   },
   "sherpa": {
     "sha": "e1b3c84b4f51328893008890fc462c32b8ec9278",
