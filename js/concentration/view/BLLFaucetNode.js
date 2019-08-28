@@ -28,7 +28,11 @@ define( function( require ) {
     options = _.extend( {
       horizontalPipeLength: horizontalPipeLength,
       scale: scale,
-      tandem: tandem
+      tandem: tandem,
+      shooterOptions: {
+        touchAreaXDilation: 37,
+        touchAreaYDilation: 60
+      }
     }, options );
 
     FaucetNode.call( this, faucet.maxFlowRate, faucet.flowRateProperty, faucet.enabledProperty, options );
