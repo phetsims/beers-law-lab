@@ -13,20 +13,12 @@ define( function( require ) {
   var ArrayIO = require( 'TANDEM/types/ArrayIO' );
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var phetioInherit = require( 'TANDEM/phetioInherit' );
   var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
   var VoidIO = require( 'TANDEM/types/VoidIO' );
 
-  /**
-   * @param {ConcentrationModel} concentrationModel
-   * @param {string} phetioID
-   * @constructor
-   */
-  function ConcentrationModelIO( concentrationModel, phetioID ) {
-    ObjectIO.call( this, concentrationModel, phetioID );
-  }
+  class ConcentrationModelIO extends ObjectIO {}
 
-  phetioInherit( ObjectIO, 'ConcentrationModelIO', ConcentrationModelIO, {
+  ConcentrationModelIO.methods = {
     setSolutes: {
       parameterTypes: [ ArrayIO( SoluteIO ) ],
       returnType: VoidIO,
@@ -36,13 +28,12 @@ define( function( require ) {
       documentation: 'Set which solutes are allowed for selection',
       invocableForReadOnlyElements: false
     }
-  }, {
-    documentation: 'The model for the concentration screen.',
-    validator: { isValidValue: v => v instanceof phet.beersLawLab.ConcentrationModel }
-  } );
+  };
+  ConcentrationModelIO.typeName = 'ConcentrationModelIO';
+  ConcentrationModelIO.documentation = 'The model for the concentration screen.';
+  ConcentrationModelIO.validator = { isValidValue: v => v instanceof phet.beersLawLab.ConcentrationModel };
+  ObjectIO.validateSubtype( ConcentrationModelIO );
 
-  beersLawLab.register( 'ConcentrationModelIO', ConcentrationModelIO );
-
-  return ConcentrationModelIO;
+  return beersLawLab.register( 'ConcentrationModelIO', ConcentrationModelIO );
 } );
 

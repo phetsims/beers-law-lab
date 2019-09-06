@@ -11,31 +11,20 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var phetioInherit = require( 'TANDEM/phetioInherit' );
+  const ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
   var SoluteParticleIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticleIO' );
   var Vector2IO = require( 'DOT/Vector2IO' );
   var validate = require( 'AXON/validate' );
 
-  /**
-   * @param {ShakerParticle} shakerParticle
-   * @param {string} phetioID
-   * @constructor
-   */
-  function ShakerParticleIO( shakerParticle, phetioID ) {
-    SoluteParticleIO.call( this, shakerParticle, phetioID );
-  }
-
-  phetioInherit( SoluteParticleIO, 'ShakerParticleIO', ShakerParticleIO, {}, {
-    documentation: 'A particle that comes from the shaker.',
-    validator: { isValidValue: v => v instanceof phet.beersLawLab.ShakerParticle },
+  class ShakerParticleIO extends SoluteParticleIO {
 
     /**
      * Serializes an instance.
      * @param {ShakerParticle} shakerParticle
      * @returns {Object}
      */
-    toStateObject: function( shakerParticle ) {
+    static toStateObject( shakerParticle ) {
       validate( shakerParticle, this.validator );
       var soluteParticle = SoluteParticleIO.toStateObject( shakerParticle );
       return _.extend( soluteParticle, {
@@ -43,14 +32,14 @@ define( function( require ) {
         velocity: Vector2IO.toStateObject( shakerParticle.velocity ),
         acceleration: Vector2IO.toStateObject( shakerParticle.acceleration )
       } );
-    },
+    }
 
     /**
      * Deserializes an instance.
      * @param {Object} stateObject
      * @returns {ShakerParticle}
      */
-    fromStateObject: function( stateObject ) {
+    static fromStateObject( stateObject ) {
       var soluteParticle = SoluteParticleIO.fromStateObject( stateObject );
       return _.extend( soluteParticle, {
         solute: SoluteIO.fromStateObject( stateObject.solute ),
@@ -58,10 +47,13 @@ define( function( require ) {
         acceleration: Vector2IO.fromStateObject( stateObject.acceleration )
       } );
     }
-  } );
+  }
 
-  beersLawLab.register( 'ShakerParticleIO', ShakerParticleIO );
+  ShakerParticleIO.documentation = 'A particle that comes from the shaker.';
+  ShakerParticleIO.validator = { isValidValue: v => v instanceof phet.beersLawLab.ShakerParticle };
+  ShakerParticleIO.typeName = 'ShakerParticleIO';
+  ObjectIO.validateSubtype( ShakerParticleIO );
 
-  return ShakerParticleIO;
+  return beersLawLab.register( 'ShakerParticleIO', ShakerParticleIO );
 } );
 

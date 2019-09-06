@@ -11,49 +11,40 @@ define( function( require ) {
 
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var phetioInherit = require( 'TANDEM/phetioInherit' );
+  const ObjectIO = require( 'TANDEM/types/ObjectIO' );
   var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
   var SoluteParticleIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticleIO' );
   var validate = require( 'AXON/validate' );
 
-  /**
-   * @param {PrecipitateParticle} precipitateParticle
-   * @param {string} phetioID
-   * @constructor
-   */
-  function PrecipitateParticleIO( precipitateParticle, phetioID ) {
-    SoluteParticleIO.call( this, precipitateParticle, phetioID );
-  }
-
-  phetioInherit( SoluteParticleIO, 'PrecipitateParticleIO', PrecipitateParticleIO, {}, {
+  class PrecipitateParticleIO extends SoluteParticleIO {
 
     /**
      * Serializes an instance.
      * @param {PrecipitateParticle} precipitateParticle
      * @returns {Object}
      */
-    toStateObject: function( precipitateParticle ) {
+    static toStateObject( precipitateParticle ) {
       validate( precipitateParticle, this.validator );
       var soluteParticle = SoluteParticleIO.toStateObject( precipitateParticle );
       return _.extend( soluteParticle, { solute: SoluteIO.toStateObject( precipitateParticle.solute ) } );
-    },
+    }
 
     /**
      * Deserializes an instance.
      * @param {Object} stateObject
      * @returns {PrecipitateParticle}
      */
-    fromStateObject: function( stateObject ) {
+    static fromStateObject( stateObject ) {
       var soluteParticle = SoluteParticleIO.fromStateObject( stateObject );
       return _.extend( soluteParticle, { solute: SoluteIO.fromStateObject( stateObject.solute ) } );
-    },
+    }
+  }
 
-    documentation: 'A particle that shows at the bottom of a saturated solution.',
-    validator: { isValidValue: v => v instanceof phet.beersLawLab.PrecipitateParticle }
-  } );
+  PrecipitateParticleIO.documentation = 'A particle that shows at the bottom of a saturated solution.';
+  PrecipitateParticleIO.validator = { isValidValue: v => v instanceof phet.beersLawLab.PrecipitateParticle };
+  PrecipitateParticleIO.typeName = 'PrecipitateParticleIO';
+  ObjectIO.validateSubtype( PrecipitateParticleIO );
 
-  beersLawLab.register( 'PrecipitateParticleIO', PrecipitateParticleIO );
-
-  return PrecipitateParticleIO;
+  return beersLawLab.register( 'PrecipitateParticleIO', PrecipitateParticleIO );
 } );
 

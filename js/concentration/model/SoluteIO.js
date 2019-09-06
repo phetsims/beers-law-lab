@@ -12,7 +12,6 @@ define( function( require ) {
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var phetioInherit = require( 'TANDEM/phetioInherit' );
   var StringIO = require( 'TANDEM/types/StringIO' );
   var VoidIO = require( 'TANDEM/types/VoidIO' );
   var validate = require( 'AXON/validate' );
@@ -20,16 +19,29 @@ define( function( require ) {
   // ifphetio
   var phetioEngine = require( 'ifphetio!PHET_IO/phetioEngine' );
 
-  /**
-   * @param {Solute} solute
-   * @param {string} phetioID
-   * @constructor
-   */
-  function SoluteIO( solute, phetioID ) {
-    ObjectIO.call( this, solute, phetioID );
+  class SoluteIO extends ObjectIO {
+
+    /**
+     * Serializes an instance.
+     * @param {Solute} solute
+     * @returns {Object}
+     */
+    static toStateObject( solute ) {
+      validate( solute, this.validator );
+      return solute.tandem.phetioID;
+    }
+
+    /**
+     * Deserializes an instance.
+     * @param {Object} stateObject
+     * @returns {Solute}
+     */
+    static fromStateObject( stateObject ) {
+      return phetioEngine.getPhetioObject( stateObject );
+    }
   }
 
-  phetioInherit( ObjectIO, 'SoluteIO', SoluteIO, {
+  SoluteIO.methods = {
 
     setName: {
       returnType: VoidIO,
@@ -50,32 +62,13 @@ define( function( require ) {
       documentation: 'Set the formula of the solute',
       invocableForReadOnlyElements: false
     }
-  }, {
-    documentation: 'The Solute for the sim.',
-    validator: { isValidValue: v => v instanceof phet.beersLawLab.Solute },
+  };
 
-    /**
-     * Serializes an instance.
-     * @param {Solute} solute
-     * @returns {Object}
-     */
-    toStateObject: function( solute ) {
-      validate( solute, this.validator );
-      return solute.tandem.phetioID;
-    },
+  SoluteIO.documentation = 'The Solute for the sim.';
+  SoluteIO.validator = { isValidValue: v => v instanceof phet.beersLawLab.Solute };
+  SoluteIO.typeName = 'SoluteIO';
+  ObjectIO.validateSubtype( SoluteIO );
 
-    /**
-     * Deserializes an instance.
-     * @param {Object} stateObject
-     * @returns {Solute}
-     */
-    fromStateObject: function( stateObject ) {
-      return phetioEngine.getPhetioObject( stateObject );
-    }
-  } );
-
-  beersLawLab.register( 'SoluteIO', SoluteIO );
-
-  return SoluteIO;
+  return beersLawLab.register( 'SoluteIO', SoluteIO );
 } );
 

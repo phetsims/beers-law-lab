@@ -12,24 +12,13 @@ define( function( require ) {
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var phetioInherit = require( 'TANDEM/phetioInherit' );
   var validate = require( 'AXON/validate' );
 
   // ifphetio
   var phetioEngine = require( 'ifphetio!PHET_IO/phetioEngine' );
 
-  /**
-   * @param {BeersLawSolution} beersLawSolution
-   * @param {string} phetioID
-   * @constructor
-   */
-  function BeersLawSolutionIO( beersLawSolution, phetioID ) {
-    ObjectIO.call( this, beersLawSolution, phetioID );
-  }
 
-  phetioInherit( ObjectIO, 'BeersLawSolutionIO', BeersLawSolutionIO, {}, {
-    documentation: 'The solution for the sim',
-    validator: { isValidValue: v => v instanceof phet.beersLawLab.BeersLawSolution },
+  class BeersLawSolutionIO extends ObjectIO {
 
     /**
      * Serializes the instance into its phetioID.
@@ -37,10 +26,10 @@ define( function( require ) {
      * @returns {string}
      * @override
      */
-    toStateObject: function( beersLawSolution ) {
+    static toStateObject( beersLawSolution ) {
       validate( beersLawSolution, this.validator );
       return beersLawSolution.tandem.phetioID;
-    },
+    }
 
     /**
      * Deserializes an instance.
@@ -50,13 +39,16 @@ define( function( require ) {
      * @returns {BeersLawSolution}
      * @override
      */
-    fromStateObject: function( stateObject ) {
+    static fromStateObject( stateObject ) {
       return phetioEngine.getPhetioObject( stateObject );
     }
-  } );
+  }
 
-  beersLawLab.register( 'BeersLawSolutionIO', BeersLawSolutionIO );
+  BeersLawSolutionIO.documentation = 'The solution for the sim';
+  BeersLawSolutionIO.validator = { isValidValue: v => v instanceof phet.beersLawLab.BeersLawSolution };
+  BeersLawSolutionIO.typeName = 'BeersLawSolutionIO';
+  ObjectIO.validateSubtype( BeersLawSolutionIO );
 
-  return BeersLawSolutionIO;
+  return beersLawLab.register( 'BeersLawSolutionIO', BeersLawSolutionIO );
 } );
 

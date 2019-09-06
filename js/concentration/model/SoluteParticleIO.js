@@ -13,51 +13,42 @@ define( function( require ) {
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var NumberIO = require( 'TANDEM/types/NumberIO' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var phetioInherit = require( 'TANDEM/phetioInherit' );
   var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
   var Vector2IO = require( 'DOT/Vector2IO' );
   var validate = require( 'AXON/validate' );
 
-  /**
-   * @param {SoluteParticle} soluteParticle
-   * @param {string} phetioID
-   * @constructor
-   */
-  function SoluteParticleIO( soluteParticle, phetioID ) {
-    ObjectIO.call( this, soluteParticle, phetioID );
-  }
-
-  phetioInherit( ObjectIO, 'SoluteParticleIO', SoluteParticleIO, {}, {
-    validator: { valueType: SoluteParticle },
-    documentation: 'A particle of solute to add to the solution',
+  class SoluteParticleIO extends ObjectIO {
 
     /**
      * Serializes an instance.  Not called by PhET-iO directly, but rather called from its subtypes.
      * @param soluteParticle
      * @returns {Object}
      */
-    toStateObject: function( soluteParticle ) {
+    static toStateObject( soluteParticle ) {
       validate( soluteParticle, this.validator );
       return {
         location: Vector2IO.toStateObject( soluteParticle.locationProperty.get() ),
         orientation: NumberIO.toStateObject( soluteParticle.orientation )
       };
-    },
+    }
 
     /**
      * Deserializes an instance.  Not called by PhET-iO directly, but rather called from its subtypes.
      * @param {Object} stateObject
      * @returns {{location: Vector2, orientation: number}}
      */
-    fromStateObject: function( stateObject ) {
+    static fromStateObject( stateObject ) {
       return {
         location: Vector2IO.fromStateObject( stateObject.location ),
         orientation: NumberIO.fromStateObject( stateObject.orientation )
       };
     }
-  } );
+  }
 
-  beersLawLab.register( 'SoluteParticleIO', SoluteParticleIO );
+  SoluteParticleIO.validator = { valueType: SoluteParticle };
+  SoluteParticleIO.documentation = 'A particle of solute to add to the solution';
+  SoluteParticleIO.typeName = 'SoluteParticleIO';
+  ObjectIO.validateSubtype( SoluteParticleIO );
 
-  return SoluteParticleIO;
+  return beersLawLab.register( 'SoluteParticleIO', SoluteParticleIO );
 } );

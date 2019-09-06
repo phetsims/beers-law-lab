@@ -12,21 +12,44 @@ define( function( require ) {
   // modules
   var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var phetioInherit = require( 'TANDEM/phetioInherit' );
   var Vector2IO = require( 'DOT/Vector2IO' );
   var VoidIO = require( 'TANDEM/types/VoidIO' );
   var validate = require( 'AXON/validate' );
 
-  /**
-   * @param {Shaker} shaker
-   * @param {string} phetioID
-   * @constructor
-   */
-  function ShakerIO( shaker, phetioID ) {
-    ObjectIO.call( this, shaker, phetioID );
+  class ShakerIO extends ObjectIO {
+
+    /**
+     * Serializes an instance.
+     * @param {Shaker} shaker
+     * @returns {Object}
+     */
+    static toStateObject( shaker ) {
+      validate( shaker, this.validator );
+      return { location: Vector2IO.toStateObject( shaker.previousLocation ) };
+    }
+
+    /**
+     * Deserializes an instance.
+     * @param {Object} stateObject
+     * @returns {{location: Vector2}}
+     */
+    static fromStateObject( stateObject ) {
+      return { location: Vector2IO.fromStateObject( stateObject.location ) };
+    }
+
+    /**
+     * Set the location of the shaker using the value parsed in fromStateObject.  This method is automatically called by
+     * phetioEngine.js when setting the state.
+     * @param {Shaker} shaker
+     * @param {{location: Vector2}} fromStateObject - the value returned by fromStateObject
+     */
+    static setValue( shaker, fromStateObject ) {
+      validate( shaker, this.validator );
+      shaker.previousLocation.set( fromStateObject.location );
+    }
   }
 
-  phetioInherit( ObjectIO, 'ShakerIO', ShakerIO, {
+  ShakerIO.methods = {
     setValue: {
       returnType: VoidIO,
       parameterTypes: [ ObjectIO ],
@@ -36,42 +59,10 @@ define( function( require ) {
       documentation: 'Load the values recorded in getState',
       invocableForReadOnlyElements: false
     }
-  }, {
-    documentation: 'The Shaker that releases solute',
-    validator: { isValidValue: v => v instanceof phet.beersLawLab.Shaker },
+  };
+  ShakerIO.documentation = 'The Shaker that releases solute';
+  ShakerIO.validator = { isValidValue: v => v instanceof phet.beersLawLab.Shaker };
+  ObjectIO.validateSubtype( ShakerIO );
 
-    /**
-     * Serializes an instance.
-     * @param {Shaker} shaker
-     * @returns {Object}
-     */
-    toStateObject: function( shaker ) {
-      validate( shaker, this.validator );
-      return { location: Vector2IO.toStateObject( shaker.previousLocation ) };
-    },
-
-    /**
-     * Deserializes an instance.
-     * @param {Object} stateObject
-     * @returns {{location: Vector2}}
-     */
-    fromStateObject: function( stateObject ) {
-      return { location: Vector2IO.fromStateObject( stateObject.location ) };
-    },
-
-    /**
-     * Set the location of the shaker using the value parsed in fromStateObject.  This method is automatically called by
-     * phetioEngine.js when setting the state.
-     * @param {Shaker} shaker
-     * @param {{location: Vector2}} fromStateObject - the value returned by fromStateObject
-     */
-    setValue: function( shaker, fromStateObject ) {
-      validate( shaker, this.validator );
-      shaker.previousLocation.set( fromStateObject.location );
-    }
-  } );
-
-  beersLawLab.register( 'ShakerIO', ShakerIO );
-
-  return ShakerIO;
+  return beersLawLab.register( 'ShakerIO', ShakerIO );
 } );
