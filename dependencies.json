@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.6.12-phetio Mon Sep 09 2019 11:10:04 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# beers-law-lab 1.6.13-phetiorc.1 Mon Sep 09 2019 22:52:35 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "1ea1df653504bc6eeb454051cedc7fb970a10cac",
     "branch": "HEAD"
@@ -9,7 +9,7 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "63b7a0fe7e2838ba65ea59cecc7cec5db40567fa",
+    "sha": "2626416fc39c20997e94575a5b7a46b0096dc0a7",
     "branch": "1.6-phetio"
   },
   "brand": {
@@ -26,7 +26,7 @@
   },
   "joist": {
     "sha": "87ee1dac80938b1ea53864b752352e2cc37bc97b",
-    "branch": "beers-law-lab-1.6-phetio"
+    "branch": "HEAD"
   },
   "kite": {
     "sha": "e5affc4c2cdfa007e7d93ce977f3249d7b449270",
