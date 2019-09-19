@@ -27,7 +27,7 @@ define( require => {
    */
   function Light( location, on, lensDiameter, solutionProperty, tandem ) {
 
-    var self = this;
+    const self = this;
 
     // @public (read-only)
     this.location = location;

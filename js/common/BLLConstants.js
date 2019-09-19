@@ -15,9 +15,9 @@ define( require => {
   const Tandem = require( 'TANDEM/Tandem' );
 
   // constants used to compute other constants
-  var BEAKER_VOLUME = 1;// L
+  const BEAKER_VOLUME = 1;// L
 
-  var BLLConstants = {
+  const BLLConstants = {
     SCREEN_VIEW_OPTIONS: { layoutBounds: new Bounds2( 0, 0, 1100, 700 ) },
     RADIO_BUTTON_RADIUS: 11,
     SOLUTE_AMOUNT_RANGE: new RangeWithValue( 0, 7, 0 ), // moles

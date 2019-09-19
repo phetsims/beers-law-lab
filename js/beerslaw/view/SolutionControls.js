@@ -37,10 +37,10 @@ define( require => {
     }, options );
 
     // combo box, to select a solution
-    var comboBox = new SolutionComboBox( solutions, currentSolutionProperty, solutionListParent, tandem.createTandem( 'comboBox' ) );
+    const comboBox = new SolutionComboBox( solutions, currentSolutionProperty, solutionListParent, tandem.createTandem( 'comboBox' ) );
 
     // {{value:{BeersLawSolution}, node:{ConcentrationControl}} - concentration controls, one for each solution
-    var toggleNodeElements = solutions.map( function( solution ) {
+    const toggleNodeElements = solutions.map( function( solution ) {
       return {
         value: solution,
         node: new ConcentrationControl( solution, {
@@ -52,9 +52,9 @@ define( require => {
     } );
 
     // Makes the control visible for the selected solution
-    var toggleNode = new ToggleNode( currentSolutionProperty, toggleNodeElements );
+    const toggleNode = new ToggleNode( currentSolutionProperty, toggleNodeElements );
 
-    var contentNode = new VBox( {
+    const contentNode = new VBox( {
       spacing: 15,
       align: 'left',
       children: [ comboBox, toggleNode ]

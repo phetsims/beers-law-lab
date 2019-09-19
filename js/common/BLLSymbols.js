@@ -15,7 +15,7 @@ define( require => {
   // strings
   const drinkMixString = require( 'string!BEERS_LAW_LAB/drinkMix' );
 
-  var BLLSymbols = {
+  const BLLSymbols = {
     COBALT_II_NITRATE: ChemUtils.toSubscript( 'Co(NO3)2' ),
     COBALT_CHLORIDE: ChemUtils.toSubscript( 'CoCl2' ),
     COPPER_SULFATE: ChemUtils.toSubscript( 'CuSO4' ),

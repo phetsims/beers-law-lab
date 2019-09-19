@@ -32,7 +32,7 @@ define( require => {
       phetioType: ShakerIO
     }, options );
 
-    var self = this;
+    const self = this;
 
     Movable.call( this, location, dragBounds, options );
 
@@ -50,7 +50,7 @@ define( require => {
     this.previousLocation = location;
 
     // set the dispensing rate to zero when the shaker becomes empty or invisible
-    var observer = function() {
+    const observer = function() {
       if ( self.emptyProperty.get() || !self.visibleProperty.get() ) {
         self.dispensingRateProperty.set( 0 );
       }

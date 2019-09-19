@@ -27,7 +27,7 @@ define( require => {
 
     assert && assert( pipeMinX < location.x ); // pipe enters the faucet from the left
 
-    var self = this;
+    const self = this;
 
     // @public (read-only)
     this.location = location;

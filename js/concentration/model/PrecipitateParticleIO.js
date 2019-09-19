@@ -25,7 +25,7 @@ define( require => {
      */
     static toStateObject( precipitateParticle ) {
       validate( precipitateParticle, this.validator );
-      var soluteParticle = SoluteParticleIO.toStateObject( precipitateParticle );
+      const soluteParticle = SoluteParticleIO.toStateObject( precipitateParticle );
       return _.extend( soluteParticle, { solute: SoluteIO.toStateObject( precipitateParticle.solute ) } );
     }
 
@@ -35,7 +35,7 @@ define( require => {
      * @returns {PrecipitateParticle}
      */
     static fromStateObject( stateObject ) {
-      var soluteParticle = SoluteParticleIO.fromStateObject( stateObject );
+      const soluteParticle = SoluteParticleIO.fromStateObject( stateObject );
       return _.extend( soluteParticle, { solute: SoluteIO.fromStateObject( stateObject.solute ) } );
     }
   }

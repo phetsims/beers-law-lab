@@ -20,7 +20,7 @@ define( require => {
   const pattern0SoluteAmountString = require( 'string!BEERS_LAW_LAB/pattern.0soluteAmount' );
 
   // constants
-  var DECIMAL_PLACES = 0;
+  const DECIMAL_PLACES = 0;
 
   /**
    * @param {Property.<number>} soluteGramsProperty - grams of solute
@@ -33,7 +33,7 @@ define( require => {
       font: new PhetFont( 22 )
     }, options );
 
-    var self = this;
+    const self = this;
 
     Text.call( this, '', options );
 

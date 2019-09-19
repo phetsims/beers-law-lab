@@ -31,9 +31,9 @@ define( require => {
   function BeersLawScreen( tandem ) {
 
     // No offset, scale 125x when going from model to view (1cm == 125 pixels)
-    var modelViewTransform = ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 125 );
+    const modelViewTransform = ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 125 );
 
-    var options = {
+    const options = {
       name: screenBeersLawString,
       homeScreenIcon: new Image( screenIcon ),
       tandem: tandem

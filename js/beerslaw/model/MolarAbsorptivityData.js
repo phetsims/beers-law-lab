@@ -35,7 +35,7 @@ define( require => {
   MolarAbsorptivityData.prototype.wavelengthToMolarAbsorptivity = function( wavelength ) {
     assert && assert( wavelength >= VisibleColor.MIN_WAVELENGTH && wavelength <= VisibleColor.MAX_WAVELENGTH,
       'invalid wavelength: ' + wavelength );
-    var index = Math.floor( wavelength - VisibleColor.MIN_WAVELENGTH );
+    const index = Math.floor( wavelength - VisibleColor.MIN_WAVELENGTH );
     return this.molarAbsorptivity[ index ];
   };
 
@@ -46,9 +46,9 @@ define( require => {
    * @returns {number}
    */
   MolarAbsorptivityData._getLambdaMax = function( molarAbsorptivity ) {
-    var indexMax = 0;
-    var molarAbsorptivityMax = molarAbsorptivity[ indexMax ];
-    for ( var i = 0; i < molarAbsorptivity.length; i++ ) {
+    let indexMax = 0;
+    let molarAbsorptivityMax = molarAbsorptivity[ indexMax ];
+    for ( let i = 0; i < molarAbsorptivity.length; i++ ) {
       if ( molarAbsorptivity[ i ] > molarAbsorptivityMax ) {
         molarAbsorptivityMax = molarAbsorptivity[ i ];
         indexMax = i;

@@ -23,9 +23,9 @@ define( require => {
   const shakerImage = require( 'image!BEERS_LAW_LAB/shaker.png' );
 
   // constants
-  var DEBUG_ORIGIN = false;
-  var ARROW_LENGTH = 40;
-  var ARROW_OPTIONS = {
+  const DEBUG_ORIGIN = false;
+  const ARROW_LENGTH = 40;
+  const ARROW_OPTIONS = {
     tailWidth: 23,
     headWidth: 40,
     headHeight: 30,
@@ -43,7 +43,7 @@ define( require => {
    */
   function ShakerNode( shaker, modelViewTransform, tandem ) {
 
-    var self = this;
+    const self = this;
 
     Node.call( this, {
       tandem: tandem,
@@ -54,11 +54,11 @@ define( require => {
     } );
 
     // shaker image
-    var imageNode = new Image( shakerImage );
+    const imageNode = new Image( shakerImage );
     imageNode.setScaleMagnitude( 0.75 );
 
     // label
-    var labelNode = new RichText( shaker.soluteProperty.get().formula, {
+    const labelNode = new RichText( shaker.soluteProperty.get().formula, {
       font: new PhetFont( { size: 22, weight: 'bold' } ),
       fill: 'black',
       maxWidth: 0.5 * imageNode.width, // constrain width for i18n
@@ -66,20 +66,20 @@ define( require => {
     } );
 
     // arrows
-    var downArrowNode = new ArrowNode( 0, 0, 0, ARROW_LENGTH, _.extend( {
+    const downArrowNode = new ArrowNode( 0, 0, 0, ARROW_LENGTH, _.extend( {
       tandem: tandem.createTandem( 'downArrowNode' )
     }, ARROW_OPTIONS ) );
     downArrowNode.top = imageNode.bottom + 4;
     downArrowNode.centerX = imageNode.centerX;
 
-    var upArrowNode = new ArrowNode( 0, 0, 0, -ARROW_LENGTH, _.extend( {
+    const upArrowNode = new ArrowNode( 0, 0, 0, -ARROW_LENGTH, _.extend( {
       tandem: tandem.createTandem( 'upArrowNode' )
     }, ARROW_OPTIONS ) );
     upArrowNode.bottom = imageNode.top - 4;
     upArrowNode.centerX = imageNode.centerX;
 
     // common parent, to simplify rotation and label alignment.
-    var parentNode = new Node( { children: [ imageNode, labelNode, upArrowNode, downArrowNode ] } );
+    const parentNode = new Node( { children: [ imageNode, labelNode, upArrowNode, downArrowNode ] } );
     this.addChild( parentNode );
     parentNode.rotate( shaker.orientation - Math.PI ); // assumes that shaker points to the left in the image file
     // Manually adjust these values until the origin is in the middle hole of the shaker.
@@ -91,7 +91,7 @@ define( require => {
     }
 
     // sync location with model
-    var shakerWasMoved = false;
+    let shakerWasMoved = false;
     shaker.locationProperty.link( function( location ) {
       self.translation = modelViewTransform.modelToViewPosition( location );
       shakerWasMoved = true;
@@ -109,7 +109,7 @@ define( require => {
       // label the shaker with the solute formula
       labelNode.setText( solute.formula );
       // center the label on the shaker
-      var capWidth = 0.3 * imageNode.width; // multiplier is dependent on image file
+      const capWidth = 0.3 * imageNode.width; // multiplier is dependent on image file
       labelNode.centerX = capWidth + ( imageNode.width - capWidth ) / 2;
       labelNode.centerY = imageNode.centerY;
     } );

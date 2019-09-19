@@ -19,7 +19,7 @@ define( require => {
    */
   function BeamNode( beam ) {
 
-    var self = this;
+    const self = this;
     Path.call( this, null, { stroke: 'rgba( 192, 192, 192, 0.8 )', lineWidth: 0.5, pickable: false } );
 
     // shape

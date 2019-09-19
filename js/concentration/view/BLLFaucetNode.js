@@ -22,8 +22,8 @@ define( require => {
    * @constructor
    */
   function BLLFaucetNode( faucet, modelViewTransform, tandem, options ) {
-    var scale = 0.75;
-    var horizontalPipeLength = modelViewTransform.modelToViewX( faucet.location.x - faucet.pipeMinX ) / scale;
+    const scale = 0.75;
+    const horizontalPipeLength = modelViewTransform.modelToViewX( faucet.location.x - faucet.pipeMinX ) / scale;
 
     options = _.extend( {
       horizontalPipeLength: horizontalPipeLength,

@@ -27,14 +27,14 @@ define( require => {
   const unitsMillilitersString = require( 'string!BEERS_LAW_LAB/units.milliliters' );
 
   // constants
-  var RIM_OFFSET = 20;
-  var MINOR_TICK_SPACING = 0.1; // L
-  var MINOR_TICKS_PER_MAJOR_TICK = 5;
-  var MAJOR_TICK_LENGTH = 30;
-  var MINOR_TICK_LENGTH = 15;
-  var TICK_LABEL_X_SPACING = 8;
-  var MAJOR_TICK_VALUES_LITERS = [ '\u00bd', '1' ]; // 1/2 L, 1 L
-  var MAJOR_TICK_VALUES_MILLILITERS = [ '500', '1000' ]; // 500 mL, 1000 mL
+  const RIM_OFFSET = 20;
+  const MINOR_TICK_SPACING = 0.1; // L
+  const MINOR_TICKS_PER_MAJOR_TICK = 5;
+  const MAJOR_TICK_LENGTH = 30;
+  const MINOR_TICK_LENGTH = 15;
+  const TICK_LABEL_X_SPACING = 8;
+  const MAJOR_TICK_VALUES_LITERS = [ '\u00bd', '1' ]; // 1/2 L, 1 L
+  const MAJOR_TICK_VALUES_MILLILITERS = [ '500', '1000' ]; // 500 mL, 1000 mL
   assert && assert( MAJOR_TICK_VALUES_LITERS.length === MAJOR_TICK_VALUES_MILLILITERS.length );
 
   /**
@@ -48,9 +48,9 @@ define( require => {
     Node.call( this, { pickable: false, tandem: tandem } );
 
     // outline of the beaker, starting from upper left
-    var width = modelViewTransform.modelToViewDeltaX( beaker.size.width );
-    var height = modelViewTransform.modelToViewDeltaY( beaker.size.height );
-    var outlineShape = new Shape()
+    const width = modelViewTransform.modelToViewDeltaX( beaker.size.width );
+    const height = modelViewTransform.modelToViewDeltaY( beaker.size.height );
+    const outlineShape = new Shape()
       .moveTo( -( width / 2 ) - RIM_OFFSET, -height - RIM_OFFSET )
       .lineTo( -( width / 2 ), -height )
       .lineTo( -( width / 2 ), 0 )
@@ -65,19 +65,19 @@ define( require => {
     } ) );
 
     // horizontal tick marks, left edge, from bottom up
-    var ticksParent = new Node();
+    const ticksParent = new Node();
     this.addChild( ticksParent );
-    var numberOfTicks = Util.roundSymmetric( beaker.volume / MINOR_TICK_SPACING );
-    var deltaY = height / numberOfTicks;
-    for ( var i = 1; i <= numberOfTicks; i++ ) {
+    const numberOfTicks = Util.roundSymmetric( beaker.volume / MINOR_TICK_SPACING );
+    const deltaY = height / numberOfTicks;
+    for ( let i = 1; i <= numberOfTicks; i++ ) {
 
       // tick
-      var isMajorTick = ( i % MINOR_TICKS_PER_MAJOR_TICK === 0 );
-      var y = -( i * deltaY );
-      var leftX = -width / 2;
-      var rightX = leftX + ( isMajorTick ? MAJOR_TICK_LENGTH : MINOR_TICK_LENGTH );
-      var tickShape = new Shape().moveTo( leftX, y ).lineTo( rightX, y );
-      var tickPath = new Path( tickShape,
+      const isMajorTick = ( i % MINOR_TICKS_PER_MAJOR_TICK === 0 );
+      const y = -( i * deltaY );
+      const leftX = -width / 2;
+      const rightX = leftX + ( isMajorTick ? MAJOR_TICK_LENGTH : MINOR_TICK_LENGTH );
+      const tickShape = new Shape().moveTo( leftX, y ).lineTo( rightX, y );
+      const tickPath = new Path( tickShape,
         {
           stroke: 'black',
           lineWidth: 2,
@@ -88,11 +88,11 @@ define( require => {
 
       // major tick label
       if ( isMajorTick ) {
-        var labelIndex = ( i / MINOR_TICKS_PER_MAJOR_TICK ) - 1;
+        const labelIndex = ( i / MINOR_TICKS_PER_MAJOR_TICK ) - 1;
         if ( labelIndex < MAJOR_TICK_VALUES_LITERS.length ) {
 
           // display ticks in liters or milliliters, see beers-law-lab#150
-          var label = ( BLLQueryParameters.beakerUnits === 'liters' ) ?
+          const label = ( BLLQueryParameters.beakerUnits === 'liters' ) ?
                       StringUtils.format( pattern0Value1UnitsString, MAJOR_TICK_VALUES_LITERS[ labelIndex ], unitsLitersString ) :
                       StringUtils.format( pattern0Value1UnitsString, MAJOR_TICK_VALUES_MILLILITERS[ labelIndex ], unitsMillilitersString );
 
@@ -108,7 +108,7 @@ define( require => {
       }
     }
 
-    var location = modelViewTransform.modelToViewPosition( beaker.location );
+    const location = modelViewTransform.modelToViewPosition( beaker.location );
     this.x = location.x;
     this.y = location.y;
   }

@@ -53,14 +53,14 @@ define( require => {
     step: function( deltaSeconds, beaker ) {
       // mutable calls added to remove the number of new objects we create
       this.velocity = this.acceleration.times( deltaSeconds ).add( this.velocity );
-      var newLocation = this.velocity.times( deltaSeconds ).add( this.locationProperty.get() );
+      const newLocation = this.velocity.times( deltaSeconds ).add( this.locationProperty.get() );
 
       /*
        * Did the particle hit the left wall of the beaker? If so, change direction.
        * Note that this is a very simplified model, and only deals with the left wall of the beaker,
        * which is the only wall that the particles can hit in practice.
        */
-      var minX = beaker.getLeft() + this.solute.particleSize;
+      const minX = beaker.getLeft() + this.solute.particleSize;
       if ( newLocation.x <= minX ) {
         newLocation.setX( minX );
         this.velocity.setX( Math.abs( this.velocity.x ) );

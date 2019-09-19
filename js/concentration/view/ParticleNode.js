@@ -21,9 +21,9 @@ define( require => {
    */
   function ParticleNode( particle, modelViewTransform ) {
 
-    var self = this;
+    const self = this;
 
-    var viewSize = modelViewTransform.modelToViewDeltaX( particle.size );
+    const viewSize = modelViewTransform.modelToViewDeltaX( particle.size );
     Rectangle.call( this, -viewSize / 2, -viewSize / 2, viewSize, viewSize, {
       fill: particle.color,
       stroke: particle.color.darkerColor(),

@@ -25,12 +25,12 @@ define( require => {
    */
   function StockSolutionNode( solvent, soluteProperty, dropper, beaker, tipWidth, modelViewTransform ) {
 
-    var self = this;
+    const self = this;
 
     Rectangle.call( this, 0, 0, 0, 0, { lineWidth: 1 } );
 
     // shape and location
-    var updateShapeAndLocation = function() {
+    const updateShapeAndLocation = function() {
       // path
       if ( dropper.dispensingProperty.get() && !dropper.emptyProperty.get() ) {
         self.setRect( -tipWidth / 2, 0, tipWidth, beaker.location.y - dropper.locationProperty.get().y );
@@ -47,7 +47,7 @@ define( require => {
 
     // set color to match solute
     soluteProperty.link( function( solute ) {
-      var color = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
+      const color = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
       self.fill = color;
       self.stroke = color.darkerColor();
     } );

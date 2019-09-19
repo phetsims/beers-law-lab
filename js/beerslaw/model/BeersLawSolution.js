@@ -68,7 +68,7 @@ define( require => {
 
     PhetioObject.call( this, options );
 
-    var self = this;
+    const self = this;
 
     // @public (read-only)
     this.solvent = Solvent.WATER;
@@ -89,9 +89,9 @@ define( require => {
     // @public Solution color is derived from concentration
     this.fluidColorProperty = new DerivedProperty( [ this.concentrationProperty ],
       function( concentration ) {
-        var color = self.solvent.colorProperty.get();
+        let color = self.solvent.colorProperty.get();
         if ( concentration > 0 ) {
-          var distance = Util.linear( self.concentrationRange.min, self.concentrationRange.max, 0, 1, concentration );
+          const distance = Util.linear( self.concentrationRange.min, self.concentrationRange.max, 0, 1, concentration );
           color = self.colorRange.interpolateLinear( distance );
         }
         return color;
@@ -121,7 +121,7 @@ define( require => {
 
   // A new tandem instance is required here since the solutes are created statically.  Signify that these solutions
   // are only used in the beers law screen by attaching them to that screen's tandem.
-  var tandem = BLLConstants.BEERS_LAW_SCREEN_TANDEM.createTandem( 'solutions' );
+  const tandem = BLLConstants.BEERS_LAW_SCREEN_TANDEM.createTandem( 'solutions' );
 
   //-------------------------------------------------------------------------------------------
   // Specific solutions below ...

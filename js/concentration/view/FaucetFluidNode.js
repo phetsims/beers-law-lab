@@ -23,7 +23,7 @@ define( require => {
    */
   function FaucetFluidNode( faucet, fluid, height, modelViewTransform ) {
 
-    var self = this;
+    const self = this;
 
     Rectangle.call( this, 0, 0, 0, 0, { lineWidth: 1, pickable: false } );
 
@@ -40,14 +40,14 @@ define( require => {
      * Set the width of the shape to match the flow rate.
      * @param {number} flowRate
      */
-    var viewLocation = modelViewTransform.modelToViewPosition( faucet.location );
-    var viewHeight = modelViewTransform.modelToViewDeltaY( height );
+    const viewLocation = modelViewTransform.modelToViewPosition( faucet.location );
+    const viewHeight = modelViewTransform.modelToViewDeltaY( height );
     faucet.flowRateProperty.link( function( flowRate ) {
       if ( flowRate === 0 ) {
         self.setRect( 0, 0, 0, 0 );
       }
       else {
-        var viewWidth = modelViewTransform.modelToViewDeltaX( faucet.spoutWidth * flowRate / faucet.maxFlowRate );
+        const viewWidth = modelViewTransform.modelToViewDeltaX( faucet.spoutWidth * flowRate / faucet.maxFlowRate );
         self.setRect( viewLocation.x - (viewWidth / 2), viewLocation.y, viewWidth, viewHeight );
       }
     } );

@@ -12,7 +12,7 @@ define( require => {
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
 
-  var BLLQueryParameters = QueryStringMachine.getAll( {
+  const BLLQueryParameters = QueryStringMachine.getAll( {
 
     // {boolean} whether the solute amount (in grams) is visible on the Concentration screen
     // This query parameter is intended for external use, see https://github.com/phetsims/beers-law-lab/issues/148

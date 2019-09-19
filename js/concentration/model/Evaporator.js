@@ -22,7 +22,7 @@ define( require => {
    */
   function Evaporator( maxEvaporationRate, solution, tandem ) {
 
-    var self = this;
+    const self = this;
 
     this.maxEvaporationRate = maxEvaporationRate; // @public (read-only) L/sec
 

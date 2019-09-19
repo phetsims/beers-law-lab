@@ -36,17 +36,17 @@ define( require => {
         tandem: tandem
       }, BLLConstants.SCREEN_VIEW_OPTIONS ) );
 
-    var lightNode = new LightNode( model.light, modelViewTransform, tandem.createTandem( 'lightNode' ) );
-    var cuvetteNode = new CuvetteNode( model.cuvette, model.solutionProperty, modelViewTransform, BLLQueryParameters.cuvetteSnapInterval, tandem.createTandem( 'cuvetteNode' ) );
-    var beamNode = new BeamNode( model.beam );
-    var detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform, tandem.createTandem( 'detectorNode' ) );
-    var wavelengthControls = new WavelengthControls( model.solutionProperty, model.light, tandem.createTandem( 'wavelengthControls' ) );
-    var rulerNode = new BLLRulerNode( model.ruler, modelViewTransform, tandem.createTandem( 'rulerNode' ) );
-    var comboBoxListParent = new Node( { maxWidth: 500 } );
-    var solutionControls = new SolutionControls( model.solutions, model.solutionProperty, comboBoxListParent, tandem.createTandem( 'solutionControls' ), { maxWidth: 575 } );
+    const lightNode = new LightNode( model.light, modelViewTransform, tandem.createTandem( 'lightNode' ) );
+    const cuvetteNode = new CuvetteNode( model.cuvette, model.solutionProperty, modelViewTransform, BLLQueryParameters.cuvetteSnapInterval, tandem.createTandem( 'cuvetteNode' ) );
+    const beamNode = new BeamNode( model.beam );
+    const detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform, tandem.createTandem( 'detectorNode' ) );
+    const wavelengthControls = new WavelengthControls( model.solutionProperty, model.light, tandem.createTandem( 'wavelengthControls' ) );
+    const rulerNode = new BLLRulerNode( model.ruler, modelViewTransform, tandem.createTandem( 'rulerNode' ) );
+    const comboBoxListParent = new Node( { maxWidth: 500 } );
+    const solutionControls = new SolutionControls( model.solutions, model.solutionProperty, comboBoxListParent, tandem.createTandem( 'solutionControls' ), { maxWidth: 575 } );
 
     // Reset All button
-    var resetAllButton = new ResetAllButton( {
+    const resetAllButton = new ResetAllButton( {
       scale: 1.32,
       listener: function() {
         model.reset();

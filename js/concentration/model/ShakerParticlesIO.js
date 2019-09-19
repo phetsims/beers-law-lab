@@ -49,7 +49,7 @@ define( require => {
     static addChildInstance( shakerParticles, tandem, stateObject ) {
       validate( shakerParticles, this.validator );
 
-      var value = ShakerParticleIO.fromStateObject( stateObject );
+      const value = ShakerParticleIO.fromStateObject( stateObject );
       assert && assert( value.acceleration instanceof Vector2, 'acceleration should be a Vector2' );
 
       shakerParticles.addParticle( new ShakerParticle(

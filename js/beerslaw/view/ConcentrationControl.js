@@ -31,9 +31,9 @@ define( require => {
   const pattern0Value1UnitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
 
   // constants
-  var FONT = new PhetFont( 20 );
-  var TICK_FONT = new PhetFont( 16 );
-  var SLIDER_INTERVAL = 5; // in view units
+  const FONT = new PhetFont( 20 );
+  const TICK_FONT = new PhetFont( 16 );
+  const SLIDER_INTERVAL = 5; // in view units
 
   /**
    * @param {BeersLawSolution} solution
@@ -84,9 +84,9 @@ define( require => {
     // @public (read-only)
     this.solution = solution;
 
-    var transform = solution.concentrationTransform;
+    const transform = solution.concentrationTransform;
 
-    var title = StringUtils.format( pattern0LabelString, concentrationString );
+    const title = StringUtils.format( pattern0LabelString, concentrationString );
 
     // e.g. display units that are specific to the solution, e.g. '{0} mM'
     assert && assert( !options.numberDisplayOptions.valuePattern, 'ConcentrationControl sets valuePattern' );
@@ -103,7 +103,7 @@ define( require => {
       .addColorStop( 1, solution.colorRange.max );
 
     // map concentration value between model and view
-    var numberProperty = new DynamicProperty( new Property( solution.concentrationProperty ), {
+    const numberProperty = new DynamicProperty( new Property( solution.concentrationProperty ), {
       bidirectional: true,
 
       // Necessary because bidirectional:true
@@ -117,7 +117,7 @@ define( require => {
     } );
 
     // convert solution's concentration range from model to view
-    var numberRange = new Range(
+    const numberRange = new Range(
       transform.modelToView( solution.concentrationRange.min ),
       transform.modelToView( solution.concentrationRange.max )
     );

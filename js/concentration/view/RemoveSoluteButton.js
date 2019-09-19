@@ -34,7 +34,7 @@ define( require => {
       tandem: tandem
     }, options );
 
-    var self = this;
+    const self = this;
 
     TextPushButton.call( this, removeSoluteString, options );
 

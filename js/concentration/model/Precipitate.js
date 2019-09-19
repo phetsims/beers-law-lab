@@ -31,7 +31,7 @@ define( require => {
 
     Particles.call( this, options );
 
-    var self = this;
+    const self = this;
 
     // @private
     this.solution = solution;
@@ -58,7 +58,7 @@ define( require => {
   beersLawLab.register( 'Precipitate', Precipitate );
 
   // Gets a random orientation, in radians.
-  var getRandomOrientation = function() {
+  const getRandomOrientation = function() {
     return phet.joist.random.nextDouble() * 2 * Math.PI;
   };
 
@@ -73,7 +73,7 @@ define( require => {
     updateParticles: function() {
 
       // number of particles desired after this update
-      var numberOfParticles = this.solution.getNumberOfPrecipitateParticles();
+      const numberOfParticles = this.solution.getNumberOfPrecipitateParticles();
 
       if ( numberOfParticles === this.particles.length ) {
         return; // no change, do nothing
@@ -96,7 +96,7 @@ define( require => {
      */
     addParticles: function( numberToAdd ) {
       assert && assert( numberToAdd > 0, 'invalid numberToAdd: ' + numberToAdd );
-      for ( var i = 0; i < numberToAdd; i++ ) {
+      for ( let i = 0; i < numberToAdd; i++ ) {
         this.addParticle( new PrecipitateParticle(
           this.solution.soluteProperty.get(),
           this.getRandomOffset(),
@@ -116,10 +116,10 @@ define( require => {
       assert && assert( numberToRemove > 0 && numberToRemove <= this.particles.length,
         'invalid numberToRemove: ' + numberToRemove );
 
-      var removedParticles = this.particles.splice( this.particles.length - numberToRemove, numberToRemove );
+      const removedParticles = this.particles.splice( this.particles.length - numberToRemove, numberToRemove );
       assert && assert( removedParticles && removedParticles.length === numberToRemove );
 
-      for ( var i = 0; i < removedParticles.length; i++ ) {
+      for ( let i = 0; i < removedParticles.length; i++ ) {
         removedParticles[ i ].dispose();
       }
     },
@@ -137,12 +137,12 @@ define( require => {
 
     // @private Gets a random location, in global model coordinate frame.
     getRandomOffset: function() {
-      var particleSize = this.solution.soluteProperty.get().particleSize;
+      const particleSize = this.solution.soluteProperty.get().particleSize;
       // particles are square, largest margin required is the diagonal length
-      var margin = Math.sqrt( particleSize * particleSize );
+      const margin = Math.sqrt( particleSize * particleSize );
       // offset
-      var x = this.beaker.location.x - ( this.beaker.size.width / 2 ) + margin + ( phet.joist.random.nextDouble() * ( this.beaker.size.width - ( 2 * margin ) ) );
-      var y = this.beaker.location.y - margin; // this was tweaked based on the lineWidth used to stroke the beaker
+      const x = this.beaker.location.x - ( this.beaker.size.width / 2 ) + margin + ( phet.joist.random.nextDouble() * ( this.beaker.size.width - ( 2 * margin ) ) );
+      const y = this.beaker.location.y - margin; // this was tweaked based on the lineWidth used to stroke the beaker
       return new Vector2( x, y );
     }
   } );

@@ -21,7 +21,7 @@ define( require => {
   const unitsCentimetersString = require( 'string!BEERS_LAW_LAB/units.centimeters' );
 
   // constants
-  var MAJOR_TICK_WIDTH = 0.5; // in model coordinate frame
+  const MAJOR_TICK_WIDTH = 0.5; // in model coordinate frame
 
   /**
    * @param {Ruler} ruler
@@ -31,20 +31,20 @@ define( require => {
    */
   function BLLRulerNode( ruler, modelViewTransform, tandem ) {
 
-    var self = this;
+    const self = this;
     Node.call( this, { tandem: tandem } );
 
     // Compute tick labels, 1 major tick for every 0.5 unit of length, labels on the ticks that correspond to integer values.
-    var majorTickLabels = [];
-    var numberOfTicks = Math.floor( ruler.length / MAJOR_TICK_WIDTH ) + 1;
-    for ( var i = 0; i < numberOfTicks; i++ ) {
+    const majorTickLabels = [];
+    const numberOfTicks = Math.floor( ruler.length / MAJOR_TICK_WIDTH ) + 1;
+    for ( let i = 0; i < numberOfTicks; i++ ) {
       majorTickLabels[ i ] = ( i % 2 === 0 ) ? ( i / 2 ) : '';
     }
 
     // use the common ruler node
-    var width = modelViewTransform.modelToViewDeltaX( ruler.length );
-    var height = modelViewTransform.modelToViewDeltaY( ruler.height );
-    var majorTickWidth = modelViewTransform.modelToViewDeltaX( MAJOR_TICK_WIDTH );
+    const width = modelViewTransform.modelToViewDeltaX( ruler.length );
+    const height = modelViewTransform.modelToViewDeltaY( ruler.height );
+    const majorTickWidth = modelViewTransform.modelToViewDeltaX( MAJOR_TICK_WIDTH );
     this.addChild( new RulerNode(
       width,
       height,
@@ -55,13 +55,13 @@ define( require => {
     );
 
     // touch area
-    var dx = 0.05 * this.width;
-    var dy = 0.5 * this.height;
+    const dx = 0.05 * this.width;
+    const dy = 0.5 * this.height;
     this.touchArea = Shape.rectangle( -dx, -dy, this.width + dx + dx, this.height + dy + dy );
 
     // sync with model
     ruler.locationProperty.link( function( location ) {
-      var position = modelViewTransform.modelToViewPosition( location );
+      const position = modelViewTransform.modelToViewPosition( location );
       self.x = position.x;
       self.y = position.y;
     } );

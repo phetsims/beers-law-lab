@@ -18,7 +18,7 @@ define( require => {
   // strings
   const beersLawLabTitleString = require( 'string!BEERS_LAW_LAB/beers-law-lab.title' );
 
-  var simOptions = {
+  const simOptions = {
     credits: {
       leadDesign: 'Julia Chamberlain',
       softwareDevelopment: 'Chris Malley (PixelZoom, Inc.)',
@@ -29,7 +29,7 @@ define( require => {
   };
 
   SimLauncher.launch( function() {
-    var sim = new Sim( beersLawLabTitleString, [
+    const sim = new Sim( beersLawLabTitleString, [
       new ConcentrationScreen( BLLConstants.CONCENTRATION_SCREEN_TANDEM ),
       new BeersLawScreen( BLLConstants.BEERS_LAW_SCREEN_TANDEM )
     ], simOptions );

@@ -34,7 +34,7 @@ define( require => {
    */
   function Absorbance( light, solutionProperty, cuvette ) {
 
-    var self = this;
+    const self = this;
 
     // @private a : molar absorptivity
     this.molarAbsorptivityProperty = new DerivedProperty( [ solutionProperty, light.wavelengthProperty ],
@@ -47,7 +47,7 @@ define( require => {
       this.currentConcentrationProperty = new Property( solutionProperty.get().concentrationProperty.get() );
 
       // Observe the concentration property of the current solution.
-      var concentrationObserver = function( concentration ) {
+      const concentrationObserver = function( concentration ) {
         self.currentConcentrationProperty.set( concentration );
       };
 
@@ -85,7 +85,7 @@ define( require => {
    * @param {number} absorbance
    * @returns {number}
    */
-  var getTransmittance = function( absorbance ) {
+  const getTransmittance = function( absorbance ) {
     return Math.pow( 10, -absorbance );
   };
 

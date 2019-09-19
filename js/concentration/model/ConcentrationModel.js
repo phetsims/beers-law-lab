@@ -34,12 +34,12 @@ define( require => {
   const Vector2 = require( 'DOT/Vector2' );
 
   // constants
-  var SOLUTION_VOLUME_RANGE = BLLConstants.SOLUTION_VOLUME_RANGE; // L
-  var SOLUTE_AMOUNT_RANGE = BLLConstants.SOLUTE_AMOUNT_RANGE; // moles
-  var MAX_EVAPORATION_RATE = 0.25; // L/sec
-  var MAX_FAUCET_FLOW_RATE = 0.25; // L/sec
-  var DROPPER_FLOW_RATE = 0.05; // L/sec
-  var SHAKER_MAX_DISPENSING_RATE = 0.2; // mol/sec
+  const SOLUTION_VOLUME_RANGE = BLLConstants.SOLUTION_VOLUME_RANGE; // L
+  const SOLUTE_AMOUNT_RANGE = BLLConstants.SOLUTE_AMOUNT_RANGE; // moles
+  const MAX_EVAPORATION_RATE = 0.25; // L/sec
+  const MAX_FAUCET_FLOW_RATE = 0.25; // L/sec
+  const DROPPER_FLOW_RATE = 0.05; // L/sec
+  const SHAKER_MAX_DISPENSING_RATE = 0.2; // mol/sec
 
   /**
    * @param {Object} [options]
@@ -47,7 +47,7 @@ define( require => {
    */
   function ConcentrationModel( options ) {
 
-    var self = this;
+    const self = this;
 
     options = _.extend( {
       tandem: Tandem.required,
@@ -55,7 +55,7 @@ define( require => {
       phetioState: false // does not contribute self-state, all of the state is from child instances (via composition)
     }, options );
 
-    var tandem = options.tandem;
+    const tandem = options.tandem;
 
     // @public Solutes, in rainbow (ROYGBIV) order.
     this.solutes = [
@@ -127,7 +127,7 @@ define( require => {
 
     // Empty shaker and dropper when max solute is reached.
     this.solution.soluteAmountProperty.link( function( soluteAmount ) {
-      var containsMaxSolute = ( soluteAmount >= SOLUTE_AMOUNT_RANGE.max );
+      const containsMaxSolute = ( soluteAmount >= SOLUTE_AMOUNT_RANGE.max );
       self.shaker.emptyProperty.set( containsMaxSolute );
       self.dropper.emptyProperty.set( containsMaxSolute );
       self.dropper.enabledProperty.set( !self.dropper.emptyProperty.get() && !containsMaxSolute && self.solution.volumeProperty.get() < SOLUTION_VOLUME_RANGE.max );
@@ -187,22 +187,22 @@ define( require => {
 
     // @private Drain solution from the output faucet
     drainSolutionFromOutputFaucet: function( deltaSeconds ) {
-      var drainVolume = this.drainFaucet.flowRateProperty.get() * deltaSeconds;
+      const drainVolume = this.drainFaucet.flowRateProperty.get() * deltaSeconds;
       if ( drainVolume > 0 ) {
-        var concentration = this.solution.concentrationProperty.get(); // get concentration before changing volume
-        var volumeRemoved = this.removeSolvent( drainVolume );
+        const concentration = this.solution.concentrationProperty.get(); // get concentration before changing volume
+        const volumeRemoved = this.removeSolvent( drainVolume );
         this.removeSolute( concentration * volumeRemoved );
       }
     },
 
     // @private Add stock solution from dropper
     addStockSolutionFromDropper: function( deltaSeconds ) {
-      var dropperVolume = this.dropper.flowRateProperty.get() * deltaSeconds;
+      const dropperVolume = this.dropper.flowRateProperty.get() * deltaSeconds;
       if ( dropperVolume > 0 ) {
 
         // defer update of precipitateAmount until we've changed both volume and solute amount, see concentration#1
         this.solution.updatePrecipitateAmount = false;
-        var volumeAdded = this.addSolvent( dropperVolume );
+        const volumeAdded = this.addSolvent( dropperVolume );
         this.solution.updatePrecipitateAmount = true;
         this.addSolute( this.solution.soluteProperty.get().stockSolutionConcentration * volumeAdded );
       }
@@ -226,8 +226,8 @@ define( require => {
     // @private Adds solvent to the solution. Returns the amount actually added.
     addSolvent: function( deltaVolume ) {
       if ( deltaVolume > 0 ) {
-        var volumeProperty = this.solution.volumeProperty;
-        var volumeBefore = volumeProperty.get();
+        const volumeProperty = this.solution.volumeProperty;
+        const volumeBefore = volumeProperty.get();
         volumeProperty.set( Math.min( SOLUTION_VOLUME_RANGE.max, volumeProperty.get() + deltaVolume ) );
         return volumeProperty.get() - volumeBefore;
       }
@@ -239,8 +239,8 @@ define( require => {
     // @private Removes solvent from the solution. Returns the amount actually removed.
     removeSolvent: function( deltaVolume ) {
       if ( deltaVolume > 0 ) {
-        var volumeProperty = this.solution.volumeProperty;
-        var volumeBefore = volumeProperty.get();
+        const volumeProperty = this.solution.volumeProperty;
+        const volumeBefore = volumeProperty.get();
         volumeProperty.set( Math.max( SOLUTION_VOLUME_RANGE.min, volumeProperty.get() - deltaVolume ) );
         return volumeBefore - volumeProperty.get();
       }
@@ -252,7 +252,7 @@ define( require => {
     // @private Adds solute to the solution. Returns the amount actually added.
     addSolute: function( deltaAmount ) {
       if ( deltaAmount > 0 ) {
-        var amountBefore = this.solution.soluteAmountProperty.get();
+        const amountBefore = this.solution.soluteAmountProperty.get();
         this.solution.soluteAmountProperty.set( Math.min( SOLUTE_AMOUNT_RANGE.max, this.solution.soluteAmountProperty.get() + deltaAmount ) );
         return this.solution.soluteAmountProperty.get() - amountBefore;
       }
@@ -264,7 +264,7 @@ define( require => {
     // @private Removes solute from the solution. Returns the amount actually removed.
     removeSolute: function( deltaAmount ) {
       if ( deltaAmount > 0 ) {
-        var amountBefore = this.solution.soluteAmountProperty.get();
+        const amountBefore = this.solution.soluteAmountProperty.get();
         this.solution.soluteAmountProperty.set( Math.max( SOLUTE_AMOUNT_RANGE.min, this.solution.soluteAmountProperty.get() - deltaAmount ) );
         return amountBefore - this.solution.soluteAmountProperty.get();
       }

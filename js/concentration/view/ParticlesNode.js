@@ -23,7 +23,7 @@ define( require => {
    */
   function ParticlesNode( particles, modelViewTransform, canvasBounds ) {
 
-    var self = this;
+    const self = this;
 
     this.particles = particles;  // @public
     this.modelViewTransform = modelViewTransform; // @public
@@ -46,9 +46,9 @@ define( require => {
      */
     paintCanvas: function( context ) {
 
-      var particles = this.particles.particles;
-      var halfViewSize;
-      var numberOfParticles = particles.length;
+      const particles = this.particles.particles;
+      let halfViewSize;
+      const numberOfParticles = particles.length;
 
       // Set and compute static properties that should be shared by all of the particles, and start the path.
       // Assumes that all particles are the same color and size.
@@ -61,14 +61,14 @@ define( require => {
       }
 
       // draw into one big path
-      for ( var i = 0; i < numberOfParticles; i++ ) {
-        var particle = particles[ i ];
+      for ( let i = 0; i < numberOfParticles; i++ ) {
+        const particle = particles[ i ];
 
-        var position = this.modelViewTransform.modelToViewPosition( particle.locationProperty.get() );
-        var x = position.x;
-        var y = position.y;
-        var cos = Math.cos( particle.orientation ) * halfViewSize;
-        var sin = Math.sin( particle.orientation ) * halfViewSize;
+        const position = this.modelViewTransform.modelToViewPosition( particle.locationProperty.get() );
+        const x = position.x;
+        const y = position.y;
+        const cos = Math.cos( particle.orientation ) * halfViewSize;
+        const sin = Math.sin( particle.orientation ) * halfViewSize;
         context.moveTo( x + cos, y + sin );
         context.lineTo( x - sin, y + cos );
         context.lineTo( x - cos, y - sin );

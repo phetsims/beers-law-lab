@@ -36,10 +36,10 @@ define( require => {
    */
   function SoluteFormNode( soluteFormProperty, shaker, dropper, tandem ) {
 
-    var TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
-    var SEPARATOR_SPACING = 30;
+    const TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
+    const SEPARATOR_SPACING = 30;
 
-    var shakerButton = new AquaRadioButton( soluteFormProperty, 'solid',
+    const shakerButton = new AquaRadioButton( soluteFormProperty, 'solid',
       new TextAndIconNode( solidString, shakerIconImage, TEXT_OPTIONS ), {
         radius: BLLConstants.RADIO_BUTTON_RADIUS,
         tandem: tandem.createTandem( 'solidRadioButton' )
@@ -47,14 +47,14 @@ define( require => {
     shakerButton.touchArea = shakerButton.localBounds.dilatedXY( 10, 2 );
 
     // vertical separator
-    var separator = new Line( 0, 0, 0, shakerButton.height, {
+    const separator = new Line( 0, 0, 0, shakerButton.height, {
       stroke: 'rgb(150,150,150)',
       lineWidth: 0.5,
       left: shakerButton.right + SEPARATOR_SPACING,
       centerY: shakerButton.centerY
     } );
 
-    var dropperButton = new AquaRadioButton( soluteFormProperty, 'solution',
+    const dropperButton = new AquaRadioButton( soluteFormProperty, 'solution',
       new TextAndIconNode( solutionString, dropperIconImage, TEXT_OPTIONS ), {
         radius: BLLConstants.RADIO_BUTTON_RADIUS,
         left: separator.right + SEPARATOR_SPACING,
@@ -87,8 +87,8 @@ define( require => {
    * @constructor
    */
   function TextAndIconNode( text, image, textOptions ) {
-    var textNode = new Text( text, textOptions );
-    var imageNode = new Image( image, {
+    const textNode = new Text( text, textOptions );
+    const imageNode = new Image( image, {
       left: textNode.right + 10,
       centerY: textNode.centerY
     } );

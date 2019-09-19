@@ -26,7 +26,7 @@ define( require => {
      */
     static toStateObject( shakerParticle ) {
       validate( shakerParticle, this.validator );
-      var soluteParticle = SoluteParticleIO.toStateObject( shakerParticle );
+      const soluteParticle = SoluteParticleIO.toStateObject( shakerParticle );
       return _.extend( soluteParticle, {
         solute: SoluteIO.toStateObject( shakerParticle.solute ),
         velocity: Vector2IO.toStateObject( shakerParticle.velocity ),
@@ -40,7 +40,7 @@ define( require => {
      * @returns {ShakerParticle}
      */
     static fromStateObject( stateObject ) {
-      var soluteParticle = SoluteParticleIO.fromStateObject( stateObject );
+      const soluteParticle = SoluteParticleIO.fromStateObject( stateObject );
       return _.extend( soluteParticle, {
         solute: SoluteIO.fromStateObject( stateObject.solute ),
         velocity: Vector2IO.fromStateObject( stateObject.velocity ),

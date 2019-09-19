@@ -47,23 +47,23 @@ define( require => {
       tandem: tandem.createTandem( 'variableWavelengthProperty' )
     } );
 
-    var xMargin = 7;
-    var yMargin = 3;
+    const xMargin = 7;
+    const yMargin = 3;
 
-    var label = new Text( StringUtils.format( pattern0LabelString, wavelengthString ), {
+    const label = new Text( StringUtils.format( pattern0LabelString, wavelengthString ), {
       font: new PhetFont( 20 ),
       fill: 'black',
       tandem: tandem.createTandem( 'label' )
     } );
 
-    var valueDisplay = new Text( formatWavelength( light.wavelengthProperty.get() ), {
+    const valueDisplay = new Text( formatWavelength( light.wavelengthProperty.get() ), {
       font: new PhetFont( 20 ),
       fill: 'black',
       y: label.y, // align baselines
       tandem: tandem.createTandem( 'valueDisplay' )
     } );
 
-    var valueBackground = new Rectangle( 0, 0, valueDisplay.width + xMargin + xMargin, valueDisplay.height + yMargin + yMargin, {
+    const valueBackground = new Rectangle( 0, 0, valueDisplay.width + xMargin + xMargin, valueDisplay.height + yMargin + yMargin, {
       fill: 'white',
       stroke: 'lightGray',
       left: label.right + 10,
@@ -71,13 +71,13 @@ define( require => {
     } );
     valueDisplay.right = valueBackground.right - xMargin; // right aligned
 
-    var valueParent = new Node( {
+    const valueParent = new Node( {
       children: [ label, valueBackground, valueDisplay ],
       maxWidth: 250 // constrain width for i18n
     } );
 
     // preset
-    var presetRadioButton = new AquaRadioButton( this.variableWavelengthProperty, false,
+    const presetRadioButton = new AquaRadioButton( this.variableWavelengthProperty, false,
       new Text( presetString, {
         font: new PhetFont( 18 ),
         fill: 'black'
@@ -88,7 +88,7 @@ define( require => {
     presetRadioButton.touchArea = presetRadioButton.localBounds.dilatedXY( 6, 8 );
 
     // variable
-    var variableRadioButton = new AquaRadioButton( this.variableWavelengthProperty, true,
+    const variableRadioButton = new AquaRadioButton( this.variableWavelengthProperty, true,
       new Text( variableString, {
         font: new PhetFont( 18 ),
         fill: 'black'
@@ -98,13 +98,13 @@ define( require => {
       } );
     variableRadioButton.touchArea = variableRadioButton.localBounds.dilatedXY( 6, 8 );
 
-    var radioButtons = new HBox( {
+    const radioButtons = new HBox( {
       spacing: 18,
       maxWidth: 250, // constrain width for i18n
       children: [ presetRadioButton, variableRadioButton ]
     } );
 
-    var wavelengthSlider = new WavelengthSlider( light.wavelengthProperty, {
+    const wavelengthSlider = new WavelengthSlider( light.wavelengthProperty, {
       trackWidth: 150,
       trackHeight: 30,
       valueVisible: false,
@@ -114,7 +114,7 @@ define( require => {
     } );
 
     // rendering order
-    var content = new VBox( {
+    const content = new VBox( {
       spacing: 15,
       align: 'left',
       children: [ valueParent, radioButtons, wavelengthSlider ]

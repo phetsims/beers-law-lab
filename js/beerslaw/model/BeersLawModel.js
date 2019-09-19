@@ -25,7 +25,7 @@ define( require => {
   const Ruler = require( 'BEERS_LAW_LAB/beerslaw/model/Ruler' );
   const Vector2 = require( 'DOT/Vector2' );
 
-  var CUVETTE_WIDTH_RANGE = new RangeWithValue( 0.5, 2.0, 1.0 );
+  const CUVETTE_WIDTH_RANGE = new RangeWithValue( 0.5, 2.0, 1.0 );
 
   /**
    * @param {ModelViewTransform2} modelViewTransform
@@ -90,7 +90,7 @@ define( require => {
 
     // @public Resets all model elements
     reset: function() {
-      for ( var i = 0; i < this.solutions.length; i++ ) {
+      for ( let i = 0; i < this.solutions.length; i++ ) {
         this.solutions[ i ].reset();
       }
       this.solutionProperty.reset();

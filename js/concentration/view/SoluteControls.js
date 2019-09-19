@@ -39,12 +39,12 @@ define( require => {
     }, options );
 
     // solute combo box
-    var soluteComboBox = new SoluteComboBox( solutes, currentSoluteProperty, soluteListParent, tandem.createTandem( 'soluteComboBox' ) );
+    const soluteComboBox = new SoluteComboBox( solutes, currentSoluteProperty, soluteListParent, tandem.createTandem( 'soluteComboBox' ) );
 
     // radio buttons for solid vs solution
-    var soluteFormNode = new SoluteFormNode( soluteFormProperty, shaker, dropper, tandem.createTandem( 'soluteFormNode' ) );
+    const soluteFormNode = new SoluteFormNode( soluteFormProperty, shaker, dropper, tandem.createTandem( 'soluteFormNode' ) );
 
-    var contentNode = new Node();
+    const contentNode = new Node();
     contentNode.addChild( soluteFormNode );
     contentNode.addChild( soluteComboBox ); // add last, so that dropdown is on top
 

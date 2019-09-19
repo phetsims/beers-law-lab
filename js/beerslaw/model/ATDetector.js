@@ -33,7 +33,7 @@ define( require => {
    */
   function ATDetector( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds, light, cuvette, absorbance, options ) {
 
-    var self = this;
+    const self = this;
 
     options = _.extend( { tandem: Tandem.required }, options );
 
@@ -60,10 +60,10 @@ define( require => {
       ],
       function( probeLocation, lightOn, mode, cuvetteWidth, absorbanceValue ) {
         // Computes the displayed value, null if the light is off or the probe is outside the beam.
-        var value = null;
+        let value = null;
         if ( self.probeInBeam() ) {
           // path length is between 0 and cuvette width
-          var pathLength = Math.min( Math.max( 0, probeLocation.x - cuvette.location.x ), cuvetteWidth );
+          const pathLength = Math.min( Math.max( 0, probeLocation.x - cuvette.location.x ), cuvetteWidth );
           if ( self.modeProperty.get() === ATDetector.Mode.ABSORBANCE ) {
             value = absorbance.getAbsorbanceAt( pathLength );
           }

@@ -43,9 +43,9 @@ define( require => {
       tandem: tandem
     }, options );
 
-    var label = new Text( StringUtils.format( pattern0LabelString, evaporationString ), { font: new PhetFont( 22 ) } );
+    const label = new Text( StringUtils.format( pattern0LabelString, evaporationString ), { font: new PhetFont( 22 ) } );
 
-    var slider = new HSlider( evaporator.evaporationRateProperty, new Range( 0, evaporator.maxEvaporationRate ), {
+    const slider = new HSlider( evaporator.evaporationRateProperty, new Range( 0, evaporator.maxEvaporationRate ), {
       trackSize: new Dimension2( 150, 6 ),
       thumbSize: new Dimension2( 22, 45 ),
       enabledProperty: evaporator.enabledProperty,
@@ -53,11 +53,11 @@ define( require => {
       tandem: tandem.createTandem( 'slider' )
     } );
 
-    var tickFont = new PhetFont( 16 );
+    const tickFont = new PhetFont( 16 );
     slider.addMajorTick( 0, new Text( noneString, { font: tickFont } ) );
     slider.addMajorTick( evaporator.maxEvaporationRate, new Text( lotsString, { font: tickFont } ) );
 
-    var content = new Node();
+    const content = new Node();
     content.addChild( label );
     content.addChild( slider );
 

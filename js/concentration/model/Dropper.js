@@ -26,7 +26,7 @@ define( require => {
    */
   function Dropper( location, dragBounds, soluteProperty, maxFlowRate, visible, options ) {
 
-    var self = this;
+    const self = this;
     Movable.call( this, location, dragBounds, options );
 
     // @public

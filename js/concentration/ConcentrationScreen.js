@@ -29,9 +29,9 @@ define( require => {
    */
   function ConcentrationScreen( tandem ) {
 
-    var modelViewTransform = ModelViewTransform2.createIdentity();
+    const modelViewTransform = ModelViewTransform2.createIdentity();
 
-    var options = {
+    const options = {
       name: screenConcentrationString,
       homeScreenIcon: new Image( screenIcon ),
       tandem: tandem

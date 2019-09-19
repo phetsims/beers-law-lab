@@ -36,16 +36,16 @@ define( require => {
   const transmittanceString = require( 'string!BEERS_LAW_LAB/transmittance' );
 
   // constants
-  var ABSORBANCE_DECIMAL_PLACES = 2;
-  var TRANSMITTANCE_DECIMAL_PLACES = 2;
-  var NO_VALUE = MathSymbols.NO_VALUE;
-  var BODY_X_MARGIN = 15;
-  var BODY_Y_MARGIN = 15;
-  var VALUE_X_MARGIN = 6;
-  var VALUE_Y_MARGIN = 4;
-  var PROBE_COLOR = 'rgb( 8, 133, 54 )';
-  var MIN_VALUE_SIZE = new Dimension2( 150, 36 );
-  var MIN_BODY_SIZE = new Dimension2( 185, 140 );
+  const ABSORBANCE_DECIMAL_PLACES = 2;
+  const TRANSMITTANCE_DECIMAL_PLACES = 2;
+  const NO_VALUE = MathSymbols.NO_VALUE;
+  const BODY_X_MARGIN = 15;
+  const BODY_Y_MARGIN = 15;
+  const VALUE_X_MARGIN = 6;
+  const VALUE_Y_MARGIN = 4;
+  const PROBE_COLOR = 'rgb( 8, 133, 54 )';
+  const MIN_VALUE_SIZE = new Dimension2( 150, 36 );
+  const MIN_BODY_SIZE = new Dimension2( 185, 140 );
 
   /**
    * @param {ATDetector} detector
@@ -58,9 +58,9 @@ define( require => {
 
     Node.call( this );
 
-    var bodyNode = new BodyNode( detector, modelViewTransform, tandem.createTandem( 'bodyNode' ) );
-    var probeNode = new ATProbeNode( detector.probe, light, modelViewTransform, tandem.createTandem( 'probeNode' ) );
-    var wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
+    const bodyNode = new BodyNode( detector, modelViewTransform, tandem.createTandem( 'bodyNode' ) );
+    const probeNode = new ATProbeNode( detector.probe, light, modelViewTransform, tandem.createTandem( 'probeNode' ) );
+    const wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
 
     this.addChild( wireNode );
     this.addChild( bodyNode );
@@ -80,25 +80,25 @@ define( require => {
    */
   function BodyNode( detector, modelViewTransform, tandem ) {
 
-    var self = this;
+    const self = this;
 
     Node.call( this, { tandem: tandem } );
 
     // buttons for changing the detector 'mode'
-    var textOptions = { font: new PhetFont( 18 ), fill: 'white' };
-    var transmittanceRadioButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.TRANSMITTANCE,
+    const textOptions = { font: new PhetFont( 18 ), fill: 'white' };
+    const transmittanceRadioButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.TRANSMITTANCE,
       new Text( transmittanceString, textOptions ), {
         radius: BLLConstants.RADIO_BUTTON_RADIUS,
         tandem: tandem.createTandem( 'transmittanceRadioButton' )
       } );
-    var absorbanceRadioButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.ABSORBANCE,
+    const absorbanceRadioButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.ABSORBANCE,
       new Text( absorbanceString, textOptions ), {
         radius: BLLConstants.RADIO_BUTTON_RADIUS,
         tandem: tandem.createTandem( 'absorbanceRadioButton' )
       } );
 
     // group the buttons
-    var buttonGroup = new LayoutBox( {
+    const buttonGroup = new LayoutBox( {
       children: [ transmittanceRadioButton, absorbanceRadioButton ],
       orientation: 'vertical',
       align: 'left',
@@ -107,17 +107,17 @@ define( require => {
     } );
 
     // value
-    var maxValue = 100;
-    var valueNode = new Text( StringUtils.format( pattern0PercentString, Util.toFixed( maxValue, TRANSMITTANCE_DECIMAL_PLACES ) ), {
+    const maxValue = 100;
+    const valueNode = new Text( StringUtils.format( pattern0PercentString, Util.toFixed( maxValue, TRANSMITTANCE_DECIMAL_PLACES ) ), {
       font: new PhetFont( 24 ),
       maxWidth: 150,
       tandem: tandem.createTandem( 'valueNode' )
     } );
 
     // display area for the value
-    var valueWidth = Math.max( MIN_VALUE_SIZE.width, Math.max( buttonGroup.width, valueNode.width ) + ( 2 * VALUE_X_MARGIN ) );
-    var valueHeight = Math.max( MIN_VALUE_SIZE.height, valueNode.height + ( 2 * VALUE_Y_MARGIN ) );
-    var valueBackgroundNode = new ShadedRectangle( new Bounds2( 0, 0, valueWidth, valueHeight ), {
+    const valueWidth = Math.max( MIN_VALUE_SIZE.width, Math.max( buttonGroup.width, valueNode.width ) + ( 2 * VALUE_X_MARGIN ) );
+    const valueHeight = Math.max( MIN_VALUE_SIZE.height, valueNode.height + ( 2 * VALUE_Y_MARGIN ) );
+    const valueBackgroundNode = new ShadedRectangle( new Bounds2( 0, 0, valueWidth, valueHeight ), {
       baseColor: 'white',
       lightSource: 'rightBottom'
     } );
@@ -125,7 +125,7 @@ define( require => {
     valueNode.centerY = valueBackgroundNode.centerY;
 
     // vertical arrangement of stuff in the meter
-    var vBox = new LayoutBox( {
+    const vBox = new LayoutBox( {
       children: [ new Node( { children: [ valueBackgroundNode, valueNode ] } ), buttonGroup ],
       orientation: 'vertical',
       align: 'center',
@@ -133,9 +133,9 @@ define( require => {
     } );
 
     // meter body
-    var bodyWidth = Math.max( MIN_BODY_SIZE.width, vBox.width + ( 2 * BODY_X_MARGIN ) );
-    var bodyHeight = Math.max( MIN_BODY_SIZE.height, vBox.height + ( 2 * BODY_Y_MARGIN ) );
-    var bodyNode = new ShadedRectangle( new Bounds2( 0, 0, bodyWidth, bodyHeight ), {
+    const bodyWidth = Math.max( MIN_BODY_SIZE.width, vBox.width + ( 2 * BODY_X_MARGIN ) );
+    const bodyHeight = Math.max( MIN_BODY_SIZE.height, vBox.height + ( 2 * BODY_Y_MARGIN ) );
+    const bodyNode = new ShadedRectangle( new Bounds2( 0, 0, bodyWidth, bodyHeight ), {
       baseColor: PROBE_COLOR,
       lightOffset: 0.95
     } );
@@ -150,8 +150,8 @@ define( require => {
     } );
 
     // update the value display
-    var valueUpdater = function() {
-      var value = detector.valueProperty.get();
+    const valueUpdater = function() {
+      const value = detector.valueProperty.get();
       if ( value === null ) {
         valueNode.text = NO_VALUE;
         valueNode.centerX = valueBackgroundNode.centerX; // centered
@@ -183,7 +183,7 @@ define( require => {
    */
   function ATProbeNode( probe, light, modelViewTransform, tandem ) {
 
-    var self = this;
+    const self = this;
 
     ProbeNode.call( this, {
       tandem: tandem,
@@ -204,7 +204,7 @@ define( require => {
     // interactivity
     this.cursor = 'pointer';
 
-    var movableDragHandler = new MovableDragHandler( probe.locationProperty, {
+    const movableDragHandler = new MovableDragHandler( probe.locationProperty, {
       tandem: tandem.createTandem( 'movableDragHandler' ),
       dragBounds: probe.dragBounds,
       modelViewTransform: modelViewTransform,
@@ -234,7 +234,7 @@ define( require => {
    */
   function WireNode( body, probe, bodyNode, probeNode ) {
 
-    var self = this;
+    const self = this;
 
     Path.call( this, new Shape(), {
       stroke: 'gray',
@@ -244,18 +244,18 @@ define( require => {
       pickable: false
     } );
 
-    var updateCurve = function() {
+    const updateCurve = function() {
 
       // connection points
-      var bodyConnectionPoint = new Vector2( bodyNode.centerX, bodyNode.bottom );
-      var probeConnectionPoint = new Vector2( probeNode.centerX, probeNode.bottom );
+      const bodyConnectionPoint = new Vector2( bodyNode.centerX, bodyNode.bottom );
+      const probeConnectionPoint = new Vector2( probeNode.centerX, probeNode.bottom );
 
       // control points
       // The y coordinate of the body's control point varies with the x distance between the body and probe.
-      var c1Offset = new Vector2( 0, Util.linear( 0, 800, 0, 200, bodyNode.centerX - probeNode.left ) ); // x distance -> y coordinate
-      var c2Offset = new Vector2( 50, 150 );
-      var c1 = new Vector2( bodyConnectionPoint.x + c1Offset.x, bodyConnectionPoint.y + c1Offset.y );
-      var c2 = new Vector2( probeConnectionPoint.x + c2Offset.x, probeConnectionPoint.y + c2Offset.y );
+      const c1Offset = new Vector2( 0, Util.linear( 0, 800, 0, 200, bodyNode.centerX - probeNode.left ) ); // x distance -> y coordinate
+      const c2Offset = new Vector2( 50, 150 );
+      const c1 = new Vector2( bodyConnectionPoint.x + c1Offset.x, bodyConnectionPoint.y + c1Offset.y );
+      const c2 = new Vector2( probeConnectionPoint.x + c2Offset.x, probeConnectionPoint.y + c2Offset.y );
 
       // cubic curve
       self.shape = new Shape()

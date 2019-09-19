@@ -46,60 +46,60 @@ define( require => {
     }, BLLConstants.SCREEN_VIEW_OPTIONS ) );
 
     // Beaker and stuff inside it
-    var beakerNode = new BeakerNode( model.beaker, modelViewTransform, tandem.createTandem( 'beakerNode' ) );
-    var solutionNode = new SolutionNode( model.solution, model.beaker, modelViewTransform );
+    const beakerNode = new BeakerNode( model.beaker, modelViewTransform, tandem.createTandem( 'beakerNode' ) );
+    const solutionNode = new SolutionNode( model.solution, model.beaker, modelViewTransform );
 
     // Precipitate particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
-    var precipitateNode = new ParticlesNode( model.precipitate, modelViewTransform, new Bounds2(
+    const precipitateNode = new ParticlesNode( model.precipitate, modelViewTransform, new Bounds2(
       modelViewTransform.modelToViewX( model.beaker.getLeft() ), modelViewTransform.modelToViewY( model.beaker.location.y ) - 100,
       modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.location.y ) ) );
-    var saturatedIndicator = new SaturatedIndicator( model.solution );
+    const saturatedIndicator = new SaturatedIndicator( model.solution );
 
     // Shaker
-    var shakerNode = new ShakerNode( model.shaker, modelViewTransform, tandem.createTandem( 'shakerNode' ) );
+    const shakerNode = new ShakerNode( model.shaker, modelViewTransform, tandem.createTandem( 'shakerNode' ) );
 
     // Shaker particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
-    var shakerParticlesNode = new ParticlesNode( model.shakerParticles, modelViewTransform, new Bounds2(
+    const shakerParticlesNode = new ParticlesNode( model.shakerParticles, modelViewTransform, new Bounds2(
       modelViewTransform.modelToViewX( model.beaker.getLeft() ), this.layoutBounds.minY,
       modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.location.y ) ) );
 
     // Dropper
-    var dropperNode = new BLLDropperNode( model.dropper, model.solution.solvent, model.solution.soluteProperty, modelViewTransform, tandem.createTandem( 'dropperNode' ) );
-    var stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.soluteProperty, model.dropper, model.beaker, EyeDropperNode.TIP_WIDTH - 1, modelViewTransform );
+    const dropperNode = new BLLDropperNode( model.dropper, model.solution.solvent, model.solution.soluteProperty, modelViewTransform, tandem.createTandem( 'dropperNode' ) );
+    const stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.soluteProperty, model.dropper, model.beaker, EyeDropperNode.TIP_WIDTH - 1, modelViewTransform );
 
     // faucets
-    var solventFaucetNode = new BLLFaucetNode( model.solventFaucet, modelViewTransform, tandem.createTandem( 'solventFaucetNode' ) );
-    var drainFaucetNode = new BLLFaucetNode( model.drainFaucet, modelViewTransform, tandem.createTandem( 'drainFaucetNode' ) );
-    var SOLVENT_FLUID_HEIGHT = model.beaker.location.y - model.solventFaucet.location.y;
-    var DRAIN_FLUID_HEIGHT = 1000; // tall enough that resizing the play area is unlikely to show bottom of fluid
-    var solventFluidNode = new FaucetFluidNode( model.solventFaucet, model.solution.solvent, SOLVENT_FLUID_HEIGHT, modelViewTransform );
-    var drainFluidNode = new FaucetFluidNode( model.drainFaucet, model.solution, DRAIN_FLUID_HEIGHT, modelViewTransform );
+    const solventFaucetNode = new BLLFaucetNode( model.solventFaucet, modelViewTransform, tandem.createTandem( 'solventFaucetNode' ) );
+    const drainFaucetNode = new BLLFaucetNode( model.drainFaucet, modelViewTransform, tandem.createTandem( 'drainFaucetNode' ) );
+    const SOLVENT_FLUID_HEIGHT = model.beaker.location.y - model.solventFaucet.location.y;
+    const DRAIN_FLUID_HEIGHT = 1000; // tall enough that resizing the play area is unlikely to show bottom of fluid
+    const solventFluidNode = new FaucetFluidNode( model.solventFaucet, model.solution.solvent, SOLVENT_FLUID_HEIGHT, modelViewTransform );
+    const drainFluidNode = new FaucetFluidNode( model.drainFaucet, model.solution, DRAIN_FLUID_HEIGHT, modelViewTransform );
 
     // Concentration meter
-    var concentrationMeterNode = new ConcentrationMeterNode( model.concentrationMeter, model.solution, model.dropper,
+    const concentrationMeterNode = new ConcentrationMeterNode( model.concentrationMeter, model.solution, model.dropper,
       solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, modelViewTransform, tandem.createTandem( 'concentrationMeterNode' ) );
 
     // Solute controls
-    var soluteListParent = new Node( { maxWidth: 320 } );
-    var soluteControls = new SoluteControls( model.solutes, model.soluteProperty, model.soluteFormProperty, model.shaker,
+    const soluteListParent = new Node( { maxWidth: 320 } );
+    const soluteControls = new SoluteControls( model.solutes, model.soluteProperty, model.soluteFormProperty, model.shaker,
       model.dropper, soluteListParent, tandem.createTandem( 'soluteControls' ), { maxWidth: 480 } );
 
     // Evaporation control
-    var evaporationControl = new EvaporationControl( model.evaporator, tandem.createTandem( 'evaporationControl' ), { maxWidth: 410 } );
+    const evaporationControl = new EvaporationControl( model.evaporator, tandem.createTandem( 'evaporationControl' ), { maxWidth: 410 } );
 
     // Solute amount, in grams
-    var soluteGramsNode = new SoluteGramsNode( model.solution.soluteGramsProperty, {
+    const soluteGramsNode = new SoluteGramsNode( model.solution.soluteGramsProperty, {
       maxWidth: 200,
       visible: BLLQueryParameters.showSoluteAmount
     } );
 
     // Remove Solute button
-    var removeSoluteButton = new RemoveSoluteButton( model.solution, model.shakerParticles, tandem.createTandem( 'removeSoluteButton' ), {
+    const removeSoluteButton = new RemoveSoluteButton( model.solution, model.shakerParticles, tandem.createTandem( 'removeSoluteButton' ), {
       maxWidth: 200
     } );
 
     // Reset All button
-    var resetAllButton = new ResetAllButton( {
+    const resetAllButton = new ResetAllButton( {
       listener: function() { model.reset(); },
       scale: 1.32,
       tandem: tandem.createTandem( 'resetAllButton' )
@@ -130,7 +130,7 @@ define( require => {
     // Layout for things that don't have a location in the model.
 
     // centered towards bottom of beaker
-    var saturatedIndicatorVisible = saturatedIndicator.visible; // so we can layout an invisible node
+    const saturatedIndicatorVisible = saturatedIndicator.visible; // so we can layout an invisible node
     saturatedIndicator.visible = true;
     saturatedIndicator.centerX = beakerNode.centerX;
     saturatedIndicator.bottom = beakerNode.bottom - 30;

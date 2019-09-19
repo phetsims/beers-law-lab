@@ -32,7 +32,7 @@ define( require => {
    */
   function ConcentrationSolution( soluteProperty, soluteAmount, volume, tandem ) {
 
-    var self = this;
+    const self = this;
 
     this.solvent = Solvent.WATER; // @public (read-only)
 
@@ -95,7 +95,7 @@ define( require => {
     this.soluteGramsProperty = new DerivedProperty(
       [ this.soluteProperty, this.soluteAmountProperty, this.precipitateAmountProperty ],
       function( solute, soluteAmount, precipitateAmount ) {
-        var soluteGrams = solute.molarMass * ( soluteAmount - precipitateAmount );
+        const soluteGrams = solute.molarMass * ( soluteAmount - precipitateAmount );
         assert && assert( soluteGrams >= 0, 'invalid soluteGrams: ' + soluteGrams );
         return soluteGrams;
       }, {
@@ -109,9 +109,9 @@ define( require => {
     this.percentConcentrationProperty = new DerivedProperty( 
       [ this.volumeProperty, this.soluteGramsProperty ],
       function( volume, soluteGrams ) {
-        var percentConcentration = 0;
+        let percentConcentration = 0;
         if ( volume > 0 ) {
-          var solventGrams = volume * self.solvent.density;
+          const solventGrams = volume * self.solvent.density;
           percentConcentration = 100 * ( soluteGrams / ( soluteGrams + solventGrams ) );
         }
         assert && assert( percentConcentration >= 0 && percentConcentration <= 100,
@@ -127,7 +127,7 @@ define( require => {
     Fluid.call( this, ConcentrationSolution.createColor( this.solvent, this.soluteProperty.get(), this.concentrationProperty.get() ) );
 
     // derive the solution color
-    var updateColor = function() {
+    const updateColor = function() {
       self.colorProperty.set( ConcentrationSolution.createColor( self.solvent, self.soluteProperty.get(), self.concentrationProperty.get() ) );
     };
     this.soluteProperty.lazyLink( updateColor );
@@ -152,7 +152,7 @@ define( require => {
 
     // @public
     getNumberOfPrecipitateParticles: function() {
-      var numberOfParticles = Util.roundSymmetric( this.soluteProperty.get().particlesPerMole * this.precipitateAmountProperty.get() );
+      let numberOfParticles = Util.roundSymmetric( this.soluteProperty.get().particlesPerMole * this.precipitateAmountProperty.get() );
       if ( numberOfParticles === 0 && this.precipitateAmountProperty.get() > 0 ) {
         numberOfParticles = 1;
       }
@@ -168,7 +168,7 @@ define( require => {
      * @static
      */
     createColor: function( solvent, solute, concentration ) {
-      var color = solvent.colorProperty.get();
+      let color = solvent.colorProperty.get();
       if ( concentration > 0 ) {
         color = solute.colorScheme.concentrationToColor( concentration );
       }

@@ -21,12 +21,12 @@ define( require => {
   const Vector2 = require( 'DOT/Vector2' );
 
   // Units for speed and acceleration are not meaningful here, adjust these so that it looks good.
-  var INITIAL_SPEED = 100;
-  var GRAVITATIONAL_ACCELERATION_MAGNITUDE = 150;
+  const INITIAL_SPEED = 100;
+  const GRAVITATIONAL_ACCELERATION_MAGNITUDE = 150;
 
   // These offsets determine where a salt particle originates, relative to the shaker's location.
-  var MAX_X_OFFSET = 20;
-  var MAX_Y_OFFSET = 5;
+  const MAX_X_OFFSET = 20;
+  const MAX_Y_OFFSET = 5;
 
   /**
    * @param {Shaker} shaker
@@ -44,7 +44,7 @@ define( require => {
 
     Particles.call( this, options );
 
-    var self = this;
+    const self = this;
 
     // @private
     this.shaker = shaker;
@@ -63,14 +63,14 @@ define( require => {
   beersLawLab.register( 'ShakerParticles', ShakerParticles );
 
   // Gets a random location relative to some origin
-  var getRandomLocation = function( origin ) {
-    var xOffset = phet.joist.random.nextIntBetween( -MAX_X_OFFSET, MAX_X_OFFSET ); // positive or negative
-    var yOffset = phet.joist.random.nextIntBetween( 0, MAX_Y_OFFSET ); // positive only
+  const getRandomLocation = function( origin ) {
+    const xOffset = phet.joist.random.nextIntBetween( -MAX_X_OFFSET, MAX_X_OFFSET ); // positive or negative
+    const yOffset = phet.joist.random.nextIntBetween( 0, MAX_Y_OFFSET ); // positive only
     return new Vector2( origin.x + xOffset, origin.y + yOffset );
   };
 
   // Gets a random orientation, in radians.
-  var getRandomOrientation = function() {
+  const getRandomOrientation = function() {
     return phet.joist.random.nextDouble() * 2 * Math.PI;
   };
 
@@ -84,23 +84,23 @@ define( require => {
     // @public Particle animation and delivery to the solution, called when the simulation clock ticks.
     step: function( deltaSeconds ) {
 
-      var beaker = this.beaker;
-      var shaker = this.shaker;
-      var solution = this.solution;
-      var changed = this.particles.length > 0;
+      const beaker = this.beaker;
+      const shaker = this.shaker;
+      const solution = this.solution;
+      let changed = this.particles.length > 0;
 
       // propagate existing particles
-      for ( var i = this.particles.length - 1; i >= 0; i-- ) {
+      for ( let i = this.particles.length - 1; i >= 0; i-- ) {
 
-        var particle = this.particles[ i ];
+        const particle = this.particles[ i ];
         particle.step( deltaSeconds, beaker );
 
         // If the particle hits the solution surface or bottom of the beaker, delete it, and add a corresponding amount of solute to the solution.
-        var percentFull = solution.volumeProperty.get() / beaker.volume;
-        var solutionSurfaceY = beaker.location.y - ( percentFull * beaker.size.height ) - solution.soluteProperty.get().particleSize;
+        const percentFull = solution.volumeProperty.get() / beaker.volume;
+        const solutionSurfaceY = beaker.location.y - ( percentFull * beaker.size.height ) - solution.soluteProperty.get().particleSize;
         if ( particle.locationProperty.get().y > solutionSurfaceY ) {
           this.removeParticle( particle );
-          var soluteAmount = Math.min(
+          const soluteAmount = Math.min(
             BLLConstants.SOLUTE_AMOUNT_RANGE.max,
             solution.soluteAmountProperty.get() + ( 1 / solution.soluteProperty.get().particlesPerMole )
           );
@@ -110,9 +110,9 @@ define( require => {
 
       // create new particles
       if ( shaker.dispensingRateProperty.get() > 0 ) {
-        var numberOfParticles = Util.roundSymmetric( Math.max( 1, shaker.dispensingRateProperty.get() * solution.soluteProperty.get().particlesPerMole * deltaSeconds ) );
-        for ( var j = 0; j < numberOfParticles; j++ ) {
-          var shakerParticle = new ShakerParticle(
+        const numberOfParticles = Util.roundSymmetric( Math.max( 1, shaker.dispensingRateProperty.get() * solution.soluteProperty.get().particlesPerMole * deltaSeconds ) );
+        for ( let j = 0; j < numberOfParticles; j++ ) {
+          const shakerParticle = new ShakerParticle(
             solution.soluteProperty.get(),
             getRandomLocation( this.shaker.locationProperty.get() ),
             getRandomOrientation(),
@@ -152,8 +152,8 @@ define( require => {
      * @public
      */
     removeAllParticles: function() {
-      var particles = this.particles.slice( 0 );
-      for ( var i = 0; i < particles.length; i++ ) {
+      const particles = this.particles.slice( 0 );
+      for ( let i = 0; i < particles.length; i++ ) {
         this.removeParticle( particles[ i ] );
       }
       this.fireChanged();

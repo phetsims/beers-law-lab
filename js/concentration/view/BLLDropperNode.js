@@ -30,7 +30,7 @@ define( require => {
    */
   function BLLDropperNode( dropper, solvent, soluteProperty, modelViewTransform, tandem ) {
 
-    var self = this;
+    const self = this;
 
     EyeDropperNode.call( this, {
       dispensingProperty: dropper.dispensingProperty,
@@ -40,13 +40,13 @@ define( require => {
     } );
 
     // label background, so the label shows up on various fluid colors
-    var labelBackground = new Path( null, {
+    const labelBackground = new Path( null, {
       fill: 'rgba( 240, 240, 240, 0.6 )' // translucent gray
     } );
     this.addChild( labelBackground );
 
     // label
-    var label = new RichText( '', {
+    const label = new RichText( '', {
       maxWidth: 80, // determined empirically, to cover only the glass portion of the dropper
       font: new PhetFont( { size: 18, weight: 'bold' } ),
       fill: 'black',
@@ -80,10 +80,10 @@ define( require => {
       label.centerY = EyeDropperNode.GLASS_MAX_Y - ( EyeDropperNode.GLASS_MAX_Y - EyeDropperNode.GLASS_MIN_Y ) / 2;
 
       // translucent background for the label, so that it's visible on all solution colors
-      var width = 0.75 * EyeDropperNode.GLASS_WIDTH;
-      var height = 1.2 * label.height;
-      var x = label.centerX - ( width / 2 );
-      var y = label.centerY - ( height / 2 );
+      const width = 0.75 * EyeDropperNode.GLASS_WIDTH;
+      const height = 1.2 * label.height;
+      const x = label.centerX - ( width / 2 );
+      const y = label.centerY - ( height / 2 );
       labelBackground.shape = Shape.roundRect( x, y, width, height, 5, 5 );
     } );
 
@@ -91,7 +91,7 @@ define( require => {
     this.touchArea = this.localBounds.dilatedX( 0.25 * this.width );
 
     // move the dropper
-    var movableDragHandler = new MovableDragHandler( dropper.locationProperty, {
+    const movableDragHandler = new MovableDragHandler( dropper.locationProperty, {
       tandem: tandem.createTandem( 'movableDragHandler' ),
       dragBounds: dropper.dragBounds,
       modelViewTransform: modelViewTransform
