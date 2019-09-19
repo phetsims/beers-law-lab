@@ -5,23 +5,23 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var ConcentrationModel = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationModel' );
-  var ConcentrationScreenView = require( 'BEERS_LAW_LAB/concentration/view/ConcentrationScreenView' );
-  var Image = require( 'SCENERY/nodes/Image' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var Screen = require( 'JOIST/Screen' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const ConcentrationModel = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationModel' );
+  const ConcentrationScreenView = require( 'BEERS_LAW_LAB/concentration/view/ConcentrationScreenView' );
+  const Image = require( 'SCENERY/nodes/Image' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
+  const Screen = require( 'JOIST/Screen' );
 
   // strings
-  var screenConcentrationString = require( 'string!BEERS_LAW_LAB/screen.concentration' );
+  const screenConcentrationString = require( 'string!BEERS_LAW_LAB/screen.concentration' );
 
   // images
-  var screenIcon = require( 'image!BEERS_LAW_LAB/Concentration-screen-icon.jpg' );
+  const screenIcon = require( 'image!BEERS_LAW_LAB/Concentration-screen-icon.jpg' );
 
   /**
    * @param {Tandem} tandem

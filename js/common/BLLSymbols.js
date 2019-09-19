@@ -5,15 +5,15 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var ChemUtils = require( 'NITROGLYCERIN/ChemUtils' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const ChemUtils = require( 'NITROGLYCERIN/ChemUtils' );
 
   // strings
-  var drinkMixString = require( 'string!BEERS_LAW_LAB/drinkMix' );
+  const drinkMixString = require( 'string!BEERS_LAW_LAB/drinkMix' );
 
   var BLLSymbols = {
     COBALT_II_NITRATE: ChemUtils.toSubscript( 'Co(NO3)2' ),

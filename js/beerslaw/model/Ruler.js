@@ -5,13 +5,13 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
 
   /**
    * @param {number} length cm

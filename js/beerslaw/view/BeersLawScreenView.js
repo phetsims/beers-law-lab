@@ -5,24 +5,24 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var ATDetectorNode = require( 'BEERS_LAW_LAB/beerslaw/view/ATDetectorNode' );
-  var BeamNode = require( 'BEERS_LAW_LAB/beerslaw/view/BeamNode' );
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
-  var BLLQueryParameters = require( 'BEERS_LAW_LAB/common/BLLQueryParameters' );
-  var BLLRulerNode = require( 'BEERS_LAW_LAB/beerslaw/view/BLLRulerNode' );
-  var CuvetteNode = require( 'BEERS_LAW_LAB/beerslaw/view/CuvetteNode' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var LightNode = require( 'BEERS_LAW_LAB/beerslaw/view/LightNode' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
-  var ScreenView = require( 'JOIST/ScreenView' );
-  var SolutionControls = require( 'BEERS_LAW_LAB/beerslaw/view/SolutionControls' );
-  var WavelengthControls = require( 'BEERS_LAW_LAB/beerslaw/view/WavelengthControls' );
+  const ATDetectorNode = require( 'BEERS_LAW_LAB/beerslaw/view/ATDetectorNode' );
+  const BeamNode = require( 'BEERS_LAW_LAB/beerslaw/view/BeamNode' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+  const BLLQueryParameters = require( 'BEERS_LAW_LAB/common/BLLQueryParameters' );
+  const BLLRulerNode = require( 'BEERS_LAW_LAB/beerslaw/view/BLLRulerNode' );
+  const CuvetteNode = require( 'BEERS_LAW_LAB/beerslaw/view/CuvetteNode' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const LightNode = require( 'BEERS_LAW_LAB/beerslaw/view/LightNode' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
+  const ScreenView = require( 'JOIST/ScreenView' );
+  const SolutionControls = require( 'BEERS_LAW_LAB/beerslaw/view/SolutionControls' );
+  const WavelengthControls = require( 'BEERS_LAW_LAB/beerslaw/view/WavelengthControls' );
 
   /**
    * @param {BeersLawModel} model

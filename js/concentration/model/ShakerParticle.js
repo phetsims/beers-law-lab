@@ -8,14 +8,14 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var ShakerParticleIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticleIO' );
-  var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const ShakerParticleIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticleIO' );
+  const SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
 
   /**
    * @param {Solute} solute

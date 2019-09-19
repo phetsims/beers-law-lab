@@ -5,31 +5,31 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
-  var BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
-  var Color = require( 'SCENERY/util/Color' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var PhetioObject = require( 'TANDEM/PhetioObject' );
-  var SoluteColorScheme = require( 'BEERS_LAW_LAB/concentration/model/SoluteColorScheme' );
-  var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
-  var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
-  var Tandem = require( 'TANDEM/Tandem' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+  const BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
+  const Color = require( 'SCENERY/util/Color' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const PhetioObject = require( 'TANDEM/PhetioObject' );
+  const SoluteColorScheme = require( 'BEERS_LAW_LAB/concentration/model/SoluteColorScheme' );
+  const SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
+  const Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
+  const Tandem = require( 'TANDEM/Tandem' );
 
   // strings
-  var cobaltChlorideString = require( 'string!BEERS_LAW_LAB/cobaltChloride' );
-  var cobaltIINitrateString = require( 'string!BEERS_LAW_LAB/cobaltIINitrate' );
-  var copperSulfateString = require( 'string!BEERS_LAW_LAB/copperSulfate' );
-  var drinkMixString = require( 'string!BEERS_LAW_LAB/drinkMix' );
-  var nickelIIChlorideString = require( 'string!BEERS_LAW_LAB/nickelIIChloride' );
-  var potassiumChromateString = require( 'string!BEERS_LAW_LAB/potassiumChromate' );
-  var potassiumDichromateString = require( 'string!BEERS_LAW_LAB/potassiumDichromate' );
-  var potassiumPermanganateString = require( 'string!BEERS_LAW_LAB/potassiumPermanganate' );
-  var sodiumChlorideString = require( 'string!BEERS_LAW_LAB/sodiumChloride' );
+  const cobaltChlorideString = require( 'string!BEERS_LAW_LAB/cobaltChloride' );
+  const cobaltIINitrateString = require( 'string!BEERS_LAW_LAB/cobaltIINitrate' );
+  const copperSulfateString = require( 'string!BEERS_LAW_LAB/copperSulfate' );
+  const drinkMixString = require( 'string!BEERS_LAW_LAB/drinkMix' );
+  const nickelIIChlorideString = require( 'string!BEERS_LAW_LAB/nickelIIChloride' );
+  const potassiumChromateString = require( 'string!BEERS_LAW_LAB/potassiumChromate' );
+  const potassiumDichromateString = require( 'string!BEERS_LAW_LAB/potassiumDichromate' );
+  const potassiumPermanganateString = require( 'string!BEERS_LAW_LAB/potassiumPermanganate' );
+  const sodiumChlorideString = require( 'string!BEERS_LAW_LAB/sodiumChloride' );
 
   /**
    * @param {string} name

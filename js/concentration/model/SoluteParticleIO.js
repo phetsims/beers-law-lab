@@ -6,16 +6,16 @@
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Andrew Adare (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var NumberIO = require( 'TANDEM/types/NumberIO' );
-  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
-  var Vector2IO = require( 'DOT/Vector2IO' );
-  var validate = require( 'AXON/validate' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const NumberIO = require( 'TANDEM/types/NumberIO' );
+  const ObjectIO = require( 'TANDEM/types/ObjectIO' );
+  const SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
+  const Vector2IO = require( 'DOT/Vector2IO' );
+  const validate = require( 'AXON/validate' );
 
   class SoluteParticleIO extends ObjectIO {
 

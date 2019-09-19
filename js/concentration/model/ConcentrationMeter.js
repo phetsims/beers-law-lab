@@ -10,18 +10,18 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
-  var NullableIO = require( 'TANDEM/types/NullableIO' );
-  var NumberIO = require( 'TANDEM/types/NumberIO' );
-  var Property = require( 'AXON/Property' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
-  var Tandem = require( 'TANDEM/Tandem' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
+  const NullableIO = require( 'TANDEM/types/NullableIO' );
+  const NumberIO = require( 'TANDEM/types/NumberIO' );
+  const Property = require( 'AXON/Property' );
+  const PropertyIO = require( 'AXON/PropertyIO' );
+  const Tandem = require( 'TANDEM/Tandem' );
 
   /**
    * @param {Vector2} bodyLocation

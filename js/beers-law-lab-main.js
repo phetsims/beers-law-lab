@@ -5,18 +5,18 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var BeersLawScreen = require( 'BEERS_LAW_LAB/beerslaw/BeersLawScreen' );
-  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
-  var ConcentrationScreen = require( 'BEERS_LAW_LAB/concentration/ConcentrationScreen' );
-  var Sim = require( 'JOIST/Sim' );
-  var SimLauncher = require( 'JOIST/SimLauncher' );
+  const BeersLawScreen = require( 'BEERS_LAW_LAB/beerslaw/BeersLawScreen' );
+  const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+  const ConcentrationScreen = require( 'BEERS_LAW_LAB/concentration/ConcentrationScreen' );
+  const Sim = require( 'JOIST/Sim' );
+  const SimLauncher = require( 'JOIST/SimLauncher' );
 
   // strings
-  var beersLawLabTitleString = require( 'string!BEERS_LAW_LAB/beers-law-lab.title' );
+  const beersLawLabTitleString = require( 'string!BEERS_LAW_LAB/beers-law-lab.title' );
 
   var simOptions = {
     credits: {

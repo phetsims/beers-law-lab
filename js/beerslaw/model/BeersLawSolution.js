@@ -11,38 +11,38 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var BeersLawSolutionIO = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolutionIO' );
-  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
-  var BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
-  var Color = require( 'SCENERY/util/Color' );
-  var ColorRange = require( 'BEERS_LAW_LAB/common/model/ColorRange' );
-  var ConcentrationTransform = require( 'BEERS_LAW_LAB/beerslaw/model/ConcentrationTransform' );
-  var DerivedProperty = require( 'AXON/DerivedProperty' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var MolarAbsorptivityData = require( 'BEERS_LAW_LAB/beerslaw/model/MolarAbsorptivityData' );
-  var NumberProperty = require( 'AXON/NumberProperty' );
-  var PhetioObject = require( 'TANDEM/PhetioObject' );
-  var RangeWithValue = require( 'DOT/RangeWithValue' );
-  var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
-  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  var Tandem = require( 'TANDEM/Tandem' );
-  var Util = require( 'DOT/Util' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const BeersLawSolutionIO = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolutionIO' );
+  const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+  const BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
+  const Color = require( 'SCENERY/util/Color' );
+  const ColorRange = require( 'BEERS_LAW_LAB/common/model/ColorRange' );
+  const ConcentrationTransform = require( 'BEERS_LAW_LAB/beerslaw/model/ConcentrationTransform' );
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const MolarAbsorptivityData = require( 'BEERS_LAW_LAB/beerslaw/model/MolarAbsorptivityData' );
+  const NumberProperty = require( 'AXON/NumberProperty' );
+  const PhetioObject = require( 'TANDEM/PhetioObject' );
+  const RangeWithValue = require( 'DOT/RangeWithValue' );
+  const Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const Tandem = require( 'TANDEM/Tandem' );
+  const Util = require( 'DOT/Util' );
 
   // strings
-  var cobaltChlorideString = require( 'string!BEERS_LAW_LAB/cobaltChloride' );
-  var cobaltIINitrateString = require( 'string!BEERS_LAW_LAB/cobaltIINitrate' );
-  var copperSulfateString = require( 'string!BEERS_LAW_LAB/copperSulfate' );
-  var drinkMixString = require( 'string!BEERS_LAW_LAB/drinkMix' );
-  var nickelIIChlorideString = require( 'string!BEERS_LAW_LAB/nickelIIChloride' );
-  var pattern0Formula1NameString = require( 'string!BEERS_LAW_LAB/pattern.0formula.1name' );
-  var potassiumChromateString = require( 'string!BEERS_LAW_LAB/potassiumChromate' );
-  var potassiumDichromateString = require( 'string!BEERS_LAW_LAB/potassiumDichromate' );
-  var potassiumPermanganateString = require( 'string!BEERS_LAW_LAB/potassiumPermanganate' );
+  const cobaltChlorideString = require( 'string!BEERS_LAW_LAB/cobaltChloride' );
+  const cobaltIINitrateString = require( 'string!BEERS_LAW_LAB/cobaltIINitrate' );
+  const copperSulfateString = require( 'string!BEERS_LAW_LAB/copperSulfate' );
+  const drinkMixString = require( 'string!BEERS_LAW_LAB/drinkMix' );
+  const nickelIIChlorideString = require( 'string!BEERS_LAW_LAB/nickelIIChloride' );
+  const pattern0Formula1NameString = require( 'string!BEERS_LAW_LAB/pattern.0formula.1name' );
+  const potassiumChromateString = require( 'string!BEERS_LAW_LAB/potassiumChromate' );
+  const potassiumDichromateString = require( 'string!BEERS_LAW_LAB/potassiumDichromate' );
+  const potassiumPermanganateString = require( 'string!BEERS_LAW_LAB/potassiumPermanganate' );
 
   /**
    * @param {string} internalName - used internally, not displayed to the user

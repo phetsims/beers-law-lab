@@ -8,12 +8,12 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   /**
    * @param {number[]} molarAbsorptivity

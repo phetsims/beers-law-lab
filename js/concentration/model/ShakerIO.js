@@ -6,15 +6,15 @@
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Andrew Adare (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var Vector2IO = require( 'DOT/Vector2IO' );
-  var VoidIO = require( 'TANDEM/types/VoidIO' );
-  var validate = require( 'AXON/validate' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const ObjectIO = require( 'TANDEM/types/ObjectIO' );
+  const Vector2IO = require( 'DOT/Vector2IO' );
+  const VoidIO = require( 'TANDEM/types/VoidIO' );
+  const validate = require( 'AXON/validate' );
 
   class ShakerIO extends ObjectIO {
 

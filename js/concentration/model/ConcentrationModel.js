@@ -5,33 +5,33 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var Beaker = require( 'BEERS_LAW_LAB/concentration/model/Beaker' );
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
-  var Bounds2 = require( 'DOT/Bounds2' );
-  var ConcentrationMeter = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationMeter' );
-  var ConcentrationModelIO = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationModelIO' );
-  var ConcentrationSolution = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationSolution' );
-  var Dimension2 = require( 'DOT/Dimension2' );
-  var Dropper = require( 'BEERS_LAW_LAB/concentration/model/Dropper' );
-  var Evaporator = require( 'BEERS_LAW_LAB/concentration/model/Evaporator' );
-  var Faucet = require( 'BEERS_LAW_LAB/concentration/model/Faucet' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var PhetioObject = require( 'TANDEM/PhetioObject' );
-  var Precipitate = require( 'BEERS_LAW_LAB/concentration/model/Precipitate' );
-  var Property = require( 'AXON/Property' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
-  var Shaker = require( 'BEERS_LAW_LAB/concentration/model/Shaker' );
-  var ShakerParticles = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticles' );
-  var Solute = require( 'BEERS_LAW_LAB/concentration/model/Solute' );
-  var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
-  var StringProperty = require( 'AXON/StringProperty' );
-  var Tandem = require( 'TANDEM/Tandem' );
-  var Vector2 = require( 'DOT/Vector2' );
+  const Beaker = require( 'BEERS_LAW_LAB/concentration/model/Beaker' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+  const Bounds2 = require( 'DOT/Bounds2' );
+  const ConcentrationMeter = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationMeter' );
+  const ConcentrationModelIO = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationModelIO' );
+  const ConcentrationSolution = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationSolution' );
+  const Dimension2 = require( 'DOT/Dimension2' );
+  const Dropper = require( 'BEERS_LAW_LAB/concentration/model/Dropper' );
+  const Evaporator = require( 'BEERS_LAW_LAB/concentration/model/Evaporator' );
+  const Faucet = require( 'BEERS_LAW_LAB/concentration/model/Faucet' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const PhetioObject = require( 'TANDEM/PhetioObject' );
+  const Precipitate = require( 'BEERS_LAW_LAB/concentration/model/Precipitate' );
+  const Property = require( 'AXON/Property' );
+  const PropertyIO = require( 'AXON/PropertyIO' );
+  const Shaker = require( 'BEERS_LAW_LAB/concentration/model/Shaker' );
+  const ShakerParticles = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticles' );
+  const Solute = require( 'BEERS_LAW_LAB/concentration/model/Solute' );
+  const SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
+  const StringProperty = require( 'AXON/StringProperty' );
+  const Tandem = require( 'TANDEM/Tandem' );
+  const Vector2 = require( 'DOT/Vector2' );
 
   // constants
   var SOLUTION_VOLUME_RANGE = BLLConstants.SOLUTION_VOLUME_RANGE; // L

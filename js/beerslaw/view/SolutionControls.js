@@ -5,17 +5,17 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var ConcentrationControl = require( 'BEERS_LAW_LAB/beerslaw/view/ConcentrationControl' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Panel = require( 'SUN/Panel' );
-  var SolutionComboBox = require( 'BEERS_LAW_LAB/beerslaw/view/SolutionComboBox' );
-  var ToggleNode = require( 'SUN/ToggleNode' );
-  var VBox = require( 'SCENERY/nodes/VBox' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const ConcentrationControl = require( 'BEERS_LAW_LAB/beerslaw/view/ConcentrationControl' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Panel = require( 'SUN/Panel' );
+  const SolutionComboBox = require( 'BEERS_LAW_LAB/beerslaw/view/SolutionComboBox' );
+  const ToggleNode = require( 'SUN/ToggleNode' );
+  const VBox = require( 'SCENERY/nodes/VBox' );
 
   /**
    * @param {BeersLawSolution[]} solutions

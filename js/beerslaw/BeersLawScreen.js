@@ -5,24 +5,24 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var BeersLawModel = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawModel' );
-  var BeersLawScreenView = require( 'BEERS_LAW_LAB/beerslaw/view/BeersLawScreenView' );
-  var Image = require( 'SCENERY/nodes/Image' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var Screen = require( 'JOIST/Screen' );
-  var Vector2 = require( 'DOT/Vector2' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const BeersLawModel = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawModel' );
+  const BeersLawScreenView = require( 'BEERS_LAW_LAB/beerslaw/view/BeersLawScreenView' );
+  const Image = require( 'SCENERY/nodes/Image' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
+  const Screen = require( 'JOIST/Screen' );
+  const Vector2 = require( 'DOT/Vector2' );
 
   // strings
-  var screenBeersLawString = require( 'string!BEERS_LAW_LAB/screen.beersLaw' );
+  const screenBeersLawString = require( 'string!BEERS_LAW_LAB/screen.beersLaw' );
 
   // image
-  var screenIcon = require( 'image!BEERS_LAW_LAB/BeersLaw-screen-icon.jpg' );
+  const screenIcon = require( 'image!BEERS_LAW_LAB/BeersLaw-screen-icon.jpg' );
 
   /**
    * @param {Tandem} tandem

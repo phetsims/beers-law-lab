@@ -5,35 +5,35 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var AquaRadioButton = require( 'SUN/AquaRadioButton' );
-  var ATDetector = require( 'BEERS_LAW_LAB/beerslaw/model/ATDetector' );
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
-  var Bounds2 = require( 'DOT/Bounds2' );
-  var Dimension2 = require( 'DOT/Dimension2' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var LayoutBox = require( 'SCENERY/nodes/LayoutBox' );
-  var MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
-  var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Path = require( 'SCENERY/nodes/Path' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var ProbeNode = require( 'SCENERY_PHET/ProbeNode' );
-  var ShadedRectangle = require( 'SCENERY_PHET/ShadedRectangle' );
-  var Shape = require( 'KITE/Shape' );
-  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var Util = require( 'DOT/Util' );
-  var Vector2 = require( 'DOT/Vector2' );
+  const AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  const ATDetector = require( 'BEERS_LAW_LAB/beerslaw/model/ATDetector' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+  const Bounds2 = require( 'DOT/Bounds2' );
+  const Dimension2 = require( 'DOT/Dimension2' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const LayoutBox = require( 'SCENERY/nodes/LayoutBox' );
+  const MathSymbols = require( 'SCENERY_PHET/MathSymbols' );
+  const MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const Path = require( 'SCENERY/nodes/Path' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const ProbeNode = require( 'SCENERY_PHET/ProbeNode' );
+  const ShadedRectangle = require( 'SCENERY_PHET/ShadedRectangle' );
+  const Shape = require( 'KITE/Shape' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const Text = require( 'SCENERY/nodes/Text' );
+  const Util = require( 'DOT/Util' );
+  const Vector2 = require( 'DOT/Vector2' );
 
   //strings
-  var absorbanceString = require( 'string!BEERS_LAW_LAB/absorbance' );
-  var pattern0PercentString = require( 'string!BEERS_LAW_LAB/pattern.0percent' );
-  var transmittanceString = require( 'string!BEERS_LAW_LAB/transmittance' );
+  const absorbanceString = require( 'string!BEERS_LAW_LAB/absorbance' );
+  const pattern0PercentString = require( 'string!BEERS_LAW_LAB/pattern.0percent' );
+  const transmittanceString = require( 'string!BEERS_LAW_LAB/transmittance' );
 
   // constants
   var ABSORBANCE_DECIMAL_PLACES = 2;

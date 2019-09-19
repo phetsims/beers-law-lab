@@ -6,15 +6,15 @@
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Andrew Adare (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var ArrayIO = require( 'TANDEM/types/ArrayIO' );
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
-  var VoidIO = require( 'TANDEM/types/VoidIO' );
+  const ArrayIO = require( 'TANDEM/types/ArrayIO' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const ObjectIO = require( 'TANDEM/types/ObjectIO' );
+  const SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
+  const VoidIO = require( 'TANDEM/types/VoidIO' );
 
   class ConcentrationModelIO extends ObjectIO {}
 

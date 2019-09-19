@@ -5,26 +5,26 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var Dimension2 = require( 'DOT/Dimension2' );
-  var HSlider = require( 'SUN/HSlider' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Panel = require( 'SUN/Panel' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var Range = require( 'DOT/Range' );
-  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  var Text = require( 'SCENERY/nodes/Text' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const Dimension2 = require( 'DOT/Dimension2' );
+  const HSlider = require( 'SUN/HSlider' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const Panel = require( 'SUN/Panel' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Range = require( 'DOT/Range' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const Text = require( 'SCENERY/nodes/Text' );
 
   // strings
-  var evaporationString = require( 'string!BEERS_LAW_LAB/evaporation' );
-  var lotsString = require( 'string!BEERS_LAW_LAB/lots' );
-  var noneString = require( 'string!BEERS_LAW_LAB/none' );
-  var pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
+  const evaporationString = require( 'string!BEERS_LAW_LAB/evaporation' );
+  const lotsString = require( 'string!BEERS_LAW_LAB/lots' );
+  const noneString = require( 'string!BEERS_LAW_LAB/none' );
+  const pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
 
   /**
    * @param {Evaporator} evaporator

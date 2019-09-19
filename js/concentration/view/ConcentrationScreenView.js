@@ -5,33 +5,33 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var BeakerNode = require( 'BEERS_LAW_LAB/concentration/view/BeakerNode' );
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
-  var BLLDropperNode = require( 'BEERS_LAW_LAB/concentration/view/BLLDropperNode' );
-  var BLLFaucetNode = require( 'BEERS_LAW_LAB/concentration/view/BLLFaucetNode' );
-  var BLLQueryParameters = require( 'BEERS_LAW_LAB/common/BLLQueryParameters' );
-  var Bounds2 = require( 'DOT/Bounds2' );
-  var ConcentrationMeterNode = require( 'BEERS_LAW_LAB/concentration/view/ConcentrationMeterNode' );
-  var EvaporationControl = require( 'BEERS_LAW_LAB/concentration/view/EvaporationControl' );
-  var EyeDropperNode = require( 'SCENERY_PHET/EyeDropperNode' );
-  var FaucetFluidNode = require( 'BEERS_LAW_LAB/concentration/view/FaucetFluidNode' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var ParticlesNode = require( 'BEERS_LAW_LAB/concentration/view/ParticlesNode' );
-  var RemoveSoluteButton = require( 'BEERS_LAW_LAB/concentration/view/RemoveSoluteButton' );
-  var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
-  var SaturatedIndicator = require( 'BEERS_LAW_LAB/concentration/view/SaturatedIndicator' );
-  var ScreenView = require( 'JOIST/ScreenView' );
-  var ShakerNode = require( 'BEERS_LAW_LAB/concentration/view/ShakerNode' );
-  var SoluteControls = require( 'BEERS_LAW_LAB/concentration/view/SoluteControls' );
-  var SoluteGramsNode = require( 'BEERS_LAW_LAB/concentration/view/SoluteGramsNode' );
-  var SolutionNode = require( 'BEERS_LAW_LAB/concentration/view/SolutionNode' );
-  var StockSolutionNode = require( 'BEERS_LAW_LAB/concentration/view/StockSolutionNode' );
+  const BeakerNode = require( 'BEERS_LAW_LAB/concentration/view/BeakerNode' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+  const BLLDropperNode = require( 'BEERS_LAW_LAB/concentration/view/BLLDropperNode' );
+  const BLLFaucetNode = require( 'BEERS_LAW_LAB/concentration/view/BLLFaucetNode' );
+  const BLLQueryParameters = require( 'BEERS_LAW_LAB/common/BLLQueryParameters' );
+  const Bounds2 = require( 'DOT/Bounds2' );
+  const ConcentrationMeterNode = require( 'BEERS_LAW_LAB/concentration/view/ConcentrationMeterNode' );
+  const EvaporationControl = require( 'BEERS_LAW_LAB/concentration/view/EvaporationControl' );
+  const EyeDropperNode = require( 'SCENERY_PHET/EyeDropperNode' );
+  const FaucetFluidNode = require( 'BEERS_LAW_LAB/concentration/view/FaucetFluidNode' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const ParticlesNode = require( 'BEERS_LAW_LAB/concentration/view/ParticlesNode' );
+  const RemoveSoluteButton = require( 'BEERS_LAW_LAB/concentration/view/RemoveSoluteButton' );
+  const ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
+  const SaturatedIndicator = require( 'BEERS_LAW_LAB/concentration/view/SaturatedIndicator' );
+  const ScreenView = require( 'JOIST/ScreenView' );
+  const ShakerNode = require( 'BEERS_LAW_LAB/concentration/view/ShakerNode' );
+  const SoluteControls = require( 'BEERS_LAW_LAB/concentration/view/SoluteControls' );
+  const SoluteGramsNode = require( 'BEERS_LAW_LAB/concentration/view/SoluteGramsNode' );
+  const SolutionNode = require( 'BEERS_LAW_LAB/concentration/view/SolutionNode' );
+  const StockSolutionNode = require( 'BEERS_LAW_LAB/concentration/view/StockSolutionNode' );
 
   /**
    * @param {ConcentrationModel} model

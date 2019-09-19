@@ -12,16 +12,16 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var inherit = require( 'PHET_CORE/inherit' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const inherit = require( 'PHET_CORE/inherit' );
 
   // strings
-  var unitsMMString = require( 'string!BEERS_LAW_LAB/units.mM' );
-  var unitsUMString = require( 'string!BEERS_LAW_LAB/units.uM' );
+  const unitsMMString = require( 'string!BEERS_LAW_LAB/units.mM' );
+  const unitsUMString = require( 'string!BEERS_LAW_LAB/units.uM' );
 
   /**
    * @param {number} scale scale factor used to convert model units (Moles, M) to view units

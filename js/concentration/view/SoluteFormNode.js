@@ -5,27 +5,27 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var AquaRadioButton = require( 'SUN/AquaRadioButton' );
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
-  var Image = require( 'SCENERY/nodes/Image' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Line = require( 'SCENERY/nodes/Line' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var Text = require( 'SCENERY/nodes/Text' );
+  const AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+  const Image = require( 'SCENERY/nodes/Image' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Line = require( 'SCENERY/nodes/Line' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Text = require( 'SCENERY/nodes/Text' );
 
   // strings
-  var solidString = require( 'string!BEERS_LAW_LAB/solid' );
-  var solutionString = require( 'string!BEERS_LAW_LAB/solution' );
+  const solidString = require( 'string!BEERS_LAW_LAB/solid' );
+  const solutionString = require( 'string!BEERS_LAW_LAB/solution' );
 
   // images
-  var dropperIconImage = require( 'image!BEERS_LAW_LAB/dropper-icon.png' );
-  var shakerIconImage = require( 'image!BEERS_LAW_LAB/shaker-icon.png' );
+  const dropperIconImage = require( 'image!BEERS_LAW_LAB/dropper-icon.png' );
+  const shakerIconImage = require( 'image!BEERS_LAW_LAB/shaker-icon.png' );
 
   /**
    * @param {Property.<string>} soluteFormProperty form of the solute, 'solid' or 'solution'

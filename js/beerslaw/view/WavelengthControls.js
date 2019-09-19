@@ -5,34 +5,34 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var AquaRadioButton = require( 'SUN/AquaRadioButton' );
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
-  var BooleanProperty = require( 'AXON/BooleanProperty' );
-  var HBox = require( 'SCENERY/nodes/HBox' );
-  var HStrut = require( 'SCENERY/nodes/HStrut' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var Panel = require( 'SUN/Panel' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var Util = require( 'DOT/Util' );
-  var VBox = require( 'SCENERY/nodes/VBox' );
-  var WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
+  const AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+  const BooleanProperty = require( 'AXON/BooleanProperty' );
+  const HBox = require( 'SCENERY/nodes/HBox' );
+  const HStrut = require( 'SCENERY/nodes/HStrut' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const Panel = require( 'SUN/Panel' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Rectangle = require( 'SCENERY/nodes/Rectangle' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const Text = require( 'SCENERY/nodes/Text' );
+  const Util = require( 'DOT/Util' );
+  const VBox = require( 'SCENERY/nodes/VBox' );
+  const WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
 
   // strings
-  var pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
-  var pattern0Value1UnitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
-  var presetString = require( 'string!BEERS_LAW_LAB/preset' );
-  var unitsNmString = require( 'string!BEERS_LAW_LAB/units.nm' );
-  var variableString = require( 'string!BEERS_LAW_LAB/variable' );
-  var wavelengthString = require( 'string!BEERS_LAW_LAB/wavelength' );
+  const pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
+  const pattern0Value1UnitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
+  const presetString = require( 'string!BEERS_LAW_LAB/preset' );
+  const unitsNmString = require( 'string!BEERS_LAW_LAB/units.nm' );
+  const variableString = require( 'string!BEERS_LAW_LAB/variable' );
+  const wavelengthString = require( 'string!BEERS_LAW_LAB/wavelength' );
 
   /**
    * @param {Property.<BeersLawSolution>} solutionProperty

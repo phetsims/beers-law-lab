@@ -5,17 +5,17 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var TextPushButton = require( 'SUN/buttons/TextPushButton' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const TextPushButton = require( 'SUN/buttons/TextPushButton' );
 
   // strings
-  var removeSoluteString = require( 'string!BEERS_LAW_LAB/removeSolute' );
+  const removeSoluteString = require( 'string!BEERS_LAW_LAB/removeSolute' );
 
   /**
    * @param {ConcentrationSolution} solution

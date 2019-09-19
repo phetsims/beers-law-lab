@@ -6,19 +6,19 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
-  var Node = require( 'SCENERY/nodes/Node' );
-  var RulerNode = require( 'SCENERY_PHET/RulerNode' );
-  var Shape = require( 'KITE/Shape' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
+  const Node = require( 'SCENERY/nodes/Node' );
+  const RulerNode = require( 'SCENERY_PHET/RulerNode' );
+  const Shape = require( 'KITE/Shape' );
 
   // strings
-  var unitsCentimetersString = require( 'string!BEERS_LAW_LAB/units.centimeters' );
+  const unitsCentimetersString = require( 'string!BEERS_LAW_LAB/units.centimeters' );
 
   // constants
   var MAJOR_TICK_WIDTH = 0.5; // in model coordinate frame

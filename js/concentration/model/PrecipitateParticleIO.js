@@ -6,15 +6,15 @@
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Andrew Adare (PhET Interactive Simulations)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  var SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
-  var SoluteParticleIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticleIO' );
-  var validate = require( 'AXON/validate' );
+  const SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
+  const SoluteParticleIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticleIO' );
+  const validate = require( 'AXON/validate' );
 
   class PrecipitateParticleIO extends SoluteParticleIO {
 

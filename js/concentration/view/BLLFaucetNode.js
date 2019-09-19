@@ -6,13 +6,13 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var FaucetNode = require( 'SCENERY_PHET/FaucetNode' );
-  var inherit = require( 'PHET_CORE/inherit' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const FaucetNode = require( 'SCENERY_PHET/FaucetNode' );
+  const inherit = require( 'PHET_CORE/inherit' );
 
   /**
    * @param {Faucet} faucet

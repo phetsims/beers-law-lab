@@ -6,19 +6,19 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Particles = require( 'BEERS_LAW_LAB/concentration/model/Particles' );
-  var ShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticle' );
-  var ShakerParticlesIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticlesIO' );
-  var Tandem = require( 'TANDEM/Tandem' );
-  var Util = require( 'DOT/Util' );
-  var Vector2 = require( 'DOT/Vector2' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Particles = require( 'BEERS_LAW_LAB/concentration/model/Particles' );
+  const ShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticle' );
+  const ShakerParticlesIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticlesIO' );
+  const Tandem = require( 'TANDEM/Tandem' );
+  const Util = require( 'DOT/Util' );
+  const Vector2 = require( 'DOT/Vector2' );
 
   // Units for speed and acceleration are not meaningful here, adjust these so that it looks good.
   var INITIAL_SPEED = 100;

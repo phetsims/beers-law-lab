@@ -7,13 +7,13 @@
  * @author Chris Malley (PixelZoom, Inc.)
  * @author Jonathan Olson
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
-  var inherit = require( 'PHET_CORE/inherit' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
+  const inherit = require( 'PHET_CORE/inherit' );
 
   /**
    * @param {Particles} particles a collection of particle

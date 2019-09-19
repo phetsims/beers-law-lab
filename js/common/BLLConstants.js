@@ -5,14 +5,14 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var Bounds2 = require( 'DOT/Bounds2' );
-  var RangeWithValue = require( 'DOT/RangeWithValue' );
-  var Tandem = require( 'TANDEM/Tandem' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const Bounds2 = require( 'DOT/Bounds2' );
+  const RangeWithValue = require( 'DOT/RangeWithValue' );
+  const Tandem = require( 'TANDEM/Tandem' );
 
   // constants used to compute other constants
   var BEAKER_VOLUME = 1;// L

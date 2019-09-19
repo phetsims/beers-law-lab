@@ -5,15 +5,15 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
-  var Color = require( 'SCENERY/util/Color' );
-  var Fluid = require( 'BEERS_LAW_LAB/common/model/Fluid' );
-  var inherit = require( 'PHET_CORE/inherit' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
+  const Color = require( 'SCENERY/util/Color' );
+  const Fluid = require( 'BEERS_LAW_LAB/common/model/Fluid' );
+  const inherit = require( 'PHET_CORE/inherit' );
 
   /**
    * @param {string} name

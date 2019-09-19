@@ -7,21 +7,21 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
-  var BooleanIO = require( 'TANDEM/types/BooleanIO' );
-  var DerivedProperty = require( 'AXON/DerivedProperty' );
-  var DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
-  var Fluid = require( 'BEERS_LAW_LAB/common/model/Fluid' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var NumberIO = require( 'TANDEM/types/NumberIO' );
-  var NumberProperty = require( 'AXON/NumberProperty' );
-  var Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
-  var Util = require( 'DOT/Util' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+  const BooleanIO = require( 'TANDEM/types/BooleanIO' );
+  const DerivedProperty = require( 'AXON/DerivedProperty' );
+  const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
+  const Fluid = require( 'BEERS_LAW_LAB/common/model/Fluid' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const NumberIO = require( 'TANDEM/types/NumberIO' );
+  const NumberProperty = require( 'AXON/NumberProperty' );
+  const Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
+  const Util = require( 'DOT/Util' );
 
   /**
    * @param {Property.<Solute>} soluteProperty

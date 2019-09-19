@@ -5,25 +5,25 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var Absorbance = require( 'BEERS_LAW_LAB/beerslaw/model/Absorbance' );
-  var ATDetector = require( 'BEERS_LAW_LAB/beerslaw/model/ATDetector' );
-  var Beam = require( 'BEERS_LAW_LAB/beerslaw/model/Beam' );
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var BeersLawSolution = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolution' );
-  var BeersLawSolutionIO = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolutionIO' );
-  var Bounds2 = require( 'DOT/Bounds2' );
-  var Cuvette = require( 'BEERS_LAW_LAB/beerslaw/model/Cuvette' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var Light = require( 'BEERS_LAW_LAB/beerslaw/model/Light' );
-  var Property = require( 'AXON/Property' );
-  var PropertyIO = require( 'AXON/PropertyIO' );
-  var RangeWithValue = require( 'DOT/RangeWithValue' );
-  var Ruler = require( 'BEERS_LAW_LAB/beerslaw/model/Ruler' );
-  var Vector2 = require( 'DOT/Vector2' );
+  const Absorbance = require( 'BEERS_LAW_LAB/beerslaw/model/Absorbance' );
+  const ATDetector = require( 'BEERS_LAW_LAB/beerslaw/model/ATDetector' );
+  const Beam = require( 'BEERS_LAW_LAB/beerslaw/model/Beam' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const BeersLawSolution = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolution' );
+  const BeersLawSolutionIO = require( 'BEERS_LAW_LAB/beerslaw/model/BeersLawSolutionIO' );
+  const Bounds2 = require( 'DOT/Bounds2' );
+  const Cuvette = require( 'BEERS_LAW_LAB/beerslaw/model/Cuvette' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const Light = require( 'BEERS_LAW_LAB/beerslaw/model/Light' );
+  const Property = require( 'AXON/Property' );
+  const PropertyIO = require( 'AXON/PropertyIO' );
+  const RangeWithValue = require( 'DOT/RangeWithValue' );
+  const Ruler = require( 'BEERS_LAW_LAB/beerslaw/model/Ruler' );
+  const Vector2 = require( 'DOT/Vector2' );
 
   var CUVETTE_WIDTH_RANGE = new RangeWithValue( 0.5, 2.0, 1.0 );
 

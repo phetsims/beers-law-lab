@@ -5,30 +5,30 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function( require ) {
+define( require => {
   'use strict';
 
   // modules
-  var beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  var Dimension2 = require( 'DOT/Dimension2' );
-  var DynamicProperty = require( 'AXON/DynamicProperty' );
-  var HBox = require( 'SCENERY/nodes/HBox' );
-  var HStrut = require( 'SCENERY/nodes/HStrut' );
-  var inherit = require( 'PHET_CORE/inherit' );
-  var LinearGradient = require( 'SCENERY/util/LinearGradient' );
-  var NumberControl = require( 'SCENERY_PHET/NumberControl' );
-  var PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  var Property = require( 'AXON/Property' );
-  var Range = require( 'DOT/Range' );
-  var StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  var SunConstants = require( 'SUN/SunConstants' );
-  var Text = require( 'SCENERY/nodes/Text' );
-  var Util = require( 'DOT/Util' );
+  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const Dimension2 = require( 'DOT/Dimension2' );
+  const DynamicProperty = require( 'AXON/DynamicProperty' );
+  const HBox = require( 'SCENERY/nodes/HBox' );
+  const HStrut = require( 'SCENERY/nodes/HStrut' );
+  const inherit = require( 'PHET_CORE/inherit' );
+  const LinearGradient = require( 'SCENERY/util/LinearGradient' );
+  const NumberControl = require( 'SCENERY_PHET/NumberControl' );
+  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
+  const Property = require( 'AXON/Property' );
+  const Range = require( 'DOT/Range' );
+  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
+  const SunConstants = require( 'SUN/SunConstants' );
+  const Text = require( 'SCENERY/nodes/Text' );
+  const Util = require( 'DOT/Util' );
 
   // strings
-  var concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
-  var pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
-  var pattern0Value1UnitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
+  const concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
+  const pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
+  const pattern0Value1UnitsString = require( 'string!BEERS_LAW_LAB/pattern.0value.1units' );
 
   // constants
   var FONT = new PhetFont( 20 );
