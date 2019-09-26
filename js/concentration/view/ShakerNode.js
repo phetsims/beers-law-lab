@@ -30,9 +30,7 @@ define( require => {
     headWidth: 40,
     headHeight: 30,
     fill: 'yellow',
-    stroke: 'rgb(160,160,160)',
-    pickable: false,
-    visible: false
+    stroke: 'rgb(160,160,160)'
   };
 
   /**
@@ -64,24 +62,32 @@ define( require => {
       maxWidth: 0.5 * imageNode.width, // constrain width for i18n
       tandem: tandem.createTandem( 'labelNode' )
     } );
-
+    
     // arrows
+    const arrowsOffset = imageNode.height / 2 + 4;
+
     const downArrowNode = new ArrowNode( 0, 0, 0, ARROW_LENGTH, _.extend( {
+      top: arrowsOffset,
       tandem: tandem.createTandem( 'downArrowNode' )
     }, ARROW_OPTIONS ) );
-    downArrowNode.top = imageNode.bottom + 4;
-    downArrowNode.centerX = imageNode.centerX;
 
     const upArrowNode = new ArrowNode( 0, 0, 0, -ARROW_LENGTH, _.extend( {
+      bottom: -arrowsOffset,
       tandem: tandem.createTandem( 'upArrowNode' )
     }, ARROW_OPTIONS ) );
-    upArrowNode.bottom = imageNode.top - 4;
-    upArrowNode.centerX = imageNode.centerX;
+
+    const arrowsParent = new Node( {
+      children: [ upArrowNode, downArrowNode ],
+      center: imageNode.center,
+      pickable: false,
+      visible: false
+    });
 
     // common parent, to simplify rotation and label alignment.
-    const parentNode = new Node( { children: [ imageNode, labelNode, upArrowNode, downArrowNode ] } );
+    const parentNode = new Node( { children: [ imageNode, labelNode, arrowsParent ] } );
     this.addChild( parentNode );
     parentNode.rotate( shaker.orientation - Math.PI ); // assumes that shaker points to the left in the image file
+    
     // Manually adjust these values until the origin is in the middle hole of the shaker.
     parentNode.translate( -12, -imageNode.height / 2 );
 
@@ -95,7 +101,7 @@ define( require => {
     shaker.locationProperty.link( function( location ) {
       self.translation = modelViewTransform.modelToViewPosition( location );
       shakerWasMoved = true;
-      upArrowNode.visible = downArrowNode.visible = false;
+      arrowsParent.visible = false;
     } );
     shakerWasMoved = false; // reset to false, because function is fired when link is performed
 
@@ -123,10 +129,10 @@ define( require => {
     } ) );
     this.addInputListener( {
       enter: function() {
-        upArrowNode.visible = downArrowNode.visible = !shakerWasMoved;
+        arrowsParent.visible = !shakerWasMoved;
       },
       exit: function() {
-        upArrowNode.visible = downArrowNode.visible = false;
+        arrowsParent.visible = false;
       }
     } );
   }
