@@ -106,7 +106,7 @@ define( require => {
     );
 
     // @public {number} percent concentration [0,100]
-    this.percentConcentrationProperty = new DerivedProperty( 
+    this.percentConcentrationProperty = new DerivedProperty(
       [ this.volumeProperty, this.soluteGramsProperty ],
       function( volume, soluteGrams ) {
         let percentConcentration = 0;
