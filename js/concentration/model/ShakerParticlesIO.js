@@ -52,7 +52,7 @@ define( require => {
       const value = ShakerParticleIO.fromStateObject( stateObject );
       assert && assert( value.acceleration instanceof Vector2, 'acceleration should be a Vector2' );
 
-      shakerParticles.addParticle( new ShakerParticle(
+      const shakerParticle = new ShakerParticle(
         value.solute,
         value.location,
         value.orientation,
@@ -60,10 +60,12 @@ define( require => {
         value.acceleration, {
           tandem: tandem
         }
-      ) );
+      );
+      shakerParticles.addParticle( shakerParticle );
 
       // Particles.step is not called in playback mode, so this needs to be called explicitly to update the view.
       shakerParticles.fireChanged();
+      return shakerParticle;
     }
   }
 
