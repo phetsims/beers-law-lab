@@ -11,6 +11,7 @@ define( require => {
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const TextPushButton = require( 'SUN/buttons/TextPushButton' );
 
@@ -26,7 +27,7 @@ define( require => {
    */
   function RemoveSoluteButton( solution, shakerParticles, tandem, options ) {
 
-    options = _.extend( {
+    options = merge( {
       baseColor: 'rgb(255,200,0)',
       font: new PhetFont( 22 ),
       textFill: 'black',

@@ -21,6 +21,7 @@ define( require => {
   const Evaporator = require( 'BEERS_LAW_LAB/concentration/model/Evaporator' );
   const Faucet = require( 'BEERS_LAW_LAB/concentration/model/Faucet' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const PhetioObject = require( 'TANDEM/PhetioObject' );
   const Precipitate = require( 'BEERS_LAW_LAB/concentration/model/Precipitate' );
   const Property = require( 'AXON/Property' );
@@ -49,7 +50,7 @@ define( require => {
 
     const self = this;
 
-    options = _.extend( {
+    options = merge( {
       tandem: Tandem.required,
       phetioType: ConcentrationModelIO,
       phetioState: false // does not contribute self-state, all of the state is from child instances (via composition)

@@ -12,6 +12,7 @@ define( require => {
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const ConcentrationControl = require( 'BEERS_LAW_LAB/beerslaw/view/ConcentrationControl' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const Panel = require( 'SUN/Panel' );
   const SolutionComboBox = require( 'BEERS_LAW_LAB/beerslaw/view/SolutionComboBox' );
   const ToggleNode = require( 'SUN/ToggleNode' );
@@ -27,7 +28,7 @@ define( require => {
    */
   function SolutionControls( solutions, currentSolutionProperty, solutionListParent, tandem, options ) {
 
-    options = _.extend( {
+    options = merge( {
       xMargin: 15,
       yMargin: 15,
       fill: '#F0F0F0',

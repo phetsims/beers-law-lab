@@ -11,11 +11,12 @@ define( require => {
 
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const merge = require( 'PHET_CORE/merge' );
   const ObjectIO = require( 'TANDEM/types/ObjectIO' );
   const SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
   const SoluteParticleIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticleIO' );
-  const Vector2IO = require( 'DOT/Vector2IO' );
   const validate = require( 'AXON/validate' );
+  const Vector2IO = require( 'DOT/Vector2IO' );
 
   class ShakerParticleIO extends SoluteParticleIO {
 
@@ -27,7 +28,7 @@ define( require => {
     static toStateObject( shakerParticle ) {
       validate( shakerParticle, this.validator );
       const soluteParticle = SoluteParticleIO.toStateObject( shakerParticle );
-      return _.extend( soluteParticle, {
+      return merge( soluteParticle, {
         solute: SoluteIO.toStateObject( shakerParticle.solute ),
         velocity: Vector2IO.toStateObject( shakerParticle.velocity ),
         acceleration: Vector2IO.toStateObject( shakerParticle.acceleration )
@@ -41,7 +42,7 @@ define( require => {
      */
     static fromStateObject( stateObject ) {
       const soluteParticle = SoluteParticleIO.fromStateObject( stateObject );
-      return _.extend( soluteParticle, {
+      return merge( soluteParticle, {
         solute: SoluteIO.fromStateObject( stateObject.solute ),
         velocity: Vector2IO.fromStateObject( stateObject.velocity ),
         acceleration: Vector2IO.fromStateObject( stateObject.acceleration )

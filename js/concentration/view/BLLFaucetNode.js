@@ -13,6 +13,7 @@ define( require => {
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const FaucetNode = require( 'SCENERY_PHET/FaucetNode' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
 
   /**
    * @param {Faucet} faucet
@@ -25,7 +26,7 @@ define( require => {
     const scale = 0.75;
     const horizontalPipeLength = modelViewTransform.modelToViewX( faucet.location.x - faucet.pipeMinX ) / scale;
 
-    options = _.extend( {
+    options = merge( {
       horizontalPipeLength: horizontalPipeLength,
       scale: scale,
       tandem: tandem,

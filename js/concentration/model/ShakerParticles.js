@@ -13,6 +13,7 @@ define( require => {
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const Particles = require( 'BEERS_LAW_LAB/concentration/model/Particles' );
   const ShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticle' );
   const ShakerParticlesIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticlesIO' );
@@ -37,7 +38,7 @@ define( require => {
    */
   function ShakerParticles( shaker, solution, beaker, options ) {
 
-    options = _.extend( {
+    options = merge( {
       tandem: Tandem.required,
       phetioType: ShakerParticlesIO
     }, options );

@@ -12,6 +12,7 @@ define( require => {
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const BooleanProperty = require( 'AXON/BooleanProperty' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   const NumberProperty = require( 'AXON/NumberProperty' );
   const ShakerIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerIO' );
@@ -28,7 +29,7 @@ define( require => {
    */
   function Shaker( location, dragBounds, orientation, soluteProperty, maxDispensingRate, visible, options ) {
 
-    options = _.extend( {
+    options = merge( {
       phetioType: ShakerIO
     }, options );
 

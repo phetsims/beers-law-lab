@@ -13,6 +13,7 @@ define( require => {
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const PrecipitateParticleIO = require( 'BEERS_LAW_LAB/concentration/model/PrecipitateParticleIO' );
   const SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
 
@@ -25,7 +26,7 @@ define( require => {
    */
   function PrecipitateParticle( solute, location, orientation, options ) {
 
-    options = _.extend( {
+    options = merge( {
       phetioType: PrecipitateParticleIO
     }, options );
 

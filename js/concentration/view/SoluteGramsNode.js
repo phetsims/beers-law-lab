@@ -11,6 +11,7 @@ define( require => {
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Text = require( 'SCENERY/nodes/Text' );
@@ -29,7 +30,7 @@ define( require => {
    */
   function SoluteGramsNode( soluteGramsProperty, options ) {
 
-    options = _.extend( {
+    options = merge( {
       font: new PhetFont( 22 )
     }, options );
 

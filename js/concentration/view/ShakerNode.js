@@ -14,6 +14,7 @@ define( require => {
   const Circle = require( 'SCENERY/nodes/Circle' );
   const Image = require( 'SCENERY/nodes/Image' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   const Node = require( 'SCENERY/nodes/Node' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -66,12 +67,12 @@ define( require => {
     // arrows
     const arrowsOffset = imageNode.height / 2 + 4;
 
-    const downArrowNode = new ArrowNode( 0, 0, 0, ARROW_LENGTH, _.extend( {
+    const downArrowNode = new ArrowNode( 0, 0, 0, ARROW_LENGTH, merge( {
       top: arrowsOffset,
       tandem: tandem.createTandem( 'downArrowNode' )
     }, ARROW_OPTIONS ) );
 
-    const upArrowNode = new ArrowNode( 0, 0, 0, -ARROW_LENGTH, _.extend( {
+    const upArrowNode = new ArrowNode( 0, 0, 0, -ARROW_LENGTH, merge( {
       bottom: -arrowsOffset,
       tandem: tandem.createTandem( 'upArrowNode' )
     }, ARROW_OPTIONS ) );

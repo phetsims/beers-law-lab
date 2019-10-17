@@ -16,6 +16,7 @@ define( require => {
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   const NullableIO = require( 'TANDEM/types/NullableIO' );
   const NumberIO = require( 'TANDEM/types/NumberIO' );
@@ -33,7 +34,7 @@ define( require => {
    */
   function ConcentrationMeter( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds, options ) {
 
-    options = _.extend( {
+    options = merge( {
       tandem: Tandem.required
     }, options );
 

@@ -21,6 +21,7 @@ define( require => {
   const EyeDropperNode = require( 'SCENERY_PHET/EyeDropperNode' );
   const FaucetFluidNode = require( 'BEERS_LAW_LAB/concentration/view/FaucetFluidNode' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const ParticlesNode = require( 'BEERS_LAW_LAB/concentration/view/ParticlesNode' );
   const RemoveSoluteButton = require( 'BEERS_LAW_LAB/concentration/view/RemoveSoluteButton' );
@@ -41,7 +42,7 @@ define( require => {
    */
   function ConcentrationScreenView( model, modelViewTransform, tandem ) {
 
-    ScreenView.call( this, _.extend( {
+    ScreenView.call( this, merge( {
       tandem: tandem
     }, BLLConstants.SCREEN_VIEW_OPTIONS ) );
 

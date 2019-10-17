@@ -12,6 +12,7 @@ define( require => {
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const Particles = require( 'BEERS_LAW_LAB/concentration/model/Particles' );
   const PrecipitateParticle = require( 'BEERS_LAW_LAB/concentration/model/PrecipitateParticle' );
   const Tandem = require( 'TANDEM/Tandem' );
@@ -24,7 +25,7 @@ define( require => {
    * @constructor
    */
   function Precipitate( solution, beaker, options ) {
-    options = _.extend( {
+    options = merge( {
       tandem: Tandem.required,
       phetioState: false
     }, options );

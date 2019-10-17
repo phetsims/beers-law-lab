@@ -12,6 +12,7 @@ define( require => {
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Vector2Property = require( 'DOT/Vector2Property' );
 
@@ -23,7 +24,7 @@ define( require => {
    */
   function Movable( location, dragBounds, options ) {
 
-    options = _.extend( {
+    options = merge( {
       tandem: Tandem.required
     }, options );
 

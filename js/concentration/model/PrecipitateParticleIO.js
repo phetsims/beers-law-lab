@@ -11,6 +11,7 @@ define( require => {
 
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+  const merge = require( 'PHET_CORE/merge' );
   const ObjectIO = require( 'TANDEM/types/ObjectIO' );
   const SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
   const SoluteParticleIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticleIO' );
@@ -26,7 +27,7 @@ define( require => {
     static toStateObject( precipitateParticle ) {
       validate( precipitateParticle, this.validator );
       const soluteParticle = SoluteParticleIO.toStateObject( precipitateParticle );
-      return _.extend( soluteParticle, { solute: SoluteIO.toStateObject( precipitateParticle.solute ) } );
+      return merge( soluteParticle, { solute: SoluteIO.toStateObject( precipitateParticle.solute ) } );
     }
 
     /**
@@ -36,7 +37,7 @@ define( require => {
      */
     static fromStateObject( stateObject ) {
       const soluteParticle = SoluteParticleIO.fromStateObject( stateObject );
-      return _.extend( soluteParticle, { solute: SoluteIO.fromStateObject( stateObject.solute ) } );
+      return merge( soluteParticle, { solute: SoluteIO.fromStateObject( stateObject.solute ) } );
     }
   }
 

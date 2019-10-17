@@ -14,6 +14,7 @@ define( require => {
   const BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
   const Color = require( 'SCENERY/util/Color' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const PhetioObject = require( 'TANDEM/PhetioObject' );
   const SoluteColorScheme = require( 'BEERS_LAW_LAB/concentration/model/SoluteColorScheme' );
   const SoluteIO = require( 'BEERS_LAW_LAB/concentration/model/SoluteIO' );
@@ -42,7 +43,7 @@ define( require => {
    */
   function Solute( name, formula, stockSolutionConcentration, molarMass, colorScheme, options ) {
 
-    options = _.extend( {
+    options = merge( {
       particleColor: colorScheme.maxColor,
       particleSize: 5,
       particlesPerMole: 200,

@@ -14,6 +14,7 @@ define( require => {
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const ShakerParticleIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticleIO' );
   const SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
 
@@ -28,7 +29,7 @@ define( require => {
    */
   function ShakerParticle( solute, location, orientation, initialVelocity, acceleration, options ) {
 
-    options = _.extend( {
+    options = merge( {
       phetioType: ShakerParticleIO
     }, options );
 

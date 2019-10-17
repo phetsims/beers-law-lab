@@ -16,6 +16,7 @@ define( require => {
   const HStrut = require( 'SCENERY/nodes/HStrut' );
   const inherit = require( 'PHET_CORE/inherit' );
   const LinearGradient = require( 'SCENERY/util/LinearGradient' );
+  const merge = require( 'PHET_CORE/merge' );
   const NumberControl = require( 'SCENERY_PHET/NumberControl' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Property = require( 'AXON/Property' );
@@ -42,7 +43,7 @@ define( require => {
    */
   function ConcentrationControl( solution, options ) {
 
-    options = _.extend( {
+    options = merge( {
 
       // NumberControl options
       titleNodeOptions: {

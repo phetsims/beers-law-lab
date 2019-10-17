@@ -18,6 +18,7 @@ define( require => {
   const CuvetteNode = require( 'BEERS_LAW_LAB/beerslaw/view/CuvetteNode' );
   const inherit = require( 'PHET_CORE/inherit' );
   const LightNode = require( 'BEERS_LAW_LAB/beerslaw/view/LightNode' );
+  const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   const ScreenView = require( 'JOIST/ScreenView' );
@@ -32,7 +33,7 @@ define( require => {
    */
   function BeersLawScreenView( model, modelViewTransform, tandem ) {
 
-    ScreenView.call( this, _.extend( {
+    ScreenView.call( this, merge( {
         tandem: tandem
       }, BLLConstants.SCREEN_VIEW_OPTIONS ) );
 

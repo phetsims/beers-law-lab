@@ -24,6 +24,7 @@ define( require => {
   const ConcentrationTransform = require( 'BEERS_LAW_LAB/beerslaw/model/ConcentrationTransform' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const MolarAbsorptivityData = require( 'BEERS_LAW_LAB/beerslaw/model/MolarAbsorptivityData' );
   const NumberProperty = require( 'AXON/NumberProperty' );
   const PhetioObject = require( 'TANDEM/PhetioObject' );
@@ -60,7 +61,7 @@ define( require => {
     
     assert && assert( internalName.indexOf( ' ' ) === -1, 'internalName cannot contain spaces: ' + internalName );
 
-    options = _.extend( {
+    options = merge( {
       saturatedColor: colorRange.max, // {Color} color to use when the solution is saturated
       phetioType: BeersLawSolutionIO,
       tandem: Tandem.required

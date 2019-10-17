@@ -14,6 +14,7 @@ define( require => {
   const DerivedProperty = require( 'AXON/DerivedProperty' );
   const DerivedPropertyIO = require( 'AXON/DerivedPropertyIO' );
   const inherit = require( 'PHET_CORE/inherit' );
+  const merge = require( 'PHET_CORE/merge' );
   const Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   const NullableIO = require( 'TANDEM/types/NullableIO' );
   const NumberIO = require( 'TANDEM/types/NumberIO' );
@@ -35,7 +36,7 @@ define( require => {
 
     const self = this;
 
-    options = _.extend( { tandem: Tandem.required }, options );
+    options = merge( { tandem: Tandem.required }, options );
 
     this.light = light; // @private
     this.body = new Movable( bodyLocation, bodyDragBounds, {
