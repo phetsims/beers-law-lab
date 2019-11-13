@@ -46,7 +46,7 @@ define( require => {
      * @param {Object} stateObject
      * @returns {ChargedParticle}
      */
-    static addChildInstance( shakerParticles, tandem, stateObject ) {
+    static addChildInstanceDeprecated( shakerParticles, tandem, stateObject ) {
       validate( shakerParticles, this.validator );
 
       const value = ShakerParticleIO.fromStateObject( stateObject );
