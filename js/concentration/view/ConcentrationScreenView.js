@@ -81,7 +81,7 @@ define( require => {
       solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, modelViewTransform, tandem.createTandem( 'concentrationMeterNode' ) );
 
     // Solute controls
-    const soluteListParent = new Node( { maxWidth: 320 } );
+    const soluteListParent = new Node();
     const soluteControls = new SoluteControls( model.solutes, model.soluteProperty, model.soluteFormProperty, model.shaker,
       model.dropper, soluteListParent, tandem.createTandem( 'soluteControls' ), { maxWidth: 480 } );
 
