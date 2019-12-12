@@ -14392,7 +14392,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "beersLawLab.general.soundEnabledProperty": {
+    "beersLawLab.general.soundManager.enabledProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioDynamicElementArchetype": false,
