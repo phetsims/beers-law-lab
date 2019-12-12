@@ -25,7 +25,7 @@ define( require => {
   function Movable( location, dragBounds, options ) {
 
     options = merge( {
-      tandem: Tandem.required
+      tandem: Tandem.REQUIRED
     }, options );
 
     // @public

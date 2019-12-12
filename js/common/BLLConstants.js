@@ -24,8 +24,8 @@ define( require => {
     SOLUTION_VOLUME_RANGE: new RangeWithValue( 0, BEAKER_VOLUME, 0.5 ), // liters
     BEAKER_VOLUME: BEAKER_VOLUME,
     DEFAULT_CUVETTE_SNAP_INTERVAL: 0.1, // cm
-    CONCENTRATION_SCREEN_TANDEM: Tandem.rootTandem.createTandem( 'concentrationScreen' ),
-    BEERS_LAW_SCREEN_TANDEM: Tandem.rootTandem.createTandem( 'beersLawScreen' )
+    CONCENTRATION_SCREEN_TANDEM: Tandem.ROOT.createTandem( 'concentrationScreen' ),
+    BEERS_LAW_SCREEN_TANDEM: Tandem.ROOT.createTandem( 'beersLawScreen' )
   };
 
   beersLawLab.register( 'BLLConstants', BLLConstants );

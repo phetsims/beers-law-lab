@@ -27,7 +27,7 @@ define( require => {
   function SoluteParticle( color, size, location, orientation, options ) {
 
     options = merge( {
-      tandem: Tandem.required
+      tandem: Tandem.REQUIRED
     }, options );
 
     // @public (read-only)

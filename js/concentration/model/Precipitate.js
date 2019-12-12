@@ -26,7 +26,7 @@ define( require => {
    */
   function Precipitate( solution, beaker, options ) {
     options = merge( {
-      tandem: Tandem.required,
+      tandem: Tandem.REQUIRED,
       phetioState: false
     }, options );
 

@@ -39,7 +39,7 @@ define( require => {
   function ShakerParticles( shaker, solution, beaker, options ) {
 
     options = merge( {
-      tandem: Tandem.required,
+      tandem: Tandem.REQUIRED,
       phetioType: ShakerParticlesIO
     }, options );
 

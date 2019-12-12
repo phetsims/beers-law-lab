@@ -48,7 +48,7 @@ define( require => {
       particleSize: 5,
       particlesPerMole: 200,
       phetioType: SoluteIO,
-      tandem: Tandem.required
+      tandem: Tandem.REQUIRED
     }, options );
 
     // @public (read-only), (read-write, phet-io)

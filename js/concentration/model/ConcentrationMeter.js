@@ -35,7 +35,7 @@ define( require => {
   function ConcentrationMeter( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds, options ) {
 
     options = merge( {
-      tandem: Tandem.required
+      tandem: Tandem.REQUIRED
     }, options );
 
     // @public concentration in mol/L or percent, depending on the concentrationMeterUnits query parameter.

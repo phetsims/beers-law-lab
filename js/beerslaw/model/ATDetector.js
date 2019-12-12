@@ -36,7 +36,7 @@ define( require => {
 
     const self = this;
 
-    options = merge( { tandem: Tandem.required }, options );
+    options = merge( { tandem: Tandem.REQUIRED }, options );
 
     this.light = light; // @private
     this.body = new Movable( bodyLocation, bodyDragBounds, {

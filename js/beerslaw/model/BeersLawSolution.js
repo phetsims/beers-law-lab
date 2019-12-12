@@ -64,7 +64,7 @@ define( require => {
     options = merge( {
       saturatedColor: colorRange.max, // {Color} color to use when the solution is saturated
       phetioType: BeersLawSolutionIO,
-      tandem: Tandem.required
+      tandem: Tandem.REQUIRED
     }, options );
 
     PhetioObject.call( this, options );
