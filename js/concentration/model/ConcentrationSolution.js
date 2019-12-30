@@ -21,7 +21,7 @@ define( require => {
   const NumberIO = require( 'TANDEM/types/NumberIO' );
   const NumberProperty = require( 'AXON/NumberProperty' );
   const Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
-  const Util = require( 'DOT/Util' );
+  const Utils = require( 'DOT/Utils' );
 
   /**
    * @param {Property.<Solute>} soluteProperty
@@ -152,7 +152,7 @@ define( require => {
 
     // @public
     getNumberOfPrecipitateParticles: function() {
-      let numberOfParticles = Util.roundSymmetric( this.soluteProperty.get().particlesPerMole * this.precipitateAmountProperty.get() );
+      let numberOfParticles = Utils.roundSymmetric( this.soluteProperty.get().particlesPerMole * this.precipitateAmountProperty.get() );
       if ( numberOfParticles === 0 && this.precipitateAmountProperty.get() > 0 ) {
         numberOfParticles = 1;
       }

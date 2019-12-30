@@ -32,7 +32,7 @@ define( require => {
   const Solvent = require( 'BEERS_LAW_LAB/common/model/Solvent' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Tandem = require( 'TANDEM/Tandem' );
-  const Util = require( 'DOT/Util' );
+  const Utils = require( 'DOT/Utils' );
 
   // strings
   const cobaltChlorideString = require( 'string!BEERS_LAW_LAB/cobaltChloride' );
@@ -92,7 +92,7 @@ define( require => {
       function( concentration ) {
         let color = self.solvent.colorProperty.get();
         if ( concentration > 0 ) {
-          const distance = Util.linear( self.concentrationRange.min, self.concentrationRange.max, 0, 1, concentration );
+          const distance = Utils.linear( self.concentrationRange.min, self.concentrationRange.max, 0, 1, concentration );
           color = self.colorRange.interpolateLinear( distance );
         }
         return color;

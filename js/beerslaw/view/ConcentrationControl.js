@@ -24,7 +24,7 @@ define( require => {
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const SunConstants = require( 'SUN/SunConstants' );
   const Text = require( 'SCENERY/nodes/Text' );
-  const Util = require( 'DOT/Util' );
+  const Utils = require( 'DOT/Utils' );
 
   // strings
   const concentrationString = require( 'string!BEERS_LAW_LAB/concentration' );
@@ -64,7 +64,7 @@ define( require => {
         trackSize: new Dimension2( 200, 15 ),
         thumbSize: new Dimension2( 22, 45 ),
         constrainValue: function( value ) {
-          return Util.roundToInterval( value, SLIDER_INTERVAL );
+          return Utils.roundToInterval( value, SLIDER_INTERVAL );
         },
 
         // phet-io

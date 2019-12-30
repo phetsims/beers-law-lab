@@ -21,7 +21,7 @@ define( require => {
   const inherit = require( 'PHET_CORE/inherit' );
   const LinearGradient = require( 'SCENERY/util/LinearGradient' );
   const Shape = require( 'KITE/Shape' );
-  const Util = require( 'DOT/Util' );
+  const Utils = require( 'DOT/Utils' );
   const VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   // constants
@@ -68,7 +68,7 @@ define( require => {
         if ( beamVisible ) {
           const baseColor = VisibleColor.wavelengthToColor( wavelength );
           const leftColor = baseColor.withAlpha( MAX_LIGHT_ALPHA );
-          const rightColor = baseColor.withAlpha( Util.linear( 0, 1, MIN_LIGHT_ALPHA, MAX_LIGHT_ALPHA, absorbance.getTransmittance() ) );
+          const rightColor = baseColor.withAlpha( Utils.linear( 0, 1, MIN_LIGHT_ALPHA, MAX_LIGHT_ALPHA, absorbance.getTransmittance() ) );
           const x = modelViewTransform.modelToViewPosition( cuvette.location ).x;
           const w = modelViewTransform.modelToViewDeltaX( cuvetteWidth );
           return new LinearGradient( x, 0, x + w, 0 ).addColorStop( 0, leftColor ).addColorStop( 1, rightColor );

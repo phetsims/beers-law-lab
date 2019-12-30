@@ -27,7 +27,7 @@ define( require => {
   const Shape = require( 'KITE/Shape' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Text = require( 'SCENERY/nodes/Text' );
-  const Util = require( 'DOT/Util' );
+  const Utils = require( 'DOT/Utils' );
   const Vector2 = require( 'DOT/Vector2' );
 
   //strings
@@ -108,7 +108,7 @@ define( require => {
 
     // value
     const maxValue = 100;
-    const valueNode = new Text( StringUtils.format( pattern0PercentString, Util.toFixed( maxValue, TRANSMITTANCE_DECIMAL_PLACES ) ), {
+    const valueNode = new Text( StringUtils.format( pattern0PercentString, Utils.toFixed( maxValue, TRANSMITTANCE_DECIMAL_PLACES ) ), {
       font: new PhetFont( 24 ),
       maxWidth: 150,
       tandem: tandem.createTandem( 'valueNode' )
@@ -158,10 +158,10 @@ define( require => {
       }
       else {
         if ( detector.modeProperty.get() === ATDetector.Mode.TRANSMITTANCE ) {
-          valueNode.text = StringUtils.format( pattern0PercentString, Util.toFixed( value, TRANSMITTANCE_DECIMAL_PLACES ) );
+          valueNode.text = StringUtils.format( pattern0PercentString, Utils.toFixed( value, TRANSMITTANCE_DECIMAL_PLACES ) );
         }
         else {
-          valueNode.text = Util.toFixed( value, ABSORBANCE_DECIMAL_PLACES );
+          valueNode.text = Utils.toFixed( value, ABSORBANCE_DECIMAL_PLACES );
         }
         valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN; // right justified
       }
@@ -252,7 +252,7 @@ define( require => {
 
       // control points
       // The y coordinate of the body's control point varies with the x distance between the body and probe.
-      const c1Offset = new Vector2( 0, Util.linear( 0, 800, 0, 200, bodyNode.centerX - probeNode.left ) ); // x distance -> y coordinate
+      const c1Offset = new Vector2( 0, Utils.linear( 0, 800, 0, 200, bodyNode.centerX - probeNode.left ) ); // x distance -> y coordinate
       const c2Offset = new Vector2( 50, 150 );
       const c1 = new Vector2( bodyConnectionPoint.x + c1Offset.x, bodyConnectionPoint.y + c1Offset.y );
       const c2 = new Vector2( probeConnectionPoint.x + c2Offset.x, probeConnectionPoint.y + c2Offset.y );

@@ -34,7 +34,7 @@ define( require => {
   const Shape = require( 'KITE/Shape' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Text = require( 'SCENERY/nodes/Text' );
-  const Util = require( 'DOT/Util' );
+  const Utils = require( 'DOT/Utils' );
   const Vector2 = require( 'DOT/Vector2' );
 
   // strings
@@ -146,7 +146,7 @@ define( require => {
     // readout for the value + units
     const formattedText = StringUtils.format(
       pattern0Value1UnitsString,
-      Util.toFixed( 1, DECIMAL_PLACES_MOLES_PER_LITER ),
+      Utils.toFixed( 1, DECIMAL_PLACES_MOLES_PER_LITER ),
       unitsMolesPerLiterString
     );
     const readoutTextNode = new Text( formattedText, {
@@ -210,10 +210,10 @@ define( require => {
         // display concentration as 'mol/L' or '%', see beers-law-lab#149
         let readoutText = null;
         if ( DISPLAY_MOLES_PER_LITER ) {
-          readoutText = StringUtils.format( pattern0Value1UnitsString, Util.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), unitsMolesPerLiterString );
+          readoutText = StringUtils.format( pattern0Value1UnitsString, Utils.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), unitsMolesPerLiterString );
         }
         else {
-          readoutText = StringUtils.format( pattern0PercentString, Util.toFixed( value, DECIMAL_PLACES_PERCENT ) );
+          readoutText = StringUtils.format( pattern0PercentString, Utils.toFixed( value, DECIMAL_PLACES_PERCENT ) );
         }
         readoutTextNode.setText( readoutText );
         readoutTextNode.right = readoutBackgroundNode.right - READOUT_X_MARGIN; // right justified
@@ -325,7 +325,7 @@ define( require => {
 
       // control points
       // The y coordinate of the body's control point varies with the x distance between the body and probe.
-      const c1Offset = new Vector2( 0, Util.linear( 0, 800, 0, 200, bodyNode.centerX - probeNode.left ) ); // x distance -> y coordinate
+      const c1Offset = new Vector2( 0, Utils.linear( 0, 800, 0, 200, bodyNode.centerX - probeNode.left ) ); // x distance -> y coordinate
       const c2Offset = new Vector2( 50, 0 );
       const c1 = new Vector2( bodyConnectionPoint.x + c1Offset.x, bodyConnectionPoint.y + c1Offset.y );
       const c2 = new Vector2( probeConnectionPoint.x + c2Offset.x, probeConnectionPoint.y + c2Offset.y );

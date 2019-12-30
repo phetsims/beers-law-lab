@@ -22,7 +22,7 @@ define( require => {
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Text = require( 'SCENERY/nodes/Text' );
-  const Util = require( 'DOT/Util' );
+  const Utils = require( 'DOT/Utils' );
   const VBox = require( 'SCENERY/nodes/VBox' );
   const WavelengthSlider = require( 'SCENERY_PHET/WavelengthSlider' );
 
@@ -159,7 +159,7 @@ define( require => {
   beersLawLab.register( 'WavelengthControls', WavelengthControls );
 
   var formatWavelength = function( wavelength ) {
-    return StringUtils.format( pattern0Value1UnitsString, Util.toFixed( wavelength, 0 ), unitsNmString );
+    return StringUtils.format( pattern0Value1UnitsString, Utils.toFixed( wavelength, 0 ), unitsNmString );
   };
 
   return inherit( Panel, WavelengthControls, {

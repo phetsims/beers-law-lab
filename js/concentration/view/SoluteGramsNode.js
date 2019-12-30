@@ -15,7 +15,7 @@ define( require => {
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
   const Text = require( 'SCENERY/nodes/Text' );
-  const Util = require( 'DOT/Util' );
+  const Utils = require( 'DOT/Utils' );
 
   // strings
   const pattern0SoluteAmountString = require( 'string!BEERS_LAW_LAB/pattern.0soluteAmount' );
@@ -39,7 +39,7 @@ define( require => {
     Text.call( this, '', options );
 
     soluteGramsProperty.link( function( soluteGrams ) {
-      self.text = StringUtils.format( pattern0SoluteAmountString, Util.toFixed( soluteGrams, DECIMAL_PLACES ) );
+      self.text = StringUtils.format( pattern0SoluteAmountString, Utils.toFixed( soluteGrams, DECIMAL_PLACES ) );
     } );
   }
 
