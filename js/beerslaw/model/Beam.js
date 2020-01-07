@@ -48,12 +48,12 @@ define( require => {
     // beam shape
     const xOverlap = modelViewTransform.modelToViewDeltaX( 1 ); // add some overlap, to hide space between beam and light housing
     // @public
-    this.shapeProperty = new DerivedProperty( [ this.visibleProperty, cuvette.widthProperty, detector.probe.locationProperty ],
-      function( beamVisible, cuvetteWidth, probeLocation ) {
+    this.shapeProperty = new DerivedProperty( [ this.visibleProperty, cuvette.widthProperty, detector.probe.positionProperty ],
+      function( beamVisible, cuvetteWidth, probePosition ) {
         if ( beamVisible ) {
-          const x = modelViewTransform.modelToViewPosition( light.location ).x - xOverlap;
-          const y = modelViewTransform.modelToViewPosition( light.location ).y - modelViewTransform.modelToViewDeltaY( light.lensDiameter / 2 );
-          const w = modelViewTransform.modelToViewDeltaX( detector.probeInBeam() ? probeLocation.x - light.location.x : MAX_LIGHT_WIDTH ) + xOverlap;
+          const x = modelViewTransform.modelToViewPosition( light.position ).x - xOverlap;
+          const y = modelViewTransform.modelToViewPosition( light.position ).y - modelViewTransform.modelToViewDeltaY( light.lensDiameter / 2 );
+          const w = modelViewTransform.modelToViewDeltaX( detector.probeInBeam() ? probePosition.x - light.position.x : MAX_LIGHT_WIDTH ) + xOverlap;
           const h = modelViewTransform.modelToViewDeltaY( light.lensDiameter );
           return Shape.rect( x, y, w, h );
         }
@@ -69,7 +69,7 @@ define( require => {
           const baseColor = VisibleColor.wavelengthToColor( wavelength );
           const leftColor = baseColor.withAlpha( MAX_LIGHT_ALPHA );
           const rightColor = baseColor.withAlpha( Utils.linear( 0, 1, MIN_LIGHT_ALPHA, MAX_LIGHT_ALPHA, absorbance.getTransmittance() ) );
-          const x = modelViewTransform.modelToViewPosition( cuvette.location ).x;
+          const x = modelViewTransform.modelToViewPosition( cuvette.position ).x;
           const w = modelViewTransform.modelToViewDeltaX( cuvetteWidth );
           return new LinearGradient( x, 0, x + w, 0 ).addColorStop( 0, leftColor ).addColorStop( 1, rightColor );
         }

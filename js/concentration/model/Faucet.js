@@ -16,21 +16,21 @@ define( require => {
   const NumberProperty = require( 'AXON/NumberProperty' );
 
   /**
-   * @param {Vector2} location center of output pipe
+   * @param {Vector2} position center of output pipe
    * @param {number} pipeMinX x-coordinate of where the pipe starts
    * @param {number} spoutWidth
    * @param {number} maxFlowRate L/sec
    * @param {Tandem} tandem
    * @constructor
    */
-  function Faucet( location, pipeMinX, spoutWidth, maxFlowRate, tandem ) {
+  function Faucet( position, pipeMinX, spoutWidth, maxFlowRate, tandem ) {
 
-    assert && assert( pipeMinX < location.x ); // pipe enters the faucet from the left
+    assert && assert( pipeMinX < position.x ); // pipe enters the faucet from the left
 
     const self = this;
 
     // @public (read-only)
-    this.location = location;
+    this.position = position;
     this.pipeMinX = pipeMinX;
     this.spoutWidth = spoutWidth;
     this.maxFlowRate = maxFlowRate;

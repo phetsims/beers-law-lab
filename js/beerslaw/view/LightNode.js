@@ -28,7 +28,7 @@ define( require => {
       nozzleSize: new Dimension2( 16, 65 ),
       buttonRadius: 26,
       buttonTouchAreaDilation: 25,
-      translation: modelViewTransform.modelToViewPosition( light.location ),
+      translation: modelViewTransform.modelToViewPosition( light.position ),
       tandem: tandem
     } );
   }

@@ -20,20 +20,20 @@ define( require => {
 
   /**
    * @param {Solute} solute
-   * @param {Vector2} location in the beaker's coordinate frame
+   * @param {Vector2} position in the beaker's coordinate frame
    * @param {number} orientation in radians
    * @param {Vector2} initialVelocity
    * @param {Vector2} acceleration
    * @param {Object} [options]
    * @constructor
    */
-  function ShakerParticle( solute, location, orientation, initialVelocity, acceleration, options ) {
+  function ShakerParticle( solute, position, orientation, initialVelocity, acceleration, options ) {
 
     options = merge( {
       phetioType: ShakerParticleIO
     }, options );
 
-    SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation, options );
+    SoluteParticle.call( this, solute.particleColor, solute.particleSize, position, orientation, options );
 
     // @public (read-only, phet-io)
     this.solute = solute;
@@ -46,7 +46,7 @@ define( require => {
   return inherit( SoluteParticle, ShakerParticle, {
 
     /**
-     *  Propagates the particle to a new location.
+     *  Propagates the particle to a new position.
      *  @param {number} deltaSeconds
      *  @param {Beaker} beaker
      *  @public
@@ -54,7 +54,7 @@ define( require => {
     step: function( deltaSeconds, beaker ) {
       // mutable calls added to remove the number of new objects we create
       this.velocity = this.acceleration.times( deltaSeconds ).add( this.velocity );
-      const newLocation = this.velocity.times( deltaSeconds ).add( this.locationProperty.get() );
+      const newPosition = this.velocity.times( deltaSeconds ).add( this.positionProperty.get() );
 
       /*
        * Did the particle hit the left wall of the beaker? If so, change direction.
@@ -62,12 +62,12 @@ define( require => {
        * which is the only wall that the particles can hit in practice.
        */
       const minX = beaker.getLeft() + this.solute.particleSize;
-      if ( newLocation.x <= minX ) {
-        newLocation.setX( minX );
+      if ( newPosition.x <= minX ) {
+        newPosition.setX( minX );
         this.velocity.setX( Math.abs( this.velocity.x ) );
       }
 
-      this.locationProperty.set( newLocation );
+      this.positionProperty.set( newPosition );
     }
   } );
 } );

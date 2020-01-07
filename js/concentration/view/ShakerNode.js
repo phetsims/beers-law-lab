@@ -97,10 +97,10 @@ define( require => {
       this.addChild( new Circle( { radius: 3, fill: 'red' } ) );
     }
 
-    // sync location with model
+    // sync position with model
     let shakerWasMoved = false;
-    shaker.locationProperty.link( function( location ) {
-      self.translation = modelViewTransform.modelToViewPosition( location );
+    shaker.positionProperty.link( function( position ) {
+      self.translation = modelViewTransform.modelToViewPosition( position );
       shakerWasMoved = true;
       arrowsParent.visible = false;
     } );
@@ -123,7 +123,7 @@ define( require => {
 
     // interactivity
     this.cursor = 'pointer';
-    this.addInputListener( new MovableDragHandler( shaker.locationProperty, {
+    this.addInputListener( new MovableDragHandler( shaker.positionProperty, {
       tandem: tandem.createTandem( 'inputListener' ),
       dragBounds: shaker.dragBounds,
       modelViewTransform: modelViewTransform

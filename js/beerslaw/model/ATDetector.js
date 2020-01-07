@@ -22,9 +22,9 @@ define( require => {
   const Tandem = require( 'TANDEM/Tandem' );
 
   /**
-   * @param {Vector2} bodyLocation
+   * @param {Vector2} bodyPosition
    * @param {Bounds2} bodyDragBounds
-   * @param {Vector2} probeLocation
+   * @param {Vector2} probePosition
    * @param {Bounds2} probeDragBounds
    * @param {Light} light
    * @param {Cuvette} cuvette
@@ -32,17 +32,17 @@ define( require => {
    * @param {Object} [options]
    * @constructor
    */
-  function ATDetector( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds, light, cuvette, absorbance, options ) {
+  function ATDetector( bodyPosition, bodyDragBounds, probePosition, probeDragBounds, light, cuvette, absorbance, options ) {
 
     const self = this;
 
     options = merge( { tandem: Tandem.REQUIRED }, options );
 
     this.light = light; // @private
-    this.body = new Movable( bodyLocation, bodyDragBounds, {
+    this.body = new Movable( bodyPosition, bodyDragBounds, {
       tandem: options.tandem.createTandem( 'body' )
     } ); // @public
-    this.probe = new Probe( probeLocation, probeDragBounds, 0.57, {
+    this.probe = new Probe( probePosition, probeDragBounds, 0.57, {
       tandem: options.tandem.createTandem( 'probe' )
     } ); // @public
 
@@ -53,18 +53,18 @@ define( require => {
 
     // @public value is either absorbance (A) or percent transmittance (%T) depending on mode
     this.valueProperty = new DerivedProperty( [
-        this.probe.locationProperty,
+        this.probe.positionProperty,
         this.light.onProperty,
         this.modeProperty,
         cuvette.widthProperty,
         absorbance.absorbanceProperty
       ],
-      function( probeLocation, lightOn, mode, cuvetteWidth, absorbanceValue ) {
+      function( probePosition, lightOn, mode, cuvetteWidth, absorbanceValue ) {
         // Computes the displayed value, null if the light is off or the probe is outside the beam.
         let value = null;
         if ( self.probeInBeam() ) {
           // path length is between 0 and cuvette width
-          const pathLength = Math.min( Math.max( 0, probeLocation.x - cuvette.location.x ), cuvetteWidth );
+          const pathLength = Math.min( Math.max( 0, probePosition.x - cuvette.position.x ), cuvetteWidth );
           if ( self.modeProperty.get() === ATDetector.Mode.ABSORBANCE ) {
             value = absorbance.getAbsorbanceAt( pathLength );
           }
@@ -83,14 +83,14 @@ define( require => {
 
   /**
    * The probe, whose position indicates where the measurement is being made.
-   * @param {Vector2} location
+   * @param {Vector2} position
    * @param {Bounds2} dragBounds
    * @param {number} sensorDiameter cm
    * @param {Tandem} tandem
    * @constructor
    */
-  function Probe( location, dragBounds, sensorDiameter, tandem ) {
-    Movable.call( this, location, dragBounds, tandem );
+  function Probe( position, dragBounds, sensorDiameter, tandem ) {
+    Movable.call( this, position, dragBounds, tandem );
     this.sensorDiameter = sensorDiameter; // @private
   }
 
@@ -98,12 +98,12 @@ define( require => {
 
     // @public
     getMinY: function() {
-      return this.locationProperty.get().y - ( this.sensorDiameter / 2 );
+      return this.positionProperty.get().y - ( this.sensorDiameter / 2 );
     },
 
     // @public
     getMaxY: function() {
-      return this.locationProperty.get().y + ( this.sensorDiameter / 2 );
+      return this.positionProperty.get().y + ( this.sensorDiameter / 2 );
     }
   } );
 
@@ -121,7 +121,7 @@ define( require => {
       return this.light.onProperty.get() &&
              ( this.probe.getMinY() < this.light.getMinY() ) &&
              ( this.probe.getMaxY() > this.light.getMaxY() ) &&
-             ( this.probe.locationProperty.get().x > this.light.location.x );
+             ( this.probe.positionProperty.get().x > this.light.position.x );
     }
   }, {
     // @static Modes for the detector

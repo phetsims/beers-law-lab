@@ -64,7 +64,7 @@ define( require => {
       for ( let i = 0; i < numberOfParticles; i++ ) {
         const particle = particles[ i ];
 
-        const position = this.modelViewTransform.modelToViewPosition( particle.locationProperty.get() );
+        const position = this.modelViewTransform.modelToViewPosition( particle.positionProperty.get() );
         const x = position.x;
         const y = position.y;
         const cos = Math.cos( particle.orientation ) * halfViewSize;

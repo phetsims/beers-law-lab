@@ -29,21 +29,21 @@ define( require => {
 
     Rectangle.call( this, 0, 0, 0, 0, { lineWidth: 1 } );
 
-    // shape and location
-    const updateShapeAndLocation = function() {
+    // shape and position
+    const updateShapeAndPosition = function() {
       // path
       if ( dropper.dispensingProperty.get() && !dropper.emptyProperty.get() ) {
-        self.setRect( -tipWidth / 2, 0, tipWidth, beaker.location.y - dropper.locationProperty.get().y );
+        self.setRect( -tipWidth / 2, 0, tipWidth, beaker.position.y - dropper.positionProperty.get().y );
       }
       else {
         self.setRect( 0, 0, 0, 0 );
       }
-      // move this node to the dropper's location
-      self.translation = modelViewTransform.modelToViewPosition( dropper.locationProperty.get() );
+      // move this node to the dropper's position
+      self.translation = modelViewTransform.modelToViewPosition( dropper.positionProperty.get() );
     };
-    dropper.locationProperty.link( updateShapeAndLocation );
-    dropper.dispensingProperty.link( updateShapeAndLocation );
-    dropper.emptyProperty.link( updateShapeAndLocation );
+    dropper.positionProperty.link( updateShapeAndPosition );
+    dropper.dispensingProperty.link( updateShapeAndPosition );
+    dropper.emptyProperty.link( updateShapeAndPosition );
 
     // set color to match solute
     soluteProperty.link( function( solute ) {

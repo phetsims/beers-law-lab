@@ -54,7 +54,7 @@ define( require => {
 
       const shakerParticle = new ShakerParticle(
         value.solute,
-        value.location,
+        value.position,
         value.orientation,
         value.velocity,
         value.acceleration, {

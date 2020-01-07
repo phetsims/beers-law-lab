@@ -60,17 +60,17 @@ define( require => {
     this.touchArea = Shape.rectangle( -dx, -dy, this.width + dx + dx, this.height + dy + dy );
 
     // sync with model
-    ruler.locationProperty.link( function( location ) {
-      const position = modelViewTransform.modelToViewPosition( location );
-      self.x = position.x;
-      self.y = position.y;
+    ruler.positionProperty.link( function( position ) {
+      const viewPosition = modelViewTransform.modelToViewPosition( position );
+      self.x = viewPosition.x;
+      self.y = viewPosition.y;
     } );
 
     // interactivity
     this.cursor = 'pointer';
 
     // @private (phet-io)
-    this.movableDragHandler = new MovableDragHandler( ruler.locationProperty, {
+    this.movableDragHandler = new MovableDragHandler( ruler.positionProperty, {
       tandem: tandem.createTandem( 'movableDragHandler' ),
       dragBounds: ruler.dragBounds,
       modelViewTransform: modelViewTransform

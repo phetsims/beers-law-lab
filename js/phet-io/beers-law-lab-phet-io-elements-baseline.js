@@ -27,7 +27,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "beersLawLab.beersLawScreen.model.detector.body.locationProperty": {
+    "beersLawLab.beersLawScreen.model.detector.body.positionProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -53,7 +53,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<StringIO>"
     },
-    "beersLawLab.beersLawScreen.model.detector.probe.locationProperty": {
+    "beersLawLab.beersLawScreen.model.detector.probe.positionProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -105,7 +105,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "beersLawLab.beersLawScreen.model.ruler.locationProperty": {
+    "beersLawLab.beersLawScreen.model.ruler.positionProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -9296,7 +9296,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ConcentrationModelIO"
     },
-    "beersLawLab.concentrationScreen.model.concentrationMeter.body.locationProperty": {
+    "beersLawLab.concentrationScreen.model.concentrationMeter.body.positionProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -9309,7 +9309,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<Vector2IO>"
     },
-    "beersLawLab.concentrationScreen.model.concentrationMeter.probe.locationProperty": {
+    "beersLawLab.concentrationScreen.model.concentrationMeter.probe.positionProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -9387,7 +9387,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "beersLawLab.concentrationScreen.model.dropper.locationProperty": {
+    "beersLawLab.concentrationScreen.model.dropper.positionProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -9439,7 +9439,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ObjectIO"
     },
-    "beersLawLab.concentrationScreen.model.shaker.locationProperty": {
+    "beersLawLab.concentrationScreen.model.shaker.positionProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",

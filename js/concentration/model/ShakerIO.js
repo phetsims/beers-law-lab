@@ -25,27 +25,27 @@ define( require => {
      */
     static toStateObject( shaker ) {
       validate( shaker, this.validator );
-      return { location: Vector2IO.toStateObject( shaker.previousLocation ) };
+      return { position: Vector2IO.toStateObject( shaker.previousPosition ) };
     }
 
     /**
      * Deserializes an instance.
      * @param {Object} stateObject
-     * @returns {{location: Vector2}}
+     * @returns {{position: Vector2}}
      */
     static fromStateObject( stateObject ) {
-      return { location: Vector2IO.fromStateObject( stateObject.location ) };
+      return { position: Vector2IO.fromStateObject( stateObject.position ) };
     }
 
     /**
-     * Set the location of the shaker using the value parsed in fromStateObject.  This method is automatically called by
+     * Set the position of the shaker using the value parsed in fromStateObject.  This method is automatically called by
      * phetioEngine.js when setting the state.
      * @param {Shaker} shaker
-     * @param {{location: Vector2}} fromStateObject - the value returned by fromStateObject
+     * @param {{position: Vector2}} fromStateObject - the value returned by fromStateObject
      */
     static setValue( shaker, fromStateObject ) {
       validate( shaker, this.validator );
-      shaker.previousLocation.set( fromStateObject.location );
+      shaker.previousPosition.set( fromStateObject.position );
     }
   }
 
@@ -54,7 +54,7 @@ define( require => {
       returnType: VoidIO,
       parameterTypes: [ ObjectIO ],
       implementation: function( value ) {
-        this.phetioObject.previousLocation.set( Vector2IO.fromStateObject( value ) );
+        this.phetioObject.previousPosition.set( Vector2IO.fromStateObject( value ) );
       },
       documentation: 'Load the values recorded in getState',
       invocableForReadOnlyElements: false

@@ -17,20 +17,20 @@ define( require => {
   const Vector2Property = require( 'DOT/Vector2Property' );
 
   /**
-   * @param {Vector2} location
+   * @param {Vector2} position
    * @param {Bounds2} dragBounds
    * @param {Object} [options]
    * @constructor
    */
-  function Movable( location, dragBounds, options ) {
+  function Movable( position, dragBounds, options ) {
 
     options = merge( {
       tandem: Tandem.REQUIRED
     }, options );
 
     // @public
-    this.locationProperty = new Vector2Property( location, {
-      tandem: options.tandem.createTandem( 'locationProperty' )
+    this.positionProperty = new Vector2Property( position, {
+      tandem: options.tandem.createTandem( 'positionProperty' )
     } );
 
     this.dragBounds = dragBounds; // @public (read-only)
@@ -42,7 +42,7 @@ define( require => {
 
     // @public
     reset: function() {
-      this.locationProperty.reset();
+      this.positionProperty.reset();
     }
   } );
 } );

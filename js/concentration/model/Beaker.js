@@ -13,15 +13,15 @@ define( require => {
   const inherit = require( 'PHET_CORE/inherit' );
 
   /**
-   * @param {Vector2} location bottom center
+   * @param {Vector2} position bottom center
    * @param {Dimension2} size
    * @param {number} volume in liters (L)
    * @constructor
    */
-  function Beaker( location, size, volume ) {
+  function Beaker( position, size, volume ) {
 
     // @public (read-only)
-    this.location = location;
+    this.position = position;
     this.size = size;
     this.volume = volume;
   }
@@ -37,12 +37,12 @@ define( require => {
 
     // @public Gets the x-coordinate of the left wall.
     getLeft: function() {
-      return this.location.x - ( this.size.width / 2 );
+      return this.position.x - ( this.size.width / 2 );
     },
 
     // @public Gets the x-coordinate of the right wall.
     getRight: function() {
-      return this.location.x + ( this.size.width / 2 );
+      return this.position.x + ( this.size.width / 2 );
     }
   } );
 } );

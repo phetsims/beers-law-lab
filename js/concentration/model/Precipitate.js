@@ -136,14 +136,14 @@ define( require => {
       }
     },
 
-    // @private Gets a random location, in global model coordinate frame.
+    // @private Gets a random position, in global model coordinate frame.
     getRandomOffset: function() {
       const particleSize = this.solution.soluteProperty.get().particleSize;
       // particles are square, largest margin required is the diagonal length
       const margin = Math.sqrt( particleSize * particleSize );
       // offset
-      const x = this.beaker.location.x - ( this.beaker.size.width / 2 ) + margin + ( phet.joist.random.nextDouble() * ( this.beaker.size.width - ( 2 * margin ) ) );
-      const y = this.beaker.location.y - margin; // this was tweaked based on the lineWidth used to stroke the beaker
+      const x = this.beaker.position.x - ( this.beaker.size.width / 2 ) + margin + ( phet.joist.random.nextDouble() * ( this.beaker.size.width - ( 2 * margin ) ) );
+      const y = this.beaker.position.y - margin; // this was tweaked based on the lineWidth used to stroke the beaker
       return new Vector2( x, y );
     }
   } );

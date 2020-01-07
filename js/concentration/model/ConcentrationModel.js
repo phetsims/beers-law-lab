@@ -86,7 +86,7 @@ define( require => {
     this.beaker = new Beaker( new Vector2( 350, 550 ), new Dimension2( 600, 300 ), 1 );
     this.precipitate = new Precipitate( this.solution, this.beaker, { tandem: tandem.createTandem( 'precipitate' ) } );
     this.shaker = new Shaker(
-      new Vector2( this.beaker.location.x, 170 ),
+      new Vector2( this.beaker.position.x, 170 ),
       new Bounds2( 250, 50, 575, 210 ),
       0.75 * Math.PI,
       this.soluteProperty,
@@ -96,7 +96,7 @@ define( require => {
       } );
     this.shakerParticles = new ShakerParticles( this.shaker, this.solution, this.beaker, { tandem: tandem.createTandem( 'shakerParticles' ) } );
     this.dropper = new Dropper(
-      new Vector2( this.beaker.location.x, 225 ),
+      new Vector2( this.beaker.position.x, 225 ),
       new Bounds2( 260, 225, 580, 225 ),
       this.soluteProperty,
       DROPPER_FLOW_RATE,

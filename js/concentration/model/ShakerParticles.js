@@ -25,7 +25,7 @@ define( require => {
   const INITIAL_SPEED = 100;
   const GRAVITATIONAL_ACCELERATION_MAGNITUDE = 150;
 
-  // These offsets determine where a salt particle originates, relative to the shaker's location.
+  // These offsets determine where a salt particle originates, relative to the shaker's position.
   const MAX_X_OFFSET = 20;
   const MAX_Y_OFFSET = 5;
 
@@ -63,8 +63,8 @@ define( require => {
 
   beersLawLab.register( 'ShakerParticles', ShakerParticles );
 
-  // Gets a random location relative to some origin
-  const getRandomLocation = function( origin ) {
+  // Gets a random position relative to some origin
+  const getRandomPosition = function( origin ) {
     const xOffset = phet.joist.random.nextIntBetween( -MAX_X_OFFSET, MAX_X_OFFSET ); // positive or negative
     const yOffset = phet.joist.random.nextIntBetween( 0, MAX_Y_OFFSET ); // positive only
     return new Vector2( origin.x + xOffset, origin.y + yOffset );
@@ -98,8 +98,8 @@ define( require => {
 
         // If the particle hits the solution surface or bottom of the beaker, delete it, and add a corresponding amount of solute to the solution.
         const percentFull = solution.volumeProperty.get() / beaker.volume;
-        const solutionSurfaceY = beaker.location.y - ( percentFull * beaker.size.height ) - solution.soluteProperty.get().particleSize;
-        if ( particle.locationProperty.get().y > solutionSurfaceY ) {
+        const solutionSurfaceY = beaker.position.y - ( percentFull * beaker.size.height ) - solution.soluteProperty.get().particleSize;
+        if ( particle.positionProperty.get().y > solutionSurfaceY ) {
           this.removeParticle( particle );
           const soluteAmount = Math.min(
             BLLConstants.SOLUTE_AMOUNT_RANGE.max,
@@ -115,7 +115,7 @@ define( require => {
         for ( let j = 0; j < numberOfParticles; j++ ) {
           const shakerParticle = new ShakerParticle(
             solution.soluteProperty.get(),
-            getRandomLocation( this.shaker.locationProperty.get() ),
+            getRandomPosition( this.shaker.positionProperty.get() ),
             getRandomOrientation(),
             this.getInitialVelocity(),
             this.getGravitationalAcceleration(), {

@@ -102,8 +102,8 @@ define( require => {
     const dy = 1 * arrowNode.height;
     arrowNode.touchArea = arrowNode.localBounds.dilatedXY( dx, dy );
 
-    // location of the cuvette
-    const position = modelViewTransform.modelToViewPosition( cuvette.location );
+    // position of the cuvette
+    const position = modelViewTransform.modelToViewPosition( cuvette.position );
     this.x = position.x;
     this.y = position.y;
   }

@@ -7,7 +7,7 @@
  *
  * In this case, the cuvette is the vessel that holds the solution.
  * It has a fixed height, but a variable width, making it possible to change
- * the path length. Location is fixed.  Origin is at the upper-left corner.
+ * the path length. Position is fixed.  Origin is at the upper-left corner.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -20,16 +20,16 @@ define( require => {
   const NumberProperty = require( 'AXON/NumberProperty' );
 
   /**
-   * @param {Vector2} location fixed location, cm
+   * @param {Vector2} position fixed position, cm
    * @param {RangeWithValue} widthRange variable width, cm
    * @param {number} height fixed height, cm
    * @param {Tandem} tandem
    * @constructor
    */
-  function Cuvette( location, widthRange, height, tandem ) {
+  function Cuvette( position, widthRange, height, tandem ) {
 
     // @public (read-only)
-    this.location = location;
+    this.position = position;
     this.widthRange = widthRange;
     this.widthProperty = new NumberProperty( widthRange.defaultValue, {
       tandem: tandem.createTandem( 'widthProperty' ),

@@ -19,18 +19,18 @@ define( require => {
 
   /**
    * @param {Solute} solute
-   * @param {Vector2} location location in the beaker's coordinate frame
+   * @param {Vector2} position position in the beaker's coordinate frame
    * @param {number} orientation in radians
    * @param {Object} [options]
    * @constructor
    */
-  function PrecipitateParticle( solute, location, orientation, options ) {
+  function PrecipitateParticle( solute, position, orientation, options ) {
 
     options = merge( {
       phetioType: PrecipitateParticleIO
     }, options );
 
-    SoluteParticle.call( this, solute.particleColor, solute.particleSize, location, orientation, options );
+    SoluteParticle.call( this, solute.particleColor, solute.particleSize, position, orientation, options );
 
     // @public (phet-io)
     this.solute = solute;

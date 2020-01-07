@@ -24,7 +24,7 @@ define( require => {
    */
   function BLLFaucetNode( faucet, modelViewTransform, tandem, options ) {
     const scale = 0.75;
-    const horizontalPipeLength = modelViewTransform.modelToViewX( faucet.location.x - faucet.pipeMinX ) / scale;
+    const horizontalPipeLength = modelViewTransform.modelToViewX( faucet.position.x - faucet.pipeMinX ) / scale;
 
     options = merge( {
       horizontalPipeLength: horizontalPipeLength,
@@ -37,7 +37,7 @@ define( require => {
     }, options );
 
     FaucetNode.call( this, faucet.maxFlowRate, faucet.flowRateProperty, faucet.enabledProperty, options );
-    this.translation = modelViewTransform.modelToViewPosition( faucet.location );
+    this.translation = modelViewTransform.modelToViewPosition( faucet.position );
   }
 
   beersLawLab.register( 'BLLFaucetNode', BLLFaucetNode );

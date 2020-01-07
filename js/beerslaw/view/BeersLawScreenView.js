@@ -67,7 +67,7 @@ define( require => {
     this.addChild( rulerNode );
     this.addChild( comboBoxListParent ); // last, so that combo box list is on top
 
-    // Layout for things that don't have a location in the model.
+    // Layout for things that don't have a position in the model.
     {
       // below the light
       wavelengthControls.left = lightNode.left;

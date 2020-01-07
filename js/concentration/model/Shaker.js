@@ -18,7 +18,7 @@ define( require => {
   const ShakerIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerIO' );
 
   /**
-   * @param {Vector2} location
+   * @param {Vector2} position
    * @param {number} orientation in radians
    * @param {Bounds2} dragBounds
    * @param {Property.<Solute>} soluteProperty
@@ -27,7 +27,7 @@ define( require => {
    * @param {Object} [options]
    * @constructor
    */
-  function Shaker( location, dragBounds, orientation, soluteProperty, maxDispensingRate, visible, options ) {
+  function Shaker( position, dragBounds, orientation, soluteProperty, maxDispensingRate, visible, options ) {
 
     options = merge( {
       phetioType: ShakerIO
@@ -35,7 +35,7 @@ define( require => {
 
     const self = this;
 
-    Movable.call( this, location, dragBounds, options );
+    Movable.call( this, position, dragBounds, options );
 
     // @public (read-only)
     this.orientation = orientation;
@@ -48,7 +48,7 @@ define( require => {
     this.dispensingRateProperty = new NumberProperty( 0 );
 
     // @public (phet-io)
-    this.previousLocation = location;
+    this.previousPosition = position;
 
     // set the dispensing rate to zero when the shaker becomes empty or invisible
     const observer = function() {
@@ -70,20 +70,20 @@ define( require => {
       this.visibleProperty.reset();
       this.emptyProperty.reset();
       this.dispensingRateProperty.reset();
-      this.previousLocation = this.locationProperty.get(); // to prevent shaker from dispensing solute when its location is reset
+      this.previousPosition = this.positionProperty.get(); // to prevent shaker from dispensing solute when its position is reset
     },
 
     // @public Sets the dispensing rate if the shaker is moving.
     step: function() {
       if ( this.visibleProperty.get() && !this.emptyProperty.get() ) {
-        if ( this.previousLocation.equals( this.locationProperty.get() ) ) {
+        if ( this.previousPosition.equals( this.positionProperty.get() ) ) {
           this.dispensingRateProperty.set( 0 ); // shaker is not moving, don't dispense anything
         }
         else {
           this.dispensingRateProperty.set( this.maxDispensingRate ); // max rate seems to work fine
         }
       }
-      this.previousLocation = this.locationProperty.get();
+      this.previousPosition = this.positionProperty.get();
     }
   } );
 } );

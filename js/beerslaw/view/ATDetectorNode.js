@@ -144,9 +144,9 @@ define( require => {
     this.addChild( vBox );
     vBox.center = bodyNode.center;
 
-    // body location
-    detector.body.locationProperty.link( function( location ) {
-      self.translation = modelViewTransform.modelToViewPosition( location );
+    // body position
+    detector.body.positionProperty.link( function( position ) {
+      self.translation = modelViewTransform.modelToViewPosition( position );
     } );
 
     // update the value display
@@ -196,23 +196,23 @@ define( require => {
       color: PROBE_COLOR
     } );
 
-    // location
-    probe.locationProperty.link( function( location ) {
-      self.translation = modelViewTransform.modelToViewPosition( location );
+    // position
+    probe.positionProperty.link( function( position ) {
+      self.translation = modelViewTransform.modelToViewPosition( position );
     } );
 
     // interactivity
     this.cursor = 'pointer';
 
-    const movableDragHandler = new MovableDragHandler( probe.locationProperty, {
+    const movableDragHandler = new MovableDragHandler( probe.positionProperty, {
       tandem: tandem.createTandem( 'movableDragHandler' ),
       dragBounds: probe.dragBounds,
       modelViewTransform: modelViewTransform,
       endDrag: function() {
         // If the light is on and the probe is close enough to the beam...
-        if ( light.onProperty.get() && ( probe.locationProperty.get().x >= light.location.x ) && ( Math.abs( probe.locationProperty.get().y - light.location.y ) <= 0.5 * light.lensDiameter ) ) {
+        if ( light.onProperty.get() && ( probe.positionProperty.get().x >= light.position.x ) && ( Math.abs( probe.positionProperty.get().y - light.position.y ) <= 0.5 * light.lensDiameter ) ) {
           // ... snap the probe to the center of beam.
-          probe.locationProperty.set( new Vector2( probe.locationProperty.get().x, light.location.y ) );
+          probe.positionProperty.set( new Vector2( probe.positionProperty.get().x, light.position.y ) );
         }
       }
     } );
@@ -262,8 +262,8 @@ define( require => {
         .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
         .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
     };
-    body.locationProperty.link( updateCurve );
-    probe.locationProperty.link( updateCurve );
+    body.positionProperty.link( updateCurve );
+    probe.positionProperty.link( updateCurve );
   }
 
   inherit( Path, WireNode );

@@ -52,16 +52,16 @@ define( require => {
       phetioType: PropertyIO( BeersLawSolutionIO )
     } );
 
-    // @public NOTE: All locations are relative to the location of the cuvette.
+    // @public NOTE: All positions are relative to the position of the cuvette.
     this.cuvette = new Cuvette( new Vector2( 3.3, 0.5 ), CUVETTE_WIDTH_RANGE, 3, tandem.createTandem( 'cuvette' ) );
 
     // @public
-    this.light = new Light( new Vector2( this.cuvette.location.x - 1.5, this.cuvette.location.y + ( this.cuvette.height / 2 ) ),
+    this.light = new Light( new Vector2( this.cuvette.position.x - 1.5, this.cuvette.position.y + ( this.cuvette.height / 2 ) ),
       false, 0.45, this.solutionProperty, tandem.createTandem( 'light' ) );
 
     // @public
     this.ruler = new Ruler( 2.1, 0.1, 0.35,
-      new Vector2( this.cuvette.location.x - 2.6, this.cuvette.location.y + 4 ),
+      new Vector2( this.cuvette.position.x - 2.6, this.cuvette.position.y + 4 ),
       new Bounds2( 0, 0, 6, 5 ), {
         tandem: tandem.createTandem( 'ruler' )
       }
@@ -71,9 +71,9 @@ define( require => {
     this.absorbance = new Absorbance( this.light, this.solutionProperty, this.cuvette );
 
     // @public
-    this.detector = new ATDetector( new Vector2( this.cuvette.location.x + 3, this.cuvette.location.y - 0.3 ),
+    this.detector = new ATDetector( new Vector2( this.cuvette.position.x + 3, this.cuvette.position.y - 0.3 ),
       new Bounds2( 0, 0, 7.9, 5.25 ),
-      new Vector2( this.cuvette.location.x + 3, this.light.location.y ),
+      new Vector2( this.cuvette.position.x + 3, this.light.position.y ),
       new Bounds2( 0, 0, 7.9, 5.25 ),
       this.light, this.cuvette, this.absorbance, {
         tandem: tandem.createTandem( 'detector' )

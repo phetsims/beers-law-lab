@@ -19,12 +19,12 @@ define( require => {
   /**
    * @param {Color} color
    * @param {number} size particles are square, this is the length of one side
-   * @param {Vector2} location location of the particle in the beaker's coordinate frame
+   * @param {Vector2} position position of the particle in the beaker's coordinate frame
    * @param {number} orientation in radians
    * @param {Object} [options]
    * @constructor
    */
-  function SoluteParticle( color, size, location, orientation, options ) {
+  function SoluteParticle( color, size, position, orientation, options ) {
 
     options = merge( {
       tandem: Tandem.REQUIRED
@@ -36,7 +36,7 @@ define( require => {
     this.orientation = orientation;
 
     // @public
-    this.locationProperty = new Property( location );
+    this.positionProperty = new Property( position );
 
     PhetioObject.call( this, options );
   }

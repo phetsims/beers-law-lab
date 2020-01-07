@@ -103,7 +103,7 @@ define( require => {
       }
     };
 
-    meter.probe.locationProperty.link( updateValue );
+    meter.probe.positionProperty.link( updateValue );
     solution.soluteProperty.link( updateValue );
     if ( DISPLAY_MOLES_PER_LITER ) {
       solution.concentrationProperty.link( updateValue );
@@ -185,7 +185,7 @@ define( require => {
     vBox.center = bodyNode.center;
 
     if ( BODY_IS_DRAGGABLE ) {
-      const movableDragHandler = new MovableDragHandler( meter.body.locationProperty, {
+      const movableDragHandler = new MovableDragHandler( meter.body.positionProperty, {
         tandem: tandem.createTandem( 'movableDragHandler' ),
         dragBounds: meter.body.dragBounds,
         modelViewTransform: modelViewTransform
@@ -193,9 +193,9 @@ define( require => {
       this.addInputListener( movableDragHandler );
     }
 
-    // body location
-    meter.body.locationProperty.link( function( location ) {
-      self.translation = modelViewTransform.modelToViewPosition( location );
+    // body position
+    meter.body.positionProperty.link( function( position ) {
+      self.translation = modelViewTransform.modelToViewPosition( position );
     } );
 
     // when the value changes, update the readout
@@ -255,16 +255,16 @@ define( require => {
       tandem: tandem
     } );
 
-    // probe location
-    probe.locationProperty.link( function( location ) {
-      self.translation = modelViewTransform.modelToViewPosition( location );
+    // probe position
+    probe.positionProperty.link( function( position ) {
+      self.translation = modelViewTransform.modelToViewPosition( position );
     } );
 
     // touch area
     this.touchArea = this.localBounds.dilatedXY( 0.25 * this.width, 0.25 * this.height );
 
     // drag handler
-    const movableDragHandler = new MovableDragHandler( probe.locationProperty, {
+    const movableDragHandler = new MovableDragHandler( probe.positionProperty, {
       tandem: tandem.createTandem( 'movableDragHandler' ),
       dragBounds: probe.dragBounds,
       modelViewTransform: modelViewTransform
@@ -272,7 +272,7 @@ define( require => {
     this.addInputListener( movableDragHandler );
 
     const isInNode = function( node ) {
-      const localPoint = node.parentToLocalPoint( probe.locationProperty.get() );
+      const localPoint = node.parentToLocalPoint( probe.positionProperty.get() );
       const nodeShape = node.getShape();
       const shapeBounds = nodeShape.bounds;
       return shapeBounds.getWidth() > 0 && shapeBounds.getHeight() > 0 && nodeShape.containsPoint( localPoint ); // see issue #65
@@ -334,8 +334,8 @@ define( require => {
         .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
         .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
     };
-    body.locationProperty.link( updateCurve );
-    probe.locationProperty.link( updateCurve );
+    body.positionProperty.link( updateCurve );
+    probe.positionProperty.link( updateCurve );
   }
 
   inherit( Path, WireNode );

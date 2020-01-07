@@ -1,7 +1,7 @@
 // Copyright 2013-2019, University of Colorado Boulder
 
 /**
- * Ruler model, to take advantage of location reset.
+ * Ruler model, to take advantage of position reset.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -17,14 +17,14 @@ define( require => {
    * @param {number} length cm
    * @param {number} insets cm, the horizontal insets at the ends of the ruler
    * @param {number} height cm
-   * @param {Vector2} location
+   * @param {Vector2} position
    * @param {Bounds2} dragBounds
    * @param {Tandem} tandem
    * @constructor
    */
-  function Ruler( length, insets, height, location, dragBounds, tandem ) {
+  function Ruler( length, insets, height, position, dragBounds, tandem ) {
 
-    Movable.call( this, location, dragBounds, tandem );
+    Movable.call( this, position, dragBounds, tandem );
 
     // @public (read-only)
     this.length = length;

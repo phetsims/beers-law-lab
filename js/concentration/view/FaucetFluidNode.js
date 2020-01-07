@@ -40,7 +40,7 @@ define( require => {
      * Set the width of the shape to match the flow rate.
      * @param {number} flowRate
      */
-    const viewLocation = modelViewTransform.modelToViewPosition( faucet.location );
+    const viewPosition = modelViewTransform.modelToViewPosition( faucet.position );
     const viewHeight = modelViewTransform.modelToViewDeltaY( height );
     faucet.flowRateProperty.link( function( flowRate ) {
       if ( flowRate === 0 ) {
@@ -48,7 +48,7 @@ define( require => {
       }
       else {
         const viewWidth = modelViewTransform.modelToViewDeltaX( faucet.spoutWidth * flowRate / faucet.maxFlowRate );
-        self.setRect( viewLocation.x - (viewWidth / 2), viewLocation.y, viewWidth, viewHeight );
+        self.setRect( viewPosition.x - (viewWidth / 2), viewPosition.y, viewWidth, viewHeight );
       }
     } );
   }

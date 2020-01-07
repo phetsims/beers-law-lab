@@ -108,9 +108,9 @@ define( require => {
       }
     }
 
-    const location = modelViewTransform.modelToViewPosition( beaker.location );
-    this.x = location.x;
-    this.y = location.y;
+    const position = modelViewTransform.modelToViewPosition( beaker.position );
+    this.x = position.x;
+    this.y = position.y;
   }
 
   beersLawLab.register( 'BeakerNode', BeakerNode );

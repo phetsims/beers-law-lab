@@ -25,14 +25,14 @@ define( require => {
   const Tandem = require( 'TANDEM/Tandem' );
 
   /**
-   * @param {Vector2} bodyLocation
+   * @param {Vector2} bodyPosition
    * @param {Bounds2} bodyDragBounds
-   * @param {Vector2} probeLocation
+   * @param {Vector2} probePosition
    * @param {Bounds2} probeDragBounds
    * @param {Object} options
    * @constructor
    */
-  function ConcentrationMeter( bodyLocation, bodyDragBounds, probeLocation, probeDragBounds, options ) {
+  function ConcentrationMeter( bodyPosition, bodyDragBounds, probePosition, probeDragBounds, options ) {
 
     options = merge( {
       tandem: Tandem.REQUIRED
@@ -47,8 +47,8 @@ define( require => {
     } );
 
     // @public (read-only)
-    this.body = new Movable( bodyLocation, bodyDragBounds, { tandem: options.tandem.createTandem( 'body' ) } );
-    this.probe = new Movable( probeLocation, probeDragBounds, { tandem: options.tandem.createTandem( 'probe' ) } );
+    this.body = new Movable( bodyPosition, bodyDragBounds, { tandem: options.tandem.createTandem( 'body' ) } );
+    this.probe = new Movable( probePosition, probeDragBounds, { tandem: options.tandem.createTandem( 'probe' ) } );
   }
 
   beersLawLab.register( 'ConcentrationMeter', ConcentrationMeter );

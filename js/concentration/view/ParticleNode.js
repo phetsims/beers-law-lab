@@ -33,8 +33,8 @@ define( require => {
     this.particle = particle; // @private
     this.rotation = particle.orientation;
 
-    particle.locationProperty.link( function() {
-      self.translation = modelViewTransform.modelToViewPosition( particle.locationProperty.get() );
+    particle.positionProperty.link( function() {
+      self.translation = modelViewTransform.modelToViewPosition( particle.positionProperty.get() );
     } );
   }
 

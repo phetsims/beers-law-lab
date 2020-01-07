@@ -18,19 +18,19 @@ define( require => {
   const VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
   /**
-   * @param {Vector2} location cm
+   * @param {Vector2} position cm
    * @param {boolean} on
    * @param {number} lensDiameter cm
    * @param {Property.<BeersLawSolution>} solutionProperty
    * @param {Tandem} tandem
    * @constructor
    */
-  function Light( location, on, lensDiameter, solutionProperty, tandem ) {
+  function Light( position, on, lensDiameter, solutionProperty, tandem ) {
 
     const self = this;
 
     // @public (read-only)
-    this.location = location;
+    this.position = position;
     this.lensDiameter = lensDiameter;
 
     // @public
@@ -60,12 +60,12 @@ define( require => {
 
     // @public
     getMinY: function() {
-      return this.location.y - ( this.lensDiameter / 2 );
+      return this.position.y - ( this.lensDiameter / 2 );
     },
 
     // @public
     getMaxY: function() {
-      return this.location.y + ( this.lensDiameter / 2 );
+      return this.position.y + ( this.lensDiameter / 2 );
     }
   } );
 } );

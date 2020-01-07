@@ -27,7 +27,7 @@ define( require => {
     static toStateObject( soluteParticle ) {
       validate( soluteParticle, this.validator );
       return {
-        location: Vector2IO.toStateObject( soluteParticle.locationProperty.get() ),
+        position: Vector2IO.toStateObject( soluteParticle.positionProperty.get() ),
         orientation: NumberIO.toStateObject( soluteParticle.orientation )
       };
     }
@@ -35,11 +35,11 @@ define( require => {
     /**
      * Deserializes an instance.  Not called by PhET-iO directly, but rather called from its subtypes.
      * @param {Object} stateObject
-     * @returns {{location: Vector2, orientation: number}}
+     * @returns {{position: Vector2, orientation: number}}
      */
     static fromStateObject( stateObject ) {
       return {
-        location: Vector2IO.fromStateObject( stateObject.location ),
+        position: Vector2IO.fromStateObject( stateObject.position ),
         orientation: NumberIO.fromStateObject( stateObject.orientation )
       };
     }

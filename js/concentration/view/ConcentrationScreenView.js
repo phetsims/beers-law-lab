@@ -52,8 +52,8 @@ define( require => {
 
     // Precipitate particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
     const precipitateNode = new ParticlesNode( model.precipitate, modelViewTransform, new Bounds2(
-      modelViewTransform.modelToViewX( model.beaker.getLeft() ), modelViewTransform.modelToViewY( model.beaker.location.y ) - 100,
-      modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.location.y ) ) );
+      modelViewTransform.modelToViewX( model.beaker.getLeft() ), modelViewTransform.modelToViewY( model.beaker.position.y ) - 100,
+      modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.position.y ) ) );
     const saturatedIndicator = new SaturatedIndicator( model.solution );
 
     // Shaker
@@ -62,7 +62,7 @@ define( require => {
     // Shaker particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
     const shakerParticlesNode = new ParticlesNode( model.shakerParticles, modelViewTransform, new Bounds2(
       modelViewTransform.modelToViewX( model.beaker.getLeft() ), this.layoutBounds.minY,
-      modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.location.y ) ) );
+      modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.position.y ) ) );
 
     // Dropper
     const dropperNode = new BLLDropperNode( model.dropper, model.solution.solvent, model.solution.soluteProperty, modelViewTransform, tandem.createTandem( 'dropperNode' ) );
@@ -71,7 +71,7 @@ define( require => {
     // faucets
     const solventFaucetNode = new BLLFaucetNode( model.solventFaucet, modelViewTransform, tandem.createTandem( 'solventFaucetNode' ) );
     const drainFaucetNode = new BLLFaucetNode( model.drainFaucet, modelViewTransform, tandem.createTandem( 'drainFaucetNode' ) );
-    const SOLVENT_FLUID_HEIGHT = model.beaker.location.y - model.solventFaucet.location.y;
+    const SOLVENT_FLUID_HEIGHT = model.beaker.position.y - model.solventFaucet.position.y;
     const DRAIN_FLUID_HEIGHT = 1000; // tall enough that resizing the play area is unlikely to show bottom of fluid
     const solventFluidNode = new FaucetFluidNode( model.solventFaucet, model.solution.solvent, SOLVENT_FLUID_HEIGHT, modelViewTransform );
     const drainFluidNode = new FaucetFluidNode( model.drainFaucet, model.solution, DRAIN_FLUID_HEIGHT, modelViewTransform );
@@ -128,7 +128,7 @@ define( require => {
     this.addChild( soluteListParent ); // last, so that combo box list is on top
 
     ////////
-    // Layout for things that don't have a location in the model.
+    // Layout for things that don't have a position in the model.
 
     // centered towards bottom of beaker
     const saturatedIndicatorVisible = saturatedIndicator.visible; // so we can layout an invisible node
@@ -142,7 +142,8 @@ define( require => {
     soluteControls.top = this.layoutBounds.top + 20;
 
     // left-aligned below beaker
-    evaporationControl.left = modelViewTransform.modelToViewPosition( model.beaker.location ).x - modelViewTransform.modelToViewDeltaX( model.beaker.size.width / 2 );
+    evaporationControl.left = modelViewTransform.modelToViewPosition( model.beaker.position ).x -
+                              modelViewTransform.modelToViewDeltaX( model.beaker.size.width / 2 );
     evaporationControl.top = beakerNode.bottom + 30;
 
     if ( soluteGramsNode.visible ) {

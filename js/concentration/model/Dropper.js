@@ -16,18 +16,18 @@ define( require => {
   const NumberProperty = require( 'AXON/NumberProperty' );
 
   /**
-   * @param {Vector2} location
+   * @param {Vector2} position
    * @param {Bounds2} dragBounds
    * @param {Property.<Solute>} soluteProperty
    * @param {number} maxFlowRate
    * @param {boolean} visible
-   * @param {Object} [tandem]
+   * @param {Object} [options]
    * @constructor
    */
-  function Dropper( location, dragBounds, soluteProperty, maxFlowRate, visible, options ) {
+  function Dropper( position, dragBounds, soluteProperty, maxFlowRate, visible, options ) {
 
     const self = this;
-    Movable.call( this, location, dragBounds, options );
+    Movable.call( this, position, dragBounds, options );
 
     // @public
     this.soluteProperty = soluteProperty;

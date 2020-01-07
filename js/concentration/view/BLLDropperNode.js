@@ -54,9 +54,9 @@ define( require => {
     } );
     this.addChild( label );
 
-    // location
-    dropper.locationProperty.link( function( location ) {
-      self.translation = modelViewTransform.modelToViewPosition( location );
+    // position
+    dropper.positionProperty.link( function( position ) {
+      self.translation = modelViewTransform.modelToViewPosition( position );
     } );
 
     // visibility
@@ -91,7 +91,7 @@ define( require => {
     this.touchArea = this.localBounds.dilatedX( 0.25 * this.width );
 
     // move the dropper
-    const movableDragHandler = new MovableDragHandler( dropper.locationProperty, {
+    const movableDragHandler = new MovableDragHandler( dropper.positionProperty, {
       tandem: tandem.createTandem( 'movableDragHandler' ),
       dragBounds: dropper.dragBounds,
       modelViewTransform: modelViewTransform
