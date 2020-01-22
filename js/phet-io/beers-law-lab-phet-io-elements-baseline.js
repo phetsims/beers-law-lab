@@ -27,6 +27,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.model.cuvette.widthProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.model.detector.body.positionProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
@@ -105,6 +118,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.model.light.wavelengthProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.model.ruler.positionProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
@@ -157,6 +183,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.solutions.cobaltChloride.concentrationProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.solutions.cobaltIINitrate": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
@@ -182,6 +221,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.solutions.cobaltIINitrate.concentrationProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.solutions.copperSulfate": {
       "phetioDocumentation": "",
@@ -209,6 +261,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.solutions.copperSulfate.concentrationProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.solutions.drinkMix": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
@@ -234,6 +299,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.solutions.drinkMix.concentrationProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.solutions.nickelIIChloride": {
       "phetioDocumentation": "",
@@ -261,6 +339,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.solutions.nickelIIChloride.concentrationProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.solutions.potassiumChromate": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
@@ -286,6 +377,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.solutions.potassiumChromate.concentrationProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.solutions.potassiumDichromate": {
       "phetioDocumentation": "",
@@ -313,6 +417,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.solutions.potassiumDichromate.concentrationProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.solutions.potassiumPermanganate": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
@@ -338,6 +455,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.solutions.potassiumPermanganate.concentrationProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view": {
       "phetioDocumentation": "",
@@ -390,6 +520,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.cuvetteNode.arrowNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.cuvetteNode.arrowNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -494,6 +637,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.cuvetteNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.cuvetteNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -612,6 +768,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -650,6 +819,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -742,6 +924,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.transmittanceRadioButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.transmittanceRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -793,6 +988,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.valueNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.valueNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -937,6 +1145,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.detectorNode.probeNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.detectorNode.probeNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -1014,6 +1235,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.lightNode.button.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.lightNode.button.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -1093,6 +1327,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.lightNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.lightNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -1131,6 +1378,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -1209,6 +1469,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.resetAllButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.resetAllButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -1353,6 +1626,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.rulerNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.rulerNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -1392,6 +1678,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -1430,6 +1729,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.rulerNode.ruler.unitsLabel.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.rulerNode.ruler.unitsLabel.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -1574,6 +1886,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.leftArrowButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.leftArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -1652,6 +1977,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.numberDisplay.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.numberDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -1690,6 +2028,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.numberDisplay.valueText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.numberDisplay.valueText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -1756,6 +2107,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -1820,6 +2184,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.rightArrowButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.rightArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -1925,6 +2302,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -1963,6 +2353,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.thumb.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -2172,6 +2575,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.titleNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltChlorideConcentrationControl.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -2289,6 +2705,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.leftArrowButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.leftArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -2367,6 +2796,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.numberDisplay.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.numberDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -2405,6 +2847,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.numberDisplay.valueText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.numberDisplay.valueText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -2471,6 +2926,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -2535,6 +3003,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.rightArrowButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.rightArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -2640,6 +3121,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -2678,6 +3172,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.thumb.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -2887,6 +3394,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.titleNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.cobaltIINitrateConcentrationControl.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3004,6 +3524,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.comboBox.button.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.button.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3082,6 +3615,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.comboBox.cobaltChlorideText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.cobaltChlorideText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3147,6 +3693,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.comboBox.cobaltIINitrateText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.cobaltIINitrateText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3211,6 +3770,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.comboBox.copperSulfateText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.copperSulfateText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -3289,6 +3861,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.comboBox.drinkMixText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.drinkMixText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -3381,6 +3966,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.cobaltChloride.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.cobaltChloride.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3432,6 +4030,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.cobaltIINitrate.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.cobaltIINitrate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -3485,6 +4096,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.copperSulfate.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.copperSulfate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3536,6 +4160,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.drinkMix.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.drinkMix.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -3602,6 +4239,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.nickelIIChloride.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.nickelIIChloride.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3641,6 +4291,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3679,6 +4342,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.potassiumChromate.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.potassiumChromate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -3732,6 +4408,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.potassiumDichromate.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.potassiumDichromate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3783,6 +4472,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.potassiumPermanganate.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.listBox.potassiumPermanganate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -3849,6 +4551,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.comboBox.nickelIIChlorideText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.nickelIIChlorideText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3901,6 +4616,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.comboBox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -3939,6 +4667,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumChromateText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumChromateText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -4005,6 +4746,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumDichromateText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumDichromateText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -4069,6 +4823,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumPermanganateText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.comboBox.potassiumPermanganateText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -4200,6 +4967,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.leftArrowButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.leftArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -4278,6 +5058,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.numberDisplay.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.numberDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -4316,6 +5109,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.numberDisplay.valueText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.numberDisplay.valueText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -4382,6 +5188,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -4446,6 +5265,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.rightArrowButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.rightArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -4551,6 +5383,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -4589,6 +5434,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.thumb.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -4798,6 +5656,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.titleNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.copperSulfateConcentrationControl.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -4915,6 +5786,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.leftArrowButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.leftArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -4993,6 +5877,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.numberDisplay.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.numberDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5031,6 +5928,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.numberDisplay.valueText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.numberDisplay.valueText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -5097,6 +6007,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5161,6 +6084,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.rightArrowButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.rightArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -5266,6 +6202,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5304,6 +6253,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.thumb.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -5513,6 +6475,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.titleNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.drinkMixConcentrationControl.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5630,6 +6605,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.leftArrowButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.leftArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5708,6 +6696,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.numberDisplay.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.numberDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5746,6 +6747,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.numberDisplay.valueText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.numberDisplay.valueText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -5812,6 +6826,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -5876,6 +6903,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.rightArrowButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.rightArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -5981,6 +7021,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -6019,6 +7072,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.thumb.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -6228,6 +7294,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.titleNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.nickelIIChlorideConcentrationControl.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -6292,6 +7371,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -6371,6 +7463,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.leftArrowButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.leftArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -6449,6 +7554,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.numberDisplay.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.numberDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -6487,6 +7605,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.numberDisplay.valueText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.numberDisplay.valueText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -6553,6 +7684,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -6617,6 +7761,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.rightArrowButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.rightArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -6722,6 +7879,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -6760,6 +7930,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.thumb.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -6969,6 +8152,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.titleNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumChromateConcentrationControl.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -7086,6 +8282,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.leftArrowButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.leftArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -7164,6 +8373,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.numberDisplay.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.numberDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -7202,6 +8424,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.numberDisplay.valueText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.numberDisplay.valueText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -7268,6 +8503,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -7332,6 +8580,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.rightArrowButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.rightArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -7437,6 +8698,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -7475,6 +8749,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.thumb.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -7684,6 +8971,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.titleNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumDichromateConcentrationControl.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -7801,6 +9101,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.leftArrowButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.leftArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -7879,6 +9192,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.numberDisplay.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.numberDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -7917,6 +9243,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.numberDisplay.valueText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.numberDisplay.valueText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -7983,6 +9322,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -8047,6 +9399,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.rightArrowButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.rightArrowButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -8152,6 +9517,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -8190,6 +9568,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.thumb.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -8399,6 +9790,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.titleNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.solutionControls.potassiumPermanganateConcentrationControl.titleNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -8516,6 +9920,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.wavelengthControls.label.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.wavelengthControls.label.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -8567,6 +9984,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.wavelengthControls.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -8659,6 +10089,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.wavelengthControls.presetWavelengthRadioButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.wavelengthControls.presetWavelengthRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -8710,6 +10153,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.wavelengthControls.valueDisplay.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.valueDisplay.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -8841,6 +10297,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.wavelengthControls.variableWavelengthRadioButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.wavelengthControls.variableWavelengthRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -8945,6 +10414,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.minusButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.minusButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -9010,6 +10492,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -9074,6 +10569,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.plusButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.beersLawScreen.view.wavelengthControls.wavelengthSlider.plusButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -9348,6 +10856,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.model.drainFaucet.flowRateProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.model.dropper.dispensingProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
@@ -9387,6 +10908,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.model.dropper.flowRateProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.model.dropper.positionProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
@@ -9425,6 +10959,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.model.evaporator.evaporationRateProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.model.precipitate": {
       "phetioDocumentation": "",
@@ -9556,6 +11103,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.model.solution.soluteAmountProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.model.solution.soluteGramsProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
@@ -9582,6 +11142,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.model.solution.volumeProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.model.solventFaucet.flowRateProperty": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
@@ -9594,6 +11167,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.model.solventFaucet.flowRateProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.solutes.cobaltChloride": {
       "phetioDocumentation": "",
@@ -9751,6 +11337,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.view.beakerNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.view.beakerNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -9789,6 +11388,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.view.beakerNode.tickLabel0.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.view.beakerNode.tickLabel0.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -9854,6 +11466,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.view.beakerNode.tickLabel1.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.view.beakerNode.tickLabel1.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -10011,6 +11636,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.view.concentrationMeterNode.bodyNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.bodyNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -10049,6 +11687,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.view.concentrationMeterNode.bodyNode.readoutTextNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.bodyNode.readoutTextNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -10114,6 +11765,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.view.concentrationMeterNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -10218,6 +11882,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.view.concentrationMeterNode.probeNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.probeNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -10349,6 +12026,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.view.drainFaucetNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.view.drainFaucetNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -10427,6 +12117,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.view.dropperNode.button.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.view.dropperNode.button.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -10504,6 +12207,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.view.dropperNode.label.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.view.dropperNode.label.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -10622,6 +12338,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.view.dropperNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.view.dropperNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -10673,6 +12402,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.view.evaporationControl.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -10726,6 +12468,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.view.evaporationControl.slider.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -10764,6 +12519,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.view.evaporationControl.slider.thumb.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.view.evaporationControl.slider.thumb.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -10973,6 +12741,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.view.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.view.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -11038,6 +12819,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.view.removeSoluteButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.view.removeSoluteButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -11102,6 +12896,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.view.removeSoluteButton.textNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.view.removeSoluteButton.textNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -11220,6 +13027,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.view.resetAllButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.view.resetAllButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -11310,6 +13130,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.view.shakerNode.downArrowNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.view.shakerNode.downArrowNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -11428,6 +13261,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.view.shakerNode.labelNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.view.shakerNode.labelNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -11480,6 +13326,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.view.shakerNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.view.shakerNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -11518,6 +13377,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.view.shakerNode.upArrowNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.view.shakerNode.upArrowNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -11583,6 +13455,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.view.soluteControls.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.view.soluteControls.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -11661,6 +13546,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.button.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.button.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -11779,6 +13677,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.cobaltChloride.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.cobaltChloride.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -11830,6 +13741,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.cobaltIINitrate.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.cobaltIINitrate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -11883,6 +13807,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.copperSulfate.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.copperSulfate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -11934,6 +13871,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.drinkMix.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.drinkMix.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -12000,6 +13950,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.nickelIIChloride.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.nickelIIChloride.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -12039,6 +14002,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -12077,6 +14053,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.potassiumChromate.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.potassiumChromate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -12130,6 +14119,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.potassiumDichromate.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.potassiumDichromate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -12181,6 +14183,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.potassiumPermanganate.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.potassiumPermanganate.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -12234,6 +14249,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.sodiumChloride.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.listBox.sodiumChloride.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -12285,6 +14313,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteComboBox.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -12403,6 +14444,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solidRadioButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solidRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -12506,6 +14560,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solutionRadioButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteFormNode.solutionRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -12637,6 +14704,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.concentrationScreen.view.solventFaucetNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.concentrationScreen.view.solventFaucetNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -12753,6 +14833,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": false,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.general.barrierRectangle.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.general.barrierRectangle.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -13066,6 +15159,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.general.navigationBar.beersLawScreenButton.icon.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.general.navigationBar.beersLawScreenButton.icon.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -13104,6 +15210,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.general.navigationBar.beersLawScreenButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.general.navigationBar.beersLawScreenButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -13169,6 +15288,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.general.navigationBar.beersLawScreenButton.text.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.general.navigationBar.beersLawScreenButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -13287,6 +15419,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.general.navigationBar.concentrationScreenButton.icon.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.general.navigationBar.concentrationScreenButton.icon.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -13325,6 +15470,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.general.navigationBar.concentrationScreenButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.general.navigationBar.concentrationScreenButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -13390,6 +15548,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.general.navigationBar.concentrationScreenButton.text.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.general.navigationBar.concentrationScreenButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -13494,6 +15665,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.general.navigationBar.homeButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.general.navigationBar.homeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -13677,6 +15861,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.closeButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": true,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.closeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -13755,6 +15952,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": true,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -13793,6 +16003,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.termsPrivacyAndLicensingText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": true,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.termsPrivacyAndLicensingText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -13859,6 +16082,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.thirdPartyCreditsLinkText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": true,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.thirdPartyCreditsLinkText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -13923,6 +16159,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.translationCreditsLinkText.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": true,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.aboutDialogCapsule.archetype.translationCreditsLinkText.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -14041,6 +16290,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.general.navigationBar.phetButton.phetMenu.aboutMenuItem.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.aboutMenuItem.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -14131,6 +16393,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.general.navigationBar.phetButton.phetMenu.screenshotMenuItem.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -14223,6 +16498,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.general.navigationBar.titleTextNode.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.general.navigationBar.titleTextNode.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -14300,6 +16588,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.general.screenIndexProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.general.showHomeScreenProperty": {
       "phetioDocumentation": "Whether or not home screen is displayed. This is independent of the \"current sim screen\" stored in the \"screenIndexProperty.\"",
@@ -14431,6 +16732,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.homeScreen.view.beersLawScreenLargeButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.homeScreen.view.beersLawScreenLargeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -14469,6 +16783,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.homeScreen.view.beersLawScreenLargeButton.text.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.homeScreen.view.beersLawScreenLargeButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -14587,6 +16914,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.homeScreen.view.beersLawScreenSmallButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.homeScreen.view.beersLawScreenSmallButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -14625,6 +16965,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.homeScreen.view.beersLawScreenSmallButton.text.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.homeScreen.view.beersLawScreenSmallButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -14743,6 +17096,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.homeScreen.view.concentrationScreenLargeButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.homeScreen.view.concentrationScreenLargeButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -14781,6 +17147,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.homeScreen.view.concentrationScreenLargeButton.text.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.homeScreen.view.concentrationScreenLargeButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -14899,6 +17278,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.homeScreen.view.concentrationScreenSmallButton.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.homeScreen.view.concentrationScreenSmallButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -14937,6 +17329,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.homeScreen.view.concentrationScreenSmallButton.text.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.homeScreen.view.concentrationScreenSmallButton.text.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
@@ -15003,6 +17408,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
+    "beersLawLab.homeScreen.view.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
+    },
     "beersLawLab.homeScreen.view.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
@@ -15041,6 +17459,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioState": true,
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.homeScreen.view.title.opacityProperty.rangeProperty": {
+      "phetioDocumentation": "provides the range of possible values for the parent NumberProperty",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<RangeIO>>"
     },
     "beersLawLab.homeScreen.view.title.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
