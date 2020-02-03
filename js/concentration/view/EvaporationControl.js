@@ -30,7 +30,7 @@ define( require => {
   /**
    * @param {Evaporator} evaporator
    * @param {Tandem} tandem
-   * @param {Object} options
+   * @param {Object} [options]
    * @constructor
    */
   function EvaporationControl( evaporator, tandem, options ) {

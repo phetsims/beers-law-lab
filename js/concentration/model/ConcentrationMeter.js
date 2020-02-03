@@ -29,7 +29,7 @@ define( require => {
    * @param {Bounds2} bodyDragBounds
    * @param {Vector2} probePosition
    * @param {Bounds2} probeDragBounds
-   * @param {Object} options
+   * @param {Object} [options]
    * @constructor
    */
   function ConcentrationMeter( bodyPosition, bodyDragBounds, probePosition, probeDragBounds, options ) {
