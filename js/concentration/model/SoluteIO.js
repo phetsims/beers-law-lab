@@ -16,9 +16,6 @@ define( require => {
   const VoidIO = require( 'TANDEM/types/VoidIO' );
   const validate = require( 'AXON/validate' );
 
-  // ifphetio
-  const phetioEngine = require( 'ifphetio!PHET_IO/phetioEngine' );
-
   class SoluteIO extends ObjectIO {
 
     /**
@@ -37,7 +34,7 @@ define( require => {
      * @returns {Solute}
      */
     static fromStateObject( stateObject ) {
-      return phetioEngine.getPhetioObject( stateObject );
+      return phet.phetIo.phetioEngine.getPhetioObject( stateObject );
     }
   }
 

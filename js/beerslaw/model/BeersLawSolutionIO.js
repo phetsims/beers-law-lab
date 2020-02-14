@@ -14,10 +14,6 @@ define( require => {
   const ObjectIO = require( 'TANDEM/types/ObjectIO' );
   const validate = require( 'AXON/validate' );
 
-  // ifphetio
-  const phetioEngine = require( 'ifphetio!PHET_IO/phetioEngine' );
-
-
   class BeersLawSolutionIO extends ObjectIO {
 
     /**
@@ -40,7 +36,7 @@ define( require => {
      * @override
      */
     static fromStateObject( stateObject ) {
-      return phetioEngine.getPhetioObject( stateObject );
+      return phet.phetIo.phetioEngine.getPhetioObject( stateObject );
     }
   }
 
