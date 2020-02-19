@@ -1,4 +1,4 @@
-// Copyright 2017-2019, University of Colorado Boulder
+// Copyright 2017-2020, University of Colorado Boulder
 
 /**
  * IO type for BeersLawSolution.
@@ -13,10 +13,6 @@ define( require => {
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const ObjectIO = require( 'TANDEM/types/ObjectIO' );
   const validate = require( 'AXON/validate' );
-
-  // ifphetio
-  const phetioEngine = require( 'ifphetio!PHET_IO/phetioEngine' );
-
 
   class BeersLawSolutionIO extends ObjectIO {
 
@@ -40,7 +36,7 @@ define( require => {
      * @override
      */
     static fromStateObject( stateObject ) {
-      return phetioEngine.getPhetioObject( stateObject );
+      return phet.phetIo.phetioEngine.getPhetioObject( stateObject );
     }
   }
 

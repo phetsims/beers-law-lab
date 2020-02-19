@@ -1,4 +1,4 @@
-// Copyright 2017-2019, University of Colorado Boulder
+// Copyright 2017-2020, University of Colorado Boulder
 
 /**
  * IO type for Solute.
@@ -15,9 +15,6 @@ define( require => {
   const StringIO = require( 'TANDEM/types/StringIO' );
   const VoidIO = require( 'TANDEM/types/VoidIO' );
   const validate = require( 'AXON/validate' );
-
-  // ifphetio
-  const phetioEngine = require( 'ifphetio!PHET_IO/phetioEngine' );
 
   class SoluteIO extends ObjectIO {
 
@@ -37,7 +34,7 @@ define( require => {
      * @returns {Solute}
      */
     static fromStateObject( stateObject ) {
-      return phetioEngine.getPhetioObject( stateObject );
+      return phet.phetIo.phetioEngine.getPhetioObject( stateObject );
     }
   }
 
