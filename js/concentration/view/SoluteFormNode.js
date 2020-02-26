@@ -12,8 +12,8 @@ define( require => {
   const AquaRadioButton = require( 'SUN/AquaRadioButton' );
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
+  const HBox = require( 'SCENERY/nodes/HBox' );
   const Image = require( 'SCENERY/nodes/Image' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const Line = require( 'SCENERY/nodes/Line' );
   const Node = require( 'SCENERY/nodes/Node' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -27,75 +27,75 @@ define( require => {
   const dropperIconImage = require( 'image!BEERS_LAW_LAB/dropper-icon.png' );
   const shakerIconImage = require( 'image!BEERS_LAW_LAB/shaker-icon.png' );
 
-  /**
-   * @param {Property.<string>} soluteFormProperty form of the solute, 'solid' or 'solution'
-   * @param {Shaker} shaker
-   * @param {Dropper} dropper
-   * @param {Tandem} tandem
-   * @constructor
-   */
-  function SoluteFormNode( soluteFormProperty, shaker, dropper, tandem ) {
+  // constants
+  const TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
+  const SEPARATOR_SPACING = 30;
 
-    const TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
-    const SEPARATOR_SPACING = 30;
+  class SoluteFormNode extends Node {
 
-    const shakerButton = new AquaRadioButton( soluteFormProperty, 'solid',
-      new TextAndIconNode( solidString, shakerIconImage, TEXT_OPTIONS ), {
-        radius: BLLConstants.RADIO_BUTTON_RADIUS,
-        tandem: tandem.createTandem( 'solidRadioButton' )
+    /**
+     * @param {Property.<string>} soluteFormProperty form of the solute, 'solid' or 'solution'
+     * @param {Shaker} shaker
+     * @param {Dropper} dropper
+     * @param {Tandem} tandem
+     */
+    constructor( soluteFormProperty, shaker, dropper, tandem ) {
+
+      const shakerButton = new AquaRadioButton( soluteFormProperty, 'solid',
+        createRadioButtonLabel( solidString, shakerIconImage, TEXT_OPTIONS ), {
+          radius: BLLConstants.RADIO_BUTTON_RADIUS,
+          tandem: tandem.createTandem( 'solidRadioButton' )
+        } );
+      shakerButton.touchArea = shakerButton.localBounds.dilatedXY( 10, 2 );
+
+      // vertical separator
+      const separator = new Line( 0, 0, 0, shakerButton.height, {
+        stroke: 'rgb(150,150,150)',
+        lineWidth: 0.5,
+        left: shakerButton.right + SEPARATOR_SPACING,
+        centerY: shakerButton.centerY
       } );
-    shakerButton.touchArea = shakerButton.localBounds.dilatedXY( 10, 2 );
 
-    // vertical separator
-    const separator = new Line( 0, 0, 0, shakerButton.height, {
-      stroke: 'rgb(150,150,150)',
-      lineWidth: 0.5,
-      left: shakerButton.right + SEPARATOR_SPACING,
-      centerY: shakerButton.centerY
-    } );
+      const dropperButton = new AquaRadioButton( soluteFormProperty, 'solution',
+        createRadioButtonLabel( solutionString, dropperIconImage, TEXT_OPTIONS ), {
+          radius: BLLConstants.RADIO_BUTTON_RADIUS,
+          left: separator.right + SEPARATOR_SPACING,
+          tandem: tandem.createTandem( 'solutionRadioButton' )
+        } );
+      dropperButton.touchArea = dropperButton.localBounds.dilatedXY( 10, 2 );
 
-    const dropperButton = new AquaRadioButton( soluteFormProperty, 'solution',
-      new TextAndIconNode( solutionString, dropperIconImage, TEXT_OPTIONS ), {
-        radius: BLLConstants.RADIO_BUTTON_RADIUS,
-        left: separator.right + SEPARATOR_SPACING,
-        tandem: tandem.createTandem( 'solutionRadioButton' )
+      super( {
+        children: [ shakerButton, separator, dropperButton ],
+        tandem: tandem
       } );
-    dropperButton.touchArea = dropperButton.localBounds.dilatedXY( 10, 2 );
 
-    Node.call( this, { children: [ shakerButton, separator, dropperButton ] } );
+      soluteFormProperty.link( function( soluteForm ) {
+        shaker.visibleProperty.set( soluteForm === 'solid' );
+        dropper.visibleProperty.set( soluteForm === 'solution' );
+      } );
 
-    soluteFormProperty.link( function( soluteForm ) {
-      shaker.visibleProperty.set( soluteForm === 'solid' );
-      dropper.visibleProperty.set( soluteForm === 'solution' );
-    } );
+      shaker.visibleProperty.link( function( visible ) {
+        soluteFormProperty.set( visible ? 'solid' : 'solution' );
+      } );
 
-    shaker.visibleProperty.link( function( visible ) {
-      soluteFormProperty.set( visible ? 'solid' : 'solution' );
-    } );
-
-    dropper.visibleProperty.link( function( visible ) {
-      soluteFormProperty.set( visible ? 'solution' : 'solid' );
-    } );
+      dropper.visibleProperty.link( function( visible ) {
+        soluteFormProperty.set( visible ? 'solution' : 'solid' );
+      } );
+    }
   }
 
-  beersLawLab.register( 'SoluteFormNode', SoluteFormNode );
-
   /**
+   * Creates the label for a radio button.
    * @param {string} text
-   * @param {*} image any type supported by scenery.Image
-   * @param {Object} textOptions
-   * @constructor
+   * @param {Image} image
+   * @param {Object} [textOptions]
    */
-  function TextAndIconNode( text, image, textOptions ) {
-    const textNode = new Text( text, textOptions );
-    const imageNode = new Image( image, {
-      left: textNode.right + 10,
-      centerY: textNode.centerY
+  function createRadioButtonLabel( text, image, textOptions ) {
+    return new HBox( {
+      spacing: 10,
+      children: [ new Text( text, textOptions ), new Image( image ) ]
     } );
-    return new Node( { children: [ textNode, imageNode ] } );
   }
 
-  inherit( Node, TextAndIconNode );
-
-  return inherit( Node, SoluteFormNode );
+  return beersLawLab.register( 'SoluteFormNode', SoluteFormNode );
 } );
