@@ -1,7 +1,7 @@
 // Copyright 2013-2019, University of Colorado Boulder
 
 /**
- * Radio button group that selects the solution form, either 'solid' (shaker) or 'solution' (dropper).
+ * Radio button group that selects the solute form, either 'solid' (shaker) or 'solution' (dropper).
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
