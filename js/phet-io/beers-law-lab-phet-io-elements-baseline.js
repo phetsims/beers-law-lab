@@ -547,110 +547,6 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton": {
-      "phetioDocumentation": "",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": false,
-      "phetioStudioControl": true,
-      "phetioTypeName": "NodeIO"
-    },
-    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.enabledProperty": {
-      "phetioDocumentation": "Determines whether the AquaRadioButton is enabled (pressable) or disabled (grayed-out)",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<BooleanIO>"
-    },
-    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.fireListener.firedEmitter": {
-      "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
-      "phetioDynamicElement": false,
-      "phetioEventType": "USER",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": false,
-      "phetioStudioControl": true,
-      "phetioTypeName": "EmitterIO<NullableIO<SceneryEventIO>>"
-    },
-    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.fireListener.pressAction": {
-      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
-      "phetioDynamicElement": false,
-      "phetioEventType": "USER",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": false,
-      "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO<SceneryEventIO>"
-    },
-    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.fireListener.releaseAction": {
-      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
-      "phetioDynamicElement": false,
-      "phetioEventType": "USER",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": false,
-      "phetioStudioControl": true,
-      "phetioTypeName": "ActionIO<NullableIO<SceneryEventIO>>"
-    },
-    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.opacityProperty": {
-      "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "NumberPropertyIO"
-    },
-    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.pickableProperty": {
-      "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
-    },
-    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.absorbanceRadioButton.visibleProperty": {
-      "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
-      "phetioDynamicElement": false,
-      "phetioEventType": "MODEL",
-      "phetioFeatured": false,
-      "phetioHighFrequency": false,
-      "phetioIsArchetype": false,
-      "phetioPlayback": false,
-      "phetioReadOnly": false,
-      "phetioState": true,
-      "phetioStudioControl": true,
-      "phetioTypeName": "PropertyIO<BooleanIO>"
-    },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
@@ -677,7 +573,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
-    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.transmittanceRadioButton": {
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -690,7 +586,20 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NodeIO"
     },
-    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.transmittanceRadioButton.enabledProperty": {
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.absorbanceRadioButton": {
+      "phetioDocumentation": "",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": false,
+      "phetioStudioControl": true,
+      "phetioTypeName": "NodeIO"
+    },
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.absorbanceRadioButton.enabledProperty": {
       "phetioDocumentation": "Determines whether the AquaRadioButton is enabled (pressable) or disabled (grayed-out)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -703,7 +612,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<BooleanIO>"
     },
-    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.transmittanceRadioButton.fireListener.firedEmitter": {
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.absorbanceRadioButton.fireListener.firedEmitter": {
       "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -716,7 +625,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "EmitterIO<NullableIO<SceneryEventIO>>"
     },
-    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.transmittanceRadioButton.fireListener.pressAction": {
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.absorbanceRadioButton.fireListener.pressAction": {
       "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -729,7 +638,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO<SceneryEventIO>"
     },
-    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.transmittanceRadioButton.fireListener.releaseAction": {
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.absorbanceRadioButton.fireListener.releaseAction": {
       "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
       "phetioDynamicElement": false,
       "phetioEventType": "USER",
@@ -742,7 +651,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "ActionIO<NullableIO<SceneryEventIO>>"
     },
-    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.transmittanceRadioButton.opacityProperty": {
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.absorbanceRadioButton.opacityProperty": {
       "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -755,7 +664,7 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "NumberPropertyIO"
     },
-    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.transmittanceRadioButton.pickableProperty": {
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.absorbanceRadioButton.pickableProperty": {
       "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
@@ -768,7 +677,163 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
-    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.transmittanceRadioButton.visibleProperty": {
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.absorbanceRadioButton.visibleProperty": {
+      "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<BooleanIO>"
+    },
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.opacityProperty": {
+      "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.pickableProperty": {
+      "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
+    },
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.property": {
+      "phetioDocumentation": "",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
+    },
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.transmittanceRadioButton": {
+      "phetioDocumentation": "",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": false,
+      "phetioStudioControl": true,
+      "phetioTypeName": "NodeIO"
+    },
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.transmittanceRadioButton.enabledProperty": {
+      "phetioDocumentation": "Determines whether the AquaRadioButton is enabled (pressable) or disabled (grayed-out)",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<BooleanIO>"
+    },
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.transmittanceRadioButton.fireListener.firedEmitter": {
+      "phetioDocumentation": "A function that executes. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
+      "phetioDynamicElement": false,
+      "phetioEventType": "USER",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": false,
+      "phetioStudioControl": true,
+      "phetioTypeName": "EmitterIO<NullableIO<SceneryEventIO>>"
+    },
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.transmittanceRadioButton.fireListener.pressAction": {
+      "phetioDocumentation": "Executes whenever a press occurs. The first argument when executing can be used to convey info about the SceneryEvent. The arguments are:<br/><ol><li>event: SceneryEventIO</li></ol>",
+      "phetioDynamicElement": false,
+      "phetioEventType": "USER",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": false,
+      "phetioStudioControl": true,
+      "phetioTypeName": "ActionIO<SceneryEventIO>"
+    },
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.transmittanceRadioButton.fireListener.releaseAction": {
+      "phetioDocumentation": "Executes whenever a release occurs. The arguments are:<br/><ol><li>event: NullableIO<SceneryEventIO></li></ol>",
+      "phetioDynamicElement": false,
+      "phetioEventType": "USER",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": false,
+      "phetioStudioControl": true,
+      "phetioTypeName": "ActionIO<NullableIO<SceneryEventIO>>"
+    },
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.transmittanceRadioButton.opacityProperty": {
+      "phetioDocumentation": "Opacity of the parent NodeIO, between 0 (invisible) and 1 (fully visible)",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "NumberPropertyIO"
+    },
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.transmittanceRadioButton.pickableProperty": {
+      "phetioDocumentation": "Sets whether the node will be pickable (and hence interactive), see the NodeIO documentation for more details",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
+    },
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.transmittanceRadioButton.visibleProperty": {
+      "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": false,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "PropertyIO<BooleanIO>"
+    },
+    "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.radioButtonGroup.visibleProperty": {
       "phetioDocumentation": "Controls whether the Node will be visible (and interactive), see the NodeIO documentation for more details.",
       "phetioDynamicElement": false,
       "phetioEventType": "MODEL",
