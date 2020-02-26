@@ -46,6 +46,7 @@ define( require => {
   const PROBE_COLOR = 'rgb( 8, 133, 54 )';
   const MIN_VALUE_SIZE = new Dimension2( 150, 36 );
   const MIN_BODY_SIZE = new Dimension2( 185, 140 );
+  const RADIO_BUTTON_TEXT_OPTIONS = { font: new PhetFont( 18 ), fill: 'white' };
 
   /**
    * @param {ATDetector} detector
@@ -85,16 +86,15 @@ define( require => {
     Node.call( this, { tandem: tandem } );
 
     // radio button descriptions
-    const textOptions = { font: new PhetFont( 18 ), fill: 'white' };
     const radioButtonItems = [
       {
         value: ATDetector.Mode.TRANSMITTANCE,
-        node: new Text( transmittanceString, textOptions ),
+        node: new Text( transmittanceString, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'transmittanceRadioButton'
       },
       {
         value: ATDetector.Mode.ABSORBANCE,
-        node: new Text( absorbanceString, textOptions ),
+        node: new Text( absorbanceString, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'absorbanceRadioButton'
       }
     ];

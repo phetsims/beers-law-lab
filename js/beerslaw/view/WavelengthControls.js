@@ -32,7 +32,10 @@ define( require => {
   const unitsNmString = require( 'string!BEERS_LAW_LAB/units.nm' );
   const variableString = require( 'string!BEERS_LAW_LAB/variable' );
   const wavelengthString = require( 'string!BEERS_LAW_LAB/wavelength' );
-
+  
+  // constants
+  const RADIO_BUTTON_TEXT_OPTIONS = { font: new PhetFont( 18 ), fill: 'black' };
+  
   /**
    * @param {Property.<BeersLawSolution>} solutionProperty
    * @param {Light} light
@@ -76,16 +79,15 @@ define( require => {
     } );
 
     // radio button descriptions
-    const textOptions = { font: new PhetFont( 18 ), fill: 'black' };
     const radioButtonItems = [
       {
         value: false,
-        node: new Text( presetString, textOptions ),
+        node: new Text( presetString, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'presetWavelengthRadioButton'
       },
       {
         value: true,
-        node: new Text( variableString, textOptions ),
+        node: new Text( variableString, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'variableWavelengthRadioButton'
       }
     ];
