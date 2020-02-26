@@ -1,7 +1,7 @@
 // Copyright 2013-2019, University of Colorado Boulder
 
 /**
- * Radio buttons that select the solution form, either 'solid' (shaker) or 'solution' (dropper).
+ * Radio button group that selects the solution form, either 'solid' (shaker) or 'solution' (dropper).
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -31,7 +31,7 @@ define( require => {
   const TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
   const SEPARATOR_SPACING = 30;
 
-  class SoluteFormNode extends Node {
+  class SoluteFormRadioButtonGroup extends Node {
 
     /**
      * @param {Property.<string>} soluteFormProperty form of the solute, 'solid' or 'solution'
@@ -97,5 +97,5 @@ define( require => {
     } );
   }
 
-  return beersLawLab.register( 'SoluteFormNode', SoluteFormNode );
+  return beersLawLab.register( 'SoluteFormRadioButtonGroup', SoluteFormRadioButtonGroup );
 } );
