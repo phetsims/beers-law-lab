@@ -12520,6 +12520,19 @@ window.phet.phetio.phetioElementsBaseline = assert &&
       "phetioStudioControl": true,
       "phetioTypeName": "PropertyIO<NullableIO<BooleanIO>>"
     },
+    "beersLawLab.concentrationScreen.view.soluteControls.soluteFormRadioButtonGroup.property": {
+      "phetioDocumentation": "",
+      "phetioDynamicElement": false,
+      "phetioEventType": "MODEL",
+      "phetioFeatured": false,
+      "phetioHighFrequency": false,
+      "phetioIsArchetype": false,
+      "phetioPlayback": false,
+      "phetioReadOnly": true,
+      "phetioState": true,
+      "phetioStudioControl": true,
+      "phetioTypeName": "LinkedElementIO"
+    },
     "beersLawLab.concentrationScreen.view.soluteControls.soluteFormRadioButtonGroup.solidRadioButton": {
       "phetioDocumentation": "",
       "phetioDynamicElement": false,

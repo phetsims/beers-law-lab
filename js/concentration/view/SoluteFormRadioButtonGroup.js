@@ -9,13 +9,11 @@ define( require => {
   'use strict';
 
   // modules
-  const AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  const AquaRadioButtonGroup = require( 'SUN/AquaRadioButtonGroup' );
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   const HBox = require( 'SCENERY/nodes/HBox' );
   const Image = require( 'SCENERY/nodes/Image' );
-  const Line = require( 'SCENERY/nodes/Line' );
-  const Node = require( 'SCENERY/nodes/Node' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Text = require( 'SCENERY/nodes/Text' );
 
@@ -28,10 +26,9 @@ define( require => {
   const shakerIconImage = require( 'image!BEERS_LAW_LAB/shaker-icon.png' );
 
   // constants
-  const TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
-  const SEPARATOR_SPACING = 30;
+  const RADIO_BUTTON_TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
 
-  class SoluteFormRadioButtonGroup extends Node {
+  class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup {
 
     /**
      * @param {Property.<string>} soluteFormProperty form of the solute, 'solid' or 'solution'
@@ -41,31 +38,25 @@ define( require => {
      */
     constructor( soluteFormProperty, shaker, dropper, tandem ) {
 
-      const shakerButton = new AquaRadioButton( soluteFormProperty, 'solid',
-        createRadioButtonLabel( solidString, shakerIconImage, TEXT_OPTIONS ), {
-          radius: BLLConstants.RADIO_BUTTON_RADIUS,
-          tandem: tandem.createTandem( 'solidRadioButton' )
-        } );
-      shakerButton.touchArea = shakerButton.localBounds.dilatedXY( 10, 2 );
+      // radio button descriptions
+      const items = [
+        {
+          value: 'solid',
+          node: createRadioButtonLabel( solidString, shakerIconImage, RADIO_BUTTON_TEXT_OPTIONS ),
+          tandemName: 'solidRadioButton'
+        },
+        {
+          value: 'solution',
+          node: createRadioButtonLabel( solutionString, dropperIconImage, RADIO_BUTTON_TEXT_OPTIONS ),
+          tandemName: 'solutionRadioButton'
+        }
+      ];
 
-      // vertical separator
-      const separator = new Line( 0, 0, 0, shakerButton.height, {
-        stroke: 'rgb(150,150,150)',
-        lineWidth: 0.5,
-        left: shakerButton.right + SEPARATOR_SPACING,
-        centerY: shakerButton.centerY
-      } );
-
-      const dropperButton = new AquaRadioButton( soluteFormProperty, 'solution',
-        createRadioButtonLabel( solutionString, dropperIconImage, TEXT_OPTIONS ), {
-          radius: BLLConstants.RADIO_BUTTON_RADIUS,
-          left: separator.right + SEPARATOR_SPACING,
-          tandem: tandem.createTandem( 'solutionRadioButton' )
-        } );
-      dropperButton.touchArea = dropperButton.localBounds.dilatedXY( 10, 2 );
-
-      super( {
-        children: [ shakerButton, separator, dropperButton ],
+      super( soluteFormProperty, items, {
+        orientation: 'horizontal',
+        spacing: 60,
+        radioButtonOptions: { radius: BLLConstants.RADIO_BUTTON_RADIUS },
+        touchAreaYDilation: 2,
         tandem: tandem
       } );
 
