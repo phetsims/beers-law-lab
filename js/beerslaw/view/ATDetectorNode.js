@@ -9,7 +9,7 @@ define( require => {
   'use strict';
 
   // modules
-  const AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  const AquaRadioButtonGroup = require( 'SUN/AquaRadioButtonGroup' );
   const ATDetector = require( 'BEERS_LAW_LAB/beerslaw/model/ATDetector' );
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
@@ -46,6 +46,7 @@ define( require => {
   const PROBE_COLOR = 'rgb( 8, 133, 54 )';
   const MIN_VALUE_SIZE = new Dimension2( 150, 36 );
   const MIN_BODY_SIZE = new Dimension2( 185, 140 );
+  const RADIO_BUTTON_TEXT_OPTIONS = { font: new PhetFont( 18 ), fill: 'white' };
 
   /**
    * @param {ATDetector} detector
@@ -84,26 +85,28 @@ define( require => {
 
     Node.call( this, { tandem: tandem } );
 
-    // buttons for changing the detector 'mode'
-    const textOptions = { font: new PhetFont( 18 ), fill: 'white' };
-    const transmittanceRadioButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.TRANSMITTANCE,
-      new Text( transmittanceString, textOptions ), {
-        radius: BLLConstants.RADIO_BUTTON_RADIUS,
-        tandem: tandem.createTandem( 'transmittanceRadioButton' )
-      } );
-    const absorbanceRadioButton = new AquaRadioButton( detector.modeProperty, ATDetector.Mode.ABSORBANCE,
-      new Text( absorbanceString, textOptions ), {
-        radius: BLLConstants.RADIO_BUTTON_RADIUS,
-        tandem: tandem.createTandem( 'absorbanceRadioButton' )
-      } );
+    // radio button descriptions
+    const radioButtonItems = [
+      {
+        value: ATDetector.Mode.TRANSMITTANCE,
+        node: new Text( transmittanceString, RADIO_BUTTON_TEXT_OPTIONS ),
+        tandemName: 'transmittanceRadioButton'
+      },
+      {
+        value: ATDetector.Mode.ABSORBANCE,
+        node: new Text( absorbanceString, RADIO_BUTTON_TEXT_OPTIONS ),
+        tandemName: 'absorbanceRadioButton'
+      }
+    ];
 
-    // group the buttons
-    const buttonGroup = new LayoutBox( {
-      children: [ transmittanceRadioButton, absorbanceRadioButton ],
+    // radio button group
+    const radioButtonGroup = new AquaRadioButtonGroup( detector.modeProperty, radioButtonItems, {
+      radioButtonOptions: { radius: BLLConstants.RADIO_BUTTON_RADIUS },
       orientation: 'vertical',
       align: 'left',
       spacing: 15,
-      maxWidth: 260
+      maxWidth: 260,
+      tandem: tandem.createTandem( 'radioButtonGroup' )
     } );
 
     // value
@@ -115,7 +118,7 @@ define( require => {
     } );
 
     // display area for the value
-    const valueWidth = Math.max( MIN_VALUE_SIZE.width, Math.max( buttonGroup.width, valueNode.width ) + ( 2 * VALUE_X_MARGIN ) );
+    const valueWidth = Math.max( MIN_VALUE_SIZE.width, Math.max( radioButtonGroup.width, valueNode.width ) + ( 2 * VALUE_X_MARGIN ) );
     const valueHeight = Math.max( MIN_VALUE_SIZE.height, valueNode.height + ( 2 * VALUE_Y_MARGIN ) );
     const valueBackgroundNode = new ShadedRectangle( new Bounds2( 0, 0, valueWidth, valueHeight ), {
       baseColor: 'white',
@@ -126,7 +129,7 @@ define( require => {
 
     // vertical arrangement of stuff in the meter
     const vBox = new LayoutBox( {
-      children: [ new Node( { children: [ valueBackgroundNode, valueNode ] } ), buttonGroup ],
+      children: [ new Node( { children: [ valueBackgroundNode, valueNode ] } ), radioButtonGroup ],
       orientation: 'vertical',
       align: 'center',
       spacing: 12

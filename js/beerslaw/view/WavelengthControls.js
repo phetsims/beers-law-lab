@@ -9,11 +9,10 @@ define( require => {
   'use strict';
 
   // modules
-  const AquaRadioButton = require( 'SUN/AquaRadioButton' );
+  const AquaRadioButtonGroup = require( 'SUN/AquaRadioButtonGroup' );
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   const BooleanProperty = require( 'AXON/BooleanProperty' );
-  const HBox = require( 'SCENERY/nodes/HBox' );
   const HStrut = require( 'SCENERY/nodes/HStrut' );
   const inherit = require( 'PHET_CORE/inherit' );
   const Node = require( 'SCENERY/nodes/Node' );
@@ -33,7 +32,10 @@ define( require => {
   const unitsNmString = require( 'string!BEERS_LAW_LAB/units.nm' );
   const variableString = require( 'string!BEERS_LAW_LAB/variable' );
   const wavelengthString = require( 'string!BEERS_LAW_LAB/wavelength' );
-
+  
+  // constants
+  const RADIO_BUTTON_TEXT_OPTIONS = { font: new PhetFont( 18 ), fill: 'black' };
+  
   /**
    * @param {Property.<BeersLawSolution>} solutionProperty
    * @param {Light} light
@@ -76,32 +78,28 @@ define( require => {
       maxWidth: 250 // constrain width for i18n
     } );
 
-    // preset
-    const presetRadioButton = new AquaRadioButton( this.variableWavelengthProperty, false,
-      new Text( presetString, {
-        font: new PhetFont( 18 ),
-        fill: 'black'
-      } ), {
-        radius: BLLConstants.RADIO_BUTTON_RADIUS,
-        tandem: tandem.createTandem( 'presetWavelengthRadioButton' )
-      } );
-    presetRadioButton.touchArea = presetRadioButton.localBounds.dilatedXY( 6, 8 );
+    // radio button descriptions
+    const radioButtonItems = [
+      {
+        value: false,
+        node: new Text( presetString, RADIO_BUTTON_TEXT_OPTIONS ),
+        tandemName: 'presetWavelengthRadioButton'
+      },
+      {
+        value: true,
+        node: new Text( variableString, RADIO_BUTTON_TEXT_OPTIONS ),
+        tandemName: 'variableWavelengthRadioButton'
+      }
+    ];
 
-    // variable
-    const variableRadioButton = new AquaRadioButton( this.variableWavelengthProperty, true,
-      new Text( variableString, {
-        font: new PhetFont( 18 ),
-        fill: 'black'
-      } ), {
-        radius: BLLConstants.RADIO_BUTTON_RADIUS,
-        tandem: tandem.createTandem( 'variableWavelengthRadioButton' )
-      } );
-    variableRadioButton.touchArea = variableRadioButton.localBounds.dilatedXY( 6, 8 );
-
-    const radioButtons = new HBox( {
-      spacing: 18,
+    // radio button group
+    const radioButtonGroup = new AquaRadioButtonGroup( this.variableWavelengthProperty, radioButtonItems, {
+      radioButtonOptions: { radius: BLLConstants.RADIO_BUTTON_RADIUS },
+      orientation: 'horizontal',
+      spacing: 15,
+      touchAreaYDilation: 8,
       maxWidth: 250, // constrain width for i18n
-      children: [ presetRadioButton, variableRadioButton ]
+      tandem: tandem.createTandem( 'radioButtonGroup' )
     } );
 
     const wavelengthSlider = new WavelengthSlider( light.wavelengthProperty, {
@@ -117,7 +115,7 @@ define( require => {
     const content = new VBox( {
       spacing: 15,
       align: 'left',
-      children: [ valueParent, radioButtons, wavelengthSlider ]
+      children: [ valueParent, radioButtonGroup, wavelengthSlider ]
     } );
 
     // add a horizontal strut to prevent width changes

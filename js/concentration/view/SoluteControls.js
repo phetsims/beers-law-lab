@@ -15,7 +15,7 @@ define( require => {
   const Node = require( 'SCENERY/nodes/Node' );
   const Panel = require( 'SUN/Panel' );
   const SoluteComboBox = require( 'BEERS_LAW_LAB/concentration/view/SoluteComboBox' );
-  const SoluteFormNode = require( 'BEERS_LAW_LAB/concentration/view/SoluteFormNode' );
+  const SoluteFormRadioButtonGroup = require( 'BEERS_LAW_LAB/concentration/view/SoluteFormRadioButtonGroup' );
 
   /**
    * @param {Solute[]} solutes
@@ -40,18 +40,20 @@ define( require => {
     }, options );
 
     // solute combo box
-    const soluteComboBox = new SoluteComboBox( solutes, currentSoluteProperty, soluteListParent, tandem.createTandem( 'soluteComboBox' ) );
+    const soluteComboBox = new SoluteComboBox( solutes, currentSoluteProperty, soluteListParent,
+      tandem.createTandem( 'soluteComboBox' ) );
 
     // radio buttons for solid vs solution
-    const soluteFormNode = new SoluteFormNode( soluteFormProperty, shaker, dropper, tandem.createTandem( 'soluteFormNode' ) );
+    const soluteFormRadioButtonGroup = new SoluteFormRadioButtonGroup( soluteFormProperty, shaker, dropper,
+      tandem.createTandem( 'soluteFormRadioButtonGroup' ) );
 
     const contentNode = new Node();
-    contentNode.addChild( soluteFormNode );
+    contentNode.addChild( soluteFormRadioButtonGroup );
     contentNode.addChild( soluteComboBox ); // add last, so that dropdown is on top
 
     // layout
-    soluteFormNode.left = soluteComboBox.left;
-    soluteFormNode.top = soluteComboBox.bottom + 15;
+    soluteFormRadioButtonGroup.left = soluteComboBox.left;
+    soluteFormRadioButtonGroup.top = soluteComboBox.bottom + 15;
 
     Panel.call( this, contentNode, options );
   }
