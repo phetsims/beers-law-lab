@@ -10,35 +10,29 @@ define( require => {
 
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const Path = require( 'SCENERY/nodes/Path' );
 
-  /**
-   * @param {Beam} beam
-   * @constructor
-   */
-  function BeamNode( beam ) {
+  class BeamNode extends Path {
 
-    const self = this;
-    Path.call( this, null, { stroke: 'rgba( 192, 192, 192, 0.8 )', lineWidth: 0.5, pickable: false } );
+    /**
+     * @param {Beam} beam
+     */
+    constructor( beam ) {
 
-    // shape
-    beam.shapeProperty.link( function( shape ) {
-      self.setShape( shape );
-    } );
+      super( null, { stroke: 'rgba( 192, 192, 192, 0.8 )', lineWidth: 0.5, pickable: false } );
 
-    // fill
-    beam.fillProperty.link( function( fill ) {
-      self.fill = fill;
-    } );
+      // shape
+      beam.shapeProperty.link( shape => this.setShape( shape ) );
 
-    // visibility
-    beam.visibleProperty.link( function( visible ) {
-      self.setVisible( visible );
-    } );
+      // fill
+      beam.fillProperty.link( fill => {
+        this.fill = fill;
+      } );
+
+      // visibility
+      beam.visibleProperty.link( visible => this.setVisible( visible ) );
+    }
   }
 
-  beersLawLab.register( 'BeamNode', BeamNode );
-
-  return inherit( Path, BeamNode );
+  return beersLawLab.register( 'BeamNode', BeamNode );
 } );

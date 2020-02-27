@@ -52,8 +52,6 @@ define( require => {
     }
   }
 
-  beersLawLab.register( 'SolutionComboBox', SolutionComboBox );
-
   /**
    * Creates a combo box item.
    * @private
@@ -61,7 +59,7 @@ define( require => {
    * @param {Tandem} tandem
    * @returns {ComboBoxItem}
    */
-  const createItem = function( solution, tandem ) {
+  function createItem( solution, tandem ) {
 
     const colorSquare = new Rectangle( 0, 0, 20, 20, {
       fill: solution.saturatedColor,
@@ -81,7 +79,7 @@ define( require => {
     return new ComboBoxItem( hBox, solution, {
       tandemName: solution.tandemName
     } );
-  };
+  }
 
-  return SolutionComboBox;
+  return beersLawLab.register( 'SolutionComboBox', SolutionComboBox );
 } );

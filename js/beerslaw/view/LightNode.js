@@ -12,28 +12,27 @@ define( require => {
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const Dimension2 = require( 'DOT/Dimension2' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const LaserPointerNode = require( 'SCENERY_PHET/LaserPointerNode' );
 
-  /**
-   * @param {Light} light
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
-   * @constructor
-   */
-  function LightNode( light, modelViewTransform, tandem ) {
+  class LightNode extends LaserPointerNode {
 
-    LaserPointerNode.call( this, light.onProperty, {
-      bodySize: new Dimension2( 126, 78 ),
-      nozzleSize: new Dimension2( 16, 65 ),
-      buttonRadius: 26,
-      buttonTouchAreaDilation: 25,
-      translation: modelViewTransform.modelToViewPosition( light.position ),
-      tandem: tandem
-    } );
+    /**
+     * @param {Light} light
+     * @param {ModelViewTransform2} modelViewTransform
+     * @param {Tandem} tandem
+     */
+    constructor( light, modelViewTransform, tandem ) {
+
+      super( light.onProperty, {
+        bodySize: new Dimension2( 126, 78 ),
+        nozzleSize: new Dimension2( 16, 65 ),
+        buttonRadius: 26,
+        buttonTouchAreaDilation: 25,
+        translation: modelViewTransform.modelToViewPosition( light.position ),
+        tandem: tandem
+      } );
+    }
   }
 
-  beersLawLab.register( 'LightNode', LightNode );
-
-  return inherit( LaserPointerNode, LightNode );
+  return beersLawLab.register( 'LightNode', LightNode );
 } );

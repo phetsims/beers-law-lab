@@ -11,60 +11,59 @@ define( require => {
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const ConcentrationControl = require( 'BEERS_LAW_LAB/beerslaw/view/ConcentrationControl' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const merge = require( 'PHET_CORE/merge' );
   const Panel = require( 'SUN/Panel' );
   const SolutionComboBox = require( 'BEERS_LAW_LAB/beerslaw/view/SolutionComboBox' );
   const ToggleNode = require( 'SUN/ToggleNode' );
   const VBox = require( 'SCENERY/nodes/VBox' );
 
-  /**
-   * @param {BeersLawSolution[]} solutions
-   * @param {Property.<BeersLawSolution>} currentSolutionProperty
-   * @param {Node} solutionListParent
-   * @param {Tandem} tandem
-   * @param {Object} [options]
-   * @constructor
-   */
-  function SolutionControls( solutions, currentSolutionProperty, solutionListParent, tandem, options ) {
+  class SolutionControls extends Panel {
 
-    options = merge( {
-      xMargin: 15,
-      yMargin: 15,
-      fill: '#F0F0F0',
-      stroke: 'gray',
-      lineWidth: 1,
-      tandem: tandem
-    }, options );
+    /**
+     * @param {BeersLawSolution[]} solutions
+     * @param {Property.<BeersLawSolution>} currentSolutionProperty
+     * @param {Node} solutionListParent
+     * @param {Tandem} tandem
+     * @param {Object} [options]
+     */
+    constructor( solutions, currentSolutionProperty, solutionListParent, tandem, options ) {
 
-    // combo box, to select a solution
-    const comboBox = new SolutionComboBox( solutions, currentSolutionProperty, solutionListParent, tandem.createTandem( 'comboBox' ) );
+      options = merge( {
+        xMargin: 15,
+        yMargin: 15,
+        fill: '#F0F0F0',
+        stroke: 'gray',
+        lineWidth: 1,
+        tandem: tandem
+      }, options );
 
-    // {{value:{BeersLawSolution}, node:{ConcentrationControl}} - concentration controls, one for each solution
-    const toggleNodeElements = solutions.map( function( solution ) {
-      return {
-        value: solution,
-        node: new ConcentrationControl( solution, {
-          visible: false,
-          tandem: tandem.createTandem( solution.internalName + 'ConcentrationControl' ),
-          phetioDocumentation: 'the concentration control for ' + solution.internalName
-        } )
-      };
-    } );
+      // combo box, to select a solution
+      const comboBox = new SolutionComboBox( solutions, currentSolutionProperty, solutionListParent, tandem.createTandem( 'comboBox' ) );
 
-    // Makes the control visible for the selected solution
-    const toggleNode = new ToggleNode( currentSolutionProperty, toggleNodeElements );
+      // {{value:{BeersLawSolution}, node:{ConcentrationControl}} - concentration controls, one for each solution
+      const toggleNodeElements = solutions.map( function( solution ) {
+        return {
+          value: solution,
+          node: new ConcentrationControl( solution, {
+            visible: false,
+            tandem: tandem.createTandem( solution.internalName + 'ConcentrationControl' ),
+            phetioDocumentation: 'the concentration control for ' + solution.internalName
+          } )
+        };
+      } );
 
-    const contentNode = new VBox( {
-      spacing: 15,
-      align: 'left',
-      children: [ comboBox, toggleNode ]
-    } );
+      // Makes the control visible for the selected solution
+      const toggleNode = new ToggleNode( currentSolutionProperty, toggleNodeElements );
 
-    Panel.call( this, contentNode, options );
+      const contentNode = new VBox( {
+        spacing: 15,
+        align: 'left',
+        children: [ comboBox, toggleNode ]
+      } );
+
+      super( contentNode, options );
+    }
   }
 
-  beersLawLab.register( 'SolutionControls', SolutionControls );
-
-  return inherit( Panel, SolutionControls );
+  return beersLawLab.register( 'SolutionControls', SolutionControls );
 } );
