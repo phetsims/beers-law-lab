@@ -13,7 +13,6 @@ define( require => {
   const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
   const BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
   const Color = require( 'SCENERY/util/Color' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const merge = require( 'PHET_CORE/merge' );
   const PhetioObject = require( 'TANDEM/PhetioObject' );
   const SoluteColorScheme = require( 'BEERS_LAW_LAB/concentration/model/SoluteColorScheme' );
@@ -32,56 +31,54 @@ define( require => {
   const potassiumPermanganateString = require( 'string!BEERS_LAW_LAB/potassiumPermanganate' );
   const sodiumChlorideString = require( 'string!BEERS_LAW_LAB/sodiumChloride' );
 
-  /**
-   * @param {string} name
-   * @param {string} formula
-   * @param {number} stockSolutionConcentration - mol/L
-   * @param {number} molarMass - g/mol
-   * @param {SoluteColorScheme} colorScheme
-   * @param {Object} [options]
-   * @constructor
-   */
-  function Solute( name, formula, stockSolutionConcentration, molarMass, colorScheme, options ) {
+  class Solute extends PhetioObject {
 
-    options = merge( {
-      particleColor: colorScheme.maxColor,
-      particleSize: 5,
-      particlesPerMole: 200,
-      phetioType: SoluteIO,
-      tandem: Tandem.REQUIRED
-    }, options );
+    /**
+     * @param {string} name
+     * @param {string} formula
+     * @param {number} stockSolutionConcentration - mol/L
+     * @param {number} molarMass - g/mol
+     * @param {SoluteColorScheme} colorScheme
+     * @param {Object} [options]
+     */
+    constructor( name, formula, stockSolutionConcentration, molarMass, colorScheme, options ) {
 
-    // @public (read-only), (read-write, phet-io)
-    this.name = name;
-    this.formula = formula;
+      options = merge( {
+        particleColor: colorScheme.maxColor,
+        particleSize: 5,
+        particlesPerMole: 200,
+        phetioType: SoluteIO,
+        tandem: Tandem.REQUIRED
+      }, options );
 
-    // @public (read-only)
-    this.stockSolutionConcentration = stockSolutionConcentration; // mol/L
-    this.molarMass = molarMass; // g/mol
-    this.colorScheme = colorScheme;
-    this.particleColor = options.particleColor;
-    this.particleSize = options.particleSize;
-    this.particlesPerMole = options.particlesPerMole;
+      super( options );
 
-    // @public (read-only) percent concentration [0,100] of stock solution, see beers-law-lab#149
-    this.stockSolutionPercentConcentration = 100 * ( molarMass * stockSolutionConcentration ) /
-                                             ( Solvent.WATER.density + ( molarMass * stockSolutionConcentration ) );
-    assert && assert( this.stockSolutionPercentConcentration >= 0 && this.stockSolutionPercentConcentration <= 100 );
+      // @public - the name of the solute in tandem id format. Used to other make tandems that pertain to this solute.
+      this.tandemName = options.tandem.name;
 
-    // @public - the name of the solute in tandem id format. Used to other make tandems that pertain to this solute.
-    this.tandemName = options.tandem.name;
-    PhetioObject.call( this, options );
-  }
+      // @public (read-only), (read-write, phet-io)
+      this.name = name;
+      this.formula = formula;
 
-  beersLawLab.register( 'Solute', Solute );
+      // @public (read-only)
+      this.stockSolutionConcentration = stockSolutionConcentration; // mol/L
+      this.molarMass = molarMass; // g/mol
+      this.colorScheme = colorScheme;
+      this.particleColor = options.particleColor;
+      this.particleSize = options.particleSize;
+      this.particlesPerMole = options.particlesPerMole;
 
-  inherit( PhetioObject, Solute, {
+      // @public (read-only) percent concentration [0,100] of stock solution, see beers-law-lab#149
+      this.stockSolutionPercentConcentration = 100 * ( molarMass * stockSolutionConcentration ) /
+                                               ( Solvent.WATER.density + ( molarMass * stockSolutionConcentration ) );
+      assert && assert( this.stockSolutionPercentConcentration >= 0 && this.stockSolutionPercentConcentration <= 100 );
+    }
 
     // @public gets the saturated concentration, in mol/L
-    getSaturatedConcentration: function() {
+    getSaturatedConcentration() {
       return this.colorScheme.maxConcentration;
     }
-  } );
+  }
 
   // Specific solutes ===========================================
 
@@ -180,5 +177,5 @@ define( require => {
     }
   );
 
-  return Solute;
+  return beersLawLab.register( 'Solute', Solute );
 } );

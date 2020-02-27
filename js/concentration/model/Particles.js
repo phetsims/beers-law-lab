@@ -11,32 +11,29 @@ define( require => {
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const Emitter = require( 'AXON/Emitter' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const PhetioObject = require( 'TANDEM/PhetioObject' );
 
-  /**
-   * @param {Object} [options]
-   * @constructor
-   */
-  function Particles( options ) {
-    this.particles = []; // @public the particles in the collection
-    this.changedEmitter = new Emitter(); // @private emit is called when the collection of particles changes
+  class Particles extends PhetioObject {
 
-    PhetioObject.call( this, options );
-  }
+    /**
+     * @param {Object} [options]
+     */
+    constructor( options ) {
 
-  beersLawLab.register( 'Particles', Particles );
+      super( options );
 
-  return inherit( PhetioObject, Particles, {
+      this.particles = []; // @public the particles in the collection
+      this.changedEmitter = new Emitter(); // @private emit is called when the collection of particles changes
+    }
 
     /**
      * Adds a particle.
      * @param {SoluteParticle} particle
      * @protected
      */
-    addParticle: function( particle ) {
+    addParticle( particle ) {
       this.particles.push( particle );
-    },
+    }
 
     /**
      * Registers a listener that will be called when the collection of particles has changed in some way
@@ -44,16 +41,18 @@ define( require => {
      * @param {function} listener
      * @public
      */
-    addChangedListener: function( listener ) {
+    addChangedListener( listener ) {
       this.changedEmitter.addListener( listener );
-    },
+    }
 
     /**
      * Notify listeners that the particles have changed.
      * @protected
      */
-    fireChanged: function() {
+    fireChanged() {
       this.changedEmitter.emit();
     }
-  } );
+  }
+
+  return beersLawLab.register( 'Particles', Particles );
 } );

@@ -12,7 +12,6 @@ define( require => {
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const merge = require( 'PHET_CORE/merge' );
   const Particles = require( 'BEERS_LAW_LAB/concentration/model/Particles' );
   const ShakerParticle = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticle' );
@@ -29,61 +28,45 @@ define( require => {
   const MAX_X_OFFSET = 20;
   const MAX_Y_OFFSET = 5;
 
-  /**
-   * @param {Shaker} shaker
-   * @param {ConcentrationSolution} solution
-   * @param {Beaker} beaker
-   * @param {Object} [options]
-   * @constructor
-   */
-  function ShakerParticles( shaker, solution, beaker, options ) {
+  class ShakerParticles extends Particles {
 
-    options = merge( {
-      tandem: Tandem.REQUIRED,
-      phetioType: ShakerParticlesIO
-    }, options );
+    /**
+     * @param {Shaker} shaker
+     * @param {ConcentrationSolution} solution
+     * @param {Beaker} beaker
+     * @param {Object} [options]
+     * @constructor
+     */
+    constructor( shaker, solution, beaker, options ) {
 
-    Particles.call( this, options );
+      options = merge( {
+        tandem: Tandem.REQUIRED,
+        phetioType: ShakerParticlesIO
+      }, options );
 
-    const self = this;
+      super( options );
 
-    // @private
-    this.shaker = shaker;
-    this.solution = solution;
-    this.beaker = beaker;
+      // @private
+      this.shaker = shaker;
+      this.solution = solution;
+      this.beaker = beaker;
 
-    // when the solute changes, remove all particles
-    solution.soluteProperty.link( function() {
-      self.removeAllParticles();
-    } );
+      // when the solute changes, remove all particles
+      solution.soluteProperty.link( () => {
+        this.removeAllParticles();
+      } );
 
-    // @private
-    this.shakerParticleGroupTandem = options.tandem.createGroupTandem( 'shakerParticle' );
-  }
-
-  beersLawLab.register( 'ShakerParticles', ShakerParticles );
-
-  // Gets a random position relative to some origin
-  const getRandomPosition = function( origin ) {
-    const xOffset = phet.joist.random.nextIntBetween( -MAX_X_OFFSET, MAX_X_OFFSET ); // positive or negative
-    const yOffset = phet.joist.random.nextIntBetween( 0, MAX_Y_OFFSET ); // positive only
-    return new Vector2( origin.x + xOffset, origin.y + yOffset );
-  };
-
-  // Gets a random orientation, in radians.
-  const getRandomOrientation = function() {
-    return phet.joist.random.nextDouble() * 2 * Math.PI;
-  };
-
-  return inherit( Particles, ShakerParticles, {
+      // @private
+      this.shakerParticleGroupTandem = options.tandem.createGroupTandem( 'shakerParticle' );
+    }
 
     // @public
-    reset: function() {
+    reset() {
       this.removeAllParticles();
-    },
+    }
 
     // @public Particle animation and delivery to the solution, called when the simulation clock ticks.
-    step: function( deltaSeconds ) {
+    step( deltaSeconds ) {
 
       const beaker = this.beaker;
       const shaker = this.shaker;
@@ -131,33 +114,47 @@ define( require => {
       if ( changed ) {
         this.fireChanged();
       }
-    },
+    }
 
     // @private Computes an initial velocity for the particle.
-    getInitialVelocity: function() {
+    getInitialVelocity() {
       return Vector2.createPolar( INITIAL_SPEED, this.shaker.orientation ); // in the direction the shaker is pointing
-    },
+    }
 
     // @private Gravitational acceleration is in the downward direction.
-    getGravitationalAcceleration: function() {
+    getGravitationalAcceleration() {
       return new Vector2( 0, GRAVITATIONAL_ACCELERATION_MAGNITUDE );
-    },
+    }
 
     // @private
-    removeParticle: function( particle ) {
+    removeParticle( particle ) {
       this.particles.splice( this.particles.indexOf( particle ), 1 );
       particle.dispose();
-    },
+    }
 
     /**
      * @public
      */
-    removeAllParticles: function() {
+    removeAllParticles() {
       const particles = this.particles.slice( 0 );
       for ( let i = 0; i < particles.length; i++ ) {
         this.removeParticle( particles[ i ] );
       }
       this.fireChanged();
     }
-  } );
+  }
+
+  // Gets a random position relative to some origin
+  function getRandomPosition( origin ) {
+    const xOffset = phet.joist.random.nextIntBetween( -MAX_X_OFFSET, MAX_X_OFFSET ); // positive or negative
+    const yOffset = phet.joist.random.nextIntBetween( 0, MAX_Y_OFFSET ); // positive only
+    return new Vector2( origin.x + xOffset, origin.y + yOffset );
+  }
+
+  // Gets a random orientation, in radians.
+  function getRandomOrientation() {
+    return phet.joist.random.nextDouble() * 2 * Math.PI;
+  }
+
+  return beersLawLab.register( 'ShakerParticles', ShakerParticles );
 } );
