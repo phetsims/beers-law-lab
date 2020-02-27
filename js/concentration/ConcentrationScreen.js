@@ -13,7 +13,6 @@ define( require => {
   const ConcentrationModel = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationModel' );
   const ConcentrationScreenView = require( 'BEERS_LAW_LAB/concentration/view/ConcentrationScreenView' );
   const Image = require( 'SCENERY/nodes/Image' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
   const Screen = require( 'JOIST/Screen' );
 
@@ -23,27 +22,28 @@ define( require => {
   // images
   const screenIcon = require( 'image!BEERS_LAW_LAB/Concentration-screen-icon.jpg' );
 
-  /**
-   * @param {Tandem} tandem
-   * @constructor
-   */
-  function ConcentrationScreen( tandem ) {
+  class ConcentrationScreen extends Screen {
 
-    const modelViewTransform = ModelViewTransform2.createIdentity();
+    /**
+     * @param {Tandem} tandem
+     */
+    constructor( tandem ) {
 
-    const options = {
-      name: screenConcentrationString,
-      homeScreenIcon: new Image( screenIcon ),
-      tandem: tandem
-    };
+      const modelViewTransform = ModelViewTransform2.createIdentity();
 
-    Screen.call( this,
-      function() { return new ConcentrationModel( { tandem: tandem.createTandem( 'model' ) } ); },
-      function( model ) { return new ConcentrationScreenView( model, modelViewTransform, tandem.createTandem( 'view' ) ); },
-      options );
+      const options = {
+        name: screenConcentrationString,
+        homeScreenIcon: new Image( screenIcon ),
+        tandem: tandem
+      };
+
+      super(
+        () => new ConcentrationModel( { tandem: tandem.createTandem( 'model' ) } ),
+        model => new ConcentrationScreenView( model, modelViewTransform, tandem.createTandem( 'view' ) ),
+        options
+      );
+    }
   }
 
-  beersLawLab.register( 'ConcentrationScreen', ConcentrationScreen );
-
-  return inherit( Screen, ConcentrationScreen );
+  return beersLawLab.register( 'ConcentrationScreen', ConcentrationScreen );
 } );

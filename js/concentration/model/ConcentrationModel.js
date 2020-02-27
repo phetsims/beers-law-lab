@@ -56,8 +56,6 @@ define( require => {
       phetioState: false // does not contribute self-state, all of the state is from child instances (via composition)
     }, options );
 
-    const tandem = options.tandem;
-
     // @public Solutes, in rainbow (ROYGBIV) order.
     this.solutes = [
       Solute.DRINK_MIX,
@@ -73,18 +71,21 @@ define( require => {
 
     // @public
     this.soluteProperty = new Property( this.solutes[ 0 ], {
-      tandem: tandem.createTandem( 'soluteProperty' ),
+      tandem: options.tandem.createTandem( 'soluteProperty' ),
       phetioType: PropertyIO( SoluteIO )
     } );
     this.soluteFormProperty = new StringProperty( 'solid', {
       validValues: [ 'solid', 'solution' ],
-      tandem: tandem.createTandem( 'soluteFormProperty' )
+      tandem: options.tandem.createTandem( 'soluteFormProperty' )
     } );
 
     // @public
-    this.solution = new ConcentrationSolution( this.soluteProperty, SOLUTE_AMOUNT_RANGE.defaultValue, SOLUTION_VOLUME_RANGE.defaultValue, tandem.createTandem( 'solution' ) );
+    this.solution = new ConcentrationSolution( this.soluteProperty, SOLUTE_AMOUNT_RANGE.defaultValue,
+      SOLUTION_VOLUME_RANGE.defaultValue, options.tandem.createTandem( 'solution' ) );
     this.beaker = new Beaker( new Vector2( 350, 550 ), new Dimension2( 600, 300 ), 1 );
-    this.precipitate = new Precipitate( this.solution, this.beaker, { tandem: tandem.createTandem( 'precipitate' ) } );
+    this.precipitate = new Precipitate( this.solution, this.beaker, {
+      tandem: options.tandem.createTandem( 'precipitate' )
+    } );
     this.shaker = new Shaker(
       new Vector2( this.beaker.position.x, 170 ),
       new Bounds2( 250, 50, 575, 210 ),
@@ -92,25 +93,27 @@ define( require => {
       this.soluteProperty,
       SHAKER_MAX_DISPENSING_RATE,
       this.soluteFormProperty.get() === 'solid', {
-        tandem: tandem.createTandem( 'shaker' )
+        tandem: options.tandem.createTandem( 'shaker' )
       } );
-    this.shakerParticles = new ShakerParticles( this.shaker, this.solution, this.beaker, { tandem: tandem.createTandem( 'shakerParticles' ) } );
+    this.shakerParticles = new ShakerParticles( this.shaker, this.solution, this.beaker, {
+      tandem: options.tandem.createTandem( 'shakerParticles' )
+    } );
     this.dropper = new Dropper(
       new Vector2( this.beaker.position.x, 225 ),
       new Bounds2( 260, 225, 580, 225 ),
       this.soluteProperty,
       DROPPER_FLOW_RATE,
       this.soluteFormProperty.get() === 'solution', {
-        tandem: tandem.createTandem( 'dropper' )
+        tandem: options.tandem.createTandem( 'dropper' )
       }
     );
-    this.evaporator = new Evaporator( MAX_EVAPORATION_RATE, this.solution, tandem.createTandem( 'evaporator' ) );
-    this.solventFaucet = new Faucet( new Vector2( 155, 220 ), -400, 45, MAX_FAUCET_FLOW_RATE, tandem.createTandem( 'solventFaucet' ) );
-    this.drainFaucet = new Faucet( new Vector2( 750, 630 ), this.beaker.getRight(), 45, MAX_FAUCET_FLOW_RATE, tandem.createTandem( 'drainFaucet' ) );
+    this.evaporator = new Evaporator( MAX_EVAPORATION_RATE, this.solution, options.tandem.createTandem( 'evaporator' ) );
+    this.solventFaucet = new Faucet( new Vector2( 155, 220 ), -400, 45, MAX_FAUCET_FLOW_RATE, options.tandem.createTandem( 'solventFaucet' ) );
+    this.drainFaucet = new Faucet( new Vector2( 750, 630 ), this.beaker.getRight(), 45, MAX_FAUCET_FLOW_RATE, options.tandem.createTandem( 'drainFaucet' ) );
     this.concentrationMeter = new ConcentrationMeter(
       new Vector2( 785, 210 ), new Bounds2( 10, 150, 835, 680 ),
       new Vector2( 750, 370 ), new Bounds2( 30, 150, 966, 680 ), {
-        tandem: tandem.createTandem( 'concentrationMeter' )
+        tandem: options.tandem.createTandem( 'concentrationMeter' )
       } );
 
     // When the solute is changed, the amount of solute resets to 0.  This is a lazyLink instead of link so that

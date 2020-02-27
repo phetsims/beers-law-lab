@@ -23,7 +23,6 @@ define( require => {
   const ColorRange = require( 'BEERS_LAW_LAB/common/model/ColorRange' );
   const ConcentrationTransform = require( 'BEERS_LAW_LAB/beerslaw/model/ConcentrationTransform' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const merge = require( 'PHET_CORE/merge' );
   const MolarAbsorptivityData = require( 'BEERS_LAW_LAB/beerslaw/model/MolarAbsorptivityData' );
   const NumberProperty = require( 'AXON/NumberProperty' );
@@ -45,88 +44,83 @@ define( require => {
   const potassiumDichromateString = require( 'string!BEERS_LAW_LAB/potassiumDichromate' );
   const potassiumPermanganateString = require( 'string!BEERS_LAW_LAB/potassiumPermanganate' );
 
-  /**
-   * @param {string} internalName - used internally, not displayed to the user
-   * @param {string} name - name that is visible to the user
-   * @param {string} formula - formula that is visible to the user
-   * @param {MolarAbsorptivityData} molarAbsorptivityData
-   * @param {RangeWithValue} concentrationRange
-   * @param {ConcentrationTransform} concentrationTransform
-   * @param {ColorRange} colorRange
-   * @param {Object} [options]
-   * @constructor
-   */
-  function BeersLawSolution( internalName, name, formula, molarAbsorptivityData, concentrationRange, concentrationTransform,
-                             colorRange, options ) {
-    
-    assert && assert( internalName.indexOf( ' ' ) === -1, 'internalName cannot contain spaces: ' + internalName );
+  class BeersLawSolution extends PhetioObject {
 
-    options = merge( {
-      saturatedColor: colorRange.max, // {Color} color to use when the solution is saturated
-      phetioType: BeersLawSolutionIO,
-      tandem: Tandem.REQUIRED
-    }, options );
+    /**
+     * @param {string} internalName - used internally, not displayed to the user
+     * @param {string} name - name that is visible to the user
+     * @param {string} formula - formula that is visible to the user
+     * @param {MolarAbsorptivityData} molarAbsorptivityData
+     * @param {RangeWithValue} concentrationRange
+     * @param {ConcentrationTransform} concentrationTransform
+     * @param {ColorRange} colorRange
+     * @param {Object} [options]
+     */
+    constructor( internalName, name, formula, molarAbsorptivityData, concentrationRange, concentrationTransform,
+                 colorRange, options ) {
 
-    PhetioObject.call( this, options );
+      assert && assert( internalName.indexOf( ' ' ) === -1, 'internalName cannot contain spaces: ' + internalName );
 
-    const self = this;
+      options = merge( {
+        saturatedColor: colorRange.max, // {Color} color to use when the solution is saturated
+        phetioType: BeersLawSolutionIO,
+        tandem: Tandem.REQUIRED
+      }, options );
 
-    // @public (read-only)
-    this.solvent = Solvent.WATER;
-    this.internalName = internalName;
-    this.name = name;
-    this.formula = formula;
-    this.molarAbsorptivityData = molarAbsorptivityData;
-    this.concentrationProperty = new NumberProperty( concentrationRange.defaultValue, {
-      units: 'moles/liter',
-      range: concentrationRange,
-      tandem: options.tandem.createTandem( 'concentrationProperty' )
-    } );
-    this.concentrationRange = concentrationRange;
-    this.concentrationTransform = concentrationTransform;
-    this.colorRange = colorRange;
-    this.saturatedColor = options.saturatedColor;
+      super( options );
 
-    // @public Solution color is derived from concentration
-    this.fluidColorProperty = new DerivedProperty( [ this.concentrationProperty ],
-      function( concentration ) {
-        let color = self.solvent.colorProperty.get();
-        if ( concentration > 0 ) {
-          const distance = Utils.linear( self.concentrationRange.min, self.concentrationRange.max, 0, 1, concentration );
-          color = self.colorRange.interpolateLinear( distance );
-        }
-        return color;
+      // @public (read-only)
+      this.solvent = Solvent.WATER;
+      this.internalName = internalName;
+      this.name = name;
+      this.formula = formula;
+      this.molarAbsorptivityData = molarAbsorptivityData;
+      this.concentrationProperty = new NumberProperty( concentrationRange.defaultValue, {
+        units: 'moles/liter',
+        range: concentrationRange,
+        tandem: options.tandem.createTandem( 'concentrationProperty' )
       } );
+      this.concentrationRange = concentrationRange;
+      this.concentrationTransform = concentrationTransform;
+      this.colorRange = colorRange;
+      this.saturatedColor = options.saturatedColor;
 
-    // @public - the name of the solution in tandem id format. Used to other make tandems that pertain to this solution.
-    this.tandemName = options.tandem.name;
-  }
+      // @public Solution color is derived from concentration
+      this.fluidColorProperty = new DerivedProperty( [ this.concentrationProperty ],
+        concentration => {
+          let color = this.solvent.colorProperty.get();
+          if ( concentration > 0 ) {
+            const distance = Utils.linear( this.concentrationRange.min, this.concentrationRange.max, 0, 1, concentration );
+            color = this.colorRange.interpolateLinear( distance );
+          }
+          return color;
+        } );
 
-  beersLawLab.register( 'BeersLawSolution', BeersLawSolution );
-
-  inherit( PhetioObject, BeersLawSolution, {
+      // @public - the name of the solution in tandem id format. Used to other make tandems that pertain to this solution.
+      this.tandemName = options.tandem.name;
+    }
 
     // @public
-    reset: function() {
+    reset() {
       this.concentrationProperty.reset();
-    },
+    }
 
     // @public
-    getDisplayName: function() {
+    getDisplayName() {
       if ( this.formula === this.name ) {
         return this.name;
       }
       return StringUtils.format( pattern0Formula1NameString, this.formula, this.name );
     }
-  } );
-
-  // A new tandem instance is required here since the solutes are created statically.  Signify that these solutions
-  // are only used in the beers law screen by attaching them to that screen's tandem.
-  const tandem = BLLConstants.BEERS_LAW_SCREEN_TANDEM.createTandem( 'solutions' );
+  }
 
   //-------------------------------------------------------------------------------------------
   // Specific solutions below ...
   //-------------------------------------------------------------------------------------------
+
+  // A new tandem instance is required here since the solutes are created statically. Signify that these solutions
+  // are only used in the beers law screen by attaching them to that screen's tandem.
+  const tandem = BLLConstants.BEERS_LAW_SCREEN_TANDEM.createTandem( 'solutions' );
 
   BeersLawSolution.DRINK_MIX = new BeersLawSolution(
     'drinkMix',
@@ -227,5 +221,5 @@ define( require => {
     }
   );
 
-  return BeersLawSolution;
+  return beersLawLab.register( 'BeersLawSolution', BeersLawSolution );
 } );

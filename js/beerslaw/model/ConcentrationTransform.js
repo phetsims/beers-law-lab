@@ -17,27 +17,23 @@ define( require => {
 
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const inherit = require( 'PHET_CORE/inherit' );
 
   // strings
   const unitsMMString = require( 'string!BEERS_LAW_LAB/units.mM' );
   const unitsUMString = require( 'string!BEERS_LAW_LAB/units.uM' );
 
-  /**
-   * @param {number} scale scale factor used to convert model units (Moles, M) to view units
-   * @param {string} units
-   * @constructor
-   */
-  function ConcentrationTransform( scale, units ) {
+  class ConcentrationTransform {
 
-    // @public (read-only)
-    this.scale = scale;
-    this.units = units;
-  }
+    /**
+     * @param {number} scale scale factor used to convert model units (Moles, M) to view units
+     * @param {string} units
+     */
+    constructor( scale, units ) {
 
-  beersLawLab.register( 'ConcentrationTransform', ConcentrationTransform );
-
-  inherit( Object, ConcentrationTransform, {
+      // @public (read-only)
+      this.scale = scale;
+      this.units = units;
+    }
 
     /**
      * Converts from model (M) to view (solution specific).
@@ -45,9 +41,9 @@ define( require => {
      * @returns {number}
      * @public
      */
-    modelToView: function( modelConcentration ) {
+    modelToView( modelConcentration ) {
       return modelConcentration * this.scale;
-    },
+    }
 
     /**
      * Converts from view (solution specific) to model (M).
@@ -55,14 +51,14 @@ define( require => {
      * @returns {number}
      * @public
      */
-    viewToModel: function( viewConcentration ) {
+    viewToModel( viewConcentration ) {
       return viewConcentration / this.scale;
     }
-  } );
+  }
 
   // specific transforms
   ConcentrationTransform.mM = new ConcentrationTransform( 1000, unitsMMString );
   ConcentrationTransform.uM = new ConcentrationTransform( 1000000, unitsUMString );
 
-  return ConcentrationTransform;
+  return beersLawLab.register( 'ConcentrationTransform', ConcentrationTransform );
 } );

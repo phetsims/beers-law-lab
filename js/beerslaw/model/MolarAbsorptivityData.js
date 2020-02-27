@@ -15,29 +15,29 @@ define( require => {
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const VisibleColor = require( 'SCENERY_PHET/VisibleColor' );
 
-  /**
-   * @param {number[]} molarAbsorptivity
-   * @constructor
-   */
-  function MolarAbsorptivityData( molarAbsorptivity ) {
-    assert && assert( molarAbsorptivity.length === VisibleColor.MAX_WAVELENGTH - VisibleColor.MIN_WAVELENGTH + 1 );
-    this.molarAbsorptivity = molarAbsorptivity;
-    this.lambdaMax = MolarAbsorptivityData._getLambdaMax( molarAbsorptivity );
+  class MolarAbsorptivityData {
+
+    /**
+     * @param {number[]} molarAbsorptivity
+     */
+    constructor( molarAbsorptivity ) {
+      assert && assert( molarAbsorptivity.length === VisibleColor.MAX_WAVELENGTH - VisibleColor.MIN_WAVELENGTH + 1 );
+      this.molarAbsorptivity = molarAbsorptivity;
+      this.lambdaMax = getLambdaMax( molarAbsorptivity );
+    }
+
+    /**
+     * Maps a visible wavelength to its corresponding molar absorptivity.
+     * @param {number} wavelength
+     * @returns {number}
+     */
+    wavelengthToMolarAbsorptivity( wavelength ) {
+      assert && assert( wavelength >= VisibleColor.MIN_WAVELENGTH && wavelength <= VisibleColor.MAX_WAVELENGTH,
+        'invalid wavelength: ' + wavelength );
+      const index = Math.floor( wavelength - VisibleColor.MIN_WAVELENGTH );
+      return this.molarAbsorptivity[ index ];
+    }
   }
-
-  beersLawLab.register( 'MolarAbsorptivityData', MolarAbsorptivityData );
-
-  /*
-   * Maps a visible wavelength to its corresponding molar absorptivity.
-   * @param {number} wavelength
-   * @returns {number}
-   */
-  MolarAbsorptivityData.prototype.wavelengthToMolarAbsorptivity = function( wavelength ) {
-    assert && assert( wavelength >= VisibleColor.MIN_WAVELENGTH && wavelength <= VisibleColor.MAX_WAVELENGTH,
-      'invalid wavelength: ' + wavelength );
-    const index = Math.floor( wavelength - VisibleColor.MIN_WAVELENGTH );
-    return this.molarAbsorptivity[ index ];
-  };
 
   /*
    * Finds the wavelength with the maximum molar absorptivity.
@@ -45,7 +45,7 @@ define( require => {
    * @param {number[]} molarAbsorptivity
    * @returns {number}
    */
-  MolarAbsorptivityData._getLambdaMax = function( molarAbsorptivity ) {
+  function getLambdaMax( molarAbsorptivity ) {
     let indexMax = 0;
     let molarAbsorptivityMax = molarAbsorptivity[ indexMax ];
     for ( let i = 0; i < molarAbsorptivity.length; i++ ) {
@@ -55,7 +55,7 @@ define( require => {
       }
     }
     return indexMax + VisibleColor.MIN_WAVELENGTH;
-  };
+  }
 
   MolarAbsorptivityData.DRINK_MIX = new MolarAbsorptivityData( [
     1.09, 1.11, 1.11, 1.14, 1.16, 1.17, 1.18, 1.20, 1.21, 1.23, 1.24, 1.25, 1.24, 1.25, 1.28, 1.30,
@@ -282,5 +282,5 @@ define( require => {
     16.45, 16.699, 16.732, 17.269
   ] );
 
-  return MolarAbsorptivityData;
+  return beersLawLab.register( 'MolarAbsorptivityData', MolarAbsorptivityData );
 } );

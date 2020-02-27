@@ -23,51 +23,64 @@ define( require => {
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const DerivedProperty = require( 'AXON/DerivedProperty' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const Property = require( 'AXON/Property' );
 
-  /**
-   * @param {Light} light
-   * @param {Property.<BeersLawSolution>} solutionProperty
-   * @param {Cuvette} cuvette
-   * @constructor
-   */
-  function Absorbance( light, solutionProperty, cuvette ) {
+  class Absorbance {
 
-    const self = this;
+    /**
+     * @param {Light} light
+     * @param {Property.<BeersLawSolution>} solutionProperty
+     * @param {Cuvette} cuvette
+     */
+    constructor( light, solutionProperty, cuvette ) {
 
-    // @private a : molar absorptivity
-    this.molarAbsorptivityProperty = new DerivedProperty( [ solutionProperty, light.wavelengthProperty ],
-      function( solution, wavelength ) {
-        return solution.molarAbsorptivityData.wavelengthToMolarAbsorptivity( wavelength );
-      } );
+      // @private a : molar absorptivity
+      this.molarAbsorptivityProperty = new DerivedProperty( [ solutionProperty, light.wavelengthProperty ],
+        function( solution, wavelength ) {
+          return solution.molarAbsorptivityData.wavelengthToMolarAbsorptivity( wavelength );
+        } );
 
-    // @private C : concentration property, wired to the current solution's concentration
-    {
-      this.currentConcentrationProperty = new Property( solutionProperty.get().concentrationProperty.get() );
+      // @private C : concentration property, wired to the current solution's concentration
+      {
+        this.currentConcentrationProperty = new Property( solutionProperty.get().concentrationProperty.get() );
 
-      // Observe the concentration property of the current solution.
-      const concentrationObserver = function( concentration ) {
-        self.currentConcentrationProperty.set( concentration );
-      };
+        // Observe the concentration property of the current solution.
+        const concentrationObserver = concentration => {
+          this.currentConcentrationProperty.set( concentration );
+        };
 
-      // Rewire the concentration observer when the solution changes.
-      solutionProperty.link( function( newSolution, oldSolution ) {
-        if ( oldSolution !== null ) {
-          oldSolution.concentrationProperty.unlink( concentrationObserver );
-        }
-        newSolution.concentrationProperty.link( concentrationObserver );
-      } );
+        // Rewire the concentration observer when the solution changes.
+        solutionProperty.link( ( newSolution, oldSolution ) => {
+          if ( oldSolution !== null ) {
+            oldSolution.concentrationProperty.unlink( concentrationObserver );
+          }
+          newSolution.concentrationProperty.link( concentrationObserver );
+        } );
+      }
+
+      // @public absorbance: A = abC
+      this.absorbanceProperty = new DerivedProperty(
+        [ this.molarAbsorptivityProperty, cuvette.widthProperty, this.currentConcentrationProperty ],
+        ( molarAbsorptivity, pathLength, concentration ) => {
+          return getAbsorbance( molarAbsorptivity, pathLength, concentration );
+        } );
     }
 
-    // @public absorbance: A = abC
-    this.absorbanceProperty = new DerivedProperty( [ this.molarAbsorptivityProperty, cuvette.widthProperty, this.currentConcentrationProperty ],
-      function( molarAbsorptivity, pathLength, concentration ) {
-        return getAbsorbance( molarAbsorptivity, pathLength, concentration );
-      } );
-  }
+    // @public Gets absorbance for a specified path length.
+    getAbsorbanceAt( pathLength ) {
+      return getAbsorbance( this.molarAbsorptivityProperty.get(), pathLength, this.currentConcentrationProperty.get() );
+    }
 
-  beersLawLab.register( 'Absorbance', Absorbance );
+    // @public Gets transmittance for a specified path length.
+    getTransmittanceAt( pathLength ) {
+      return getTransmittance( this.getAbsorbanceAt( pathLength ) );
+    }
+
+    // @public Converts absorbance to transmittance.
+    getTransmittance() {
+      return getTransmittance( this.absorbanceProperty.get() );
+    }
+  }
 
   /*
    * General model of absorbance: A = abC
@@ -76,34 +89,18 @@ define( require => {
    * @param {number} concentration
    * @returns {number}
    */
-  var getAbsorbance = function( molarAbsorptivity, pathLength, concentration ) {
+  function getAbsorbance( molarAbsorptivity, pathLength, concentration ) {
     return molarAbsorptivity * pathLength * concentration;
-  };
+  }
 
   /*
    * General model of transmittance: T = 10^A
    * @param {number} absorbance
    * @returns {number}
    */
-  const getTransmittance = function( absorbance ) {
+  function getTransmittance( absorbance ) {
     return Math.pow( 10, -absorbance );
-  };
+  }
 
-  return inherit( Object, Absorbance, {
-
-    // @public Gets absorbance for a specified path length.
-    getAbsorbanceAt: function( pathLength ) {
-      return getAbsorbance( this.molarAbsorptivityProperty.get(), pathLength, this.currentConcentrationProperty.get() );
-    },
-
-    // @public Gets transmittance for a specified path length.
-    getTransmittanceAt: function( pathLength ) {
-      return getTransmittance( this.getAbsorbanceAt( pathLength ) );
-    },
-
-    // @public Converts absorbance to transmittance.
-    getTransmittance: function() {
-      return getTransmittance( this.absorbanceProperty.get() );
-    }
-  } );
+  return beersLawLab.register( 'Absorbance', Absorbance );
 } );

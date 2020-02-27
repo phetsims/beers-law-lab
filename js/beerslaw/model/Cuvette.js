@@ -16,36 +16,34 @@ define( require => {
 
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const NumberProperty = require( 'AXON/NumberProperty' );
 
-  /**
-   * @param {Vector2} position fixed position, cm
-   * @param {RangeWithValue} widthRange variable width, cm
-   * @param {number} height fixed height, cm
-   * @param {Tandem} tandem
-   * @constructor
-   */
-  function Cuvette( position, widthRange, height, tandem ) {
+  class Cuvette {
 
-    // @public (read-only)
-    this.position = position;
-    this.widthRange = widthRange;
-    this.widthProperty = new NumberProperty( widthRange.defaultValue, {
-      tandem: tandem.createTandem( 'widthProperty' ),
-      range: widthRange,
-      units: 'centimeters'
-    } );
-    this.height = height;
-  }
+    /**
+     * @param {Vector2} position fixed position, cm
+     * @param {RangeWithValue} widthRange variable width, cm
+     * @param {number} height fixed height, cm
+     * @param {Tandem} tandem
+     */
+    constructor( position, widthRange, height, tandem ) {
 
-  beersLawLab.register( 'Cuvette', Cuvette );
-
-  return inherit( Object, Cuvette, {
+      // @public (read-only)
+      this.position = position;
+      this.widthRange = widthRange;
+      this.widthProperty = new NumberProperty( widthRange.defaultValue, {
+        tandem: tandem.createTandem( 'widthProperty' ),
+        range: widthRange,
+        units: 'centimeters'
+      } );
+      this.height = height;
+    }
 
     // @public
-    reset: function() {
+    reset() {
       this.widthProperty.reset();
     }
-  } );
+  }
+
+  return beersLawLab.register( 'Cuvette', Cuvette );
 } );
