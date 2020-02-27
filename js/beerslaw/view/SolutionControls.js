@@ -41,7 +41,7 @@ define( require => {
       const comboBox = new SolutionComboBox( solutions, currentSolutionProperty, solutionListParent, tandem.createTandem( 'comboBox' ) );
 
       // {{value:{BeersLawSolution}, node:{ConcentrationControl}} - concentration controls, one for each solution
-      const toggleNodeElements = solutions.map( function( solution ) {
+      const toggleNodeElements = solutions.map( solution => {
         return {
           value: solution,
           node: new ConcentrationControl( solution, {

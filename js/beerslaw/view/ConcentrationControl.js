@@ -14,7 +14,6 @@ define( require => {
   const DynamicProperty = require( 'AXON/DynamicProperty' );
   const HBox = require( 'SCENERY/nodes/HBox' );
   const HStrut = require( 'SCENERY/nodes/HStrut' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const LinearGradient = require( 'SCENERY/util/LinearGradient' );
   const merge = require( 'PHET_CORE/merge' );
   const NumberControl = require( 'SCENERY_PHET/NumberControl' );
@@ -36,107 +35,105 @@ define( require => {
   const TICK_FONT = new PhetFont( 16 );
   const SLIDER_INTERVAL = 5; // in view units
 
-  /**
-   * @param {BeersLawSolution} solution
-   * @param {Object} [options]
-   * @constructor
-   */
-  function ConcentrationControl( solution, options ) {
+  class ConcentrationControl extends NumberControl {
 
-    options = merge( {
+    /**
+     * @param {BeersLawSolution} solution
+     * @param {Object} [options]
+     */
+    constructor( solution, options ) {
 
-      // NumberControl options
-      titleNodeOptions: {
-        font: FONT
-      },
-      numberDisplayOptions: {
-        font: FONT,
-        minBackgroundWidth: 95 // determined empirically
-      },
-      arrowButtonOptions: {
-        scale: 1,
-        touchAreaXDilation: 8,
-        touchAreaYDilation: 15
-      },
+      options = merge( {
 
-      // Slider options, passed through by NumberControl
-      sliderOptions: {
-        trackSize: new Dimension2( 200, 15 ),
-        thumbSize: new Dimension2( 22, 45 ),
-        constrainValue: function( value ) {
-          return Utils.roundToInterval( value, SLIDER_INTERVAL );
+        // NumberControl options
+        titleNodeOptions: {
+          font: FONT
+        },
+        numberDisplayOptions: {
+          font: FONT,
+          minBackgroundWidth: 95 // determined empirically
+        },
+        arrowButtonOptions: {
+          scale: 1,
+          touchAreaXDilation: 8,
+          touchAreaYDilation: 15
         },
 
-        // phet-io
-        // {Property.<number>} - keep track of the underlying model Property to form a LinkedElement to from the slider.
-        // This helps support a good PhET-iO Studio interface. See Slider.phetioLinkedProperty
-        phetioLinkedProperty: solution.concentrationProperty
-      },
+        // Slider options, passed through by NumberControl
+        sliderOptions: {
+          trackSize: new Dimension2( 200, 15 ),
+          thumbSize: new Dimension2( 22, 45 ),
+          constrainValue: value => Utils.roundToInterval( value, SLIDER_INTERVAL ),
 
-      // single-line horizontal layout
-      layoutFunction: function( titleNode, numberDisplay, slider, leftArrowButton, rightArrowButton ) {
-        return new HBox( {
-          spacing: 5,
-          children: [ titleNode, numberDisplay, new HStrut( 5 ), leftArrowButton, slider, rightArrowButton ]
-        } );
-      }
-    }, options );
+          // phet-io
+          // {Property.<number>} - keep track of the underlying model Property to form a LinkedElement to from the slider.
+          // This helps support a good PhET-iO Studio interface. See Slider.phetioLinkedProperty
+          phetioLinkedProperty: solution.concentrationProperty
+        },
 
-    // @public (read-only)
-    this.solution = solution;
+        // single-line horizontal layout
+        layoutFunction: ( titleNode, numberDisplay, slider, leftArrowButton, rightArrowButton ) => {
+          return new HBox( {
+            spacing: 5,
+            children: [ titleNode, numberDisplay, new HStrut( 5 ), leftArrowButton, slider, rightArrowButton ]
+          } );
+        }
+      }, options );
 
-    const transform = solution.concentrationTransform;
+      const transform = solution.concentrationTransform;
 
-    const title = StringUtils.format( pattern0LabelString, concentrationString );
+      const title = StringUtils.format( pattern0LabelString, concentrationString );
 
-    // e.g. display units that are specific to the solution, e.g. '{0} mM'
-    assert && assert( !options.numberDisplayOptions.valuePattern, 'ConcentrationControl sets valuePattern' );
-    options.numberDisplayOptions.valuePattern = StringUtils.format( pattern0Value1UnitsString,
-      SunConstants.VALUE_NUMBERED_PLACEHOLDER, transform.units );
+      // e.g. display units that are specific to the solution, e.g. '{0} mM'
+      assert && assert( !options.numberDisplayOptions.valuePattern, 'ConcentrationControl sets valuePattern' );
+      options.numberDisplayOptions.valuePattern = StringUtils.format( pattern0Value1UnitsString,
+        SunConstants.VALUE_NUMBERED_PLACEHOLDER, transform.units );
 
-    assert && assert( options.delta === undefined, 'ConcentrationControl sets delta' );
-    options.delta = 1; // in view coordinates
+      assert && assert( options.delta === undefined, 'ConcentrationControl sets delta' );
+      options.delta = 1; // in view coordinates
 
-    // fill the track with a linear gradient that corresponds to the solution color
-    assert && assert( !options.sliderOptions.trackFillEnabled, 'ConcentrationControl sets trackFillEnabled' );
-    options.sliderOptions.trackFillEnabled = new LinearGradient( 0, 0, options.sliderOptions.trackSize.width, 0 )
-      .addColorStop( 0, solution.colorRange.min )
-      .addColorStop( 1, solution.colorRange.max );
+      // fill the track with a linear gradient that corresponds to the solution color
+      assert && assert( !options.sliderOptions.trackFillEnabled, 'ConcentrationControl sets trackFillEnabled' );
+      options.sliderOptions.trackFillEnabled = new LinearGradient( 0, 0, options.sliderOptions.trackSize.width, 0 )
+        .addColorStop( 0, solution.colorRange.min )
+        .addColorStop( 1, solution.colorRange.max );
 
-    // map concentration value between model and view
-    const numberProperty = new DynamicProperty( new Property( solution.concentrationProperty ), {
-      bidirectional: true,
+      // map concentration value between model and view
+      const numberProperty = new DynamicProperty( new Property( solution.concentrationProperty ), {
+        bidirectional: true,
 
-      // Necessary because bidirectional:true
-      reentrant: true,
+        // Necessary because bidirectional:true
+        reentrant: true,
 
-      // map from model to view, apply options.interval to model value
-      map: value => transform.modelToView( value ),
+        // map from model to view, apply options.interval to model value
+        map: value => transform.modelToView( value ),
 
-      // map from view to model, apply options.interval to model value
-      inverseMap: value => transform.viewToModel( value )
-    } );
-
-    // convert solution's concentration range from model to view
-    const numberRange = new Range(
-      transform.modelToView( solution.concentrationRange.min ),
-      transform.modelToView( solution.concentrationRange.max )
-    );
-
-    // ticks at the min and max of the solution's concentration range
-    assert && assert( !options.sliderOptions.majorTicks, 'ConcentrationControl sets majorTicks' );
-    options.sliderOptions.majorTicks = [];
-    [ numberRange.min, numberRange.max ].forEach( function( value ) {
-      options.sliderOptions.majorTicks.push( {
-        value: value,
-        label: new Text( value, { font: TICK_FONT } )
+        // map from view to model, apply options.interval to model value
+        inverseMap: value => transform.viewToModel( value )
       } );
-    } );
 
-    NumberControl.call( this, title, numberProperty, numberRange, options );
+      // convert solution's concentration range from model to view
+      const numberRange = new Range(
+        transform.modelToView( solution.concentrationRange.min ),
+        transform.modelToView( solution.concentrationRange.max )
+      );
+
+      // ticks at the min and max of the solution's concentration range
+      assert && assert( !options.sliderOptions.majorTicks, 'ConcentrationControl sets majorTicks' );
+      options.sliderOptions.majorTicks = [];
+      [ numberRange.min, numberRange.max ].forEach( value => {
+        options.sliderOptions.majorTicks.push( {
+          value: value,
+          label: new Text( value, { font: TICK_FONT } )
+        } );
+      } );
+
+      super( title, numberProperty, numberRange, options );
+
+      // @public (read-only)
+      this.solution = solution;
+    }
   }
 
-  beersLawLab.register( 'ConcentrationControl', ConcentrationControl );
-
-  return inherit( NumberControl, ConcentrationControl );
+  return beersLawLab.register( 'ConcentrationControl', ConcentrationControl );
 } );

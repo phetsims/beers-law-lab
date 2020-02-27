@@ -39,9 +39,7 @@ define( require => {
     cuvetteSnapInterval: {
       type: 'number',
       defaultValue: BLLConstants.DEFAULT_CUVETTE_SNAP_INTERVAL,
-      isValidValue: function( value ) {
-        return value >= 0;
-      }
+      isValidValue: value => ( value >= 0 )
     }
   } );
 

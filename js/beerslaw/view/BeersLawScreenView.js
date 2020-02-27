@@ -49,7 +49,7 @@ define( require => {
       // Reset All button
       const resetAllButton = new ResetAllButton( {
         scale: 1.32,
-        listener: function() {
+        listener: () => {
           model.reset();
           wavelengthControls.reset();
         },

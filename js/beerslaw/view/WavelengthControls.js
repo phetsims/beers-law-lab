@@ -131,7 +131,7 @@ define( require => {
       } );
 
       // When the radio button selection changes...
-      variableWavelengthProperty.link( function( isVariable ) {
+      variableWavelengthProperty.link( isVariable => {
 
         // add/remove the slider so that the panel resizes
         if ( isVariable ) {
@@ -148,7 +148,7 @@ define( require => {
       } );
 
       // sync displayed value with model
-      light.wavelengthProperty.link( function( wavelength ) {
+      light.wavelengthProperty.link( wavelength => {
         valueDisplay.text = formatWavelength( wavelength );
         valueDisplay.right = valueBackground.right - xMargin; // right aligned
       } );
