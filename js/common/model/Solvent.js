@@ -13,32 +13,31 @@ define( require => {
   const BLLSymbols = require( 'BEERS_LAW_LAB/common/BLLSymbols' );
   const Color = require( 'SCENERY/util/Color' );
   const Fluid = require( 'BEERS_LAW_LAB/common/model/Fluid' );
-  const inherit = require( 'PHET_CORE/inherit' );
 
-  /**
-   * @param {string} name
-   * @param {string} formula
-   * @param {number} density - g/L
-   * @param {Color} color
-   * @constructor
-   */
-  function Solvent( name, formula, density, color ) {
+  class Solvent extends Fluid {
 
-    Fluid.call( this, color );
+    /**
+     * @param {string} name
+     * @param {string} formula
+     * @param {number} density - g/L
+     * @param {Color} color
+     */
+    constructor( name, formula, density, color ) {
 
-    // @public (read-only)
-    this.name = name;
-    this.formula = formula;
-    this.density = density; // g/L
+      super( color );
+
+      // @public (read-only)
+      this.name = name;
+      this.formula = formula;
+      this.density = density; // g/L
+    }
   }
-
-  beersLawLab.register( 'Solvent', Solvent );
 
   Solvent.WATER_COLOR = new Color( 224, 255, 255 );
 
-  // 'water' is not currently presented to the user, since this sim supports only 1 solvent.
+  // 'water' is not currently presented to the user as a solvent, since this sim supports only 1 solvent.
   // See https://github.com/phetsims/beers-law-lab/issues/190
   Solvent.WATER = new Solvent( 'water', BLLSymbols.WATER, 1000, Solvent.WATER_COLOR );
 
-  return inherit( Fluid, Solvent );
+  return beersLawLab.register( 'Solvent', Solvent );
 } );

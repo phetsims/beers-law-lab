@@ -11,22 +11,19 @@ define( require => {
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const Color = require( 'SCENERY/util/Color' );
-  const inherit = require( 'PHET_CORE/inherit' );
 
-  /**
-   * @param {Color} min
-   * @param {Color} max
-   * @constructor
-   */
-  function ColorRange( min, max ) {
-    // @public (read-only)
-    this.min = min;
-    this.max = max;
-  }
+  class ColorRange {
 
-  beersLawLab.register( 'ColorRange', ColorRange );
+    /**
+     * @param {Color} min
+     * @param {Color} max
+     */
+    constructor( min, max ) {
 
-  return inherit( Object, ColorRange, {
+      // @public (read-only)
+      this.min = min;
+      this.max = max;
+    }
 
     /**
      * Performs a linear interpolation between min and max colors in RGBA colorspace.
@@ -35,9 +32,11 @@ define( require => {
      * @returns {Color}
      * @public
      */
-    interpolateLinear: function( distance ) {
+    interpolateLinear( distance ) {
       assert && assert( distance >= 0 && distance <= 1 );
       return Color.interpolateRGBA( this.min, this.max, distance );
     }
-  } );
+  }
+
+  return beersLawLab.register( 'ColorRange', ColorRange );
 } );

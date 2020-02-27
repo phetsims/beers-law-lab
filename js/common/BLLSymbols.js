@@ -28,7 +28,5 @@ define( require => {
     WATER: ChemUtils.toSubscript( 'H2O' )
   };
 
-  beersLawLab.register( 'BLLSymbols', BLLSymbols );
-
-  return BLLSymbols;
+  return beersLawLab.register( 'BLLSymbols', BLLSymbols );
 } );

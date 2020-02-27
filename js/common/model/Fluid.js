@@ -10,24 +10,22 @@ define( require => {
 
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const Property = require( 'AXON/Property' );
 
-  /**
-   * @param {Color} color
-   * @constructor
-   */
-  function Fluid( color ) {
-    this.colorProperty = new Property( color ); // @public
-  }
+  class Fluid {
 
-  beersLawLab.register( 'Fluid', Fluid );
-
-  return inherit( Object, Fluid, {
+    /**
+     * @param {Color} color
+     */
+    constructor( color ) {
+      this.colorProperty = new Property( color ); // @public
+    }
 
     // @public
-    reset: function() {
+    reset() {
       this.colorProperty.reset();
     }
-  } );
+  }
+
+  return beersLawLab.register( 'Fluid', Fluid );
 } );

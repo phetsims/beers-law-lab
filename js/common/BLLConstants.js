@@ -28,7 +28,5 @@ define( require => {
     BEERS_LAW_SCREEN_TANDEM: Tandem.ROOT.createTandem( 'beersLawScreen' )
   };
 
-  beersLawLab.register( 'BLLConstants', BLLConstants );
-
-  return BLLConstants;
+  return beersLawLab.register( 'BLLConstants', BLLConstants );
 } );

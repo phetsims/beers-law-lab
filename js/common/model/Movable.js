@@ -11,38 +11,36 @@ define( require => {
 
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const merge = require( 'PHET_CORE/merge' );
   const Tandem = require( 'TANDEM/Tandem' );
   const Vector2Property = require( 'DOT/Vector2Property' );
 
-  /**
-   * @param {Vector2} position
-   * @param {Bounds2} dragBounds
-   * @param {Object} [options]
-   * @constructor
-   */
-  function Movable( position, dragBounds, options ) {
+  class Movable {
 
-    options = merge( {
-      tandem: Tandem.REQUIRED
-    }, options );
+    /**
+     * @param {Vector2} position
+     * @param {Bounds2} dragBounds
+     * @param {Object} [options]
+     */
+    constructor( position, dragBounds, options ) {
 
-    // @public
-    this.positionProperty = new Vector2Property( position, {
-      tandem: options.tandem.createTandem( 'positionProperty' )
-    } );
+      options = merge( {
+        tandem: Tandem.REQUIRED
+      }, options );
 
-    this.dragBounds = dragBounds; // @public (read-only)
-  }
+      // @public
+      this.positionProperty = new Vector2Property( position, {
+        tandem: options.tandem.createTandem( 'positionProperty' )
+      } );
 
-  beersLawLab.register( 'Movable', Movable );
-
-  return inherit( Object, Movable, {
+      this.dragBounds = dragBounds; // @public (read-only)
+    }
 
     // @public
-    reset: function() {
+    reset() {
       this.positionProperty.reset();
     }
-  } );
+  }
+
+  return beersLawLab.register( 'Movable', Movable );
 } );
