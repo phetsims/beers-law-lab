@@ -28,7 +28,7 @@ define( require => {
     }
   };
 
-  SimLauncher.launch( function() {
+  SimLauncher.launch( () => {
     const sim = new Sim( beersLawLabTitleString, [
       new ConcentrationScreen( BLLConstants.CONCENTRATION_SCREEN_TANDEM ),
       new BeersLawScreen( BLLConstants.BEERS_LAW_SCREEN_TANDEM )

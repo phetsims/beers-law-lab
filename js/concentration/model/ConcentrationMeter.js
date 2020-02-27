@@ -15,7 +15,6 @@ define( require => {
 
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const merge = require( 'PHET_CORE/merge' );
   const Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
   const NullableIO = require( 'TANDEM/types/NullableIO' );
@@ -24,43 +23,41 @@ define( require => {
   const PropertyIO = require( 'AXON/PropertyIO' );
   const Tandem = require( 'TANDEM/Tandem' );
 
-  /**
-   * @param {Vector2} bodyPosition
-   * @param {Bounds2} bodyDragBounds
-   * @param {Vector2} probePosition
-   * @param {Bounds2} probeDragBounds
-   * @param {Object} [options]
-   * @constructor
-   */
-  function ConcentrationMeter( bodyPosition, bodyDragBounds, probePosition, probeDragBounds, options ) {
+  class ConcentrationMeter {
 
-    options = merge( {
-      tandem: Tandem.REQUIRED
-    }, options );
+    /**
+     * @param {Vector2} bodyPosition
+     * @param {Bounds2} bodyDragBounds
+     * @param {Vector2} probePosition
+     * @param {Bounds2} probeDragBounds
+     * @param {Object} [options]
+     */
+    constructor( bodyPosition, bodyDragBounds, probePosition, probeDragBounds, options ) {
 
-    // @public concentration in mol/L or percent, depending on the concentrationMeterUnits query parameter.
-    // null if the meter is not reading a value
-    this.valueProperty = new Property( null, {
-      tandem: options.tandem.createTandem( 'valueProperty' ),
-      units: 'moles/liter',
-      phetioType: PropertyIO( NullableIO( NumberIO ) )
-    } );
+      options = merge( {
+        tandem: Tandem.REQUIRED
+      }, options );
 
-    // @public (read-only)
-    this.body = new Movable( bodyPosition, bodyDragBounds, { tandem: options.tandem.createTandem( 'body' ) } );
-    this.probe = new Movable( probePosition, probeDragBounds, { tandem: options.tandem.createTandem( 'probe' ) } );
-  }
+      // @public concentration in mol/L or percent, depending on the concentrationMeterUnits query parameter.
+      // null if the meter is not reading a value
+      this.valueProperty = new Property( null, {
+        tandem: options.tandem.createTandem( 'valueProperty' ),
+        units: 'moles/liter',
+        phetioType: PropertyIO( NullableIO( NumberIO ) )
+      } );
 
-  beersLawLab.register( 'ConcentrationMeter', ConcentrationMeter );
-
-  return inherit( Object, ConcentrationMeter, {
+      // @public (read-only)
+      this.body = new Movable( bodyPosition, bodyDragBounds, { tandem: options.tandem.createTandem( 'body' ) } );
+      this.probe = new Movable( probePosition, probeDragBounds, { tandem: options.tandem.createTandem( 'probe' ) } );
+    }
 
     // @public
-    reset: function() {
+    reset() {
       this.valueProperty.reset();
       this.body.reset();
       this.probe.reset();
     }
-  } );
+  }
 
+  return beersLawLab.register( 'ConcentrationMeter', ConcentrationMeter );
 } );

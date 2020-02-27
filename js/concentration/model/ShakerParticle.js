@@ -13,37 +13,33 @@ define( require => {
 
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const merge = require( 'PHET_CORE/merge' );
   const ShakerParticleIO = require( 'BEERS_LAW_LAB/concentration/model/ShakerParticleIO' );
   const SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
 
-  /**
-   * @param {Solute} solute
-   * @param {Vector2} position in the beaker's coordinate frame
-   * @param {number} orientation in radians
-   * @param {Vector2} initialVelocity
-   * @param {Vector2} acceleration
-   * @param {Object} [options]
-   * @constructor
-   */
-  function ShakerParticle( solute, position, orientation, initialVelocity, acceleration, options ) {
+  class ShakerParticle extends SoluteParticle {
 
-    options = merge( {
-      phetioType: ShakerParticleIO
-    }, options );
+    /**
+     * @param {Solute} solute
+     * @param {Vector2} position in the beaker's coordinate frame
+     * @param {number} orientation in radians
+     * @param {Vector2} initialVelocity
+     * @param {Vector2} acceleration
+     * @param {Object} [options]
+     */
+    constructor( solute, position, orientation, initialVelocity, acceleration, options ) {
 
-    SoluteParticle.call( this, solute.particleColor, solute.particleSize, position, orientation, options );
+      options = merge( {
+        phetioType: ShakerParticleIO
+      }, options );
 
-    // @public (read-only, phet-io)
-    this.solute = solute;
-    this.velocity = initialVelocity;
-    this.acceleration = acceleration;
-  }
+      super( solute.particleColor, solute.particleSize, position, orientation, options );
 
-  beersLawLab.register( 'ShakerParticle', ShakerParticle );
-
-  return inherit( SoluteParticle, ShakerParticle, {
+      // @public (read-only, phet-io)
+      this.solute = solute;
+      this.velocity = initialVelocity;
+      this.acceleration = acceleration;
+    }
 
     /**
      *  Propagates the particle to a new position.
@@ -51,7 +47,8 @@ define( require => {
      *  @param {Beaker} beaker
      *  @public
      */
-    step: function( deltaSeconds, beaker ) {
+    step( deltaSeconds, beaker ) {
+
       // mutable calls added to remove the number of new objects we create
       this.velocity = this.acceleration.times( deltaSeconds ).add( this.velocity );
       const newPosition = this.velocity.times( deltaSeconds ).add( this.positionProperty.get() );
@@ -69,5 +66,7 @@ define( require => {
 
       this.positionProperty.set( newPosition );
     }
-  } );
+  }
+
+  return beersLawLab.register( 'ShakerParticle', ShakerParticle );
 } );

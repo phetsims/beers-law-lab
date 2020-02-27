@@ -10,38 +10,37 @@ define( require => {
 
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const merge = require( 'PHET_CORE/merge' );
   const PhetioObject = require( 'TANDEM/PhetioObject' );
   const Property = require( 'AXON/Property' );
   const Tandem = require( 'TANDEM/Tandem' );
 
-  /**
-   * @param {Color} color
-   * @param {number} size particles are square, this is the length of one side
-   * @param {Vector2} position position of the particle in the beaker's coordinate frame
-   * @param {number} orientation in radians
-   * @param {Object} [options]
-   * @constructor
-   */
-  function SoluteParticle( color, size, position, orientation, options ) {
+  class SoluteParticle extends PhetioObject {
 
-    options = merge( {
-      tandem: Tandem.REQUIRED
-    }, options );
+    /**
+     * @param {Color} color
+     * @param {number} size particles are square, this is the length of one side
+     * @param {Vector2} position position of the particle in the beaker's coordinate frame
+     * @param {number} orientation in radians
+     * @param {Object} [options]
+     */
+    constructor( color, size, position, orientation, options ) {
 
-    // @public (read-only)
-    this.color = color;
-    this.size = size;
-    this.orientation = orientation;
+      options = merge( {
+        tandem: Tandem.REQUIRED
+      }, options );
 
-    // @public
-    this.positionProperty = new Property( position );
+      super( options );
 
-    PhetioObject.call( this, options );
+      // @public (read-only)
+      this.color = color;
+      this.size = size;
+      this.orientation = orientation;
+
+      // @public
+      this.positionProperty = new Property( position );
+    }
   }
 
-  beersLawLab.register( 'SoluteParticle', SoluteParticle );
-
-  return inherit( PhetioObject, SoluteParticle );
+  return beersLawLab.register( 'SoluteParticle', SoluteParticle );
 } );

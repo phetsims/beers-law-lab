@@ -11,52 +11,50 @@ define( require => {
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const BooleanProperty = require( 'AXON/BooleanProperty' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const NumberProperty = require( 'AXON/NumberProperty' );
 
-  /**
-   * @param {number} maxEvaporationRate L/sec
-   * @param {ConcentrationSolution} solution
-   * @param {Tandem} tandem
-   * @constructor
-   */
-  function Evaporator( maxEvaporationRate, solution, tandem ) {
+  class Evaporator {
 
-    const self = this;
+    /**
+     * @param {number} maxEvaporationRate L/sec
+     * @param {ConcentrationSolution} solution
+     * @param {Tandem} tandem
+     */
+    constructor( maxEvaporationRate, solution, tandem ) {
 
-    this.maxEvaporationRate = maxEvaporationRate; // @public (read-only) L/sec
+      this.maxEvaporationRate = maxEvaporationRate; // @public (read-only) L/sec
 
-    // @public
-    this.evaporationRateProperty = new NumberProperty( 0, {
-      tandem: tandem.createTandem( 'evaporationRateProperty' ),
-      units: 'liters/second'
-    } ); // L/sec
-    this.enabledProperty = new BooleanProperty( true, {
-      tandem: tandem.createTandem( 'enabledProperty' ),
-      phetioFeatured: true
-    } );
+      // @public
+      this.evaporationRateProperty = new NumberProperty( 0, {
+        tandem: tandem.createTandem( 'evaporationRateProperty' ),
+        units: 'liters/second'
+      } );
 
-    // disable when the volume gets to zero
-    solution.volumeProperty.link( function( volume ) {
-      self.enabledProperty.set( volume > 0 );
-    } );
+      // @public
+      this.enabledProperty = new BooleanProperty( true, {
+        tandem: tandem.createTandem( 'enabledProperty' ),
+        phetioFeatured: true
+      } );
 
-    // when disabled, set the rate to zero
-    this.enabledProperty.link( function( enabled ) {
-      if ( !enabled ) {
-        self.evaporationRateProperty.set( 0 );
-      }
-    } );
-  }
+      // disable when the volume gets to zero
+      solution.volumeProperty.link( volume => {
+        this.enabledProperty.set( volume > 0 );
+      } );
 
-  beersLawLab.register( 'Evaporator', Evaporator );
-
-  return inherit( Object, Evaporator, {
+      // when disabled, set the rate to zero
+      this.enabledProperty.link( enabled => {
+        if ( !enabled ) {
+          this.evaporationRateProperty.set( 0 );
+        }
+      } );
+    }
 
     // @public
-    reset: function() {
+    reset() {
       this.evaporationRateProperty.reset();
       this.enabledProperty.reset();
     }
-  } );
+  }
+
+  return beersLawLab.register( 'Evaporator', Evaporator );
 } );

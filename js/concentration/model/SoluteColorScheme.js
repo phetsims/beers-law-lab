@@ -13,36 +13,32 @@ define( require => {
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const Color = require( 'SCENERY/util/Color' );
-  const inherit = require( 'PHET_CORE/inherit' );
 
-  /**
-   * @param {number} minConcentration - mol/L
-   * @param {Color} minColor
-   * @param {number} midConcentration - mol/L
-   * @param {Color} midColor
-   * @param {number} maxConcentration - mol/L (saturation point)
-   * @param {Color} maxColor
-   * @constructor
-   */
-  function SoluteColorScheme( minConcentration, minColor, midConcentration, midColor, maxConcentration, maxColor ) {
-    this.minColor = minColor;
-    this.midColor = midColor;
-    this.maxColor = maxColor;
-    this.minConcentration = minConcentration;
-    this.midConcentration = midConcentration;
-    this.maxConcentration = maxConcentration;
-  }
+  class SoluteColorScheme {
 
-  beersLawLab.register( 'SoluteColorScheme', SoluteColorScheme );
-
-  return inherit( Object, SoluteColorScheme, {
+    /**
+     * @param {number} minConcentration - mol/L
+     * @param {Color} minColor
+     * @param {number} midConcentration - mol/L
+     * @param {Color} midColor
+     * @param {number} maxConcentration - mol/L (saturation point)
+     * @param {Color} maxColor
+     */
+    constructor( minConcentration, minColor, midConcentration, midColor, maxConcentration, maxColor ) {
+      this.minColor = minColor;
+      this.midColor = midColor;
+      this.maxColor = maxColor;
+      this.minConcentration = minConcentration;
+      this.midConcentration = midConcentration;
+      this.maxConcentration = maxConcentration;
+    }
 
     /**
      * Converts a concentration value to a Color, using a linear interpolation of RGB colors.
      * @param {number} concentration - mol/L
      * @returns {Color} color
      */
-    concentrationToColor: function( concentration ) {
+    concentrationToColor( concentration ) {
       if ( concentration >= this.maxConcentration ) {
         return this.maxColor;
       }
@@ -56,5 +52,7 @@ define( require => {
         return Color.interpolateRGBA( this.midColor, this.maxColor, ( concentration - this.midConcentration ) / ( this.maxConcentration - this.midConcentration ) );
       }
     }
-  } );
+  }
+
+  return beersLawLab.register( 'SoluteColorScheme', SoluteColorScheme );
 } );

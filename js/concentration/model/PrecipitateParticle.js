@@ -12,31 +12,30 @@ define( require => {
 
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const merge = require( 'PHET_CORE/merge' );
   const PrecipitateParticleIO = require( 'BEERS_LAW_LAB/concentration/model/PrecipitateParticleIO' );
   const SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
 
-  /**
-   * @param {Solute} solute
-   * @param {Vector2} position position in the beaker's coordinate frame
-   * @param {number} orientation in radians
-   * @param {Object} [options]
-   * @constructor
-   */
-  function PrecipitateParticle( solute, position, orientation, options ) {
+  class PrecipitateParticle extends SoluteParticle {
 
-    options = merge( {
-      phetioType: PrecipitateParticleIO
-    }, options );
+    /**
+     * @param {Solute} solute
+     * @param {Vector2} position position in the beaker's coordinate frame
+     * @param {number} orientation in radians
+     * @param {Object} [options]
+     */
+    constructor( solute, position, orientation, options ) {
 
-    SoluteParticle.call( this, solute.particleColor, solute.particleSize, position, orientation, options );
+      options = merge( {
+        phetioType: PrecipitateParticleIO
+      }, options );
 
-    // @public (phet-io)
-    this.solute = solute;
+      super( solute.particleColor, solute.particleSize, position, orientation, options );
+
+      // @public (phet-io)
+      this.solute = solute;
+    }
   }
 
-  beersLawLab.register( 'PrecipitateParticle', PrecipitateParticle );
-
-  return inherit( SoluteParticle, PrecipitateParticle );
+  return beersLawLab.register( 'PrecipitateParticle', PrecipitateParticle );
 } );

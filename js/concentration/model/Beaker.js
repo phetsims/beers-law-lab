@@ -10,39 +10,37 @@ define( require => {
 
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const inherit = require( 'PHET_CORE/inherit' );
 
-  /**
-   * @param {Vector2} position bottom center
-   * @param {Dimension2} size
-   * @param {number} volume in liters (L)
-   * @constructor
-   */
-  function Beaker( position, size, volume ) {
+  class Beaker {
 
-    // @public (read-only)
-    this.position = position;
-    this.size = size;
-    this.volume = volume;
-  }
+    /**
+     * @param {Vector2} position bottom center
+     * @param {Dimension2} size
+     * @param {number} volume in liters (L)
+     */
+    constructor( position, size, volume ) {
 
-  beersLawLab.register( 'Beaker', Beaker );
-
-  return inherit( Object, Beaker, {
+      // @public (read-only)
+      this.position = position;
+      this.size = size;
+      this.volume = volume;
+    }
 
     // @public
-    reset: function() {
+    reset() {
       // currently nothing to reset
-    },
+    }
 
     // @public Gets the x-coordinate of the left wall.
-    getLeft: function() {
+    getLeft() {
       return this.position.x - ( this.size.width / 2 );
-    },
+    }
 
     // @public Gets the x-coordinate of the right wall.
-    getRight: function() {
+    getRight() {
       return this.position.x + ( this.size.width / 2 );
     }
-  } );
+  }
+
+  return beersLawLab.register( 'Beaker', Beaker );
 } );
