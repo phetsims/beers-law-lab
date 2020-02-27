@@ -11,34 +11,32 @@ define( require => {
 
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
 
-  /**
-   * @param {SoluteParticle} particle
-   * @param {ModelViewTransform2} modelViewTransform
-   * @constructor
-   */
-  function ParticleNode( particle, modelViewTransform ) {
+  class ParticleNode extends Rectangle {
 
-    const self = this;
+    /**
+     * @param {SoluteParticle} particle
+     * @param {ModelViewTransform2} modelViewTransform
+     */
+    constructor( particle, modelViewTransform ) {
 
-    const viewSize = modelViewTransform.modelToViewDeltaX( particle.size );
-    Rectangle.call( this, -viewSize / 2, -viewSize / 2, viewSize, viewSize, {
-      fill: particle.color,
-      stroke: particle.color.darkerColor(),
-      lineWidth: 1
-    } );
+      const viewSize = modelViewTransform.modelToViewDeltaX( particle.size );
 
-    this.particle = particle; // @private
-    this.rotation = particle.orientation;
+      super( -viewSize / 2, -viewSize / 2, viewSize, viewSize, {
+        fill: particle.color,
+        stroke: particle.color.darkerColor(),
+        lineWidth: 1
+      } );
 
-    particle.positionProperty.link( function() {
-      self.translation = modelViewTransform.modelToViewPosition( particle.positionProperty.get() );
-    } );
+      this.particle = particle;
+      this.rotation = particle.orientation;
+
+      particle.positionProperty.link( () => {
+        this.translation = modelViewTransform.modelToViewPosition( particle.positionProperty.get() );
+      } );
+    }
   }
 
-  beersLawLab.register( 'ParticleNode', ParticleNode );
-
-  return inherit( Rectangle, ParticleNode );
+  return beersLawLab.register( 'ParticleNode', ParticleNode );
 } );

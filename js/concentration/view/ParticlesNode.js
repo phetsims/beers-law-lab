@@ -13,38 +13,30 @@ define( require => {
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const CanvasNode = require( 'SCENERY/nodes/CanvasNode' );
-  const inherit = require( 'PHET_CORE/inherit' );
 
-  /**
-   * @param {Particles} particles a collection of particle
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Bounds2} canvasBounds
-   * @constructor
-   */
-  function ParticlesNode( particles, modelViewTransform, canvasBounds ) {
+  class ParticlesNode extends CanvasNode {
 
-    const self = this;
+    /**
+     * @param {Particles} particles a collection of particle
+     * @param {ModelViewTransform2} modelViewTransform
+     * @param {Bounds2} canvasBounds
+     */
+    constructor( particles, modelViewTransform, canvasBounds ) {
 
-    this.particles = particles;  // @public
-    this.modelViewTransform = modelViewTransform; // @public
+      super( { pickable: false, canvasBounds: canvasBounds } );
 
-    CanvasNode.call( this, { pickable: false, canvasBounds: canvasBounds } );
+      this.particles = particles;  // @public
+      this.modelViewTransform = modelViewTransform; // @public
 
-    particles.addChangedListener( function() {
-      self.invalidatePaint();
-    } );
-  }
-
-  beersLawLab.register( 'ParticlesNode', ParticlesNode );
-
-  return inherit( CanvasNode, ParticlesNode, {
+      particles.addChangedListener( () => this.invalidatePaint() );
+    }
 
     /**
      * @param {CanvasRenderingContext2D} context
      * @override
      * @public
      */
-    paintCanvas: function( context ) {
+    paintCanvas( context ) {
 
       const particles = this.particles.particles;
       let halfViewSize;
@@ -82,5 +74,7 @@ define( require => {
         context.stroke();
       }
     }
-  } );
+  }
+
+  return beersLawLab.register( 'ParticlesNode', ParticlesNode );
 } );

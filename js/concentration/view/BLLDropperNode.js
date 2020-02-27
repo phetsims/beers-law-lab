@@ -13,93 +13,90 @@ define( require => {
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const ConcentrationSolution = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationSolution' );
   const EyeDropperNode = require( 'SCENERY_PHET/EyeDropperNode' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   const Path = require( 'SCENERY/nodes/Path' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const RichText = require( 'SCENERY/nodes/RichText' );
   const Shape = require( 'KITE/Shape' );
 
-  /**
-   * @param {Dropper} dropper
-   * @param {Solvent} solvent
-   * @param {Property.<Solute>} soluteProperty
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
-   * @constructor
-   */
-  function BLLDropperNode( dropper, solvent, soluteProperty, modelViewTransform, tandem ) {
+  class BLLDropperNode extends EyeDropperNode {
 
-    const self = this;
+    /**
+     * @param {Dropper} dropper
+     * @param {Solvent} solvent
+     * @param {Property.<Solute>} soluteProperty
+     * @param {ModelViewTransform2} modelViewTransform
+     * @param {Tandem} tandem
+     */
+    constructor( dropper, solvent, soluteProperty, modelViewTransform, tandem ) {
 
-    EyeDropperNode.call( this, {
-      dispensingProperty: dropper.dispensingProperty,
-      enabledProperty: dropper.enabledProperty,
-      emptyProperty: dropper.emptyProperty,
-      tandem: tandem
-    } );
+      super( {
+        dispensingProperty: dropper.dispensingProperty,
+        enabledProperty: dropper.enabledProperty,
+        emptyProperty: dropper.emptyProperty,
+        tandem: tandem
+      } );
 
-    // label background, so the label shows up on various fluid colors
-    const labelBackground = new Path( null, {
-      fill: 'rgba( 240, 240, 240, 0.6 )' // translucent gray
-    } );
-    this.addChild( labelBackground );
+      // label background, so the label shows up on various fluid colors
+      const labelBackground = new Path( null, {
+        fill: 'rgba( 240, 240, 240, 0.6 )' // translucent gray
+      } );
+      this.addChild( labelBackground );
 
-    // label
-    const label = new RichText( '', {
-      maxWidth: 80, // determined empirically, to cover only the glass portion of the dropper
-      font: new PhetFont( { size: 18, weight: 'bold' } ),
-      fill: 'black',
-      tandem: tandem.createTandem( 'label' )
-    } );
-    this.addChild( label );
+      // label
+      const label = new RichText( '', {
+        maxWidth: 80, // determined empirically, to cover only the glass portion of the dropper
+        font: new PhetFont( { size: 18, weight: 'bold' } ),
+        fill: 'black',
+        tandem: tandem.createTandem( 'label' )
+      } );
+      this.addChild( label );
 
-    // position
-    dropper.positionProperty.link( function( position ) {
-      self.translation = modelViewTransform.modelToViewPosition( position );
-    } );
+      // position
+      dropper.positionProperty.link( position => {
+        this.translation = modelViewTransform.modelToViewPosition( position );
+      } );
 
-    // visibility
-    dropper.visibleProperty.link( function( visible ) {
-      self.visible = visible;
-      if ( !visible ) { dropper.flowRateProperty.set( 0 ); }
-    } );
+      // visibility
+      dropper.visibleProperty.link( visible => {
+        this.visible = visible;
+        if ( !visible ) { dropper.flowRateProperty.set( 0 ); }
+      } );
 
-    // Change the label and color when the solute changes.
-    soluteProperty.link( function( solute ) {
+      // Change the label and color when the solute changes.
+      soluteProperty.link( solute => {
 
-      // fluid color
-      self.fluidColor = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
+        // fluid color
+        this.fluidColor = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
 
-      // label, centered in the dropper's glass
-      label.text = solute.formula;
+        // label, centered in the dropper's glass
+        label.text = solute.formula;
 
-      // rotate to vertical, center the label in the dropper's glass
-      label.rotation = -Math.PI / 2;
-      label.centerX = 0;
-      label.centerY = EyeDropperNode.GLASS_MAX_Y - ( EyeDropperNode.GLASS_MAX_Y - EyeDropperNode.GLASS_MIN_Y ) / 2;
+        // rotate to vertical, center the label in the dropper's glass
+        label.rotation = -Math.PI / 2;
+        label.centerX = 0;
+        label.centerY = EyeDropperNode.GLASS_MAX_Y - ( EyeDropperNode.GLASS_MAX_Y - EyeDropperNode.GLASS_MIN_Y ) / 2;
 
-      // translucent background for the label, so that it's visible on all solution colors
-      const width = 0.75 * EyeDropperNode.GLASS_WIDTH;
-      const height = 1.2 * label.height;
-      const x = label.centerX - ( width / 2 );
-      const y = label.centerY - ( height / 2 );
-      labelBackground.shape = Shape.roundRect( x, y, width, height, 5, 5 );
-    } );
+        // translucent background for the label, so that it's visible on all solution colors
+        const width = 0.75 * EyeDropperNode.GLASS_WIDTH;
+        const height = 1.2 * label.height;
+        const x = label.centerX - ( width / 2 );
+        const y = label.centerY - ( height / 2 );
+        labelBackground.shape = Shape.roundRect( x, y, width, height, 5, 5 );
+      } );
 
-    // dilate touch area
-    this.touchArea = this.localBounds.dilatedX( 0.25 * this.width );
+      // dilate touch area
+      this.touchArea = this.localBounds.dilatedX( 0.25 * this.width );
 
-    // move the dropper
-    const movableDragHandler = new MovableDragHandler( dropper.positionProperty, {
-      tandem: tandem.createTandem( 'movableDragHandler' ),
-      dragBounds: dropper.dragBounds,
-      modelViewTransform: modelViewTransform
-    } );
-    this.addInputListener( movableDragHandler );
+      // move the dropper
+      const movableDragHandler = new MovableDragHandler( dropper.positionProperty, {
+        tandem: tandem.createTandem( 'movableDragHandler' ),
+        dragBounds: dropper.dragBounds,
+        modelViewTransform: modelViewTransform
+      } );
+      this.addInputListener( movableDragHandler );
+    }
   }
 
-  beersLawLab.register( 'BLLDropperNode', BLLDropperNode );
-
-  return inherit( EyeDropperNode, BLLDropperNode );
+  return beersLawLab.register( 'BLLDropperNode', BLLDropperNode );
 } );

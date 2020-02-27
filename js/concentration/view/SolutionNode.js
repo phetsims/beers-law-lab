@@ -11,60 +11,57 @@ define( require => {
 
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
   const Utils = require( 'DOT/Utils' );
 
   // constants
   const MIN_NONZERO_HEIGHT = 5; // minimum height for a solution with non-zero volume, set by visual inspection
 
-  /**
-   * @param {ConcentrationSolution} solution
-   * @param {Beaker} beaker
-   * @param {ModelViewTransform2} modelViewTransform
-   * @constructor
-   */
-  function SolutionNode( solution, beaker, modelViewTransform ) {
+  class SolutionNode extends Rectangle {
 
-    const self = this;
-
-    Rectangle.call( this, 0, 0, 1, 1, { lineWidth: 1 } );
-
-    // @private
-    this.solution = solution;
-    this.beaker = beaker;
-
-    /*
-     * Updates the color of the solution, accounting for saturation.
-     * @param {Color} color
+    /**
+     * @param {ConcentrationSolution} solution
+     * @param {Beaker} beaker
+     * @param {ModelViewTransform2} modelViewTransform
      */
-    solution.colorProperty.link( function( color ) {
-      self.fill = color;
-      self.stroke = color.darkerColor();
-    } );
+    constructor( solution, beaker, modelViewTransform ) {
 
-    /*
-     * Updates the amount of stuff in the beaker, based on solution volume.
-     * @param {number} volume
-     */
-    const viewPosition = modelViewTransform.modelToViewPosition( beaker.position );
-    const viewWidth = modelViewTransform.modelToViewDeltaX( beaker.size.width );
-    solution.volumeProperty.link( function( volume ) {
+      super( 0, 0, 1, 1, { lineWidth: 1 } );
 
-      // determine dimensions in model coordinates
-      let solutionHeight = Utils.linear( 0, beaker.volume, 0, beaker.size.height, volume ); // volume -> height
-      if ( volume > 0 && solutionHeight < MIN_NONZERO_HEIGHT ) {
-        // constrain non-zero volume to minimum height, so that the solution is visible to the user and detectable by the concentration probe
-        solutionHeight = MIN_NONZERO_HEIGHT;
-      }
+      // @private
+      this.solution = solution;
+      this.beaker = beaker;
 
-      // convert to view coordinates and create shape
-      const viewHeight = modelViewTransform.modelToViewDeltaY( solutionHeight );
-      self.setRect( viewPosition.x - (viewWidth / 2), viewPosition.y - viewHeight, viewWidth, viewHeight );
-    } );
+      /*
+       * Updates the color of the solution, accounting for saturation.
+       * @param {Color} color
+       */
+      solution.colorProperty.link( color => {
+        this.fill = color;
+        this.stroke = color.darkerColor();
+      } );
+
+      /*
+       * Updates the amount of stuff in the beaker, based on solution volume.
+       * @param {number} volume
+       */
+      const viewPosition = modelViewTransform.modelToViewPosition( beaker.position );
+      const viewWidth = modelViewTransform.modelToViewDeltaX( beaker.size.width );
+      solution.volumeProperty.link( volume => {
+
+        // determine dimensions in model coordinates
+        let solutionHeight = Utils.linear( 0, beaker.volume, 0, beaker.size.height, volume ); // volume -> height
+        if ( volume > 0 && solutionHeight < MIN_NONZERO_HEIGHT ) {
+          // constrain non-zero volume to minimum height, so that the solution is visible to the user and detectable by the concentration probe
+          solutionHeight = MIN_NONZERO_HEIGHT;
+        }
+
+        // convert to view coordinates and create shape
+        const viewHeight = modelViewTransform.modelToViewDeltaY( solutionHeight );
+        this.setRect( viewPosition.x - ( viewWidth / 2 ), viewPosition.y - viewHeight, viewWidth, viewHeight );
+      } );
+    }
   }
 
-  beersLawLab.register( 'SolutionNode', SolutionNode );
-
-  return inherit( Rectangle, SolutionNode );
+  return beersLawLab.register( 'SolutionNode', SolutionNode );
 } );

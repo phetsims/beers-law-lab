@@ -10,7 +10,6 @@ define( require => {
 
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const merge = require( 'PHET_CORE/merge' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const TextPushButton = require( 'SUN/buttons/TextPushButton' );
@@ -18,39 +17,37 @@ define( require => {
   // strings
   const removeSoluteString = require( 'string!BEERS_LAW_LAB/removeSolute' );
 
-  /**
-   * @param {ConcentrationSolution} solution
-   * @param {ShakerParticles} shakerParticles
-   * @param {Tandem} tandem
-   * @param {Object} [options]
-   * @constructor
-   */
-  function RemoveSoluteButton( solution, shakerParticles, tandem, options ) {
+  class RemoveSoluteButton extends TextPushButton {
 
-    options = merge( {
-      baseColor: 'rgb(255,200,0)',
-      font: new PhetFont( 22 ),
-      textFill: 'black',
-      xMargin: 10,
-      tandem: tandem
-    }, options );
+    /**
+     * @param {ConcentrationSolution} solution
+     * @param {ShakerParticles} shakerParticles
+     * @param {Tandem} tandem
+     * @param {Object} [options]
+     */
+    constructor( solution, shakerParticles, tandem, options ) {
 
-    const self = this;
+      options = merge( {
+        baseColor: 'rgb(255,200,0)',
+        font: new PhetFont( 22 ),
+        textFill: 'black',
+        xMargin: 10,
+        tandem: tandem
+      }, options );
 
-    TextPushButton.call( this, removeSoluteString, options );
+      super( removeSoluteString, options );
 
-    this.addListener( function() {
-      solution.soluteAmountProperty.set( 0 );
-      shakerParticles.removeAllParticles();
-    } );
+      this.addListener( () => {
+        solution.soluteAmountProperty.set( 0 );
+        shakerParticles.removeAllParticles();
+      } );
 
-    // change the text fill to indicate whether the button is enabled
-    solution.soluteAmountProperty.link( function( soluteAmount ) {
-      self.enabled = ( soluteAmount > 0 );
-    } );
+      // change the text fill to indicate whether the button is enabled
+      solution.soluteAmountProperty.link( soluteAmount => {
+        this.enabled = ( soluteAmount > 0 );
+      } );
+    }
   }
 
-  beersLawLab.register( 'RemoveSoluteButton', RemoveSoluteButton );
-
-  return inherit( TextPushButton, RemoveSoluteButton );
+  return beersLawLab.register( 'RemoveSoluteButton', RemoveSoluteButton );
 } );

@@ -12,35 +12,38 @@ define( require => {
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const FaucetNode = require( 'SCENERY_PHET/FaucetNode' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const merge = require( 'PHET_CORE/merge' );
 
-  /**
-   * @param {Faucet} faucet
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
-   * @param {Object} [options]
-   * @constructor
-   */
-  function BLLFaucetNode( faucet, modelViewTransform, tandem, options ) {
-    const scale = 0.75;
-    const horizontalPipeLength = modelViewTransform.modelToViewX( faucet.position.x - faucet.pipeMinX ) / scale;
+  // constants
+  const SCALE = 0.75;
 
-    options = merge( {
-      horizontalPipeLength: horizontalPipeLength,
-      scale: scale,
-      tandem: tandem,
-      shooterOptions: {
-        touchAreaXDilation: 37,
-        touchAreaYDilation: 60
-      }
-    }, options );
+  class BLLFaucetNode extends FaucetNode {
 
-    FaucetNode.call( this, faucet.maxFlowRate, faucet.flowRateProperty, faucet.enabledProperty, options );
-    this.translation = modelViewTransform.modelToViewPosition( faucet.position );
+    /**
+     * @param {Faucet} faucet
+     * @param {ModelViewTransform2} modelViewTransform
+     * @param {Tandem} tandem
+     * @param {Object} [options]
+     */
+    constructor( faucet, modelViewTransform, tandem, options ) {
+
+      const horizontalPipeLength = modelViewTransform.modelToViewX( faucet.position.x - faucet.pipeMinX ) / SCALE;
+
+      options = merge( {
+        horizontalPipeLength: horizontalPipeLength,
+        scale: SCALE,
+        shooterOptions: {
+          touchAreaXDilation: 37,
+          touchAreaYDilation: 60
+        },
+        tandem: tandem
+      }, options );
+
+      super( faucet.maxFlowRate, faucet.flowRateProperty, faucet.enabledProperty, options );
+
+      this.translation = modelViewTransform.modelToViewPosition( faucet.position );
+    }
   }
 
-  beersLawLab.register( 'BLLFaucetNode', BLLFaucetNode );
-
-  return inherit( FaucetNode, BLLFaucetNode );
+  return beersLawLab.register( 'BLLFaucetNode', BLLFaucetNode );
 } );

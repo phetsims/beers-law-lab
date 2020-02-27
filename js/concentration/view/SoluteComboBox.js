@@ -23,12 +23,12 @@ define( require => {
   const soluteString = require( 'string!BEERS_LAW_LAB/solute' );
 
   class SoluteComboBox extends ComboBox {
+
     /**
      * @param {Solute[]} solutes
      * @param {Property.<Solute>} selectedSoluteProperty
      * @param {Node} soluteListParent
      * @param {Tandem} tandem
-     * @constructor
      */
     constructor( solutes, selectedSoluteProperty, soluteListParent, tandem ) {
 
@@ -51,14 +51,12 @@ define( require => {
     }
   }
 
-  beersLawLab.register( 'SoluteComboBox', SoluteComboBox );
-
   /**
    * Creates an item for the combo box.
    * @param {Solute} solute
    * @returns {ComboBoxItem}
    */
-  const createItem = function( solute ) {
+  function createItem( solute ) {
 
     const colorNode = new Rectangle( 0, 0, 20, 20, {
       fill: solute.colorScheme.maxColor,
@@ -77,7 +75,7 @@ define( require => {
     return new ComboBoxItem( hBox, solute, {
       tandemName: solute.tandemName
     } );
-  };
+  }
 
-  return SoluteComboBox;
+  return beersLawLab.register( 'SoluteComboBox', SoluteComboBox );
 } );

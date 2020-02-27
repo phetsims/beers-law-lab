@@ -12,7 +12,6 @@ define( require => {
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const BLLQueryParameters = require( 'BEERS_LAW_LAB/common/BLLQueryParameters' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Path = require( 'SCENERY/nodes/Path' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
@@ -37,83 +36,83 @@ define( require => {
   const MAJOR_TICK_VALUES_MILLILITERS = [ '500', '1000' ]; // 500 mL, 1000 mL
   assert && assert( MAJOR_TICK_VALUES_LITERS.length === MAJOR_TICK_VALUES_MILLILITERS.length );
 
-  /**
-   * @param {Beaker} beaker
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
-   * @constructor
-   */
-  function BeakerNode( beaker, modelViewTransform, tandem ) {
+  class BeakerNode extends Node {
 
-    Node.call( this, { pickable: false, tandem: tandem } );
+    /**
+     * @param {Beaker} beaker
+     * @param {ModelViewTransform2} modelViewTransform
+     * @param {Tandem} tandem
+     */
+    constructor( beaker, modelViewTransform, tandem ) {
 
-    // outline of the beaker, starting from upper left
-    const width = modelViewTransform.modelToViewDeltaX( beaker.size.width );
-    const height = modelViewTransform.modelToViewDeltaY( beaker.size.height );
-    const outlineShape = new Shape()
-      .moveTo( -( width / 2 ) - RIM_OFFSET, -height - RIM_OFFSET )
-      .lineTo( -( width / 2 ), -height )
-      .lineTo( -( width / 2 ), 0 )
-      .lineTo( width / 2, 0 )
-      .lineTo( width / 2, -height )
-      .lineTo( ( width / 2 ) + RIM_OFFSET, -height - RIM_OFFSET );
-    this.addChild( new Path( outlineShape, {
-      stroke: 'black',
-      lineWidth: 3,
-      lineCap: 'round',
-      lineJoin: 'round'
-    } ) );
+      super( { pickable: false, tandem: tandem } );
 
-    // horizontal tick marks, left edge, from bottom up
-    const ticksParent = new Node();
-    this.addChild( ticksParent );
-    const numberOfTicks = Utils.roundSymmetric( beaker.volume / MINOR_TICK_SPACING );
-    const deltaY = height / numberOfTicks;
-    for ( let i = 1; i <= numberOfTicks; i++ ) {
+      // outline of the beaker, starting from upper left
+      const width = modelViewTransform.modelToViewDeltaX( beaker.size.width );
+      const height = modelViewTransform.modelToViewDeltaY( beaker.size.height );
+      const outlineShape = new Shape()
+        .moveTo( -( width / 2 ) - RIM_OFFSET, -height - RIM_OFFSET )
+        .lineTo( -( width / 2 ), -height )
+        .lineTo( -( width / 2 ), 0 )
+        .lineTo( width / 2, 0 )
+        .lineTo( width / 2, -height )
+        .lineTo( ( width / 2 ) + RIM_OFFSET, -height - RIM_OFFSET );
+      this.addChild( new Path( outlineShape, {
+        stroke: 'black',
+        lineWidth: 3,
+        lineCap: 'round',
+        lineJoin: 'round'
+      } ) );
 
-      // tick
-      const isMajorTick = ( i % MINOR_TICKS_PER_MAJOR_TICK === 0 );
-      const y = -( i * deltaY );
-      const leftX = -width / 2;
-      const rightX = leftX + ( isMajorTick ? MAJOR_TICK_LENGTH : MINOR_TICK_LENGTH );
-      const tickShape = new Shape().moveTo( leftX, y ).lineTo( rightX, y );
-      const tickPath = new Path( tickShape,
-        {
-          stroke: 'black',
-          lineWidth: 2,
-          lineCap: 'butt',
-          lineJoin: 'bevel'
-        } );
-      ticksParent.addChild( tickPath );
+      // horizontal tick marks, left edge, from bottom up
+      const ticksParent = new Node();
+      this.addChild( ticksParent );
+      const numberOfTicks = Utils.roundSymmetric( beaker.volume / MINOR_TICK_SPACING );
+      const deltaY = height / numberOfTicks;
+      for ( let i = 1; i <= numberOfTicks; i++ ) {
 
-      // major tick label
-      if ( isMajorTick ) {
-        const labelIndex = ( i / MINOR_TICKS_PER_MAJOR_TICK ) - 1;
-        if ( labelIndex < MAJOR_TICK_VALUES_LITERS.length ) {
+        // tick
+        const isMajorTick = ( i % MINOR_TICKS_PER_MAJOR_TICK === 0 );
+        const y = -( i * deltaY );
+        const leftX = -width / 2;
+        const rightX = leftX + ( isMajorTick ? MAJOR_TICK_LENGTH : MINOR_TICK_LENGTH );
+        const tickShape = new Shape().moveTo( leftX, y ).lineTo( rightX, y );
+        const tickPath = new Path( tickShape,
+          {
+            stroke: 'black',
+            lineWidth: 2,
+            lineCap: 'butt',
+            lineJoin: 'bevel'
+          } );
+        ticksParent.addChild( tickPath );
 
-          // display ticks in liters or milliliters, see beers-law-lab#150
-          const label = ( BLLQueryParameters.beakerUnits === 'liters' ) ?
-                      StringUtils.format( pattern0Value1UnitsString, MAJOR_TICK_VALUES_LITERS[ labelIndex ], unitsLitersString ) :
-                      StringUtils.format( pattern0Value1UnitsString, MAJOR_TICK_VALUES_MILLILITERS[ labelIndex ], unitsMillilitersString );
+        // major tick label
+        if ( isMajorTick ) {
+          const labelIndex = ( i / MINOR_TICKS_PER_MAJOR_TICK ) - 1;
+          if ( labelIndex < MAJOR_TICK_VALUES_LITERS.length ) {
 
-          ticksParent.addChild( new Text( label, {
-            tandem: tandem.createTandem( 'tickLabel' + labelIndex ),
-            font: new PhetFont( 24 ),
-            fill: 'black',
-            x: rightX + TICK_LABEL_X_SPACING,
-            centerY: tickPath.centerY,
-            maxWidth: 0.25 * beaker.size.width // constrain width for i18n
-          } ) );
+            // display ticks in liters or milliliters, see beers-law-lab#150
+            const label = ( BLLQueryParameters.beakerUnits === 'liters' ) ?
+                          StringUtils.format( pattern0Value1UnitsString, MAJOR_TICK_VALUES_LITERS[ labelIndex ], unitsLitersString ) :
+                          StringUtils.format( pattern0Value1UnitsString, MAJOR_TICK_VALUES_MILLILITERS[ labelIndex ], unitsMillilitersString );
+
+            ticksParent.addChild( new Text( label, {
+              tandem: tandem.createTandem( 'tickLabel' + labelIndex ),
+              font: new PhetFont( 24 ),
+              fill: 'black',
+              x: rightX + TICK_LABEL_X_SPACING,
+              centerY: tickPath.centerY,
+              maxWidth: 0.25 * beaker.size.width // constrain width for i18n
+            } ) );
+          }
         }
       }
-    }
 
-    const position = modelViewTransform.modelToViewPosition( beaker.position );
-    this.x = position.x;
-    this.y = position.y;
+      const position = modelViewTransform.modelToViewPosition( beaker.position );
+      this.x = position.x;
+      this.y = position.y;
+    }
   }
 
-  beersLawLab.register( 'BeakerNode', BeakerNode );
-
-  return inherit( Node, BeakerNode );
+  return beersLawLab.register( 'BeakerNode', BeakerNode );
 } );

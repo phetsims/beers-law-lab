@@ -35,8 +35,9 @@ define( require => {
     constructor( light, solutionProperty, cuvette ) {
 
       // @private a : molar absorptivity
-      this.molarAbsorptivityProperty = new DerivedProperty( [ solutionProperty, light.wavelengthProperty ],
-        function( solution, wavelength ) {
+      this.molarAbsorptivityProperty = new DerivedProperty(
+        [ solutionProperty, light.wavelengthProperty ],
+        ( solution, wavelength ) => {
           return solution.molarAbsorptivityData.wavelengthToMolarAbsorptivity( wavelength );
         } );
 

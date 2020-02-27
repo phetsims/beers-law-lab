@@ -60,16 +60,16 @@ define( require => {
         tandem: tandem
       } );
 
-      soluteFormProperty.link( function( soluteForm ) {
+      soluteFormProperty.link( soluteForm => {
         shaker.visibleProperty.set( soluteForm === 'solid' );
         dropper.visibleProperty.set( soluteForm === 'solution' );
       } );
 
-      shaker.visibleProperty.link( function( visible ) {
+      shaker.visibleProperty.link( visible => {
         soluteFormProperty.set( visible ? 'solid' : 'solution' );
       } );
 
-      dropper.visibleProperty.link( function( visible ) {
+      dropper.visibleProperty.link( visible => {
         soluteFormProperty.set( visible ? 'solution' : 'solid' );
       } );
     }

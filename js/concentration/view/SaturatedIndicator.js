@@ -11,7 +11,6 @@ define( require => {
 
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const Node = require( 'SCENERY/nodes/Node' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const Rectangle = require( 'SCENERY/nodes/Rectangle' );
@@ -20,37 +19,35 @@ define( require => {
   // strings
   const saturatedString = require( 'string!BEERS_LAW_LAB/saturated' );
 
-  /**
-   * @param {ConcentrationSolution} solution
-   * @constructor
-   */
-  function SaturatedIndicator( solution ) {
+  class SaturatedIndicator extends Node {
 
-    const self = this;
-    
-    Node.call( this );
+    /**
+     * @param {ConcentrationSolution} solution
+     */
+    constructor( solution ) {
 
-    const label = new Text( saturatedString, { font: new PhetFont( 20 ), maxWidth: 400 } );
+      super();
 
-    // translucent light-gray background, so this shows up on all solution colors
-    const background = new Rectangle( 0, 0, 1.2 * label.width, 1.2 * label.height, 8, 8,
-      { fill: 'rgba( 240, 240, 240, 0.6 )' } );
+      const label = new Text( saturatedString, { font: new PhetFont( 20 ), maxWidth: 400 } );
 
-    // rendering order
-    this.addChild( background );
-    this.addChild( label );
+      // translucent light-gray background, so this shows up on all solution colors
+      const background = new Rectangle( 0, 0, 1.2 * label.width, 1.2 * label.height, 8, 8,
+        { fill: 'rgba( 240, 240, 240, 0.6 )' } );
 
-    // layout
-    label.centerX = background.centerX;
-    label.centerY = background.centerY;
+      // rendering order
+      this.addChild( background );
+      this.addChild( label );
 
-    // make this node visible when the solution is saturated
-    solution.saturatedProperty.link( function( saturated ) {
-      self.setVisible( saturated );
-    } );
+      // layout
+      label.centerX = background.centerX;
+      label.centerY = background.centerY;
+
+      // make this node visible when the solution is saturated
+      solution.saturatedProperty.link( saturated => {
+        this.setVisible( saturated );
+      } );
+    }
   }
 
-  beersLawLab.register( 'SaturatedIndicator', SaturatedIndicator );
-
-  return inherit( Node, SaturatedIndicator );
+  return beersLawLab.register( 'SaturatedIndicator', SaturatedIndicator );
 } );

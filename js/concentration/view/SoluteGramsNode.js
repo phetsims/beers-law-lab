@@ -10,7 +10,6 @@ define( require => {
 
   // modules
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const merge = require( 'PHET_CORE/merge' );
   const PhetFont = require( 'SCENERY_PHET/PhetFont' );
   const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
@@ -23,27 +22,25 @@ define( require => {
   // constants
   const DECIMAL_PLACES = 0;
 
-  /**
-   * @param {Property.<number>} soluteGramsProperty - grams of solute
-   * @param {Object} [options]
-   * @constructor
-   */
-  function SoluteGramsNode( soluteGramsProperty, options ) {
+  class SoluteGramsNode extends Text {
 
-    options = merge( {
-      font: new PhetFont( 22 )
-    }, options );
+    /**
+     * @param {Property.<number>} soluteGramsProperty - grams of solute
+     * @param {Object} [options]
+     */
+    constructor( soluteGramsProperty, options ) {
 
-    const self = this;
+      options = merge( {
+        font: new PhetFont( 22 )
+      }, options );
 
-    Text.call( this, '', options );
+      super( '', options );
 
-    soluteGramsProperty.link( function( soluteGrams ) {
-      self.text = StringUtils.format( pattern0SoluteAmountString, Utils.toFixed( soluteGrams, DECIMAL_PLACES ) );
-    } );
+      soluteGramsProperty.link( soluteGrams => {
+        this.text = StringUtils.format( pattern0SoluteAmountString, Utils.toFixed( soluteGrams, DECIMAL_PLACES ) );
+      } );
+    }
   }
 
-  beersLawLab.register( 'SoluteGramsNode', SoluteGramsNode );
-
-  return inherit( Text, SoluteGramsNode );
+  return beersLawLab.register( 'SoluteGramsNode', SoluteGramsNode );
 } );

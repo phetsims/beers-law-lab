@@ -12,7 +12,6 @@ define( require => {
   const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
   const Dimension2 = require( 'DOT/Dimension2' );
   const HSlider = require( 'SUN/HSlider' );
-  const inherit = require( 'PHET_CORE/inherit' );
   const merge = require( 'PHET_CORE/merge' );
   const Node = require( 'SCENERY/nodes/Node' );
   const Panel = require( 'SUN/Panel' );
@@ -27,48 +26,50 @@ define( require => {
   const noneString = require( 'string!BEERS_LAW_LAB/none' );
   const pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
 
-  /**
-   * @param {Evaporator} evaporator
-   * @param {Tandem} tandem
-   * @param {Object} [options]
-   * @constructor
-   */
-  function EvaporationControl( evaporator, tandem, options ) {
+  class EvaporationControl extends Panel {
 
-    options = merge( {
-      xMargin: 15,
-      yMargin: 8,
-      fill: '#F0F0F0',
-      stroke: 'gray',
-      lineWidth: 1,
-      tandem: tandem
-    }, options );
+    /**
+     * @param {Evaporator} evaporator
+     * @param {Tandem} tandem
+     * @param {Object} [options]
+     */
+    constructor( evaporator, tandem, options ) {
 
-    const label = new Text( StringUtils.format( pattern0LabelString, evaporationString ), { font: new PhetFont( 22 ) } );
+      options = merge( {
+        xMargin: 15,
+        yMargin: 8,
+        fill: '#F0F0F0',
+        stroke: 'gray',
+        lineWidth: 1,
+        tandem: tandem
+      }, options );
 
-    const slider = new HSlider( evaporator.evaporationRateProperty, new Range( 0, evaporator.maxEvaporationRate ), {
-      trackSize: new Dimension2( 150, 6 ),
-      thumbSize: new Dimension2( 22, 45 ),
-      enabledProperty: evaporator.enabledProperty,
-      endDrag: function() { evaporator.evaporationRateProperty.set( 0 ); },  // at end of drag, snap evaporation rate back to zero
-      tandem: tandem.createTandem( 'slider' )
-    } );
+      const label = new Text( StringUtils.format( pattern0LabelString, evaporationString ), { font: new PhetFont( 22 ) } );
 
-    const tickFont = new PhetFont( 16 );
-    slider.addMajorTick( 0, new Text( noneString, { font: tickFont } ) );
-    slider.addMajorTick( evaporator.maxEvaporationRate, new Text( lotsString, { font: tickFont } ) );
+      const slider = new HSlider( evaporator.evaporationRateProperty, new Range( 0, evaporator.maxEvaporationRate ), {
+        trackSize: new Dimension2( 150, 6 ),
+        thumbSize: new Dimension2( 22, 45 ),
+        enabledProperty: evaporator.enabledProperty,
 
-    const content = new Node();
-    content.addChild( label );
-    content.addChild( slider );
+        // at end of drag, snap evaporation rate back to zero
+        endDrag: () => evaporator.evaporationRateProperty.set( 0 ),
+        tandem: tandem.createTandem( 'slider' )
+      } );
 
-    slider.left = label.right + 10;
-    slider.centerY = label.centerY;
+      const tickFont = new PhetFont( 16 );
+      slider.addMajorTick( 0, new Text( noneString, { font: tickFont } ) );
+      slider.addMajorTick( evaporator.maxEvaporationRate, new Text( lotsString, { font: tickFont } ) );
 
-    Panel.call( this, content, options );
+      const content = new Node();
+      content.addChild( label );
+      content.addChild( slider );
+
+      slider.left = label.right + 10;
+      slider.centerY = label.centerY;
+
+      super( content, options );
+    }
   }
 
-  beersLawLab.register( 'EvaporationControl', EvaporationControl );
-
-  return inherit( Panel, EvaporationControl );
+  return beersLawLab.register( 'EvaporationControl', EvaporationControl );
 } );
