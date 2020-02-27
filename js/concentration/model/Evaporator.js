@@ -5,56 +5,53 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const BooleanProperty = require( 'AXON/BooleanProperty' );
-  const NumberProperty = require( 'AXON/NumberProperty' );
+import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import beersLawLab from '../../beersLawLab.js';
 
-  class Evaporator {
+class Evaporator {
 
-    /**
-     * @param {number} maxEvaporationRate L/sec
-     * @param {ConcentrationSolution} solution
-     * @param {Tandem} tandem
-     */
-    constructor( maxEvaporationRate, solution, tandem ) {
+  /**
+   * @param {number} maxEvaporationRate L/sec
+   * @param {ConcentrationSolution} solution
+   * @param {Tandem} tandem
+   */
+  constructor( maxEvaporationRate, solution, tandem ) {
 
-      this.maxEvaporationRate = maxEvaporationRate; // @public (read-only) L/sec
-
-      // @public
-      this.evaporationRateProperty = new NumberProperty( 0, {
-        tandem: tandem.createTandem( 'evaporationRateProperty' ),
-        units: 'liters/second'
-      } );
-
-      // @public
-      this.enabledProperty = new BooleanProperty( true, {
-        tandem: tandem.createTandem( 'enabledProperty' ),
-        phetioFeatured: true
-      } );
-
-      // disable when the volume gets to zero
-      solution.volumeProperty.link( volume => {
-        this.enabledProperty.set( volume > 0 );
-      } );
-
-      // when disabled, set the rate to zero
-      this.enabledProperty.link( enabled => {
-        if ( !enabled ) {
-          this.evaporationRateProperty.set( 0 );
-        }
-      } );
-    }
+    this.maxEvaporationRate = maxEvaporationRate; // @public (read-only) L/sec
 
     // @public
-    reset() {
-      this.evaporationRateProperty.reset();
-      this.enabledProperty.reset();
-    }
+    this.evaporationRateProperty = new NumberProperty( 0, {
+      tandem: tandem.createTandem( 'evaporationRateProperty' ),
+      units: 'liters/second'
+    } );
+
+    // @public
+    this.enabledProperty = new BooleanProperty( true, {
+      tandem: tandem.createTandem( 'enabledProperty' ),
+      phetioFeatured: true
+    } );
+
+    // disable when the volume gets to zero
+    solution.volumeProperty.link( volume => {
+      this.enabledProperty.set( volume > 0 );
+    } );
+
+    // when disabled, set the rate to zero
+    this.enabledProperty.link( enabled => {
+      if ( !enabled ) {
+        this.evaporationRateProperty.set( 0 );
+      }
+    } );
   }
 
-  return beersLawLab.register( 'Evaporator', Evaporator );
-} );
+  // @public
+  reset() {
+    this.evaporationRateProperty.reset();
+    this.enabledProperty.reset();
+  }
+}
+
+beersLawLab.register( 'Evaporator', Evaporator );
+export default Evaporator;

@@ -5,34 +5,31 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const Path = require( 'SCENERY/nodes/Path' );
+import Path from '../../../../scenery/js/nodes/Path.js';
+import beersLawLab from '../../beersLawLab.js';
 
-  class BeamNode extends Path {
+class BeamNode extends Path {
 
-    /**
-     * @param {Beam} beam
-     */
-    constructor( beam ) {
+  /**
+   * @param {Beam} beam
+   */
+  constructor( beam ) {
 
-      super( null, { stroke: 'rgba( 192, 192, 192, 0.8 )', lineWidth: 0.5, pickable: false } );
+    super( null, { stroke: 'rgba( 192, 192, 192, 0.8 )', lineWidth: 0.5, pickable: false } );
 
-      // shape
-      beam.shapeProperty.link( shape => this.setShape( shape ) );
+    // shape
+    beam.shapeProperty.link( shape => this.setShape( shape ) );
 
-      // fill
-      beam.fillProperty.link( fill => {
-        this.fill = fill;
-      } );
+    // fill
+    beam.fillProperty.link( fill => {
+      this.fill = fill;
+    } );
 
-      // visibility
-      beam.visibleProperty.link( visible => this.setVisible( visible ) );
-    }
+    // visibility
+    beam.visibleProperty.link( visible => this.setVisible( visible ) );
   }
+}
 
-  return beersLawLab.register( 'BeamNode', BeamNode );
-} );
+beersLawLab.register( 'BeamNode', BeamNode );
+export default BeamNode;

@@ -5,49 +5,46 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const merge = require( 'PHET_CORE/merge' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  const TextPushButton = require( 'SUN/buttons/TextPushButton' );
+import merge from '../../../../phet-core/js/merge.js';
+import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import TextPushButton from '../../../../sun/js/buttons/TextPushButton.js';
+import beersLawLabStrings from '../../beers-law-lab-strings.js';
+import beersLawLab from '../../beersLawLab.js';
 
-  // strings
-  const removeSoluteString = require( 'string!BEERS_LAW_LAB/removeSolute' );
+const removeSoluteString = beersLawLabStrings.removeSolute;
 
-  class RemoveSoluteButton extends TextPushButton {
+class RemoveSoluteButton extends TextPushButton {
 
-    /**
-     * @param {ConcentrationSolution} solution
-     * @param {ShakerParticles} shakerParticles
-     * @param {Tandem} tandem
-     * @param {Object} [options]
-     */
-    constructor( solution, shakerParticles, tandem, options ) {
+  /**
+   * @param {ConcentrationSolution} solution
+   * @param {ShakerParticles} shakerParticles
+   * @param {Tandem} tandem
+   * @param {Object} [options]
+   */
+  constructor( solution, shakerParticles, tandem, options ) {
 
-      options = merge( {
-        baseColor: 'rgb(255,200,0)',
-        font: new PhetFont( 22 ),
-        textFill: 'black',
-        xMargin: 10,
-        tandem: tandem
-      }, options );
+    options = merge( {
+      baseColor: 'rgb(255,200,0)',
+      font: new PhetFont( 22 ),
+      textFill: 'black',
+      xMargin: 10,
+      tandem: tandem
+    }, options );
 
-      super( removeSoluteString, options );
+    super( removeSoluteString, options );
 
-      this.addListener( () => {
-        solution.soluteAmountProperty.set( 0 );
-        shakerParticles.removeAllParticles();
-      } );
+    this.addListener( () => {
+      solution.soluteAmountProperty.set( 0 );
+      shakerParticles.removeAllParticles();
+    } );
 
-      // change the text fill to indicate whether the button is enabled
-      solution.soluteAmountProperty.link( soluteAmount => {
-        this.enabled = ( soluteAmount > 0 );
-      } );
-    }
+    // change the text fill to indicate whether the button is enabled
+    solution.soluteAmountProperty.link( soluteAmount => {
+      this.enabled = ( soluteAmount > 0 );
+    } );
   }
+}
 
-  return beersLawLab.register( 'RemoveSoluteButton', RemoveSoluteButton );
-} );
+beersLawLab.register( 'RemoveSoluteButton', RemoveSoluteButton );
+export default RemoveSoluteButton;

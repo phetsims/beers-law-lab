@@ -6,41 +6,38 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const merge = require( 'PHET_CORE/merge' );
-  const Tandem = require( 'TANDEM/Tandem' );
-  const Vector2Property = require( 'DOT/Vector2Property' );
+import Vector2Property from '../../../../dot/js/Vector2Property.js';
+import merge from '../../../../phet-core/js/merge.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
+import beersLawLab from '../../beersLawLab.js';
 
-  class Movable {
+class Movable {
 
-    /**
-     * @param {Vector2} position
-     * @param {Bounds2} dragBounds
-     * @param {Object} [options]
-     */
-    constructor( position, dragBounds, options ) {
+  /**
+   * @param {Vector2} position
+   * @param {Bounds2} dragBounds
+   * @param {Object} [options]
+   */
+  constructor( position, dragBounds, options ) {
 
-      options = merge( {
-        tandem: Tandem.REQUIRED
-      }, options );
-
-      // @public
-      this.positionProperty = new Vector2Property( position, {
-        tandem: options.tandem.createTandem( 'positionProperty' )
-      } );
-
-      this.dragBounds = dragBounds; // @public (read-only)
-    }
+    options = merge( {
+      tandem: Tandem.REQUIRED
+    }, options );
 
     // @public
-    reset() {
-      this.positionProperty.reset();
-    }
+    this.positionProperty = new Vector2Property( position, {
+      tandem: options.tandem.createTandem( 'positionProperty' )
+    } );
+
+    this.dragBounds = dragBounds; // @public (read-only)
   }
 
-  return beersLawLab.register( 'Movable', Movable );
-} );
+  // @public
+  reset() {
+    this.positionProperty.reset();
+  }
+}
+
+beersLawLab.register( 'Movable', Movable );
+export default Movable;

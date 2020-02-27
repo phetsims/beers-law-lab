@@ -5,45 +5,41 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const ConcentrationModel = require( 'BEERS_LAW_LAB/concentration/model/ConcentrationModel' );
-  const ConcentrationScreenView = require( 'BEERS_LAW_LAB/concentration/view/ConcentrationScreenView' );
-  const Image = require( 'SCENERY/nodes/Image' );
-  const ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  const Screen = require( 'JOIST/Screen' );
+import Screen from '../../../joist/js/Screen.js';
+import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
+import Image from '../../../scenery/js/nodes/Image.js';
+import screenIcon from '../../images/Concentration-screen-icon_jpg.js';
+import beersLawLabStrings from '../beers-law-lab-strings.js';
+import beersLawLab from '../beersLawLab.js';
+import ConcentrationModel from './model/ConcentrationModel.js';
+import ConcentrationScreenView from './view/ConcentrationScreenView.js';
 
-  // strings
-  const screenConcentrationString = require( 'string!BEERS_LAW_LAB/screen.concentration' );
+const screenConcentrationString = beersLawLabStrings.screen.concentration;
 
-  // images
-  const screenIcon = require( 'image!BEERS_LAW_LAB/Concentration-screen-icon.jpg' );
 
-  class ConcentrationScreen extends Screen {
+class ConcentrationScreen extends Screen {
 
-    /**
-     * @param {Tandem} tandem
-     */
-    constructor( tandem ) {
+  /**
+   * @param {Tandem} tandem
+   */
+  constructor( tandem ) {
 
-      const modelViewTransform = ModelViewTransform2.createIdentity();
+    const modelViewTransform = ModelViewTransform2.createIdentity();
 
-      const options = {
-        name: screenConcentrationString,
-        homeScreenIcon: new Image( screenIcon ),
-        tandem: tandem
-      };
+    const options = {
+      name: screenConcentrationString,
+      homeScreenIcon: new Image( screenIcon ),
+      tandem: tandem
+    };
 
-      super(
-        () => new ConcentrationModel( { tandem: tandem.createTandem( 'model' ) } ),
-        model => new ConcentrationScreenView( model, modelViewTransform, tandem.createTandem( 'view' ) ),
-        options
-      );
-    }
+    super(
+      () => new ConcentrationModel( { tandem: tandem.createTandem( 'model' ) } ),
+      model => new ConcentrationScreenView( model, modelViewTransform, tandem.createTandem( 'view' ) ),
+      options
+    );
   }
+}
 
-  return beersLawLab.register( 'ConcentrationScreen', ConcentrationScreen );
-} );
+beersLawLab.register( 'ConcentrationScreen', ConcentrationScreen );
+export default ConcentrationScreen;

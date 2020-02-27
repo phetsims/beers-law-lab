@@ -5,81 +5,78 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const ComboBox = require( 'SUN/ComboBox' );
-  const ComboBoxItem = require( 'SUN/ComboBoxItem' );
-  const HBox = require( 'SCENERY/nodes/HBox' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  const Rectangle = require( 'SCENERY/nodes/Rectangle' );
-  const RichText = require( 'SCENERY/nodes/RichText' );
-  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  const Text = require( 'SCENERY/nodes/Text' );
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import HBox from '../../../../scenery/js/nodes/HBox.js';
+import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
+import RichText from '../../../../scenery/js/nodes/RichText.js';
+import Text from '../../../../scenery/js/nodes/Text.js';
+import ComboBox from '../../../../sun/js/ComboBox.js';
+import ComboBoxItem from '../../../../sun/js/ComboBoxItem.js';
+import beersLawLabStrings from '../../beers-law-lab-strings.js';
+import beersLawLab from '../../beersLawLab.js';
 
-  // strings
-  const pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
-  const solutionString = require( 'string!BEERS_LAW_LAB/solution' );
+const pattern0LabelString = beersLawLabStrings.pattern[ '0label' ];
+const solutionString = beersLawLabStrings.solution;
 
-  class SolutionComboBox extends ComboBox {
-
-    /**
-     * @param {BeersLawSolution[]} solutions
-     * @param {Property.<BeersLawSolution>} selectedSolutionProperty
-     * @param {Node} solutionListParent
-     * @param {Tandem} tandem
-     * @constructor
-     */
-    constructor( solutions, selectedSolutionProperty, solutionListParent, tandem ) {
-
-      // 'Solution' label
-      const label = new Text( StringUtils.format( pattern0LabelString, solutionString ), { font: new PhetFont( 20 ) } );
-
-      // items
-      const items = solutions.map( solution => createItem( solution, tandem ) );
-
-      super( items, selectedSolutionProperty, solutionListParent, {
-        labelNode: label,
-        listPosition: 'above',
-        xMargin: 12,
-        yMargin: 12,
-        highlightFill: 'rgb( 218, 255, 255 )',
-        cornerRadius: 8,
-        tandem: tandem
-      } );
-    }
-  }
+class SolutionComboBox extends ComboBox {
 
   /**
-   * Creates a combo box item.
-   * @private
-   * @param {BeersLawSolution} solution
+   * @param {BeersLawSolution[]} solutions
+   * @param {Property.<BeersLawSolution>} selectedSolutionProperty
+   * @param {Node} solutionListParent
    * @param {Tandem} tandem
-   * @returns {ComboBoxItem}
+   * @constructor
    */
-  function createItem( solution, tandem ) {
+  constructor( solutions, selectedSolutionProperty, solutionListParent, tandem ) {
 
-    const colorSquare = new Rectangle( 0, 0, 20, 20, {
-      fill: solution.saturatedColor,
-      stroke: solution.saturatedColor.darkerColor()
-    } );
+    // 'Solution' label
+    const label = new Text( StringUtils.format( pattern0LabelString, solutionString ), { font: new PhetFont( 20 ) } );
 
-    const solutionName = new RichText( solution.getDisplayName(), {
-      font: new PhetFont( 20 ),
-      tandem: tandem.createTandem( solution.tandemName + 'Text' )
-    } );
+    // items
+    const items = solutions.map( solution => createItem( solution, tandem ) );
 
-    const hBox = new HBox( {
-      spacing: 5,
-      children: [ colorSquare, solutionName ]
-    } );
-
-    return new ComboBoxItem( hBox, solution, {
-      tandemName: solution.tandemName
+    super( items, selectedSolutionProperty, solutionListParent, {
+      labelNode: label,
+      listPosition: 'above',
+      xMargin: 12,
+      yMargin: 12,
+      highlightFill: 'rgb( 218, 255, 255 )',
+      cornerRadius: 8,
+      tandem: tandem
     } );
   }
+}
 
-  return beersLawLab.register( 'SolutionComboBox', SolutionComboBox );
-} );
+/**
+ * Creates a combo box item.
+ * @private
+ * @param {BeersLawSolution} solution
+ * @param {Tandem} tandem
+ * @returns {ComboBoxItem}
+ */
+function createItem( solution, tandem ) {
+
+  const colorSquare = new Rectangle( 0, 0, 20, 20, {
+    fill: solution.saturatedColor,
+    stroke: solution.saturatedColor.darkerColor()
+  } );
+
+  const solutionName = new RichText( solution.getDisplayName(), {
+    font: new PhetFont( 20 ),
+    tandem: tandem.createTandem( solution.tandemName + 'Text' )
+  } );
+
+  const hBox = new HBox( {
+    spacing: 5,
+    children: [ colorSquare, solutionName ]
+  } );
+
+  return new ComboBoxItem( hBox, solution, {
+    tandemName: solution.tandemName
+  } );
+}
+
+beersLawLab.register( 'SolutionComboBox', SolutionComboBox );
+export default SolutionComboBox;

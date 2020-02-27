@@ -5,42 +5,39 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+import beersLawLab from '../../beersLawLab.js';
 
-  class Beaker {
+class Beaker {
 
-    /**
-     * @param {Vector2} position bottom center
-     * @param {Dimension2} size
-     * @param {number} volume in liters (L)
-     */
-    constructor( position, size, volume ) {
+  /**
+   * @param {Vector2} position bottom center
+   * @param {Dimension2} size
+   * @param {number} volume in liters (L)
+   */
+  constructor( position, size, volume ) {
 
-      // @public (read-only)
-      this.position = position;
-      this.size = size;
-      this.volume = volume;
-    }
-
-    // @public
-    reset() {
-      // currently nothing to reset
-    }
-
-    // @public Gets the x-coordinate of the left wall.
-    getLeft() {
-      return this.position.x - ( this.size.width / 2 );
-    }
-
-    // @public Gets the x-coordinate of the right wall.
-    getRight() {
-      return this.position.x + ( this.size.width / 2 );
-    }
+    // @public (read-only)
+    this.position = position;
+    this.size = size;
+    this.volume = volume;
   }
 
-  return beersLawLab.register( 'Beaker', Beaker );
-} );
+  // @public
+  reset() {
+    // currently nothing to reset
+  }
+
+  // @public Gets the x-coordinate of the left wall.
+  getLeft() {
+    return this.position.x - ( this.size.width / 2 );
+  }
+
+  // @public Gets the x-coordinate of the right wall.
+  getRight() {
+    return this.position.x + ( this.size.width / 2 );
+  }
+}
+
+beersLawLab.register( 'Beaker', Beaker );
+export default Beaker;

@@ -7,35 +7,32 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const merge = require( 'PHET_CORE/merge' );
-  const PrecipitateParticleIO = require( 'BEERS_LAW_LAB/concentration/model/PrecipitateParticleIO' );
-  const SoluteParticle = require( 'BEERS_LAW_LAB/concentration/model/SoluteParticle' );
+import merge from '../../../../phet-core/js/merge.js';
+import beersLawLab from '../../beersLawLab.js';
+import PrecipitateParticleIO from './PrecipitateParticleIO.js';
+import SoluteParticle from './SoluteParticle.js';
 
-  class PrecipitateParticle extends SoluteParticle {
+class PrecipitateParticle extends SoluteParticle {
 
-    /**
-     * @param {Solute} solute
-     * @param {Vector2} position position in the beaker's coordinate frame
-     * @param {number} orientation in radians
-     * @param {Object} [options]
-     */
-    constructor( solute, position, orientation, options ) {
+  /**
+   * @param {Solute} solute
+   * @param {Vector2} position position in the beaker's coordinate frame
+   * @param {number} orientation in radians
+   * @param {Object} [options]
+   */
+  constructor( solute, position, orientation, options ) {
 
-      options = merge( {
-        phetioType: PrecipitateParticleIO
-      }, options );
+    options = merge( {
+      phetioType: PrecipitateParticleIO
+    }, options );
 
-      super( solute.particleColor, solute.particleSize, position, orientation, options );
+    super( solute.particleColor, solute.particleSize, position, orientation, options );
 
-      // @public (phet-io)
-      this.solute = solute;
-    }
+    // @public (phet-io)
+    this.solute = solute;
   }
+}
 
-  return beersLawLab.register( 'PrecipitateParticle', PrecipitateParticle );
-} );
+beersLawLab.register( 'PrecipitateParticle', PrecipitateParticle );
+export default PrecipitateParticle;

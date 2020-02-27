@@ -5,71 +5,68 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const Dimension2 = require( 'DOT/Dimension2' );
-  const HSlider = require( 'SUN/HSlider' );
-  const merge = require( 'PHET_CORE/merge' );
-  const Node = require( 'SCENERY/nodes/Node' );
-  const Panel = require( 'SUN/Panel' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  const Range = require( 'DOT/Range' );
-  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  const Text = require( 'SCENERY/nodes/Text' );
+import Dimension2 from '../../../../dot/js/Dimension2.js';
+import Range from '../../../../dot/js/Range.js';
+import merge from '../../../../phet-core/js/merge.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
+import Text from '../../../../scenery/js/nodes/Text.js';
+import HSlider from '../../../../sun/js/HSlider.js';
+import Panel from '../../../../sun/js/Panel.js';
+import beersLawLabStrings from '../../beers-law-lab-strings.js';
+import beersLawLab from '../../beersLawLab.js';
 
-  // strings
-  const evaporationString = require( 'string!BEERS_LAW_LAB/evaporation' );
-  const lotsString = require( 'string!BEERS_LAW_LAB/lots' );
-  const noneString = require( 'string!BEERS_LAW_LAB/none' );
-  const pattern0LabelString = require( 'string!BEERS_LAW_LAB/pattern.0label' );
+const evaporationString = beersLawLabStrings.evaporation;
+const lotsString = beersLawLabStrings.lots;
+const noneString = beersLawLabStrings.none;
+const pattern0LabelString = beersLawLabStrings.pattern[ '0label' ];
 
-  class EvaporationControl extends Panel {
+class EvaporationControl extends Panel {
 
-    /**
-     * @param {Evaporator} evaporator
-     * @param {Tandem} tandem
-     * @param {Object} [options]
-     */
-    constructor( evaporator, tandem, options ) {
+  /**
+   * @param {Evaporator} evaporator
+   * @param {Tandem} tandem
+   * @param {Object} [options]
+   */
+  constructor( evaporator, tandem, options ) {
 
-      options = merge( {
-        xMargin: 15,
-        yMargin: 8,
-        fill: '#F0F0F0',
-        stroke: 'gray',
-        lineWidth: 1,
-        tandem: tandem
-      }, options );
+    options = merge( {
+      xMargin: 15,
+      yMargin: 8,
+      fill: '#F0F0F0',
+      stroke: 'gray',
+      lineWidth: 1,
+      tandem: tandem
+    }, options );
 
-      const label = new Text( StringUtils.format( pattern0LabelString, evaporationString ), { font: new PhetFont( 22 ) } );
+    const label = new Text( StringUtils.format( pattern0LabelString, evaporationString ), { font: new PhetFont( 22 ) } );
 
-      const slider = new HSlider( evaporator.evaporationRateProperty, new Range( 0, evaporator.maxEvaporationRate ), {
-        trackSize: new Dimension2( 150, 6 ),
-        thumbSize: new Dimension2( 22, 45 ),
-        enabledProperty: evaporator.enabledProperty,
+    const slider = new HSlider( evaporator.evaporationRateProperty, new Range( 0, evaporator.maxEvaporationRate ), {
+      trackSize: new Dimension2( 150, 6 ),
+      thumbSize: new Dimension2( 22, 45 ),
+      enabledProperty: evaporator.enabledProperty,
 
-        // at end of drag, snap evaporation rate back to zero
-        endDrag: () => evaporator.evaporationRateProperty.set( 0 ),
-        tandem: tandem.createTandem( 'slider' )
-      } );
+      // at end of drag, snap evaporation rate back to zero
+      endDrag: () => evaporator.evaporationRateProperty.set( 0 ),
+      tandem: tandem.createTandem( 'slider' )
+    } );
 
-      const tickFont = new PhetFont( 16 );
-      slider.addMajorTick( 0, new Text( noneString, { font: tickFont } ) );
-      slider.addMajorTick( evaporator.maxEvaporationRate, new Text( lotsString, { font: tickFont } ) );
+    const tickFont = new PhetFont( 16 );
+    slider.addMajorTick( 0, new Text( noneString, { font: tickFont } ) );
+    slider.addMajorTick( evaporator.maxEvaporationRate, new Text( lotsString, { font: tickFont } ) );
 
-      const content = new Node();
-      content.addChild( label );
-      content.addChild( slider );
+    const content = new Node();
+    content.addChild( label );
+    content.addChild( slider );
 
-      slider.left = label.right + 10;
-      slider.centerY = label.centerY;
+    slider.left = label.right + 10;
+    slider.centerY = label.centerY;
 
-      super( content, options );
-    }
+    super( content, options );
   }
+}
 
-  return beersLawLab.register( 'EvaporationControl', EvaporationControl );
-} );
+beersLawLab.register( 'EvaporationControl', EvaporationControl );
+export default EvaporationControl;

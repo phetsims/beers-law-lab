@@ -5,27 +5,24 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const Property = require( 'AXON/Property' );
+import Property from '../../../../axon/js/Property.js';
+import beersLawLab from '../../beersLawLab.js';
 
-  class Fluid {
+class Fluid {
 
-    /**
-     * @param {Color} color
-     */
-    constructor( color ) {
-      this.colorProperty = new Property( color ); // @public
-    }
-
-    // @public
-    reset() {
-      this.colorProperty.reset();
-    }
+  /**
+   * @param {Color} color
+   */
+  constructor( color ) {
+    this.colorProperty = new Property( color ); // @public
   }
 
-  return beersLawLab.register( 'Fluid', Fluid );
-} );
+  // @public
+  reset() {
+    this.colorProperty.reset();
+  }
+}
+
+beersLawLab.register( 'Fluid', Fluid );
+export default Fluid;

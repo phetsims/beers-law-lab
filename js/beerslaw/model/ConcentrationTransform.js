@@ -12,53 +12,50 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
+import beersLawLabStrings from '../../beers-law-lab-strings.js';
+import beersLawLab from '../../beersLawLab.js';
 
-  // strings
-  const unitsMMString = require( 'string!BEERS_LAW_LAB/units.mM' );
-  const unitsUMString = require( 'string!BEERS_LAW_LAB/units.uM' );
+const unitsMMString = beersLawLabStrings.units.mM;
+const unitsUMString = beersLawLabStrings.units.uM;
 
-  class ConcentrationTransform {
+class ConcentrationTransform {
 
-    /**
-     * @param {number} scale scale factor used to convert model units (Moles, M) to view units
-     * @param {string} units
-     */
-    constructor( scale, units ) {
+  /**
+   * @param {number} scale scale factor used to convert model units (Moles, M) to view units
+   * @param {string} units
+   */
+  constructor( scale, units ) {
 
-      // @public (read-only)
-      this.scale = scale;
-      this.units = units;
-    }
-
-    /**
-     * Converts from model (M) to view (solution specific).
-     * @param {number} modelConcentration
-     * @returns {number}
-     * @public
-     */
-    modelToView( modelConcentration ) {
-      return modelConcentration * this.scale;
-    }
-
-    /**
-     * Converts from view (solution specific) to model (M).
-     * @param {number} viewConcentration
-     * @returns {number}
-     * @public
-     */
-    viewToModel( viewConcentration ) {
-      return viewConcentration / this.scale;
-    }
+    // @public (read-only)
+    this.scale = scale;
+    this.units = units;
   }
 
-  // specific transforms
-  ConcentrationTransform.mM = new ConcentrationTransform( 1000, unitsMMString );
-  ConcentrationTransform.uM = new ConcentrationTransform( 1000000, unitsUMString );
+  /**
+   * Converts from model (M) to view (solution specific).
+   * @param {number} modelConcentration
+   * @returns {number}
+   * @public
+   */
+  modelToView( modelConcentration ) {
+    return modelConcentration * this.scale;
+  }
 
-  return beersLawLab.register( 'ConcentrationTransform', ConcentrationTransform );
-} );
+  /**
+   * Converts from view (solution specific) to model (M).
+   * @param {number} viewConcentration
+   * @returns {number}
+   * @public
+   */
+  viewToModel( viewConcentration ) {
+    return viewConcentration / this.scale;
+  }
+}
+
+// specific transforms
+ConcentrationTransform.mM = new ConcentrationTransform( 1000, unitsMMString );
+ConcentrationTransform.uM = new ConcentrationTransform( 1000000, unitsUMString );
+
+beersLawLab.register( 'ConcentrationTransform', ConcentrationTransform );
+export default ConcentrationTransform;

@@ -10,54 +10,50 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-define( require => {
-  'use strict';
+import Property from '../../../../axon/js/Property.js';
+import PropertyIO from '../../../../axon/js/PropertyIO.js';
+import merge from '../../../../phet-core/js/merge.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
+import NullableIO from '../../../../tandem/js/types/NullableIO.js';
+import NumberIO from '../../../../tandem/js/types/NumberIO.js';
+import beersLawLab from '../../beersLawLab.js';
+import Movable from '../../common/model/Movable.js';
 
-  // modules
-  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const merge = require( 'PHET_CORE/merge' );
-  const Movable = require( 'BEERS_LAW_LAB/common/model/Movable' );
-  const NullableIO = require( 'TANDEM/types/NullableIO' );
-  const NumberIO = require( 'TANDEM/types/NumberIO' );
-  const Property = require( 'AXON/Property' );
-  const PropertyIO = require( 'AXON/PropertyIO' );
-  const Tandem = require( 'TANDEM/Tandem' );
+class ConcentrationMeter {
 
-  class ConcentrationMeter {
+  /**
+   * @param {Vector2} bodyPosition
+   * @param {Bounds2} bodyDragBounds
+   * @param {Vector2} probePosition
+   * @param {Bounds2} probeDragBounds
+   * @param {Object} [options]
+   */
+  constructor( bodyPosition, bodyDragBounds, probePosition, probeDragBounds, options ) {
 
-    /**
-     * @param {Vector2} bodyPosition
-     * @param {Bounds2} bodyDragBounds
-     * @param {Vector2} probePosition
-     * @param {Bounds2} probeDragBounds
-     * @param {Object} [options]
-     */
-    constructor( bodyPosition, bodyDragBounds, probePosition, probeDragBounds, options ) {
+    options = merge( {
+      tandem: Tandem.REQUIRED
+    }, options );
 
-      options = merge( {
-        tandem: Tandem.REQUIRED
-      }, options );
+    // @public concentration in mol/L or percent, depending on the concentrationMeterUnits query parameter.
+    // null if the meter is not reading a value
+    this.valueProperty = new Property( null, {
+      tandem: options.tandem.createTandem( 'valueProperty' ),
+      units: 'moles/liter',
+      phetioType: PropertyIO( NullableIO( NumberIO ) )
+    } );
 
-      // @public concentration in mol/L or percent, depending on the concentrationMeterUnits query parameter.
-      // null if the meter is not reading a value
-      this.valueProperty = new Property( null, {
-        tandem: options.tandem.createTandem( 'valueProperty' ),
-        units: 'moles/liter',
-        phetioType: PropertyIO( NullableIO( NumberIO ) )
-      } );
-
-      // @public (read-only)
-      this.body = new Movable( bodyPosition, bodyDragBounds, { tandem: options.tandem.createTandem( 'body' ) } );
-      this.probe = new Movable( probePosition, probeDragBounds, { tandem: options.tandem.createTandem( 'probe' ) } );
-    }
-
-    // @public
-    reset() {
-      this.valueProperty.reset();
-      this.body.reset();
-      this.probe.reset();
-    }
+    // @public (read-only)
+    this.body = new Movable( bodyPosition, bodyDragBounds, { tandem: options.tandem.createTandem( 'body' ) } );
+    this.probe = new Movable( probePosition, probeDragBounds, { tandem: options.tandem.createTandem( 'probe' ) } );
   }
 
-  return beersLawLab.register( 'ConcentrationMeter', ConcentrationMeter );
-} );
+  // @public
+  reset() {
+    this.valueProperty.reset();
+    this.body.reset();
+    this.probe.reset();
+  }
+}
+
+beersLawLab.register( 'ConcentrationMeter', ConcentrationMeter );
+export default ConcentrationMeter;

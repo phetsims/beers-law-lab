@@ -6,37 +6,34 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const Rectangle = require( 'SCENERY/nodes/Rectangle' );
+import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
+import beersLawLab from '../../beersLawLab.js';
 
-  class ParticleNode extends Rectangle {
+class ParticleNode extends Rectangle {
 
-    /**
-     * @param {SoluteParticle} particle
-     * @param {ModelViewTransform2} modelViewTransform
-     */
-    constructor( particle, modelViewTransform ) {
+  /**
+   * @param {SoluteParticle} particle
+   * @param {ModelViewTransform2} modelViewTransform
+   */
+  constructor( particle, modelViewTransform ) {
 
-      const viewSize = modelViewTransform.modelToViewDeltaX( particle.size );
+    const viewSize = modelViewTransform.modelToViewDeltaX( particle.size );
 
-      super( -viewSize / 2, -viewSize / 2, viewSize, viewSize, {
-        fill: particle.color,
-        stroke: particle.color.darkerColor(),
-        lineWidth: 1
-      } );
+    super( -viewSize / 2, -viewSize / 2, viewSize, viewSize, {
+      fill: particle.color,
+      stroke: particle.color.darkerColor(),
+      lineWidth: 1
+    } );
 
-      this.particle = particle;
-      this.rotation = particle.orientation;
+    this.particle = particle;
+    this.rotation = particle.orientation;
 
-      particle.positionProperty.link( () => {
-        this.translation = modelViewTransform.modelToViewPosition( particle.positionProperty.get() );
-      } );
-    }
+    particle.positionProperty.link( () => {
+      this.translation = modelViewTransform.modelToViewPosition( particle.positionProperty.get() );
+    } );
   }
+}
 
-  return beersLawLab.register( 'ParticleNode', ParticleNode );
-} );
+beersLawLab.register( 'ParticleNode', ParticleNode );
+export default ParticleNode;

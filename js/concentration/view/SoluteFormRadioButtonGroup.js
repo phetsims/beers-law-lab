@@ -5,88 +5,84 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const AquaRadioButtonGroup = require( 'SUN/AquaRadioButtonGroup' );
-  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const BLLConstants = require( 'BEERS_LAW_LAB/common/BLLConstants' );
-  const HBox = require( 'SCENERY/nodes/HBox' );
-  const Image = require( 'SCENERY/nodes/Image' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  const Text = require( 'SCENERY/nodes/Text' );
+import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import HBox from '../../../../scenery/js/nodes/HBox.js';
+import Image from '../../../../scenery/js/nodes/Image.js';
+import Text from '../../../../scenery/js/nodes/Text.js';
+import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
+import dropperIconImage from '../../../images/dropper-icon_png.js';
+import shakerIconImage from '../../../images/shaker-icon_png.js';
+import beersLawLabStrings from '../../beers-law-lab-strings.js';
+import beersLawLab from '../../beersLawLab.js';
+import BLLConstants from '../../common/BLLConstants.js';
 
-  // strings
-  const solidString = require( 'string!BEERS_LAW_LAB/solid' );
-  const solutionString = require( 'string!BEERS_LAW_LAB/solution' );
+const solidString = beersLawLabStrings.solid;
+const solutionString = beersLawLabStrings.solution;
 
-  // images
-  const dropperIconImage = require( 'image!BEERS_LAW_LAB/dropper-icon.png' );
-  const shakerIconImage = require( 'image!BEERS_LAW_LAB/shaker-icon.png' );
 
-  // constants
-  const RADIO_BUTTON_TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
+// constants
+const RADIO_BUTTON_TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
 
-  class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup {
-
-    /**
-     * @param {Property.<string>} soluteFormProperty form of the solute, 'solid' or 'solution'
-     * @param {Shaker} shaker
-     * @param {Dropper} dropper
-     * @param {Tandem} tandem
-     */
-    constructor( soluteFormProperty, shaker, dropper, tandem ) {
-
-      // radio button descriptions
-      const items = [
-        {
-          value: 'solid',
-          node: createRadioButtonLabel( solidString, shakerIconImage, RADIO_BUTTON_TEXT_OPTIONS ),
-          tandemName: 'solidRadioButton'
-        },
-        {
-          value: 'solution',
-          node: createRadioButtonLabel( solutionString, dropperIconImage, RADIO_BUTTON_TEXT_OPTIONS ),
-          tandemName: 'solutionRadioButton'
-        }
-      ];
-
-      super( soluteFormProperty, items, {
-        orientation: 'horizontal',
-        spacing: 60,
-        radioButtonOptions: { radius: BLLConstants.RADIO_BUTTON_RADIUS },
-        touchAreaYDilation: 2,
-        tandem: tandem
-      } );
-
-      soluteFormProperty.link( soluteForm => {
-        shaker.visibleProperty.set( soluteForm === 'solid' );
-        dropper.visibleProperty.set( soluteForm === 'solution' );
-      } );
-
-      shaker.visibleProperty.link( visible => {
-        soluteFormProperty.set( visible ? 'solid' : 'solution' );
-      } );
-
-      dropper.visibleProperty.link( visible => {
-        soluteFormProperty.set( visible ? 'solution' : 'solid' );
-      } );
-    }
-  }
+class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup {
 
   /**
-   * Creates the label for a radio button.
-   * @param {string} text
-   * @param {Image} image
-   * @param {Object} [textOptions]
+   * @param {Property.<string>} soluteFormProperty form of the solute, 'solid' or 'solution'
+   * @param {Shaker} shaker
+   * @param {Dropper} dropper
+   * @param {Tandem} tandem
    */
-  function createRadioButtonLabel( text, image, textOptions ) {
-    return new HBox( {
-      spacing: 10,
-      children: [ new Text( text, textOptions ), new Image( image ) ]
+  constructor( soluteFormProperty, shaker, dropper, tandem ) {
+
+    // radio button descriptions
+    const items = [
+      {
+        value: 'solid',
+        node: createRadioButtonLabel( solidString, shakerIconImage, RADIO_BUTTON_TEXT_OPTIONS ),
+        tandemName: 'solidRadioButton'
+      },
+      {
+        value: 'solution',
+        node: createRadioButtonLabel( solutionString, dropperIconImage, RADIO_BUTTON_TEXT_OPTIONS ),
+        tandemName: 'solutionRadioButton'
+      }
+    ];
+
+    super( soluteFormProperty, items, {
+      orientation: 'horizontal',
+      spacing: 60,
+      radioButtonOptions: { radius: BLLConstants.RADIO_BUTTON_RADIUS },
+      touchAreaYDilation: 2,
+      tandem: tandem
+    } );
+
+    soluteFormProperty.link( soluteForm => {
+      shaker.visibleProperty.set( soluteForm === 'solid' );
+      dropper.visibleProperty.set( soluteForm === 'solution' );
+    } );
+
+    shaker.visibleProperty.link( visible => {
+      soluteFormProperty.set( visible ? 'solid' : 'solution' );
+    } );
+
+    dropper.visibleProperty.link( visible => {
+      soluteFormProperty.set( visible ? 'solution' : 'solid' );
     } );
   }
+}
 
-  return beersLawLab.register( 'SoluteFormRadioButtonGroup', SoluteFormRadioButtonGroup );
-} );
+/**
+ * Creates the label for a radio button.
+ * @param {string} text
+ * @param {Image} image
+ * @param {Object} [textOptions]
+ */
+function createRadioButtonLabel( text, image, textOptions ) {
+  return new HBox( {
+    spacing: 10,
+    children: [ new Text( text, textOptions ), new Image( image ) ]
+  } );
+}
+
+beersLawLab.register( 'SoluteFormRadioButtonGroup', SoluteFormRadioButtonGroup );
+export default SoluteFormRadioButtonGroup;

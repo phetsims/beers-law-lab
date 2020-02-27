@@ -5,54 +5,51 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const Emitter = require( 'AXON/Emitter' );
-  const PhetioObject = require( 'TANDEM/PhetioObject' );
+import Emitter from '../../../../axon/js/Emitter.js';
+import PhetioObject from '../../../../tandem/js/PhetioObject.js';
+import beersLawLab from '../../beersLawLab.js';
 
-  class Particles extends PhetioObject {
+class Particles extends PhetioObject {
 
-    /**
-     * @param {Object} [options]
-     */
-    constructor( options ) {
+  /**
+   * @param {Object} [options]
+   */
+  constructor( options ) {
 
-      super( options );
+    super( options );
 
-      this.particles = []; // @public the particles in the collection
-      this.changedEmitter = new Emitter(); // @private emit is called when the collection of particles changes
-    }
-
-    /**
-     * Adds a particle.
-     * @param {SoluteParticle} particle
-     * @protected
-     */
-    addParticle( particle ) {
-      this.particles.push( particle );
-    }
-
-    /**
-     * Registers a listener that will be called when the collection of particles has changed in some way
-     * (eg, number of particles, particles move, ...)
-     * @param {function} listener
-     * @public
-     */
-    addChangedListener( listener ) {
-      this.changedEmitter.addListener( listener );
-    }
-
-    /**
-     * Notify listeners that the particles have changed.
-     * @protected
-     */
-    fireChanged() {
-      this.changedEmitter.emit();
-    }
+    this.particles = []; // @public the particles in the collection
+    this.changedEmitter = new Emitter(); // @private emit is called when the collection of particles changes
   }
 
-  return beersLawLab.register( 'Particles', Particles );
-} );
+  /**
+   * Adds a particle.
+   * @param {SoluteParticle} particle
+   * @protected
+   */
+  addParticle( particle ) {
+    this.particles.push( particle );
+  }
+
+  /**
+   * Registers a listener that will be called when the collection of particles has changed in some way
+   * (eg, number of particles, particles move, ...)
+   * @param {function} listener
+   * @public
+   */
+  addChangedListener( listener ) {
+    this.changedEmitter.addListener( listener );
+  }
+
+  /**
+   * Notify listeners that the particles have changed.
+   * @protected
+   */
+  fireChanged() {
+    this.changedEmitter.emit();
+  }
+}
+
+beersLawLab.register( 'Particles', Particles );
+export default Particles;

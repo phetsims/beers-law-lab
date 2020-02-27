@@ -6,66 +6,62 @@
  * @author Sam Reid (PhET Interactive Simulations)
  * @author Andrew Adare (PhET Interactive Simulations)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const ObjectIO = require( 'TANDEM/types/ObjectIO' );
-  const StringIO = require( 'TANDEM/types/StringIO' );
-  const VoidIO = require( 'TANDEM/types/VoidIO' );
-  const validate = require( 'AXON/validate' );
+import validate from '../../../../axon/js/validate.js';
+import ObjectIO from '../../../../tandem/js/types/ObjectIO.js';
+import StringIO from '../../../../tandem/js/types/StringIO.js';
+import VoidIO from '../../../../tandem/js/types/VoidIO.js';
+import beersLawLab from '../../beersLawLab.js';
 
-  class SoluteIO extends ObjectIO {
+class SoluteIO extends ObjectIO {
 
-    /**
-     * Serializes an instance.
-     * @param {Solute} solute
-     * @returns {Object}
-     */
-    static toStateObject( solute ) {
-      validate( solute, this.validator );
-      return solute.tandem.phetioID;
-    }
-
-    /**
-     * Deserializes an instance.
-     * @param {Object} stateObject
-     * @returns {Solute}
-     */
-    static fromStateObject( stateObject ) {
-      return phet.phetIo.phetioEngine.getPhetioObject( stateObject );
-    }
+  /**
+   * Serializes an instance.
+   * @param {Solute} solute
+   * @returns {Object}
+   */
+  static toStateObject( solute ) {
+    validate( solute, this.validator );
+    return solute.tandem.phetioID;
   }
 
-  SoluteIO.methods = {
+  /**
+   * Deserializes an instance.
+   * @param {Object} stateObject
+   * @returns {Solute}
+   */
+  static fromStateObject( stateObject ) {
+    return phet.phetIo.phetioEngine.getPhetioObject( stateObject );
+  }
+}
 
-    setName: {
-      returnType: VoidIO,
-      parameterTypes: [ StringIO ],
-      implementation: function( text ) {
-        this.phetioObject.name = text;
-      },
-      documentation: 'Set the name of the solute',
-      invocableForReadOnlyElements: false
+SoluteIO.methods = {
+
+  setName: {
+    returnType: VoidIO,
+    parameterTypes: [ StringIO ],
+    implementation: function( text ) {
+      this.phetioObject.name = text;
     },
+    documentation: 'Set the name of the solute',
+    invocableForReadOnlyElements: false
+  },
 
-    setFormula: {
-      returnType: VoidIO,
-      parameterTypes: [ StringIO ],
-      implementation: function( text ) {
-        this.phetioObject.formula = text;
-      },
-      documentation: 'Set the formula of the solute',
-      invocableForReadOnlyElements: false
-    }
-  };
+  setFormula: {
+    returnType: VoidIO,
+    parameterTypes: [ StringIO ],
+    implementation: function( text ) {
+      this.phetioObject.formula = text;
+    },
+    documentation: 'Set the formula of the solute',
+    invocableForReadOnlyElements: false
+  }
+};
 
-  SoluteIO.documentation = 'The Solute for the sim.';
-  SoluteIO.validator = { isValidValue: v => v instanceof phet.beersLawLab.Solute };
-  SoluteIO.typeName = 'SoluteIO';
-  ObjectIO.validateSubtype( SoluteIO );
+SoluteIO.documentation = 'The Solute for the sim.';
+SoluteIO.validator = { isValidValue: v => v instanceof phet.beersLawLab.Solute };
+SoluteIO.typeName = 'SoluteIO';
+ObjectIO.validateSubtype( SoluteIO );
 
-  return beersLawLab.register( 'SoluteIO', SoluteIO );
-} );
-
+beersLawLab.register( 'SoluteIO', SoluteIO );
+export default SoluteIO;

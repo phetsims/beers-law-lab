@@ -11,39 +11,36 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const NumberProperty = require( 'AXON/NumberProperty' );
+import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import beersLawLab from '../../beersLawLab.js';
 
-  class Cuvette {
+class Cuvette {
 
-    /**
-     * @param {Vector2} position fixed position, cm
-     * @param {RangeWithValue} widthRange variable width, cm
-     * @param {number} height fixed height, cm
-     * @param {Tandem} tandem
-     */
-    constructor( position, widthRange, height, tandem ) {
+  /**
+   * @param {Vector2} position fixed position, cm
+   * @param {RangeWithValue} widthRange variable width, cm
+   * @param {number} height fixed height, cm
+   * @param {Tandem} tandem
+   */
+  constructor( position, widthRange, height, tandem ) {
 
-      // @public (read-only)
-      this.position = position;
-      this.widthRange = widthRange;
-      this.widthProperty = new NumberProperty( widthRange.defaultValue, {
-        tandem: tandem.createTandem( 'widthProperty' ),
-        range: widthRange,
-        units: 'centimeters'
-      } );
-      this.height = height;
-    }
-
-    // @public
-    reset() {
-      this.widthProperty.reset();
-    }
+    // @public (read-only)
+    this.position = position;
+    this.widthRange = widthRange;
+    this.widthProperty = new NumberProperty( widthRange.defaultValue, {
+      tandem: tandem.createTandem( 'widthProperty' ),
+      range: widthRange,
+      units: 'centimeters'
+    } );
+    this.height = height;
   }
 
-  return beersLawLab.register( 'Cuvette', Cuvette );
-} );
+  // @public
+  reset() {
+    this.widthProperty.reset();
+  }
+}
+
+beersLawLab.register( 'Cuvette', Cuvette );
+export default Cuvette;

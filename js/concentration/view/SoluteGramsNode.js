@@ -5,42 +5,39 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( require => {
-  'use strict';
 
-  // modules
-  const beersLawLab = require( 'BEERS_LAW_LAB/beersLawLab' );
-  const merge = require( 'PHET_CORE/merge' );
-  const PhetFont = require( 'SCENERY_PHET/PhetFont' );
-  const StringUtils = require( 'PHETCOMMON/util/StringUtils' );
-  const Text = require( 'SCENERY/nodes/Text' );
-  const Utils = require( 'DOT/Utils' );
+import Utils from '../../../../dot/js/Utils.js';
+import merge from '../../../../phet-core/js/merge.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import Text from '../../../../scenery/js/nodes/Text.js';
+import beersLawLabStrings from '../../beers-law-lab-strings.js';
+import beersLawLab from '../../beersLawLab.js';
 
-  // strings
-  const pattern0SoluteAmountString = require( 'string!BEERS_LAW_LAB/pattern.0soluteAmount' );
+const pattern0SoluteAmountString = beersLawLabStrings.pattern[ '0soluteAmount' ];
 
-  // constants
-  const DECIMAL_PLACES = 0;
+// constants
+const DECIMAL_PLACES = 0;
 
-  class SoluteGramsNode extends Text {
+class SoluteGramsNode extends Text {
 
-    /**
-     * @param {Property.<number>} soluteGramsProperty - grams of solute
-     * @param {Object} [options]
-     */
-    constructor( soluteGramsProperty, options ) {
+  /**
+   * @param {Property.<number>} soluteGramsProperty - grams of solute
+   * @param {Object} [options]
+   */
+  constructor( soluteGramsProperty, options ) {
 
-      options = merge( {
-        font: new PhetFont( 22 )
-      }, options );
+    options = merge( {
+      font: new PhetFont( 22 )
+    }, options );
 
-      super( '', options );
+    super( '', options );
 
-      soluteGramsProperty.link( soluteGrams => {
-        this.text = StringUtils.format( pattern0SoluteAmountString, Utils.toFixed( soluteGrams, DECIMAL_PLACES ) );
-      } );
-    }
+    soluteGramsProperty.link( soluteGrams => {
+      this.text = StringUtils.format( pattern0SoluteAmountString, Utils.toFixed( soluteGrams, DECIMAL_PLACES ) );
+    } );
   }
+}
 
-  return beersLawLab.register( 'SoluteGramsNode', SoluteGramsNode );
-} );
+beersLawLab.register( 'SoluteGramsNode', SoluteGramsNode );
+export default SoluteGramsNode;
