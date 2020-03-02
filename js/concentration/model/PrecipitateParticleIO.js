@@ -11,6 +11,7 @@ import validate from '../../../../axon/js/validate.js';
 import merge from '../../../../phet-core/js/merge.js';
 import ObjectIO from '../../../../tandem/js/types/ObjectIO.js';
 import beersLawLab from '../../beersLawLab.js';
+import PrecipitateParticle from './PrecipitateParticle.js';
 import SoluteIO from './SoluteIO.js';
 import SoluteParticleIO from './SoluteParticleIO.js';
 
@@ -39,7 +40,7 @@ class PrecipitateParticleIO extends SoluteParticleIO {
 }
 
 PrecipitateParticleIO.documentation = 'A particle that shows at the bottom of a saturated solution.';
-PrecipitateParticleIO.validator = { isValidValue: v => v instanceof phet.beersLawLab.PrecipitateParticle };
+PrecipitateParticleIO.validator = { isValidValue: v => v instanceof PrecipitateParticle };
 PrecipitateParticleIO.typeName = 'PrecipitateParticleIO';
 ObjectIO.validateSubtype( PrecipitateParticleIO );
 

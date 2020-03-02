@@ -12,6 +12,7 @@ import Vector2IO from '../../../../dot/js/Vector2IO.js';
 import merge from '../../../../phet-core/js/merge.js';
 import ObjectIO from '../../../../tandem/js/types/ObjectIO.js';
 import beersLawLab from '../../beersLawLab.js';
+import ShakerParticle from './ShakerParticle.js';
 import SoluteIO from './SoluteIO.js';
 import SoluteParticleIO from './SoluteParticleIO.js';
 
@@ -48,7 +49,7 @@ class ShakerParticleIO extends SoluteParticleIO {
 }
 
 ShakerParticleIO.documentation = 'A particle that comes from the shaker.';
-ShakerParticleIO.validator = { isValidValue: v => v instanceof phet.beersLawLab.ShakerParticle };
+ShakerParticleIO.validator = { isValidValue: v => v instanceof ShakerParticle };
 ShakerParticleIO.typeName = 'ShakerParticleIO';
 ObjectIO.validateSubtype( ShakerParticleIO );
 

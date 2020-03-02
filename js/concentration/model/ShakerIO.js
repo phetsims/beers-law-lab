@@ -12,6 +12,7 @@ import Vector2IO from '../../../../dot/js/Vector2IO.js';
 import ObjectIO from '../../../../tandem/js/types/ObjectIO.js';
 import VoidIO from '../../../../tandem/js/types/VoidIO.js';
 import beersLawLab from '../../beersLawLab.js';
+import Shaker from './Shaker.js';
 
 class ShakerIO extends ObjectIO {
 
@@ -58,7 +59,7 @@ ShakerIO.methods = {
   }
 };
 ShakerIO.documentation = 'The Shaker that releases solute';
-ShakerIO.validator = { isValidValue: v => v instanceof phet.beersLawLab.Shaker };
+ShakerIO.validator = { isValidValue: v => v instanceof Shaker };
 ObjectIO.validateSubtype( ShakerIO );
 
 beersLawLab.register( 'ShakerIO', ShakerIO );

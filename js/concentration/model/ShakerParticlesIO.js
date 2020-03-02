@@ -13,6 +13,7 @@ import ObjectIO from '../../../../tandem/js/types/ObjectIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import ShakerParticle from './ShakerParticle.js';
 import ShakerParticleIO from './ShakerParticleIO.js';
+import ShakerParticles from './ShakerParticles.js';
 
 class ShakerParticlesIO extends ObjectIO {
 
@@ -67,7 +68,7 @@ class ShakerParticlesIO extends ObjectIO {
 }
 
 ShakerParticlesIO.documentation = 'Base type for a group of particles.';
-ShakerParticlesIO.validator = { isValidValue: v => v instanceof phet.beersLawLab.ShakerParticles };
+ShakerParticlesIO.validator = { isValidValue: v => v instanceof ShakerParticles };
 ShakerParticlesIO.typeName = 'ShakerParticlesIO';
 ObjectIO.validateSubtype( ShakerParticlesIO );
 

@@ -42,8 +42,8 @@ class SoluteParticleIO extends ObjectIO {
   }
 }
 
-SoluteParticleIO.validator = { valueType: SoluteParticle };
 SoluteParticleIO.documentation = 'A particle of solute to add to the solution';
+SoluteParticleIO.validator = { valueType: SoluteParticle };
 SoluteParticleIO.typeName = 'SoluteParticleIO';
 ObjectIO.validateSubtype( SoluteParticleIO );
 
