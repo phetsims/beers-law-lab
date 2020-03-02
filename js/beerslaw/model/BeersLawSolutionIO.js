@@ -10,6 +10,7 @@
 import validate from '../../../../axon/js/validate.js';
 import ObjectIO from '../../../../tandem/js/types/ObjectIO.js';
 import beersLawLab from '../../beersLawLab.js';
+import BeersLawSolution from './BeersLawSolution.js';
 
 class BeersLawSolutionIO extends ObjectIO {
 
@@ -38,7 +39,7 @@ class BeersLawSolutionIO extends ObjectIO {
 }
 
 BeersLawSolutionIO.documentation = 'The solution for the sim';
-BeersLawSolutionIO.validator = { isValidValue: v => v instanceof phet.beersLawLab.BeersLawSolution };
+BeersLawSolutionIO.validator = { isValidValue: v => v instanceof BeersLawSolution };
 BeersLawSolutionIO.typeName = 'BeersLawSolutionIO';
 ObjectIO.validateSubtype( BeersLawSolutionIO );
 

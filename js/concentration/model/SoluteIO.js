@@ -12,6 +12,7 @@ import ObjectIO from '../../../../tandem/js/types/ObjectIO.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
 import VoidIO from '../../../../tandem/js/types/VoidIO.js';
 import beersLawLab from '../../beersLawLab.js';
+import Solute from './Solute.js';
 
 class SoluteIO extends ObjectIO {
 
@@ -59,7 +60,7 @@ SoluteIO.methods = {
 };
 
 SoluteIO.documentation = 'The Solute for the sim.';
-SoluteIO.validator = { isValidValue: v => v instanceof phet.beersLawLab.Solute };
+SoluteIO.validator = { isValidValue: v => v instanceof Solute };
 SoluteIO.typeName = 'SoluteIO';
 ObjectIO.validateSubtype( SoluteIO );
 
