@@ -2,6 +2,8 @@
 
 /**
  * BeersLawSolutionInstances defines a set of BeersLawSolution instances that are used in the Beer's Law screen.
+ * These must be in their own .js file (versus in BeersLawSolution.js) to avoid the cyclic dependency between
+ * BeersLawSolution and BeersLawSolutionIO.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

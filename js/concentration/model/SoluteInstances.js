@@ -2,7 +2,8 @@
 
 /**
  * SoluteInstances defines a set of Solute instances that are used in the Concentration screen.
- *
+ * These must be in their own .js file (versus in Solute.js) to avoid the cyclic dependency between
+ * Solute and SoluteIO.
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
