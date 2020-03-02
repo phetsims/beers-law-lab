@@ -1,8 +1,8 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * Draws particles directly to canvas for performance.
- * Used for drawing particles that fall out of the shaker, and for precipitate on the bottom of the beaker.
+ * ParticlesNode is the base class for drawing a system of  particles. It draws directly to canvas for performance.
+ * It's use for drawing particles that fall out of the shaker, and for precipitate on the bottom of the beaker.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  * @author Jonathan Olson
@@ -14,18 +14,26 @@ import beersLawLab from '../../beersLawLab.js';
 class ParticlesNode extends CanvasNode {
 
   /**
-   * @param {Particles} particles a collection of particle
+   * @param {PhetioGroup} particlesGroup
    * @param {ModelViewTransform2} modelViewTransform
    * @param {Bounds2} canvasBounds
    */
-  constructor( particles, modelViewTransform, canvasBounds ) {
+  constructor( particlesGroup, modelViewTransform, canvasBounds ) {
 
-    super( { pickable: false, canvasBounds: canvasBounds } );
+    super( {
+      pickable: false,
+      canvasBounds: canvasBounds
+    } );
 
-    this.particles = particles;  // @public
-    this.modelViewTransform = modelViewTransform; // @public
+    // @public
+    this.particlesGroup = particlesGroup;
 
-    particles.addChangedListener( () => this.invalidatePaint() );
+    // @private
+    this.modelViewTransform = modelViewTransform;
+
+    // If particles are added or removed, then redraw.
+    particlesGroup.addMemberCreatedListener( () => this.invalidatePaint() );
+    particlesGroup.addMemberDisposedListener( () => this.invalidatePaint() );
   }
 
   /**
@@ -35,7 +43,7 @@ class ParticlesNode extends CanvasNode {
    */
   paintCanvas( context ) {
 
-    const particles = this.particles.particles;
+    const particles = this.particlesGroup.array;
     let halfViewSize;
     const numberOfParticles = particles.length;
 

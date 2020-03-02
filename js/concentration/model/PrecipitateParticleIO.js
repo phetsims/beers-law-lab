@@ -24,8 +24,9 @@ class PrecipitateParticleIO extends SoluteParticleIO {
    */
   static toStateObject( precipitateParticle ) {
     validate( precipitateParticle, this.validator );
-    const soluteParticle = SoluteParticleIO.toStateObject( precipitateParticle );
-    return merge( soluteParticle, { solute: SoluteIO.toStateObject( precipitateParticle.solute ) } );
+    return merge( SoluteParticleIO.toStateObject( precipitateParticle ), {
+      solute: SoluteIO.toStateObject( precipitateParticle.solute )
+    } );
   }
 
   /**
@@ -34,13 +35,26 @@ class PrecipitateParticleIO extends SoluteParticleIO {
    * @returns {PrecipitateParticle}
    */
   static fromStateObject( stateObject ) {
-    const soluteParticle = SoluteParticleIO.fromStateObject( stateObject );
-    return merge( soluteParticle, { solute: SoluteIO.fromStateObject( stateObject.solute ) } );
+    return merge( SoluteParticleIO.fromStateObject( stateObject ), {
+      solute: SoluteIO.fromStateObject( stateObject.solute )
+    } );
+  }
+
+  /**
+   * @param {Object} state
+   * @returns {Array.<*>}
+   * @public
+   * @override
+   */
+  static stateToArgsForConstructor( state ) {
+
+    // This must match PrecipitateParticle constructor signature
+    return [ state.solute, state.position, state.orientation ];
   }
 }
 
-PrecipitateParticleIO.documentation = 'A particle that shows at the bottom of a saturated solution.';
-PrecipitateParticleIO.validator = { isValidValue: v => v instanceof PrecipitateParticle };
+PrecipitateParticleIO.documentation = 'A particle that precipitates at the bottom of a saturated solution.';
+PrecipitateParticleIO.validator = { isValidValue: value => value instanceof PrecipitateParticle };
 PrecipitateParticleIO.typeName = 'PrecipitateParticleIO';
 ObjectIO.validateSubtype( PrecipitateParticleIO );
 

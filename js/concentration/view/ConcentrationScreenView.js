@@ -21,10 +21,11 @@ import BLLFaucetNode from './BLLFaucetNode.js';
 import ConcentrationMeterNode from './ConcentrationMeterNode.js';
 import EvaporationControl from './EvaporationControl.js';
 import FaucetFluidNode from './FaucetFluidNode.js';
-import ParticlesNode from './ParticlesNode.js';
+import PrecipitateNode from './PrecipitateNode.js';
 import RemoveSoluteButton from './RemoveSoluteButton.js';
 import SaturatedIndicator from './SaturatedIndicator.js';
 import ShakerNode from './ShakerNode.js';
+import ShakerParticlesNode from './ShakerParticlesNode.js';
 import SoluteControls from './SoluteControls.js';
 import SoluteGramsNode from './SoluteGramsNode.js';
 import SolutionNode from './SolutionNode.js';
@@ -48,7 +49,7 @@ class ConcentrationScreenView extends ScreenView {
     const solutionNode = new SolutionNode( model.solution, model.beaker, modelViewTransform );
 
     // Precipitate particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
-    const precipitateNode = new ParticlesNode( model.precipitate, modelViewTransform, new Bounds2(
+    const precipitateNode = new PrecipitateNode( model.precipitate, modelViewTransform, new Bounds2(
       modelViewTransform.modelToViewX( model.beaker.getLeft() ), modelViewTransform.modelToViewY( model.beaker.position.y ) - 100,
       modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.position.y ) ) );
     const saturatedIndicator = new SaturatedIndicator( model.solution );
@@ -57,7 +58,7 @@ class ConcentrationScreenView extends ScreenView {
     const shakerNode = new ShakerNode( model.shaker, modelViewTransform, tandem.createTandem( 'shakerNode' ) );
 
     // Shaker particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
-    const shakerParticlesNode = new ParticlesNode( model.shakerParticles, modelViewTransform, new Bounds2(
+    const shakerParticlesNode = new ShakerParticlesNode( model.shakerParticles, modelViewTransform, new Bounds2(
       modelViewTransform.modelToViewX( model.beaker.getLeft() ), this.layoutBounds.minY,
       modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.position.y ) ) );
 

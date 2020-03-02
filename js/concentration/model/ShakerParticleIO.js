@@ -25,8 +25,7 @@ class ShakerParticleIO extends SoluteParticleIO {
    */
   static toStateObject( shakerParticle ) {
     validate( shakerParticle, this.validator );
-    const soluteParticle = SoluteParticleIO.toStateObject( shakerParticle );
-    return merge( soluteParticle, {
+    return merge( SoluteParticleIO.toStateObject( shakerParticle ), {
       solute: SoluteIO.toStateObject( shakerParticle.solute ),
       velocity: Vector2IO.toStateObject( shakerParticle.velocity ),
       acceleration: Vector2IO.toStateObject( shakerParticle.acceleration )
@@ -39,17 +38,28 @@ class ShakerParticleIO extends SoluteParticleIO {
    * @returns {ShakerParticle}
    */
   static fromStateObject( stateObject ) {
-    const soluteParticle = SoluteParticleIO.fromStateObject( stateObject );
-    return merge( soluteParticle, {
+    return merge( SoluteParticleIO.fromStateObject( stateObject ), {
       solute: SoluteIO.fromStateObject( stateObject.solute ),
       velocity: Vector2IO.fromStateObject( stateObject.velocity ),
       acceleration: Vector2IO.fromStateObject( stateObject.acceleration )
     } );
   }
+
+  /**
+   * @param {Object} state
+   * @returns {Array.<*>}
+   * @public
+   * @override
+   */
+  static stateToArgsForConstructor( state ) {
+
+    // This must match SoluteParticle constructor signature
+    return [ state.solute, state.position, state.orientation, state.velocity, state.acceleration ];
+  }
 }
 
 ShakerParticleIO.documentation = 'A particle that comes from the shaker.';
-ShakerParticleIO.validator = { isValidValue: v => v instanceof ShakerParticle };
+ShakerParticleIO.validator = { isValidValue: value => value instanceof ShakerParticle };
 ShakerParticleIO.typeName = 'ShakerParticleIO';
 ObjectIO.validateSubtype( ShakerParticleIO );
 

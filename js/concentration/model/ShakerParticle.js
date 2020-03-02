@@ -9,9 +9,14 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
+import PhetioGroup from '../../../../tandem/js/PhetioGroup.js';
+import PhetioGroupIO from '../../../../tandem/js/PhetioGroupIO.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import ShakerParticleIO from './ShakerParticleIO.js';
+import SoluteInstances from './SoluteInstances.js';
 import SoluteParticle from './SoluteParticle.js';
 
 class ShakerParticle extends SoluteParticle {
@@ -27,7 +32,9 @@ class ShakerParticle extends SoluteParticle {
   constructor( solute, position, orientation, initialVelocity, acceleration, options ) {
 
     options = merge( {
-      phetioType: ShakerParticleIO
+      tandem: Tandem.REQUIRED,
+      phetioType: ShakerParticleIO,
+      phetioDynamicElement: true
     }, options );
 
     super( solute.particleColor, solute.particleSize, position, orientation, options );
@@ -62,6 +69,33 @@ class ShakerParticle extends SoluteParticle {
     }
 
     this.positionProperty.set( newPosition );
+  }
+
+  /**
+   * Creates a PhetioGroup for ShakerParticles, which are dynamically created.
+   * @param {Tandem} tandem
+   * @returns {PhetioGroup}
+   */
+  static createGroup( tandem ) {
+    return new PhetioGroup(
+
+      // createMember
+      ( tandem, solute, position, orientation, initialVelocity, acceleration ) => {
+        return new ShakerParticle( solute, position, orientation, initialVelocity, acceleration, {
+          tandem: tandem
+        } );
+      },
+
+      // defaultArguments, passed to createMember during API harvest
+      [ SoluteInstances.DRINK_MIX, Vector2.ZERO, 0, Vector2.ZERO, Vector2.ZERO ],
+
+      // options
+      {
+        tandem: tandem,
+        phetioType: PhetioGroupIO( ShakerParticleIO ),
+        phetioDocumentation: 'The group for shaker particles that are dynamically created'
+      }
+    );
   }
 }
 

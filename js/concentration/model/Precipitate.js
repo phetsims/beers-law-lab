@@ -11,10 +11,9 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
-import Particles from './Particles.js';
 import PrecipitateParticle from './PrecipitateParticle.js';
 
-class Precipitate extends Particles {
+class Precipitate {
 
   /**
    * @param {ConcentrationSolution} solution
@@ -28,14 +27,12 @@ class Precipitate extends Particles {
       phetioState: false
     }, options );
 
-    super( options );
-
     // @private
     this.solution = solution;
     this.beaker = beaker;
 
-    // @private
-    this.precipitateParticleGroupTandem = options.tandem.createGroupTandem( 'precipitateParticle' );
+    // @public
+    this.particlesGroup = PrecipitateParticle.createGroup( options.tandem.createTandem( 'particlesGroup' ) );
 
     // when the saturation changes, update the number of precipitate particles
     this.solution.precipitateAmountProperty.link( () => this.updateParticles() );
@@ -45,9 +42,6 @@ class Precipitate extends Particles {
       this.removeAllParticles();
       this.updateParticles();
     } );
-
-    // Individual particles are derived from the model, so restoring individual particles (as part of saved
-    // state) is problematic.  See https://github.com/phetsims/beers-law-lab/issues/213
   }
 
   /*
@@ -61,18 +55,16 @@ class Precipitate extends Particles {
     // number of particles desired after this update
     const numberOfParticles = this.solution.getNumberOfPrecipitateParticles();
 
-    if ( numberOfParticles === this.particles.length ) {
+    if ( numberOfParticles === this.particlesGroup.length ) {
       return; // no change, do nothing
     }
-    else if ( numberOfParticles < this.particles.length ) {
-      this.removeParticles( this.particles.length - numberOfParticles );
+    else if ( numberOfParticles < this.particlesGroup.length ) {
+      this.removeParticles( this.particlesGroup.length - numberOfParticles );
     }
     else {
-      this.addParticles( numberOfParticles - this.particles.length );
+      this.addParticles( numberOfParticles - this.particlesGroup.length );
     }
-    assert && assert( this.particles.length === numberOfParticles );
-
-    this.fireChanged();
+    assert && assert( this.particlesGroup.length === numberOfParticles );
   }
 
   /**
@@ -83,13 +75,11 @@ class Precipitate extends Particles {
   addParticles( numberToAdd ) {
     assert && assert( numberToAdd > 0, 'invalid numberToAdd: ' + numberToAdd );
     for ( let i = 0; i < numberToAdd; i++ ) {
-      this.addParticle( new PrecipitateParticle(
+      this.particlesGroup.createNextMember(
         this.solution.soluteProperty.get(),
         this.getRandomOffset(),
-        getRandomOrientation(), {
-          tandem: this.precipitateParticleGroupTandem.createNextTandem()
-        }
-      ) );
+        getRandomOrientation()
+      );
     }
   }
 
@@ -99,33 +89,30 @@ class Precipitate extends Particles {
    * @private
    */
   removeParticles( numberToRemove ) {
-    assert && assert( numberToRemove > 0 && numberToRemove <= this.particles.length,
-      'invalid numberToRemove: ' + numberToRemove );
 
-    const removedParticles = this.particles.splice( this.particles.length - numberToRemove, numberToRemove );
+    const particles = this.particlesGroup.array;
+    assert && assert( numberToRemove > 0 && numberToRemove <= particles.length, `invalid numberToRemove: ${numberToRemove}` );
+
+    const removedParticles = particles.slice( particles.length - numberToRemove, numberToRemove );
     assert && assert( removedParticles && removedParticles.length === numberToRemove );
 
     for ( let i = 0; i < removedParticles.length; i++ ) {
-      removedParticles[ i ].dispose();
+      this.particlesGroup.disposeMember( removedParticles[ i ] );
     }
   }
 
-  /**
-   * Removes all particles from the precipitate.
-   * @private
-   * @override
-   */
+  // @private
   removeAllParticles() {
-    if ( this.particles.length > 0 ) {
-      this.removeParticles( this.particles.length );
-    }
+    this.particlesGroup.clear();
   }
 
   // @private Gets a random position, in global model coordinate frame.
   getRandomOffset() {
     const particleSize = this.solution.soluteProperty.get().particleSize;
+
     // particles are square, largest margin required is the diagonal length
     const margin = Math.sqrt( particleSize * particleSize );
+
     // offset
     const x = this.beaker.position.x - ( this.beaker.size.width / 2 ) + margin + ( phet.joist.random.nextDouble() * ( this.beaker.size.width - ( 2 * margin ) ) );
     const y = this.beaker.position.y - margin; // this was tweaked based on the lineWidth used to stroke the beaker

@@ -7,34 +7,14 @@
  * @author Andrew Adare (PhET Interactive Simulations)
  */
 
-import validate from '../../../../axon/js/validate.js';
 import ObjectIO from '../../../../tandem/js/types/ObjectIO.js';
+import ReferenceIO from '../../../../tandem/js/types/ReferenceIO.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
 import VoidIO from '../../../../tandem/js/types/VoidIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import Solute from './Solute.js';
 
-class SoluteIO extends ObjectIO {
-
-  /**
-   * Serializes an instance.
-   * @param {Solute} solute
-   * @returns {Object}
-   */
-  static toStateObject( solute ) {
-    validate( solute, this.validator );
-    return solute.tandem.phetioID;
-  }
-
-  /**
-   * Deserializes an instance.
-   * @param {Object} stateObject
-   * @returns {Solute}
-   */
-  static fromStateObject( stateObject ) {
-    return phet.phetIo.phetioEngine.getPhetioObject( stateObject );
-  }
-}
+class SoluteIO extends ReferenceIO {}
 
 SoluteIO.methods = {
 
@@ -59,7 +39,7 @@ SoluteIO.methods = {
   }
 };
 
-SoluteIO.documentation = 'The Solute for the sim.';
+SoluteIO.documentation = 'a solute';
 SoluteIO.validator = { isValidValue: v => v instanceof Solute };
 SoluteIO.typeName = 'SoluteIO';
 ObjectIO.validateSubtype( SoluteIO );

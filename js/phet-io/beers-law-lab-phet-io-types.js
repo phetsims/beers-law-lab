@@ -1203,6 +1203,36 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ObjectIO",
       "typeName": "PhetioEngineIO"
     },
+    "PhetioGroupIO<PrecipitateParticleIO>": {
+      "documentation": "An array that sends notifications when its values have changed.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "PrecipitateParticleIO"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "PhetioGroupIO<PrecipitateParticleIO>"
+    },
+    "PhetioGroupIO<ShakerParticleIO>": {
+      "documentation": "An array that sends notifications when its values have changed.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "parameterTypes": [
+        "ShakerParticleIO"
+      ],
+      "supertype": "ObjectIO",
+      "typeName": "PhetioGroupIO<ShakerParticleIO>"
+    },
+    "PrecipitateParticleIO": {
+      "documentation": "A particle that precipitates at the bottom of a saturated solution.",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "supertype": "SoluteParticleIO",
+      "typeName": "PrecipitateParticleIO"
+    },
     "PropertyIO<BeersLawSolutionIO>": {
       "documentation": "Observable values that send out notifications when the value changes. This differs from the traditional listener pattern in that added listeners also receive a callback with the current value when the listeners are registered. This is a widely-used pattern in PhET-iO simulations.",
       "events": [
@@ -1828,13 +1858,13 @@ window.phet.phetio.phetioTypes = assert &&
       "supertype": "ReferenceIO",
       "typeName": "ScreenIO"
     },
-    "ShakerParticlesIO": {
-      "documentation": "Base type for a group of particles.",
+    "ShakerParticleIO": {
+      "documentation": "A particle that comes from the shaker.",
       "events": [],
       "methodOrder": [],
       "methods": {},
-      "supertype": "ObjectIO",
-      "typeName": "ShakerParticlesIO"
+      "supertype": "SoluteParticleIO",
+      "typeName": "ShakerParticleIO"
     },
     "SliderIO": {
       "documentation": "A traditional slider component, with a knob and possibly tick marks",
@@ -1862,7 +1892,7 @@ window.phet.phetio.phetioTypes = assert &&
       "typeName": "SliderIO"
     },
     "SoluteIO": {
-      "documentation": "The Solute for the sim.",
+      "documentation": "a solute",
       "events": [],
       "methodOrder": [],
       "methods": {
@@ -1883,8 +1913,16 @@ window.phet.phetio.phetioTypes = assert &&
           "returnType": "VoidIO"
         }
       },
-      "supertype": "ObjectIO",
+      "supertype": "ReferenceIO",
       "typeName": "SoluteIO"
+    },
+    "SoluteParticleIO": {
+      "documentation": "A particle of solute to add to the solution",
+      "events": [],
+      "methodOrder": [],
+      "methods": {},
+      "supertype": "ObjectIO",
+      "typeName": "SoluteParticleIO"
     },
     "StringIO": {
       "documentation": "Wrapper for the built-in JS string type",
