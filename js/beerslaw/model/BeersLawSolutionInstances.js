@@ -29,7 +29,7 @@ const potassiumPermanganateString = beersLawLabStrings.potassiumPermanganate;
 
 // A new tandem instance is required here since the solutes are created statically. Signify that these solutions
 // are only used in the beers law screen by attaching them to that screen's tandem.
-const tandem = BLLConstants.BEERS_LAW_SCREEN_TANDEM.createTandem( 'solutions' );
+const SOLUTIONS_TANDEM = BLLConstants.BEERS_LAW_SCREEN_TANDEM.createTandem( 'solutions' );
 
 const BeersLawSolutionInstances = {
 
@@ -41,7 +41,7 @@ const BeersLawSolutionInstances = {
     new RangeWithValue( 0, 0.400, 0.100 ),
     ConcentrationTransform.mM,
     new ColorRange( new Color( 255, 225, 225 ), Color.RED ), {
-      tandem: tandem.createTandem( 'drinkMix' )
+      tandem: SOLUTIONS_TANDEM.createTandem( 'drinkMix' )
     }
   ),
 
@@ -53,7 +53,7 @@ const BeersLawSolutionInstances = {
     new RangeWithValue( 0, 0.400, 0.100 ),
     ConcentrationTransform.mM,
     new ColorRange( new Color( 255, 225, 225 ), Color.RED ), {
-      tandem: tandem.createTandem( 'cobaltIINitrate' )
+      tandem: SOLUTIONS_TANDEM.createTandem( 'cobaltIINitrate' )
     }
   ),
 
@@ -65,7 +65,7 @@ const BeersLawSolutionInstances = {
     new RangeWithValue( 0, 0.250, 0.100 ),
     ConcentrationTransform.mM,
     new ColorRange( new Color( 255, 242, 242 ), new Color( 255, 106, 106 ) ), {
-      tandem: tandem.createTandem( 'cobaltChloride' )
+      tandem: SOLUTIONS_TANDEM.createTandem( 'cobaltChloride' )
     }
   ),
 
@@ -77,7 +77,7 @@ const BeersLawSolutionInstances = {
     new RangeWithValue( 0, 0.000500, 0.000100 ),
     ConcentrationTransform.uM,
     new ColorRange( new Color( 255, 232, 210 ), new Color( 255, 127, 0 ) ), {
-      tandem: tandem.createTandem( 'potassiumDichromate' )
+      tandem: SOLUTIONS_TANDEM.createTandem( 'potassiumDichromate' )
     }
   ),
 
@@ -89,7 +89,7 @@ const BeersLawSolutionInstances = {
     new RangeWithValue( 0, 0.000400, 0.000100 ),
     ConcentrationTransform.uM,
     new ColorRange( new Color( 255, 255, 199 ), new Color( 255, 255, 0 ) ), {
-      tandem: tandem.createTandem( 'potassiumChromate' )
+      tandem: SOLUTIONS_TANDEM.createTandem( 'potassiumChromate' )
     }
   ),
 
@@ -101,7 +101,7 @@ const BeersLawSolutionInstances = {
     new RangeWithValue( 0, 0.350, 0.100 ),
     ConcentrationTransform.mM,
     new ColorRange( new Color( 234, 244, 234 ), new Color( 0, 128, 0 ) ), {
-      tandem: tandem.createTandem( 'nickelIIChloride' )
+      tandem: SOLUTIONS_TANDEM.createTandem( 'nickelIIChloride' )
     }
   ),
 
@@ -113,7 +113,7 @@ const BeersLawSolutionInstances = {
     new RangeWithValue( 0, 0.200, 0.100 ),
     ConcentrationTransform.mM,
     new ColorRange( new Color( 222, 238, 255 ), new Color( 30, 144, 255 ) ), {
-      tandem: tandem.createTandem( 'copperSulfate' )
+      tandem: SOLUTIONS_TANDEM.createTandem( 'copperSulfate' )
     }
   ),
 
@@ -125,7 +125,7 @@ const BeersLawSolutionInstances = {
     new RangeWithValue( 0, 0.000800, 0.000100 ),
     ConcentrationTransform.uM,
     new ColorRange( new Color( 255, 235, 255 ), new Color( 255, 0, 255 ) ), {
-      tandem: tandem.createTandem( 'potassiumPermanganate' ),
+      tandem: SOLUTIONS_TANDEM.createTandem( 'potassiumPermanganate' ),
 
       // has a special saturated color
       saturatedColor: new Color( 80, 0, 120 )
