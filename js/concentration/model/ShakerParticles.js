@@ -126,16 +126,6 @@ class ShakerParticles {
   getGravitationalAcceleration() {
     return new Vector2( 0, GRAVITATIONAL_ACCELERATION_MAGNITUDE );
   }
-
-  /**
-   * Creates a PhetioGroup for ShakerParticles, which are dynamically created.
-   * @param {Tandem} tandem
-   * @returns {PhetioGroup}
-   * @private
-   */
-  static createGroup( tandem ) {
-
-  }
 }
 
 // Gets a random position relative to some origin
