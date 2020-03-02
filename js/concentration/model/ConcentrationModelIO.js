@@ -29,7 +29,7 @@ ConcentrationModelIO.methods = {
 };
 
 ConcentrationModelIO.documentation = 'The model for the concentration screen.';
-ConcentrationModelIO.validator = { isValidValue: v => v instanceof ConcentrationModel };
+ConcentrationModelIO.validator = { isValidValue: value => value instanceof ConcentrationModel };
 ConcentrationModelIO.typeName = 'ConcentrationModelIO';
 ObjectIO.validateSubtype( ConcentrationModelIO );
 

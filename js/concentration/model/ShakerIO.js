@@ -59,7 +59,7 @@ ShakerIO.methods = {
   }
 };
 ShakerIO.documentation = 'The Shaker that releases solute';
-ShakerIO.validator = { isValidValue: v => v instanceof Shaker };
+ShakerIO.validator = { isValidValue: value => value instanceof Shaker };
 ObjectIO.validateSubtype( ShakerIO );
 
 beersLawLab.register( 'ShakerIO', ShakerIO );

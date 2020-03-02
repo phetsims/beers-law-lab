@@ -40,7 +40,7 @@ SoluteIO.methods = {
 };
 
 SoluteIO.documentation = 'a solute';
-SoluteIO.validator = { isValidValue: v => v instanceof Solute };
+SoluteIO.validator = { isValidValue: value => value instanceof Solute };
 SoluteIO.typeName = 'SoluteIO';
 ObjectIO.validateSubtype( SoluteIO );
 

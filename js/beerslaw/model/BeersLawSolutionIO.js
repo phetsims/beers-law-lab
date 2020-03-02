@@ -39,7 +39,7 @@ class BeersLawSolutionIO extends ObjectIO {
 }
 
 BeersLawSolutionIO.documentation = 'The solution for the sim';
-BeersLawSolutionIO.validator = { isValidValue: v => v instanceof BeersLawSolution };
+BeersLawSolutionIO.validator = { isValidValue: value => value instanceof BeersLawSolution };
 BeersLawSolutionIO.typeName = 'BeersLawSolutionIO';
 ObjectIO.validateSubtype( BeersLawSolutionIO );
 
