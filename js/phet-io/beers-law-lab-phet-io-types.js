@@ -224,7 +224,7 @@ window.phet.phetio.phetioTypes = assert &&
       "events": [],
       "methodOrder": [],
       "methods": {},
-      "supertype": "ObjectIO",
+      "supertype": "ReferenceIO",
       "typeName": "BeersLawSolutionIO"
     },
     "BooleanIO": {

@@ -7,36 +7,12 @@
  * @author Andrew Adare (PhET Interactive Simulations)
  */
 
-import validate from '../../../../axon/js/validate.js';
 import ObjectIO from '../../../../tandem/js/types/ObjectIO.js';
+import ReferenceIO from '../../../../tandem/js/types/ReferenceIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawSolution from './BeersLawSolution.js';
 
-class BeersLawSolutionIO extends ObjectIO {
-
-  /**
-   * Serializes the instance into its phetioID.
-   * @param {BeersLawSolution} beersLawSolution
-   * @returns {string}
-   * @override
-   */
-  static toStateObject( beersLawSolution ) {
-    validate( beersLawSolution, this.validator );
-    return beersLawSolution.tandem.phetioID;
-  }
-
-  /**
-   * Deserializes an instance.
-   * Because the simulation has a Property that contains BeersLawSolution,
-   * the Property relies on these methods for saving and loading the values.
-   * @param {Object} stateObject
-   * @returns {BeersLawSolution}
-   * @override
-   */
-  static fromStateObject( stateObject ) {
-    return phet.phetIo.phetioEngine.getPhetioObject( stateObject );
-  }
-}
+class BeersLawSolutionIO extends ReferenceIO {}
 
 BeersLawSolutionIO.documentation = 'The solution for the sim';
 BeersLawSolutionIO.validator = { isValidValue: value => value instanceof BeersLawSolution };
