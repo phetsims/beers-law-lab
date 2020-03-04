@@ -113,10 +113,13 @@ class ConcentrationModel extends PhetioObject {
         tandem: options.tandem.createTandem( 'concentrationMeter' )
       } );
 
-    // When the solute is changed, the amount of solute resets to 0.  This is a lazyLink instead of link so that
-    // the simulation can be launched with a nonzero solute amount (using PhET-iO)
-    this.soluteProperty.lazyLink( () => {
-      this.solution.soluteAmountProperty.set( 0 );
+    // When the solute is changed, the amount of solute resets to 0.  If this occurs while restoring PhET-iO state,
+    // then do nothing, so that we don't blow away the restored state.
+    // See https://github.com/phetsims/beers-law-lab/issues/247
+    this.soluteProperty.link( () => {
+      if ( !phet.joist.sim.isSettingPhetioStateProperty.value ) {
+        this.solution.soluteAmountProperty.set( 0 );
+      }
     } );
 
     // Enable faucets and dropper based on amount of solution in the beaker.
