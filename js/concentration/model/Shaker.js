@@ -11,7 +11,6 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import merge from '../../../../phet-core/js/merge.js';
 import beersLawLab from '../../beersLawLab.js';
 import Movable from '../../common/model/Movable.js';
-import ShakerIO from './ShakerIO.js';
 
 class Shaker extends Movable {
 
@@ -27,7 +26,7 @@ class Shaker extends Movable {
   constructor( position, dragBounds, orientation, soluteProperty, maxDispensingRate, visible, options ) {
 
     options = merge( {
-      phetioType: ShakerIO
+      // phetioType: ShakerIO
     }, options );
 
     super( position, dragBounds, options );
@@ -42,7 +41,7 @@ class Shaker extends Movable {
     this.emptyProperty = new BooleanProperty( false );
     this.dispensingRateProperty = new NumberProperty( 0 );
 
-    // @public (phet-io)
+    // @private
     this.previousPosition = position;
 
     // set the dispensing rate to zero when the shaker becomes empty or invisible
@@ -53,6 +52,14 @@ class Shaker extends Movable {
     };
     this.emptyProperty.link( observer );
     this.visibleProperty.link( observer );
+
+    // If the position changes while restoring PhET-iO state, then set previousPosition to position to prevent the
+    // shaker from effective being moved and dispensing solute. See https://github.com/phetsims/beers-law-lab/issues/247.
+    this.positionProperty.link( position => {
+      if ( phet.joist.sim.isSettingPhetioStateProperty.value ) {
+        this.previousPosition = position;
+      }
+    } );
   }
 
   // @public @override
