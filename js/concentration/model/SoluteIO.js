@@ -21,7 +21,7 @@ SoluteIO.methods = {
   setName: {
     returnType: VoidIO,
     parameterTypes: [ StringIO ],
-    implementation: function( text ) {
+    implementation: text => {
       this.phetioObject.name = text;
     },
     documentation: 'Set the name of the solute',
@@ -31,7 +31,7 @@ SoluteIO.methods = {
   setFormula: {
     returnType: VoidIO,
     parameterTypes: [ StringIO ],
-    implementation: function( text ) {
+    implementation: text => {
       this.phetioObject.formula = text;
     },
     documentation: 'Set the formula of the solute',

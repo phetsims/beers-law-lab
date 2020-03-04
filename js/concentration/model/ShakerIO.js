@@ -51,9 +51,7 @@ ShakerIO.methods = {
   setValue: {
     returnType: VoidIO,
     parameterTypes: [ ObjectIO ],
-    implementation: function( value ) {
-      this.phetioObject.previousPosition.set( Vector2IO.fromStateObject( value ) );
-    },
+    implementation: value => this.phetioObject.previousPosition.set( Vector2IO.fromStateObject( value ) ),
     documentation: 'Load the values recorded in getState',
     invocableForReadOnlyElements: false
   }

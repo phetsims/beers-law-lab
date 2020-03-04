@@ -20,9 +20,7 @@ ConcentrationModelIO.methods = {
   setSolutes: {
     parameterTypes: [ ArrayIO( SoluteIO ) ],
     returnType: VoidIO,
-    implementation: function( solutes ) {
-      this.phetioObject.setSolutes( solutes );
-    },
+    implementation: solutes => this.phetioObject.setSolutes( solutes ),
     documentation: 'Set which solutes are allowed for selection',
     invocableForReadOnlyElements: false
   }
