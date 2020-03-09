@@ -24,12 +24,14 @@ class Evaporator {
     // @public
     this.evaporationRateProperty = new NumberProperty( 0, {
       tandem: tandem.createTandem( 'evaporationRateProperty' ),
+      phetioReadOnly: true, // this is controlled by the model
       units: 'liters/second'
     } );
 
     // @public
     this.enabledProperty = new BooleanProperty( true, {
       tandem: tandem.createTandem( 'enabledProperty' ),
+      phetioReadOnly: true, // this is controlled by the model
       phetioFeatured: true
     } );
 
