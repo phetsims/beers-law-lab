@@ -1,19 +1,21 @@
-Concentration screen:
+# Beer's Law Lab - model description
+
+## Concentration screen
 
 Quantities and units:
 
-  amountOfSolute - moles
-  amountOfPrecipitate - moles
-  concentration - M or mol/L
-  gramsOfSolute - g
-  gramsOfSolvent - g
-  percentConcentration - %
-  saturatedConcentration - M or mol/L
-  soluteMolarMass - g/mol
-  solventDensity - g/L
-  stockSolutionConcentration - M or mol/L
-  stockSolutionPercentConcentration - %
-  volumeOfSolution - L
+* amountOfSolute - moles
+* amountOfPrecipitate - moles
+* concentration - M or mol/L
+* gramsOfSolute - g
+* gramsOfSolvent - g
+* percentConcentration - %
+* saturatedConcentration - M or mol/L
+* soluteMolarMass - g/mol
+* solventDensity - g/L
+* stockSolutionConcentration - M or mol/L
+* stockSolutionPercentConcentration - %
+* volumeOfSolution - L
 
 Concentration of a solution (M) is:
 
@@ -67,9 +69,7 @@ molesDissolved = f(volume) and volume = f(molesDissolved)
 
 For additional details, consult the source files in js/concentration/model/.
 
-----
-
-Beer's Law screen:
+## Beer's Law screen
 
 Molar absorptivity (a) is in units of 1/(cm*M), and varies with solution and wavelength.
 For the solutions in this sim, we measured molar absorptivity for visible wavelengths in the laboratory.
