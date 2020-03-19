@@ -47,7 +47,9 @@ class ConcentrationControl extends NumberControl {
         font: FONT
       },
       numberDisplayOptions: {
-        font: FONT,
+        textOptions: {
+          font: FONT
+        },
         minBackgroundWidth: 95 // determined empirically
       },
       arrowButtonOptions: {
