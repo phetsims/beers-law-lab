@@ -14,7 +14,7 @@ import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
-import ShakerParticle from './ShakerParticle.js';
+import ShakerParticleGroup from './ShakerParticleGroup.js';
 
 // Units for speed and acceleration are not meaningful here, adjust these so that it looks good.
 const INITIAL_SPEED = 100;
@@ -45,7 +45,9 @@ class ShakerParticles {
     this.beaker = beaker;
 
     // @public
-    this.particlesGroup = ShakerParticle.createGroup( options.tandem.createTandem( 'particlesGroup' ) );
+    this.particlesGroup = new ShakerParticleGroup( {
+      tandem: options.tandem.createTandem( 'particlesGroup' )
+    } );
 
     // @public emits on step if one or more particles has moved
     this.particlesMovedEmitter = new Emitter();

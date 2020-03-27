@@ -11,7 +11,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
-import PrecipitateParticle from './PrecipitateParticle.js';
+import PrecipitateParticleGroup from './PrecipitateParticleGroup.js';
 
 class Precipitate {
 
@@ -32,7 +32,9 @@ class Precipitate {
     this.beaker = beaker;
 
     // @public
-    this.particlesGroup = PrecipitateParticle.createGroup( options.tandem.createTandem( 'particlesGroup' ) );
+    this.particlesGroup = new PrecipitateParticleGroup( {
+      tandem: options.tandem.createTandem( 'particlesGroup' )
+    } );
 
     // when the saturation changes, update the number of precipitate particles
     this.solution.precipitateAmountProperty.link( () => this.updateParticles() );
