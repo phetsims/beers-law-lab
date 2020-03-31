@@ -20,7 +20,7 @@ import HStrut from '../../../../scenery/js/nodes/HStrut.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
 import SunConstants from '../../../../sun/js/SunConstants.js';
-import beersLawLabStrings from '../../beers-law-lab-strings.js';
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
 
 const concentrationString = beersLawLabStrings.concentration;

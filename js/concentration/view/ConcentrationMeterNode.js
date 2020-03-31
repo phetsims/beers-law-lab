@@ -30,7 +30,7 @@ import LayoutBox from '../../../../scenery/js/nodes/LayoutBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import beersLawLabStrings from '../../beers-law-lab-strings.js';
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLQueryParameters from '../../common/BLLQueryParameters.js';
 

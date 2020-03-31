@@ -10,7 +10,7 @@ import Screen from '../../../joist/js/Screen.js';
 import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
 import Image from '../../../scenery/js/nodes/Image.js';
 import screenIcon from '../../images/Concentration-screen-icon_jpg.js';
-import beersLawLabStrings from '../beers-law-lab-strings.js';
+import beersLawLabStrings from '../beersLawLabStrings.js';
 import beersLawLab from '../beersLawLab.js';
 import ConcentrationModel from './model/ConcentrationModel.js';
 import ConcentrationScreenView from './view/ConcentrationScreenView.js';

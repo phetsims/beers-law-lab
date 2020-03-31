@@ -15,7 +15,7 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import HSlider from '../../../../sun/js/HSlider.js';
 import Panel from '../../../../sun/js/Panel.js';
-import beersLawLabStrings from '../../beers-law-lab-strings.js';
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
 
 const evaporationString = beersLawLabStrings.evaporation;

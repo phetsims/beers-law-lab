@@ -13,7 +13,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import beersLawLabStrings from '../../beers-law-lab-strings.js';
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
 
 const unitsMMString = beersLawLabStrings.units.mM;

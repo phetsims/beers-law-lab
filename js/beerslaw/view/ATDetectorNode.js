@@ -22,7 +22,7 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
-import beersLawLabStrings from '../../beers-law-lab-strings.js';
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import ATDetector from '../model/ATDetector.js';

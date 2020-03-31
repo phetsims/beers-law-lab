@@ -8,7 +8,7 @@
  */
 
 import Color from '../../../../scenery/js/util/Color.js';
-import beersLawLabStrings from '../../beers-law-lab-strings.js';
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import BLLSymbols from '../../common/BLLSymbols.js';

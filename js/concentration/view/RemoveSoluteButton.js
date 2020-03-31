@@ -9,7 +9,7 @@
 import merge from '../../../../phet-core/js/merge.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import TextPushButton from '../../../../sun/js/buttons/TextPushButton.js';
-import beersLawLabStrings from '../../beers-law-lab-strings.js';
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
 
 const removeSoluteString = beersLawLabStrings.removeSolute;

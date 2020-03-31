@@ -8,7 +8,7 @@
 
 import Sim from '../../joist/js/Sim.js';
 import SimLauncher from '../../joist/js/SimLauncher.js';
-import beersLawLabStrings from './beers-law-lab-strings.js';
+import beersLawLabStrings from './beersLawLabStrings.js';
 import BeersLawScreen from './beerslaw/BeersLawScreen.js';
 import BLLConstants from './common/BLLConstants.js';
 import ConcentrationScreen from './concentration/ConcentrationScreen.js';

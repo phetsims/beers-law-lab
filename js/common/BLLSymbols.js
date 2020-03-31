@@ -7,7 +7,7 @@
  */
 
 import ChemUtils from '../../../nitroglycerin/js/ChemUtils.js';
-import beersLawLabStrings from '../beers-law-lab-strings.js';
+import beersLawLabStrings from '../beersLawLabStrings.js';
 import beersLawLab from '../beersLawLab.js';
 
 const drinkMixString = beersLawLabStrings.drinkMix;

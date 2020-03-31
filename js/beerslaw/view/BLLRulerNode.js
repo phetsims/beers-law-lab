@@ -11,7 +11,7 @@ import Shape from '../../../../kite/js/Shape.js';
 import MovableDragHandler from '../../../../scenery-phet/js/input/MovableDragHandler.js';
 import RulerNode from '../../../../scenery-phet/js/RulerNode.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
-import beersLawLabStrings from '../../beers-law-lab-strings.js';
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
 
 const unitsCentimetersString = beersLawLabStrings.units.centimeters;
