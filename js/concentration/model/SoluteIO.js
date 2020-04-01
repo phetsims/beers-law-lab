@@ -14,7 +14,7 @@ import VoidIO from '../../../../tandem/js/types/VoidIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import Solute from './Solute.js';
 
-class SoluteIO extends ReferenceIO {}
+class SoluteIO extends ReferenceIO( ObjectIO ) {}
 
 SoluteIO.methods = {
 

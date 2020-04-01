@@ -12,7 +12,7 @@ import ReferenceIO from '../../../../tandem/js/types/ReferenceIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawSolution from './BeersLawSolution.js';
 
-class BeersLawSolutionIO extends ReferenceIO {}
+class BeersLawSolutionIO extends ReferenceIO( ObjectIO ) {}
 
 BeersLawSolutionIO.documentation = 'The solution for the sim';
 BeersLawSolutionIO.validator = { isValidValue: value => value instanceof BeersLawSolution };
