@@ -107,10 +107,10 @@ class ConcentrationMeterNode extends Node {
     else {
       solution.percentConcentrationProperty.link( updateValue );
     }
-    solutionNode.on( 'bounds', updateValue );
-    stockSolutionNode.on( 'bounds', updateValue );
-    solventFluidNode.on( 'bounds', updateValue );
-    drainFluidNode.on( 'bounds', updateValue );
+    solutionNode.boundsProperty.lazyLink( updateValue );
+    stockSolutionNode.boundsProperty.lazyLink( updateValue );
+    solventFluidNode.boundsProperty.lazyLink( updateValue );
+    drainFluidNode.boundsProperty.lazyLink( updateValue );
   }
 }
 
