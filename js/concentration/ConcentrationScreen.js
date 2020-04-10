@@ -7,11 +7,12 @@
  */
 
 import Screen from '../../../joist/js/Screen.js';
+import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
 import Image from '../../../scenery/js/nodes/Image.js';
 import screenIcon from '../../images/Concentration-screen-icon_jpg.js';
-import beersLawLabStrings from '../beersLawLabStrings.js';
 import beersLawLab from '../beersLawLab.js';
+import beersLawLabStrings from '../beersLawLabStrings.js';
 import ConcentrationModel from './model/ConcentrationModel.js';
 import ConcentrationScreenView from './view/ConcentrationScreenView.js';
 
@@ -29,7 +30,7 @@ class ConcentrationScreen extends Screen {
 
     const options = {
       name: screenConcentrationString,
-      homeScreenIcon: new Image( screenIcon ),
+      homeScreenIcon: new ScreenIcon( new Image( screenIcon ) ),
       tandem: tandem
     };
 
