@@ -228,7 +228,7 @@ window.phet.preloads.phetio.phetioTypes = assert &&
       "typeName": "BeersLawSolutionIO"
     },
     "BooleanIO": {
-      "documentation": "Wrapper for the built-in JS boolean type (true/false)",
+      "documentation": "IO Type for Javascript's boolean primitive type",
       "events": [],
       "methodOrder": [],
       "methods": {},
@@ -842,7 +842,7 @@ window.phet.preloads.phetio.phetioTypes = assert &&
       "typeName": "NumberDisplayIO"
     },
     "NumberIO": {
-      "documentation": "Wrapper for the built-in JS number type (floating point, but also represents integers)",
+      "documentation": "IO Type for Javascript's number primitive type",
       "events": [],
       "methodOrder": [],
       "methods": {},
@@ -1797,7 +1797,7 @@ window.phet.preloads.phetio.phetioTypes = assert &&
       "typeName": "SoluteParticleIO"
     },
     "StringIO": {
-      "documentation": "Wrapper for the built-in JS string type",
+      "documentation": "IO Type for Javascript's string primitive type",
       "events": [],
       "methodOrder": [],
       "methods": {},

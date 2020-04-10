@@ -30,7 +30,7 @@ class ConcentrationScreen extends Screen {
 
     const options = {
       name: screenConcentrationString,
-      homeScreenIcon: new ScreenIcon( new Image( screenIcon ) ),
+      homeScreenIcon: createScreenIcon(),
       tandem: tandem
     };
 
@@ -40,6 +40,13 @@ class ConcentrationScreen extends Screen {
       options
     );
   }
+}
+
+function createScreenIcon() {
+  return new ScreenIcon( new Image( screenIcon ), {
+    maxIconWidthProportion: 1,
+    maxIconHeightProportion: 1
+  } );
 }
 
 beersLawLab.register( 'ConcentrationScreen', ConcentrationScreen );

@@ -33,7 +33,7 @@ class BeersLawScreen extends Screen {
 
     const options = {
       name: screenBeersLawString,
-      homeScreenIcon: new ScreenIcon( new Image( screenIcon ) ),
+      homeScreenIcon: createScreenIcon(),
       tandem: tandem
     };
 
@@ -43,6 +43,13 @@ class BeersLawScreen extends Screen {
       options
     );
   }
+}
+
+function createScreenIcon() {
+  return new ScreenIcon( new Image( screenIcon ), {
+    maxIconWidthProportion: 1,
+    maxIconHeightProportion: 1
+  } );
 }
 
 beersLawLab.register( 'BeersLawScreen', BeersLawScreen );
