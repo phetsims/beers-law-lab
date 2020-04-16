@@ -13,13 +13,9 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
 import dropperIconImage from '../../../images/dropper-icon_png.js';
 import shakerIconImage from '../../../images/shaker-icon_png.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
-
-const solidString = beersLawLabStrings.solid;
-const solutionString = beersLawLabStrings.solution;
-
 
 // constants
 const RADIO_BUTTON_TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
@@ -38,12 +34,12 @@ class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup {
     const items = [
       {
         value: 'solid',
-        node: createRadioButtonLabel( solidString, shakerIconImage, RADIO_BUTTON_TEXT_OPTIONS ),
+        node: createRadioButtonLabel( beersLawLabStrings.solid, shakerIconImage, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'solidRadioButton'
       },
       {
         value: 'solution',
-        node: createRadioButtonLabel( solutionString, dropperIconImage, RADIO_BUTTON_TEXT_OPTIONS ),
+        node: createRadioButtonLabel( beersLawLabStrings.solution, dropperIconImage, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'solutionRadioButton'
       }
     ];

@@ -16,9 +16,6 @@ import beersLawLabStrings from '../beersLawLabStrings.js';
 import ConcentrationModel from './model/ConcentrationModel.js';
 import ConcentrationScreenView from './view/ConcentrationScreenView.js';
 
-const screenConcentrationString = beersLawLabStrings.screen.concentration;
-
-
 class ConcentrationScreen extends Screen {
 
   /**
@@ -29,7 +26,7 @@ class ConcentrationScreen extends Screen {
     const modelViewTransform = ModelViewTransform2.createIdentity();
 
     const options = {
-      name: screenConcentrationString,
+      name: beersLawLabStrings.screen.concentration,
       homeScreenIcon: createScreenIcon(),
       tandem: tandem
     };

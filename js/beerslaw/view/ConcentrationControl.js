@@ -20,12 +20,8 @@ import HStrut from '../../../../scenery/js/nodes/HStrut.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
 import SunConstants from '../../../../sun/js/SunConstants.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
-
-const concentrationString = beersLawLabStrings.concentration;
-const pattern0LabelString = beersLawLabStrings.pattern[ '0label' ];
-const pattern0Value1UnitsString = beersLawLabStrings.pattern[ '0value' ][ '1units' ];
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 
 // constants
 const FONT = new PhetFont( 20 );
@@ -81,11 +77,11 @@ class ConcentrationControl extends NumberControl {
 
     const transform = solution.concentrationTransform;
 
-    const title = StringUtils.format( pattern0LabelString, concentrationString );
+    const title = StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.concentration );
 
     // e.g. display units that are specific to the solution, e.g. '{0} mM'
     assert && assert( !options.numberDisplayOptions.valuePattern, 'ConcentrationControl sets valuePattern' );
-    options.numberDisplayOptions.valuePattern = StringUtils.format( pattern0Value1UnitsString,
+    options.numberDisplayOptions.valuePattern = StringUtils.format( beersLawLabStrings.pattern[ '0value' ][ '1units' ],
       SunConstants.VALUE_NUMBERED_PLACEHOLDER, transform.units );
 
     assert && assert( options.delta === undefined, 'ConcentrationControl sets delta' );

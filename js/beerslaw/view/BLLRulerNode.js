@@ -11,10 +11,8 @@ import Shape from '../../../../kite/js/Shape.js';
 import MovableDragHandler from '../../../../scenery-phet/js/input/MovableDragHandler.js';
 import RulerNode from '../../../../scenery-phet/js/RulerNode.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
-
-const unitsCentimetersString = beersLawLabStrings.units.centimeters;
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 
 // constants
 const MAJOR_TICK_WIDTH = 0.5; // in model coordinate frame
@@ -46,7 +44,7 @@ class BLLRulerNode extends Node {
       height,
       majorTickWidth,
       majorTickLabels,
-      unitsCentimetersString,
+      beersLawLabStrings.units.centimeters,
       { minorTicksPerMajorTick: 4, insetsWidth: 0, tandem: tandem.createTandem( 'ruler' ) } )
     );
 

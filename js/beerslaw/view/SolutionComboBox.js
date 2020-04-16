@@ -14,11 +14,8 @@ import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ComboBox from '../../../../sun/js/ComboBox.js';
 import ComboBoxItem from '../../../../sun/js/ComboBoxItem.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
-
-const pattern0LabelString = beersLawLabStrings.pattern[ '0label' ];
-const solutionString = beersLawLabStrings.solution;
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 
 class SolutionComboBox extends ComboBox {
 
@@ -32,7 +29,10 @@ class SolutionComboBox extends ComboBox {
   constructor( solutions, selectedSolutionProperty, solutionListParent, tandem ) {
 
     // 'Solution' label
-    const label = new Text( StringUtils.format( pattern0LabelString, solutionString ), { font: new PhetFont( 20 ) } );
+    const label = new Text(
+      StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.solution ),
+      { font: new PhetFont( 20 ) }
+    );
 
     // items
     const items = solutions.map( solution => createItem( solution, tandem ) );

@@ -15,13 +15,8 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import HSlider from '../../../../sun/js/HSlider.js';
 import Panel from '../../../../sun/js/Panel.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
-
-const evaporationString = beersLawLabStrings.evaporation;
-const lotsString = beersLawLabStrings.lots;
-const noneString = beersLawLabStrings.none;
-const pattern0LabelString = beersLawLabStrings.pattern[ '0label' ];
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 
 class EvaporationControl extends Panel {
 
@@ -41,7 +36,8 @@ class EvaporationControl extends Panel {
       tandem: tandem
     }, options );
 
-    const label = new Text( StringUtils.format( pattern0LabelString, evaporationString ), { font: new PhetFont( 22 ) } );
+    const label = new Text( StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.evaporation ),
+      { font: new PhetFont( 22 ) } );
 
     const slider = new HSlider( evaporator.evaporationRateProperty, new Range( 0, evaporator.maxEvaporationRate ), {
       trackSize: new Dimension2( 150, 6 ),
@@ -54,8 +50,8 @@ class EvaporationControl extends Panel {
     } );
 
     const tickFont = new PhetFont( 16 );
-    slider.addMajorTick( 0, new Text( noneString, { font: tickFont } ) );
-    slider.addMajorTick( evaporator.maxEvaporationRate, new Text( lotsString, { font: tickFont } ) );
+    slider.addMajorTick( 0, new Text( beersLawLabStrings.none, { font: tickFont } ) );
+    slider.addMajorTick( evaporator.maxEvaporationRate, new Text( beersLawLabStrings.lots, { font: tickFont } ) );
 
     const content = new Node();
     content.addChild( label );

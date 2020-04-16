@@ -13,11 +13,8 @@ import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ComboBox from '../../../../sun/js/ComboBox.js';
 import ComboBoxItem from '../../../../sun/js/ComboBoxItem.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
-
-const pattern0LabelString = beersLawLabStrings.pattern[ '0label' ];
-const soluteString = beersLawLabStrings.solute;
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 
 class SoluteComboBox extends ComboBox {
 
@@ -30,7 +27,7 @@ class SoluteComboBox extends ComboBox {
   constructor( solutes, selectedSoluteProperty, soluteListParent, tandem ) {
 
     // 'Solute' label
-    const labelNode = new Text( StringUtils.format( pattern0LabelString, soluteString ),
+    const labelNode = new Text( StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.solute ),
       { font: new PhetFont( 22 ) } );
 
     // items

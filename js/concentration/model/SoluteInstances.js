@@ -8,24 +8,13 @@
  */
 
 import Color from '../../../../scenery/js/util/Color.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import BLLSymbols from '../../common/BLLSymbols.js';
 import Solvent from '../../common/model/Solvent.js';
 import Solute from './Solute.js';
 import SoluteColorScheme from './SoluteColorScheme.js';
-
-// strings
-const cobaltChlorideString = beersLawLabStrings.cobaltChloride;
-const cobaltIINitrateString = beersLawLabStrings.cobaltIINitrate;
-const copperSulfateString = beersLawLabStrings.copperSulfate;
-const drinkMixString = beersLawLabStrings.drinkMix;
-const nickelIIChlorideString = beersLawLabStrings.nickelIIChloride;
-const potassiumChromateString = beersLawLabStrings.potassiumChromate;
-const potassiumDichromateString = beersLawLabStrings.potassiumDichromate;
-const potassiumPermanganateString = beersLawLabStrings.potassiumPermanganate;
-const sodiumChlorideString = beersLawLabStrings.sodiumChloride;
 
 // A new tandem instance is required here since the solutes are created statically. Signify that these solutes are
 // only used in the concentration screen by attaching them to that screen's tandem.
@@ -34,8 +23,8 @@ const SOLUTES_TANDEM = BLLConstants.CONCENTRATION_SCREEN_TANDEM.createTandem( 's
 const SoluteInstances = {
 
   DRINK_MIX: new Solute(
-    drinkMixString,
-    drinkMixString,
+    beersLawLabStrings.drinkMix,
+    beersLawLabStrings.drinkMix,
     5.5, // stockSolutionConcentration, mol/L
     342.296, // molarMass, g/mol (sucrose)
     new SoluteColorScheme( 0, new Color( 224, 255, 255 ), 0.05, new Color( 255, 225, 225 ), 5.96, new Color( 255, 0, 0 ) ), {
@@ -44,7 +33,7 @@ const SoluteInstances = {
   ),
 
   COBALT_II_NITRATE: new Solute(
-    cobaltIINitrateString,
+    beersLawLabStrings.cobaltIINitrate,
     BLLSymbols.COBALT_II_NITRATE,
     5.0, // stockSolutionConcentration, mol/L
     182.942, // molarMass, g/mol
@@ -54,7 +43,7 @@ const SoluteInstances = {
   ),
 
   COBALT_CHLORIDE: new Solute(
-    cobaltChlorideString,
+    beersLawLabStrings.cobaltChloride,
     BLLSymbols.COBALT_CHLORIDE,
     4.0, // stockSolutionConcentration, mol/L
     129.839, // molarMass, g/mol
@@ -64,7 +53,7 @@ const SoluteInstances = {
   ),
 
   POTASSIUM_DICHROMATE: new Solute(
-    potassiumDichromateString,
+    beersLawLabStrings.potassiumDichromate,
     BLLSymbols.POTASSIUM_DICHROMATE,
     0.5, // stockSolutionConcentration, mol/L
     294.185, // molarMass, g/mol
@@ -74,7 +63,7 @@ const SoluteInstances = {
   ),
 
   POTASSIUM_CHROMATE: new Solute(
-    potassiumChromateString,
+    beersLawLabStrings.potassiumChromate,
     BLLSymbols.POTASSIUM_CHROMATE,
     3.0, // stockSolutionConcentration, mol/L
     194.191, // molarMass, g/mol
@@ -84,7 +73,7 @@ const SoluteInstances = {
   ),
 
   NICKEL_II_CHLORIDE: new Solute(
-    nickelIIChlorideString,
+    beersLawLabStrings.nickelIIChloride,
     BLLSymbols.NICKEL_II_CHLORIDE,
     5.0, // stockSolutionConcentration, mol/L
     129.599, // molarMass, g/mol
@@ -94,7 +83,7 @@ const SoluteInstances = {
   ),
 
   COPPER_SULFATE: new Solute(
-    copperSulfateString,
+    beersLawLabStrings.copperSulfate,
     BLLSymbols.COPPER_SULFATE,
     1.0, // stockSolutionConcentration, mol/L
     159.609, // molarMass, g/mol
@@ -104,7 +93,7 @@ const SoluteInstances = {
   ),
 
   POTASSIUM_PERMANGANATE: new Solute(
-    potassiumPermanganateString,
+    beersLawLabStrings.potassiumPermanganate,
     BLLSymbols.POTASSIUM_PERMANGANATE,
     0.4, // stockSolutionConcentration, mol/L
     158.034, // molarMass, g/mol
@@ -115,7 +104,7 @@ const SoluteInstances = {
   ),
 
   SODIUM_CHLORIDE: new Solute(
-    sodiumChlorideString,
+    beersLawLabStrings.sodiumChloride,
     BLLSymbols.SODIUM_CHLORIDE,
     5.50, // stockSolutionConcentration, mol/L
     58.443, // molarMass, g/mol

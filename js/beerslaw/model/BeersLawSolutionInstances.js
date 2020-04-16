@@ -10,24 +10,14 @@
 
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Color from '../../../../scenery/js/util/Color.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import BLLSymbols from '../../common/BLLSymbols.js';
 import ColorRange from '../../common/model/ColorRange.js';
-import ConcentrationTransform from './ConcentrationTransform.js';
 import BeersLawSolution from './BeersLawSolution.js';
+import ConcentrationTransform from './ConcentrationTransform.js';
 import MolarAbsorptivityData from './MolarAbsorptivityData.js';
-
-// strings
-const cobaltChlorideString = beersLawLabStrings.cobaltChloride;
-const cobaltIINitrateString = beersLawLabStrings.cobaltIINitrate;
-const copperSulfateString = beersLawLabStrings.copperSulfate;
-const drinkMixString = beersLawLabStrings.drinkMix;
-const nickelIIChlorideString = beersLawLabStrings.nickelIIChloride;
-const potassiumChromateString = beersLawLabStrings.potassiumChromate;
-const potassiumDichromateString = beersLawLabStrings.potassiumDichromate;
-const potassiumPermanganateString = beersLawLabStrings.potassiumPermanganate;
 
 // A new tandem instance is required here since the solutes are created statically. Signify that these solutions
 // are only used in the beers law screen by attaching them to that screen's tandem.
@@ -37,7 +27,7 @@ const BeersLawSolutionInstances = {
 
   DRINK_MIX: new BeersLawSolution(
     'drinkMix',
-    drinkMixString,
+    beersLawLabStrings.drinkMix,
     BLLSymbols.DRINK_MIX,
     MolarAbsorptivityData.DRINK_MIX,
     new RangeWithValue( 0, 0.400, 0.100 ),
@@ -49,7 +39,7 @@ const BeersLawSolutionInstances = {
 
   COBALT_II_NITRATE: new BeersLawSolution(
     'cobaltIINitrate',
-    cobaltIINitrateString,
+    beersLawLabStrings.cobaltIINitrate,
     BLLSymbols.COBALT_II_NITRATE,
     MolarAbsorptivityData.COBALT_II_NITRATE,
     new RangeWithValue( 0, 0.400, 0.100 ),
@@ -61,7 +51,7 @@ const BeersLawSolutionInstances = {
 
   COBALT_CHLORIDE: new BeersLawSolution(
     'cobaltChloride',
-    cobaltChlorideString,
+    beersLawLabStrings.cobaltChloride,
     BLLSymbols.COBALT_CHLORIDE,
     MolarAbsorptivityData.COBALT_CHLORIDE,
     new RangeWithValue( 0, 0.250, 0.100 ),
@@ -73,7 +63,7 @@ const BeersLawSolutionInstances = {
 
   POTASSIUM_DICHROMATE: new BeersLawSolution(
     'potassiumDichromate',
-    potassiumDichromateString,
+    beersLawLabStrings.potassiumDichromate,
     BLLSymbols.POTASSIUM_DICHROMATE,
     MolarAbsorptivityData.POTASSIUM_DICHROMATE,
     new RangeWithValue( 0, 0.000500, 0.000100 ),
@@ -85,7 +75,7 @@ const BeersLawSolutionInstances = {
 
   POTASSIUM_CHROMATE: new BeersLawSolution(
     'potassiumChromate',
-    potassiumChromateString,
+    beersLawLabStrings.potassiumChromate,
     BLLSymbols.POTASSIUM_CHROMATE,
     MolarAbsorptivityData.POTASSIUM_CHROMATE,
     new RangeWithValue( 0, 0.000400, 0.000100 ),
@@ -97,7 +87,7 @@ const BeersLawSolutionInstances = {
 
   NICKEL_II_CHLORIDE: new BeersLawSolution(
     'nickelIIChloride',
-    nickelIIChlorideString,
+    beersLawLabStrings.nickelIIChloride,
     BLLSymbols.NICKEL_II_CHLORIDE,
     MolarAbsorptivityData.NICKEL_II_CHLORIDE,
     new RangeWithValue( 0, 0.350, 0.100 ),
@@ -109,7 +99,7 @@ const BeersLawSolutionInstances = {
 
   COPPER_SULFATE: new BeersLawSolution(
     'copperSulfate',
-    copperSulfateString,
+    beersLawLabStrings.copperSulfate,
     BLLSymbols.COPPER_SULFATE,
     MolarAbsorptivityData.COPPER_SULFATE,
     new RangeWithValue( 0, 0.200, 0.100 ),
@@ -121,7 +111,7 @@ const BeersLawSolutionInstances = {
 
   POTASSIUM_PERMANGANATE: new BeersLawSolution(
     'potassiumPermanganate',
-    potassiumPermanganateString,
+    beersLawLabStrings.potassiumPermanganate,
     BLLSymbols.POTASSIUM_PERMANGANATE,
     MolarAbsorptivityData.POTASSIUM_PERMANGANATE,
     new RangeWithValue( 0, 0.000800, 0.000100 ),

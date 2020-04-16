@@ -18,16 +18,9 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import VBox from '../../../../scenery/js/nodes/VBox.js';
 import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Panel from '../../../../sun/js/Panel.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
-
-const pattern0LabelString = beersLawLabStrings.pattern[ '0label' ];
-const pattern0Value1UnitsString = beersLawLabStrings.pattern[ '0value' ][ '1units' ];
-const presetString = beersLawLabStrings.preset;
-const unitsNmString = beersLawLabStrings.units.nm;
-const variableString = beersLawLabStrings.variable;
-const wavelengthString = beersLawLabStrings.wavelength;
 
 // constants
 const RADIO_BUTTON_TEXT_OPTIONS = { font: new PhetFont( 18 ), fill: 'black' };
@@ -49,7 +42,7 @@ class WavelengthControls extends Panel {
     const xMargin = 7;
     const yMargin = 3;
 
-    const label = new Text( StringUtils.format( pattern0LabelString, wavelengthString ), {
+    const label = new Text( StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.wavelength ), {
       font: new PhetFont( 20 ),
       fill: 'black',
       tandem: tandem.createTandem( 'label' )
@@ -79,12 +72,12 @@ class WavelengthControls extends Panel {
     const radioButtonItems = [
       {
         value: false,
-        node: new Text( presetString, RADIO_BUTTON_TEXT_OPTIONS ),
+        node: new Text( beersLawLabStrings.preset, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'presetWavelengthRadioButton'
       },
       {
         value: true,
-        node: new Text( variableString, RADIO_BUTTON_TEXT_OPTIONS ),
+        node: new Text( beersLawLabStrings.variable, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'variableWavelengthRadioButton'
       }
     ];
@@ -161,7 +154,8 @@ class WavelengthControls extends Panel {
 }
 
 function formatWavelength( wavelength ) {
-  return StringUtils.format( pattern0Value1UnitsString, Utils.toFixed( wavelength, 0 ), unitsNmString );
+  return StringUtils.format( beersLawLabStrings.pattern[ '0value' ][ '1units' ],
+    Utils.toFixed( wavelength, 0 ), beersLawLabStrings.units.nm );
 }
 
 beersLawLab.register( 'WavelengthControls', WavelengthControls );

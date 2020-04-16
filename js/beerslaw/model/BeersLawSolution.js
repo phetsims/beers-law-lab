@@ -19,13 +19,10 @@ import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 import Solvent from '../../common/model/Solvent.js';
 import BeersLawSolutionIO from './BeersLawSolutionIO.js';
-
-// strings
-const pattern0Formula1NameString = beersLawLabStrings.pattern[ '0formula' ][ '1name' ];
 
 class BeersLawSolution extends PhetioObject {
 
@@ -93,7 +90,7 @@ class BeersLawSolution extends PhetioObject {
     if ( this.formula === this.name ) {
       return this.name;
     }
-    return StringUtils.format( pattern0Formula1NameString, this.formula, this.name );
+    return StringUtils.format( beersLawLabStrings.pattern[ '0formula' ][ '1name' ], this.formula, this.name );
   }
 }
 

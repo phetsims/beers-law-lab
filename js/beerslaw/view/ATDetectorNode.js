@@ -22,15 +22,10 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import ATDetector from '../model/ATDetector.js';
-
-//strings
-const absorbanceString = beersLawLabStrings.absorbance;
-const pattern0PercentString = beersLawLabStrings.pattern[ '0percent' ];
-const transmittanceString = beersLawLabStrings.transmittance;
 
 // constants
 const ABSORBANCE_DECIMAL_PLACES = 2;
@@ -88,12 +83,12 @@ class BodyNode extends Node {
     const radioButtonItems = [
       {
         value: ATDetector.Mode.TRANSMITTANCE,
-        node: new Text( transmittanceString, RADIO_BUTTON_TEXT_OPTIONS ),
+        node: new Text( beersLawLabStrings.transmittance, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'transmittanceRadioButton'
       },
       {
         value: ATDetector.Mode.ABSORBANCE,
-        node: new Text( absorbanceString, RADIO_BUTTON_TEXT_OPTIONS ),
+        node: new Text( beersLawLabStrings.absorbance, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'absorbanceRadioButton'
       }
     ];
@@ -110,7 +105,8 @@ class BodyNode extends Node {
 
     // value
     const maxValue = 100;
-    const valueNode = new Text( StringUtils.format( pattern0PercentString, Utils.toFixed( maxValue, TRANSMITTANCE_DECIMAL_PLACES ) ), {
+    const valueNode = new Text( StringUtils.format( beersLawLabStrings.pattern[ '0percent' ],
+      Utils.toFixed( maxValue, TRANSMITTANCE_DECIMAL_PLACES ) ), {
       font: new PhetFont( 24 ),
       maxWidth: 150,
       tandem: tandem.createTandem( 'valueNode' )
@@ -160,7 +156,8 @@ class BodyNode extends Node {
       }
       else {
         if ( detector.modeProperty.get() === ATDetector.Mode.TRANSMITTANCE ) {
-          valueNode.text = StringUtils.format( pattern0PercentString, Utils.toFixed( value, TRANSMITTANCE_DECIMAL_PLACES ) );
+          valueNode.text = StringUtils.format( beersLawLabStrings.pattern[ '0percent' ],
+            Utils.toFixed( value, TRANSMITTANCE_DECIMAL_PLACES ) );
         }
         else {
           valueNode.text = Utils.toFixed( value, ABSORBANCE_DECIMAL_PLACES );

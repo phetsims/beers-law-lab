@@ -17,10 +17,6 @@ import beersLawLabStrings from '../beersLawLabStrings.js';
 import BeersLawModel from './model/BeersLawModel.js';
 import BeersLawScreenView from './view/BeersLawScreenView.js';
 
-const screenBeersLawString = beersLawLabStrings.screen.beersLaw;
-
-// image
-
 class BeersLawScreen extends Screen {
 
   /**
@@ -32,7 +28,7 @@ class BeersLawScreen extends Screen {
     const modelViewTransform = ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 125 );
 
     const options = {
-      name: screenBeersLawString,
+      name: beersLawLabStrings.screen.beersLaw,
       homeScreenIcon: createScreenIcon(),
       tandem: tandem
     };

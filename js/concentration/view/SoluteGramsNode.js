@@ -11,10 +11,8 @@ import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
-
-const pattern0SoluteAmountString = beersLawLabStrings.pattern[ '0soluteAmount' ];
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 
 // constants
 const DECIMAL_PLACES = 0;
@@ -34,7 +32,8 @@ class SoluteGramsNode extends Text {
     super( '', options );
 
     soluteGramsProperty.link( soluteGrams => {
-      this.text = StringUtils.format( pattern0SoluteAmountString, Utils.toFixed( soluteGrams, DECIMAL_PLACES ) );
+      this.text = StringUtils.format( beersLawLabStrings.pattern[ '0soluteAmount' ],
+        Utils.toFixed( soluteGrams, DECIMAL_PLACES ) );
     } );
   }
 }

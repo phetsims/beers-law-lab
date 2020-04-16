@@ -13,11 +13,8 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
-
-const unitsMMString = beersLawLabStrings.units.mM;
-const unitsUMString = beersLawLabStrings.units.uM;
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 
 class ConcentrationTransform {
 
@@ -54,8 +51,8 @@ class ConcentrationTransform {
 }
 
 // specific transforms
-ConcentrationTransform.mM = new ConcentrationTransform( 1000, unitsMMString );
-ConcentrationTransform.uM = new ConcentrationTransform( 1000000, unitsUMString );
+ConcentrationTransform.mM = new ConcentrationTransform( 1000, beersLawLabStrings.units.mM );
+ConcentrationTransform.uM = new ConcentrationTransform( 1000000, beersLawLabStrings.units.uM );
 
 beersLawLab.register( 'ConcentrationTransform', ConcentrationTransform );
 export default ConcentrationTransform;

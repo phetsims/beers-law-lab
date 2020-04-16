@@ -30,14 +30,9 @@ import LayoutBox from '../../../../scenery/js/nodes/LayoutBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 import BLLQueryParameters from '../../common/BLLQueryParameters.js';
-
-const concentrationString = beersLawLabStrings.concentration;
-const pattern0PercentString = beersLawLabStrings.pattern[ '0percent' ];
-const pattern0Value1UnitsString = beersLawLabStrings.pattern[ '0value' ][ '1units' ];
-const unitsMolesPerLiterString = beersLawLabStrings.units.molesPerLiter;
 
 // constants
 const BODY_IS_DRAGGABLE = true;
@@ -135,14 +130,14 @@ class BodyNode extends Node {
     const maxTextWidth = 225; // constrain text width for i18n, determined empirically
 
     // title
-    const titleNode = new Text( concentrationString,
+    const titleNode = new Text( beersLawLabStrings.concentration,
       { font: new PhetFont( 18 ), fill: 'white', maxWidth: maxTextWidth } );
 
     // readout for the value + units
     const formattedText = StringUtils.format(
-      pattern0Value1UnitsString,
+      beersLawLabStrings.pattern[ '0value' ][ '1units' ],
       Utils.toFixed( 1, DECIMAL_PLACES_MOLES_PER_LITER ),
-      unitsMolesPerLiterString
+      beersLawLabStrings.units.molesPerLiter
     );
     const readoutTextNode = new Text( formattedText, {
       font: new PhetFont( 24 ),
@@ -205,10 +200,12 @@ class BodyNode extends Node {
         // display concentration as 'mol/L' or '%', see beers-law-lab#149
         let readoutText = null;
         if ( DISPLAY_MOLES_PER_LITER ) {
-          readoutText = StringUtils.format( pattern0Value1UnitsString, Utils.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), unitsMolesPerLiterString );
+          readoutText = StringUtils.format( beersLawLabStrings.pattern[ '0value' ][ '1units' ],
+            Utils.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), beersLawLabStrings.units.molesPerLiter );
         }
         else {
-          readoutText = StringUtils.format( pattern0PercentString, Utils.toFixed( value, DECIMAL_PLACES_PERCENT ) );
+          readoutText = StringUtils.format( beersLawLabStrings.pattern[ '0percent' ],
+            Utils.toFixed( value, DECIMAL_PLACES_PERCENT ) );
         }
         readoutTextNode.setText( readoutText );
         readoutTextNode.right = readoutBackgroundNode.right - READOUT_X_MARGIN; // right justified

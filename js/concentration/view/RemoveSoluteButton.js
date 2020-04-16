@@ -9,10 +9,8 @@
 import merge from '../../../../phet-core/js/merge.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import TextPushButton from '../../../../sun/js/buttons/TextPushButton.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
-
-const removeSoluteString = beersLawLabStrings.removeSolute;
+import beersLawLabStrings from '../../beersLawLabStrings.js';
 
 class RemoveSoluteButton extends TextPushButton {
 
@@ -32,7 +30,7 @@ class RemoveSoluteButton extends TextPushButton {
       tandem: tandem
     }, options );
 
-    super( removeSoluteString, options );
+    super( beersLawLabStrings.removeSolute, options );
 
     this.addListener( () => {
       solution.soluteAmountProperty.set( 0 );
