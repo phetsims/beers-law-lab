@@ -32,8 +32,8 @@ class ParticlesNode extends CanvasNode {
     this.modelViewTransform = modelViewTransform;
 
     // If particles are added or removed, then redraw.
-    particlesGroup.addMemberCreatedListener( () => this.invalidatePaint() );
-    particlesGroup.addMemberDisposedListener( () => this.invalidatePaint() );
+    particlesGroup.elementCreatedEmitter.addListener( () => this.invalidatePaint() );
+    particlesGroup.elementDisposedEmitter.addListener( () => this.invalidatePaint() );
   }
 
   /**
