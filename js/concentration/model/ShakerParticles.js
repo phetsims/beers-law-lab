@@ -85,7 +85,7 @@ class ShakerParticles {
       const percentFull = solution.volumeProperty.get() / beaker.volume;
       const solutionSurfaceY = beaker.position.y - ( percentFull * beaker.size.height ) - solution.soluteProperty.get().particleSize;
       if ( particle.positionProperty.get().y > solutionSurfaceY ) {
-        this.particlesGroup.disposeMember( particle );
+        this.particlesGroup.disposeElement( particle );
         const soluteAmount = Math.min(
           BLLConstants.SOLUTE_AMOUNT_RANGE.max,
           solution.soluteAmountProperty.get() + ( 1 / solution.soluteProperty.get().particlesPerMole )
@@ -104,7 +104,7 @@ class ShakerParticles {
         shaker.dispensingRateProperty.get() * solution.soluteProperty.get().particlesPerMole * deltaSeconds ) );
 
       for ( let j = 0; j < numberOfParticles; j++ ) {
-        this.particlesGroup.createNextMember(
+        this.particlesGroup.createNextElement(
           solution.soluteProperty.get(),
           getRandomPosition( this.shaker.positionProperty.get() ),
           getRandomOrientation(),

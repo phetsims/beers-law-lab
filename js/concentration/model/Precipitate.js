@@ -77,7 +77,7 @@ class Precipitate {
   addParticles( numberToAdd ) {
     assert && assert( numberToAdd > 0, 'invalid numberToAdd: ' + numberToAdd );
     for ( let i = 0; i < numberToAdd; i++ ) {
-      this.particlesGroup.createNextMember(
+      this.particlesGroup.createNextElement(
         this.solution.soluteProperty.get(),
         this.getRandomOffset(),
         getRandomOrientation()
@@ -99,7 +99,7 @@ class Precipitate {
     assert && assert( removedParticles && removedParticles.length === numberToRemove );
 
     for ( let i = 0; i < removedParticles.length; i++ ) {
-      this.particlesGroup.disposeMember( removedParticles[ i ] );
+      this.particlesGroup.disposeElement( removedParticles[ i ] );
     }
   }
 
