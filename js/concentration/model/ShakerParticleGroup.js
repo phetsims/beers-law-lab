@@ -16,7 +16,7 @@ import ShakerParticle from './ShakerParticle.js';
 import ShakerParticleIO from './ShakerParticleIO.js';
 import SoluteInstances from './SoluteInstances.js';
 
-// Default args to ShakerParticle constructor, passed to createMember during API harvest
+// Default args to ShakerParticle constructor, passed to createElement during API harvest
 const DEFAULT_ARGUMENTS = [ SoluteInstances.DRINK_MIX, Vector2.ZERO, 0, Vector2.ZERO, Vector2.ZERO ];
 
 class ShakerParticleGroup extends PhetioGroup {
@@ -41,13 +41,13 @@ class ShakerParticleGroup extends PhetioGroup {
      * @param {Vector2} acceleration
      * @returns {ShakerParticle}
      */
-    const createMember = ( tandem, solute, position, orientation, initialVelocity, acceleration ) => {
+    const createElement = ( tandem, solute, position, orientation, initialVelocity, acceleration ) => {
       return new ShakerParticle( solute, position, orientation, initialVelocity, acceleration, {
         tandem: tandem
       } );
     };
 
-    super( createMember, DEFAULT_ARGUMENTS, options );
+    super( createElement, DEFAULT_ARGUMENTS, options );
   }
 }
 

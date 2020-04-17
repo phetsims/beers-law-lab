@@ -16,7 +16,7 @@ import PrecipitateParticle from './PrecipitateParticle.js';
 import PrecipitateParticleIO from './PrecipitateParticleIO.js';
 import SoluteInstances from './SoluteInstances.js';
 
-// Default args to PrecipitateParticle constructor, passed to createMember during API harvest
+// Default args to PrecipitateParticle constructor, passed to createElement during API harvest
 const DEFAULT_ARGUMENTS = [ SoluteInstances.DRINK_MIX, Vector2.ZERO, 0 ];
 
 class PrecipitateParticleGroup extends PhetioGroup {
@@ -40,13 +40,13 @@ class PrecipitateParticleGroup extends PhetioGroup {
      * @param {number} orientation in radians
      * @returns {PrecipitateParticle}
      */
-    const createMember = ( tandem, solute, position, orientation ) => {
+    const createElement = ( tandem, solute, position, orientation ) => {
       return new PrecipitateParticle( solute, position, orientation, {
         tandem: tandem
       } );
     };
 
-    super( createMember, DEFAULT_ARGUMENTS, options );
+    super( createElement, DEFAULT_ARGUMENTS, options );
   }
 }
 
