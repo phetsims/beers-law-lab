@@ -92,7 +92,7 @@ class Precipitate {
    */
   removeParticles( numberToRemove ) {
 
-    const particles = this.particlesGroup.array;
+    const particles = this.particlesGroup.getArray();
     assert && assert( numberToRemove > 0 && numberToRemove <= particles.length, `invalid numberToRemove: ${numberToRemove}` );
 
     const removedParticles = particles.slice( particles.length - numberToRemove, numberToRemove );

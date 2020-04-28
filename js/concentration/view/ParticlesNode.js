@@ -43,7 +43,7 @@ class ParticlesNode extends CanvasNode {
    */
   paintCanvas( context ) {
 
-    const particles = this.particlesGroup.array;
+    const particles = this.particlesGroup.getArray();
     let halfViewSize;
     const numberOfParticles = particles.length;
 

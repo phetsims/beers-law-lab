@@ -69,7 +69,7 @@ class ShakerParticles {
   // @public Particle animation and delivery to the solution, called when the simulation clock ticks.
   step( deltaSeconds ) {
 
-    const particles = this.particlesGroup.array;
+    const particles = this.particlesGroup.getArray();
     const beaker = this.beaker;
     const shaker = this.shaker;
     const solution = this.solution;
