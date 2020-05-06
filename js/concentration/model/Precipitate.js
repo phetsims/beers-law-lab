@@ -57,16 +57,16 @@ class Precipitate {
     // number of particles desired after this update
     const numberOfParticles = this.solution.getNumberOfPrecipitateParticles();
 
-    if ( numberOfParticles === this.particlesGroup.length ) {
+    if ( numberOfParticles === this.particlesGroup.count ) {
       return; // no change, do nothing
     }
-    else if ( numberOfParticles < this.particlesGroup.length ) {
-      this.removeParticles( this.particlesGroup.length - numberOfParticles );
+    else if ( numberOfParticles < this.particlesGroup.count ) {
+      this.removeParticles( this.particlesGroup.count - numberOfParticles );
     }
     else {
-      this.addParticles( numberOfParticles - this.particlesGroup.length );
+      this.addParticles( numberOfParticles - this.particlesGroup.count );
     }
-    assert && assert( this.particlesGroup.length === numberOfParticles );
+    assert && assert( this.particlesGroup.count === numberOfParticles );
   }
 
   /**
