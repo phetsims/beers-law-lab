@@ -20,6 +20,7 @@ class ShakerIO extends ObjectIO {
    * Serializes an instance.
    * @param {Shaker} shaker
    * @returns {Object}
+   * @public
    */
   static toStateObject( shaker ) {
     validate( shaker, this.validator );
@@ -30,6 +31,7 @@ class ShakerIO extends ObjectIO {
    * Deserializes an instance.
    * @param {Object} stateObject
    * @returns {{position: Vector2}}
+   * @public
    */
   static fromStateObject( stateObject ) {
     return { position: Vector2IO.fromStateObject( stateObject.position ) };
@@ -40,6 +42,8 @@ class ShakerIO extends ObjectIO {
    * phetioEngine.js when setting the state.
    * @param {Shaker} shaker
    * @param {{position: Vector2}} fromStateObject - the value returned by fromStateObject
+   * @public
+   * @override
    */
   static setValue( shaker, fromStateObject ) {
     validate( shaker, this.validator );

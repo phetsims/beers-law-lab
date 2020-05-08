@@ -20,6 +20,7 @@ class SoluteParticleIO extends ObjectIO {
    * Serializes an instance.  Not called by PhET-iO directly, but rather called from its subtypes.
    * @param soluteParticle
    * @returns {Object}
+   * @public
    */
   static toStateObject( soluteParticle ) {
     validate( soluteParticle, this.validator );
@@ -33,6 +34,7 @@ class SoluteParticleIO extends ObjectIO {
    * Deserializes an instance.  Not called by PhET-iO directly, but rather called from its subtypes.
    * @param {Object} stateObject
    * @returns {{position: Vector2, orientation: number}}
+   * @public
    */
   static fromStateObject( stateObject ) {
     return {

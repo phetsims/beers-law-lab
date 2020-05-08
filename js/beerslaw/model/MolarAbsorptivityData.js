@@ -27,6 +27,7 @@ class MolarAbsorptivityData {
    * Maps a visible wavelength to its corresponding molar absorptivity.
    * @param {number} wavelength
    * @returns {number}
+   * @public
    */
   wavelengthToMolarAbsorptivity( wavelength ) {
     assert && assert( wavelength >= VisibleColor.MIN_WAVELENGTH && wavelength <= VisibleColor.MAX_WAVELENGTH,

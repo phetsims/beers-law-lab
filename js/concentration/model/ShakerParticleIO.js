@@ -22,6 +22,7 @@ class ShakerParticleIO extends SoluteParticleIO {
    * Serializes an instance.
    * @param {ShakerParticle} shakerParticle
    * @returns {Object}
+   * @public
    */
   static toStateObject( shakerParticle ) {
     validate( shakerParticle, this.validator );
@@ -36,6 +37,7 @@ class ShakerParticleIO extends SoluteParticleIO {
    * Deserializes an instance.
    * @param {Object} stateObject
    * @returns {ShakerParticle}
+   * @public
    */
   static fromStateObject( stateObject ) {
     return merge( SoluteParticleIO.fromStateObject( stateObject ), {

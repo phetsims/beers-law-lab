@@ -21,6 +21,7 @@ class PrecipitateParticleIO extends SoluteParticleIO {
    * Serializes an instance.
    * @param {PrecipitateParticle} precipitateParticle
    * @returns {Object}
+   * @public
    */
   static toStateObject( precipitateParticle ) {
     validate( precipitateParticle, this.validator );
@@ -33,6 +34,7 @@ class PrecipitateParticleIO extends SoluteParticleIO {
    * Deserializes an instance.
    * @param {Object} stateObject
    * @returns {PrecipitateParticle}
+   * @public
    */
   static fromStateObject( stateObject ) {
     return merge( SoluteParticleIO.fromStateObject( stateObject ), {

@@ -34,6 +34,7 @@ class SoluteColorScheme {
    * Converts a concentration value to a Color, using a linear interpolation of RGB colors.
    * @param {number} concentration - mol/L
    * @returns {Color} color
+   * @public
    */
   concentrationToColor( concentration ) {
     if ( concentration >= this.maxConcentration ) {
