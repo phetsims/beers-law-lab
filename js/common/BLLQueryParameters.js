@@ -13,7 +13,10 @@ const BLLQueryParameters = QueryStringMachine.getAll( {
 
   // Whether the solute amount (in grams) is visible on the Concentration screen
   // For external use, see https://github.com/phetsims/beers-law-lab/issues/148
-  showSoluteAmount: { type: 'flag' },
+  showSoluteAmount: {
+    type: 'flag',
+    public: true
+  },
 
   // Units on the concentration meter
   // For external use, see https://github.com/phetsims/beers-law-lab/issues/149
