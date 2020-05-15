@@ -11,32 +11,38 @@ import BLLConstants from './BLLConstants.js';
 
 const BLLQueryParameters = QueryStringMachine.getAll( {
 
-  // {boolean} whether the solute amount (in grams) is visible on the Concentration screen
-  // This query parameter is intended for external use, see https://github.com/phetsims/beers-law-lab/issues/148
-  showSoluteAmount: { type: 'flag' },
+  // Whether the solute amount (in grams) is visible on the Concentration screen
+  // For external use, see https://github.com/phetsims/beers-law-lab/issues/148
+  showSoluteAmount: {
+    type: 'flag',
+    public: true
+  },
 
-  // {string} units on the concentration meter
-  // This query parameter is intended for external use, see https://github.com/phetsims/beers-law-lab/issues/149
+  // Units on the concentration meter
+  // For external use, see https://github.com/phetsims/beers-law-lab/issues/149
   concentrationMeterUnits: {
     type: 'string',
     validValues: [ 'molesPerLiter', 'percent' ],
-    defaultValue: 'molesPerLiter'
+    defaultValue: 'molesPerLiter',
+    public: true
   },
 
-  // {string} units for beaker ticks
-  // This query parameter is intended for external use, see https://github.com/phetsims/beers-law-lab/issues/150
+  // Units for beaker ticks
+  // For external use, see https://github.com/phetsims/beers-law-lab/issues/150
   beakerUnits: {
     type: 'string',
     validValues: [ 'liters', 'milliliters' ],
-    defaultValue: 'liters'
+    defaultValue: 'liters',
+    public: true
   },
 
-  // {number} snap interval for the cuvette in centimeters, or 0 for no snap
-  // This query parameter is intended for external use, see https://github.com/phetsims/phet-io/issues/568
+  // Snap interval for the cuvette in centimeters, or 0 for no snap
+  // For external use, see https://github.com/phetsims/phet-io/issues/568
   cuvetteSnapInterval: {
     type: 'number',
     defaultValue: BLLConstants.DEFAULT_CUVETTE_SNAP_INTERVAL,
-    isValidValue: value => ( value >= 0 )
+    isValidValue: value => ( value >= 0 ),
+    public: true
   }
 } );
 
