@@ -55,7 +55,7 @@ class ShakerParticles {
     // when the solute changes, remove all particles
     solution.soluteProperty.link( () => {
 
-      // Particles will be set for state on their own, so this listener should fire when setting state.
+      // Remove all particles, unless solute was being restored by PhET-iO. Particles will be restored by particlesGroup.
       if ( !phet.joist.sim.isSettingPhetioStateProperty.value ) {
         this.removeAllParticles();
       }
