@@ -53,7 +53,13 @@ class ShakerParticles {
     this.particlesMovedEmitter = new Emitter();
 
     // when the solute changes, remove all particles
-    solution.soluteProperty.link( () => this.removeAllParticles() );
+    solution.soluteProperty.link( () => {
+
+      // Particles will be set for state on their own, so this listener should fire when setting state.
+      if ( !phet.joist.sim.isSettingPhetioStateProperty.value ) {
+        this.removeAllParticles();
+      }
+    } );
   }
 
   // @public
