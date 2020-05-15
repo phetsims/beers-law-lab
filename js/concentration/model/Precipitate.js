@@ -41,8 +41,12 @@ class Precipitate {
 
     // when the solute changes, remove all particles and create new particles for the solute
     this.solution.soluteProperty.link( () => {
-      this.removeAllParticles();
-      this.updateParticles();
+
+      // Remove all particles, unless solute was being restored by PhET-iO. Particles will be restored by particlesGroup.
+      if ( !phet.joist.sim.isSettingPhetioStateProperty.value ) {
+        this.removeAllParticles();
+        this.updateParticles();
+      }
     } );
   }
 
