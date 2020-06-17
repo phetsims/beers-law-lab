@@ -45,7 +45,7 @@ class ShakerIO extends ObjectIO {
    * @public
    * @override
    */
-  static setValue( shaker, fromStateObject ) {
+  static applyState( shaker, fromStateObject ) {
     validate( shaker, this.validator );
     shaker.previousPosition.set( fromStateObject.position );
   }
