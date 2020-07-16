@@ -21,6 +21,7 @@ class ShakerIO extends ObjectIO {
    * @param {Shaker} shaker
    * @returns {Object}
    * @public
+   * @override
    */
   static toStateObject( shaker ) {
     validate( shaker, this.validator );
@@ -28,26 +29,16 @@ class ShakerIO extends ObjectIO {
   }
 
   /**
-   * Deserializes an instance.
-   * @param {Object} stateObject
-   * @returns {{position: Vector2}}
-   * @public
-   */
-  static fromStateObject( stateObject ) {
-    return { position: Vector2IO.fromStateObject( stateObject.position ) };
-  }
-
-  /**
-   * Set the position of the shaker using the value parsed in fromStateObject.  This method is automatically called by
+   * Set the position of the shaker. This method is automatically called by
    * phetioEngine.js when setting the state.
    * @param {Shaker} shaker
-   * @param {{position: Vector2}} fromStateObject - the value returned by fromStateObject
+   * @param {Object} stateObject - the value returned by toStateObject
    * @public
    * @override
    */
-  static applyState( shaker, fromStateObject ) {
+  static applyState( shaker, stateObject ) {
     validate( shaker, this.validator );
-    shaker.previousPosition.set( fromStateObject.position );
+    shaker.previousPosition.set( Vector2IO.fromStateObject( stateObject.position ) );
   }
 }
 
