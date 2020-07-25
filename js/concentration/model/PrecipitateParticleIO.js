@@ -31,27 +31,20 @@ class PrecipitateParticleIO extends SoluteParticleIO {
   }
 
   /**
-   * Deserializes an instance.
    * @param {Object} stateObject
-   * @returns {PrecipitateParticle}
-   * @public
-   */
-  static fromStateObject( stateObject ) {
-    return merge( SoluteParticleIO.fromStateObject( stateObject ), {
-      solute: SoluteIO.fromStateObject( stateObject.solute )
-    } );
-  }
-
-  /**
-   * @param {Object} state
    * @returns {Array.<*>}
    * @public
    * @override
    */
-  static stateToArgsForConstructor( state ) {
+  static stateToArgsForConstructor( stateObject ) {
+    const parentDeserializedComponents = SoluteParticleIO.deserializeComponents( stateObject );
 
     // This must match PrecipitateParticle constructor signature
-    return [ state.solute, state.position, state.orientation ];
+    return [
+      SoluteIO.fromStateObject( stateObject.solute ),
+      parentDeserializedComponents.position,
+      parentDeserializedComponents.orientation
+    ];
   }
 }
 

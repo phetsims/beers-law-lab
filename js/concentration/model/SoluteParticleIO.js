@@ -36,7 +36,7 @@ class SoluteParticleIO extends ObjectIO {
    * @returns {{position: Vector2, orientation: number}}
    * @public
    */
-  static fromStateObject( stateObject ) {
+  static deserializeComponents( stateObject ) {
     return {
       position: Vector2IO.fromStateObject( stateObject.position ),
       orientation: NumberIO.fromStateObject( stateObject.orientation )

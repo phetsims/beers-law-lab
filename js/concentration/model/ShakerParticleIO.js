@@ -48,15 +48,22 @@ class ShakerParticleIO extends SoluteParticleIO {
   }
 
   /**
-   * @param {Object} state
+   * @param {Object} stateObject
    * @returns {Array.<*>}
    * @public
    * @override
    */
-  static stateToArgsForConstructor( state ) {
+  static stateToArgsForConstructor( stateObject ) {
+    const parentDeserializedComponents = SoluteParticleIO.deserializeComponents( stateObject );
 
     // This must match SoluteParticle constructor signature
-    return [ state.solute, state.position, state.orientation, state.velocity, state.acceleration ];
+    return [
+      SoluteIO.fromStateObject( stateObject.solute ),
+      parentDeserializedComponents.position,
+      parentDeserializedComponents.orientation,
+      Vector2IO.fromStateObject( stateObject.velocity ),
+      Vector2IO.fromStateObject( stateObject.acceleration )
+    ];
   }
 }
 
