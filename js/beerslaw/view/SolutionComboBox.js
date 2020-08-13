@@ -74,7 +74,7 @@ function createItem( solution, tandem ) {
   } );
 
   return new ComboBoxItem( hBox, solution, {
-    tandemName: solution.tandemName
+    tandemName: solution.tandemName + 'Item' // Item suffix is required by ComboBoxItem
   } );
 }
 

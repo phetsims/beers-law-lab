@@ -35,7 +35,7 @@ class SolutionControls extends Panel {
     }, options );
 
     // combo box, to select a solution
-    const comboBox = new SolutionComboBox( solutions, currentSolutionProperty, solutionListParent, tandem.createTandem( 'comboBox' ) );
+    const solutionComboBox = new SolutionComboBox( solutions, currentSolutionProperty, solutionListParent, tandem.createTandem( 'solutionComboBox' ) );
 
     // {{value:{BeersLawSolution}, node:{ConcentrationControl}} - concentration controls, one for each solution
     const toggleNodeElements = solutions.map( solution => {
@@ -55,7 +55,7 @@ class SolutionControls extends Panel {
     const contentNode = new VBox( {
       spacing: 15,
       align: 'left',
-      children: [ comboBox, toggleNode ]
+      children: [ solutionComboBox, toggleNode ]
     } );
 
     super( contentNode, options );
