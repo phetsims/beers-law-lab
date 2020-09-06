@@ -42,7 +42,7 @@ SoluteIO.methods = {
 SoluteIO.documentation = 'a solute';
 SoluteIO.validator = { isValidValue: value => value instanceof Solute };
 SoluteIO.typeName = 'SoluteIO';
-ObjectIO.validateSubtype( SoluteIO );
+ObjectIO.validateIOType( SoluteIO );
 
 beersLawLab.register( 'SoluteIO', SoluteIO );
 export default SoluteIO;

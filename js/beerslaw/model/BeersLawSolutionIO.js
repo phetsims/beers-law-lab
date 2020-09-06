@@ -17,7 +17,7 @@ class BeersLawSolutionIO extends ReferenceIO( ObjectIO ) {}
 BeersLawSolutionIO.documentation = 'The solution for the sim';
 BeersLawSolutionIO.validator = { isValidValue: value => value instanceof BeersLawSolution };
 BeersLawSolutionIO.typeName = 'BeersLawSolutionIO';
-ObjectIO.validateSubtype( BeersLawSolutionIO );
+ObjectIO.validateIOType( BeersLawSolutionIO );
 
 beersLawLab.register( 'BeersLawSolutionIO', BeersLawSolutionIO );
 export default BeersLawSolutionIO;

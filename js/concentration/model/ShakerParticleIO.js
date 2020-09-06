@@ -70,7 +70,7 @@ class ShakerParticleIO extends SoluteParticleIO {
 ShakerParticleIO.documentation = 'A particle that comes from the shaker.';
 ShakerParticleIO.validator = { isValidValue: value => value instanceof ShakerParticle };
 ShakerParticleIO.typeName = 'ShakerParticleIO';
-ObjectIO.validateSubtype( ShakerParticleIO );
+ObjectIO.validateIOType( ShakerParticleIO );
 
 beersLawLab.register( 'ShakerParticleIO', ShakerParticleIO );
 export default ShakerParticleIO;

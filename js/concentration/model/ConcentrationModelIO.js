@@ -29,7 +29,7 @@ ConcentrationModelIO.methods = {
 ConcentrationModelIO.documentation = 'The model for the concentration screen.';
 ConcentrationModelIO.validator = { isValidValue: value => value instanceof ConcentrationModel };
 ConcentrationModelIO.typeName = 'ConcentrationModelIO';
-ObjectIO.validateSubtype( ConcentrationModelIO );
+ObjectIO.validateIOType( ConcentrationModelIO );
 
 beersLawLab.register( 'ConcentrationModelIO', ConcentrationModelIO );
 export default ConcentrationModelIO;

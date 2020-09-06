@@ -47,7 +47,7 @@ class SoluteParticleIO extends ObjectIO {
 SoluteParticleIO.documentation = 'A particle of solute to add to the solution';
 SoluteParticleIO.validator = { isValidValue: value => value instanceof SoluteParticle };
 SoluteParticleIO.typeName = 'SoluteParticleIO';
-ObjectIO.validateSubtype( SoluteParticleIO );
+ObjectIO.validateIOType( SoluteParticleIO );
 
 beersLawLab.register( 'SoluteParticleIO', SoluteParticleIO );
 export default SoluteParticleIO;

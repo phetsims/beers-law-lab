@@ -51,7 +51,7 @@ class PrecipitateParticleIO extends SoluteParticleIO {
 PrecipitateParticleIO.documentation = 'A particle that precipitates at the bottom of a saturated solution.';
 PrecipitateParticleIO.validator = { isValidValue: value => value instanceof PrecipitateParticle };
 PrecipitateParticleIO.typeName = 'PrecipitateParticleIO';
-ObjectIO.validateSubtype( PrecipitateParticleIO );
+ObjectIO.validateIOType( PrecipitateParticleIO );
 
 beersLawLab.register( 'PrecipitateParticleIO', PrecipitateParticleIO );
 export default PrecipitateParticleIO;
