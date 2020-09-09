@@ -9,8 +9,8 @@
 import Utils from '../../../../dot/js/Utils.js';
 import Shape from '../../../../kite/js/Shape.js';
 import ArrowNode from '../../../../scenery-phet/js/ArrowNode.js';
-import FillHighlightListener from '../../../../scenery-phet/js/input/FillHighlightListener.js';
 import DragListener from '../../../../scenery/js/listeners/DragListener.js';
+import PressListener from '../../../../scenery/js/listeners/PressListener.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
@@ -37,10 +37,19 @@ class CuvetteNode extends Node {
    */
   constructor( cuvette, solutionProperty, modelViewTransform, snapInterval, tandem ) {
 
-    // nodes
-    const cuvetteNode = new Path( null, { stroke: 'black', lineWidth: 3 } );
-    const solutionNode = new Rectangle( 0, 0, 1, 1, { lineWidth: 0.5 } );
+    const cuvetteNode = new Path( null, {
+      stroke: 'black',
+      lineWidth: 3,
+      pickable: false
+    } );
+
+    const solutionNode = new Rectangle( 0, 0, 1, 1, {
+      lineWidth: 0.5,
+      pickable: false
+    } );
+
     const arrowNode = new ArrowNode( -ARROW_LENGTH / 2, 0, ARROW_LENGTH / 2, 0, {
+      cursor: 'pointer',
       tailWidth: ARROW_TAIL_WIDTH,
       headWidth: ARROW_HEAD_WIDTH,
       headHeight: ARROW_HEAD_HEIGHT,
@@ -84,11 +93,12 @@ class CuvetteNode extends Node {
       newSolution.fluidColorProperty.link( colorObserver );
     } );
 
-    // interactivity
-    cuvetteNode.pickable = false;
-    solutionNode.pickable = false;
-    arrowNode.cursor = 'pointer';
-    arrowNode.addInputListener( new FillHighlightListener( ARROW_FILL, ARROW_FILL.brighterColor() ) );
+    // Highlight the arrow
+    const pressListener = new PressListener( { attach: false } );
+    arrowNode.addInputListener( pressListener );
+    pressListener.isHighlightedProperty.link( isHighlighted => {
+      arrowNode.fill = isHighlighted ? ARROW_FILL.brighterColor() : ARROW_FILL;
+    } );
 
     const cuvetteDragListener = new CuvetteDragListener( cuvette, modelViewTransform, snapInterval,
       tandem.createTandem( 'cuvetteDragListener' ) );
