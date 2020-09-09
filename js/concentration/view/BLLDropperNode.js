@@ -87,9 +87,9 @@ class BLLDropperNode extends EyeDropperNode {
 
     // move the dropper
     const movableDragHandler = new MovableDragHandler( dropper.positionProperty, {
-      tandem: tandem.createTandem( 'movableDragHandler' ),
       dragBounds: dropper.dragBounds,
-      modelViewTransform: modelViewTransform
+      modelViewTransform: modelViewTransform,
+      tandem: tandem.createTandem( 'movableDragHandler' )
     } );
     this.addInputListener( movableDragHandler );
   }

@@ -204,7 +204,6 @@ class ATProbeNode extends ProbeNode {
     this.cursor = 'pointer';
 
     const movableDragHandler = new MovableDragHandler( probe.positionProperty, {
-      tandem: tandem.createTandem( 'movableDragHandler' ),
       dragBounds: probe.dragBounds,
       modelViewTransform: modelViewTransform,
       endDrag: () => {
@@ -213,7 +212,8 @@ class ATProbeNode extends ProbeNode {
           // ... snap the probe to the center of beam.
           probe.positionProperty.set( new Vector2( probe.positionProperty.get().x, light.position.y ) );
         }
-      }
+      },
+      tandem: tandem.createTandem( 'movableDragHandler' )
     } );
     this.addInputListener( movableDragHandler );
 

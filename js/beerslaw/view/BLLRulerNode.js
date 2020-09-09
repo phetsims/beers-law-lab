@@ -65,9 +65,9 @@ class BLLRulerNode extends Node {
 
     // @private (phet-io)
     this.movableDragHandler = new MovableDragHandler( ruler.positionProperty, {
-      tandem: tandem.createTandem( 'movableDragHandler' ),
       dragBounds: ruler.dragBounds,
-      modelViewTransform: modelViewTransform
+      modelViewTransform: modelViewTransform,
+      tandem: tandem.createTandem( 'movableDragHandler' )
     } );
     this.addInputListener( this.movableDragHandler );
   }

@@ -176,9 +176,9 @@ class BodyNode extends Node {
 
     if ( BODY_IS_DRAGGABLE ) {
       const movableDragHandler = new MovableDragHandler( meter.body.positionProperty, {
-        tandem: tandem.createTandem( 'movableDragHandler' ),
         dragBounds: meter.body.dragBounds,
-        modelViewTransform: modelViewTransform
+        modelViewTransform: modelViewTransform,
+        tandem: tandem.createTandem( 'movableDragHandler' )
       } );
       this.addInputListener( movableDragHandler );
     }

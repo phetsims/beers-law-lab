@@ -118,9 +118,9 @@ class ShakerNode extends Node {
     // interactivity
     this.cursor = 'pointer';
     this.addInputListener( new MovableDragHandler( shaker.positionProperty, {
-      tandem: tandem.createTandem( 'inputListener' ),
       dragBounds: shaker.dragBounds,
-      modelViewTransform: modelViewTransform
+      modelViewTransform: modelViewTransform,
+      tandem: tandem.createTandem( 'inputListener' )
     } ) );
     this.addInputListener( {
       enter: () => {
