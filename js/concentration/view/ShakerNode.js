@@ -6,10 +6,11 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Property from '../../../../axon/js/Property.js';
 import merge from '../../../../phet-core/js/merge.js';
 import ArrowNode from '../../../../scenery-phet/js/ArrowNode.js';
-import MovableDragHandler from '../../../../scenery-phet/js/input/MovableDragHandler.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import DragListener from '../../../../scenery/js/listeners/DragListener.js';
 import Circle from '../../../../scenery/js/nodes/Circle.js';
 import Image from '../../../../scenery/js/nodes/Image.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
@@ -117,10 +118,11 @@ class ShakerNode extends Node {
 
     // interactivity
     this.cursor = 'pointer';
-    this.addInputListener( new MovableDragHandler( shaker.positionProperty, {
-      dragBounds: shaker.dragBounds,
+    this.addInputListener( new DragListener( {
+      positionProperty: shaker.positionProperty,
+      dragBoundsProperty: new Property( shaker.dragBounds ),
       modelViewTransform: modelViewTransform,
-      tandem: tandem.createTandem( 'inputListener' )
+      tandem: tandem.createTandem( 'dragListener' )
     } ) );
     this.addInputListener( {
       enter: () => {
