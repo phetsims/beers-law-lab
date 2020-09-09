@@ -15,6 +15,7 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Color from '../../../../scenery/js/util/Color.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 
 // constants
@@ -94,7 +95,10 @@ class CuvetteNode extends Node {
     } );
 
     // Highlight the arrow
-    const pressListener = new PressListener( { attach: false } );
+    const pressListener = new PressListener( {
+      attach: false,
+      tandem: Tandem.OPT_OUT
+    } );
     arrowNode.addInputListener( pressListener );
     pressListener.isHighlightedProperty.link( isHighlighted => {
       arrowNode.fill = isHighlighted ? ARROW_FILL.brighterColor() : ARROW_FILL;
