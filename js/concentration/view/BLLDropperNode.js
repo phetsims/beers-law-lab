@@ -7,10 +7,11 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Property from '../../../../axon/js/Property.js';
 import Shape from '../../../../kite/js/Shape.js';
 import EyeDropperNode from '../../../../scenery-phet/js/EyeDropperNode.js';
-import MovableDragHandler from '../../../../scenery-phet/js/input/MovableDragHandler.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
+import DragListener from '../../../../scenery/js/listeners/DragListener.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import beersLawLab from '../../beersLawLab.js';
@@ -86,12 +87,13 @@ class BLLDropperNode extends EyeDropperNode {
     this.touchArea = this.localBounds.dilatedX( 0.25 * this.width );
 
     // move the dropper
-    const movableDragHandler = new MovableDragHandler( dropper.positionProperty, {
-      dragBounds: dropper.dragBounds,
+    const dragListener = new DragListener( {
+      positionProperty: dropper.positionProperty,
+      dragBoundsProperty: new Property( dropper.dragBounds ),
       modelViewTransform: modelViewTransform,
-      tandem: tandem.createTandem( 'movableDragHandler' )
+      tandem: tandem.createTandem( 'dragListener' )
     } );
-    this.addInputListener( movableDragHandler );
+    this.addInputListener( dragListener );
   }
 }
 
