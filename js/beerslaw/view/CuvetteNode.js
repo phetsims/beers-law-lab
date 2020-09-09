@@ -10,7 +10,7 @@ import Utils from '../../../../dot/js/Utils.js';
 import Shape from '../../../../kite/js/Shape.js';
 import ArrowNode from '../../../../scenery-phet/js/ArrowNode.js';
 import FillHighlightListener from '../../../../scenery-phet/js/input/FillHighlightListener.js';
-import SimpleDragHandler from '../../../../scenery/js/input/SimpleDragHandler.js';
+import DragListener from '../../../../scenery/js/listeners/DragListener.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
@@ -90,9 +90,9 @@ class CuvetteNode extends Node {
     arrowNode.cursor = 'pointer';
     arrowNode.addInputListener( new FillHighlightListener( ARROW_FILL, ARROW_FILL.brighterColor() ) );
 
-    const cuvetteDragHandler = new CuvetteDragHandler( cuvette, modelViewTransform, snapInterval,
-      tandem.createTandem( 'cuvetteDragHandler' ) );
-    arrowNode.addInputListener( cuvetteDragHandler );
+    const cuvetteDragListener = new CuvetteDragListener( cuvette, modelViewTransform, snapInterval,
+      tandem.createTandem( 'cuvetteDragListener' ) );
+    arrowNode.addInputListener( cuvetteDragListener );
 
     // adjust touch area for the arrow
     const dx = 0.25 * arrowNode.width;
@@ -109,9 +109,9 @@ class CuvetteNode extends Node {
 beersLawLab.register( 'CuvetteNode', CuvetteNode );
 
 /**
- * Drag handler that is attached to the cuvette's handle.
+ * Drag listener that is attached to the cuvette's handle.
  */
-class CuvetteDragHandler extends SimpleDragHandler {
+class CuvetteDragListener extends DragListener {
 
   /**
    * @param {Cuvette} cuvette
@@ -126,7 +126,6 @@ class CuvetteDragHandler extends SimpleDragHandler {
 
     super( {
 
-      tandem: tandem,
       allowTouchSnag: true,
 
       start: event => {
@@ -138,7 +137,6 @@ class CuvetteDragHandler extends SimpleDragHandler {
         const dragX = event.pointer.point.x;
         const deltaWidth = modelViewTransform.viewToModelDeltaX( dragX - startX );
         const cuvetteWidth = Utils.clamp( startWidth + deltaWidth, cuvette.widthRange.min, cuvette.widthRange.max );
-
         cuvette.widthProperty.set( cuvetteWidth );
       },
 
@@ -150,7 +148,10 @@ class CuvetteDragHandler extends SimpleDragHandler {
           const newWidth = numberOfIntervals * snapInterval;
           cuvette.widthProperty.set( newWidth );
         }
-      }
+      },
+
+      // phet-io
+      tandem: tandem
     } );
   }
 }
