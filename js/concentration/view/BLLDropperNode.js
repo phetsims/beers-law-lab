@@ -65,7 +65,7 @@ class BLLDropperNode extends EyeDropperNode {
     soluteProperty.link( solute => {
 
       // fluid color
-      this.fluidColor = ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration );
+      this.setFluidColor( ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration ) );
 
       // label, centered in the dropper's glass
       label.text = solute.formula;
