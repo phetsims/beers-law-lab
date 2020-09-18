@@ -8,7 +8,6 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import DerivedPropertyIO from '../../../../axon/js/DerivedPropertyIO.js';
 import StringProperty from '../../../../axon/js/StringProperty.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -71,7 +70,7 @@ class ATDetector {
         return value;
       }, {
         tandem: options.tandem.createTandem( 'valueProperty' ),
-        phetioType: DerivedPropertyIO( NullableIO( NumberIO ) )
+        phetioType: DerivedProperty.DerivedPropertyIO( NullableIO( NumberIO ) )
       } );
   }
 

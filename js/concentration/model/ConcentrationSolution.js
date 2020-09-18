@@ -9,7 +9,6 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import DerivedPropertyIO from '../../../../axon/js/DerivedPropertyIO.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
@@ -68,7 +67,7 @@ class ConcentrationSolution extends Fluid {
       }, {
         tandem: tandem.createTandem( 'precipitateAmountProperty' ),
         units: 'moles',
-        phetioType: DerivedPropertyIO( NumberIO )
+        phetioType: DerivedProperty.DerivedPropertyIO( NumberIO )
       }
     );
 
@@ -80,7 +79,7 @@ class ConcentrationSolution extends Fluid {
       }, {
         tandem: tandem.createTandem( 'concentrationProperty' ),
         units: 'moles/liter',
-        phetioType: DerivedPropertyIO( NumberIO )
+        phetioType: DerivedProperty.DerivedPropertyIO( NumberIO )
       }
     );
 
@@ -91,7 +90,7 @@ class ConcentrationSolution extends Fluid {
         return ( volume > 0 ) && ( soluteAmount / volume ) > solute.getSaturatedConcentration();
       }, {
         tandem: tandem.createTandem( 'saturatedProperty' ),
-        phetioType: DerivedPropertyIO( BooleanIO )
+        phetioType: DerivedProperty.DerivedPropertyIO( BooleanIO )
       }
     );
 
@@ -105,7 +104,7 @@ class ConcentrationSolution extends Fluid {
       }, {
         tandem: tandem.createTandem( 'soluteGramsProperty' ),
         units: 'grams',
-        phetioType: DerivedPropertyIO( NumberIO )
+        phetioType: DerivedProperty.DerivedPropertyIO( NumberIO )
       }
     );
 
@@ -123,7 +122,7 @@ class ConcentrationSolution extends Fluid {
         return percentConcentration;
       }, {
         tandem: tandem.createTandem( 'percentConcentrationProperty' ),
-        phetioType: DerivedPropertyIO( NumberIO ),
+        phetioType: DerivedProperty.DerivedPropertyIO( NumberIO ),
         units: 'percent'
       }
     );
