@@ -21,7 +21,7 @@ const SoluteParticleIO = new IOType( 'SoluteParticleIO', {
     orientation: NumberIO.toStateObject( soluteParticle.orientation )
   } ),
 
-  // REVIEW https://github.com/phetsims/tandem/issues/211 Move this to the core type?
+  // REVIEW: https://github.com/phetsims/tandem/issues/211 Move this to the core type?
   deserializeComponents( stateObject ) {
     return {
       position: Vector2IO.fromStateObject( stateObject.position ),
