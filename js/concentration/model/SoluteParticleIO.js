@@ -16,12 +16,10 @@ import SoluteParticle from './SoluteParticle.js';
 const SoluteParticleIO = new IOType( 'SoluteParticleIO', {
   isValidValue: value => value instanceof SoluteParticle,
   documentation: 'A particle of solute to add to the solution',
-  toStateObject( soluteParticle ) {
-    return {
-      position: Vector2IO.toStateObject( soluteParticle.positionProperty.get() ),
-      orientation: NumberIO.toStateObject( soluteParticle.orientation )
-    };
-  },
+  toStateObject: soluteParticle => ( {
+    position: Vector2IO.toStateObject( soluteParticle.positionProperty.get() ),
+    orientation: NumberIO.toStateObject( soluteParticle.orientation )
+  } ),
 
   // TODO https://github.com/phetsims/tandem/issues/211 delete this?
   deserializeComponents( stateObject ) {

@@ -25,9 +25,7 @@ const ShakerIO = new IOType( 'ShakerIO', {
       invocableForReadOnlyElements: false
     }
   },
-  toStateObject: shaker => {
-    return { position: Vector2IO.toStateObject( shaker.previousPosition ) };
-  },
+  toStateObject: shaker => ( { position: Vector2IO.toStateObject( shaker.previousPosition ) } ),
 
   applyState: ( shaker, stateObject ) => shaker.previousPosition.set( Vector2IO.fromStateObject( stateObject.position ) )
 } );
