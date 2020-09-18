@@ -7,9 +7,11 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
+import Vector2IO from '../../../../dot/js/Vector2IO.js';
 import merge from '../../../../phet-core/js/merge.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
 
 class SoluteParticle extends PhetioObject {
@@ -36,6 +38,25 @@ class SoluteParticle extends PhetioObject {
 
     // @public
     this.positionProperty = new Property( position );
+  }
+
+  /**
+   * @returns {Object}
+   * @public
+   */
+  toStateObject() {
+    return {
+      position: Vector2IO.toStateObject( this.positionProperty.get() ), // TODO: https://github.com/phetsims/tandem/issues/211 call on the core side?
+      orientation: NumberIO.toStateObject( this.orientation )
+    };
+  }
+
+  // @public
+  static deserializeComponents( stateObject ) {
+    return {
+      position: Vector2IO.fromStateObject( stateObject.position ),
+      orientation: NumberIO.fromStateObject( stateObject.orientation )
+    };
   }
 }
 

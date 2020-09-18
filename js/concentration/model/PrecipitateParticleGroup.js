@@ -13,7 +13,6 @@ import PhetioGroupIO from '../../../../tandem/js/PhetioGroupIO.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import PrecipitateParticle from './PrecipitateParticle.js';
-import PrecipitateParticleIO from './PrecipitateParticleIO.js';
 import SoluteInstances from './SoluteInstances.js';
 
 // Default args to PrecipitateParticle constructor, passed to createElement during API harvest
@@ -27,10 +26,9 @@ class PrecipitateParticleGroup extends PhetioGroup {
 
       // phet-io
       tandem: Tandem.REQUIRED,
-      phetioType: PhetioGroupIO( PrecipitateParticleIO ),
+      phetioType: PhetioGroupIO( PrecipitateParticle.PrecipitateParticleIO ),
       phetioDocumentation: 'The group for precipitate particles that are dynamically created'
     }, options );
-
 
     /**
      * Instantiates a dynamic ShakerParticle.

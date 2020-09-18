@@ -10,9 +10,11 @@
 
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import IOType from '../../../../tandem/js/types/IOType.js';
 import beersLawLab from '../../beersLawLab.js';
-import PrecipitateParticleIO from './PrecipitateParticleIO.js';
+import SoluteIO from './SoluteIO.js';
 import SoluteParticle from './SoluteParticle.js';
+import SoluteParticleIO from './SoluteParticleIO.js';
 
 class PrecipitateParticle extends SoluteParticle {
 
@@ -26,7 +28,7 @@ class PrecipitateParticle extends SoluteParticle {
 
     options = merge( {
       tandem: Tandem.REQUIRED,
-      phetioType: PrecipitateParticleIO,
+      phetioType: PrecipitateParticle.PrecipitateParticleIO,
       phetioDynamicElement: true
     }, options );
 
@@ -35,7 +37,37 @@ class PrecipitateParticle extends SoluteParticle {
     // @public (phet-io)
     this.solute = solute;
   }
+
+  /**
+   * @returns {Object}
+   * @public
+   */
+  toStateObject() {
+    return merge( super.toStateObject(), {
+      solute: SoluteIO.toStateObject( this.solute ) // TODO: https://github.com/phetsims/tandem/issues/211 just call on the core type?
+    } );
+  }
+
+  // @public
+  static stateToArgsForConstructor( stateObject ) {
+    const parentDeserializedComponents = SoluteParticle.deserializeComponents( stateObject );
+
+    // This must match PrecipitateParticle constructor signature
+    return [
+      SoluteIO.fromStateObject( stateObject.solute ),
+      parentDeserializedComponents.position,
+      parentDeserializedComponents.orientation
+    ];
+  }
 }
+
+PrecipitateParticle.PrecipitateParticleIO = new IOType( 'PrecipitateParticleIO', {
+  isValidValue: value => value instanceof PrecipitateParticle,
+  supertype: SoluteParticleIO,
+  documentation: 'A particle that precipitates at the bottom of a saturated solution.',
+  toStateObject: precipitateParticle => precipitateParticle.toStateObject(),
+  stateToArgsForConstructor: PrecipitateParticle.stateToArgsForConstructor
+} );
 
 beersLawLab.register( 'PrecipitateParticle', PrecipitateParticle );
 export default PrecipitateParticle;

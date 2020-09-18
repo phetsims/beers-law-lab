@@ -9,10 +9,12 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Vector2IO from '../../../../dot/js/Vector2IO.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import ShakerParticleIO from './ShakerParticleIO.js';
+import SoluteIO from './SoluteIO.js';
 import SoluteParticle from './SoluteParticle.js';
 
 class ShakerParticle extends SoluteParticle {
@@ -65,6 +67,31 @@ class ShakerParticle extends SoluteParticle {
     }
 
     this.positionProperty.set( newPosition );
+  }
+
+  /**
+   * @returns {Object}
+   * @public
+   */
+  toStateObject() {
+    return merge( super.toStateObject(), {
+      solute: SoluteIO.toStateObject( this.solute ),
+      velocity: Vector2IO.toStateObject( this.velocity ),
+      acceleration: Vector2IO.toStateObject( this.acceleration )
+    } );
+  }
+
+  /**
+   * @param stateObject
+   * @returns {Object}
+   * @public
+   */
+  static fromStateObject( stateObject ) {
+    return merge( SoluteParticle.fromStateObject( stateObject ), {
+      solute: SoluteIO.fromStateObject( stateObject.solute ),
+      velocity: Vector2IO.fromStateObject( stateObject.velocity ),
+      acceleration: Vector2IO.fromStateObject( stateObject.acceleration )
+    } );
   }
 }
 
