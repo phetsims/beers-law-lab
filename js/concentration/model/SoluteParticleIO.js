@@ -7,47 +7,30 @@
  * @author Andrew Adare (PhET Interactive Simulations)
  */
 
-import validate from '../../../../axon/js/validate.js';
 import Vector2IO from '../../../../dot/js/Vector2IO.js';
+import IOType from '../../../../tandem/js/types/IOType.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
-import ObjectIO from '../../../../tandem/js/types/ObjectIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import SoluteParticle from './SoluteParticle.js';
 
-class SoluteParticleIO extends ObjectIO {
-
-  /**
-   * Serializes an instance.  Not called by PhET-iO directly, but rather called from its subtypes.
-   * @param soluteParticle
-   * @returns {Object}
-   * @public
-   */
-  static toStateObject( soluteParticle ) {
-    validate( soluteParticle, this.validator );
+const SoluteParticleIO = new IOType( 'SoluteParticleIO', {
+  isValidValue: value => value instanceof SoluteParticle,
+  documentation: 'A particle of solute to add to the solution',
+  toStateObject( soluteParticle ) {
     return {
       position: Vector2IO.toStateObject( soluteParticle.positionProperty.get() ),
       orientation: NumberIO.toStateObject( soluteParticle.orientation )
     };
-  }
+  },
 
-  /**
-   * Deserializes an instance.  Not called by PhET-iO directly, but rather called from its subtypes.
-   * @param {Object} stateObject
-   * @returns {{position: Vector2, orientation: number}}
-   * @public
-   */
-  static deserializeComponents( stateObject ) {
+  // TODO https://github.com/phetsims/tandem/issues/211 delete this?
+  deserializeComponents( stateObject ) {
     return {
       position: Vector2IO.fromStateObject( stateObject.position ),
       orientation: NumberIO.fromStateObject( stateObject.orientation )
     };
   }
-}
-
-SoluteParticleIO.documentation = 'A particle of solute to add to the solution';
-SoluteParticleIO.validator = { isValidValue: value => value instanceof SoluteParticle };
-SoluteParticleIO.typeName = 'SoluteParticleIO';
-ObjectIO.validateIOType( SoluteParticleIO );
+} );
 
 beersLawLab.register( 'SoluteParticleIO', SoluteParticleIO );
 export default SoluteParticleIO;

@@ -7,42 +7,39 @@
  * @author Andrew Adare (PhET Interactive Simulations)
  */
 
-import ObjectIO from '../../../../tandem/js/types/ObjectIO.js';
+import IOType from '../../../../tandem/js/types/IOType.js';
 import ReferenceIO from '../../../../tandem/js/types/ReferenceIO.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
 import VoidIO from '../../../../tandem/js/types/VoidIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import Solute from './Solute.js';
 
-class SoluteIO extends ReferenceIO( ObjectIO ) {}
+const SoluteIO = new IOType( 'SoluteIO', {
+  isValidValue: value => value instanceof Solute,
+  supertype: ReferenceIO( IOType.ObjectIO ),
+  methods: {
 
-SoluteIO.methods = {
-
-  setName: {
-    returnType: VoidIO,
-    parameterTypes: [ StringIO ],
-    implementation: text => {
-      this.name = text;
+    setName: {
+      returnType: VoidIO,
+      parameterTypes: [ StringIO ],
+      implementation: text => {
+        this.name = text;
+      },
+      documentation: 'Set the name of the solute',
+      invocableForReadOnlyElements: false
     },
-    documentation: 'Set the name of the solute',
-    invocableForReadOnlyElements: false
-  },
 
-  setFormula: {
-    returnType: VoidIO,
-    parameterTypes: [ StringIO ],
-    implementation: text => {
-      this.formula = text;
-    },
-    documentation: 'Set the formula of the solute',
-    invocableForReadOnlyElements: false
+    setFormula: {
+      returnType: VoidIO,
+      parameterTypes: [ StringIO ],
+      implementation: text => {
+        this.formula = text;
+      },
+      documentation: 'Set the formula of the solute',
+      invocableForReadOnlyElements: false
+    }
   }
-};
-
-SoluteIO.documentation = 'a solute';
-SoluteIO.validator = { isValidValue: value => value instanceof Solute };
-SoluteIO.typeName = 'SoluteIO';
-ObjectIO.validateIOType( SoluteIO );
+} );
 
 beersLawLab.register( 'SoluteIO', SoluteIO );
 export default SoluteIO;

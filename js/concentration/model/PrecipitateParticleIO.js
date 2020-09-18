@@ -7,15 +7,17 @@
  * @author Andrew Adare (PhET Interactive Simulations)
  */
 
-import validate from '../../../../axon/js/validate.js';
 import merge from '../../../../phet-core/js/merge.js';
-import ObjectIO from '../../../../tandem/js/types/ObjectIO.js';
+import IOType from '../../../../tandem/js/types/IOType.js';
 import beersLawLab from '../../beersLawLab.js';
 import PrecipitateParticle from './PrecipitateParticle.js';
 import SoluteIO from './SoluteIO.js';
 import SoluteParticleIO from './SoluteParticleIO.js';
 
-class PrecipitateParticleIO extends SoluteParticleIO {
+const PrecipitateParticleIO = new IOType( 'PrecipitateParticleIO', {
+  isValidValue: value => value instanceof PrecipitateParticle,
+  supertype: SoluteParticleIO,
+  documentation: 'A particle that precipitates at the bottom of a saturated solution.',
 
   /**
    * Serializes an instance.
@@ -23,12 +25,11 @@ class PrecipitateParticleIO extends SoluteParticleIO {
    * @returns {Object}
    * @public
    */
-  static toStateObject( precipitateParticle ) {
-    validate( precipitateParticle, this.validator );
+  toStateObject( precipitateParticle ) {
     return merge( SoluteParticleIO.toStateObject( precipitateParticle ), {
       solute: SoluteIO.toStateObject( precipitateParticle.solute )
     } );
-  }
+  },
 
   /**
    * @param {Object} stateObject
@@ -36,7 +37,7 @@ class PrecipitateParticleIO extends SoluteParticleIO {
    * @public
    * @override
    */
-  static stateToArgsForConstructor( stateObject ) {
+  stateToArgsForConstructor( stateObject ) {
     const parentDeserializedComponents = SoluteParticleIO.deserializeComponents( stateObject );
 
     // This must match PrecipitateParticle constructor signature
@@ -46,12 +47,7 @@ class PrecipitateParticleIO extends SoluteParticleIO {
       parentDeserializedComponents.orientation
     ];
   }
-}
-
-PrecipitateParticleIO.documentation = 'A particle that precipitates at the bottom of a saturated solution.';
-PrecipitateParticleIO.validator = { isValidValue: value => value instanceof PrecipitateParticle };
-PrecipitateParticleIO.typeName = 'PrecipitateParticleIO';
-ObjectIO.validateIOType( PrecipitateParticleIO );
+} );
 
 beersLawLab.register( 'PrecipitateParticleIO', PrecipitateParticleIO );
 export default PrecipitateParticleIO;
