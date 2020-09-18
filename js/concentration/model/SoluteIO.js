@@ -18,7 +18,6 @@ const SoluteIO = new IOType( 'SoluteIO', {
   isValidValue: value => value instanceof Solute,
   supertype: ReferenceIO( IOType.ObjectIO ),
   methods: {
-
     setName: {
       returnType: VoidIO,
       parameterTypes: [ StringIO ],
@@ -28,7 +27,6 @@ const SoluteIO = new IOType( 'SoluteIO', {
       documentation: 'Set the name of the solute',
       invocableForReadOnlyElements: false
     },
-
     setFormula: {
       returnType: VoidIO,
       parameterTypes: [ StringIO ],

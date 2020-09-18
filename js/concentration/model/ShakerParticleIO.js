@@ -21,14 +21,7 @@ const ShakerParticleIO = new IOType( 'ShakerParticleIO', {
   supertype: SoluteParticleIO,
   toStateObject: shakerParticle => shakerParticle.toStateObject(),
   fromStateObject: stateObject => ShakerParticle.fromStateObject,
-
-  /**
-   * @param {Object} stateObject
-   * @returns {Array.<*>}
-   * @public
-   * @override
-   */
-  stateToArgsForConstructor( stateObject ) {
+  stateToArgsForConstructor: stateObject => {
     const parentDeserializedComponents = SoluteParticle.deserializeComponents( stateObject );
 
     // This must match SoluteParticle constructor signature
