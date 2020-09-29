@@ -13,7 +13,6 @@ import PhetioGroupIO from '../../../../tandem/js/PhetioGroupIO.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import ShakerParticle from './ShakerParticle.js';
-import ShakerParticleIO from './ShakerParticleIO.js';
 import SoluteInstances from './SoluteInstances.js';
 
 // Default args to ShakerParticle constructor, passed to createElement during API harvest
@@ -27,7 +26,7 @@ class ShakerParticleGroup extends PhetioGroup {
 
       // phet-io
       tandem: Tandem.REQUIRED,
-      phetioType: PhetioGroupIO( ShakerParticleIO ),
+      phetioType: PhetioGroupIO( ShakerParticle.ShakerParticleIO ),
       phetioDocumentation: 'The group for shaker particles that are dynamically created'
     }, options );
 

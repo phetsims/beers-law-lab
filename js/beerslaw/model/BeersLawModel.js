@@ -15,7 +15,7 @@ import Absorbance from './Absorbance.js';
 import ATDetector from './ATDetector.js';
 import Beam from './Beam.js';
 import BeersLawSolutionInstances from './BeersLawSolutionInstances.js';
-import BeersLawSolutionIO from './BeersLawSolutionIO.js';
+import BeersLawSolution from './BeersLawSolution.js';
 import Cuvette from './Cuvette.js';
 import Light from './Light.js';
 import Ruler from './Ruler.js';
@@ -46,7 +46,7 @@ class BeersLawModel {
     // @public
     this.solutionProperty = new Property( this.solutions[ 0 ], {
       tandem: tandem.createTandem( 'solutionProperty' ),
-      phetioType: Property.PropertyIO( BeersLawSolutionIO )
+      phetioType: Property.PropertyIO( BeersLawSolution.BeersLawSolutionIO )
     } );
 
     // @public NOTE: All positions are relative to the position of the cuvette.

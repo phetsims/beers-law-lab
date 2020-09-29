@@ -19,10 +19,11 @@ import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import IOType from '../../../../tandem/js/types/IOType.js';
+import ReferenceIO from '../../../../tandem/js/types/ReferenceIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
 import Solvent from '../../common/model/Solvent.js';
-import BeersLawSolutionIO from './BeersLawSolutionIO.js';
 
 class BeersLawSolution extends PhetioObject {
 
@@ -43,7 +44,7 @@ class BeersLawSolution extends PhetioObject {
 
     options = merge( {
       saturatedColor: colorRange.max, // {Color} color to use when the solution is saturated
-      phetioType: BeersLawSolutionIO,
+      phetioType: BeersLawSolution.BeersLawSolutionIO,
       tandem: Tandem.REQUIRED
     }, options );
 
@@ -93,6 +94,12 @@ class BeersLawSolution extends PhetioObject {
     return StringUtils.format( beersLawLabStrings.pattern[ '0formula' ][ '1name' ], this.formula, this.name );
   }
 }
+
+BeersLawSolution.BeersLawSolutionIO = new IOType( 'BeersLawSolutionIO', {
+  isValidValue: value => value instanceof BeersLawSolution,
+  documentation: 'The solution for the sim',
+  supertype: ReferenceIO( IOType.ObjectIO )
+} );
 
 beersLawLab.register( 'BeersLawSolution', BeersLawSolution );
 

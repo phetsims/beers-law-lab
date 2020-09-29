@@ -9,9 +9,12 @@
 import merge from '../../../../phet-core/js/merge.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import IOType from '../../../../tandem/js/types/IOType.js';
+import ReferenceIO from '../../../../tandem/js/types/ReferenceIO.js';
+import StringIO from '../../../../tandem/js/types/StringIO.js';
+import VoidIO from '../../../../tandem/js/types/VoidIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import Solvent from '../../common/model/Solvent.js';
-import SoluteIO from './SoluteIO.js';
 
 class Solute extends PhetioObject {
 
@@ -29,7 +32,7 @@ class Solute extends PhetioObject {
       particleColor: colorScheme.maxColor,
       particleSize: 5,
       particlesPerMole: 200,
-      phetioType: SoluteIO,
+      phetioType: Solute.SoluteIO,
       tandem: Tandem.REQUIRED
     }, options );
 
@@ -61,6 +64,31 @@ class Solute extends PhetioObject {
     return this.colorScheme.maxConcentration;
   }
 }
+
+Solute.SoluteIO = new IOType( 'SoluteIO', {
+  valueType: Solute,
+  supertype: ReferenceIO( IOType.ObjectIO ),
+  methods: {
+    setName: {
+      returnType: VoidIO,
+      parameterTypes: [ StringIO ],
+      implementation: text => {
+        this.name = text;
+      },
+      documentation: 'Set the name of the solute',
+      invocableForReadOnlyElements: false
+    },
+    setFormula: {
+      returnType: VoidIO,
+      parameterTypes: [ StringIO ],
+      implementation: text => {
+        this.formula = text;
+      },
+      documentation: 'Set the formula of the solute',
+      invocableForReadOnlyElements: false
+    }
+  }
+} );
 
 beersLawLab.register( 'Solute', Solute );
 

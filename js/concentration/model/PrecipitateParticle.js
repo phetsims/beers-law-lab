@@ -12,9 +12,8 @@ import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import beersLawLab from '../../beersLawLab.js';
-import SoluteIO from './SoluteIO.js';
+import Solute from './Solute.js';
 import SoluteParticle from './SoluteParticle.js';
-import SoluteParticleIO from './SoluteParticleIO.js';
 
 class PrecipitateParticle extends SoluteParticle {
 
@@ -47,7 +46,7 @@ class PrecipitateParticle extends SoluteParticle {
 
       // TODO: https://github.com/phetsims/phet-io/issues/1709 just call on the core type?
       // TODO: Should PhetioObject.toStateObject default to tandem.phetioID (reference style)?
-      solute: SoluteIO.toStateObject( this.solute )
+      solute: Solute.SoluteIO.toStateObject( this.solute )
     } );
   }
 
@@ -57,7 +56,7 @@ class PrecipitateParticle extends SoluteParticle {
 
     // This must match PrecipitateParticle constructor signature
     return [
-      SoluteIO.fromStateObject( stateObject.solute ),
+      Solute.SoluteIO.fromStateObject( stateObject.solute ),
       parentDeserializedComponents.position,
       parentDeserializedComponents.orientation
     ];
@@ -65,8 +64,8 @@ class PrecipitateParticle extends SoluteParticle {
 }
 
 PrecipitateParticle.PrecipitateParticleIO = new IOType( 'PrecipitateParticleIO', {
-  isValidValue: value => value instanceof PrecipitateParticle,
-  supertype: SoluteParticleIO,
+  valueType: PrecipitateParticle,
+  supertype: SoluteParticle.SoluteParticleIO,
   documentation: 'A particle that precipitates at the bottom of a saturated solution.',
   toStateObject: precipitateParticle => precipitateParticle.toStateObject(),
   stateToArgsForConstructor: PrecipitateParticle.stateToArgsForConstructor

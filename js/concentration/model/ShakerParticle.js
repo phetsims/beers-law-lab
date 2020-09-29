@@ -12,9 +12,9 @@
 import Vector2IO from '../../../../dot/js/Vector2IO.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import IOType from '../../../../tandem/js/types/IOType.js';
 import beersLawLab from '../../beersLawLab.js';
-import ShakerParticleIO from './ShakerParticleIO.js';
-import SoluteIO from './SoluteIO.js';
+import Solute from './Solute.js';
 import SoluteParticle from './SoluteParticle.js';
 
 class ShakerParticle extends SoluteParticle {
@@ -31,7 +31,7 @@ class ShakerParticle extends SoluteParticle {
 
     options = merge( {
       tandem: Tandem.REQUIRED,
-      phetioType: ShakerParticleIO,
+      phetioType: ShakerParticle.ShakerParticleIO,
       phetioDynamicElement: true
     }, options );
 
@@ -75,7 +75,7 @@ class ShakerParticle extends SoluteParticle {
    */
   toStateObject() {
     return merge( super.toStateObject(), {
-      solute: SoluteIO.toStateObject( this.solute ),
+      solute: Solute.SoluteIO.toStateObject( this.solute ),
       velocity: Vector2IO.toStateObject( this.velocity ),
       acceleration: Vector2IO.toStateObject( this.acceleration )
     } );
@@ -88,12 +88,32 @@ class ShakerParticle extends SoluteParticle {
    */
   static fromStateObject( stateObject ) {
     return merge( SoluteParticle.fromStateObject( stateObject ), {
-      solute: SoluteIO.fromStateObject( stateObject.solute ),
+      solute: Solute.SoluteIO.fromStateObject( stateObject.solute ),
       velocity: Vector2IO.fromStateObject( stateObject.velocity ),
       acceleration: Vector2IO.fromStateObject( stateObject.acceleration )
     } );
   }
 }
+
+ShakerParticle.ShakerParticleIO = new IOType( 'ShakerParticleIO', {
+  valueType: ShakerParticle,
+  documentation: 'A particle that comes from the shaker.',
+  supertype: SoluteParticle.SoluteParticleIO,
+  toStateObject: shakerParticle => shakerParticle.toStateObject(),
+  fromStateObject: stateObject => ShakerParticle.fromStateObject,
+  stateToArgsForConstructor: stateObject => {
+    const parentDeserializedComponents = SoluteParticle.deserializeComponents( stateObject );
+
+    // This must match SoluteParticle constructor signature
+    return [
+      Solute.SoluteIO.fromStateObject( stateObject.solute ),
+      parentDeserializedComponents.position,
+      parentDeserializedComponents.orientation,
+      Vector2IO.fromStateObject( stateObject.velocity ),
+      Vector2IO.fromStateObject( stateObject.acceleration )
+    ];
+  }
+} );
 
 beersLawLab.register( 'ShakerParticle', ShakerParticle );
 export default ShakerParticle;

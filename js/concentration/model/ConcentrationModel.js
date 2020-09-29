@@ -14,11 +14,13 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import ArrayIO from '../../../../tandem/js/types/ArrayIO.js';
+import IOType from '../../../../tandem/js/types/IOType.js';
+import VoidIO from '../../../../tandem/js/types/VoidIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import Beaker from './Beaker.js';
 import ConcentrationMeter from './ConcentrationMeter.js';
-import ConcentrationModelIO from './ConcentrationModelIO.js';
 import ConcentrationSolution from './ConcentrationSolution.js';
 import Dropper from './Dropper.js';
 import Evaporator from './Evaporator.js';
@@ -27,7 +29,7 @@ import Precipitate from './Precipitate.js';
 import Shaker from './Shaker.js';
 import ShakerParticles from './ShakerParticles.js';
 import SoluteInstances from './SoluteInstances.js';
-import SoluteIO from './SoluteIO.js';
+import Solute from './Solute.js';
 
 // constants
 const SOLUTION_VOLUME_RANGE = BLLConstants.SOLUTION_VOLUME_RANGE; // L
@@ -46,7 +48,7 @@ class ConcentrationModel extends PhetioObject {
 
     options = merge( {
       tandem: Tandem.REQUIRED,
-      phetioType: ConcentrationModelIO,
+      phetioType: ConcentrationModel.ConcentrationModelIO,
       phetioState: false // does not contribute self-state, all of the state is from child instances (via composition)
     }, options );
 
@@ -68,7 +70,7 @@ class ConcentrationModel extends PhetioObject {
     // @public
     this.soluteProperty = new Property( this.solutes[ 0 ], {
       tandem: options.tandem.createTandem( 'soluteProperty' ),
-      phetioType: Property.PropertyIO( SoluteIO )
+      phetioType: Property.PropertyIO( Solute.SoluteIO )
     } );
     this.soluteFormProperty = new StringProperty( 'solid', {
       validValues: [ 'solid', 'solution' ],
@@ -272,6 +274,20 @@ class ConcentrationModel extends PhetioObject {
 }
 
 ConcentrationModel.SOLUTION_VOLUME_RANGE = SOLUTION_VOLUME_RANGE; // Exported for access to phet-io API
+
+ConcentrationModel.ConcentrationModelIO = new IOType( 'ConcentrationModelIO', {
+  valueType: ConcentrationModel,
+  documentation: 'The model for the concentration screen.',
+  methods: {
+    setSolutes: {
+      parameterTypes: [ ArrayIO( Solute.SoluteIO ) ],
+      returnType: VoidIO,
+      implementation: solutes => this.setSolutes( solutes ),
+      documentation: 'Set which solutes are allowed for selection',
+      invocableForReadOnlyElements: false
+    }
+  }
+} );
 
 beersLawLab.register( 'ConcentrationModel', ConcentrationModel );
 export default ConcentrationModel;

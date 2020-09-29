@@ -11,6 +11,7 @@ import Vector2IO from '../../../../dot/js/Vector2IO.js';
 import merge from '../../../../phet-core/js/merge.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import IOType from '../../../../tandem/js/types/IOType.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
 
@@ -59,6 +60,12 @@ class SoluteParticle extends PhetioObject {
     };
   }
 }
+
+SoluteParticle.SoluteParticleIO = new IOType( 'SoluteParticleIO', {
+  valueType: SoluteParticle,
+  documentation: 'A particle of solute to add to the solution',
+  toStateObject: soluteParticle => soluteParticle.toStateObject()
+} );
 
 beersLawLab.register( 'SoluteParticle', SoluteParticle );
 export default SoluteParticle;
