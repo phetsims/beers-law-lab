@@ -7,7 +7,6 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import PropertyIO from '../../../../axon/js/PropertyIO.js';
 import StringProperty from '../../../../axon/js/StringProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
@@ -69,7 +68,7 @@ class ConcentrationModel extends PhetioObject {
     // @public
     this.soluteProperty = new Property( this.solutes[ 0 ], {
       tandem: options.tandem.createTandem( 'soluteProperty' ),
-      phetioType: PropertyIO( SoluteIO )
+      phetioType: Property.PropertyIO( SoluteIO )
     } );
     this.soluteFormProperty = new StringProperty( 'solid', {
       validValues: [ 'solid', 'solution' ],

@@ -11,7 +11,6 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import PropertyIO from '../../../../axon/js/PropertyIO.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
@@ -39,7 +38,7 @@ class ConcentrationMeter {
     this.valueProperty = new Property( null, {
       tandem: options.tandem.createTandem( 'valueProperty' ),
       units: 'moles/liter',
-      phetioType: PropertyIO( NullableIO( NumberIO ) )
+      phetioType: Property.PropertyIO( NullableIO( NumberIO ) )
     } );
 
     // @public (read-only)

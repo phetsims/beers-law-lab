@@ -7,7 +7,6 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import PropertyIO from '../../../../axon/js/PropertyIO.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -47,7 +46,7 @@ class BeersLawModel {
     // @public
     this.solutionProperty = new Property( this.solutions[ 0 ], {
       tandem: tandem.createTandem( 'solutionProperty' ),
-      phetioType: PropertyIO( BeersLawSolutionIO )
+      phetioType: Property.PropertyIO( BeersLawSolutionIO )
     } );
 
     // @public NOTE: All positions are relative to the position of the cuvette.
