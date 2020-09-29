@@ -46,7 +46,7 @@ class SoluteParticle extends PhetioObject {
    */
   toStateObject() {
     return {
-      position: Vector2IO.toStateObject( this.positionProperty.get() ), // TODO: https://github.com/phetsims/tandem/issues/211 call on the core side?
+      position: this.positionProperty.get().toStateObject(), // TODO: https://github.com/phetsims/phet-io/issues/1709 call on the core side?
       orientation: NumberIO.toStateObject( this.orientation )
     };
   }
