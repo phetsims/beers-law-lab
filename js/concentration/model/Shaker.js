@@ -8,7 +8,7 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import Vector2IO from '../../../../dot/js/Vector2IO.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import VoidIO from '../../../../tandem/js/types/VoidIO.js';
@@ -95,13 +95,13 @@ Shaker.ShakerIO = new IOType( 'ShakerIO', {
     setValue: {
       returnType: VoidIO,
       parameterTypes: [ IOType.ObjectIO ],
-      implementation: valueStateObject => this.previousPosition.set( Vector2IO.fromStateObject( valueStateObject ) ),
+      implementation: valueStateObject => this.previousPosition.set( Vector2.Vector2IO.fromStateObject( valueStateObject ) ),
       documentation: 'Load the values recorded in getState',
       invocableForReadOnlyElements: false
     }
   },
-  toStateObject: shaker => ( { position: Vector2IO.toStateObject( shaker.previousPosition ) } ),
-  applyState: ( shaker, stateObject ) => shaker.previousPosition.set( Vector2IO.fromStateObject( stateObject.position ) )
+  toStateObject: shaker => ( { position: Vector2.Vector2IO.toStateObject( shaker.previousPosition ) } ),
+  applyState: ( shaker, stateObject ) => shaker.previousPosition.set( Vector2.Vector2IO.fromStateObject( stateObject.position ) )
 } );
 
 beersLawLab.register( 'Shaker', Shaker );

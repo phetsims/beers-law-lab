@@ -7,7 +7,7 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import Vector2IO from '../../../../dot/js/Vector2IO.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -55,7 +55,7 @@ class SoluteParticle extends PhetioObject {
   // @public
   static deserializeComponents( stateObject ) {
     return {
-      position: Vector2IO.fromStateObject( stateObject.position ),
+      position: Vector2.Vector2IO.fromStateObject( stateObject.position ),
       orientation: NumberIO.fromStateObject( stateObject.orientation )
     };
   }

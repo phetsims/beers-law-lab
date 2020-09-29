@@ -9,7 +9,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Vector2IO from '../../../../dot/js/Vector2IO.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
@@ -76,8 +76,8 @@ class ShakerParticle extends SoluteParticle {
   toStateObject() {
     return merge( super.toStateObject(), {
       solute: Solute.SoluteIO.toStateObject( this.solute ),
-      velocity: Vector2IO.toStateObject( this.velocity ),
-      acceleration: Vector2IO.toStateObject( this.acceleration )
+      velocity: Vector2.Vector2IO.toStateObject( this.velocity ),
+      acceleration: Vector2.Vector2IO.toStateObject( this.acceleration )
     } );
   }
 
@@ -89,8 +89,8 @@ class ShakerParticle extends SoluteParticle {
   static fromStateObject( stateObject ) {
     return merge( SoluteParticle.fromStateObject( stateObject ), {
       solute: Solute.SoluteIO.fromStateObject( stateObject.solute ),
-      velocity: Vector2IO.fromStateObject( stateObject.velocity ),
-      acceleration: Vector2IO.fromStateObject( stateObject.acceleration )
+      velocity: Vector2.Vector2IO.fromStateObject( stateObject.velocity ),
+      acceleration: Vector2.Vector2IO.fromStateObject( stateObject.acceleration )
     } );
   }
 }
@@ -109,8 +109,8 @@ ShakerParticle.ShakerParticleIO = new IOType( 'ShakerParticleIO', {
       Solute.SoluteIO.fromStateObject( stateObject.solute ),
       parentDeserializedComponents.position,
       parentDeserializedComponents.orientation,
-      Vector2IO.fromStateObject( stateObject.velocity ),
-      Vector2IO.fromStateObject( stateObject.acceleration )
+      Vector2.Vector2IO.fromStateObject( stateObject.velocity ),
+      Vector2.Vector2IO.fromStateObject( stateObject.acceleration )
     ];
   }
 } );
