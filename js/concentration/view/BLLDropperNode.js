@@ -30,7 +30,7 @@ class BLLDropperNode extends EyeDropperNode {
 
     super( {
       dispensingProperty: dropper.dispensingProperty,
-      enabledProperty: dropper.enabledProperty,
+      buttonEnabledProperty: dropper.enabledProperty,
       emptyProperty: dropper.emptyProperty,
       tandem: tandem
     } );
