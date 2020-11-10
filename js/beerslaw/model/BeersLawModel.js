@@ -14,7 +14,6 @@ import beersLawLab from '../../beersLawLab.js';
 import Absorbance from './Absorbance.js';
 import ATDetector from './ATDetector.js';
 import Beam from './Beam.js';
-import BeersLawSolutionInstances from './BeersLawSolutionInstances.js';
 import BeersLawSolution from './BeersLawSolution.js';
 import Cuvette from './Cuvette.js';
 import Light from './Light.js';
@@ -33,14 +32,14 @@ class BeersLawModel {
 
     // @public Solutions, in rainbow (ROYGBIV) order.
     this.solutions = [
-      BeersLawSolutionInstances.DRINK_MIX,
-      BeersLawSolutionInstances.COBALT_II_NITRATE,
-      BeersLawSolutionInstances.COBALT_CHLORIDE,
-      BeersLawSolutionInstances.POTASSIUM_DICHROMATE,
-      BeersLawSolutionInstances.POTASSIUM_CHROMATE,
-      BeersLawSolutionInstances.NICKEL_II_CHLORIDE,
-      BeersLawSolutionInstances.COPPER_SULFATE,
-      BeersLawSolutionInstances.POTASSIUM_PERMANGANATE
+      BeersLawSolution.DRINK_MIX,
+      BeersLawSolution.COBALT_II_NITRATE,
+      BeersLawSolution.COBALT_CHLORIDE,
+      BeersLawSolution.POTASSIUM_DICHROMATE,
+      BeersLawSolution.POTASSIUM_CHROMATE,
+      BeersLawSolution.NICKEL_II_CHLORIDE,
+      BeersLawSolution.COPPER_SULFATE,
+      BeersLawSolution.POTASSIUM_PERMANGANATE
     ];
 
     // @public

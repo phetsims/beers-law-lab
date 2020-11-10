@@ -28,7 +28,6 @@ import Faucet from './Faucet.js';
 import Precipitate from './Precipitate.js';
 import Shaker from './Shaker.js';
 import ShakerParticles from './ShakerParticles.js';
-import SoluteInstances from './SoluteInstances.js';
 import Solute from './Solute.js';
 
 // constants
@@ -56,15 +55,15 @@ class ConcentrationModel extends PhetioObject {
 
     // @public Solutes, in rainbow (ROYGBIV) order.
     this.solutes = [
-      SoluteInstances.DRINK_MIX,
-      SoluteInstances.COBALT_II_NITRATE,
-      SoluteInstances.COBALT_CHLORIDE,
-      SoluteInstances.POTASSIUM_DICHROMATE,
-      SoluteInstances.POTASSIUM_CHROMATE,
-      SoluteInstances.NICKEL_II_CHLORIDE,
-      SoluteInstances.COPPER_SULFATE,
-      SoluteInstances.POTASSIUM_PERMANGANATE,
-      SoluteInstances.SODIUM_CHLORIDE
+      Solute.DRINK_MIX,
+      Solute.COBALT_II_NITRATE,
+      Solute.COBALT_CHLORIDE,
+      Solute.POTASSIUM_DICHROMATE,
+      Solute.POTASSIUM_CHROMATE,
+      Solute.NICKEL_II_CHLORIDE,
+      Solute.COPPER_SULFATE,
+      Solute.POTASSIUM_PERMANGANATE,
+      Solute.SODIUM_CHLORIDE
     ];
 
     // @public
