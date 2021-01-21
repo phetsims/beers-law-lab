@@ -11,6 +11,7 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
+import ObjectLiteralIO from '../../../../tandem/js/types/ObjectLiteralIO.js';
 import VoidIO from '../../../../tandem/js/types/VoidIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import Movable from '../../common/model/Movable.js';
@@ -94,7 +95,7 @@ Shaker.ShakerIO = new IOType( 'ShakerIO', {
   methods: {
     setValue: {
       returnType: VoidIO,
-      parameterTypes: [ IOType.ObjectIO ],
+      parameterTypes: [ ObjectLiteralIO ],
       implementation: valueStateObject => this.previousPosition.set( Vector2.Vector2IO.fromStateObject( valueStateObject ) ),
       documentation: 'Load the values recorded in getState',
       invocableForReadOnlyElements: false
