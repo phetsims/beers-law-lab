@@ -7,6 +7,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import dotRandom from '../../../../dot/js/dotRandom.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -120,7 +121,7 @@ class Precipitate {
     const margin = Math.sqrt( particleSize * particleSize );
 
     // offset
-    const x = this.beaker.position.x - ( this.beaker.size.width / 2 ) + margin + ( phet.joist.random.nextDouble() * ( this.beaker.size.width - ( 2 * margin ) ) );
+    const x = this.beaker.position.x - ( this.beaker.size.width / 2 ) + margin + ( dotRandom.nextDouble() * ( this.beaker.size.width - ( 2 * margin ) ) );
     const y = this.beaker.position.y - margin; // this was tweaked based on the lineWidth used to stroke the beaker
     return new Vector2( x, y );
   }
@@ -128,7 +129,7 @@ class Precipitate {
 
 // Gets a random orientation, in radians.
 function getRandomOrientation() {
-  return phet.joist.random.nextDouble() * 2 * Math.PI;
+  return dotRandom.nextDouble() * 2 * Math.PI;
 }
 
 beersLawLab.register( 'Precipitate', Precipitate );

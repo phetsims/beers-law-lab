@@ -8,6 +8,7 @@
  */
 
 import Emitter from '../../../../axon/js/Emitter.js';
+import dotRandom from '../../../../dot/js/dotRandom.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
@@ -138,14 +139,14 @@ class ShakerParticles {
 
 // Gets a random position relative to some origin
 function getRandomPosition( origin ) {
-  const xOffset = phet.joist.random.nextIntBetween( -MAX_X_OFFSET, MAX_X_OFFSET ); // positive or negative
-  const yOffset = phet.joist.random.nextIntBetween( 0, MAX_Y_OFFSET ); // positive only
+  const xOffset = dotRandom.nextIntBetween( -MAX_X_OFFSET, MAX_X_OFFSET ); // positive or negative
+  const yOffset = dotRandom.nextIntBetween( 0, MAX_Y_OFFSET ); // positive only
   return new Vector2( origin.x + xOffset, origin.y + yOffset );
 }
 
 // Gets a random orientation, in radians.
 function getRandomOrientation() {
-  return phet.joist.random.nextDouble() * 2 * Math.PI;
+  return dotRandom.nextDouble() * 2 * Math.PI;
 }
 
 beersLawLab.register( 'ShakerParticles', ShakerParticles );
