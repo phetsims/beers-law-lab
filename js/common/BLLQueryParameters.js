@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import logGlobal from '../../../phet-core/js/logGlobal.js';
 import beersLawLab from '../beersLawLab.js';
 import BLLConstants from './BLLConstants.js';
 
@@ -48,7 +49,9 @@ const BLLQueryParameters = QueryStringMachine.getAll( {
 
 beersLawLab.register( 'BLLQueryParameters', BLLQueryParameters );
 
-// log the values of all sim-specific query parameters
-phet.log && phet.log( 'query parameters: ' + JSON.stringify( BLLQueryParameters, null, 2 ) );
+// Log query parameters
+logGlobal( 'phet.chipper.queryParameters' );
+logGlobal( 'phet.preloads.phetio.queryParameters' );
+logGlobal( 'phet.beersLawLab.BLLQueryParameters' );
 
 export default BLLQueryParameters;
