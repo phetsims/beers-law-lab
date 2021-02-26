@@ -98,7 +98,7 @@ Solute.SoluteIO = new IOType( 'SoluteIO', {
 // Static instances
 
 // parent tandem for all static instances of Solute
-const SOLUTES_TANDEM = BLLConstants.CONCENTRATION_SCREEN_TANDEM.createTandem( 'model').createTandem( 'solutes' );
+const SOLUTES_TANDEM = BLLConstants.CONCENTRATION_SCREEN_TANDEM.createTandem( 'model' ).createTandem( 'solutes' );
 
 Solute.DRINK_MIX = new Solute(
   beersLawLabStrings.drinkMix,

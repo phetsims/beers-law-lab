@@ -111,7 +111,7 @@ BeersLawSolution.BeersLawSolutionIO = new IOType( 'BeersLawSolutionIO', {
 // Static instances
 
 // parent tandem for all static instances of BeersLawSolution
-const SOLUTIONS_TANDEM = BLLConstants.BEERS_LAW_SCREEN_TANDEM.createTandem( 'model').createTandem( 'solutions' );
+const SOLUTIONS_TANDEM = BLLConstants.BEERS_LAW_SCREEN_TANDEM.createTandem( 'model' ).createTandem( 'solutions' );
 
 BeersLawSolution.DRINK_MIX = new BeersLawSolution(
   'drinkMix',

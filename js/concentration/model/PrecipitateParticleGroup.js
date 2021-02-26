@@ -20,7 +20,7 @@ const DEFAULT_ARGUMENTS = [ Solute.DRINK_MIX, Vector2.ZERO, 0 ];
 class PrecipitateParticleGroup extends PhetioGroup {
 
   constructor( options ) {
-  
+
     options = merge( {
 
       // phet-io

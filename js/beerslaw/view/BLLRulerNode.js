@@ -72,5 +72,6 @@ class BLLRulerNode extends Node {
     this.addInputListener( this.movableDragHandler );
   }
 }
+
 beersLawLab.register( 'BLLRulerNode', BLLRulerNode );
 export default BLLRulerNode;
