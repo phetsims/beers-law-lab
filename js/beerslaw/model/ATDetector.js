@@ -96,8 +96,6 @@ ATDetector.Mode = {
   ABSORBANCE: 'absorbance'
 };
 
-beersLawLab.register( 'ATDetector', ATDetector );
-
 class Probe extends Movable {
 
   /**
@@ -124,4 +122,5 @@ class Probe extends Movable {
   }
 }
 
+beersLawLab.register( 'ATDetector', ATDetector );
 export default ATDetector;

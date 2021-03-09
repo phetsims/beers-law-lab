@@ -192,5 +192,4 @@ Solute.SODIUM_CHLORIDE = new Solute(
 );
 
 beersLawLab.register( 'Solute', Solute );
-
 export default Solute;

@@ -213,5 +213,4 @@ BeersLawSolution.POTASSIUM_PERMANGANATE = new BeersLawSolution(
 );
 
 beersLawLab.register( 'BeersLawSolution', BeersLawSolution );
-
 export default BeersLawSolution;

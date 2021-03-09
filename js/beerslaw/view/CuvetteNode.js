@@ -120,8 +120,6 @@ class CuvetteNode extends Node {
   }
 }
 
-beersLawLab.register( 'CuvetteNode', CuvetteNode );
-
 /**
  * Drag listener that is attached to the cuvette's handle.
  */
@@ -170,4 +168,5 @@ class CuvetteDragListener extends DragListener {
   }
 }
 
+beersLawLab.register( 'CuvetteNode', CuvetteNode );
 export default CuvetteNode;
