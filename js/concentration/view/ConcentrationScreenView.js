@@ -48,7 +48,9 @@ class ConcentrationScreenView extends ScreenView {
     super( options );
 
     // Beaker and stuff inside it
-    const beakerNode = new BeakerNode( model.beaker, modelViewTransform, options.tandem.createTandem( 'beakerNode' ) );
+    const beakerNode = new BeakerNode( model.beaker, modelViewTransform, {
+      tandem: options.tandem.createTandem( 'beakerNode' )
+    } );
     const solutionNode = new SolutionNode( model.solution, model.beaker, modelViewTransform );
 
     // Precipitate particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
@@ -66,7 +68,9 @@ class ConcentrationScreenView extends ScreenView {
       modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.position.y ) ) );
 
     // Dropper
-    const dropperNode = new BLLDropperNode( model.dropper, model.solution.solvent, model.solution.soluteProperty, modelViewTransform, options.tandem.createTandem( 'dropperNode' ) );
+    const dropperNode = new BLLDropperNode( model.dropper, model.solution.solvent, model.solution.soluteProperty, modelViewTransform, {
+      tandem: options.tandem.createTandem( 'dropperNode' )
+    } );
     const stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.soluteProperty, model.dropper, model.beaker, EyeDropperNode.TIP_WIDTH - 1, modelViewTransform );
 
     // faucets

@@ -9,11 +9,13 @@
 
 import Utils from '../../../../dot/js/Utils.js';
 import Shape from '../../../../kite/js/Shape.js';
+import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
 import BLLQueryParameters from '../../common/BLLQueryParameters.js';
@@ -34,11 +36,16 @@ class BeakerNode extends Node {
   /**
    * @param {Beaker} beaker
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( beaker, modelViewTransform, tandem ) {
+  constructor( beaker, modelViewTransform, options ) {
 
-    super( { pickable: false, tandem: tandem } );
+    options = merge( {
+      pickable: false,
+      tandem: Tandem.REQUIRED
+    }, options );
+
+    super( options );
 
     // outline of the beaker, starting from upper left
     const width = modelViewTransform.modelToViewDeltaX( beaker.size.width );
@@ -70,13 +77,12 @@ class BeakerNode extends Node {
       const leftX = -width / 2;
       const rightX = leftX + ( isMajorTick ? MAJOR_TICK_LENGTH : MINOR_TICK_LENGTH );
       const tickShape = new Shape().moveTo( leftX, y ).lineTo( rightX, y );
-      const tickPath = new Path( tickShape,
-        {
-          stroke: 'black',
-          lineWidth: 2,
-          lineCap: 'butt',
-          lineJoin: 'bevel'
-        } );
+      const tickPath = new Path( tickShape, {
+        stroke: 'black',
+        lineWidth: 2,
+        lineCap: 'butt',
+        lineJoin: 'bevel'
+      } );
       ticksParent.addChild( tickPath );
 
       // major tick label
@@ -92,12 +98,12 @@ class BeakerNode extends Node {
                           MAJOR_TICK_VALUES_MILLILITERS[ labelIndex ], beersLawLabStrings.units.milliliters );
 
           ticksParent.addChild( new Text( label, {
-            tandem: tandem.createTandem( 'tickLabel' + labelIndex ),
             font: new PhetFont( 24 ),
             fill: 'black',
             x: rightX + TICK_LABEL_X_SPACING,
             centerY: tickPath.centerY,
-            maxWidth: 0.25 * beaker.size.width // constrain width for i18n
+            maxWidth: 0.25 * beaker.size.width, // constrain width for i18n
+            tandem: options.tandem.createTandem( 'tickLabel' + labelIndex )
           } ) );
         }
       }

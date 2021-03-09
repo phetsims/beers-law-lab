@@ -9,11 +9,13 @@
 
 import Property from '../../../../axon/js/Property.js';
 import Shape from '../../../../kite/js/Shape.js';
+import merge from '../../../../phet-core/js/merge.js';
 import EyeDropperNode from '../../../../scenery-phet/js/EyeDropperNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import DragListener from '../../../../scenery/js/listeners/DragListener.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 
@@ -24,16 +26,18 @@ class BLLDropperNode extends EyeDropperNode {
    * @param {Solvent} solvent
    * @param {Property.<Solute>} soluteProperty
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( dropper, solvent, soluteProperty, modelViewTransform, tandem ) {
+  constructor( dropper, solvent, soluteProperty, modelViewTransform, options ) {
 
-    super( {
+    options = merge( {
       dispensingProperty: dropper.dispensingProperty,
       buttonEnabledProperty: dropper.enabledProperty,
       emptyProperty: dropper.emptyProperty,
-      tandem: tandem
-    } );
+      tandem: Tandem.REQUIRED
+    }, options );
+
+    super( options );
 
     // label background, so the label shows up on various fluid colors
     const labelBackground = new Path( null, {
@@ -46,7 +50,7 @@ class BLLDropperNode extends EyeDropperNode {
       maxWidth: 80, // determined empirically, to cover only the glass portion of the dropper
       font: new PhetFont( { size: 18, weight: 'bold' } ),
       fill: 'black',
-      tandem: tandem.createTandem( 'label' )
+      tandem: options.tandem.createTandem( 'label' )
     } );
     this.addChild( label );
 
@@ -91,7 +95,7 @@ class BLLDropperNode extends EyeDropperNode {
       positionProperty: dropper.positionProperty,
       dragBoundsProperty: new Property( dropper.dragBounds ),
       modelViewTransform: modelViewTransform,
-      tandem: tandem.createTandem( 'dragListener' )
+      tandem: options.tandem.createTandem( 'dragListener' )
     } );
     this.addInputListener( dragListener );
   }
