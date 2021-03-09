@@ -40,8 +40,9 @@ class Dropper extends BLLMovable {
       tandem: options.tandem.createTandem( 'dispensingProperty' )
     } );
     this.enabledProperty = new BooleanProperty( true );
-    this.emptyProperty = new BooleanProperty( false, {
-      tandem: options.tandem.createTandem( 'emptyProperty' )
+    this.isEmptyProperty = new BooleanProperty( false, {
+      tandem: options.tandem.createTandem( 'isEmptyProperty' ),
+      phetioReadOnly: true
     } );
     this.flowRateProperty = new NumberProperty( 0, {
       tandem: options.tandem.createTandem( 'flowRateProperty' ),
@@ -61,7 +62,7 @@ class Dropper extends BLLMovable {
     } );
 
     // When the dropper becomes empty, disable it.
-    this.emptyProperty.link( empty => {
+    this.isEmptyProperty.link( empty => {
       if ( empty ) {
         this.enabledProperty.set( false );
       }
@@ -74,7 +75,7 @@ class Dropper extends BLLMovable {
     this.visibleProperty.reset();
     this.dispensingProperty.reset();
     this.enabledProperty.reset();
-    this.emptyProperty.reset();
+    this.isEmptyProperty.reset();
     this.flowRateProperty.reset();
   }
 }

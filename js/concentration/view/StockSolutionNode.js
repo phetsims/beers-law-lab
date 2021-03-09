@@ -26,7 +26,7 @@ class StockSolutionNode extends Rectangle {
     // shape and position
     const updateShapeAndPosition = () => {
       // path
-      if ( dropper.dispensingProperty.get() && !dropper.emptyProperty.get() ) {
+      if ( dropper.dispensingProperty.get() && !dropper.isEmptyProperty.get() ) {
         this.setRect( -tipWidth / 2, 0, tipWidth, beaker.position.y - dropper.positionProperty.get().y );
       }
       else {
@@ -37,7 +37,7 @@ class StockSolutionNode extends Rectangle {
     };
     dropper.positionProperty.link( updateShapeAndPosition );
     dropper.dispensingProperty.link( updateShapeAndPosition );
-    dropper.emptyProperty.link( updateShapeAndPosition );
+    dropper.isEmptyProperty.link( updateShapeAndPosition );
 
     // set color to match solute
     soluteProperty.link( solute => {

@@ -33,7 +33,7 @@ class BLLDropperNode extends EyeDropperNode {
     options = merge( {
       dispensingProperty: dropper.dispensingProperty,
       buttonEnabledProperty: dropper.enabledProperty,
-      emptyProperty: dropper.emptyProperty,
+      emptyProperty: dropper.isEmptyProperty,
       tandem: Tandem.REQUIRED
     }, options );
 

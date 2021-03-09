@@ -134,15 +134,15 @@ class ConcentrationModel extends PhetioObject {
     this.solution.volumeProperty.link( volume => {
       this.solventFaucet.enabledProperty.set( volume < SOLUTION_VOLUME_RANGE.max );
       this.drainFaucet.enabledProperty.set( volume > SOLUTION_VOLUME_RANGE.min );
-      this.dropper.enabledProperty.set( !this.dropper.emptyProperty.get() && ( volume < SOLUTION_VOLUME_RANGE.max ) );
+      this.dropper.enabledProperty.set( !this.dropper.isEmptyProperty.get() && ( volume < SOLUTION_VOLUME_RANGE.max ) );
     } );
 
     // Empty shaker and dropper when max solute is reached.
     this.solution.soluteAmountProperty.link( soluteAmount => {
       const containsMaxSolute = ( soluteAmount >= SOLUTE_AMOUNT_RANGE.max );
-      this.shaker.emptyProperty.set( containsMaxSolute );
-      this.dropper.emptyProperty.set( containsMaxSolute );
-      this.dropper.enabledProperty.set( !this.dropper.emptyProperty.get() && !containsMaxSolute && this.solution.volumeProperty.get() < SOLUTION_VOLUME_RANGE.max );
+      this.shaker.isEmptyProperty.set( containsMaxSolute );
+      this.dropper.isEmptyProperty.set( containsMaxSolute );
+      this.dropper.enabledProperty.set( !this.dropper.isEmptyProperty.get() && !containsMaxSolute && this.solution.volumeProperty.get() < SOLUTION_VOLUME_RANGE.max );
     } );
   }
 

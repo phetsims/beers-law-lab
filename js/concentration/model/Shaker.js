@@ -42,7 +42,10 @@ class Shaker extends BLLMovable {
     // @public
     this.soluteProperty = soluteProperty;
     this.visibleProperty = new BooleanProperty( visible );
-    this.emptyProperty = new BooleanProperty( false );
+    this.isEmptyProperty = new BooleanProperty( false, {
+      tandem: options.tandem.createTandem( 'isEmptyProperty' ),
+      phetioReadOnly: true
+    } );
     this.dispensingRateProperty = new NumberProperty( 0 );
 
     // @private
@@ -50,11 +53,11 @@ class Shaker extends BLLMovable {
 
     // set the dispensing rate to zero when the shaker becomes empty or invisible
     const observer = () => {
-      if ( this.emptyProperty.get() || !this.visibleProperty.get() ) {
+      if ( this.isEmptyProperty.get() || !this.visibleProperty.get() ) {
         this.dispensingRateProperty.set( 0 );
       }
     };
-    this.emptyProperty.link( observer );
+    this.isEmptyProperty.link( observer );
     this.visibleProperty.link( observer );
 
     // If the position changes while restoring PhET-iO state, then set previousPosition to position to prevent the
@@ -70,14 +73,14 @@ class Shaker extends BLLMovable {
   reset() {
     super.reset();
     this.visibleProperty.reset();
-    this.emptyProperty.reset();
+    this.isEmptyProperty.reset();
     this.dispensingRateProperty.reset();
     this.previousPosition = this.positionProperty.get(); // to prevent shaker from dispensing solute when its position is reset
   }
 
   // @public Sets the dispensing rate if the shaker is moving.
   step() {
-    if ( this.visibleProperty.get() && !this.emptyProperty.get() ) {
+    if ( this.visibleProperty.get() && !this.isEmptyProperty.get() ) {
       if ( this.previousPosition.equals( this.positionProperty.get() ) ) {
         this.dispensingRateProperty.set( 0 ); // shaker is not moving, don't dispense anything
       }
