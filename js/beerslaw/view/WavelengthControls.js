@@ -10,11 +10,11 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import NumberDisplay from '../../../../scenery-phet/js/NumberDisplay.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import WavelengthSlider from '../../../../scenery-phet/js/WavelengthSlider.js';
+import HBox from '../../../../scenery/js/nodes/HBox.js';
 import HStrut from '../../../../scenery/js/nodes/HStrut.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
-import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import VBox from '../../../../scenery/js/nodes/VBox.js';
 import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
@@ -50,33 +50,18 @@ class WavelengthControls extends Panel {
       tandem: options.tandem.createTandem( 'variableWavelengthProperty' )
     } );
 
-    const xMargin = 7;
-    const yMargin = 3;
-
-    const label = new Text( StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.wavelength ), {
+    const labelNode = new Text( StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.wavelength ), {
       font: new PhetFont( 20 ),
       fill: 'black',
-      tandem: options.tandem.createTandem( 'label' )
+      tandem: options.tandem.createTandem( 'labelNode' )
     } );
 
-    const valueDisplay = new Text( formatWavelength( light.wavelengthProperty.get() ), {
-      font: new PhetFont( 20 ),
-      fill: 'black',
-      y: label.y, // align baselines
-      tandem: options.tandem.createTandem( 'valueDisplay' )
-    } );
-
-    const valueBackground = new Rectangle( 0, 0, valueDisplay.width + xMargin + xMargin, valueDisplay.height + yMargin + yMargin, {
-      fill: 'white',
-      stroke: 'lightGray',
-      left: label.right + 10,
-      centerY: valueDisplay.centerY
-    } );
-    valueDisplay.right = valueBackground.right - xMargin; // right aligned
-
-    const valueParent = new Node( {
-      children: [ label, valueBackground, valueDisplay ],
-      maxWidth: 250 // constrain width for i18n
+    const numberDisplay = new NumberDisplay( light.wavelengthProperty, light.wavelengthProperty.range, {
+      xMargin: 7,
+      yMargin: 3,
+      numberFormatter: wavelength => StringUtils.format( beersLawLabStrings.pattern[ '0value' ][ '1units' ],
+        Utils.toFixed( wavelength, 0 ), beersLawLabStrings.units.nm ),
+      tandem: options.tandem.createTandem( 'numberDisplay' )
     } );
 
     // radio button descriptions
@@ -99,7 +84,7 @@ class WavelengthControls extends Panel {
       orientation: 'horizontal',
       spacing: 15,
       touchAreaYDilation: 8,
-      maxWidth: 250, // constrain width for i18n
+      maxWidth: 250,
       tandem: options.tandem.createTandem( 'radioButtonGroup' )
     } );
 
@@ -116,7 +101,15 @@ class WavelengthControls extends Panel {
     const content = new VBox( {
       spacing: 15,
       align: 'left',
-      children: [ valueParent, radioButtonGroup, wavelengthSlider ]
+      children: [
+        new HBox( {
+          spacing: 4,
+          children: [ labelNode, numberDisplay ],
+          maxWidth: 250
+        } ),
+        radioButtonGroup,
+        wavelengthSlider
+      ]
     } );
 
     // add a horizontal strut to prevent width changes
@@ -141,12 +134,6 @@ class WavelengthControls extends Panel {
       }
     } );
 
-    // sync displayed value with model
-    light.wavelengthProperty.link( wavelength => {
-      valueDisplay.text = formatWavelength( wavelength );
-      valueDisplay.right = valueBackground.right - xMargin; // right aligned
-    } );
-
     // @private
     this.variableWavelengthProperty = variableWavelengthProperty;
   }
@@ -155,11 +142,6 @@ class WavelengthControls extends Panel {
   reset() {
     this.variableWavelengthProperty.reset();
   }
-}
-
-function formatWavelength( wavelength ) {
-  return StringUtils.format( beersLawLabStrings.pattern[ '0value' ][ '1units' ],
-    Utils.toFixed( wavelength, 0 ), beersLawLabStrings.units.nm );
 }
 
 beersLawLab.register( 'WavelengthControls', WavelengthControls );
