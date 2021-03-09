@@ -37,10 +37,10 @@ class EvaporationControl extends Panel {
     }, options );
 
     const labelString = StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.evaporation );
-    const labelText = new Text( labelString, {
+    const labelNode = new Text( labelString, {
       font: new PhetFont( 22 ),
       maxWidth: 130,
-      tandem: options.tandem.createTandem( 'labelText' )
+      tandem: options.tandem.createTandem( 'labelNode' )
     } );
 
     const slider = new HSlider( evaporator.evaporationRateProperty, new Range( 0, evaporator.maxEvaporationRate ), {
@@ -60,7 +60,7 @@ class EvaporationControl extends Panel {
 
     const content = new HBox( {
       spacing: 10,
-      children: [ labelText, slider ]
+      children: [ labelNode, slider ]
     } );
 
     super( content, options );

@@ -59,11 +59,11 @@ class ShakerNode extends Node {
     imageNode.setScaleMagnitude( 0.75 );
 
     // label
-    const labelText = new RichText( shaker.soluteProperty.get().formula, {
+    const labelNode = new RichText( shaker.soluteProperty.get().formula, {
       font: new PhetFont( { size: 22, weight: 'bold' } ),
       fill: 'black',
       maxWidth: 0.5 * imageNode.width, // constrain width for i18n
-      tandem: options.tandem.createTandem( 'labelText' ),
+      tandem: options.tandem.createTandem( 'labelNode' ),
       textPropertyOptions: { phetioReadOnly: true }
     } );
 
@@ -88,7 +88,7 @@ class ShakerNode extends Node {
     } );
 
     // common parent, to simplify rotation and label alignment.
-    const parentNode = new Node( { children: [ imageNode, labelText, arrowsParent ] } );
+    const parentNode = new Node( { children: [ imageNode, labelNode, arrowsParent ] } );
     this.addChild( parentNode );
     parentNode.rotate( shaker.orientation - Math.PI ); // assumes that shaker points to the left in the image file
 
@@ -118,12 +118,12 @@ class ShakerNode extends Node {
     shaker.soluteProperty.link( solute => {
 
       // label the shaker with the solute formula
-      labelText.setText( solute.formula );
+      labelNode.setText( solute.formula );
 
       // center the label on the shaker
       const capWidth = 0.3 * imageNode.width; // multiplier is dependent on image file
-      labelText.centerX = capWidth + ( imageNode.width - capWidth ) / 2;
-      labelText.centerY = imageNode.centerY;
+      labelNode.centerX = capWidth + ( imageNode.width - capWidth ) / 2;
+      labelNode.centerY = imageNode.centerY;
     } );
 
     // interactivity

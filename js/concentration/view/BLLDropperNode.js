@@ -55,14 +55,14 @@ class BLLDropperNode extends EyeDropperNode {
     this.addChild( labelBackground );
 
     // label
-    const labelText = new RichText( '', {
+    const labelNode = new RichText( '', {
       maxWidth: 80, // determined empirically, to cover only the glass portion of the dropper
       font: new PhetFont( { size: 18, weight: 'bold' } ),
       fill: 'black',
-      tandem: options.tandem.createTandem( 'labelText' ),
+      tandem: options.tandem.createTandem( 'labelNode' ),
       textPropertyOptions: { phetioReadOnly: true }
     } );
-    this.addChild( labelText );
+    this.addChild( labelNode );
 
     // position
     dropper.positionProperty.link( position => {
@@ -82,18 +82,18 @@ class BLLDropperNode extends EyeDropperNode {
       this.setFluidColor( ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration ) );
 
       // label, centered in the dropper's glass
-      labelText.text = solute.formula;
+      labelNode.text = solute.formula;
 
       // rotate to vertical, center the label in the dropper's glass
-      labelText.rotation = -Math.PI / 2;
-      labelText.centerX = 0;
-      labelText.centerY = EyeDropperNode.GLASS_MAX_Y - ( EyeDropperNode.GLASS_MAX_Y - EyeDropperNode.GLASS_MIN_Y ) / 2;
+      labelNode.rotation = -Math.PI / 2;
+      labelNode.centerX = 0;
+      labelNode.centerY = EyeDropperNode.GLASS_MAX_Y - ( EyeDropperNode.GLASS_MAX_Y - EyeDropperNode.GLASS_MIN_Y ) / 2;
 
       // translucent background for the label, so that it's visible on all solution colors
       const width = 0.75 * EyeDropperNode.GLASS_WIDTH;
-      const height = 1.2 * labelText.height;
-      const x = labelText.centerX - ( width / 2 );
-      const y = labelText.centerY - ( height / 2 );
+      const height = 1.2 * labelNode.height;
+      const x = labelNode.centerX - ( width / 2 );
+      const y = labelNode.centerY - ( height / 2 );
       labelBackground.shape = Shape.roundRect( x, y, width, height, 5, 5 );
     } );
 
