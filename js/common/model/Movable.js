@@ -30,7 +30,8 @@ class Movable {
       tandem: options.tandem.createTandem( 'positionProperty' )
     } );
 
-    this.dragBounds = dragBounds; // @public (read-only)
+    // @public (read-only)
+    this.dragBounds = dragBounds;
   }
 
   // @public
