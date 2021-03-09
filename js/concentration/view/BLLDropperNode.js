@@ -31,9 +31,15 @@ class BLLDropperNode extends EyeDropperNode {
   constructor( dropper, solvent, soluteProperty, modelViewTransform, options ) {
 
     options = merge( {
+
+      // EyeDropperNode options
       isDispensingProperty: dropper.isDispensingProperty,
       isEmptyProperty: dropper.isEmptyProperty,
-      buttonEnabledProperty: dropper.enabledProperty,
+      buttonOptions: {
+        enabledProperty: dropper.enabledProperty
+      },
+
+      // phet-io
       tandem: Tandem.REQUIRED
     }, options );
 
