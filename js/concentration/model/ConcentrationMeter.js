@@ -42,8 +42,12 @@ class ConcentrationMeter {
     } );
 
     // @public (read-only)
-    this.body = new BLLMovable( bodyPosition, bodyDragBounds, { tandem: options.tandem.createTandem( 'body' ) } );
-    this.probe = new BLLMovable( probePosition, probeDragBounds, { tandem: options.tandem.createTandem( 'probe' ) } );
+    this.body = new BLLMovable( bodyPosition, bodyDragBounds, {
+      tandem: options.tandem.createTandem( 'body' )
+    } );
+    this.probe = new BLLMovable( probePosition, probeDragBounds, {
+      tandem: options.tandem.createTandem( 'probe' )
+    } );
   }
 
   // @public
