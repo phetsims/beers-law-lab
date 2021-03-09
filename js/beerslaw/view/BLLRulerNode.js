@@ -8,9 +8,11 @@
  */
 
 import Shape from '../../../../kite/js/Shape.js';
+import merge from '../../../../phet-core/js/merge.js';
 import MovableDragHandler from '../../../../scenery-phet/js/input/MovableDragHandler.js';
 import RulerNode from '../../../../scenery-phet/js/RulerNode.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
 
@@ -22,11 +24,15 @@ class BLLRulerNode extends Node {
   /**
    * @param {Ruler} ruler
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( ruler, modelViewTransform, tandem ) {
+  constructor( ruler, modelViewTransform, options ) {
 
-    super( { tandem: tandem } );
+    options = merge( {
+      tandem: Tandem.REQUIRED
+    }, options );
+
+    super( options );
 
     // Compute tick labels, 1 major tick for every 0.5 unit of length, labels on the ticks that correspond to integer values.
     const majorTickLabels = [];
@@ -39,14 +45,11 @@ class BLLRulerNode extends Node {
     const width = modelViewTransform.modelToViewDeltaX( ruler.length );
     const height = modelViewTransform.modelToViewDeltaY( ruler.height );
     const majorTickWidth = modelViewTransform.modelToViewDeltaX( MAJOR_TICK_WIDTH );
-    this.addChild( new RulerNode(
-      width,
-      height,
-      majorTickWidth,
-      majorTickLabels,
-      beersLawLabStrings.units.centimeters,
-      { minorTicksPerMajorTick: 4, insetsWidth: 0, tandem: tandem.createTandem( 'ruler' ) } )
-    );
+    this.addChild( new RulerNode( width, height, majorTickWidth, majorTickLabels, beersLawLabStrings.units.centimeters, {
+      minorTicksPerMajorTick: 4,
+      insetsWidth: 0,
+      tandem: options.tandem.createTandem( 'ruler' )
+    } ) );
 
     // touch area
     const dx = 0.05 * this.width;
@@ -67,7 +70,7 @@ class BLLRulerNode extends Node {
     this.movableDragHandler = new MovableDragHandler( ruler.positionProperty, {
       dragBounds: ruler.dragBounds,
       modelViewTransform: modelViewTransform,
-      tandem: tandem.createTandem( 'movableDragHandler' )
+      tandem: options.tandem.createTandem( 'movableDragHandler' )
     } );
     this.addInputListener( this.movableDragHandler );
   }

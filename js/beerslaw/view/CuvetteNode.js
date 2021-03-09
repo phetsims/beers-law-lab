@@ -8,6 +8,7 @@
 
 import Utils from '../../../../dot/js/Utils.js';
 import Shape from '../../../../kite/js/Shape.js';
+import merge from '../../../../phet-core/js/merge.js';
 import ArrowNode from '../../../../scenery-phet/js/ArrowNode.js';
 import DragListener from '../../../../scenery/js/listeners/DragListener.js';
 import PressListener from '../../../../scenery/js/listeners/PressListener.js';
@@ -34,9 +35,15 @@ class CuvetteNode extends Node {
    * @param {Property.<BeersLawSolution>} solutionProperty
    * @param {ModelViewTransform2} modelViewTransform
    * @param {number} snapInterval
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( cuvette, solutionProperty, modelViewTransform, snapInterval, tandem ) {
+  constructor( cuvette, solutionProperty, modelViewTransform, snapInterval, options ) {
+
+    options = merge( {
+      tandem: Tandem.REQUIRED
+    }, options );
+
+    super( options );
 
     const cuvetteNode = new Path( null, {
       stroke: 'black',
@@ -58,10 +65,8 @@ class CuvetteNode extends Node {
       fill: ARROW_FILL,
       stroke: 'black',
       lineWidth: 1,
-      tandem: tandem.createTandem( 'arrowNode' )
+      tandem: options.tandem.createTandem( 'arrowNode' )
     } );
-
-    super( { tandem: tandem } );
 
     // rendering order
     this.addChild( solutionNode );
@@ -104,8 +109,9 @@ class CuvetteNode extends Node {
       arrowNode.fill = isHighlighted ? ARROW_FILL.brighterColor() : ARROW_FILL;
     } );
 
-    const cuvetteDragListener = new CuvetteDragListener( cuvette, modelViewTransform, snapInterval,
-      tandem.createTandem( 'cuvetteDragListener' ) );
+    const cuvetteDragListener = new CuvetteDragListener( cuvette, modelViewTransform, snapInterval, {
+      tandem: options.tandem.createTandem( 'cuvetteDragListener' )
+    } );
     arrowNode.addInputListener( cuvetteDragListener );
 
     // adjust touch area for the arrow
@@ -129,14 +135,14 @@ class CuvetteDragListener extends DragListener {
    * @param {Cuvette} cuvette
    * @param {ModelViewTransform2} modelViewTransform
    * @param {number} snapInterval
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( cuvette, modelViewTransform, snapInterval, tandem ) {
+  constructor( cuvette, modelViewTransform, snapInterval, options ) {
 
     let startX; // x coordinate of mouse click
     let startWidth; // width of the cuvette when the drag started
 
-    super( {
+    super( merge( {
 
       allowTouchSnag: true,
 
@@ -163,8 +169,8 @@ class CuvetteDragListener extends DragListener {
       },
 
       // phet-io
-      tandem: tandem
-    } );
+      tandem: Tandem.REQUIRED
+    }, options ) );
   }
 }
 
