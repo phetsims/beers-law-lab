@@ -17,12 +17,12 @@ class Ruler extends Movable {
    * @param {number} height cm
    * @param {Vector2} position
    * @param {Bounds2} dragBounds
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    * @constructor
    */
-  constructor( length, insets, height, position, dragBounds, tandem ) {
+  constructor( length, insets, height, position, dragBounds, options ) {
 
-    super( position, dragBounds, tandem );
+    super( position, dragBounds, options );
 
     // @public (read-only)
     this.length = length;

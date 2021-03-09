@@ -105,11 +105,11 @@ class Probe extends Movable {
    * @param {Vector2} position
    * @param {Bounds2} dragBounds
    * @param {number} sensorDiameter cm
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    * @constructor
    */
-  constructor( position, dragBounds, sensorDiameter, tandem ) {
-    super( position, dragBounds, tandem );
+  constructor( position, dragBounds, sensorDiameter, options ) {
+    super( position, dragBounds, options );
     this.sensorDiameter = sensorDiameter; // @private
   }
 
