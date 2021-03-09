@@ -8,6 +8,7 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
+import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import WavelengthSlider from '../../../../scenery-phet/js/WavelengthSlider.js';
@@ -18,6 +19,7 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import VBox from '../../../../scenery/js/nodes/VBox.js';
 import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Panel from '../../../../sun/js/Panel.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
@@ -30,13 +32,22 @@ class WavelengthControls extends Panel {
   /**
    * @param {Property.<BeersLawSolution>} solutionProperty
    * @param {Light} light
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( solutionProperty, light, tandem ) {
+  constructor( solutionProperty, light, options ) {
+
+    options = merge( {
+      xMargin: 20,
+      yMargin: 20,
+      fill: '#F0F0F0',
+      stroke: 'gray',
+      lineWidth: 1,
+      tandem: Tandem.REQUIRED
+    }, options );
 
     // is the wavelength variable or fixed?
     const variableWavelengthProperty = new BooleanProperty( false, {
-      tandem: tandem.createTandem( 'variableWavelengthProperty' )
+      tandem: options.tandem.createTandem( 'variableWavelengthProperty' )
     } );
 
     const xMargin = 7;
@@ -45,14 +56,14 @@ class WavelengthControls extends Panel {
     const label = new Text( StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.wavelength ), {
       font: new PhetFont( 20 ),
       fill: 'black',
-      tandem: tandem.createTandem( 'label' )
+      tandem: options.tandem.createTandem( 'label' )
     } );
 
     const valueDisplay = new Text( formatWavelength( light.wavelengthProperty.get() ), {
       font: new PhetFont( 20 ),
       fill: 'black',
       y: label.y, // align baselines
-      tandem: tandem.createTandem( 'valueDisplay' )
+      tandem: options.tandem.createTandem( 'valueDisplay' )
     } );
 
     const valueBackground = new Rectangle( 0, 0, valueDisplay.width + xMargin + xMargin, valueDisplay.height + yMargin + yMargin, {
@@ -89,7 +100,7 @@ class WavelengthControls extends Panel {
       spacing: 15,
       touchAreaYDilation: 8,
       maxWidth: 250, // constrain width for i18n
-      tandem: tandem.createTandem( 'radioButtonGroup' )
+      tandem: options.tandem.createTandem( 'radioButtonGroup' )
     } );
 
     const wavelengthSlider = new WavelengthSlider( light.wavelengthProperty, {
@@ -98,7 +109,7 @@ class WavelengthControls extends Panel {
       valueVisible: false,
       tweakersTouchAreaXDilation: 10,
       tweakersTouchAreaYDilation: 10,
-      tandem: tandem.createTandem( 'wavelengthSlider' )
+      tandem: options.tandem.createTandem( 'wavelengthSlider' )
     } );
 
     // rendering order
@@ -111,14 +122,7 @@ class WavelengthControls extends Panel {
     // add a horizontal strut to prevent width changes
     content.addChild( new HStrut( Math.max( content.width, wavelengthSlider.width ) ) );
 
-    super( content, {
-      xMargin: 20,
-      yMargin: 20,
-      fill: '#F0F0F0',
-      stroke: 'gray',
-      lineWidth: 1,
-      tandem: tandem
-    } );
+    super( content, options );
 
     // When the radio button selection changes...
     variableWavelengthProperty.link( isVariable => {

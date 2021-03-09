@@ -37,7 +37,9 @@ class BeersLawScreenView extends ScreenView {
 
     super( options );
 
-    const lightNode = new LightNode( model.light, modelViewTransform, options.tandem.createTandem( 'lightNode' ) );
+    const lightNode = new LightNode( model.light, modelViewTransform, {
+      tandem: options.tandem.createTandem( 'lightNode' )
+    } );
     const cuvetteNode = new CuvetteNode( model.cuvette, model.solutionProperty, modelViewTransform, BLLQueryParameters.cuvetteSnapInterval, {
       tandem: options.tandem.createTandem( 'cuvetteNode' )
     } );
@@ -45,12 +47,17 @@ class BeersLawScreenView extends ScreenView {
     const detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform, {
       tandem: options.tandem.createTandem( 'detectorNode' )
     } );
-    const wavelengthControls = new WavelengthControls( model.solutionProperty, model.light, options.tandem.createTandem( 'wavelengthControls' ) );
+    const wavelengthControls = new WavelengthControls( model.solutionProperty, model.light, {
+      tandem: options.tandem.createTandem( 'wavelengthControls' )
+    } );
     const rulerNode = new BLLRulerNode( model.ruler, modelViewTransform, {
       tandem: options.tandem.createTandem( 'rulerNode' )
     } );
     const comboBoxListParent = new Node();
-    const solutionControls = new SolutionControls( model.solutions, model.solutionProperty, comboBoxListParent, options.tandem.createTandem( 'solutionControls' ), { maxWidth: 575 } );
+    const solutionControls = new SolutionControls( model.solutions, model.solutionProperty, comboBoxListParent, {
+      maxWidth: 575,
+      tandem: options.tandem.createTandem( 'solutionControls' )
+    } );
 
     // Reset All button
     const resetAllButton = new ResetAllButton( {

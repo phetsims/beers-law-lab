@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import HBox from '../../../../scenery/js/nodes/HBox.js';
@@ -14,6 +15,7 @@ import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ComboBox from '../../../../sun/js/ComboBox.js';
 import ComboBoxItem from '../../../../sun/js/ComboBoxItem.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
 
@@ -23,29 +25,30 @@ class SolutionComboBox extends ComboBox {
    * @param {BeersLawSolution[]} solutions
    * @param {Property.<BeersLawSolution>} selectedSolutionProperty
    * @param {Node} solutionListParent
-   * @param {Tandem} tandem
-   * @constructor
+   * @param {Object} [options]
    */
-  constructor( solutions, selectedSolutionProperty, solutionListParent, tandem ) {
+  constructor( solutions, selectedSolutionProperty, solutionListParent, options ) {
 
-    // 'Solution' label
-    const label = new Text(
-      StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.solution ),
-      { font: new PhetFont( 20 ) }
-    );
-
-    // items
-    const items = solutions.map( solution => createItem( solution, tandem ) );
-
-    super( items, selectedSolutionProperty, solutionListParent, {
-      labelNode: label,
+    options = merge( {
       listPosition: 'above',
       xMargin: 12,
       yMargin: 12,
       highlightFill: 'rgb( 218, 255, 255 )',
       cornerRadius: 8,
-      tandem: tandem
-    } );
+      tandem: Tandem.REQUIRED
+    }, options );
+
+    // 'Solution' label
+    assert && assert( !options.labelNode, 'SolutionComboBox sets labelNode' );
+    options.labelNode = new Text(
+      StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.solution ),
+      { font: new PhetFont( 20 ) }
+    );
+
+    // items
+    const items = solutions.map( solution => createItem( solution, options.tandem ) );
+
+    super( items, selectedSolutionProperty, solutionListParent, options );
   }
 }
 

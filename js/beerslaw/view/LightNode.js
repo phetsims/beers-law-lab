@@ -8,7 +8,9 @@
  */
 
 import Dimension2 from '../../../../dot/js/Dimension2.js';
+import merge from '../../../../phet-core/js/merge.js';
 import LaserPointerNode from '../../../../scenery-phet/js/LaserPointerNode.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 
 class LightNode extends LaserPointerNode {
@@ -16,18 +18,20 @@ class LightNode extends LaserPointerNode {
   /**
    * @param {Light} light
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( light, modelViewTransform, tandem ) {
+  constructor( light, modelViewTransform, options ) {
 
-    super( light.onProperty, {
+    options = merge( {
       bodySize: new Dimension2( 126, 78 ),
       nozzleSize: new Dimension2( 16, 65 ),
       buttonRadius: 26,
       buttonTouchAreaDilation: 25,
       translation: modelViewTransform.modelToViewPosition( light.position ),
-      tandem: tandem
-    } );
+      tandem: Tandem.REQUIRED
+    }, options );
+
+    super( light.onProperty, options );
   }
 }
 
