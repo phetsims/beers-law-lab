@@ -39,8 +39,11 @@ class SoluteComboBox extends ComboBox {
 
     // 'Solute' label
     assert && assert( !options.labelNode, 'SoluteComboBox sets labelNode' );
-    options.labelNode = new Text( StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.solute ),
-      { font: new PhetFont( 22 ) } );
+    options.labelNode = new Text( StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.solute ), {
+      font: new PhetFont( 22 ),
+      maxWidth: 75,
+      tandem: options.tandem.createTandem( 'labelNode' )
+    } );
 
     // items
     const items = solutes.map( createItem );
