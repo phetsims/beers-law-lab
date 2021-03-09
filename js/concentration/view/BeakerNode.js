@@ -64,9 +64,16 @@ class BeakerNode extends Node {
       lineJoin: 'round'
     } ) );
 
-    // horizontal tick marks, left edge, from bottom up
-    const ticksParent = new Node();
-    this.addChild( ticksParent );
+    // horizontal tick marks and tick labels, at left edge of beaker, from bottom up
+    const tickMarksNode = new Node( {
+      tandem: options.tandem.createTandem( 'tickMarksNode' )
+    } );
+    this.addChild( tickMarksNode );
+    const tickLabelsNode = new Node( {
+      tandem: options.tandem.createTandem( 'tickLabelsNode' )
+    } );
+    this.addChild( tickLabelsNode );
+
     const numberOfTicks = Utils.roundSymmetric( beaker.volume / MINOR_TICK_SPACING );
     const deltaY = height / numberOfTicks;
     for ( let i = 1; i <= numberOfTicks; i++ ) {
@@ -83,7 +90,7 @@ class BeakerNode extends Node {
         lineCap: 'butt',
         lineJoin: 'bevel'
       } );
-      ticksParent.addChild( tickPath );
+      tickMarksNode.addChild( tickPath );
 
       // major tick label
       if ( isMajorTick ) {
@@ -97,13 +104,12 @@ class BeakerNode extends Node {
                         StringUtils.format( beersLawLabStrings.pattern[ '0value' ][ '1units' ],
                           MAJOR_TICK_VALUES_MILLILITERS[ labelIndex ], beersLawLabStrings.units.milliliters );
 
-          ticksParent.addChild( new Text( label, {
+          tickLabelsNode.addChild( new Text( label, {
             font: new PhetFont( 24 ),
             fill: 'black',
             x: rightX + TICK_LABEL_X_SPACING,
             centerY: tickPath.centerY,
-            maxWidth: 0.25 * beaker.size.width, // constrain width for i18n
-            tandem: options.tandem.createTandem( 'tickLabel' + labelIndex )
+            maxWidth: 0.25 * beaker.size.width // constrain width for i18n
           } ) );
         }
       }
