@@ -45,7 +45,7 @@ class Dropper extends BLLMovable {
     } );
     this.flowRateProperty = new NumberProperty( 0, {
       tandem: options.tandem.createTandem( 'flowRateProperty' ),
-      units: 'liters/second'
+      units: 'L/s'
     } );
 
     // Turn off the dropper when it's disabled.

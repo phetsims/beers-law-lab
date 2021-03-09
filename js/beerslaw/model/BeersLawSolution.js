@@ -64,7 +64,7 @@ class BeersLawSolution extends PhetioObject {
     this.formula = formula;
     this.molarAbsorptivityData = molarAbsorptivityData;
     this.concentrationProperty = new NumberProperty( concentrationRange.defaultValue, {
-      units: 'moles/liter',
+      units: 'mol/L',
       range: concentrationRange,
       tandem: options.tandem.createTandem( 'concentrationProperty' )
     } );

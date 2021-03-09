@@ -35,9 +35,9 @@ class Cuvette {
     this.position = position;
     this.widthRange = widthRange;
     this.widthProperty = new NumberProperty( widthRange.defaultValue, {
-      tandem: options.tandem.createTandem( 'widthProperty' ),
+      units: 'cm',
       range: widthRange,
-      units: 'centimeters'
+      tandem: options.tandem.createTandem( 'widthProperty' )
     } );
     this.height = height;
   }

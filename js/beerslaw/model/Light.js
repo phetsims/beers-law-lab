@@ -39,9 +39,9 @@ class Light {
       tandem: options.tandem.createTandem( 'onProperty' )
     } );
     this.wavelengthProperty = new NumberProperty( solutionProperty.get().molarAbsorptivityData.lambdaMax /*nm*/, {
-      tandem: options.tandem.createTandem( 'wavelengthProperty' ),
-      units: 'nanometers',
-      range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH )
+      units: 'nm',
+      range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH ),
+      tandem: options.tandem.createTandem( 'wavelengthProperty' )
     } );
 
     // when the solution changes, set the light to the solution's lambdaMax wavelength

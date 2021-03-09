@@ -37,7 +37,7 @@ class ConcentrationMeter {
     // null if the meter is not reading a value
     this.valueProperty = new Property( null, {
       tandem: options.tandem.createTandem( 'valueProperty' ),
-      units: 'moles/liter',
+      units: 'mol/L',
       phetioType: Property.PropertyIO( NullableIO( NumberIO ) )
     } );
 

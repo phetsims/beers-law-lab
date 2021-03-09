@@ -39,7 +39,7 @@ class Faucet {
     // @public
     this.flowRateProperty = new NumberProperty( 0, {
       tandem: options.tandem.createTandem( 'flowRateProperty' ),
-      units: 'liters/second'
+      units: 'L/s'
     } );
     this.enabledProperty = new BooleanProperty( true );
 

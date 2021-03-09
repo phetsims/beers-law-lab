@@ -40,14 +40,15 @@ class ConcentrationSolution extends Fluid {
 
     // @public
     this.soluteAmountProperty = new NumberProperty( soluteAmount, {
-      units: 'moles',
+      units: 'mol',
       range: BLLConstants.SOLUTE_AMOUNT_RANGE,
       tandem: options.tandem.createTandem( 'soluteAmountProperty' )
     } );
 
     // @public
     this.volumeProperty = new NumberProperty( volume, {
-      units: 'liters', range: BLLConstants.SOLUTION_VOLUME_RANGE,
+      units: 'L',
+      range: BLLConstants.SOLUTION_VOLUME_RANGE,
       tandem: options.tandem.createTandem( 'volumeProperty' )
     } ); // L
 
@@ -66,7 +67,7 @@ class ConcentrationSolution extends Fluid {
         }
       }, {
         tandem: options.tandem.createTandem( 'precipitateAmountProperty' ),
-        units: 'moles',
+        units: 'mol',
         phetioType: DerivedProperty.DerivedPropertyIO( NumberIO )
       }
     );
@@ -78,7 +79,7 @@ class ConcentrationSolution extends Fluid {
         return ( volume > 0 ) ? Math.min( this.getSaturatedConcentration(), soluteAmount / volume ) : 0;
       }, {
         tandem: options.tandem.createTandem( 'concentrationProperty' ),
-        units: 'moles/liter',
+        units: 'mol/L',
         phetioType: DerivedProperty.DerivedPropertyIO( NumberIO )
       }
     );

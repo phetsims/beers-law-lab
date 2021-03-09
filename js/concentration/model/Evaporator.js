@@ -31,7 +31,7 @@ class Evaporator {
     this.evaporationRateProperty = new NumberProperty( 0, {
       tandem: options.tandem.createTandem( 'evaporationRateProperty' ),
       phetioReadOnly: true, // this is controlled by the model
-      units: 'liters/second'
+      units: 'L/s'
     } );
 
     // @public
