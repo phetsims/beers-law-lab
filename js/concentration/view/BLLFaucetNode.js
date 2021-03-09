@@ -9,6 +9,7 @@
 
 import merge from '../../../../phet-core/js/merge.js';
 import FaucetNode from '../../../../scenery-phet/js/FaucetNode.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 
 // constants
@@ -19,10 +20,9 @@ class BLLFaucetNode extends FaucetNode {
   /**
    * @param {Faucet} faucet
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
    * @param {Object} [options]
    */
-  constructor( faucet, modelViewTransform, tandem, options ) {
+  constructor( faucet, modelViewTransform, options ) {
 
     const horizontalPipeLength = modelViewTransform.modelToViewX( faucet.position.x - faucet.pipeMinX ) / SCALE;
 
@@ -33,7 +33,7 @@ class BLLFaucetNode extends FaucetNode {
         touchAreaXDilation: 37,
         touchAreaYDilation: 60
       },
-      tandem: tandem
+      tandem: Tandem.REQUIRED
     }, options );
 
     super( faucet.maxFlowRate, faucet.flowRateProperty, faucet.enabledProperty, options );

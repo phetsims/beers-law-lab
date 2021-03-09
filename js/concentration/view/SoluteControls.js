@@ -9,6 +9,7 @@
 import merge from '../../../../phet-core/js/merge.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Panel from '../../../../sun/js/Panel.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import SoluteComboBox from './SoluteComboBox.js';
 import SoluteFormRadioButtonGroup from './SoluteFormRadioButtonGroup.js';
@@ -21,10 +22,9 @@ class SoluteControls extends Panel {
    * @param {Shaker} shaker
    * @param {Dropper} dropper
    * @param {Node} soluteListParent
-   * @param {Tandem} tandem
    * @param {Object} [options]
    */
-  constructor( solutes, currentSoluteProperty, soluteFormProperty, shaker, dropper, soluteListParent, tandem, options ) {
+  constructor( solutes, currentSoluteProperty, soluteFormProperty, shaker, dropper, soluteListParent, options ) {
 
     options = merge( {
       xMargin: 15,
@@ -32,16 +32,18 @@ class SoluteControls extends Panel {
       fill: '#F0F0F0',
       stroke: 'gray',
       lineWidth: 1,
-      tandem: tandem
+      tandem: Tandem.REQUIRED
     }, options );
 
     // solute combo box
-    const soluteComboBox = new SoluteComboBox( solutes, currentSoluteProperty, soluteListParent,
-      tandem.createTandem( 'soluteComboBox' ) );
+    const soluteComboBox = new SoluteComboBox( solutes, currentSoluteProperty, soluteListParent, {
+      tandem: options.tandem.createTandem( 'soluteComboBox' )
+    } );
 
     // radio buttons for solid vs solution
-    const soluteFormRadioButtonGroup = new SoluteFormRadioButtonGroup( soluteFormProperty, shaker, dropper,
-      tandem.createTandem( 'soluteFormRadioButtonGroup' ) );
+    const soluteFormRadioButtonGroup = new SoluteFormRadioButtonGroup( soluteFormProperty, shaker, dropper, {
+      tandem: options.tandem.createTandem( 'soluteFormRadioButtonGroup' )
+    } );
 
     const contentNode = new Node();
     contentNode.addChild( soluteFormRadioButtonGroup );

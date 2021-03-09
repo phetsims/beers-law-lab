@@ -15,6 +15,7 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import HSlider from '../../../../sun/js/HSlider.js';
 import Panel from '../../../../sun/js/Panel.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
 
@@ -22,10 +23,9 @@ class EvaporationControl extends Panel {
 
   /**
    * @param {Evaporator} evaporator
-   * @param {Tandem} tandem
    * @param {Object} [options]
    */
-  constructor( evaporator, tandem, options ) {
+  constructor( evaporator, options ) {
 
     options = merge( {
       xMargin: 15,
@@ -33,7 +33,7 @@ class EvaporationControl extends Panel {
       fill: '#F0F0F0',
       stroke: 'gray',
       lineWidth: 1,
-      tandem: tandem
+      tandem: Tandem.REQUIRED
     }, options );
 
     const label = new Text( StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.evaporation ),
@@ -46,7 +46,7 @@ class EvaporationControl extends Panel {
 
       // at end of drag, snap evaporation rate back to zero
       endDrag: () => evaporator.evaporationRateProperty.set( 0 ),
-      tandem: tandem.createTandem( 'slider' )
+      tandem: options.tandem.createTandem( 'slider' )
     } );
 
     const tickFont = new PhetFont( 16 );

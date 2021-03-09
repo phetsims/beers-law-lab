@@ -15,6 +15,7 @@ import Circle from '../../../../scenery/js/nodes/Circle.js';
 import Image from '../../../../scenery/js/nodes/Image.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import shakerImage from '../../../images/shaker_png.js';
 import beersLawLab from '../../beersLawLab.js';
 
@@ -34,18 +35,21 @@ class ShakerNode extends Node {
   /**
    * @param {Shaker} shaker
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( shaker, modelViewTransform, tandem ) {
+  constructor( shaker, modelViewTransform, options ) {
 
-    super( {
+    options = merge( {
 
       // Performance optimization so Scenery won't fit blocks around this.
       // See https://github.com/phetsims/beers-law-lab/issues/113
       preventFit: true,
 
-      tandem: tandem
-    } );
+      // phet-io
+      tandem: Tandem.REQUIRED
+    }, options );
+
+    super( options );
 
     // shaker image
     const imageNode = new Image( shakerImage );
@@ -56,7 +60,7 @@ class ShakerNode extends Node {
       font: new PhetFont( { size: 22, weight: 'bold' } ),
       fill: 'black',
       maxWidth: 0.5 * imageNode.width, // constrain width for i18n
-      tandem: tandem.createTandem( 'labelNode' )
+      tandem: options.tandem.createTandem( 'labelNode' )
     } );
 
     // arrows
@@ -64,12 +68,12 @@ class ShakerNode extends Node {
 
     const downArrowNode = new ArrowNode( 0, 0, 0, ARROW_LENGTH, merge( {
       top: arrowsOffset,
-      tandem: tandem.createTandem( 'downArrowNode' )
+      tandem: options.tandem.createTandem( 'downArrowNode' )
     }, ARROW_OPTIONS ) );
 
     const upArrowNode = new ArrowNode( 0, 0, 0, -ARROW_LENGTH, merge( {
       bottom: -arrowsOffset,
-      tandem: tandem.createTandem( 'upArrowNode' )
+      tandem: options.tandem.createTandem( 'upArrowNode' )
     }, ARROW_OPTIONS ) );
 
     const arrowsParent = new Node( {
@@ -122,7 +126,7 @@ class ShakerNode extends Node {
       positionProperty: shaker.positionProperty,
       dragBoundsProperty: new Property( shaker.dragBounds ),
       modelViewTransform: modelViewTransform,
-      tandem: tandem.createTandem( 'dragListener' )
+      tandem: options.tandem.createTandem( 'dragListener' )
     } ) );
     this.addInputListener( {
       enter: () => {

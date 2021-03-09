@@ -6,11 +6,13 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import merge from '../../../../phet-core/js/merge.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import HBox from '../../../../scenery/js/nodes/HBox.js';
 import Image from '../../../../scenery/js/nodes/Image.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import dropperIconImage from '../../../images/dropper-icon_png.js';
 import shakerIconImage from '../../../images/shaker-icon_png.js';
 import beersLawLab from '../../beersLawLab.js';
@@ -26,9 +28,17 @@ class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup {
    * @param {Property.<string>} soluteFormProperty form of the solute, 'solid' or 'solution'
    * @param {Shaker} shaker
    * @param {Dropper} dropper
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( soluteFormProperty, shaker, dropper, tandem ) {
+  constructor( soluteFormProperty, shaker, dropper, options ) {
+
+    options = merge( {
+      orientation: 'horizontal',
+      spacing: 60,
+      radioButtonOptions: { radius: BLLConstants.RADIO_BUTTON_RADIUS },
+      touchAreaYDilation: 2,
+      tandem: Tandem.REQUIRED
+    }, options );
 
     // radio button descriptions
     const items = [
@@ -44,13 +54,7 @@ class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup {
       }
     ];
 
-    super( soluteFormProperty, items, {
-      orientation: 'horizontal',
-      spacing: 60,
-      radioButtonOptions: { radius: BLLConstants.RADIO_BUTTON_RADIUS },
-      touchAreaYDilation: 2,
-      tandem: tandem
-    } );
+    super( soluteFormProperty, items, options );
 
     soluteFormProperty.link( soluteForm => {
       shaker.visibleProperty.set( soluteForm === 'solid' );

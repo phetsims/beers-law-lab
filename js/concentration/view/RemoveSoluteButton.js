@@ -9,6 +9,7 @@
 import merge from '../../../../phet-core/js/merge.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import TextPushButton from '../../../../sun/js/buttons/TextPushButton.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
 
@@ -17,17 +18,16 @@ class RemoveSoluteButton extends TextPushButton {
   /**
    * @param {ConcentrationSolution} solution
    * @param {ShakerParticles} shakerParticles
-   * @param {Tandem} tandem
    * @param {Object} [options]
    */
-  constructor( solution, shakerParticles, tandem, options ) {
+  constructor( solution, shakerParticles, options ) {
 
     options = merge( {
       baseColor: 'rgb(255,200,0)',
       font: new PhetFont( 22 ),
       textFill: 'black',
       xMargin: 10,
-      tandem: tandem
+      tandem: Tandem.REQUIRED
     }, options );
 
     super( beersLawLabStrings.removeSolute, options );

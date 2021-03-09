@@ -20,6 +20,7 @@ import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Shape from '../../../../kite/js/Shape.js';
+import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MovableDragHandler from '../../../../scenery-phet/js/input/MovableDragHandler.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
@@ -30,6 +31,7 @@ import LayoutBox from '../../../../scenery/js/nodes/LayoutBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
 import BLLQueryParameters from '../../common/BLLQueryParameters.js';
@@ -59,15 +61,23 @@ class ConcentrationMeterNode extends Node {
    * @param {Node} solventFluidNode
    * @param {Node} drainFluidNode
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
   constructor( meter, solution, dropper, solutionNode, stockSolutionNode, solventFluidNode,
-               drainFluidNode, modelViewTransform, tandem ) {
+               drainFluidNode, modelViewTransform, options ) {
 
-    super( { tandem: tandem } );
+    options = merge( {
+      tandem: Tandem.REQUIRED
+    }, options );
 
-    const bodyNode = new BodyNode( meter, modelViewTransform, tandem.createTandem( 'bodyNode' ) );
-    const probeNode = new ConcentrationProbeNode( meter.probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, tandem.createTandem( 'probeNode' ) );
+    super( options );
+
+    const bodyNode = new BodyNode( meter, modelViewTransform, {
+      tandem: options.tandem.createTandem( 'bodyNode' )
+    } );
+    const probeNode = new ConcentrationProbeNode( meter.probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, {
+      tandem: options.tandem.createTandem( 'probeNode' )
+    } );
     const wireNode = new WireNode( meter.body, meter.probe, bodyNode, probeNode );
 
     // rendering order
@@ -118,14 +128,16 @@ class BodyNode extends Node {
   /**
    * @param {ConcentrationMeter} meter
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( meter, modelViewTransform, tandem ) {
+  constructor( meter, modelViewTransform, options ) {
 
-    super( {
-      tandem: tandem,
-      cursor: 'pointer'
-    } );
+    options = merge( {
+      cursor: 'pointer',
+      tandem: Tandem.REQUIRED
+    }, options );
+
+    super( options );
 
     const maxTextWidth = 225; // constrain text width for i18n, determined empirically
 
@@ -143,7 +155,7 @@ class BodyNode extends Node {
       font: new PhetFont( 24 ),
       fill: 'black',
       maxWidth: maxTextWidth,
-      tandem: tandem.createTandem( 'readoutTextNode' )
+      tandem: options.tandem.createTandem( 'readoutTextNode' )
     } );
     const readoutWidth = Math.max( MIN_VALUE_SIZE.width, Math.max( titleNode.width, readoutTextNode.width ) + ( 2 * READOUT_X_MARGIN ) );
     const readoutHeight = Math.max( MIN_VALUE_SIZE.height, readoutTextNode.height + ( 2 * READOUT_Y_MARGIN ) );
@@ -178,7 +190,7 @@ class BodyNode extends Node {
       const movableDragHandler = new MovableDragHandler( meter.body.positionProperty, {
         dragBounds: meter.body.dragBounds,
         modelViewTransform: modelViewTransform,
-        tandem: tandem.createTandem( 'movableDragHandler' )
+        tandem: options.tandem.createTandem( 'movableDragHandler' )
       } );
       this.addInputListener( movableDragHandler );
     }
@@ -227,11 +239,11 @@ class ConcentrationProbeNode extends ProbeNode {
    * @param {Node} stockSolutionNode
    * @param {Node} solventFluidNode
    * @param {Node} drainFluidNode
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, tandem ) {
+  constructor( probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, options ) {
 
-    super( {
+    options = merge( {
       sensorTypeFunction: ProbeNode.crosshairs( {
         intersectionRadius: 6
       } ),
@@ -244,8 +256,10 @@ class ConcentrationProbeNode extends ProbeNode {
       color: PROBE_COLOR,
       rotation: -Math.PI / 2,
       cursor: 'pointer',
-      tandem: tandem
-    } );
+      tandem: Tandem.REQUIRED
+    }, options );
+
+    super( options );
 
     // probe position
     probe.positionProperty.link( position => {
@@ -257,7 +271,7 @@ class ConcentrationProbeNode extends ProbeNode {
 
     // drag handler
     const movableDragHandler = new MovableDragHandler( probe.positionProperty, {
-      tandem: tandem.createTandem( 'movableDragHandler' ),
+      tandem: options.tandem.createTandem( 'movableDragHandler' ),
       dragBounds: probe.dragBounds,
       modelViewTransform: modelViewTransform
     } );
@@ -289,13 +303,15 @@ class WireNode extends Path {
    */
   constructor( body, probe, bodyNode, probeNode ) {
 
-    super( new Shape(), {
+    const options = {
       stroke: 'gray',
       lineWidth: 8,
       lineCap: 'square',
       lineJoin: 'round',
       pickable: false // no need to drag the wire, and we don't want to do cubic-curve intersection here, or have it get in the way
-    } );
+    };
+
+    super( new Shape(), options );
 
     const updateCurve = () => {
 
