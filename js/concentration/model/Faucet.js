@@ -46,8 +46,6 @@ class Faucet {
     } );
     this.enabledProperty = new BooleanProperty( true );
 
-    this.flowRateProperty.link( flowRate => console.log( `flowRate=${flowRate}` ) );//XXX
-
     // when disabled, turn off the faucet.
     this.enabledProperty.link( enabled => {
       if ( !enabled ) {
