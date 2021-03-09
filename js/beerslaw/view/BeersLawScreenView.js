@@ -40,7 +40,9 @@ class BeersLawScreenView extends ScreenView {
     const lightNode = new LightNode( model.light, modelViewTransform, options.tandem.createTandem( 'lightNode' ) );
     const cuvetteNode = new CuvetteNode( model.cuvette, model.solutionProperty, modelViewTransform, BLLQueryParameters.cuvetteSnapInterval, options.tandem.createTandem( 'cuvetteNode' ) );
     const beamNode = new BeamNode( model.beam );
-    const detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform, options.tandem.createTandem( 'detectorNode' ) );
+    const detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform, {
+      tandem: options.tandem.createTandem( 'detectorNode' )
+    } );
     const wavelengthControls = new WavelengthControls( model.solutionProperty, model.light, options.tandem.createTandem( 'wavelengthControls' ) );
     const rulerNode = new BLLRulerNode( model.ruler, modelViewTransform, options.tandem.createTandem( 'rulerNode' ) );
     const comboBoxListParent = new Node();

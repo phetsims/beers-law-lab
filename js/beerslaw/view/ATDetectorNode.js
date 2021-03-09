@@ -11,6 +11,7 @@ import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Shape from '../../../../kite/js/Shape.js';
+import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import MovableDragHandler from '../../../../scenery-phet/js/input/MovableDragHandler.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
@@ -22,6 +23,7 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
@@ -46,14 +48,22 @@ class ATDetectorNode extends Node {
    * @param {ATDetector} detector
    * @param {Light} light
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( detector, light, modelViewTransform, tandem ) {
+  constructor( detector, light, modelViewTransform, options ) {
 
-    super();
+    options = merge( {
+      tandem: Tandem.REQUIRED
+    }, options );
 
-    const bodyNode = new BodyNode( detector, modelViewTransform, tandem.createTandem( 'bodyNode' ) );
-    const probeNode = new ATProbeNode( detector.probe, light, modelViewTransform, tandem.createTandem( 'probeNode' ) );
+    super( options );
+
+    const bodyNode = new BodyNode( detector, modelViewTransform, {
+      tandem: options.tandem.createTandem( 'bodyNode' )
+    } );
+    const probeNode = new ATProbeNode( detector.probe, light, modelViewTransform, {
+      tandem: options.tandem.createTandem( 'probeNode' )
+    } );
     const wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
 
     this.addChild( wireNode );
@@ -61,8 +71,6 @@ class ATDetectorNode extends Node {
     this.addChild( probeNode );
   }
 }
-
-beersLawLab.register( 'ATDetectorNode', ATDetectorNode );
 
 /**
  * The body of the detector, where A and T values are displayed. Note that while the body is a Movable,
@@ -73,11 +81,15 @@ class BodyNode extends Node {
   /**
    * @param {ATDetector} detector
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( detector, modelViewTransform, tandem ) {
+  constructor( detector, modelViewTransform, options ) {
 
-    super( { tandem: tandem } );
+    options = merge( {
+      tandem: Tandem.REQUIRED
+    }, options );
+
+    super( options );
 
     // radio button descriptions
     const radioButtonItems = [
@@ -100,7 +112,7 @@ class BodyNode extends Node {
       align: 'left',
       spacing: 15,
       maxWidth: 260,
-      tandem: tandem.createTandem( 'radioButtonGroup' )
+      tandem: options.tandem.createTandem( 'radioButtonGroup' )
     } );
 
     // value
@@ -109,7 +121,7 @@ class BodyNode extends Node {
       Utils.toFixed( maxValue, TRANSMITTANCE_DECIMAL_PLACES ) ), {
       font: new PhetFont( 24 ),
       maxWidth: 150,
-      tandem: tandem.createTandem( 'valueNode' )
+      tandem: options.tandem.createTandem( 'valueNode' )
     } );
 
     // display area for the value
@@ -180,11 +192,11 @@ class ATProbeNode extends ProbeNode {
    * @param {Movable} probe
    * @param {Light} light
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( probe, light, modelViewTransform, tandem ) {
+  constructor( probe, light, modelViewTransform, options ) {
 
-    super( {
+    options = merge( {
       radius: 53,
       innerRadius: 40,
       handleWidth: 68,
@@ -192,8 +204,10 @@ class ATProbeNode extends ProbeNode {
       handleCornerRadius: 22,
       lightAngle: 1.25 * Math.PI,
       color: PROBE_COLOR,
-      tandem: tandem
-    } );
+      tandem: Tandem.REQUIRED
+    }, options );
+
+    super( options );
 
     // position
     probe.positionProperty.link( position => {
@@ -213,7 +227,7 @@ class ATProbeNode extends ProbeNode {
           probe.positionProperty.set( new Vector2( probe.positionProperty.get().x, light.position.y ) );
         }
       },
-      tandem: tandem.createTandem( 'movableDragHandler' )
+      tandem: options.tandem.createTandem( 'movableDragHandler' )
     } );
     this.addInputListener( movableDragHandler );
 
@@ -232,16 +246,19 @@ class WireNode extends Path {
    * @param {Movable} probe
    * @param {Node} bodyNode
    * @param {Node} probeNode
+   * @param {Object} [options]
    */
-  constructor( body, probe, bodyNode, probeNode ) {
+  constructor( body, probe, bodyNode, probeNode, options ) {
 
-    super( new Shape(), {
+    options = merge( {
       stroke: 'gray',
       lineWidth: 8,
       lineCap: 'square',
       lineJoin: 'round',
       pickable: false
-    } );
+    }, options );
+
+    super( new Shape(), options );
 
     const updateCurve = () => {
 
@@ -266,4 +283,5 @@ class WireNode extends Path {
   }
 }
 
+beersLawLab.register( 'ATDetectorNode', ATDetectorNode );
 export default ATDetectorNode;
