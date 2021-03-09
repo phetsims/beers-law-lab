@@ -104,7 +104,7 @@ class ConcentrationSolution extends Fluid {
         return soluteGrams;
       }, {
         tandem: options.tandem.createTandem( 'soluteGramsProperty' ),
-        units: 'grams',
+        units: 'g',
         phetioType: DerivedProperty.DerivedPropertyIO( NumberIO )
       }
     );
@@ -124,7 +124,7 @@ class ConcentrationSolution extends Fluid {
       }, {
         tandem: options.tandem.createTandem( 'percentConcentrationProperty' ),
         phetioType: DerivedProperty.DerivedPropertyIO( NumberIO ),
-        units: 'percent'
+        units: '%'
       }
     );
 
