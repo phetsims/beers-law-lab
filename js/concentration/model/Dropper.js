@@ -34,12 +34,12 @@ class Dropper extends BLLMovable {
     // @public
     this.soluteProperty = soluteProperty;
     this.visibleProperty = new BooleanProperty( visible );
+    this.enabledProperty = new BooleanProperty( true );
 
     // @public true if the dropper is dispensing solution
     this.isDispensingProperty = new BooleanProperty( false, {
       tandem: options.tandem.createTandem( 'isDispensingProperty' )
     } );
-    this.enabledProperty = new BooleanProperty( true );
     this.isEmptyProperty = new BooleanProperty( false, {
       tandem: options.tandem.createTandem( 'isEmptyProperty' ),
       phetioReadOnly: true
