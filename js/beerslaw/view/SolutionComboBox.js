@@ -40,10 +40,11 @@ class SolutionComboBox extends ComboBox {
 
     // 'Solution' label
     assert && assert( !options.labelNode, 'SolutionComboBox sets labelNode' );
-    options.labelNode = new Text(
-      StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.solution ),
-      { font: new PhetFont( 20 ) }
-    );
+    options.labelNode = new Text( StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.solution ), {
+      font: new PhetFont( 20 ),
+      maxWidth: 85,
+      tandem: options.tandem.createTandem( 'labelNode' )
+    } );
 
     // items
     const items = solutions.map( solution => createItem( solution, options.tandem ) );
