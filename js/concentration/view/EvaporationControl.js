@@ -11,7 +11,7 @@ import Range from '../../../../dot/js/Range.js';
 import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
+import HBox from '../../../../scenery/js/nodes/HBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import HSlider from '../../../../sun/js/HSlider.js';
 import Panel from '../../../../sun/js/Panel.js';
@@ -36,8 +36,12 @@ class EvaporationControl extends Panel {
       tandem: Tandem.REQUIRED
     }, options );
 
-    const label = new Text( StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.evaporation ),
-      { font: new PhetFont( 22 ) } );
+    const labelString = StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.evaporation );
+    const labelText = new Text( labelString, {
+      font: new PhetFont( 22 ),
+      maxWidth: 130,
+      tandem: options.tandem.createTandem( 'labelText' )
+    } );
 
     const slider = new HSlider( evaporator.evaporationRateProperty, new Range( 0, evaporator.maxEvaporationRate ), {
       trackSize: new Dimension2( 150, 6 ),
@@ -49,16 +53,15 @@ class EvaporationControl extends Panel {
       tandem: options.tandem.createTandem( 'slider' )
     } );
 
+    // Tick marks
     const tickFont = new PhetFont( 16 );
     slider.addMajorTick( 0, new Text( beersLawLabStrings.none, { font: tickFont } ) );
     slider.addMajorTick( evaporator.maxEvaporationRate, new Text( beersLawLabStrings.lots, { font: tickFont } ) );
 
-    const content = new Node();
-    content.addChild( label );
-    content.addChild( slider );
-
-    slider.left = label.right + 10;
-    slider.centerY = label.centerY;
+    const content = new HBox( {
+      spacing: 10,
+      children: [ labelText, slider ]
+    } );
 
     super( content, options );
   }
