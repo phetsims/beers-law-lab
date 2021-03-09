@@ -174,7 +174,7 @@ class ConcentrationModel extends PhetioObject {
 
   /*
    * Moves time forward by the specified amount.
-   * @param deltaSeconds clock time change, in seconds.
+   * @param {number} deltaSeconds clock time change, in seconds.
    * @public
    */
   step( deltaSeconds ) {
