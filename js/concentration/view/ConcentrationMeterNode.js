@@ -233,7 +233,7 @@ class BodyNode extends Node {
 class ConcentrationProbeNode extends ProbeNode {
 
   /**
-   * @param {Movable} probe
+   * @param {BLLMovable} probe
    * @param {ModelViewTransform2} modelViewTransform
    * @param {Node} solutionNode
    * @param {Node} stockSolutionNode
@@ -296,8 +296,8 @@ class WireNode extends Path {
 
   /**
    * Wire that connects the body and probe.
-   * @param {Movable} body
-   * @param {Movable} probe
+   * @param {BLLMovable} body
+   * @param {BLLMovable} probe
    * @param {Node} bodyNode
    * @param {Node} probeNode
    */

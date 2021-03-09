@@ -192,7 +192,7 @@ class BodyNode extends Node {
 class ATProbeNode extends ProbeNode {
 
   /**
-   * @param {Movable} probe
+   * @param {BLLMovable} probe
    * @param {Light} light
    * @param {ModelViewTransform2} modelViewTransform
    * @param {Object} [options]
@@ -245,8 +245,8 @@ class ATProbeNode extends ProbeNode {
 class WireNode extends Path {
 
   /**
-   * @param {Movable} body
-   * @param {Movable} probe
+   * @param {BLLMovable} body
+   * @param {BLLMovable} probe
    * @param {Node} bodyNode
    * @param {Node} probeNode
    * @param {Object} [options]
