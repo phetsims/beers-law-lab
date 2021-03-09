@@ -38,7 +38,7 @@ class Precipitate {
     } );
 
     // when the saturation changes, update the number of precipitate particles
-    this.solution.precipitateAmountProperty.link( () => this.updateParticles() );
+    this.solution.precipitateMolesProperty.link( () => this.updateParticles() );
 
     // when the solute changes, remove all particles and create new particles for the solute
     this.solution.soluteProperty.link( () => {

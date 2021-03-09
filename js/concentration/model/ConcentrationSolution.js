@@ -39,10 +39,10 @@ class ConcentrationSolution extends Fluid {
     this.soluteProperty = soluteProperty;
 
     // @public
-    this.soluteAmountProperty = new NumberProperty( soluteAmount, {
+    this.soluteMolesProperty = new NumberProperty( soluteAmount, {
       units: 'mol',
       range: BLLConstants.SOLUTE_AMOUNT_RANGE,
-      tandem: options.tandem.createTandem( 'soluteAmountProperty' )
+      tandem: options.tandem.createTandem( 'soluteMolesProperty' )
     } );
 
     // @public
@@ -56,17 +56,17 @@ class ConcentrationSolution extends Fluid {
     this.updatePrecipitateAmount = true;
 
     // @public derive amount of precipitate (moles)
-    this.precipitateAmountProperty = new DerivedProperty(
-      [ this.soluteProperty, this.soluteAmountProperty, this.volumeProperty ],
+    this.precipitateMolesProperty = new DerivedProperty(
+      [ this.soluteProperty, this.soluteMolesProperty, this.volumeProperty ],
       ( solute, soluteAmount, volume ) => {
         if ( this.updatePrecipitateAmount ) {
           return Math.max( 0, soluteAmount - ( volume * this.getSaturatedConcentration() ) );
         }
         else {
-          return this.precipitateAmountProperty.value;
+          return this.precipitateMolesProperty.value;
         }
       }, {
-        tandem: options.tandem.createTandem( 'precipitateAmountProperty' ),
+        tandem: options.tandem.createTandem( 'precipitateMolesProperty' ),
         units: 'mol',
         phetioType: DerivedProperty.DerivedPropertyIO( NumberIO )
       }
@@ -74,7 +74,7 @@ class ConcentrationSolution extends Fluid {
 
     // @public derive concentration (M = mol/L)
     this.concentrationProperty = new DerivedProperty(
-      [ this.soluteProperty, this.soluteAmountProperty, this.volumeProperty ],
+      [ this.soluteProperty, this.soluteMolesProperty, this.volumeProperty ],
       ( solute, soluteAmount, volume ) => {
         return ( volume > 0 ) ? Math.min( this.getSaturatedConcentration(), soluteAmount / volume ) : 0;
       }, {
@@ -86,7 +86,7 @@ class ConcentrationSolution extends Fluid {
 
     // @public boolean property indicating whether the solution is saturated or not.
     this.isSaturatedProperty = new DerivedProperty(
-      [ this.soluteProperty, this.soluteAmountProperty, this.volumeProperty ],
+      [ this.soluteProperty, this.soluteMolesProperty, this.volumeProperty ],
       ( solute, soluteAmount, volume ) => {
         return ( volume > 0 ) && ( soluteAmount / volume ) > solute.getSaturatedConcentration();
       }, {
@@ -97,7 +97,7 @@ class ConcentrationSolution extends Fluid {
 
     // @public {number} amount of solute, in grams
     this.soluteGramsProperty = new DerivedProperty(
-      [ this.soluteProperty, this.soluteAmountProperty, this.precipitateAmountProperty ],
+      [ this.soluteProperty, this.soluteMolesProperty, this.precipitateMolesProperty ],
       ( solute, soluteAmount, precipitateAmount ) => {
         const soluteGrams = solute.molarMass * ( soluteAmount - precipitateAmount );
         assert && assert( soluteGrams >= 0, 'invalid soluteGrams: ' + soluteGrams );
@@ -140,7 +140,7 @@ class ConcentrationSolution extends Fluid {
   // @public
   reset() {
     super.reset();
-    this.soluteAmountProperty.reset();
+    this.soluteMolesProperty.reset();
     this.volumeProperty.reset();
   }
 
@@ -151,8 +151,8 @@ class ConcentrationSolution extends Fluid {
 
   // @public
   getNumberOfPrecipitateParticles() {
-    let numberOfParticles = Utils.roundSymmetric( this.soluteProperty.value.particlesPerMole * this.precipitateAmountProperty.value );
-    if ( numberOfParticles === 0 && this.precipitateAmountProperty.value > 0 ) {
+    let numberOfParticles = Utils.roundSymmetric( this.soluteProperty.value.particlesPerMole * this.precipitateMolesProperty.value );
+    if ( numberOfParticles === 0 && this.precipitateMolesProperty.value > 0 ) {
       numberOfParticles = 1;
     }
     return numberOfParticles;

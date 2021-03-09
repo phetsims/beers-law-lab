@@ -126,7 +126,7 @@ class ConcentrationModel extends PhetioObject {
     // See https://github.com/phetsims/beers-law-lab/issues/247
     this.soluteProperty.link( () => {
       if ( !phet.joist.sim.isSettingPhetioStateProperty.value ) {
-        this.solution.soluteAmountProperty.value = 0;
+        this.solution.soluteMolesProperty.value = 0;
       }
     } );
 
@@ -138,7 +138,7 @@ class ConcentrationModel extends PhetioObject {
     } );
 
     // Empty shaker and dropper when max solute is reached.
-    this.solution.soluteAmountProperty.link( soluteAmount => {
+    this.solution.soluteMolesProperty.link( soluteAmount => {
       const containsMaxSolute = ( soluteAmount >= SOLUTE_AMOUNT_RANGE.max );
       this.shaker.isEmptyProperty.value = containsMaxSolute;
       this.dropper.isEmptyProperty.value = containsMaxSolute;
@@ -259,10 +259,10 @@ class ConcentrationModel extends PhetioObject {
   // @private Adds solute to the solution. Returns the amount actually added.
   addSolute( deltaAmount ) {
     if ( deltaAmount > 0 ) {
-      const amountBefore = this.solution.soluteAmountProperty.value;
-      this.solution.soluteAmountProperty.value =
-        Math.min( SOLUTE_AMOUNT_RANGE.max, this.solution.soluteAmountProperty.value + deltaAmount );
-      return this.solution.soluteAmountProperty.value - amountBefore;
+      const amountBefore = this.solution.soluteMolesProperty.value;
+      this.solution.soluteMolesProperty.value =
+        Math.min( SOLUTE_AMOUNT_RANGE.max, this.solution.soluteMolesProperty.value + deltaAmount );
+      return this.solution.soluteMolesProperty.value - amountBefore;
     }
     else {
       return 0;
@@ -272,10 +272,10 @@ class ConcentrationModel extends PhetioObject {
   // @private Removes solute from the solution. Returns the amount actually removed.
   removeSolute( deltaAmount ) {
     if ( deltaAmount > 0 ) {
-      const amountBefore = this.solution.soluteAmountProperty.value;
-      this.solution.soluteAmountProperty.value =
-        Math.max( SOLUTE_AMOUNT_RANGE.min, this.solution.soluteAmountProperty.value - deltaAmount );
-      return amountBefore - this.solution.soluteAmountProperty.value;
+      const amountBefore = this.solution.soluteMolesProperty.value;
+      this.solution.soluteMolesProperty.value =
+        Math.max( SOLUTE_AMOUNT_RANGE.min, this.solution.soluteMolesProperty.value - deltaAmount );
+      return amountBefore - this.solution.soluteMolesProperty.value;
     }
     else {
       return 0;

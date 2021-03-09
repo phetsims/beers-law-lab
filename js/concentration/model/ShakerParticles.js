@@ -95,9 +95,9 @@ class ShakerParticles {
         this.particlesGroup.disposeElement( particle );
         const soluteAmount = Math.min(
           BLLConstants.SOLUTE_AMOUNT_RANGE.max,
-          solution.soluteAmountProperty.value + ( 1 / solution.soluteProperty.value.particlesPerMole )
+          solution.soluteMolesProperty.value + ( 1 / solution.soluteProperty.value.particlesPerMole )
         );
-        solution.soluteAmountProperty.value = soluteAmount;
+        solution.soluteMolesProperty.value = soluteAmount;
       }
       else {
         someParticleMoved = true;
