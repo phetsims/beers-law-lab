@@ -8,6 +8,7 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Range from '../../../../dot/js/Range.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
@@ -45,8 +46,10 @@ class Dropper extends BLLMovable {
       phetioReadOnly: true
     } );
     this.flowRateProperty = new NumberProperty( 0, {
+      range: new Range( 0, maxFlowRate ),
+      units: 'L/s',
       tandem: options.tandem.createTandem( 'flowRateProperty' ),
-      units: 'L/s'
+      phetioReadOnly: true
     } );
 
     // Turn off the dropper when it's disabled.

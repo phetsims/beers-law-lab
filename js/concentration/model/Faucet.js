@@ -9,6 +9,7 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Range from '../../../../dot/js/Range.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
@@ -38,10 +39,14 @@ class Faucet {
 
     // @public
     this.flowRateProperty = new NumberProperty( 0, {
+      range: new Range( 0, maxFlowRate ),
+      units: 'L/s',
       tandem: options.tandem.createTandem( 'flowRateProperty' ),
-      units: 'L/s'
+      phetioReadOnly: true
     } );
     this.enabledProperty = new BooleanProperty( true );
+
+    this.flowRateProperty.link( flowRate => console.log( `flowRate=${flowRate}` ) );//XXX
 
     // when disabled, turn off the faucet.
     this.enabledProperty.link( enabled => {
