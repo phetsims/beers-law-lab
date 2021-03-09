@@ -59,10 +59,12 @@ class ATDetectorNode extends Node {
     super( options );
 
     const bodyNode = new BodyNode( detector, modelViewTransform, {
-      tandem: options.tandem.createTandem( 'bodyNode' )
+      tandem: options.tandem.createTandem( 'bodyNode' ),
+      visiblePropertyOptions: { phetioReadOnly: true }
     } );
     const probeNode = new ATProbeNode( detector.probe, light, modelViewTransform, {
-      tandem: options.tandem.createTandem( 'probeNode' )
+      tandem: options.tandem.createTandem( 'probeNode' ),
+      visiblePropertyOptions: { phetioReadOnly: true }
     } );
     const wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
 
@@ -118,28 +120,30 @@ class BodyNode extends Node {
       tandem: options.tandem.createTandem( 'radioButtonGroup' )
     } );
 
-    // value
+    // value + units
     const maxValue = 100;
-    const valueNode = new Text( StringUtils.format( beersLawLabStrings.pattern[ '0percent' ],
-      Utils.toFixed( maxValue, TRANSMITTANCE_DECIMAL_PLACES ) ), {
+    const valueText = StringUtils.format( beersLawLabStrings.pattern[ '0percent' ],
+      Utils.toFixed( maxValue, TRANSMITTANCE_DECIMAL_PLACES ) );
+    const valueNode = new Text( valueText, {
       font: new PhetFont( 24 ),
       maxWidth: 150,
-      tandem: options.tandem.createTandem( 'valueNode' )
+      tandem: options.tandem.createTandem( 'valueNode' ),
+      textPropertyOptions: { phetioReadOnly: true }
     } );
 
-    // display area for the value
-    const valueWidth = Math.max( MIN_VALUE_SIZE.width, Math.max( radioButtonGroup.width, valueNode.width ) + ( 2 * VALUE_X_MARGIN ) );
-    const valueHeight = Math.max( MIN_VALUE_SIZE.height, valueNode.height + ( 2 * VALUE_Y_MARGIN ) );
-    const valueBackgroundNode = new ShadedRectangle( new Bounds2( 0, 0, valueWidth, valueHeight ), {
+    // background behind the value
+    const backgroundWidth = Math.max( MIN_VALUE_SIZE.width, Math.max( radioButtonGroup.width, valueNode.width ) + ( 2 * VALUE_X_MARGIN ) );
+    const backgroundHeight = Math.max( MIN_VALUE_SIZE.height, valueNode.height + ( 2 * VALUE_Y_MARGIN ) );
+    const backgroundNode = new ShadedRectangle( new Bounds2( 0, 0, backgroundWidth, backgroundHeight ), {
       baseColor: 'white',
       lightSource: 'rightBottom'
     } );
-    valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN;
-    valueNode.centerY = valueBackgroundNode.centerY;
+    valueNode.right = backgroundNode.right - VALUE_X_MARGIN;
+    valueNode.centerY = backgroundNode.centerY;
 
     // vertical arrangement of stuff in the meter
     const vBox = new LayoutBox( {
-      children: [ new Node( { children: [ valueBackgroundNode, valueNode ] } ), radioButtonGroup ],
+      children: [ new Node( { children: [ backgroundNode, valueNode ] } ), radioButtonGroup ],
       orientation: 'vertical',
       align: 'center',
       spacing: 12
@@ -167,7 +171,7 @@ class BodyNode extends Node {
       const value = detector.valueProperty.get();
       if ( value === null ) {
         valueNode.text = NO_VALUE;
-        valueNode.centerX = valueBackgroundNode.centerX; // centered
+        valueNode.centerX = backgroundNode.centerX; // centered
       }
       else {
         if ( detector.modeProperty.get() === ATDetector.Mode.TRANSMITTANCE ) {
@@ -177,9 +181,9 @@ class BodyNode extends Node {
         else {
           valueNode.text = Utils.toFixed( value, ABSORBANCE_DECIMAL_PLACES );
         }
-        valueNode.right = valueBackgroundNode.right - VALUE_X_MARGIN; // right justified
+        valueNode.right = backgroundNode.right - VALUE_X_MARGIN; // right justified
       }
-      valueNode.centerY = valueBackgroundNode.centerY;
+      valueNode.centerY = backgroundNode.centerY;
     };
     detector.valueProperty.link( valueUpdater );
     detector.modeProperty.link( valueUpdater );
