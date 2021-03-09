@@ -26,7 +26,7 @@ class StockSolutionNode extends Rectangle {
     // shape and position
     const updateShapeAndPosition = () => {
       // path
-      if ( dropper.dispensingProperty.get() && !dropper.isEmptyProperty.get() ) {
+      if ( dropper.isDispensingProperty.get() && !dropper.isEmptyProperty.get() ) {
         this.setRect( -tipWidth / 2, 0, tipWidth, beaker.position.y - dropper.positionProperty.get().y );
       }
       else {
@@ -36,7 +36,7 @@ class StockSolutionNode extends Rectangle {
       this.translation = modelViewTransform.modelToViewPosition( dropper.positionProperty.get() );
     };
     dropper.positionProperty.link( updateShapeAndPosition );
-    dropper.dispensingProperty.link( updateShapeAndPosition );
+    dropper.isDispensingProperty.link( updateShapeAndPosition );
     dropper.isEmptyProperty.link( updateShapeAndPosition );
 
     // set color to match solute

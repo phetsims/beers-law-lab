@@ -36,8 +36,8 @@ class Dropper extends BLLMovable {
     this.visibleProperty = new BooleanProperty( visible );
 
     // @public true if the dropper is dispensing solution
-    this.dispensingProperty = new BooleanProperty( false, {
-      tandem: options.tandem.createTandem( 'dispensingProperty' )
+    this.isDispensingProperty = new BooleanProperty( false, {
+      tandem: options.tandem.createTandem( 'isDispensingProperty' )
     } );
     this.enabledProperty = new BooleanProperty( true );
     this.isEmptyProperty = new BooleanProperty( false, {
@@ -52,12 +52,12 @@ class Dropper extends BLLMovable {
     // Turn off the dropper when it's disabled.
     this.enabledProperty.link( enabled => {
       if ( !enabled ) {
-        this.dispensingProperty.set( false );
+        this.isDispensingProperty.set( false );
       }
     } );
 
     // Toggle the flow rate when the dropper is turned on/off.
-    this.dispensingProperty.link( dispensing => {
+    this.isDispensingProperty.link( dispensing => {
       this.flowRateProperty.set( dispensing ? maxFlowRate : 0 );
     } );
 
@@ -73,7 +73,7 @@ class Dropper extends BLLMovable {
   reset() {
     super.reset();
     this.visibleProperty.reset();
-    this.dispensingProperty.reset();
+    this.isDispensingProperty.reset();
     this.enabledProperty.reset();
     this.isEmptyProperty.reset();
     this.flowRateProperty.reset();
