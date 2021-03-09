@@ -37,8 +37,7 @@ class Evaporator {
     // @public
     this.enabledProperty = new BooleanProperty( true, {
       tandem: options.tandem.createTandem( 'enabledProperty' ),
-      phetioReadOnly: true, // this is controlled by the model
-      phetioFeatured: true
+      phetioReadOnly: true // this is controlled by the model
     } );
 
     // disable when the volume gets to zero
