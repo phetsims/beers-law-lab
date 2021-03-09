@@ -71,15 +71,14 @@ class ShakerNode extends Node {
     const arrowsOffset = imageNode.height / 2 + 4;
 
     const downArrowNode = new ArrowNode( 0, 0, 0, ARROW_LENGTH, merge( {
-      top: arrowsOffset,
-      tandem: options.tandem.createTandem( 'downArrowNode' )
+      top: arrowsOffset
     }, ARROW_OPTIONS ) );
 
     const upArrowNode = new ArrowNode( 0, 0, 0, -ARROW_LENGTH, merge( {
-      bottom: -arrowsOffset,
-      tandem: options.tandem.createTandem( 'upArrowNode' )
+      bottom: -arrowsOffset
     }, ARROW_OPTIONS ) );
 
+    // Set visibility of this Node programmatically to show/hide the hint arrows.
     const arrowsParent = new Node( {
       children: [ upArrowNode, downArrowNode ],
       center: imageNode.center,
@@ -87,8 +86,14 @@ class ShakerNode extends Node {
       visible: false
     } );
 
+    // Set visibility of this Node to totally hide the hint arrows via PhET-iO.
+    const hintArrowsNode = new Node( {
+      children: [ arrowsParent ],
+      tandem: options.tandem.createTandem( 'hintArrowsNode' )
+    } );
+
     // common parent, to simplify rotation and label alignment.
-    const parentNode = new Node( { children: [ imageNode, labelNode, arrowsParent ] } );
+    const parentNode = new Node( { children: [ imageNode, labelNode, hintArrowsNode ] } );
     this.addChild( parentNode );
     parentNode.rotate( shaker.orientation - Math.PI ); // assumes that shaker points to the left in the image file
 
