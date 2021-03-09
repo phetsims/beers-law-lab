@@ -14,9 +14,9 @@ import IOType from '../../../../tandem/js/types/IOType.js';
 import ObjectLiteralIO from '../../../../tandem/js/types/ObjectLiteralIO.js';
 import VoidIO from '../../../../tandem/js/types/VoidIO.js';
 import beersLawLab from '../../beersLawLab.js';
-import Movable from '../../common/model/Movable.js';
+import BLLMovable from '../../common/model/BLLMovable.js';
 
-class Shaker extends Movable {
+class Shaker extends BLLMovable {
 
   /**
    * @param {Vector2} position

@@ -7,9 +7,9 @@
  */
 
 import beersLawLab from '../../beersLawLab.js';
-import Movable from '../../common/model/Movable.js';
+import BLLMovable from '../../common/model/BLLMovable.js';
 
-class Ruler extends Movable {
+class Ruler extends BLLMovable {
 
   /**
    * @param {number} length cm

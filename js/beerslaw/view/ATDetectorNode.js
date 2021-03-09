@@ -73,7 +73,7 @@ class ATDetectorNode extends Node {
 }
 
 /**
- * The body of the detector, where A and T values are displayed. Note that while the body is a Movable,
+ * The body of the detector, where A and T values are displayed. Note that while the body is a BLLMovable,
  * we have currently decided not to allow it to be moved, so it has no drag handler
  */
 class BodyNode extends Node {

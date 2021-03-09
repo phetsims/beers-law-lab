@@ -16,7 +16,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
-import Movable from '../../common/model/Movable.js';
+import BLLMovable from '../../common/model/BLLMovable.js';
 
 class ConcentrationMeter {
 
@@ -42,8 +42,8 @@ class ConcentrationMeter {
     } );
 
     // @public (read-only)
-    this.body = new Movable( bodyPosition, bodyDragBounds, { tandem: options.tandem.createTandem( 'body' ) } );
-    this.probe = new Movable( probePosition, probeDragBounds, { tandem: options.tandem.createTandem( 'probe' ) } );
+    this.body = new BLLMovable( bodyPosition, bodyDragBounds, { tandem: options.tandem.createTandem( 'body' ) } );
+    this.probe = new BLLMovable( probePosition, probeDragBounds, { tandem: options.tandem.createTandem( 'probe' ) } );
   }
 
   // @public

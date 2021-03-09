@@ -12,7 +12,7 @@ import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 
-class Movable {
+class BLLMovable {
 
   /**
    * @param {Vector2} position
@@ -40,5 +40,5 @@ class Movable {
   }
 }
 
-beersLawLab.register( 'Movable', Movable );
-export default Movable;
+beersLawLab.register( 'BLLMovable', BLLMovable );
+export default BLLMovable;

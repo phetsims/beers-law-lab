@@ -14,7 +14,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
-import Movable from '../../common/model/Movable.js';
+import BLLMovable from '../../common/model/BLLMovable.js';
 
 class ATDetector {
   /**
@@ -34,7 +34,7 @@ class ATDetector {
     }, options );
 
     this.light = light; // @private
-    this.body = new Movable( bodyPosition, bodyDragBounds, {
+    this.body = new BLLMovable( bodyPosition, bodyDragBounds, {
       tandem: options.tandem.createTandem( 'body' )
     } ); // @public
     this.probe = new Probe( probePosition, probeDragBounds, 0.57, {
@@ -96,7 +96,7 @@ ATDetector.Mode = {
   ABSORBANCE: 'absorbance'
 };
 
-class Probe extends Movable {
+class Probe extends BLLMovable {
 
   /**
    * The probe, whose position indicates where the measurement is being made.

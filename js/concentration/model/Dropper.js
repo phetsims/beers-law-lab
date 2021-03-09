@@ -11,9 +11,9 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
-import Movable from '../../common/model/Movable.js';
+import BLLMovable from '../../common/model/BLLMovable.js';
 
-class Dropper extends Movable {
+class Dropper extends BLLMovable {
 
   /**
    * @param {Vector2} position
