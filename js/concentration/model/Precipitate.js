@@ -83,7 +83,7 @@ class Precipitate {
     assert && assert( numberToAdd > 0, 'invalid numberToAdd: ' + numberToAdd );
     for ( let i = 0; i < numberToAdd; i++ ) {
       this.particlesGroup.createNextElement(
-        this.solution.soluteProperty.get(),
+        this.solution.soluteProperty.value,
         this.getRandomOffset(),
         getRandomOrientation()
       );
@@ -115,7 +115,7 @@ class Precipitate {
 
   // @private Gets a random position, in global model coordinate frame.
   getRandomOffset() {
-    const particleSize = this.solution.soluteProperty.get().particleSize;
+    const particleSize = this.solution.soluteProperty.value.particleSize;
 
     // particles are square, largest margin required is the diagonal length
     const margin = Math.sqrt( particleSize * particleSize );

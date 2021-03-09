@@ -30,7 +30,7 @@ class ConcentrationSolution extends Fluid {
 
     const solvent = Solvent.WATER; // @public (read-only)
 
-    super( ConcentrationSolution.createColor( solvent, soluteProperty.get(), 0 ) );
+    super( ConcentrationSolution.createColor( solvent, soluteProperty.value, 0 ) );
 
     // @public (read-only)
     this.solvent = solvent;
@@ -63,7 +63,7 @@ class ConcentrationSolution extends Fluid {
           return Math.max( 0, soluteAmount - ( volume * this.getSaturatedConcentration() ) );
         }
         else {
-          return this.precipitateAmountProperty.get();
+          return this.precipitateAmountProperty.value;
         }
       }, {
         tandem: options.tandem.createTandem( 'precipitateAmountProperty' ),
@@ -130,7 +130,7 @@ class ConcentrationSolution extends Fluid {
 
     // derive the solution color
     const updateColor = () => {
-      this.colorProperty.set( ConcentrationSolution.createColor( this.solvent, this.soluteProperty.get(), this.concentrationProperty.get() ) );
+      this.colorProperty.set( ConcentrationSolution.createColor( this.solvent, this.soluteProperty.value, this.concentrationProperty.value ) );
     };
     this.soluteProperty.lazyLink( updateColor );
     this.concentrationProperty.link( updateColor ); // link to force update of color
@@ -145,13 +145,13 @@ class ConcentrationSolution extends Fluid {
 
   // @public convenience function
   getSaturatedConcentration() {
-    return this.soluteProperty.get().getSaturatedConcentration();
+    return this.soluteProperty.value.getSaturatedConcentration();
   }
 
   // @public
   getNumberOfPrecipitateParticles() {
-    let numberOfParticles = Utils.roundSymmetric( this.soluteProperty.get().particlesPerMole * this.precipitateAmountProperty.get() );
-    if ( numberOfParticles === 0 && this.precipitateAmountProperty.get() > 0 ) {
+    let numberOfParticles = Utils.roundSymmetric( this.soluteProperty.value.particlesPerMole * this.precipitateAmountProperty.value );
+    if ( numberOfParticles === 0 && this.precipitateAmountProperty.value > 0 ) {
       numberOfParticles = 1;
     }
     return numberOfParticles;
@@ -166,7 +166,7 @@ class ConcentrationSolution extends Fluid {
    * @static
    */
   static createColor( solvent, solute, concentration ) {
-    let color = solvent.colorProperty.get();
+    let color = solvent.colorProperty.value;
     if ( concentration > 0 ) {
       color = solute.colorScheme.concentrationToColor( concentration );
     }

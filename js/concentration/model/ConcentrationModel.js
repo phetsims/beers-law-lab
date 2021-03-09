@@ -91,7 +91,7 @@ class ConcentrationModel extends PhetioObject {
       0.75 * Math.PI,
       this.soluteProperty,
       SHAKER_MAX_DISPENSING_RATE,
-      this.soluteFormProperty.get() === SoluteForm.SOLID, {
+      this.soluteFormProperty.value === SoluteForm.SOLID, {
         tandem: options.tandem.createTandem( 'shaker' )
       } );
     this.shakerParticles = new ShakerParticles( this.shaker, this.solution, this.beaker, {
@@ -102,7 +102,7 @@ class ConcentrationModel extends PhetioObject {
       new Bounds2( 260, 225, 580, 225 ),
       this.soluteProperty,
       DROPPER_FLOW_RATE,
-      this.soluteFormProperty.get() === SoluteForm.SOLUTION, {
+      this.soluteFormProperty.value === SoluteForm.SOLUTION, {
         tandem: options.tandem.createTandem( 'dropper' )
       }
     );
@@ -134,7 +134,7 @@ class ConcentrationModel extends PhetioObject {
     this.solution.volumeProperty.link( volume => {
       this.solventFaucet.enabledProperty.set( volume < SOLUTION_VOLUME_RANGE.max );
       this.drainFaucet.enabledProperty.set( volume > SOLUTION_VOLUME_RANGE.min );
-      this.dropper.enabledProperty.set( !this.dropper.isEmptyProperty.get() && ( volume < SOLUTION_VOLUME_RANGE.max ) );
+      this.dropper.enabledProperty.set( !this.dropper.isEmptyProperty.value && ( volume < SOLUTION_VOLUME_RANGE.max ) );
     } );
 
     // Empty shaker and dropper when max solute is reached.
@@ -142,7 +142,7 @@ class ConcentrationModel extends PhetioObject {
       const containsMaxSolute = ( soluteAmount >= SOLUTE_AMOUNT_RANGE.max );
       this.shaker.isEmptyProperty.set( containsMaxSolute );
       this.dropper.isEmptyProperty.set( containsMaxSolute );
-      this.dropper.enabledProperty.set( !this.dropper.isEmptyProperty.get() && !containsMaxSolute && this.solution.volumeProperty.get() < SOLUTION_VOLUME_RANGE.max );
+      this.dropper.enabledProperty.set( !this.dropper.isEmptyProperty.value && !containsMaxSolute && this.solution.volumeProperty.value < SOLUTION_VOLUME_RANGE.max );
     } );
   }
 
@@ -188,14 +188,14 @@ class ConcentrationModel extends PhetioObject {
 
   // @private Add solvent from the input faucet
   addSolventFromInputFaucet( deltaSeconds ) {
-    this.addSolvent( this.solventFaucet.flowRateProperty.get() * deltaSeconds );
+    this.addSolvent( this.solventFaucet.flowRateProperty.value * deltaSeconds );
   }
 
   // @private Drain solution from the output faucet
   drainSolutionFromOutputFaucet( deltaSeconds ) {
-    const drainVolume = this.drainFaucet.flowRateProperty.get() * deltaSeconds;
+    const drainVolume = this.drainFaucet.flowRateProperty.value * deltaSeconds;
     if ( drainVolume > 0 ) {
-      const concentration = this.solution.concentrationProperty.get(); // get concentration before changing volume
+      const concentration = this.solution.concentrationProperty.value; // get concentration before changing volume
       const volumeRemoved = this.removeSolvent( drainVolume );
       this.removeSolute( concentration * volumeRemoved );
     }
@@ -203,20 +203,20 @@ class ConcentrationModel extends PhetioObject {
 
   // @private Add stock solution from dropper
   addStockSolutionFromDropper( deltaSeconds ) {
-    const dropperVolume = this.dropper.flowRateProperty.get() * deltaSeconds;
+    const dropperVolume = this.dropper.flowRateProperty.value * deltaSeconds;
     if ( dropperVolume > 0 ) {
 
       // defer update of precipitateAmount until we've changed both volume and solute amount, see concentration#1
       this.solution.updatePrecipitateAmount = false;
       const volumeAdded = this.addSolvent( dropperVolume );
       this.solution.updatePrecipitateAmount = true;
-      this.addSolute( this.solution.soluteProperty.get().stockSolutionConcentration * volumeAdded );
+      this.addSolute( this.solution.soluteProperty.value.stockSolutionConcentration * volumeAdded );
     }
   }
 
   // @private Evaporate solvent
   evaporateSolvent( deltaSeconds ) {
-    this.removeSolvent( this.evaporator.evaporationRateProperty.get() * deltaSeconds );
+    this.removeSolvent( this.evaporator.evaporationRateProperty.value * deltaSeconds );
   }
 
   // @private Propagates solid solute that came out of the shaker
@@ -233,9 +233,9 @@ class ConcentrationModel extends PhetioObject {
   addSolvent( deltaVolume ) {
     if ( deltaVolume > 0 ) {
       const volumeProperty = this.solution.volumeProperty;
-      const volumeBefore = volumeProperty.get();
-      volumeProperty.set( Math.min( SOLUTION_VOLUME_RANGE.max, volumeProperty.get() + deltaVolume ) );
-      return volumeProperty.get() - volumeBefore;
+      const volumeBefore = volumeProperty.value;
+      volumeProperty.set( Math.min( SOLUTION_VOLUME_RANGE.max, volumeProperty.value + deltaVolume ) );
+      return volumeProperty.value - volumeBefore;
     }
     else {
       return 0;
@@ -246,9 +246,9 @@ class ConcentrationModel extends PhetioObject {
   removeSolvent( deltaVolume ) {
     if ( deltaVolume > 0 ) {
       const volumeProperty = this.solution.volumeProperty;
-      const volumeBefore = volumeProperty.get();
-      volumeProperty.set( Math.max( SOLUTION_VOLUME_RANGE.min, volumeProperty.get() - deltaVolume ) );
-      return volumeBefore - volumeProperty.get();
+      const volumeBefore = volumeProperty.value;
+      volumeProperty.set( Math.max( SOLUTION_VOLUME_RANGE.min, volumeProperty.value - deltaVolume ) );
+      return volumeBefore - volumeProperty.value;
     }
     else {
       return 0;
@@ -258,9 +258,9 @@ class ConcentrationModel extends PhetioObject {
   // @private Adds solute to the solution. Returns the amount actually added.
   addSolute( deltaAmount ) {
     if ( deltaAmount > 0 ) {
-      const amountBefore = this.solution.soluteAmountProperty.get();
-      this.solution.soluteAmountProperty.set( Math.min( SOLUTE_AMOUNT_RANGE.max, this.solution.soluteAmountProperty.get() + deltaAmount ) );
-      return this.solution.soluteAmountProperty.get() - amountBefore;
+      const amountBefore = this.solution.soluteAmountProperty.value;
+      this.solution.soluteAmountProperty.set( Math.min( SOLUTE_AMOUNT_RANGE.max, this.solution.soluteAmountProperty.value + deltaAmount ) );
+      return this.solution.soluteAmountProperty.value - amountBefore;
     }
     else {
       return 0;
@@ -270,9 +270,9 @@ class ConcentrationModel extends PhetioObject {
   // @private Removes solute from the solution. Returns the amount actually removed.
   removeSolute( deltaAmount ) {
     if ( deltaAmount > 0 ) {
-      const amountBefore = this.solution.soluteAmountProperty.get();
-      this.solution.soluteAmountProperty.set( Math.max( SOLUTE_AMOUNT_RANGE.min, this.solution.soluteAmountProperty.get() - deltaAmount ) );
-      return amountBefore - this.solution.soluteAmountProperty.get();
+      const amountBefore = this.solution.soluteAmountProperty.value;
+      this.solution.soluteAmountProperty.set( Math.max( SOLUTE_AMOUNT_RANGE.min, this.solution.soluteAmountProperty.value - deltaAmount ) );
+      return amountBefore - this.solution.soluteAmountProperty.value;
     }
     else {
       return 0;

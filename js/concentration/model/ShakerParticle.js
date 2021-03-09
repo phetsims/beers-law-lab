@@ -53,7 +53,7 @@ class ShakerParticle extends SoluteParticle {
 
     // mutable calls added to remove the number of new objects we create
     this.velocity = this.acceleration.times( deltaSeconds ).add( this.velocity );
-    const newPosition = this.velocity.times( deltaSeconds ).add( this.positionProperty.get() );
+    const newPosition = this.velocity.times( deltaSeconds ).add( this.positionProperty.value );
 
     /*
      * Did the particle hit the left wall of the beaker? If so, change direction.

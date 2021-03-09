@@ -89,13 +89,13 @@ class ShakerParticles {
       particle.step( deltaSeconds, beaker );
 
       // If the particle hits the solution surface or bottom of the beaker, delete it, and add a corresponding amount of solute to the solution.
-      const percentFull = solution.volumeProperty.get() / beaker.volume;
-      const solutionSurfaceY = beaker.position.y - ( percentFull * beaker.size.height ) - solution.soluteProperty.get().particleSize;
-      if ( particle.positionProperty.get().y > solutionSurfaceY ) {
+      const percentFull = solution.volumeProperty.value / beaker.volume;
+      const solutionSurfaceY = beaker.position.y - ( percentFull * beaker.size.height ) - solution.soluteProperty.value.particleSize;
+      if ( particle.positionProperty.value.y > solutionSurfaceY ) {
         this.particlesGroup.disposeElement( particle );
         const soluteAmount = Math.min(
           BLLConstants.SOLUTE_AMOUNT_RANGE.max,
-          solution.soluteAmountProperty.get() + ( 1 / solution.soluteProperty.get().particlesPerMole )
+          solution.soluteAmountProperty.value + ( 1 / solution.soluteProperty.value.particlesPerMole )
         );
         solution.soluteAmountProperty.set( soluteAmount );
       }
@@ -105,15 +105,15 @@ class ShakerParticles {
     }
 
     // create new particles
-    if ( shaker.dispensingRateProperty.get() > 0 ) {
+    if ( shaker.dispensingRateProperty.value > 0 ) {
 
       const numberOfParticles = Utils.roundSymmetric( Math.max( 1,
-        shaker.dispensingRateProperty.get() * solution.soluteProperty.get().particlesPerMole * deltaSeconds ) );
+        shaker.dispensingRateProperty.value * solution.soluteProperty.value.particlesPerMole * deltaSeconds ) );
 
       for ( let j = 0; j < numberOfParticles; j++ ) {
         this.particlesGroup.createNextElement(
-          solution.soluteProperty.get(),
-          getRandomPosition( this.shaker.positionProperty.get() ),
+          solution.soluteProperty.value,
+          getRandomPosition( this.shaker.positionProperty.value ),
           getRandomOrientation(),
           this.getInitialVelocity(),
           this.getGravitationalAcceleration()

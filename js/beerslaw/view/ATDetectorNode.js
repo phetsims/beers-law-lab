@@ -168,13 +168,13 @@ class BodyNode extends Node {
 
     // update the value display
     const valueUpdater = () => {
-      const value = detector.valueProperty.get();
+      const value = detector.valueProperty.value;
       if ( value === null ) {
         valueNode.text = NO_VALUE;
         valueNode.centerX = backgroundNode.centerX; // centered
       }
       else {
-        if ( detector.modeProperty.get() === ATDetector.Mode.TRANSMITTANCE ) {
+        if ( detector.modeProperty.value === ATDetector.Mode.TRANSMITTANCE ) {
           valueNode.text = StringUtils.format( beersLawLabStrings.pattern[ '0percent' ],
             Utils.toFixed( value, TRANSMITTANCE_DECIMAL_PLACES ) );
         }
@@ -229,9 +229,9 @@ class ATProbeNode extends ProbeNode {
       modelViewTransform: modelViewTransform,
       endDrag: () => {
         // If the light is on and the probe is close enough to the beam...
-        if ( light.isOnProperty.get() && ( probe.positionProperty.get().x >= light.position.x ) && ( Math.abs( probe.positionProperty.get().y - light.position.y ) <= 0.5 * light.lensDiameter ) ) {
+        if ( light.isOnProperty.value && ( probe.positionProperty.value.x >= light.position.x ) && ( Math.abs( probe.positionProperty.value.y - light.position.y ) <= 0.5 * light.lensDiameter ) ) {
           // ... snap the probe to the center of beam.
-          probe.positionProperty.set( new Vector2( probe.positionProperty.get().x, light.position.y ) );
+          probe.positionProperty.set( new Vector2( probe.positionProperty.value.x, light.position.y ) );
         }
       },
       tandem: options.tandem.createTandem( 'movableDragHandler' )

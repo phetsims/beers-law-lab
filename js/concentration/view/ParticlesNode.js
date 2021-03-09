@@ -61,7 +61,7 @@ class ParticlesNode extends CanvasNode {
     for ( let i = 0; i < numberOfParticles; i++ ) {
       const particle = particles[ i ];
 
-      const position = this.modelViewTransform.modelToViewPosition( particle.positionProperty.get() );
+      const position = this.modelViewTransform.modelToViewPosition( particle.positionProperty.value );
       const x = position.x;
       const y = position.y;
       const cos = Math.cos( particle.orientation ) * halfViewSize;

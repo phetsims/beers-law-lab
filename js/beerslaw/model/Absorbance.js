@@ -40,7 +40,7 @@ class Absorbance {
 
     // @private C : concentration property, wired to the current solution's concentration
     {
-      this.currentConcentrationProperty = new Property( solutionProperty.get().concentrationProperty.get() );
+      this.currentConcentrationProperty = new Property( solutionProperty.value.concentrationProperty.value );
 
       // Observe the concentration property of the current solution.
       const concentrationObserver = concentration => {
@@ -66,7 +66,7 @@ class Absorbance {
 
   // @public Gets absorbance for a specified path length.
   getAbsorbanceAt( pathLength ) {
-    return getAbsorbance( this.molarAbsorptivityProperty.get(), pathLength, this.currentConcentrationProperty.get() );
+    return getAbsorbance( this.molarAbsorptivityProperty.value, pathLength, this.currentConcentrationProperty.value );
   }
 
   // @public Gets transmittance for a specified path length.
@@ -76,7 +76,7 @@ class Absorbance {
 
   // @public Converts absorbance to transmittance.
   getTransmittance() {
-    return getTransmittance( this.absorbanceProperty.get() );
+    return getTransmittance( this.absorbanceProperty.value );
   }
 }
 

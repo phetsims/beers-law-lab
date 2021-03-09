@@ -75,7 +75,7 @@ class CuvetteNode extends Node {
 
     // when the cuvette width changes ...
     cuvette.widthProperty.link( () => {
-      const width = modelViewTransform.modelToViewDeltaX( cuvette.widthProperty.get() );
+      const width = modelViewTransform.modelToViewDeltaX( cuvette.widthProperty.value );
       const height = modelViewTransform.modelToViewDeltaY( cuvette.height );
       cuvetteNode.setShape( new Shape().moveTo( 0, 0 ).lineTo( 0, height ).lineTo( width, height ).lineTo( width, 0 ) );
       solutionNode.setRect( 0, 0, width, PERCENT_FULL * height );
@@ -148,7 +148,7 @@ class CuvetteDragListener extends DragListener {
 
       start: event => {
         startX = event.pointer.point.x;
-        startWidth = cuvette.widthProperty.get();
+        startWidth = cuvette.widthProperty.value;
       },
 
       drag: event => {
@@ -162,7 +162,7 @@ class CuvetteDragListener extends DragListener {
 
         // snapInterval can be customized via query parameter
         if ( snapInterval > 0 ) {
-          const numberOfIntervals = Math.floor( ( cuvette.widthProperty.get() + ( snapInterval / 2 ) ) / snapInterval );
+          const numberOfIntervals = Math.floor( ( cuvette.widthProperty.value + ( snapInterval / 2 ) ) / snapInterval );
           const newWidth = numberOfIntervals * snapInterval;
           cuvette.widthProperty.set( newWidth );
         }

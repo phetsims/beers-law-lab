@@ -76,7 +76,7 @@ class BeersLawSolution extends PhetioObject {
     // @public Solution color is derived from concentration
     this.fluidColorProperty = new DerivedProperty( [ this.concentrationProperty ],
       concentration => {
-        let color = this.solvent.colorProperty.get();
+        let color = this.solvent.colorProperty.value;
         if ( concentration > 0 ) {
           const distance = Utils.linear( this.concentrationRange.min, this.concentrationRange.max, 0, 1, concentration );
           color = this.colorRange.interpolateLinear( distance );

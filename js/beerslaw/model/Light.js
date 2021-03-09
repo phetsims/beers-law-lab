@@ -42,7 +42,7 @@ class Light {
     } );
 
     // @public
-    this.wavelengthProperty = new NumberProperty( solutionProperty.get().molarAbsorptivityData.lambdaMax /*nm*/, {
+    this.wavelengthProperty = new NumberProperty( solutionProperty.value.molarAbsorptivityData.lambdaMax /*nm*/, {
       units: 'nm',
       range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH ),
       tandem: options.tandem.createTandem( 'wavelengthProperty' ),
@@ -63,7 +63,7 @@ class Light {
 
       // 'Preset' sets the light to the current solution's lambdaMax wavelength.
       if ( mode === Light.Mode.PRESET ) {
-        this.wavelengthProperty.set( solutionProperty.get().molarAbsorptivityData.lambdaMax );
+        this.wavelengthProperty.set( solutionProperty.value.molarAbsorptivityData.lambdaMax );
       }
     } );
   }

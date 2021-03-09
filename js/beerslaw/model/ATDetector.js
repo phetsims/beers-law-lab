@@ -62,7 +62,7 @@ class ATDetector {
         if ( this.probeInBeam() ) {
           // path length is between 0 and cuvette width
           const pathLength = Math.min( Math.max( 0, probePosition.x - cuvette.position.x ), cuvetteWidth );
-          if ( this.modeProperty.get() === ATDetector.Mode.ABSORBANCE ) {
+          if ( this.modeProperty.value === ATDetector.Mode.ABSORBANCE ) {
             value = absorbance.getAbsorbanceAt( pathLength );
           }
           else {
@@ -85,10 +85,10 @@ class ATDetector {
 
   // @public Is the probe in some segment of the beam?
   probeInBeam() {
-    return this.light.isOnProperty.get() &&
+    return this.light.isOnProperty.value &&
            ( this.probe.getMinY() < this.light.getMinY() ) &&
            ( this.probe.getMaxY() > this.light.getMaxY() ) &&
-           ( this.probe.positionProperty.get().x > this.light.position.x );
+           ( this.probe.positionProperty.value.x > this.light.position.x );
   }
 }
 
@@ -112,12 +112,12 @@ class Probe extends BLLMovable {
 
   // @public
   getMinY() {
-    return this.positionProperty.get().y - ( this.sensorDiameter / 2 );
+    return this.positionProperty.value.y - ( this.sensorDiameter / 2 );
   }
 
   // @public
   getMaxY() {
-    return this.positionProperty.get().y + ( this.sensorDiameter / 2 );
+    return this.positionProperty.value.y + ( this.sensorDiameter / 2 );
   }
 }
 

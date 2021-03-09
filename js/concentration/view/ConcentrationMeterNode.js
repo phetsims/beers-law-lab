@@ -93,16 +93,16 @@ class ConcentrationMeterNode extends Node {
     const updateValue = () => {
       if ( probeNode.isInSolution() || probeNode.isInDrainFluid() ) {
         meter.valueProperty.set( DISPLAY_MOLES_PER_LITER ?
-                                 solution.concentrationProperty.get() :
-                                 solution.percentConcentrationProperty.get() );
+                                 solution.concentrationProperty.value :
+                                 solution.percentConcentrationProperty.value );
       }
       else if ( probeNode.isInSolvent() ) {
         meter.valueProperty.set( 0 );
       }
       else if ( probeNode.isInStockSolution() ) {
         meter.valueProperty.set( DISPLAY_MOLES_PER_LITER ?
-                                 dropper.soluteProperty.get().stockSolutionConcentration :
-                                 dropper.soluteProperty.get().stockSolutionPercentConcentration );
+                                 dropper.soluteProperty.value.stockSolutionConcentration :
+                                 dropper.soluteProperty.value.stockSolutionPercentConcentration );
       }
       else {
         meter.valueProperty.set( null );
@@ -288,7 +288,7 @@ class ConcentrationProbeNode extends ProbeNode {
     this.addInputListener( movableDragHandler );
 
     const isInNode = node => {
-      const localPoint = node.parentToLocalPoint( probe.positionProperty.get() );
+      const localPoint = node.parentToLocalPoint( probe.positionProperty.value );
       const nodeShape = node.getShape();
       const shapeBounds = nodeShape.bounds;
       return shapeBounds.getWidth() > 0 && shapeBounds.getHeight() > 0 && nodeShape.containsPoint( localPoint ); // see issue #65

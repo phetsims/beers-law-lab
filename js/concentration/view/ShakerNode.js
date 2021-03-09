@@ -60,7 +60,7 @@ class ShakerNode extends Node {
     imageNode.setScaleMagnitude( 0.75 );
 
     // label
-    const labelNode = new RichText( shaker.soluteProperty.get().formula, {
+    const labelNode = new RichText( shaker.soluteProperty.value.formula, {
       font: new PhetFont( { size: 22, weight: 'bold' } ),
       fill: 'black',
       maxWidth: 0.5 * imageNode.width, // constrain width for i18n

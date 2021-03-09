@@ -30,7 +30,7 @@ class ParticleNode extends Rectangle {
     this.rotation = particle.orientation;
 
     particle.positionProperty.link( () => {
-      this.translation = modelViewTransform.modelToViewPosition( particle.positionProperty.get() );
+      this.translation = modelViewTransform.modelToViewPosition( particle.positionProperty.value );
     } );
   }
 }
