@@ -8,7 +8,8 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import StringProperty from '../../../../axon/js/StringProperty.js';
+import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
+import Enumeration from '../../../../phet-core/js/Enumeration.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
@@ -17,6 +18,7 @@ import beersLawLab from '../../beersLawLab.js';
 import BLLMovable from '../../common/model/BLLMovable.js';
 
 class ATDetector {
+
   /**
    * @param {Vector2} bodyPosition
    * @param {Bounds2} bodyDragBounds
@@ -42,7 +44,7 @@ class ATDetector {
     } ); // @public
 
     // @public for switching between absorbance (A) and percent transmittance (%T)
-    this.modeProperty = new StringProperty( ATDetector.Mode.TRANSMITTANCE, {
+    this.modeProperty = new EnumerationProperty( ATDetector.Mode, ATDetector.Mode.TRANSMITTANCE, {
       tandem: options.tandem.createTandem( 'modeProperty' )
     } );
 
@@ -90,11 +92,8 @@ class ATDetector {
   }
 }
 
-// @static Modes for the detector
-ATDetector.Mode = {
-  TRANSMITTANCE: 'transmittance',
-  ABSORBANCE: 'absorbance'
-};
+// @public Modes for the detector
+ATDetector.Mode = Enumeration.byKeys( [ 'TRANSMITTANCE', 'ABSORBANCE' ] );
 
 class Probe extends BLLMovable {
 
