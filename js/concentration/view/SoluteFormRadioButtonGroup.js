@@ -35,7 +35,10 @@ class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup {
     options = merge( {
       orientation: 'horizontal',
       spacing: 60,
-      radioButtonOptions: { radius: BLLConstants.RADIO_BUTTON_RADIUS },
+      radioButtonOptions: {
+        radius: BLLConstants.RADIO_BUTTON_RADIUS,
+        visiblePropertyOptions: { phetioReadOnly: true }
+      },
       touchAreaYDilation: 2,
       tandem: Tandem.REQUIRED
     }, options );
