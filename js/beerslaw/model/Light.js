@@ -10,7 +10,9 @@
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Range from '../../../../dot/js/Range.js';
+import merge from '../../../../phet-core/js/merge.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 
 class Light {
@@ -20,9 +22,13 @@ class Light {
    * @param {boolean} on
    * @param {number} lensDiameter cm
    * @param {Property.<BeersLawSolution>} solutionProperty
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( position, on, lensDiameter, solutionProperty, tandem ) {
+  constructor( position, on, lensDiameter, solutionProperty, options ) {
+
+    options = merge( {
+      tandem: Tandem.REQUIRED
+    }, options );
 
     // @public (read-only)
     this.position = position;
@@ -30,10 +36,10 @@ class Light {
 
     // @public
     this.onProperty = new BooleanProperty( on, {
-      tandem: tandem.createTandem( 'onProperty' )
+      tandem: options.tandem.createTandem( 'onProperty' )
     } );
     this.wavelengthProperty = new NumberProperty( solutionProperty.get().molarAbsorptivityData.lambdaMax /*nm*/, {
-      tandem: tandem.createTandem( 'wavelengthProperty' ),
+      tandem: options.tandem.createTandem( 'wavelengthProperty' ),
       units: 'nanometers',
       range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH )
     } );

@@ -13,6 +13,8 @@
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import merge from '../../../../phet-core/js/merge.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 
 class Cuvette {
@@ -21,15 +23,19 @@ class Cuvette {
    * @param {Vector2} position fixed position, cm
    * @param {RangeWithValue} widthRange variable width, cm
    * @param {number} height fixed height, cm
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( position, widthRange, height, tandem ) {
+  constructor( position, widthRange, height, options ) {
+
+    options = merge( {
+      tandem: Tandem.REQUIRED
+    }, options );
 
     // @public (read-only)
     this.position = position;
     this.widthRange = widthRange;
     this.widthProperty = new NumberProperty( widthRange.defaultValue, {
-      tandem: tandem.createTandem( 'widthProperty' ),
+      tandem: options.tandem.createTandem( 'widthProperty' ),
       range: widthRange,
       units: 'centimeters'
     } );

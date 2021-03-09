@@ -49,11 +49,15 @@ class BeersLawModel {
     } );
 
     // @public NOTE: All positions are relative to the position of the cuvette.
-    this.cuvette = new Cuvette( new Vector2( 3.3, 0.5 ), CUVETTE_WIDTH_RANGE, 3, tandem.createTandem( 'cuvette' ) );
+    this.cuvette = new Cuvette( new Vector2( 3.3, 0.5 ), CUVETTE_WIDTH_RANGE, 3, {
+      tandem: tandem.createTandem( 'cuvette' )
+    } );
 
     // @public
     this.light = new Light( new Vector2( this.cuvette.position.x - 1.5, this.cuvette.position.y + ( this.cuvette.height / 2 ) ),
-      false, 0.45, this.solutionProperty, tandem.createTandem( 'light' ) );
+      false, 0.45, this.solutionProperty, {
+        tandem: tandem.createTandem( 'light' )
+      } );
 
     // @public
     this.ruler = new Ruler( 2.1, 0.1, 0.35,
