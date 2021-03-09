@@ -45,6 +45,9 @@ class ShakerNode extends Node {
       // See https://github.com/phetsims/beers-law-lab/issues/113
       preventFit: true,
 
+      // Node options
+      visibleProperty: shaker.visibleProperty,
+
       // phet-io
       tandem: Tandem.REQUIRED
     }, options );
