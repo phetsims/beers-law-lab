@@ -31,8 +31,8 @@ class BLLDropperNode extends EyeDropperNode {
   constructor( dropper, solvent, soluteProperty, modelViewTransform, options ) {
 
     options = merge( {
-      dispensingProperty: dropper.isDispensingProperty,
-      emptyProperty: dropper.isEmptyProperty,
+      isDispensingProperty: dropper.isDispensingProperty,
+      isEmptyProperty: dropper.isEmptyProperty,
       buttonEnabledProperty: dropper.enabledProperty,
       tandem: Tandem.REQUIRED
     }, options );
