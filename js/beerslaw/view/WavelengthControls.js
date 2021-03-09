@@ -80,7 +80,10 @@ class WavelengthControls extends Panel {
 
     // radio button group
     const radioButtonGroup = new AquaRadioButtonGroup( variableWavelengthProperty, radioButtonItems, {
-      radioButtonOptions: { radius: BLLConstants.RADIO_BUTTON_RADIUS },
+      radioButtonOptions: {
+        radius: BLLConstants.RADIO_BUTTON_RADIUS,
+        visiblePropertyOptions: { phetioReadOnly: true }
+      },
       orientation: 'horizontal',
       spacing: 15,
       touchAreaYDilation: 8,
