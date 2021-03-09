@@ -1,7 +1,7 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * Radio button group that selects the solute form, either 'solid' (shaker) or 'solution' (dropper).
+ * Radio button group that selects the solute form, either solid (shaker) or solution (dropper).
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -18,6 +18,7 @@ import shakerIconImage from '../../../images/shaker-icon_png.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
+import SoluteForm from '../model/SoluteForm.js';
 
 // constants
 const RADIO_BUTTON_TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
@@ -25,12 +26,12 @@ const RADIO_BUTTON_TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
 class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup {
 
   /**
-   * @param {Property.<string>} soluteFormProperty form of the solute, 'solid' or 'solution'
-   * @param {Shaker} shaker
-   * @param {Dropper} dropper
+   * @param {EnumerationProperty.<SoluteForm>} soluteFormProperty
+   * @param {Property.<boolean>} shakerVisibleProperty
+   * @param {Property.<boolean>} dropperVisibleProperty
    * @param {Object} [options]
    */
-  constructor( soluteFormProperty, shaker, dropper, options ) {
+  constructor( soluteFormProperty, shakerVisibleProperty, dropperVisibleProperty, options ) {
 
     options = merge( {
       orientation: 'horizontal',
@@ -46,12 +47,12 @@ class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup {
     // radio button descriptions
     const items = [
       {
-        value: 'solid',
+        value: SoluteForm.SOLID,
         node: createRadioButtonLabel( beersLawLabStrings.solid, shakerIconImage, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'solidRadioButton'
       },
       {
-        value: 'solution',
+        value: SoluteForm.SOLUTION,
         node: createRadioButtonLabel( beersLawLabStrings.solution, dropperIconImage, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'solutionRadioButton'
       }
@@ -60,16 +61,16 @@ class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup {
     super( soluteFormProperty, items, options );
 
     soluteFormProperty.link( soluteForm => {
-      shaker.visibleProperty.set( soluteForm === 'solid' );
-      dropper.visibleProperty.set( soluteForm === 'solution' );
+      shakerVisibleProperty.set( soluteForm === SoluteForm.SOLID );
+      dropperVisibleProperty.set( soluteForm === SoluteForm.SOLUTION );
     } );
 
-    shaker.visibleProperty.link( visible => {
-      soluteFormProperty.set( visible ? 'solid' : 'solution' );
+    shakerVisibleProperty.link( visible => {
+      soluteFormProperty.set( visible ? SoluteForm.SOLID : SoluteForm.SOLUTION );
     } );
 
-    dropper.visibleProperty.link( visible => {
-      soluteFormProperty.set( visible ? 'solution' : 'solid' );
+    dropperVisibleProperty.link( visible => {
+      soluteFormProperty.set( visible ? SoluteForm.SOLUTION : SoluteForm.SOLID );
     } );
   }
 }

@@ -6,8 +6,8 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import StringProperty from '../../../../axon/js/StringProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -29,6 +29,7 @@ import Precipitate from './Precipitate.js';
 import Shaker from './Shaker.js';
 import ShakerParticles from './ShakerParticles.js';
 import Solute from './Solute.js';
+import SoluteForm from './SoluteForm.js';
 
 // constants
 const SOLUTION_VOLUME_RANGE = BLLConstants.SOLUTION_VOLUME_RANGE; // L
@@ -71,8 +72,7 @@ class ConcentrationModel extends PhetioObject {
       tandem: options.tandem.createTandem( 'soluteProperty' ),
       phetioType: Property.PropertyIO( Solute.SoluteIO )
     } );
-    this.soluteFormProperty = new StringProperty( 'solid', {
-      validValues: [ 'solid', 'solution' ],
+    this.soluteFormProperty = new EnumerationProperty( SoluteForm, SoluteForm.SOLID, {
       tandem: options.tandem.createTandem( 'soluteFormProperty' )
     } );
 
@@ -91,7 +91,7 @@ class ConcentrationModel extends PhetioObject {
       0.75 * Math.PI,
       this.soluteProperty,
       SHAKER_MAX_DISPENSING_RATE,
-      this.soluteFormProperty.get() === 'solid', {
+      this.soluteFormProperty.get() === SoluteForm.SOLID, {
         tandem: options.tandem.createTandem( 'shaker' )
       } );
     this.shakerParticles = new ShakerParticles( this.shaker, this.solution, this.beaker, {
@@ -102,7 +102,7 @@ class ConcentrationModel extends PhetioObject {
       new Bounds2( 260, 225, 580, 225 ),
       this.soluteProperty,
       DROPPER_FLOW_RATE,
-      this.soluteFormProperty.get() === 'solution', {
+      this.soluteFormProperty.get() === SoluteForm.SOLUTION, {
         tandem: options.tandem.createTandem( 'dropper' )
       }
     );

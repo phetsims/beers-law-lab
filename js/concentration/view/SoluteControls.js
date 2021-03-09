@@ -18,7 +18,7 @@ class SoluteControls extends Panel {
   /**
    * @param {Solute[]} solutes
    * @param {Property.<Solute>} currentSoluteProperty
-   * @param {Property.<string>} soluteFormProperty form of the solute, 'solid' or 'solution'
+   * @param {EnumerationProperty.<SoluteForm>} soluteFormProperty
    * @param {Shaker} shaker
    * @param {Dropper} dropper
    * @param {Node} soluteListParent
@@ -41,9 +41,10 @@ class SoluteControls extends Panel {
     } );
 
     // radio buttons for solid vs solution
-    const soluteFormRadioButtonGroup = new SoluteFormRadioButtonGroup( soluteFormProperty, shaker, dropper, {
-      tandem: options.tandem.createTandem( 'soluteFormRadioButtonGroup' )
-    } );
+    const soluteFormRadioButtonGroup = new SoluteFormRadioButtonGroup(
+      soluteFormProperty, shaker.visibleProperty, dropper.visibleProperty, {
+        tandem: options.tandem.createTandem( 'soluteFormRadioButtonGroup' )
+      } );
 
     const contentNode = new Node();
     contentNode.addChild( soluteFormRadioButtonGroup );
