@@ -15,6 +15,7 @@ import Circle from '../../../../scenery/js/nodes/Circle.js';
 import Image from '../../../../scenery/js/nodes/Image.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
+import VBox from '../../../../scenery/js/nodes/VBox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import shakerImage from '../../../images/shaker_png.js';
 import beersLawLab from '../../beersLawLab.js';
@@ -67,19 +68,12 @@ class ShakerNode extends Node {
       textPropertyOptions: { phetioReadOnly: true }
     } );
 
-    // arrows
-    const arrowsOffset = imageNode.height / 2 + 4;
-
-    const downArrowNode = new ArrowNode( 0, 0, 0, ARROW_LENGTH, merge( {
-      top: arrowsOffset
-    }, ARROW_OPTIONS ) );
-
-    const upArrowNode = new ArrowNode( 0, 0, 0, -ARROW_LENGTH, merge( {
-      bottom: -arrowsOffset
-    }, ARROW_OPTIONS ) );
+    const downArrowNode = new ArrowNode( 0, 0, 0, ARROW_LENGTH, ARROW_OPTIONS );
+    const upArrowNode = new ArrowNode( 0, 0, 0, -ARROW_LENGTH, ARROW_OPTIONS );
 
     // Set visibility of this Node programmatically to show/hide the hint arrows.
-    const arrowsParent = new Node( {
+    const arrowsParent = new VBox( {
+      spacing: imageNode.height + 8,
       children: [ upArrowNode, downArrowNode ],
       center: imageNode.center,
       pickable: false,
