@@ -78,7 +78,9 @@ class ConcentrationModel extends PhetioObject {
 
     // @public
     this.solution = new ConcentrationSolution( this.soluteProperty, SOLUTE_AMOUNT_RANGE.defaultValue,
-      SOLUTION_VOLUME_RANGE.defaultValue, options.tandem.createTandem( 'solution' ) );
+      SOLUTION_VOLUME_RANGE.defaultValue, {
+        tandem: options.tandem.createTandem( 'solution' )
+      } );
     this.beaker = new Beaker( new Vector2( 350, 550 ), new Dimension2( 600, 300 ), 1 );
     this.precipitate = new Precipitate( this.solution, this.beaker, {
       tandem: options.tandem.createTandem( 'precipitate' )
@@ -104,9 +106,15 @@ class ConcentrationModel extends PhetioObject {
         tandem: options.tandem.createTandem( 'dropper' )
       }
     );
-    this.evaporator = new Evaporator( MAX_EVAPORATION_RATE, this.solution, options.tandem.createTandem( 'evaporator' ) );
-    this.solventFaucet = new Faucet( new Vector2( 155, 220 ), -400, 45, MAX_FAUCET_FLOW_RATE, options.tandem.createTandem( 'solventFaucet' ) );
-    this.drainFaucet = new Faucet( new Vector2( 750, 630 ), this.beaker.getRight(), 45, MAX_FAUCET_FLOW_RATE, options.tandem.createTandem( 'drainFaucet' ) );
+    this.evaporator = new Evaporator( MAX_EVAPORATION_RATE, this.solution, {
+      tandem: options.tandem.createTandem( 'evaporator' )
+    } );
+    this.solventFaucet = new Faucet( new Vector2( 155, 220 ), -400, 45, MAX_FAUCET_FLOW_RATE, {
+      tandem: options.tandem.createTandem( 'solventFaucet' )
+    } );
+    this.drainFaucet = new Faucet( new Vector2( 750, 630 ), this.beaker.getRight(), 45, MAX_FAUCET_FLOW_RATE, {
+      tandem: options.tandem.createTandem( 'drainFaucet' )
+    } );
     this.concentrationMeter = new ConcentrationMeter(
       new Vector2( 785, 210 ), new Bounds2( 10, 150, 835, 680 ),
       new Vector2( 750, 370 ), new Bounds2( 30, 150, 966, 680 ), {

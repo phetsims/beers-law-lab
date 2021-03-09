@@ -9,6 +9,8 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import merge from '../../../../phet-core/js/merge.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 
 class Faucet {
@@ -18,11 +20,15 @@ class Faucet {
    * @param {number} pipeMinX x-coordinate of where the pipe starts
    * @param {number} spoutWidth
    * @param {number} maxFlowRate L/sec
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( position, pipeMinX, spoutWidth, maxFlowRate, tandem ) {
+  constructor( position, pipeMinX, spoutWidth, maxFlowRate, options ) {
 
     assert && assert( pipeMinX < position.x ); // pipe enters the faucet from the left
+
+    options = merge( {
+      tandem: Tandem.REQUIRED
+    }, options );
 
     // @public (read-only)
     this.position = position;
@@ -32,7 +38,7 @@ class Faucet {
 
     // @public
     this.flowRateProperty = new NumberProperty( 0, {
-      tandem: tandem.createTandem( 'flowRateProperty' ),
+      tandem: options.tandem.createTandem( 'flowRateProperty' ),
       units: 'liters/second'
     } );
     this.enabledProperty = new BooleanProperty( true );

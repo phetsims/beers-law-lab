@@ -8,6 +8,8 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import merge from '../../../../phet-core/js/merge.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import Movable from '../../common/model/Movable.js';
 
@@ -23,14 +25,20 @@ class Dropper extends Movable {
    */
   constructor( position, dragBounds, soluteProperty, maxFlowRate, visible, options ) {
 
+    options = merge( {
+      tandem: Tandem.REQUIRED
+    }, options );
+
     super( position, dragBounds, options );
 
     // @public
     this.soluteProperty = soluteProperty;
     this.visibleProperty = new BooleanProperty( visible );
+
+    // @public true if the dropper is dispensing solution
     this.dispensingProperty = new BooleanProperty( false, {
       tandem: options.tandem.createTandem( 'dispensingProperty' )
-    } ); // true if the dropper is dispensing solution
+    } );
     this.enabledProperty = new BooleanProperty( true );
     this.emptyProperty = new BooleanProperty( false, {
       tandem: options.tandem.createTandem( 'emptyProperty' )
@@ -38,7 +46,7 @@ class Dropper extends Movable {
     this.flowRateProperty = new NumberProperty( 0, {
       tandem: options.tandem.createTandem( 'flowRateProperty' ),
       units: 'liters/second'
-    } ); // L/sec
+    } );
 
     // Turn off the dropper when it's disabled.
     this.enabledProperty.link( enabled => {

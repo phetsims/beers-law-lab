@@ -24,9 +24,9 @@ class ConcentrationSolution extends Fluid {
    * @param {Property.<Solute>} soluteProperty
    * @param {number} soluteAmount moles
    * @param {number} volume L
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( soluteProperty, soluteAmount, volume, tandem ) {
+  constructor( soluteProperty, soluteAmount, volume, options ) {
 
     const solvent = Solvent.WATER; // @public (read-only)
 
@@ -42,13 +42,13 @@ class ConcentrationSolution extends Fluid {
     this.soluteAmountProperty = new NumberProperty( soluteAmount, {
       units: 'moles',
       range: BLLConstants.SOLUTE_AMOUNT_RANGE,
-      tandem: tandem.createTandem( 'soluteAmountProperty' )
+      tandem: options.tandem.createTandem( 'soluteAmountProperty' )
     } );
 
     // @public
     this.volumeProperty = new NumberProperty( volume, {
       units: 'liters', range: BLLConstants.SOLUTION_VOLUME_RANGE,
-      tandem: tandem.createTandem( 'volumeProperty' )
+      tandem: options.tandem.createTandem( 'volumeProperty' )
     } ); // L
 
     // @public for deferring update of precipitateAmount until we've changed both volume and soluteAmount, see concentration#1
@@ -65,7 +65,7 @@ class ConcentrationSolution extends Fluid {
           return this.precipitateAmountProperty.get();
         }
       }, {
-        tandem: tandem.createTandem( 'precipitateAmountProperty' ),
+        tandem: options.tandem.createTandem( 'precipitateAmountProperty' ),
         units: 'moles',
         phetioType: DerivedProperty.DerivedPropertyIO( NumberIO )
       }
@@ -77,7 +77,7 @@ class ConcentrationSolution extends Fluid {
       ( solute, soluteAmount, volume ) => {
         return ( volume > 0 ) ? Math.min( this.getSaturatedConcentration(), soluteAmount / volume ) : 0;
       }, {
-        tandem: tandem.createTandem( 'concentrationProperty' ),
+        tandem: options.tandem.createTandem( 'concentrationProperty' ),
         units: 'moles/liter',
         phetioType: DerivedProperty.DerivedPropertyIO( NumberIO )
       }
@@ -89,7 +89,7 @@ class ConcentrationSolution extends Fluid {
       ( solute, soluteAmount, volume ) => {
         return ( volume > 0 ) && ( soluteAmount / volume ) > solute.getSaturatedConcentration();
       }, {
-        tandem: tandem.createTandem( 'saturatedProperty' ),
+        tandem: options.tandem.createTandem( 'saturatedProperty' ),
         phetioType: DerivedProperty.DerivedPropertyIO( BooleanIO )
       }
     );
@@ -102,7 +102,7 @@ class ConcentrationSolution extends Fluid {
         assert && assert( soluteGrams >= 0, 'invalid soluteGrams: ' + soluteGrams );
         return soluteGrams;
       }, {
-        tandem: tandem.createTandem( 'soluteGramsProperty' ),
+        tandem: options.tandem.createTandem( 'soluteGramsProperty' ),
         units: 'grams',
         phetioType: DerivedProperty.DerivedPropertyIO( NumberIO )
       }
@@ -121,7 +121,7 @@ class ConcentrationSolution extends Fluid {
           'percentConcentration out of range: ' + percentConcentration );
         return percentConcentration;
       }, {
-        tandem: tandem.createTandem( 'percentConcentrationProperty' ),
+        tandem: options.tandem.createTandem( 'percentConcentrationProperty' ),
         phetioType: DerivedProperty.DerivedPropertyIO( NumberIO ),
         units: 'percent'
       }
