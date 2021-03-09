@@ -37,8 +37,8 @@ class Light {
     this.lensDiameter = lensDiameter;
 
     // @public
-    this.onProperty = new BooleanProperty( on, {
-      tandem: options.tandem.createTandem( 'onProperty' )
+    this.isOnProperty = new BooleanProperty( on, {
+      tandem: options.tandem.createTandem( 'isOnProperty' )
     } );
 
     // @public
@@ -70,7 +70,7 @@ class Light {
 
   // @public
   reset() {
-    this.onProperty.reset();
+    this.isOnProperty.reset();
     this.wavelengthProperty.reset();
     this.modeProperty.reset();
   }

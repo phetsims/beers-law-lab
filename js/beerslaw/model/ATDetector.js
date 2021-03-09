@@ -51,7 +51,7 @@ class ATDetector {
     // @public value is either absorbance (A) or percent transmittance (%T) depending on mode
     this.valueProperty = new DerivedProperty( [
         this.probe.positionProperty,
-        this.light.onProperty,
+        this.light.isOnProperty,
         this.modeProperty,
         cuvette.widthProperty,
         absorbance.absorbanceProperty
@@ -85,7 +85,7 @@ class ATDetector {
 
   // @public Is the probe in some segment of the beam?
   probeInBeam() {
-    return this.light.onProperty.get() &&
+    return this.light.isOnProperty.get() &&
            ( this.probe.getMinY() < this.light.getMinY() ) &&
            ( this.probe.getMaxY() > this.light.getMaxY() ) &&
            ( this.probe.positionProperty.get().x > this.light.position.x );

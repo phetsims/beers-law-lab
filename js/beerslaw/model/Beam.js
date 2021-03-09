@@ -37,7 +37,7 @@ class Beam {
   constructor( light, cuvette, detector, absorbance, modelViewTransform ) {
 
     // @public Make the beam visible when the light is on.
-    this.visibleProperty = new DerivedProperty( [ light.onProperty ], on => on );
+    this.visibleProperty = new DerivedProperty( [ light.isOnProperty ], isOn => isOn );
 
     // beam shape
     const xOverlap = modelViewTransform.modelToViewDeltaX( 1 ); // add some overlap, to hide space between beam and light housing

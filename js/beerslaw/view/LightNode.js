@@ -31,7 +31,7 @@ class LightNode extends LaserPointerNode {
       tandem: Tandem.REQUIRED
     }, options );
 
-    super( light.onProperty, options );
+    super( light.isOnProperty, options );
   }
 }
 

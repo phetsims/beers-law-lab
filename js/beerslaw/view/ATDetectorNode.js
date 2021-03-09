@@ -225,7 +225,7 @@ class ATProbeNode extends ProbeNode {
       modelViewTransform: modelViewTransform,
       endDrag: () => {
         // If the light is on and the probe is close enough to the beam...
-        if ( light.onProperty.get() && ( probe.positionProperty.get().x >= light.position.x ) && ( Math.abs( probe.positionProperty.get().y - light.position.y ) <= 0.5 * light.lensDiameter ) ) {
+        if ( light.isOnProperty.get() && ( probe.positionProperty.get().x >= light.position.x ) && ( Math.abs( probe.positionProperty.get().y - light.position.y ) <= 0.5 * light.lensDiameter ) ) {
           // ... snap the probe to the center of beam.
           probe.positionProperty.set( new Vector2( probe.positionProperty.get().x, light.position.y ) );
         }
