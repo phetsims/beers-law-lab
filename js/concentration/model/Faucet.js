@@ -46,7 +46,7 @@ class Faucet {
     // when disabled, turn off the faucet.
     this.enabledProperty.link( enabled => {
       if ( !enabled ) {
-        this.flowRateProperty.set( 0 );
+        this.flowRateProperty.value = 0;
       }
     } );
   }

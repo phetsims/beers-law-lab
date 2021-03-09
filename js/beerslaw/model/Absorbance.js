@@ -44,7 +44,7 @@ class Absorbance {
 
       // Observe the concentration property of the current solution.
       const concentrationObserver = concentration => {
-        this.currentConcentrationProperty.set( concentration );
+        this.currentConcentrationProperty.value = concentration;
       };
 
       // Rewire the concentration observer when the solution changes.

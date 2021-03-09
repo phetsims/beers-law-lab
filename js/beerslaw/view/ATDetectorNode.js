@@ -231,7 +231,7 @@ class ATProbeNode extends ProbeNode {
         // If the light is on and the probe is close enough to the beam...
         if ( light.isOnProperty.value && ( probe.positionProperty.value.x >= light.position.x ) && ( Math.abs( probe.positionProperty.value.y - light.position.y ) <= 0.5 * light.lensDiameter ) ) {
           // ... snap the probe to the center of beam.
-          probe.positionProperty.set( new Vector2( probe.positionProperty.value.x, light.position.y ) );
+          probe.positionProperty.value = new Vector2( probe.positionProperty.value.x, light.position.y );
         }
       },
       tandem: options.tandem.createTandem( 'movableDragHandler' )

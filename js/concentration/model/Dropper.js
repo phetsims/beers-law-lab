@@ -52,19 +52,19 @@ class Dropper extends BLLMovable {
     // Turn off the dropper when it's disabled.
     this.enabledProperty.link( enabled => {
       if ( !enabled ) {
-        this.isDispensingProperty.set( false );
+        this.isDispensingProperty.value = false;
       }
     } );
 
     // Toggle the flow rate when the dropper is turned on/off.
     this.isDispensingProperty.link( dispensing => {
-      this.flowRateProperty.set( dispensing ? maxFlowRate : 0 );
+      this.flowRateProperty.value = ( dispensing ? maxFlowRate : 0 );
     } );
 
     // When the dropper becomes empty, disable it.
     this.isEmptyProperty.link( empty => {
       if ( empty ) {
-        this.enabledProperty.set( false );
+        this.enabledProperty.value = false;
       }
     } );
   }

@@ -33,7 +33,7 @@ class RemoveSoluteButton extends TextPushButton {
     super( beersLawLabStrings.removeSolute, options );
 
     this.addListener( () => {
-      solution.soluteAmountProperty.set( 0 );
+      solution.soluteAmountProperty.value = 0;
       shakerParticles.removeAllParticles();
     } );
 

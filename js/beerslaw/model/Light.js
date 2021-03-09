@@ -56,14 +56,14 @@ class Light {
 
     // when the solution changes, set the light to the solution's lambdaMax wavelength
     solutionProperty.link( solution => {
-      this.wavelengthProperty.set( solution.molarAbsorptivityData.lambdaMax );
+      this.wavelengthProperty.value = solution.molarAbsorptivityData.lambdaMax;
     } );
 
     this.modeProperty.link( mode => {
 
       // 'Preset' sets the light to the current solution's lambdaMax wavelength.
       if ( mode === Light.Mode.PRESET ) {
-        this.wavelengthProperty.set( solutionProperty.value.molarAbsorptivityData.lambdaMax );
+        this.wavelengthProperty.value = solutionProperty.value.molarAbsorptivityData.lambdaMax;
       }
     } );
   }

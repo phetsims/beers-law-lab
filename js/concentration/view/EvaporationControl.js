@@ -49,7 +49,9 @@ class EvaporationControl extends Panel {
       enabledProperty: evaporator.enabledProperty,
 
       // at end of drag, snap evaporation rate back to zero
-      endDrag: () => evaporator.evaporationRateProperty.set( 0 ),
+      endDrag: () => {
+        evaporator.evaporationRateProperty.value = 0;
+      },
       tandem: options.tandem.createTandem( 'slider' )
     } );
 

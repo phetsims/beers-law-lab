@@ -72,7 +72,9 @@ class BLLDropperNode extends EyeDropperNode {
     // visibility
     dropper.visibleProperty.link( visible => {
       this.visible = visible;
-      if ( !visible ) { dropper.flowRateProperty.set( 0 ); }
+      if ( !visible ) {
+        dropper.flowRateProperty.value = 0;
+      }
     } );
 
     // Change the label and color when the solute changes.

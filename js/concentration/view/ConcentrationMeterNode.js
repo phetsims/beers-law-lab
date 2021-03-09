@@ -92,20 +92,20 @@ class ConcentrationMeterNode extends Node {
 
     const updateValue = () => {
       if ( probeNode.isInSolution() || probeNode.isInDrainFluid() ) {
-        meter.valueProperty.set( DISPLAY_MOLES_PER_LITER ?
-                                 solution.concentrationProperty.value :
-                                 solution.percentConcentrationProperty.value );
+        meter.valueProperty.value = DISPLAY_MOLES_PER_LITER ?
+                                    solution.concentrationProperty.value :
+                                    solution.percentConcentrationProperty.value;
       }
       else if ( probeNode.isInSolvent() ) {
-        meter.valueProperty.set( 0 );
+        meter.valueProperty.value = 0;
       }
       else if ( probeNode.isInStockSolution() ) {
-        meter.valueProperty.set( DISPLAY_MOLES_PER_LITER ?
-                                 dropper.soluteProperty.value.stockSolutionConcentration :
-                                 dropper.soluteProperty.value.stockSolutionPercentConcentration );
+        meter.valueProperty.value = DISPLAY_MOLES_PER_LITER ?
+                                    dropper.soluteProperty.value.stockSolutionConcentration :
+                                    dropper.soluteProperty.value.stockSolutionPercentConcentration;
       }
       else {
-        meter.valueProperty.set( null );
+        meter.valueProperty.value = null;
       }
     };
 

@@ -54,7 +54,7 @@ class Shaker extends BLLMovable {
     // set the dispensing rate to zero when the shaker becomes empty or invisible
     const observer = () => {
       if ( this.isEmptyProperty.value || !this.visibleProperty.value ) {
-        this.dispensingRateProperty.set( 0 );
+        this.dispensingRateProperty.value = 0;
       }
     };
     this.isEmptyProperty.link( observer );
@@ -82,10 +82,10 @@ class Shaker extends BLLMovable {
   step() {
     if ( this.visibleProperty.value && !this.isEmptyProperty.value ) {
       if ( this.previousPosition.equals( this.positionProperty.value ) ) {
-        this.dispensingRateProperty.set( 0 ); // shaker is not moving, don't dispense anything
+        this.dispensingRateProperty.value = 0; // shaker is not moving, don't dispense anything
       }
       else {
-        this.dispensingRateProperty.set( this.maxDispensingRate ); // max rate seems to work fine
+        this.dispensingRateProperty.value = this.maxDispensingRate; // max rate seems to work fine
       }
     }
     this.previousPosition = this.positionProperty.value;

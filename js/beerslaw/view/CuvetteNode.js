@@ -155,7 +155,7 @@ class CuvetteDragListener extends DragListener {
         const dragX = event.pointer.point.x;
         const deltaWidth = modelViewTransform.viewToModelDeltaX( dragX - startX );
         const cuvetteWidth = Utils.clamp( startWidth + deltaWidth, cuvette.widthRange.min, cuvette.widthRange.max );
-        cuvette.widthProperty.set( cuvetteWidth );
+        cuvette.widthProperty.value = cuvetteWidth;
       },
 
       end: () => {
@@ -164,7 +164,7 @@ class CuvetteDragListener extends DragListener {
         if ( snapInterval > 0 ) {
           const numberOfIntervals = Math.floor( ( cuvette.widthProperty.value + ( snapInterval / 2 ) ) / snapInterval );
           const newWidth = numberOfIntervals * snapInterval;
-          cuvette.widthProperty.set( newWidth );
+          cuvette.widthProperty.value = newWidth;
         }
       },
 

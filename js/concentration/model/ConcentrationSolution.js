@@ -130,7 +130,8 @@ class ConcentrationSolution extends Fluid {
 
     // derive the solution color
     const updateColor = () => {
-      this.colorProperty.set( ConcentrationSolution.createColor( this.solvent, this.soluteProperty.value, this.concentrationProperty.value ) );
+      this.colorProperty.value =
+        ConcentrationSolution.createColor( this.solvent, this.soluteProperty.value, this.concentrationProperty.value );
     };
     this.soluteProperty.lazyLink( updateColor );
     this.concentrationProperty.link( updateColor ); // link to force update of color

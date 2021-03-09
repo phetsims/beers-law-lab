@@ -97,7 +97,7 @@ class ShakerParticles {
           BLLConstants.SOLUTE_AMOUNT_RANGE.max,
           solution.soluteAmountProperty.value + ( 1 / solution.soluteProperty.value.particlesPerMole )
         );
-        solution.soluteAmountProperty.set( soluteAmount );
+        solution.soluteAmountProperty.value = soluteAmount;
       }
       else {
         someParticleMoved = true;

@@ -66,7 +66,7 @@ class ShakerParticle extends SoluteParticle {
       this.velocity.setX( Math.abs( this.velocity.x ) );
     }
 
-    this.positionProperty.set( newPosition );
+    this.positionProperty.value = newPosition;
   }
 
   /**

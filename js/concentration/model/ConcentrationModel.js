@@ -126,23 +126,24 @@ class ConcentrationModel extends PhetioObject {
     // See https://github.com/phetsims/beers-law-lab/issues/247
     this.soluteProperty.link( () => {
       if ( !phet.joist.sim.isSettingPhetioStateProperty.value ) {
-        this.solution.soluteAmountProperty.set( 0 );
+        this.solution.soluteAmountProperty.value = 0;
       }
     } );
 
     // Enable faucets and dropper based on amount of solution in the beaker.
     this.solution.volumeProperty.link( volume => {
-      this.solventFaucet.enabledProperty.set( volume < SOLUTION_VOLUME_RANGE.max );
-      this.drainFaucet.enabledProperty.set( volume > SOLUTION_VOLUME_RANGE.min );
-      this.dropper.enabledProperty.set( !this.dropper.isEmptyProperty.value && ( volume < SOLUTION_VOLUME_RANGE.max ) );
+      this.solventFaucet.enabledProperty.value = ( volume < SOLUTION_VOLUME_RANGE.max );
+      this.drainFaucet.enabledProperty.value = ( volume > SOLUTION_VOLUME_RANGE.min );
+      this.dropper.enabledProperty.value = ( !this.dropper.isEmptyProperty.value && ( volume < SOLUTION_VOLUME_RANGE.max ) );
     } );
 
     // Empty shaker and dropper when max solute is reached.
     this.solution.soluteAmountProperty.link( soluteAmount => {
       const containsMaxSolute = ( soluteAmount >= SOLUTE_AMOUNT_RANGE.max );
-      this.shaker.isEmptyProperty.set( containsMaxSolute );
-      this.dropper.isEmptyProperty.set( containsMaxSolute );
-      this.dropper.enabledProperty.set( !this.dropper.isEmptyProperty.value && !containsMaxSolute && this.solution.volumeProperty.value < SOLUTION_VOLUME_RANGE.max );
+      this.shaker.isEmptyProperty.value = containsMaxSolute;
+      this.dropper.isEmptyProperty.value = containsMaxSolute;
+      this.dropper.enabledProperty.value =
+        ( !this.dropper.isEmptyProperty.value && !containsMaxSolute && this.solution.volumeProperty.value < SOLUTION_VOLUME_RANGE.max );
     } );
   }
 
@@ -234,7 +235,7 @@ class ConcentrationModel extends PhetioObject {
     if ( deltaVolume > 0 ) {
       const volumeProperty = this.solution.volumeProperty;
       const volumeBefore = volumeProperty.value;
-      volumeProperty.set( Math.min( SOLUTION_VOLUME_RANGE.max, volumeProperty.value + deltaVolume ) );
+      volumeProperty.value = Math.min( SOLUTION_VOLUME_RANGE.max, volumeProperty.value + deltaVolume );
       return volumeProperty.value - volumeBefore;
     }
     else {
@@ -247,7 +248,7 @@ class ConcentrationModel extends PhetioObject {
     if ( deltaVolume > 0 ) {
       const volumeProperty = this.solution.volumeProperty;
       const volumeBefore = volumeProperty.value;
-      volumeProperty.set( Math.max( SOLUTION_VOLUME_RANGE.min, volumeProperty.value - deltaVolume ) );
+      volumeProperty.value = Math.max( SOLUTION_VOLUME_RANGE.min, volumeProperty.value - deltaVolume );
       return volumeBefore - volumeProperty.value;
     }
     else {
@@ -259,7 +260,8 @@ class ConcentrationModel extends PhetioObject {
   addSolute( deltaAmount ) {
     if ( deltaAmount > 0 ) {
       const amountBefore = this.solution.soluteAmountProperty.value;
-      this.solution.soluteAmountProperty.set( Math.min( SOLUTE_AMOUNT_RANGE.max, this.solution.soluteAmountProperty.value + deltaAmount ) );
+      this.solution.soluteAmountProperty.value =
+        Math.min( SOLUTE_AMOUNT_RANGE.max, this.solution.soluteAmountProperty.value + deltaAmount );
       return this.solution.soluteAmountProperty.value - amountBefore;
     }
     else {
@@ -271,7 +273,8 @@ class ConcentrationModel extends PhetioObject {
   removeSolute( deltaAmount ) {
     if ( deltaAmount > 0 ) {
       const amountBefore = this.solution.soluteAmountProperty.value;
-      this.solution.soluteAmountProperty.set( Math.max( SOLUTE_AMOUNT_RANGE.min, this.solution.soluteAmountProperty.value - deltaAmount ) );
+      this.solution.soluteAmountProperty.value =
+        Math.max( SOLUTE_AMOUNT_RANGE.min, this.solution.soluteAmountProperty.value - deltaAmount );
       return amountBefore - this.solution.soluteAmountProperty.value;
     }
     else {

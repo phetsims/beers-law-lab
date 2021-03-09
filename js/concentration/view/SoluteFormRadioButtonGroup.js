@@ -61,16 +61,16 @@ class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup {
     super( soluteFormProperty, items, options );
 
     soluteFormProperty.link( soluteForm => {
-      shakerVisibleProperty.set( soluteForm === SoluteForm.SOLID );
-      dropperVisibleProperty.set( soluteForm === SoluteForm.SOLUTION );
+      shakerVisibleProperty.value = ( soluteForm === SoluteForm.SOLID );
+      dropperVisibleProperty.value = ( soluteForm === SoluteForm.SOLUTION );
     } );
 
     shakerVisibleProperty.link( visible => {
-      soluteFormProperty.set( visible ? SoluteForm.SOLID : SoluteForm.SOLUTION );
+      soluteFormProperty.value = ( visible ? SoluteForm.SOLID : SoluteForm.SOLUTION );
     } );
 
     dropperVisibleProperty.link( visible => {
-      soluteFormProperty.set( visible ? SoluteForm.SOLUTION : SoluteForm.SOLID );
+      soluteFormProperty.value = ( visible ? SoluteForm.SOLUTION : SoluteForm.SOLID );
     } );
   }
 }

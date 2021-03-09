@@ -42,13 +42,13 @@ class Evaporator {
 
     // disable when the volume gets to zero
     solution.volumeProperty.link( volume => {
-      this.enabledProperty.set( volume > 0 );
+      this.enabledProperty.value = ( volume > 0 );
     } );
 
     // when disabled, set the rate to zero
     this.enabledProperty.link( enabled => {
       if ( !enabled ) {
-        this.evaporationRateProperty.set( 0 );
+        this.evaporationRateProperty.value = 0;
       }
     } );
   }
