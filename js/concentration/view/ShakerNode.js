@@ -68,6 +68,7 @@ class ShakerNode extends Node {
       textPropertyOptions: { phetioReadOnly: true }
     } );
 
+    // hint arrows
     const downArrowNode = new ArrowNode( 0, 0, 0, ARROW_LENGTH, ARROW_OPTIONS );
     const upArrowNode = new ArrowNode( 0, 0, 0, -ARROW_LENGTH, ARROW_OPTIONS );
 
