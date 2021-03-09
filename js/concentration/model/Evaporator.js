@@ -8,6 +8,7 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Range from '../../../../dot/js/Range.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
@@ -29,9 +30,10 @@ class Evaporator {
 
     // @public
     this.evaporationRateProperty = new NumberProperty( 0, {
+      range: new Range( 0, maxEvaporationRate ),
+      units: 'L/s',
       tandem: options.tandem.createTandem( 'evaporationRateProperty' ),
-      phetioReadOnly: true, // this is controlled by the model
-      units: 'L/s'
+      phetioReadOnly: true // this is controlled by the model
     } );
 
     // @public
