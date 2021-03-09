@@ -39,6 +39,9 @@ class BLLDropperNode extends EyeDropperNode {
         enabledProperty: dropper.enabledProperty
       },
 
+      // Node options
+      visibleProperty: dropper.visibleProperty,
+
       // phet-io
       tandem: Tandem.REQUIRED
     }, options );
