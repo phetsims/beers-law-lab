@@ -17,9 +17,9 @@ import beersLawLabStrings from '../../beersLawLabStrings.js';
 class SaturatedIndicator extends Node {
 
   /**
-   * @param {ConcentrationSolution} solution
+   * @param {Property.<boolean>} isSaturatedProperty
    */
-  constructor( solution ) {
+  constructor( isSaturatedProperty ) {
 
     super();
 
@@ -38,7 +38,7 @@ class SaturatedIndicator extends Node {
     label.centerY = background.centerY;
 
     // make this node visible when the solution is saturated
-    solution.saturatedProperty.link( saturated => {
+    isSaturatedProperty.link( saturated => {
       this.setVisible( saturated );
     } );
   }

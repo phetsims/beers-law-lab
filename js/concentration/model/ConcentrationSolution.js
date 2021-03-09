@@ -85,12 +85,12 @@ class ConcentrationSolution extends Fluid {
     );
 
     // @public boolean property indicating whether the solution is saturated or not.
-    this.saturatedProperty = new DerivedProperty(
+    this.isSaturatedProperty = new DerivedProperty(
       [ this.soluteProperty, this.soluteAmountProperty, this.volumeProperty ],
       ( solute, soluteAmount, volume ) => {
         return ( volume > 0 ) && ( soluteAmount / volume ) > solute.getSaturatedConcentration();
       }, {
-        tandem: options.tandem.createTandem( 'saturatedProperty' ),
+        tandem: options.tandem.createTandem( 'isSaturatedProperty' ),
         phetioType: DerivedProperty.DerivedPropertyIO( BooleanIO )
       }
     );

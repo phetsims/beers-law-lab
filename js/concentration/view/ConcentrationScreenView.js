@@ -57,7 +57,7 @@ class ConcentrationScreenView extends ScreenView {
     const precipitateNode = new PrecipitateNode( model.precipitate, modelViewTransform, new Bounds2(
       modelViewTransform.modelToViewX( model.beaker.getLeft() ), modelViewTransform.modelToViewY( model.beaker.position.y ) - 100,
       modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.position.y ) ) );
-    const saturatedIndicator = new SaturatedIndicator( model.solution );
+    const saturatedIndicator = new SaturatedIndicator( model.solution.isSaturatedProperty );
 
     // Shaker
     const shakerNode = new ShakerNode( model.shaker, modelViewTransform, {
