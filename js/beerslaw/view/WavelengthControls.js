@@ -23,6 +23,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
+import Light from '../model/Light.js';
 
 // constants
 const RADIO_BUTTON_TEXT_OPTIONS = { font: new PhetFont( 18 ), fill: 'black' };
@@ -67,19 +68,19 @@ class WavelengthControls extends Panel {
     // radio button descriptions
     const radioButtonItems = [
       {
-        value: false,
+        value: Light.Mode.PRESET,
         node: new Text( beersLawLabStrings.preset, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'presetWavelengthRadioButton'
       },
       {
-        value: true,
+        value: Light.Mode.VARIABLE,
         node: new Text( beersLawLabStrings.variable, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'variableWavelengthRadioButton'
       }
     ];
 
     // radio button group
-    const radioButtonGroup = new AquaRadioButtonGroup( variableWavelengthProperty, radioButtonItems, {
+    const radioButtonGroup = new AquaRadioButtonGroup( light.modeProperty, radioButtonItems, {
       radioButtonOptions: {
         radius: BLLConstants.RADIO_BUTTON_RADIUS,
         visiblePropertyOptions: { phetioReadOnly: true }
@@ -97,7 +98,8 @@ class WavelengthControls extends Panel {
       valueVisible: false,
       tweakersTouchAreaXDilation: 10,
       tweakersTouchAreaYDilation: 10,
-      tandem: options.tandem.createTandem( 'wavelengthSlider' )
+      tandem: options.tandem.createTandem( 'wavelengthSlider' ),
+      visiblePropertyOptions: { phetioReadOnly: true }
     } );
 
     // rendering order
@@ -121,20 +123,9 @@ class WavelengthControls extends Panel {
     super( content, options );
 
     // When the radio button selection changes...
-    variableWavelengthProperty.link( isVariable => {
-
-      // add/remove the slider so that the panel resizes
-      if ( isVariable ) {
-        !content.hasChild( wavelengthSlider ) && content.addChild( wavelengthSlider );
-      }
-      else {
-        content.hasChild( wavelengthSlider ) && content.removeChild( wavelengthSlider );
-      }
-
-      if ( !isVariable ) {
-        // Set the light to the current solution's lambdaMax wavelength.
-        light.wavelengthProperty.set( solutionProperty.get().molarAbsorptivityData.lambdaMax );
-      }
+    light.modeProperty.link( mode => {
+      wavelengthSlider.interruptSubtreeInput();
+      wavelengthSlider.visible = ( mode === Light.Mode.VARIABLE );
     } );
 
     // @private
