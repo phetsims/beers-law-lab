@@ -12,6 +12,7 @@ import merge from '../../../../phet-core/js/merge.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import EyeDropperNode from '../../../../scenery-phet/js/EyeDropperNode.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import BLLQueryParameters from '../../common/BLLQueryParameters.js';
@@ -36,16 +37,18 @@ class ConcentrationScreenView extends ScreenView {
   /**
    * @param {ConcentrationModel} model
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( model, modelViewTransform, tandem ) {
+  constructor( model, modelViewTransform, options ) {
 
-    super( merge( {
-      tandem: tandem
-    }, BLLConstants.SCREEN_VIEW_OPTIONS ) );
+    options = merge( {
+      tandem: Tandem.REQUIRED
+    }, BLLConstants.SCREEN_VIEW_OPTIONS, options );
+
+    super( options );
 
     // Beaker and stuff inside it
-    const beakerNode = new BeakerNode( model.beaker, modelViewTransform, tandem.createTandem( 'beakerNode' ) );
+    const beakerNode = new BeakerNode( model.beaker, modelViewTransform, options.tandem.createTandem( 'beakerNode' ) );
     const solutionNode = new SolutionNode( model.solution, model.beaker, modelViewTransform );
 
     // Precipitate particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
@@ -55,7 +58,7 @@ class ConcentrationScreenView extends ScreenView {
     const saturatedIndicator = new SaturatedIndicator( model.solution );
 
     // Shaker
-    const shakerNode = new ShakerNode( model.shaker, modelViewTransform, tandem.createTandem( 'shakerNode' ) );
+    const shakerNode = new ShakerNode( model.shaker, modelViewTransform, options.tandem.createTandem( 'shakerNode' ) );
 
     // Shaker particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
     const shakerParticlesNode = new ShakerParticlesNode( model.shakerParticles, modelViewTransform, new Bounds2(
@@ -63,12 +66,12 @@ class ConcentrationScreenView extends ScreenView {
       modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.position.y ) ) );
 
     // Dropper
-    const dropperNode = new BLLDropperNode( model.dropper, model.solution.solvent, model.solution.soluteProperty, modelViewTransform, tandem.createTandem( 'dropperNode' ) );
+    const dropperNode = new BLLDropperNode( model.dropper, model.solution.solvent, model.solution.soluteProperty, modelViewTransform, options.tandem.createTandem( 'dropperNode' ) );
     const stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.soluteProperty, model.dropper, model.beaker, EyeDropperNode.TIP_WIDTH - 1, modelViewTransform );
 
     // faucets
-    const solventFaucetNode = new BLLFaucetNode( model.solventFaucet, modelViewTransform, tandem.createTandem( 'solventFaucetNode' ) );
-    const drainFaucetNode = new BLLFaucetNode( model.drainFaucet, modelViewTransform, tandem.createTandem( 'drainFaucetNode' ) );
+    const solventFaucetNode = new BLLFaucetNode( model.solventFaucet, modelViewTransform, options.tandem.createTandem( 'solventFaucetNode' ) );
+    const drainFaucetNode = new BLLFaucetNode( model.drainFaucet, modelViewTransform, options.tandem.createTandem( 'drainFaucetNode' ) );
     const SOLVENT_FLUID_HEIGHT = model.beaker.position.y - model.solventFaucet.position.y;
     const DRAIN_FLUID_HEIGHT = 1000; // tall enough that resizing the play area is unlikely to show bottom of fluid
     const solventFluidNode = new FaucetFluidNode( model.solventFaucet, model.solution.solvent, SOLVENT_FLUID_HEIGHT, modelViewTransform );
@@ -76,15 +79,15 @@ class ConcentrationScreenView extends ScreenView {
 
     // Concentration meter
     const concentrationMeterNode = new ConcentrationMeterNode( model.concentrationMeter, model.solution, model.dropper,
-      solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, modelViewTransform, tandem.createTandem( 'concentrationMeterNode' ) );
+      solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, modelViewTransform, options.tandem.createTandem( 'concentrationMeterNode' ) );
 
     // Solute controls
     const soluteListParent = new Node();
     const soluteControls = new SoluteControls( model.solutes, model.soluteProperty, model.soluteFormProperty, model.shaker,
-      model.dropper, soluteListParent, tandem.createTandem( 'soluteControls' ), { maxWidth: 480 } );
+      model.dropper, soluteListParent, options.tandem.createTandem( 'soluteControls' ), { maxWidth: 480 } );
 
     // Evaporation control
-    const evaporationControl = new EvaporationControl( model.evaporator, tandem.createTandem( 'evaporationControl' ), { maxWidth: 410 } );
+    const evaporationControl = new EvaporationControl( model.evaporator, options.tandem.createTandem( 'evaporationControl' ), { maxWidth: 410 } );
 
     // Solute amount, in grams
     const soluteGramsNode = new SoluteGramsNode( model.solution.soluteGramsProperty, {
@@ -93,7 +96,7 @@ class ConcentrationScreenView extends ScreenView {
     } );
 
     // Remove Solute button
-    const removeSoluteButton = new RemoveSoluteButton( model.solution, model.shakerParticles, tandem.createTandem( 'removeSoluteButton' ), {
+    const removeSoluteButton = new RemoveSoluteButton( model.solution, model.shakerParticles, options.tandem.createTandem( 'removeSoluteButton' ), {
       maxWidth: 200
     } );
 
@@ -101,7 +104,7 @@ class ConcentrationScreenView extends ScreenView {
     const resetAllButton = new ResetAllButton( {
       listener: () => model.reset(),
       scale: 1.32,
-      tandem: tandem.createTandem( 'resetAllButton' )
+      tandem: options.tandem.createTandem( 'resetAllButton' )
     } );
 
     // Rendering order

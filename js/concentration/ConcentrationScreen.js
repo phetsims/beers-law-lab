@@ -8,8 +8,10 @@
 
 import Screen from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
+import merge from '../../../phet-core/js/merge.js';
 import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
 import Image from '../../../scenery/js/nodes/Image.js';
+import Tandem from '../../../tandem/js/Tandem.js';
 import screenIcon from '../../images/Concentration-screen-icon_jpg.js';
 import beersLawLab from '../beersLawLab.js';
 import beersLawLabStrings from '../beersLawLabStrings.js';
@@ -19,21 +21,25 @@ import ConcentrationScreenView from './view/ConcentrationScreenView.js';
 class ConcentrationScreen extends Screen {
 
   /**
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( tandem ) {
+  constructor( options ) {
+
+    options = merge( {
+      name: beersLawLabStrings.screen.concentration,
+      homeScreenIcon: createScreenIcon(),
+      tandem: Tandem.REQUIRED
+    }, options );
 
     const modelViewTransform = ModelViewTransform2.createIdentity();
 
-    const options = {
-      name: beersLawLabStrings.screen.concentration,
-      homeScreenIcon: createScreenIcon(),
-      tandem: tandem
-    };
-
     super(
-      () => new ConcentrationModel( { tandem: tandem.createTandem( 'model' ) } ),
-      model => new ConcentrationScreenView( model, modelViewTransform, tandem.createTandem( 'view' ) ),
+      () => new ConcentrationModel( {
+        tandem: options.tandem.createTandem( 'model' )
+      } ),
+      model => new ConcentrationScreenView( model, modelViewTransform, {
+        tandem: options.tandem.createTandem( 'view' )
+      } ),
       options
     );
   }

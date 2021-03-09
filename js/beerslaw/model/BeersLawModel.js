@@ -10,6 +10,8 @@ import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
+import merge from '../../../../phet-core/js/merge.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import Absorbance from './Absorbance.js';
 import ATDetector from './ATDetector.js';
@@ -26,9 +28,13 @@ class BeersLawModel {
 
   /**
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( modelViewTransform, tandem ) {
+  constructor( modelViewTransform, options ) {
+
+    options = merge( {
+      tandem: Tandem.REQUIRED
+    }, options );
 
     // @public Solutions, in rainbow (ROYGBIV) order.
     this.solutions = [
@@ -44,26 +50,26 @@ class BeersLawModel {
 
     // @public
     this.solutionProperty = new Property( this.solutions[ 0 ], {
-      tandem: tandem.createTandem( 'solutionProperty' ),
+      tandem: options.tandem.createTandem( 'solutionProperty' ),
       phetioType: Property.PropertyIO( BeersLawSolution.BeersLawSolutionIO )
     } );
 
     // @public NOTE: All positions are relative to the position of the cuvette.
     this.cuvette = new Cuvette( new Vector2( 3.3, 0.5 ), CUVETTE_WIDTH_RANGE, 3, {
-      tandem: tandem.createTandem( 'cuvette' )
+      tandem: options.tandem.createTandem( 'cuvette' )
     } );
 
     // @public
     this.light = new Light( new Vector2( this.cuvette.position.x - 1.5, this.cuvette.position.y + ( this.cuvette.height / 2 ) ),
       false, 0.45, this.solutionProperty, {
-        tandem: tandem.createTandem( 'light' )
+        tandem: options.tandem.createTandem( 'light' )
       } );
 
     // @public
     this.ruler = new Ruler( 2.1, 0.1, 0.35,
       new Vector2( this.cuvette.position.x - 2.6, this.cuvette.position.y + 4 ),
       new Bounds2( 0, 0, 6, 5 ), {
-        tandem: tandem.createTandem( 'ruler' )
+        tandem: options.tandem.createTandem( 'ruler' )
       }
     );
 
@@ -76,7 +82,7 @@ class BeersLawModel {
       new Vector2( this.cuvette.position.x + 3, this.light.position.y ),
       new Bounds2( 0, 0, 7.9, 5.25 ),
       this.light, this.cuvette, this.absorbance, {
-        tandem: tandem.createTandem( 'detector' )
+        tandem: options.tandem.createTandem( 'detector' )
       }
     );
 

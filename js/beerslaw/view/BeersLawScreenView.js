@@ -10,6 +10,7 @@ import ScreenView from '../../../../joist/js/ScreenView.js';
 import merge from '../../../../phet-core/js/merge.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import BLLQueryParameters from '../../common/BLLQueryParameters.js';
@@ -26,22 +27,24 @@ class BeersLawScreenView extends ScreenView {
   /**
    * @param {BeersLawModel} model
    * @param {ModelViewTransform2} modelViewTransform
-   * @param {Tandem} tandem
+   * @param {Object} [options]
    */
-  constructor( model, modelViewTransform, tandem ) {
+  constructor( model, modelViewTransform, options ) {
 
-    super( merge( {
-      tandem: tandem
-    }, BLLConstants.SCREEN_VIEW_OPTIONS ) );
+    options = merge( {
+      tandem: Tandem.REQUIRED
+    }, BLLConstants.SCREEN_VIEW_OPTIONS, options );
 
-    const lightNode = new LightNode( model.light, modelViewTransform, tandem.createTandem( 'lightNode' ) );
-    const cuvetteNode = new CuvetteNode( model.cuvette, model.solutionProperty, modelViewTransform, BLLQueryParameters.cuvetteSnapInterval, tandem.createTandem( 'cuvetteNode' ) );
+    super( options );
+
+    const lightNode = new LightNode( model.light, modelViewTransform, options.tandem.createTandem( 'lightNode' ) );
+    const cuvetteNode = new CuvetteNode( model.cuvette, model.solutionProperty, modelViewTransform, BLLQueryParameters.cuvetteSnapInterval, options.tandem.createTandem( 'cuvetteNode' ) );
     const beamNode = new BeamNode( model.beam );
-    const detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform, tandem.createTandem( 'detectorNode' ) );
-    const wavelengthControls = new WavelengthControls( model.solutionProperty, model.light, tandem.createTandem( 'wavelengthControls' ) );
-    const rulerNode = new BLLRulerNode( model.ruler, modelViewTransform, tandem.createTandem( 'rulerNode' ) );
+    const detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform, options.tandem.createTandem( 'detectorNode' ) );
+    const wavelengthControls = new WavelengthControls( model.solutionProperty, model.light, options.tandem.createTandem( 'wavelengthControls' ) );
+    const rulerNode = new BLLRulerNode( model.ruler, modelViewTransform, options.tandem.createTandem( 'rulerNode' ) );
     const comboBoxListParent = new Node();
-    const solutionControls = new SolutionControls( model.solutions, model.solutionProperty, comboBoxListParent, tandem.createTandem( 'solutionControls' ), { maxWidth: 575 } );
+    const solutionControls = new SolutionControls( model.solutions, model.solutionProperty, comboBoxListParent, options.tandem.createTandem( 'solutionControls' ), { maxWidth: 575 } );
 
     // Reset All button
     const resetAllButton = new ResetAllButton( {
@@ -50,7 +53,7 @@ class BeersLawScreenView extends ScreenView {
         model.reset();
         wavelengthControls.reset();
       },
-      tandem: tandem.createTandem( 'resetAllButton' )
+      tandem: options.tandem.createTandem( 'resetAllButton' )
     } );
 
     // Rendering order
