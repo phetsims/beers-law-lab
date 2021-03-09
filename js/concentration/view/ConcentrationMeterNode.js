@@ -27,10 +27,10 @@ import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import ProbeNode from '../../../../scenery-phet/js/ProbeNode.js';
 import ShadedRectangle from '../../../../scenery-phet/js/ShadedRectangle.js';
-import LayoutBox from '../../../../scenery/js/nodes/LayoutBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
+import VBox from '../../../../scenery/js/nodes/VBox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
@@ -73,11 +73,16 @@ class ConcentrationMeterNode extends Node {
     super( options );
 
     const bodyNode = new BodyNode( meter, modelViewTransform, {
-      tandem: options.tandem.createTandem( 'bodyNode' )
+      tandem: options.tandem.createTandem( 'bodyNode' ),
+      visiblePropertyOptions: { phetioReadOnly: true }
     } );
-    const probeNode = new ConcentrationProbeNode( meter.probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, {
-      tandem: options.tandem.createTandem( 'probeNode' )
-    } );
+
+    const probeNode = new ConcentrationProbeNode( meter.probe, modelViewTransform, solutionNode, stockSolutionNode,
+      solventFluidNode, drainFluidNode, {
+        tandem: options.tandem.createTandem( 'probeNode' ),
+        visiblePropertyOptions: { phetioReadOnly: true }
+      } );
+
     const wireNode = new WireNode( meter.body, meter.probe, bodyNode, probeNode );
 
     // rendering order
@@ -139,37 +144,42 @@ class BodyNode extends Node {
 
     super( options );
 
-    const maxTextWidth = 225; // constrain text width for i18n, determined empirically
-
     // title
-    const titleNode = new Text( beersLawLabStrings.concentration,
-      { font: new PhetFont( 18 ), fill: 'white', maxWidth: maxTextWidth } );
+    const titleNode = new Text( beersLawLabStrings.concentration, {
+      font: new PhetFont( 18 ),
+      fill: 'white',
+      maxWidth: 150,
+      tandem: options.tandem.createTandem( 'titleNode' )
+    } );
 
-    // readout for the value + units
-    const formattedText = StringUtils.format(
+    // value + units
+    const valueString = StringUtils.format(
       beersLawLabStrings.pattern[ '0value' ][ '1units' ],
       Utils.toFixed( 1, DECIMAL_PLACES_MOLES_PER_LITER ),
       beersLawLabStrings.units.molesPerLiter
     );
-    const readoutTextNode = new Text( formattedText, {
+    const valueNode = new Text( valueString, {
       font: new PhetFont( 24 ),
       fill: 'black',
-      maxWidth: maxTextWidth,
-      tandem: options.tandem.createTandem( 'readoutTextNode' )
+      maxWidth: 150,
+      tandem: options.tandem.createTandem( 'valueNode' ),
+      textPropertyOptions: { phetioReadOnly: true }
     } );
-    const readoutWidth = Math.max( MIN_VALUE_SIZE.width, Math.max( titleNode.width, readoutTextNode.width ) + ( 2 * READOUT_X_MARGIN ) );
-    const readoutHeight = Math.max( MIN_VALUE_SIZE.height, readoutTextNode.height + ( 2 * READOUT_Y_MARGIN ) );
-    const readoutBackgroundNode = new ShadedRectangle( new Bounds2( 0, 0, readoutWidth, readoutHeight ), {
+
+    // background behind the value
+    const backgroundWidth = Math.max( MIN_VALUE_SIZE.width, Math.max( titleNode.width, valueNode.width ) + ( 2 * READOUT_X_MARGIN ) );
+    const backgroundHeight = Math.max( MIN_VALUE_SIZE.height, valueNode.height + ( 2 * READOUT_Y_MARGIN ) );
+    const backgroundNode = new ShadedRectangle( new Bounds2( 0, 0, backgroundWidth, backgroundHeight ), {
       baseColor: 'white',
       lightSource: 'rightBottom'
     } );
-    readoutTextNode.right = readoutBackgroundNode.right - READOUT_X_MARGIN;
-    readoutTextNode.centerY = readoutBackgroundNode.centerY;
+    valueNode.right = backgroundNode.right - READOUT_X_MARGIN;
+    valueNode.centerY = backgroundNode.centerY;
 
     // vertical arrangement of stuff in the meter
-    const vBox = new LayoutBox( {
-      children: [ titleNode, new Node( { children: [ readoutBackgroundNode, readoutTextNode ] } ) ],
-      orientation: 'vertical',
+    const vBox = new VBox( {
+      excludeInvisibleChildrenFromBounds: false,
+      children: [ titleNode, new Node( { children: [ backgroundNode, valueNode ] } ) ],
       align: 'center',
       spacing: 18
     } );
@@ -204,25 +214,25 @@ class BodyNode extends Node {
     meter.valueProperty.link( value => {
 
       if ( value === null ) {
-        readoutTextNode.setText( READOUT_NO_VALUE );
-        readoutTextNode.centerX = readoutBackgroundNode.centerX; // center justified
+        valueNode.setText( READOUT_NO_VALUE );
+        valueNode.centerX = backgroundNode.centerX; // center justified
       }
       else {
 
         // display concentration as 'mol/L' or '%', see beers-law-lab#149
-        let readoutText = null;
+        let valueText = null;
         if ( DISPLAY_MOLES_PER_LITER ) {
-          readoutText = StringUtils.format( beersLawLabStrings.pattern[ '0value' ][ '1units' ],
+          valueText = StringUtils.format( beersLawLabStrings.pattern[ '0value' ][ '1units' ],
             Utils.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), beersLawLabStrings.units.molesPerLiter );
         }
         else {
-          readoutText = StringUtils.format( beersLawLabStrings.pattern[ '0percent' ],
+          valueText = StringUtils.format( beersLawLabStrings.pattern[ '0percent' ],
             Utils.toFixed( value, DECIMAL_PLACES_PERCENT ) );
         }
-        readoutTextNode.setText( readoutText );
-        readoutTextNode.right = readoutBackgroundNode.right - READOUT_X_MARGIN; // right justified
+        valueNode.setText( valueText );
+        valueNode.right = backgroundNode.right - READOUT_X_MARGIN; // right justified
       }
-      readoutTextNode.centerY = readoutBackgroundNode.centerY;
+      valueNode.centerY = backgroundNode.centerY;
     } );
   }
 }
