@@ -6,8 +6,8 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Property from '../../../../axon/js/Property.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
+import Vector2Property from '../../../../dot/js/Vector2Property.js';
 import merge from '../../../../phet-core/js/merge.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -38,7 +38,7 @@ class SoluteParticle extends PhetioObject {
     this.orientation = orientation;
 
     // @public
-    this.positionProperty = new Property( position );
+    this.positionProperty = new Vector2Property( position );
   }
 
   /**
