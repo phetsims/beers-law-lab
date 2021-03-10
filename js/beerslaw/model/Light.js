@@ -76,12 +76,12 @@ class Light {
     this.modeProperty.reset();
   }
 
-  // @public
+  // @public @returns {number}
   getMinY() {
     return this.position.y - ( this.lensDiameter / 2 );
   }
 
-  // @public
+  // @public @returns {number}
   getMaxY() {
     return this.position.y + ( this.lensDiameter / 2 );
   }
