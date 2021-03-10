@@ -54,7 +54,7 @@ class ConcentrationModel extends PhetioObject {
 
     super( options );
 
-    // @public Solutes, in rainbow (ROYGBIV) order.
+    // @public {Solute[]} in rainbow (ROYGBIV) order.
     this.solutes = [
       Solute.DRINK_MIX,
       Solute.COBALT_II_NITRATE,
