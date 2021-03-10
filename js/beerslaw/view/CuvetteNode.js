@@ -123,7 +123,7 @@ class CuvetteNode extends Node {
 
     // adjust touch area for the arrow
     const dx = 0.25 * arrowNode.width;
-    const dy = 1 * arrowNode.height;
+    const dy = arrowNode.height;
     arrowNode.touchArea = arrowNode.localBounds.dilatedXY( dx, dy );
 
     // position of the cuvette
