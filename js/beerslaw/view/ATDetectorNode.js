@@ -62,10 +62,12 @@ class ATDetectorNode extends Node {
       tandem: options.tandem.createTandem( 'bodyNode' ),
       visiblePropertyOptions: { phetioReadOnly: true }
     } );
+
     const probeNode = new ATProbeNode( detector.probe, light, modelViewTransform, {
       tandem: options.tandem.createTandem( 'probeNode' ),
       visiblePropertyOptions: { phetioReadOnly: true }
     } );
+
     const wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
 
     this.addChild( wireNode );
