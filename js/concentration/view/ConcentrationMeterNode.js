@@ -23,6 +23,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import Shape from '../../../../kite/js/Shape.js';
 import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import ProbeNode from '../../../../scenery-phet/js/ProbeNode.js';
@@ -36,6 +37,9 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
 import BLLQueryParameters from '../../common/BLLQueryParameters.js';
+import ConcentrationMeter from '../model/ConcentrationMeter.js';
+import ConcentrationSolution from '../model/ConcentrationSolution.js';
+import Dropper from '../model/Dropper.js';
 
 // constants
 const BODY_IS_DRAGGABLE = true;
@@ -66,6 +70,14 @@ class ConcentrationMeterNode extends Node {
    */
   constructor( meter, solution, dropper, solutionNode, stockSolutionNode, solventFluidNode,
                drainFluidNode, modelViewTransform, options ) {
+    assert && assert( meter instanceof ConcentrationMeter );
+    assert && assert( solution instanceof ConcentrationSolution );
+    assert && assert( dropper instanceof Dropper );
+    assert && assert( solutionNode instanceof Node );
+    assert && assert( stockSolutionNode instanceof Node );
+    assert && assert( solventFluidNode instanceof Node );
+    assert && assert( drainFluidNode instanceof Node );
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     options = merge( {
       tandem: Tandem.REQUIRED

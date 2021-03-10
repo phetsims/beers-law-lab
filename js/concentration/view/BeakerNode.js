@@ -11,6 +11,7 @@ import Utils from '../../../../dot/js/Utils.js';
 import Shape from '../../../../kite/js/Shape.js';
 import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
@@ -19,6 +20,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
 import BLLQueryParameters from '../../common/BLLQueryParameters.js';
+import Beaker from '../model/Beaker.js';
 
 // constants
 const RIM_OFFSET = 20;
@@ -39,6 +41,8 @@ class BeakerNode extends Node {
    * @param {Object} [options]
    */
   constructor( beaker, modelViewTransform, options ) {
+    assert && assert( beaker instanceof Beaker );
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     options = merge( {
       pickable: false,

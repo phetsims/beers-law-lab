@@ -18,6 +18,7 @@ import Panel from '../../../../sun/js/Panel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
+import Evaporator from '../model/Evaporator.js';
 
 class EvaporationControl extends Panel {
 
@@ -26,6 +27,7 @@ class EvaporationControl extends Panel {
    * @param {Object} [options]
    */
   constructor( evaporator, options ) {
+    assert && assert( evaporator instanceof Evaporator );
 
     options = merge( {
       xMargin: 15,

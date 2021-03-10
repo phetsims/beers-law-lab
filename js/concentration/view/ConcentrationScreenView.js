@@ -9,6 +9,7 @@
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
 import merge from '../../../../phet-core/js/merge.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import EyeDropperNode from '../../../../scenery-phet/js/EyeDropperNode.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
@@ -16,6 +17,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import BLLQueryParameters from '../../common/BLLQueryParameters.js';
+import ConcentrationModel from '../model/ConcentrationModel.js';
 import BeakerNode from './BeakerNode.js';
 import BLLDropperNode from './BLLDropperNode.js';
 import BLLFaucetNode from './BLLFaucetNode.js';
@@ -40,6 +42,8 @@ class ConcentrationScreenView extends ScreenView {
    * @param {Object} [options]
    */
   constructor( model, modelViewTransform, options ) {
+    assert && assert( model instanceof ConcentrationModel );
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     options = merge( {
       tandem: Tandem.REQUIRED

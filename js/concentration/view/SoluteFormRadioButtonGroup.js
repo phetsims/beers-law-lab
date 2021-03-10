@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Property from '../../../../axon/js/Property.js';
 import merge from '../../../../phet-core/js/merge.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import HBox from '../../../../scenery/js/nodes/HBox.js';
@@ -32,6 +33,9 @@ class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup {
    * @param {Object} [options]
    */
   constructor( soluteFormProperty, shakerVisibleProperty, dropperVisibleProperty, options ) {
+    assert && assert( soluteFormProperty instanceof Property );
+    assert && assert( shakerVisibleProperty instanceof Property );
+    assert && assert( dropperVisibleProperty instanceof Property );
 
     options = merge( {
       orientation: 'horizontal',

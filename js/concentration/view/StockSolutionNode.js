@@ -6,9 +6,14 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Property from '../../../../axon/js/Property.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import beersLawLab from '../../beersLawLab.js';
+import Solvent from '../../common/model/Solvent.js';
+import Beaker from '../model/Beaker.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
+import Dropper from '../model/Dropper.js';
 
 class StockSolutionNode extends Rectangle {
   /**
@@ -20,6 +25,12 @@ class StockSolutionNode extends Rectangle {
    * @param {ModelViewTransform2} modelViewTransform
    */
   constructor( solvent, soluteProperty, dropper, beaker, tipWidth, modelViewTransform ) {
+    assert && assert( solvent instanceof Solvent );
+    assert && assert( soluteProperty instanceof Property );
+    assert && assert( dropper instanceof Dropper );
+    assert && assert( beaker instanceof Beaker );
+    assert && assert( typeof tipWidth === 'number' );
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     super( 0, 0, 0, 0, { lineWidth: 1 } );
 

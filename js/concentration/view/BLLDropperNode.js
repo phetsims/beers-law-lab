@@ -10,6 +10,7 @@
 import Property from '../../../../axon/js/Property.js';
 import Shape from '../../../../kite/js/Shape.js';
 import merge from '../../../../phet-core/js/merge.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import EyeDropperNode from '../../../../scenery-phet/js/EyeDropperNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import DragListener from '../../../../scenery/js/listeners/DragListener.js';
@@ -17,7 +18,9 @@ import Path from '../../../../scenery/js/nodes/Path.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
+import Solvent from '../../common/model/Solvent.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
+import Dropper from '../model/Dropper.js';
 
 class BLLDropperNode extends EyeDropperNode {
 
@@ -29,6 +32,10 @@ class BLLDropperNode extends EyeDropperNode {
    * @param {Object} [options]
    */
   constructor( dropper, solvent, soluteProperty, modelViewTransform, options ) {
+    assert && assert( dropper instanceof Dropper );
+    assert && assert( solvent instanceof Solvent );
+    assert && assert( soluteProperty instanceof Property );
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     options = merge( {
 

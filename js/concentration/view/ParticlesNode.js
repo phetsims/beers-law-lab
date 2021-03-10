@@ -8,7 +8,9 @@
  * @author Jonathan Olson
  */
 
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import CanvasNode from '../../../../scenery/js/nodes/CanvasNode.js';
+import PhetioGroup from '../../../../tandem/js/PhetioGroup.js';
 import beersLawLab from '../../beersLawLab.js';
 
 class ParticlesNode extends CanvasNode {
@@ -19,6 +21,8 @@ class ParticlesNode extends CanvasNode {
    * @param {Bounds2} canvasBounds
    */
   constructor( particlesGroup, modelViewTransform, canvasBounds ) {
+    assert && assert( particlesGroup instanceof PhetioGroup );
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     super( {
       pickable: false,

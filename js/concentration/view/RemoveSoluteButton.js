@@ -12,6 +12,8 @@ import TextPushButton from '../../../../sun/js/buttons/TextPushButton.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
+import ConcentrationSolution from '../model/ConcentrationSolution.js';
+import ShakerParticles from '../model/ShakerParticles.js';
 
 class RemoveSoluteButton extends TextPushButton {
 
@@ -21,6 +23,8 @@ class RemoveSoluteButton extends TextPushButton {
    * @param {Object} [options]
    */
   constructor( solution, shakerParticles, options ) {
+    assert && assert( solution instanceof ConcentrationSolution );
+    assert && assert( shakerParticles instanceof ShakerParticles );
 
     options = merge( {
       baseColor: 'rgb(255,200,0)',

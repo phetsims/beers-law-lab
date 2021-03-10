@@ -8,8 +8,11 @@
  */
 
 import Utils from '../../../../dot/js/Utils.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import beersLawLab from '../../beersLawLab.js';
+import Beaker from '../model/Beaker.js';
+import ConcentrationSolution from '../model/ConcentrationSolution.js';
 
 // constants
 const MIN_NONZERO_HEIGHT = 5; // minimum height for a solution with non-zero volume, set by visual inspection
@@ -22,6 +25,9 @@ class SolutionNode extends Rectangle {
    * @param {ModelViewTransform2} modelViewTransform
    */
   constructor( solution, beaker, modelViewTransform ) {
+    assert && assert( solution instanceof ConcentrationSolution );
+    assert && assert( beaker instanceof Beaker );
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     super( 0, 0, 1, 1, { lineWidth: 1 } );
 

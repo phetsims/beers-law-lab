@@ -6,11 +6,15 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Property from '../../../../axon/js/Property.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Panel from '../../../../sun/js/Panel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
+import Dropper from '../model/Dropper.js';
+import Shaker from '../model/Shaker.js';
+import Solute from '../model/Solute.js';
 import SoluteComboBox from './SoluteComboBox.js';
 import SoluteFormRadioButtonGroup from './SoluteFormRadioButtonGroup.js';
 
@@ -25,6 +29,13 @@ class SoluteControls extends Panel {
    * @param {Object} [options]
    */
   constructor( solutes, currentSoluteProperty, soluteFormProperty, shaker, dropper, soluteListParent, options ) {
+    assert && assert( Array.isArray( solutes ) );
+    assert && assert( _.every( solutes, solute => solute instanceof Solute ) );
+    assert && assert( currentSoluteProperty instanceof Property );
+    assert && assert( soluteFormProperty instanceof Property );
+    assert && assert( shaker instanceof Shaker );
+    assert && assert( dropper instanceof Dropper );
+    assert && assert( soluteListParent instanceof Node );
 
     options = merge( {
       xMargin: 15,

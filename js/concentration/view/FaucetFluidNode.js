@@ -7,8 +7,11 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import beersLawLab from '../../beersLawLab.js';
+import Fluid from '../../common/model/Fluid.js';
+import Faucet from '../model/Faucet.js';
 
 class FaucetFluidNode extends Rectangle {
 
@@ -19,6 +22,10 @@ class FaucetFluidNode extends Rectangle {
    * @param {ModelViewTransform2} modelViewTransform
    */
   constructor( faucet, fluid, height, modelViewTransform ) {
+    assert && assert( faucet instanceof Faucet );
+    assert && assert( fluid instanceof Fluid );
+    assert && assert( typeof height === 'number' );
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     super( 0, 0, 0, 0, { lineWidth: 1, pickable: false } );
 

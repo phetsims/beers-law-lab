@@ -6,10 +6,12 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Property from '../../../../axon/js/Property.js';
 import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import HBox from '../../../../scenery/js/nodes/HBox.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ComboBox from '../../../../sun/js/ComboBox.js';
@@ -17,6 +19,7 @@ import ComboBoxItem from '../../../../sun/js/ComboBoxItem.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
+import Solute from '../model/Solute.js';
 
 class SoluteComboBox extends ComboBox {
 
@@ -27,6 +30,10 @@ class SoluteComboBox extends ComboBox {
    * @param {Object} [options]
    */
   constructor( solutes, selectedSoluteProperty, soluteListParent, options ) {
+    assert && assert( Array.isArray( solutes ) );
+    assert && assert( _.every( solutes, solute => solute instanceof Solute ) );
+    assert && assert( selectedSoluteProperty instanceof Property );
+    assert && assert( soluteListParent instanceof Node );
 
     options = merge( {
       listPosition: 'below',

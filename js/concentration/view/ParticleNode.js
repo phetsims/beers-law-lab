@@ -7,8 +7,10 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import beersLawLab from '../../beersLawLab.js';
+import SoluteParticle from '../model/SoluteParticle.js';
 
 class ParticleNode extends Rectangle {
 
@@ -17,6 +19,8 @@ class ParticleNode extends Rectangle {
    * @param {ModelViewTransform2} modelViewTransform
    */
   constructor( particle, modelViewTransform ) {
+    assert && assert( particle instanceof SoluteParticle );
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     const viewSize = modelViewTransform.modelToViewDeltaX( particle.size );
 

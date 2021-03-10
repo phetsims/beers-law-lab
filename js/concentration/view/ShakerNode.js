@@ -8,6 +8,7 @@
 
 import Property from '../../../../axon/js/Property.js';
 import merge from '../../../../phet-core/js/merge.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import ArrowNode from '../../../../scenery-phet/js/ArrowNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import DragListener from '../../../../scenery/js/listeners/DragListener.js';
@@ -19,6 +20,7 @@ import VBox from '../../../../scenery/js/nodes/VBox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import shakerImage from '../../../images/shaker_png.js';
 import beersLawLab from '../../beersLawLab.js';
+import Shaker from '../model/Shaker.js';
 
 // constants
 const DEBUG_ORIGIN = false;
@@ -39,6 +41,8 @@ class ShakerNode extends Node {
    * @param {Object} [options]
    */
   constructor( shaker, modelViewTransform, options ) {
+    assert && assert( shaker instanceof Shaker );
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     options = merge( {
 

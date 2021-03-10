@@ -8,9 +8,11 @@
  */
 
 import merge from '../../../../phet-core/js/merge.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import FaucetNode from '../../../../scenery-phet/js/FaucetNode.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
+import Faucet from '../model/Faucet.js';
 
 // constants
 const SCALE = 0.75;
@@ -23,6 +25,8 @@ class BLLFaucetNode extends FaucetNode {
    * @param {Object} [options]
    */
   constructor( faucet, modelViewTransform, options ) {
+    assert && assert( faucet instanceof Faucet );
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     const horizontalPipeLength = modelViewTransform.modelToViewX( faucet.position.x - faucet.pipeMinX ) / SCALE;
 
