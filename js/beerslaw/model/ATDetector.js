@@ -26,10 +26,10 @@ class ATDetector {
    * @param {Bounds2} probeDragBounds
    * @param {Light} light
    * @param {Cuvette} cuvette
-   * @param {Absorbance} absorbance
+   * @param {AbsorbanceModel} absorbanceModel
    * @param {Object} [options]
    */
-  constructor( bodyPosition, bodyDragBounds, probePosition, probeDragBounds, light, cuvette, absorbance, options ) {
+  constructor( bodyPosition, bodyDragBounds, probePosition, probeDragBounds, light, cuvette, absorbanceModel, options ) {
 
     options = merge( {
       tandem: Tandem.REQUIRED
@@ -57,9 +57,9 @@ class ATDetector {
         this.light.isOnProperty,
         this.modeProperty,
         cuvette.widthProperty,
-        absorbance.absorbanceProperty
+        absorbanceModel.absorbanceProperty
       ],
-      ( probePosition, lightOn, mode, cuvetteWidth, absorbanceValue ) => {
+      ( probePosition, lightOn, mode, cuvetteWidth, absorbance ) => {
 
         // Computes the displayed value, null if the light is off or the probe is outside the beam.
         let value = null;
@@ -68,10 +68,10 @@ class ATDetector {
           // path length is between 0 and cuvette width
           const pathLength = Math.min( Math.max( 0, probePosition.x - cuvette.position.x ), cuvetteWidth );
           if ( this.modeProperty.value === ATDetector.Mode.ABSORBANCE ) {
-            value = absorbance.getAbsorbanceAt( pathLength );
+            value = absorbanceModel.getAbsorbanceAt( pathLength );
           }
           else {
-            value = 100 * absorbance.getTransmittanceAt( pathLength );
+            value = 100 * absorbanceModel.getTransmittanceAt( pathLength );
           }
         }
         return value;

@@ -81,7 +81,7 @@ It depends on the width of the cuvette and the position of the detector probe.
 
 Concentration (C) is in units of M, and is the concentration of the solution in the cuvette.
 
-Absorbance model: A = abC
+AbsorbanceModel model: A = abC
 
 Transmittance model: T = 10^A
 

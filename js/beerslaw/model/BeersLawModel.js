@@ -13,7 +13,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
-import Absorbance from './Absorbance.js';
+import AbsorbanceModel from './AbsorbanceModel.js';
 import ATDetector from './ATDetector.js';
 import Beam from './Beam.js';
 import BeersLawSolution from './BeersLawSolution.js';
@@ -74,20 +74,20 @@ class BeersLawModel {
     );
 
     // @public
-    this.absorbance = new Absorbance( this.light, this.solutionProperty, this.cuvette );
+    this.absorbanceModel = new AbsorbanceModel( this.light, this.solutionProperty, this.cuvette );
 
     // @public
     this.detector = new ATDetector( new Vector2( this.cuvette.position.x + 3, this.cuvette.position.y - 0.3 ),
       new Bounds2( 0, 0, 7.9, 5.25 ),
       new Vector2( this.cuvette.position.x + 3, this.light.position.y ),
       new Bounds2( 0, 0, 7.9, 5.25 ),
-      this.light, this.cuvette, this.absorbance, {
+      this.light, this.cuvette, this.absorbanceModel, {
         tandem: options.tandem.createTandem( 'detector' )
       }
     );
 
     // @public
-    this.beam = new Beam( this.light, this.cuvette, this.detector, this.absorbance, modelViewTransform );
+    this.beam = new Beam( this.light, this.cuvette, this.detector, this.absorbanceModel, modelViewTransform );
   }
 
   // @public

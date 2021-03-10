@@ -1,10 +1,10 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * Absorbance is the model for computing the absorbance (and transmittance) of light passing through a solution
+ * AbsorbanceModel is the model for computing the absorbance (and transmittance) of light passing through a solution
  * in a cuvette.
  *
- * Absorbance model: A = abC
+ * AbsorbanceModel model: A = abC
  *
  * Transmittance model: T = 10^A
  *
@@ -23,7 +23,7 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import beersLawLab from '../../beersLawLab.js';
 
-class Absorbance {
+class AbsorbanceModel {
 
   /**
    * @param {Light} light
@@ -113,5 +113,5 @@ function getTransmittance( absorbance ) {
   return Math.pow( 10, -absorbance );
 }
 
-beersLawLab.register( 'Absorbance', Absorbance );
-export default Absorbance;
+beersLawLab.register( 'AbsorbanceModel', AbsorbanceModel );
+export default AbsorbanceModel;

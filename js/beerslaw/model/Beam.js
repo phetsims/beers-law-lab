@@ -4,7 +4,7 @@
  * Beam is the model of the light as a solid beam.
  * Changes in wavelength affect the entire beam instantaneously.
  * Consists of 3 segments: left (between light and cuvette), center (inside cuvette), and right (to right of cuvette).
- * Beam may be intercepted at any point by the Absorbance-Transmittance detector.
+ * Beam may be intercepted at any point by the AbsorbanceModel-Transmittance detector.
  * The beam is in the probe if the entire beam is in contact with the probe lens.
  *
  * Unlike most model types, properties are in view coordinates.
@@ -31,10 +31,10 @@ class Beam {
    * @param {Light} light
    * @param {Cuvette} cuvette
    * @param {ATDetector} detector
-   * @param {Absorbance} absorbance
+   * @param {AbsorbanceModel} absorbanceModel
    * @param {ModelViewTransform2} modelViewTransform
    */
-  constructor( light, cuvette, detector, absorbance, modelViewTransform ) {
+  constructor( light, cuvette, detector, absorbanceModel, modelViewTransform ) {
 
     // @public Make the beam visible when the light is on.
     this.visibleProperty = new DerivedProperty( [ light.isOnProperty ], isOn => isOn );
@@ -59,12 +59,12 @@ class Beam {
 
     // @public beam color, a left-to-right linear gradient that transitions inside the solution
     this.fillProperty = new DerivedProperty(
-      [ this.visibleProperty, cuvette.widthProperty, light.wavelengthProperty, absorbance.absorbanceProperty ],
-      ( beamVisible, cuvetteWidth, wavelength, absorbanceValue ) => {
+      [ this.visibleProperty, cuvette.widthProperty, light.wavelengthProperty, absorbanceModel.absorbanceProperty ],
+      ( beamVisible, cuvetteWidth, wavelength, absorbance ) => {
         if ( beamVisible ) {
           const baseColor = VisibleColor.wavelengthToColor( wavelength );
           const leftColor = baseColor.withAlpha( MAX_LIGHT_ALPHA );
-          const rightColor = baseColor.withAlpha( Utils.linear( 0, 1, MIN_LIGHT_ALPHA, MAX_LIGHT_ALPHA, absorbance.getTransmittance() ) );
+          const rightColor = baseColor.withAlpha( Utils.linear( 0, 1, MIN_LIGHT_ALPHA, MAX_LIGHT_ALPHA, absorbanceModel.getTransmittance() ) );
           const x = modelViewTransform.modelToViewPosition( cuvette.position ).x;
           const w = modelViewTransform.modelToViewDeltaX( cuvetteWidth );
           return new LinearGradient( x, 0, x + w, 0 ).addColorStop( 0, leftColor ).addColorStop( 1, rightColor );
