@@ -22,8 +22,8 @@ class BLLMovable {
   constructor( options ) {
 
     options = merge( {
-      position: Vector2.ZERO,
-      dragBounds: Bounds2.EVERYTHING,
+      position: Vector2.ZERO, // in cm
+      dragBounds: Bounds2.EVERYTHING, // in cm
       tandem: Tandem.REQUIRED
     }, options );
 
