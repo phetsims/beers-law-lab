@@ -69,9 +69,6 @@ class BeersLawModel {
     this.ruler = new Ruler( {
       position: new Vector2( this.cuvette.position.x - 2.6, this.cuvette.position.y + 4 ),
       dragBounds: new Bounds2( 0, 0, 6, 5 ),
-      length: 2.1,
-      insets: 0.1,
-      height: 0.35,
       tandem: options.tandem.createTandem( 'ruler' )
     } );
 

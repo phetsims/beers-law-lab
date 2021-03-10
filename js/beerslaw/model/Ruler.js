@@ -20,7 +20,6 @@ class Ruler extends BLLMovable {
 
     options = merge( {
       length: 2.1, // in cm
-      insets: 0.1, // the horizontal insets at the ends of the ruler, in cm
       height: 0.35 // in cm
     }, options );
 
@@ -28,7 +27,6 @@ class Ruler extends BLLMovable {
 
     // @public (read-only)
     this.length = options.length;
-    this.insets = options.insets;
     this.height = options.height;
   }
 }
