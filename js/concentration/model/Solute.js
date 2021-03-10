@@ -7,6 +7,7 @@
  */
 
 import merge from '../../../../phet-core/js/merge.js';
+import required from '../../../../phet-core/js/required.js';
 import Color from '../../../../scenery/js/util/Color.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -24,47 +25,54 @@ import SoluteColorScheme from './SoluteColorScheme.js';
 class Solute extends PhetioObject {
 
   /**
-   * @param {string} name
-   * @param {string} formula
-   * @param {number} stockSolutionConcentration - mol/L
-   * @param {number} molarMass - g/mol
-   * @param {SoluteColorScheme} colorScheme
-   * @param {Object} [options]
+   * @param {Object} config
    */
-  constructor( name, formula, stockSolutionConcentration, molarMass, colorScheme, options ) {
+  constructor( config ) {
 
-    options = merge( {
-      particleColor: colorScheme.maxColor,
+    config = merge( {
+
+      // required
+      name: required( config.name ), // {string}
+      formula: required( config.formula ), // {string}
+      stockSolutionConcentration: required( config.stockSolutionConcentration ), // {number} mol/L
+      molarMass: required( config.molarMass ), // {number} g/mol
+      colorScheme: required( config.colorScheme ), // {SoluteColorScheme}
+
+      // options
+      particleColor: config.colorScheme.maxColor,
       particleSize: 5,
       particlesPerMole: 200,
-      phetioType: Solute.SoluteIO,
-      tandem: Tandem.REQUIRED
-    }, options );
 
-    super( options );
+      // phet-io
+      tandem: Tandem.REQUIRED,
+      phetioType: Solute.SoluteIO
+    }, config );
+
+    super( config );
 
     // @public - the name of the solute in tandem id format. Used to other make tandems that pertain to this solute.
-    this.tandemName = options.tandem.name;
-
-    // @public (read-only), (read-write, phet-io)
-    this.name = name;
-    this.formula = formula;
+    this.tandemName = config.tandem.name;
 
     // @public (read-only)
-    this.stockSolutionConcentration = stockSolutionConcentration; // mol/L
-    this.molarMass = molarMass; // g/mol
-    this.colorScheme = colorScheme;
-    this.particleColor = options.particleColor;
-    this.particleSize = options.particleSize;
-    this.particlesPerMole = options.particlesPerMole;
+    this.name = config.name;
+    this.formula = config.formula;
+
+    // @public (read-only)
+    this.stockSolutionConcentration = config.stockSolutionConcentration; // mol/L
+    this.molarMass = config.molarMass; // g/mol
+    this.colorScheme = config.colorScheme;
+    this.particleColor = config.particleColor;
+    this.particleSize = config.particleSize;
+    this.particlesPerMole = config.particlesPerMole;
 
     // @public (read-only) percent concentration [0,100] of stock solution, see beers-law-lab#149
-    this.stockSolutionPercentConcentration = 100 * ( molarMass * stockSolutionConcentration ) /
-                                             ( Solvent.WATER.density + ( molarMass * stockSolutionConcentration ) );
+    this.stockSolutionPercentConcentration =
+      100 * ( config.molarMass * config.stockSolutionConcentration ) /
+      ( Solvent.WATER.density + ( config.molarMass * config.stockSolutionConcentration ) );
     assert && assert( this.stockSolutionPercentConcentration >= 0 && this.stockSolutionPercentConcentration <= 100 );
   }
 
-  // @public gets the saturated concentration, in mol/L
+  // @public @returns {number} gets the saturated concentration, in mol/L
   getSaturatedConcentration() {
     return this.colorScheme.maxConcentration;
   }
@@ -100,96 +108,87 @@ Solute.SoluteIO = new IOType( 'SoluteIO', {
 // parent tandem for all static instances of Solute
 const SOLUTES_TANDEM = BLLConstants.CONCENTRATION_SCREEN_TANDEM.createTandem( 'model' ).createTandem( 'solutes' );
 
-Solute.DRINK_MIX = new Solute(
-  beersLawLabStrings.drinkMix,
-  beersLawLabStrings.drinkMix,
-  5.5, // stockSolutionConcentration, mol/L
-  342.296, // molarMass, g/mol (sucrose)
-  new SoluteColorScheme( 0, new Color( 224, 255, 255 ), 0.05, new Color( 255, 225, 225 ), 5.96, new Color( 255, 0, 0 ) ), {
-    tandem: SOLUTES_TANDEM.createTandem( 'drinkMix' )
-  }
-);
+Solute.DRINK_MIX = new Solute( {
+  name: beersLawLabStrings.drinkMix,
+  formula: beersLawLabStrings.drinkMix,
+  stockSolutionConcentration: 5.5,
+  molarMass: 342.296, // sucrose
+  colorScheme: new SoluteColorScheme( 0, new Color( 224, 255, 255 ), 0.05, new Color( 255, 225, 225 ), 5.96, new Color( 255, 0, 0 ) ),
+  tandem: SOLUTES_TANDEM.createTandem( 'drinkMix' )
+} );
 
-Solute.COBALT_II_NITRATE = new Solute(
-  beersLawLabStrings.cobaltIINitrate,
-  BLLSymbols.COBALT_II_NITRATE,
-  5.0, // stockSolutionConcentration, mol/L
-  182.942, // molarMass, g/mol
-  new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.05, new Color( 255, 225, 225 ), 5.64, new Color( 255, 0, 0 ) ), {
-    tandem: SOLUTES_TANDEM.createTandem( 'cobaltIINitrate' )
-  }
-);
+Solute.COBALT_II_NITRATE = new Solute( {
+  name: beersLawLabStrings.cobaltIINitrate,
+  formula: BLLSymbols.COBALT_II_NITRATE,
+  stockSolutionConcentration: 5.0,
+  molarMass: 182.942,
+  colorScheme: new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.05, new Color( 255, 225, 225 ), 5.64, new Color( 255, 0, 0 ) ),
+  tandem: SOLUTES_TANDEM.createTandem( 'cobaltIINitrate' )
+} );
 
-Solute.COBALT_CHLORIDE = new Solute(
-  beersLawLabStrings.cobaltChloride,
-  BLLSymbols.COBALT_CHLORIDE,
-  4.0, // stockSolutionConcentration, mol/L
-  129.839, // molarMass, g/mol
-  new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.05, new Color( 255, 242, 242 ), 4.33, new Color( 255, 106, 106 ) ), {
-    tandem: SOLUTES_TANDEM.createTandem( 'cobaltChloride' )
-  }
-);
+Solute.COBALT_CHLORIDE = new Solute( {
+  name: beersLawLabStrings.cobaltChloride,
+  formula: BLLSymbols.COBALT_CHLORIDE,
+  stockSolutionConcentration: 4.0,
+  molarMass: 129.839,
+  colorScheme: new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.05, new Color( 255, 242, 242 ), 4.33, new Color( 255, 106, 106 ) ),
+  tandem: SOLUTES_TANDEM.createTandem( 'cobaltChloride' )
+} );
 
-Solute.POTASSIUM_DICHROMATE = new Solute(
-  beersLawLabStrings.potassiumDichromate,
-  BLLSymbols.POTASSIUM_DICHROMATE,
-  0.5, // stockSolutionConcentration, mol/L
-  294.185, // molarMass, g/mol
-  new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.01, new Color( 255, 204, 153 ), 0.51, new Color( 255, 127, 0 ) ), {
-    tandem: SOLUTES_TANDEM.createTandem( 'potassiumDichromate' )
-  }
-);
+Solute.POTASSIUM_DICHROMATE = new Solute( {
+  name: beersLawLabStrings.potassiumDichromate,
+  formula: BLLSymbols.POTASSIUM_DICHROMATE,
+  stockSolutionConcentration: 0.5,
+  molarMass: 294.185,
+  colorScheme: new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.01, new Color( 255, 204, 153 ), 0.51, new Color( 255, 127, 0 ) ),
+  tandem: SOLUTES_TANDEM.createTandem( 'potassiumDichromate' )
+} );
 
-Solute.POTASSIUM_CHROMATE = new Solute(
-  beersLawLabStrings.potassiumChromate,
-  BLLSymbols.POTASSIUM_CHROMATE,
-  3.0, // stockSolutionConcentration, mol/L
-  194.191, // molarMass, g/mol
-  new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.05, new Color( 255, 255, 153 ), 3.35, new Color( 255, 255, 0 ) ), {
-    tandem: SOLUTES_TANDEM.createTandem( 'potassiumChromate' )
-  }
-);
+Solute.POTASSIUM_CHROMATE = new Solute( {
+  name: beersLawLabStrings.potassiumChromate,
+  formula: BLLSymbols.POTASSIUM_CHROMATE,
+  stockSolutionConcentration: 3.0,
+  molarMass: 194.191,
+  colorScheme: new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.05, new Color( 255, 255, 153 ), 3.35, new Color( 255, 255, 0 ) ),
+  tandem: SOLUTES_TANDEM.createTandem( 'potassiumChromate' )
+} );
 
-Solute.NICKEL_II_CHLORIDE = new Solute(
-  beersLawLabStrings.nickelIIChloride,
-  BLLSymbols.NICKEL_II_CHLORIDE,
-  5.0, // stockSolutionConcentration, mol/L
-  129.599, // molarMass, g/mol
-  new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.2, new Color( 170, 255, 170 ), 5.21, new Color( 0, 128, 0 ) ), {
-    tandem: SOLUTES_TANDEM.createTandem( 'nickelIIChloride' )
-  }
-);
+Solute.NICKEL_II_CHLORIDE = new Solute( {
+  name: beersLawLabStrings.nickelIIChloride,
+  formula: BLLSymbols.NICKEL_II_CHLORIDE,
+  stockSolutionConcentration: 5.0,
+  molarMass: 129.599,
+  colorScheme: new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.2, new Color( 170, 255, 170 ), 5.21, new Color( 0, 128, 0 ) ),
+  tandem: SOLUTES_TANDEM.createTandem( 'nickelIIChloride' )
+} );
 
-Solute.COPPER_SULFATE = new Solute(
-  beersLawLabStrings.copperSulfate,
-  BLLSymbols.COPPER_SULFATE,
-  1.0, // stockSolutionConcentration, mol/L
-  159.609, // molarMass, g/mol
-  new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.2, new Color( 200, 225, 255 ), 1.38, new Color( 30, 144, 255 ) ), {
-    tandem: SOLUTES_TANDEM.createTandem( 'copperSulfate' )
-  }
-);
+Solute.COPPER_SULFATE = new Solute( {
+  name: beersLawLabStrings.copperSulfate,
+  formula: BLLSymbols.COPPER_SULFATE,
+  stockSolutionConcentration: 1.0,
+  molarMass: 159.609,
+  colorScheme: new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.2, new Color( 200, 225, 255 ), 1.38, new Color( 30, 144, 255 ) ),
+  tandem: SOLUTES_TANDEM.createTandem( 'copperSulfate' )
+} );
 
-Solute.POTASSIUM_PERMANGANATE = new Solute(
-  beersLawLabStrings.potassiumPermanganate,
-  BLLSymbols.POTASSIUM_PERMANGANATE,
-  0.4, // stockSolutionConcentration, mol/L
-  158.034, // molarMass, g/mol
-  new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.01, new Color( 255, 0, 255 ), 0.48, new Color( 80, 0, 120 ) ), {
-    tandem: SOLUTES_TANDEM.createTandem( 'potassiumPermanganate' ),
-    particleColor: Color.BLACK
-  }
-);
+Solute.POTASSIUM_PERMANGANATE = new Solute( {
+  name: beersLawLabStrings.potassiumPermanganate,
+  formula: BLLSymbols.POTASSIUM_PERMANGANATE,
+  stockSolutionConcentration: 0.4,
+  molarMass: 158.034,
+  colorScheme: new SoluteColorScheme( 0, Solvent.WATER_COLOR, 0.01, new Color( 255, 0, 255 ), 0.48, new Color( 80, 0, 120 ) ),
+  tandem: SOLUTES_TANDEM.createTandem( 'potassiumPermanganate' ),
+  particleColor: Color.BLACK
+} );
 
-Solute.SODIUM_CHLORIDE = new Solute(
-  beersLawLabStrings.sodiumChloride,
-  BLLSymbols.SODIUM_CHLORIDE,
-  5.50, // stockSolutionConcentration, mol/L
-  58.443, // molarMass, g/mol
-  new SoluteColorScheme( 0, Solvent.WATER_COLOR, 5.00, new Color( 225, 250, 250 ), 6.15, new Color( 225, 240, 240 ) ), {
-    tandem: SOLUTES_TANDEM.createTandem( 'sodiumChloride' )
-  }
-);
+Solute.SODIUM_CHLORIDE = new Solute( {
+  name: beersLawLabStrings.sodiumChloride,
+  formula: BLLSymbols.SODIUM_CHLORIDE,
+  stockSolutionConcentration: 5.50,
+  molarMass: 58.443,
+  colorScheme: new SoluteColorScheme( 0, Solvent.WATER_COLOR, 5.00, new Color( 225, 250, 250 ), 6.15, new Color( 225, 240, 240 ) ),
+  tandem: SOLUTES_TANDEM.createTandem( 'sodiumChloride' )
+} );
 
 beersLawLab.register( 'Solute', Solute );
 export default Solute;
