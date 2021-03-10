@@ -1,7 +1,7 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * Container for molar absorptivity data for the visible spectrum of light.
+ * MolarAbsorptivityData is a container for molar absorptivity data for the visible spectrum of light.
  * Integer precision is sufficient for wavelength, and simplifies lookup.
  * Values were measured experimentally by Julia Chamberlain, and were copied from
  * beers-law-lab/doc/wavelength-to-molarAbsorptivity.csv.

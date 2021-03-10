@@ -1,7 +1,7 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * Ruler model, to take advantage of position reset.
+ * Ruler is the model of a ruler that is movable.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

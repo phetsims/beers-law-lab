@@ -1,7 +1,7 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * Manages the transformation between how concentration values are stored in
+ * ConcentrationTransform manages the transformation between how concentration values are stored in
  * the model, and how they are presented in the view.
  *
  * In the model, concentration is stored in moles per liter (M) for all solutions.

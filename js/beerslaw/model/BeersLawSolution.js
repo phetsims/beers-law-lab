@@ -1,11 +1,11 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * Solution model for the Beer's Law screen.
- * <p/>
+ * BeersLawSolution is the solution model for the Beer's Law screen.
+ *
  * The numeric values for specific solutions were arrived at by running lab experiments,
  * and are documented in doc/Beers-Law-Lab-design.pdf and doc/BeersLawLabData.xlsx.
- * <p/>
+ *
  * Note that this model does not use the Solute model from the Concentration screen, because
  * we have very different needs wrt color scheme, properties, etc.
  *

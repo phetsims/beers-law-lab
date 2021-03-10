@@ -1,7 +1,7 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * Model of a simple light.
+ * Light is the model of a simple light.
  * Origin is at the center of the lens.
  *
  * @author Chris Malley (PixelZoom, Inc.)

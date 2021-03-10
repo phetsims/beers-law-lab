@@ -1,8 +1,8 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * A cuvette is a small tube of circular or square cross section, sealed at one end,
- * made of plastic, glass, or fused quartz (for UV light) and designed to hold samples
+ * Cuvette is a simple model of a cuvette. A cuvette is a small tube of circular or square cross section,
+ * sealed at one end, made of plastic, glass, or fused quartz (for UV light) and designed to hold samples
  * for spectroscopic experiments.
  *
  * In this case, the cuvette is the vessel that holds the solution.

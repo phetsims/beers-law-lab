@@ -1,7 +1,7 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * Model container for the 'Beer's Law' screen.
+ * BeersLawModel is the top-level model for the 'Beer's Law' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
