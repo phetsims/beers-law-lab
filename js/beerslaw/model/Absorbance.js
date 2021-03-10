@@ -19,7 +19,7 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import Property from '../../../../axon/js/Property.js';
+import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import beersLawLab from '../../beersLawLab.js';
 
 class Absorbance {
@@ -31,7 +31,7 @@ class Absorbance {
    */
   constructor( light, solutionProperty, cuvette ) {
 
-    // @private a : molar absorptivity
+    // @private {DerivedProperty.<number>} a : molar absorptivity
     this.molarAbsorptivityProperty = new DerivedProperty(
       [ solutionProperty, light.wavelengthProperty ],
       ( solution, wavelength ) => {
@@ -39,24 +39,22 @@ class Absorbance {
       } );
 
     // @private C : concentration property, wired to the current solution's concentration
-    {
-      this.currentConcentrationProperty = new Property( solutionProperty.value.concentrationProperty.value );
+    this.currentConcentrationProperty = new NumberProperty( solutionProperty.value.concentrationProperty.value );
 
-      // Observe the concentration property of the current solution.
-      const concentrationObserver = concentration => {
-        this.currentConcentrationProperty.value = concentration;
-      };
+    // Observe the concentration property of the current solution.
+    const concentrationObserver = concentration => {
+      this.currentConcentrationProperty.value = concentration;
+    };
 
-      // Rewire the concentration observer when the solution changes.
-      solutionProperty.link( ( newSolution, oldSolution ) => {
-        if ( oldSolution !== null ) {
-          oldSolution.concentrationProperty.unlink( concentrationObserver );
-        }
-        newSolution.concentrationProperty.link( concentrationObserver );
-      } );
-    }
+    // Rewire the concentration observer when the solution changes.
+    solutionProperty.link( ( newSolution, oldSolution ) => {
+      if ( oldSolution !== null ) {
+        oldSolution.concentrationProperty.unlink( concentrationObserver );
+      }
+      newSolution.concentrationProperty.link( concentrationObserver );
+    } );
 
-    // @public absorbance: A = abC
+    // @public {DerivedProperty.<number>} absorbance: A = abC
     this.absorbanceProperty = new DerivedProperty(
       [ this.molarAbsorptivityProperty, cuvette.widthProperty, this.currentConcentrationProperty ],
       ( molarAbsorptivity, pathLength, concentration ) => {
@@ -64,17 +62,31 @@ class Absorbance {
       } );
   }
 
-  // @public Gets absorbance for a specified path length.
+  /**
+   * Gets absorbance for a specified path length.
+   * @param pathLength
+   * @returns {number}
+   * @public
+   */
   getAbsorbanceAt( pathLength ) {
     return getAbsorbance( this.molarAbsorptivityProperty.value, pathLength, this.currentConcentrationProperty.value );
   }
 
-  // @public Gets transmittance for a specified path length.
+  /**
+   * Gets transmittance for a specified path length.
+   * @param {number} pathLength
+   * @returns {number}
+   * @public
+   */
   getTransmittanceAt( pathLength ) {
     return getTransmittance( this.getAbsorbanceAt( pathLength ) );
   }
 
-  // @public Converts absorbance to transmittance.
+  /**
+   * Converts absorbance to transmittance.
+   * @returns {number}
+   * @public
+   */
   getTransmittance() {
     return getTransmittance( this.absorbanceProperty.value );
   }
