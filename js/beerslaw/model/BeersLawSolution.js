@@ -17,6 +17,7 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Utils from '../../../../dot/js/Utils.js';
 import merge from '../../../../phet-core/js/merge.js';
+import required from '../../../../phet-core/js/required.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import Color from '../../../../scenery/js/util/Color.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
@@ -35,43 +36,63 @@ import MolarAbsorptivityData from './MolarAbsorptivityData.js';
 class BeersLawSolution extends PhetioObject {
 
   /**
-   * @param {string} internalName - used internally, not displayed to the user
-   * @param {string} name - name that is visible to the user
-   * @param {string} formula - formula that is visible to the user
-   * @param {MolarAbsorptivityData} molarAbsorptivityData
-   * @param {RangeWithValue} concentrationRange
-   * @param {ConcentrationTransform} concentrationTransform
-   * @param {ColorRange} colorRange
-   * @param {Object} [options]
+   * @param {Object} config
    */
-  constructor( internalName, name, formula, molarAbsorptivityData, concentrationRange, concentrationTransform,
-               colorRange, options ) {
+  constructor( config ) {
 
-    assert && assert( internalName.indexOf( ' ' ) === -1, 'internalName cannot contain spaces: ' + internalName );
+    config = merge( {
 
-    options = merge( {
-      saturatedColor: colorRange.max, // {Color} color to use when the solution is saturated
-      phetioType: BeersLawSolution.BeersLawSolutionIO,
-      tandem: Tandem.REQUIRED
-    }, options );
+      // {string} internalName - used internally, not displayed to the user
+      internalName: required( config.internalName ),
 
-    super( options );
+      // {string} name - name that is visible to the user
+      name: required( config.name ),
+
+      // {string} formula - formula that is visible to the user
+      formula: required( config.formula ),
+
+      // {MolarAbsorptivityData}
+      molarAbsorptivityData: required( config.molarAbsorptivityData ),
+
+      // {RangeWithValue}
+      concentrationRange: required( config.concentrationRange ),
+
+      // {ConcentrationTransform}
+      concentrationTransform: required( config.concentrationTransform ),
+
+      // {ColorRange}
+      colorRange: required( config.colorRange ),
+
+      // {Color} color to use when the solution is saturated, default is set below
+      saturatedColor: null,
+
+      // phet-io
+      tandem: Tandem.REQUIRED,
+      phetioType: BeersLawSolution.BeersLawSolutionIO
+
+    }, config );
+
+    config.saturatedColor = config.saturatedColor || config.colorRange.max;
+
+    assert && assert( config.internalName.indexOf( ' ' ) === -1, 'internalName cannot contain spaces: ' + config.internalName );
+
+    super( config );
 
     // @public (read-only)
     this.solvent = Solvent.WATER;
-    this.internalName = internalName;
-    this.name = name;
-    this.formula = formula;
-    this.molarAbsorptivityData = molarAbsorptivityData;
-    this.concentrationProperty = new NumberProperty( concentrationRange.defaultValue, {
+    this.internalName = config.internalName;
+    this.name = config.name;
+    this.formula = config.formula;
+    this.molarAbsorptivityData = config.molarAbsorptivityData;
+    this.concentrationProperty = new NumberProperty( config.concentrationRange.defaultValue, {
       units: 'mol/L',
-      range: concentrationRange,
-      tandem: options.tandem.createTandem( 'concentrationProperty' )
+      range: config.concentrationRange,
+      tandem: config.tandem.createTandem( 'concentrationProperty' )
     } );
-    this.concentrationRange = concentrationRange;
-    this.concentrationTransform = concentrationTransform;
-    this.colorRange = colorRange;
-    this.saturatedColor = options.saturatedColor;
+    this.concentrationRange = config.concentrationRange; //TODO redundant
+    this.concentrationTransform = config.concentrationTransform;
+    this.colorRange = config.colorRange;
+    this.saturatedColor = config.saturatedColor;
 
     // @public Solution color is derived from concentration
     this.fluidColorProperty = new DerivedProperty( [ this.concentrationProperty ],
@@ -85,7 +106,7 @@ class BeersLawSolution extends PhetioObject {
       } );
 
     // @public - the name of the solution in tandem id format. Used to other make tandems that pertain to this solution.
-    this.tandemName = options.tandem.name;
+    this.tandemName = config.tandem.name;
   }
 
   // @public
@@ -113,104 +134,96 @@ BeersLawSolution.BeersLawSolutionIO = new IOType( 'BeersLawSolutionIO', {
 // parent tandem for all static instances of BeersLawSolution
 const SOLUTIONS_TANDEM = BLLConstants.BEERS_LAW_SCREEN_TANDEM.createTandem( 'model' ).createTandem( 'solutions' );
 
-BeersLawSolution.DRINK_MIX = new BeersLawSolution(
-  'drinkMix',
-  beersLawLabStrings.drinkMix,
-  BLLSymbols.DRINK_MIX,
-  MolarAbsorptivityData.DRINK_MIX,
-  new RangeWithValue( 0, 0.400, 0.100 ),
-  ConcentrationTransform.mM,
-  new ColorRange( new Color( 255, 225, 225 ), Color.RED ), {
-    tandem: SOLUTIONS_TANDEM.createTandem( 'drinkMix' )
-  }
-);
+BeersLawSolution.DRINK_MIX = new BeersLawSolution( {
+  internalName: 'drinkMix',
+  name: beersLawLabStrings.drinkMix,
+  formula: BLLSymbols.DRINK_MIX,
+  molarAbsorptivityData: MolarAbsorptivityData.DRINK_MIX,
+  concentrationRange: new RangeWithValue( 0, 0.400, 0.100 ),
+  concentrationTransform: ConcentrationTransform.mM,
+  colorRange: new ColorRange( new Color( 255, 225, 225 ), Color.RED ),
+  tandem: SOLUTIONS_TANDEM.createTandem( 'drinkMix' )
+} );
 
-BeersLawSolution.COBALT_II_NITRATE = new BeersLawSolution(
-  'cobaltIINitrate',
-  beersLawLabStrings.cobaltIINitrate,
-  BLLSymbols.COBALT_II_NITRATE,
-  MolarAbsorptivityData.COBALT_II_NITRATE,
-  new RangeWithValue( 0, 0.400, 0.100 ),
-  ConcentrationTransform.mM,
-  new ColorRange( new Color( 255, 225, 225 ), Color.RED ), {
-    tandem: SOLUTIONS_TANDEM.createTandem( 'cobaltIINitrate' )
-  }
-);
+BeersLawSolution.COBALT_II_NITRATE = new BeersLawSolution( {
+  internalName: 'cobaltIINitrate',
+  name: beersLawLabStrings.cobaltIINitrate,
+  formula: BLLSymbols.COBALT_II_NITRATE,
+  molarAbsorptivityData: MolarAbsorptivityData.COBALT_II_NITRATE,
+  concentrationRange: new RangeWithValue( 0, 0.400, 0.100 ),
+  concentrationTransform: ConcentrationTransform.mM,
+  colorRange: new ColorRange( new Color( 255, 225, 225 ), Color.RED ),
+  tandem: SOLUTIONS_TANDEM.createTandem( 'cobaltIINitrate' )
+} );
 
-BeersLawSolution.COBALT_CHLORIDE = new BeersLawSolution(
-  'cobaltChloride',
-  beersLawLabStrings.cobaltChloride,
-  BLLSymbols.COBALT_CHLORIDE,
-  MolarAbsorptivityData.COBALT_CHLORIDE,
-  new RangeWithValue( 0, 0.250, 0.100 ),
-  ConcentrationTransform.mM,
-  new ColorRange( new Color( 255, 242, 242 ), new Color( 255, 106, 106 ) ), {
-    tandem: SOLUTIONS_TANDEM.createTandem( 'cobaltChloride' )
-  }
-);
+BeersLawSolution.COBALT_CHLORIDE = new BeersLawSolution( {
+  internalName: 'cobaltChloride',
+  name: beersLawLabStrings.cobaltChloride,
+  formula: BLLSymbols.COBALT_CHLORIDE,
+  molarAbsorptivityData: MolarAbsorptivityData.COBALT_CHLORIDE,
+  concentrationRange: new RangeWithValue( 0, 0.250, 0.100 ),
+  concentrationTransform: ConcentrationTransform.mM,
+  colorRange: new ColorRange( new Color( 255, 242, 242 ), new Color( 255, 106, 106 ) ),
+  tandem: SOLUTIONS_TANDEM.createTandem( 'cobaltChloride' )
+} );
 
-BeersLawSolution.POTASSIUM_DICHROMATE = new BeersLawSolution(
-  'potassiumDichromate',
-  beersLawLabStrings.potassiumDichromate,
-  BLLSymbols.POTASSIUM_DICHROMATE,
-  MolarAbsorptivityData.POTASSIUM_DICHROMATE,
-  new RangeWithValue( 0, 0.000500, 0.000100 ),
-  ConcentrationTransform.uM,
-  new ColorRange( new Color( 255, 232, 210 ), new Color( 255, 127, 0 ) ), {
-    tandem: SOLUTIONS_TANDEM.createTandem( 'potassiumDichromate' )
-  }
-);
+BeersLawSolution.POTASSIUM_DICHROMATE = new BeersLawSolution( {
+  internalName: 'potassiumDichromate',
+  name: beersLawLabStrings.potassiumDichromate,
+  formula: BLLSymbols.POTASSIUM_DICHROMATE,
+  molarAbsorptivityData: MolarAbsorptivityData.POTASSIUM_DICHROMATE,
+  concentrationRange: new RangeWithValue( 0, 0.000500, 0.000100 ),
+  concentrationTransform: ConcentrationTransform.uM,
+  colorRange: new ColorRange( new Color( 255, 232, 210 ), new Color( 255, 127, 0 ) ),
+  tandem: SOLUTIONS_TANDEM.createTandem( 'potassiumDichromate' )
+} );
 
-BeersLawSolution.POTASSIUM_CHROMATE = new BeersLawSolution(
-  'potassiumChromate',
-  beersLawLabStrings.potassiumChromate,
-  BLLSymbols.POTASSIUM_CHROMATE,
-  MolarAbsorptivityData.POTASSIUM_CHROMATE,
-  new RangeWithValue( 0, 0.000400, 0.000100 ),
-  ConcentrationTransform.uM,
-  new ColorRange( new Color( 255, 255, 199 ), new Color( 255, 255, 0 ) ), {
-    tandem: SOLUTIONS_TANDEM.createTandem( 'potassiumChromate' )
-  }
-);
+BeersLawSolution.POTASSIUM_CHROMATE = new BeersLawSolution( {
+  internalName: 'potassiumChromate',
+  name: beersLawLabStrings.potassiumChromate,
+  formula: BLLSymbols.POTASSIUM_CHROMATE,
+  molarAbsorptivityData: MolarAbsorptivityData.POTASSIUM_CHROMATE,
+  concentrationRange: new RangeWithValue( 0, 0.000400, 0.000100 ),
+  concentrationTransform: ConcentrationTransform.uM,
+  colorRange: new ColorRange( new Color( 255, 255, 199 ), new Color( 255, 255, 0 ) ),
+  tandem: SOLUTIONS_TANDEM.createTandem( 'potassiumChromate' )
+} );
 
-BeersLawSolution.NICKEL_II_CHLORIDE = new BeersLawSolution(
-  'nickelIIChloride',
-  beersLawLabStrings.nickelIIChloride,
-  BLLSymbols.NICKEL_II_CHLORIDE,
-  MolarAbsorptivityData.NICKEL_II_CHLORIDE,
-  new RangeWithValue( 0, 0.350, 0.100 ),
-  ConcentrationTransform.mM,
-  new ColorRange( new Color( 234, 244, 234 ), new Color( 0, 128, 0 ) ), {
-    tandem: SOLUTIONS_TANDEM.createTandem( 'nickelIIChloride' )
-  }
-);
+BeersLawSolution.NICKEL_II_CHLORIDE = new BeersLawSolution( {
+  internalName: 'nickelIIChloride',
+  name: beersLawLabStrings.nickelIIChloride,
+  formula: BLLSymbols.NICKEL_II_CHLORIDE,
+  molarAbsorptivityData: MolarAbsorptivityData.NICKEL_II_CHLORIDE,
+  concentrationRange: new RangeWithValue( 0, 0.350, 0.100 ),
+  concentrationTransform: ConcentrationTransform.mM,
+  colorRange: new ColorRange( new Color( 234, 244, 234 ), new Color( 0, 128, 0 ) ),
+  tandem: SOLUTIONS_TANDEM.createTandem( 'nickelIIChloride' )
+} );
 
-BeersLawSolution.COPPER_SULFATE = new BeersLawSolution(
-  'copperSulfate',
-  beersLawLabStrings.copperSulfate,
-  BLLSymbols.COPPER_SULFATE,
-  MolarAbsorptivityData.COPPER_SULFATE,
-  new RangeWithValue( 0, 0.200, 0.100 ),
-  ConcentrationTransform.mM,
-  new ColorRange( new Color( 222, 238, 255 ), new Color( 30, 144, 255 ) ), {
-    tandem: SOLUTIONS_TANDEM.createTandem( 'copperSulfate' )
-  }
-);
+BeersLawSolution.COPPER_SULFATE = new BeersLawSolution( {
+  internalName: 'copperSulfate',
+  name: beersLawLabStrings.copperSulfate,
+  formula: BLLSymbols.COPPER_SULFATE,
+  molarAbsorptivityData: MolarAbsorptivityData.COPPER_SULFATE,
+  concentrationRange: new RangeWithValue( 0, 0.200, 0.100 ),
+  concentrationTransform: ConcentrationTransform.mM,
+  colorRange: new ColorRange( new Color( 222, 238, 255 ), new Color( 30, 144, 255 ) ),
+  tandem: SOLUTIONS_TANDEM.createTandem( 'copperSulfate' )
+} );
 
-BeersLawSolution.POTASSIUM_PERMANGANATE = new BeersLawSolution(
-  'potassiumPermanganate',
-  beersLawLabStrings.potassiumPermanganate,
-  BLLSymbols.POTASSIUM_PERMANGANATE,
-  MolarAbsorptivityData.POTASSIUM_PERMANGANATE,
-  new RangeWithValue( 0, 0.000800, 0.000100 ),
-  ConcentrationTransform.uM,
-  new ColorRange( new Color( 255, 235, 255 ), new Color( 255, 0, 255 ) ), {
+BeersLawSolution.POTASSIUM_PERMANGANATE = new BeersLawSolution( {
+  internalName: 'potassiumPermanganate',
+  name: beersLawLabStrings.potassiumPermanganate,
+  formula: BLLSymbols.POTASSIUM_PERMANGANATE,
+  molarAbsorptivityData: MolarAbsorptivityData.POTASSIUM_PERMANGANATE,
+  concentrationRange: new RangeWithValue( 0, 0.000800, 0.000100 ),
+  concentrationTransform: ConcentrationTransform.uM,
+  colorRange: new ColorRange( new Color( 255, 235, 255 ), new Color( 255, 0, 255 ) ),
 
-    // has a special saturated color
-    saturatedColor: new Color( 80, 0, 120 ),
-    tandem: SOLUTIONS_TANDEM.createTandem( 'potassiumPermanganate' )
-  }
-);
+  // has a special saturated color
+  saturatedColor: new Color( 80, 0, 120 ),
+  tandem: SOLUTIONS_TANDEM.createTandem( 'potassiumPermanganate' )
+} );
 
 beersLawLab.register( 'BeersLawSolution', BeersLawSolution );
 export default BeersLawSolution;
