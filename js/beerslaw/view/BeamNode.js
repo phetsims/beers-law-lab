@@ -19,6 +19,7 @@ class BeamNode extends Path {
     assert && assert( beam instanceof Beam );
 
     super( null, {
+      visibleProperty: beam.visibleProperty,
       stroke: 'rgba( 192, 192, 192, 0.8 )',
       lineWidth: 0.5,
       pickable: false
@@ -31,9 +32,6 @@ class BeamNode extends Path {
     beam.fillProperty.link( fill => {
       this.fill = fill;
     } );
-
-    // visibility
-    beam.visibleProperty.link( visible => this.setVisible( visible ) );
   }
 }
 
