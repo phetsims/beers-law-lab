@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Utils from '../../../../dot/js/Utils.js';
 import merge from '../../../../phet-core/js/merge.js';
@@ -48,11 +47,6 @@ class WavelengthPanel extends Panel {
       lineWidth: 1,
       tandem: Tandem.REQUIRED
     }, options );
-
-    // is the wavelength variable or fixed?
-    const variableWavelengthProperty = new BooleanProperty( false, {
-      tandem: options.tandem.createTandem( 'variableWavelengthProperty' )
-    } );
 
     const labelNode = new Text( StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.wavelength ), {
       font: new PhetFont( 20 ),
@@ -130,14 +124,6 @@ class WavelengthPanel extends Panel {
       wavelengthSlider.interruptSubtreeInput();
       wavelengthSlider.visible = ( mode === Light.Mode.VARIABLE );
     } );
-
-    // @private
-    this.variableWavelengthProperty = variableWavelengthProperty;
-  }
-
-  // @public
-  reset() {
-    this.variableWavelengthProperty.reset();
   }
 }
 

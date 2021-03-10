@@ -66,10 +66,7 @@ class BeersLawScreenView extends ScreenView {
     // Reset All button
     const resetAllButton = new ResetAllButton( {
       scale: 1.32,
-      listener: () => {
-        model.reset();
-        wavelengthPanel.reset();
-      },
+      listener: () => model.reset(),
       tandem: options.tandem.createTandem( 'resetAllButton' )
     } );
 
