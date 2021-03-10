@@ -10,12 +10,14 @@
 import Property from '../../../../axon/js/Property.js';
 import Shape from '../../../../kite/js/Shape.js';
 import merge from '../../../../phet-core/js/merge.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import RulerNode from '../../../../scenery-phet/js/RulerNode.js';
 import DragListener from '../../../../scenery/js/listeners/DragListener.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
+import Ruler from '../model/Ruler.js';
 
 // constants
 const MAJOR_TICK_WIDTH = 0.5; // in model coordinate frame
@@ -28,6 +30,8 @@ class BLLRulerNode extends Node {
    * @param {Object} [options]
    */
   constructor( ruler, modelViewTransform, options ) {
+    assert && assert( ruler instanceof Ruler );
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     options = merge( {
       cursor: 'pointer',

@@ -8,6 +8,7 @@
 
 import Path from '../../../../scenery/js/nodes/Path.js';
 import beersLawLab from '../../beersLawLab.js';
+import Beam from '../model/Beam.js';
 
 class BeamNode extends Path {
 
@@ -15,8 +16,13 @@ class BeamNode extends Path {
    * @param {Beam} beam
    */
   constructor( beam ) {
+    assert && assert( beam instanceof Beam );
 
-    super( null, { stroke: 'rgba( 192, 192, 192, 0.8 )', lineWidth: 0.5, pickable: false } );
+    super( null, {
+      stroke: 'rgba( 192, 192, 192, 0.8 )',
+      lineWidth: 0.5,
+      pickable: false
+    } );
 
     // shape
     beam.shapeProperty.link( shape => this.setShape( shape ) );

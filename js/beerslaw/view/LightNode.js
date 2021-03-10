@@ -9,9 +9,11 @@
 
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import merge from '../../../../phet-core/js/merge.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import LaserPointerNode from '../../../../scenery-phet/js/LaserPointerNode.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
+import Light from '../model/Light.js';
 
 class LightNode extends LaserPointerNode {
 
@@ -21,6 +23,8 @@ class LightNode extends LaserPointerNode {
    * @param {Object} [options]
    */
   constructor( light, modelViewTransform, options ) {
+    assert && assert( light instanceof Light );
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     options = merge( {
       bodySize: new Dimension2( 126, 78 ),

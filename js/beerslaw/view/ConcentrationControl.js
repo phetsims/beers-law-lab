@@ -22,6 +22,7 @@ import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
 import SunConstants from '../../../../sun/js/SunConstants.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
+import BeersLawSolution from '../model/BeersLawSolution.js';
 
 // constants
 const FONT = new PhetFont( 20 );
@@ -35,6 +36,7 @@ class ConcentrationControl extends NumberControl {
    * @param {Object} [options]
    */
   constructor( solution, options ) {
+    assert && assert( solution instanceof BeersLawSolution );
 
     options = merge( {
 

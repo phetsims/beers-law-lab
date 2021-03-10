@@ -7,11 +7,13 @@
  */
 
 import merge from '../../../../phet-core/js/merge.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
 import VBox from '../../../../scenery/js/nodes/VBox.js';
 import Panel from '../../../../sun/js/Panel.js';
 import ToggleNode from '../../../../sun/js/ToggleNode.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
+import BeersLawSolution from '../model/BeersLawSolution.js';
 import ConcentrationControl from './ConcentrationControl.js';
 import SolutionComboBox from './SolutionComboBox.js';
 
@@ -24,6 +26,9 @@ class SolutionControls extends Panel {
    * @param {Object} [options]
    */
   constructor( solutions, currentSolutionProperty, solutionListParent, options ) {
+    assert && assert( Array.isArray( solutions ) );
+    assert && assert( _.every( solutions, solution => solution instanceof BeersLawSolution ) );
+    assert && assert( solutionListParent instanceof Node );
 
     options = merge( {
       xMargin: 15,

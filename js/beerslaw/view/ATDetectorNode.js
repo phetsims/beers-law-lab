@@ -14,6 +14,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import Shape from '../../../../kite/js/Shape.js';
 import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import ProbeNode from '../../../../scenery-phet/js/ProbeNode.js';
@@ -28,7 +29,9 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
+import BLLMovable from '../../common/model/BLLMovable.js';
 import ATDetector from '../model/ATDetector.js';
+import Light from '../model/Light.js';
 
 // constants
 const ABSORBANCE_DECIMAL_PLACES = 2;
@@ -52,6 +55,9 @@ class ATDetectorNode extends Node {
    * @param {Object} [options]
    */
   constructor( detector, light, modelViewTransform, options ) {
+    assert && assert( detector instanceof ATDetector );
+    assert && assert( light instanceof Light );
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     options = merge( {
       tandem: Tandem.REQUIRED
@@ -89,6 +95,8 @@ class BodyNode extends Node {
    * @param {Object} [options]
    */
   constructor( detector, modelViewTransform, options ) {
+    assert && assert( detector instanceof ATDetector );
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     options = merge( {
       tandem: Tandem.REQUIRED
@@ -205,6 +213,9 @@ class ATProbeNode extends ProbeNode {
    * @param {Object} [options]
    */
   constructor( probe, light, modelViewTransform, options ) {
+    assert && assert( probe instanceof BLLMovable );
+    assert && assert( light instanceof Light );
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     options = merge( {
       cursor: 'pointer',
@@ -257,6 +268,10 @@ class WireNode extends Path {
    * @param {Object} [options]
    */
   constructor( body, probe, bodyNode, probeNode, options ) {
+    assert && assert( body instanceof BLLMovable );
+    assert && assert( probe instanceof BLLMovable );
+    assert && assert( bodyNode instanceof Node );
+    assert && assert( probeNode instanceof Node );
 
     options = merge( {
       stroke: 'gray',

@@ -6,9 +6,11 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Property from '../../../../axon/js/Property.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Shape from '../../../../kite/js/Shape.js';
 import merge from '../../../../phet-core/js/merge.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import ArrowNode from '../../../../scenery-phet/js/ArrowNode.js';
 import DragListener from '../../../../scenery/js/listeners/DragListener.js';
 import PressListener from '../../../../scenery/js/listeners/PressListener.js';
@@ -18,6 +20,7 @@ import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Color from '../../../../scenery/js/util/Color.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
+import Cuvette from '../model/Cuvette.js';
 
 // constants
 const PERCENT_FULL = 0.92;
@@ -38,6 +41,10 @@ class CuvetteNode extends Node {
    * @param {Object} [options]
    */
   constructor( cuvette, solutionProperty, modelViewTransform, snapInterval, options ) {
+    assert && assert( cuvette instanceof Cuvette );
+    assert && assert( solutionProperty instanceof Property );
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
+    assert && assert( typeof snapInterval === 'number' );
 
     options = merge( {
       tandem: Tandem.REQUIRED
@@ -138,6 +145,9 @@ class CuvetteDragListener extends DragListener {
    * @param {Object} [options]
    */
   constructor( cuvette, modelViewTransform, snapInterval, options ) {
+    assert && assert( cuvette instanceof Cuvette );
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
+    assert && assert( typeof snapInterval === 'number' );
 
     const widthRange = cuvette.widthProperty.range;
     let startX; // x coordinate of mouse click
@@ -155,8 +165,7 @@ class CuvetteDragListener extends DragListener {
       drag: event => {
         const dragX = event.pointer.point.x;
         const deltaWidth = modelViewTransform.viewToModelDeltaX( dragX - startX );
-        const cuvetteWidth = Utils.clamp( startWidth + deltaWidth, widthRange.min, widthRange.max );
-        cuvette.widthProperty.value = cuvetteWidth;
+        cuvette.widthProperty.value = Utils.clamp( startWidth + deltaWidth, widthRange.min, widthRange.max );
       },
 
       end: () => {
@@ -164,8 +173,7 @@ class CuvetteDragListener extends DragListener {
         // snapInterval can be customized via query parameter
         if ( snapInterval > 0 ) {
           const numberOfIntervals = Math.floor( ( cuvette.widthProperty.value + ( snapInterval / 2 ) ) / snapInterval );
-          const newWidth = numberOfIntervals * snapInterval;
-          cuvette.widthProperty.value = newWidth;
+          cuvette.widthProperty.value = numberOfIntervals * snapInterval;
         }
       },
 

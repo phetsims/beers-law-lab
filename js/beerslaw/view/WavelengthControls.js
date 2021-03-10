@@ -7,6 +7,7 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import Property from '../../../../axon/js/Property.js';
 import Utils from '../../../../dot/js/Utils.js';
 import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
@@ -36,6 +37,8 @@ class WavelengthControls extends Panel {
    * @param {Object} [options]
    */
   constructor( solutionProperty, light, options ) {
+    assert && assert( solutionProperty instanceof Property );
+    assert && assert( light instanceof Light );
 
     options = merge( {
       xMargin: 20,
