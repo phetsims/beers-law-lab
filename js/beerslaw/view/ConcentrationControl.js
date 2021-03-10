@@ -109,8 +109,8 @@ class ConcentrationControl extends NumberControl {
 
     // convert solution's concentration range from model to view
     const numberRange = new Range(
-      transform.modelToView( solution.concentrationRange.min ),
-      transform.modelToView( solution.concentrationRange.max )
+      transform.modelToView( solution.concentrationProperty.range.min ),
+      transform.modelToView( solution.concentrationProperty.range.max )
     );
 
     // ticks at the min and max of the solution's concentration range

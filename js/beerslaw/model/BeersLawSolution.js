@@ -87,7 +87,6 @@ class BeersLawSolution extends PhetioObject {
       range: config.concentrationRange,
       tandem: config.tandem.createTandem( 'concentrationProperty' )
     } );
-    this.concentrationRange = config.concentrationRange; //TODO redundant
     this.concentrationTransform = config.concentrationTransform;
     this.colorRange = config.colorRange;
     this.saturatedColor = config.saturatedColor;
@@ -97,7 +96,8 @@ class BeersLawSolution extends PhetioObject {
       concentration => {
         let color = this.solvent.colorProperty.value;
         if ( concentration > 0 ) {
-          const distance = Utils.linear( this.concentrationRange.min, this.concentrationRange.max, 0, 1, concentration );
+          const range = this.concentrationProperty.range;
+          const distance = Utils.linear( range.min, range.max, 0, 1, concentration );
           color = this.colorRange.interpolateLinear( distance );
         }
         return color;
