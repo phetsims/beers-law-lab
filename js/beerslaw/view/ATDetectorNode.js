@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Utils from '../../../../dot/js/Utils.js';
@@ -13,11 +14,11 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import Shape from '../../../../kite/js/Shape.js';
 import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
-import MovableDragHandler from '../../../../scenery-phet/js/input/MovableDragHandler.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import ProbeNode from '../../../../scenery-phet/js/ProbeNode.js';
 import ShadedRectangle from '../../../../scenery-phet/js/ShadedRectangle.js';
+import DragListener from '../../../../scenery/js/listeners/DragListener.js';
 import LayoutBox from '../../../../scenery/js/nodes/LayoutBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
@@ -224,9 +225,10 @@ class ATProbeNode extends ProbeNode {
       this.translation = modelViewTransform.modelToViewPosition( position );
     } );
 
-    const movableDragHandler = new MovableDragHandler( probe.positionProperty, {
-      dragBounds: probe.dragBounds,
-      modelViewTransform: modelViewTransform,
+    this.addInputListener( new DragListener( {
+      positionProperty: probe.positionProperty,
+      dragBoundsProperty: new Property( probe.dragBounds ),
+      transform: modelViewTransform,
       endDrag: () => {
         // If the light is on and the probe is close enough to the beam...
         if ( light.isOnProperty.value && ( probe.positionProperty.value.x >= light.position.x ) && ( Math.abs( probe.positionProperty.value.y - light.position.y ) <= 0.5 * light.lensDiameter ) ) {
@@ -234,9 +236,8 @@ class ATProbeNode extends ProbeNode {
           probe.positionProperty.value = new Vector2( probe.positionProperty.value.x, light.position.y );
         }
       },
-      tandem: options.tandem.createTandem( 'movableDragHandler' )
-    } );
-    this.addInputListener( movableDragHandler );
+      tandem: options.tandem.createTandem( 'dragListener' )
+    } ) );
 
     // touch area
     this.touchArea = this.localBounds.dilatedXY( 0.25 * this.width, 0 );
