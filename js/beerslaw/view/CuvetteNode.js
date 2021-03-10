@@ -139,6 +139,7 @@ class CuvetteDragListener extends DragListener {
    */
   constructor( cuvette, modelViewTransform, snapInterval, options ) {
 
+    const widthRange = cuvette.widthProperty.range;
     let startX; // x coordinate of mouse click
     let startWidth; // width of the cuvette when the drag started
 
@@ -154,7 +155,7 @@ class CuvetteDragListener extends DragListener {
       drag: event => {
         const dragX = event.pointer.point.x;
         const deltaWidth = modelViewTransform.viewToModelDeltaX( dragX - startX );
-        const cuvetteWidth = Utils.clamp( startWidth + deltaWidth, cuvette.widthRange.min, cuvette.widthRange.max );
+        const cuvetteWidth = Utils.clamp( startWidth + deltaWidth, widthRange.min, widthRange.max );
         cuvette.widthProperty.value = cuvetteWidth;
       },
 

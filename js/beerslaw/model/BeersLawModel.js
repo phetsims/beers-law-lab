@@ -8,7 +8,6 @@
 
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -20,9 +19,6 @@ import BeersLawSolution from './BeersLawSolution.js';
 import Cuvette from './Cuvette.js';
 import Light from './Light.js';
 import Ruler from './Ruler.js';
-
-// constants
-const CUVETTE_WIDTH_RANGE = new RangeWithValue( 0.5, 2.0, 1.0 );
 
 class BeersLawModel {
 
@@ -55,15 +51,16 @@ class BeersLawModel {
     } );
 
     // @public NOTE: All positions are relative to the position of the cuvette.
-    this.cuvette = new Cuvette( new Vector2( 3.3, 0.5 ), CUVETTE_WIDTH_RANGE, 3, {
+    this.cuvette = new Cuvette( {
+      position: new Vector2( 3.3, 0.5 ),
       tandem: options.tandem.createTandem( 'cuvette' )
     } );
 
     // @public
-    this.light = new Light( new Vector2( this.cuvette.position.x - 1.5, this.cuvette.position.y + ( this.cuvette.height / 2 ) ),
-      false, 0.45, this.solutionProperty, {
-        tandem: options.tandem.createTandem( 'light' )
-      } );
+    this.light = new Light( this.solutionProperty, {
+      position: new Vector2( this.cuvette.position.x - 1.5, this.cuvette.position.y + ( this.cuvette.height / 2 ) ),
+      tandem: options.tandem.createTandem( 'light' )
+    } );
 
     // @public
     this.ruler = new Ruler( {
@@ -99,9 +96,6 @@ class BeersLawModel {
     this.ruler.reset();
   }
 }
-
-// Exported for access to phet-io API
-BeersLawModel.CUVETTE_WIDTH_RANGE = CUVETTE_WIDTH_RANGE;
 
 beersLawLab.register( 'BeersLawModel', BeersLawModel );
 export default BeersLawModel;

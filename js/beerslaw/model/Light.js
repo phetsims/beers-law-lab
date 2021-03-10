@@ -11,6 +11,7 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Range from '../../../../dot/js/Range.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
 import Enumeration from '../../../../phet-core/js/Enumeration.js';
 import merge from '../../../../phet-core/js/merge.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
@@ -20,24 +21,24 @@ import beersLawLab from '../../beersLawLab.js';
 class Light {
 
   /**
-   * @param {Vector2} position cm
-   * @param {boolean} on
-   * @param {number} lensDiameter cm
    * @param {Property.<BeersLawSolution>} solutionProperty
    * @param {Object} [options]
    */
-  constructor( position, on, lensDiameter, solutionProperty, options ) {
+  constructor( solutionProperty, options ) {
 
     options = merge( {
+      position: Vector2.ZERO, // cm
+      lensDiameter: 0.45, // cm
+      isOn: false,
       tandem: Tandem.REQUIRED
     }, options );
 
     // @public (read-only)
-    this.position = position;
-    this.lensDiameter = lensDiameter;
+    this.position = options.position;
+    this.lensDiameter = options.lensDiameter;
 
     // @public
-    this.isOnProperty = new BooleanProperty( on, {
+    this.isOnProperty = new BooleanProperty( options.isOn, {
       tandem: options.tandem.createTandem( 'isOnProperty' )
     } );
 

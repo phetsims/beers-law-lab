@@ -13,6 +13,8 @@
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
@@ -20,26 +22,25 @@ import beersLawLab from '../../beersLawLab.js';
 class Cuvette {
 
   /**
-   * @param {Vector2} position fixed position, cm
-   * @param {RangeWithValue} widthRange variable width, cm
-   * @param {number} height fixed height, cm
    * @param {Object} [options]
    */
-  constructor( position, widthRange, height, options ) {
+  constructor( options ) {
 
     options = merge( {
+      position: Vector2.ZERO,
+      widthRange: new RangeWithValue( 0.5, 2.0, 1.0 ), // variable width, cm
+      height: 3, // fixed height, cm
       tandem: Tandem.REQUIRED
     }, options );
 
     // @public (read-only)
-    this.position = position;
-    this.widthRange = widthRange;
-    this.widthProperty = new NumberProperty( widthRange.defaultValue, {
+    this.position = options.position;
+    this.widthProperty = new NumberProperty( options.widthRange.defaultValue, {
       units: 'cm',
-      range: widthRange,
+      range: options.widthRange,
       tandem: options.tandem.createTandem( 'widthProperty' )
     } );
-    this.height = height;
+    this.height = options.height;
   }
 
   // @public
