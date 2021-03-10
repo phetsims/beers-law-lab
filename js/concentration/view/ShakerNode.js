@@ -48,6 +48,7 @@ class ShakerNode extends Node {
 
       // Node options
       visibleProperty: shaker.visibleProperty,
+      cursor: 'pointer',
 
       // phet-io
       tandem: Tandem.REQUIRED
@@ -126,14 +127,15 @@ class ShakerNode extends Node {
       labelNode.centerY = imageNode.centerY;
     } );
 
-    // interactivity
-    this.cursor = 'pointer';
+    // drag listener
     this.addInputListener( new DragListener( {
       positionProperty: shaker.positionProperty,
       dragBoundsProperty: new Property( shaker.dragBounds ),
       modelViewTransform: modelViewTransform,
       tandem: options.tandem.createTandem( 'dragListener' )
     } ) );
+
+    // Make the arrows visible when pointer is over this Node, until the shaker is moved.
     this.addInputListener( {
       enter: () => {
         arrowsParent.visible = !shakerWasMoved;

@@ -204,6 +204,7 @@ class ATProbeNode extends ProbeNode {
   constructor( probe, light, modelViewTransform, options ) {
 
     options = merge( {
+      cursor: 'pointer',
       radius: 53,
       innerRadius: 40,
       handleWidth: 68,
@@ -220,9 +221,6 @@ class ATProbeNode extends ProbeNode {
     probe.positionProperty.link( position => {
       this.translation = modelViewTransform.modelToViewPosition( position );
     } );
-
-    // interactivity
-    this.cursor = 'pointer';
 
     const movableDragHandler = new MovableDragHandler( probe.positionProperty, {
       dragBounds: probe.dragBounds,

@@ -30,6 +30,7 @@ class BLLRulerNode extends Node {
   constructor( ruler, modelViewTransform, options ) {
 
     options = merge( {
+      cursor: 'pointer',
       tandem: Tandem.REQUIRED
     }, options );
 
@@ -63,9 +64,6 @@ class BLLRulerNode extends Node {
       this.x = viewPosition.x;
       this.y = viewPosition.y;
     } );
-
-    // interactivity
-    this.cursor = 'pointer';
 
     this.addInputListener( new DragListener( {
       positionProperty: ruler.positionProperty,
