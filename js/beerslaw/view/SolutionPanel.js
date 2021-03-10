@@ -17,7 +17,7 @@ import BeersLawSolution from '../model/BeersLawSolution.js';
 import ConcentrationControl from './ConcentrationControl.js';
 import SolutionComboBox from './SolutionComboBox.js';
 
-class SolutionControls extends Panel {
+class SolutionPanel extends Panel {
 
   /**
    * @param {BeersLawSolution[]} solutions
@@ -69,5 +69,5 @@ class SolutionControls extends Panel {
   }
 }
 
-beersLawLab.register( 'SolutionControls', SolutionControls );
-export default SolutionControls;
+beersLawLab.register( 'SolutionPanel', SolutionPanel );
+export default SolutionPanel;

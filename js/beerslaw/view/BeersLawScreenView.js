@@ -21,8 +21,8 @@ import BeamNode from './BeamNode.js';
 import BLLRulerNode from './BLLRulerNode.js';
 import CuvetteNode from './CuvetteNode.js';
 import LightNode from './LightNode.js';
-import SolutionControls from './SolutionControls.js';
-import WavelengthControls from './WavelengthControls.js';
+import SolutionPanel from './SolutionPanel.js';
+import WavelengthPanel from './WavelengthPanel.js';
 
 class BeersLawScreenView extends ScreenView {
 
@@ -51,16 +51,16 @@ class BeersLawScreenView extends ScreenView {
     const detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform, {
       tandem: options.tandem.createTandem( 'detectorNode' )
     } );
-    const wavelengthControls = new WavelengthControls( model.solutionProperty, model.light, {
-      tandem: options.tandem.createTandem( 'wavelengthControls' )
+    const wavelengthPanel = new WavelengthPanel( model.solutionProperty, model.light, {
+      tandem: options.tandem.createTandem( 'wavelengthPanel' )
     } );
     const rulerNode = new BLLRulerNode( model.ruler, modelViewTransform, {
       tandem: options.tandem.createTandem( 'rulerNode' )
     } );
     const comboBoxListParent = new Node();
-    const solutionControls = new SolutionControls( model.solutions, model.solutionProperty, comboBoxListParent, {
+    const solutionPanel = new SolutionPanel( model.solutions, model.solutionProperty, comboBoxListParent, {
       maxWidth: 575,
-      tandem: options.tandem.createTandem( 'solutionControls' )
+      tandem: options.tandem.createTandem( 'solutionPanel' )
     } );
 
     // Reset All button
@@ -68,15 +68,15 @@ class BeersLawScreenView extends ScreenView {
       scale: 1.32,
       listener: () => {
         model.reset();
-        wavelengthControls.reset();
+        wavelengthPanel.reset();
       },
       tandem: options.tandem.createTandem( 'resetAllButton' )
     } );
 
     // Rendering order
-    this.addChild( wavelengthControls );
+    this.addChild( wavelengthPanel );
     this.addChild( resetAllButton );
-    this.addChild( solutionControls );
+    this.addChild( solutionPanel );
     this.addChild( detectorNode );
     this.addChild( cuvetteNode );
     this.addChild( beamNode );
@@ -87,11 +87,11 @@ class BeersLawScreenView extends ScreenView {
     // Layout for things that don't have a position in the model.
     {
       // below the light
-      wavelengthControls.left = lightNode.left;
-      wavelengthControls.top = lightNode.bottom + 20;
+      wavelengthPanel.left = lightNode.left;
+      wavelengthPanel.top = lightNode.bottom + 20;
       // below cuvette
-      solutionControls.left = cuvetteNode.left;
-      solutionControls.top = cuvetteNode.bottom + 60;
+      solutionPanel.left = cuvetteNode.left;
+      solutionPanel.top = cuvetteNode.bottom + 60;
       // bottom right
       resetAllButton.right = this.layoutBounds.right - 30;
       resetAllButton.bottom = this.layoutBounds.bottom - 30;

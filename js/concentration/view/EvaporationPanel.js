@@ -20,7 +20,7 @@ import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
 import Evaporator from '../model/Evaporator.js';
 
-class EvaporationControl extends Panel {
+class EvaporationPanel extends Panel {
 
   /**
    * @param {Evaporator} evaporator
@@ -71,5 +71,5 @@ class EvaporationControl extends Panel {
   }
 }
 
-beersLawLab.register( 'EvaporationControl', EvaporationControl );
-export default EvaporationControl;
+beersLawLab.register( 'EvaporationPanel', EvaporationPanel );
+export default EvaporationPanel;

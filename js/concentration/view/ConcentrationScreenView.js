@@ -22,14 +22,14 @@ import BeakerNode from './BeakerNode.js';
 import BLLDropperNode from './BLLDropperNode.js';
 import BLLFaucetNode from './BLLFaucetNode.js';
 import ConcentrationMeterNode from './ConcentrationMeterNode.js';
-import EvaporationControl from './EvaporationControl.js';
+import EvaporationPanel from './EvaporationPanel.js';
 import FaucetFluidNode from './FaucetFluidNode.js';
 import PrecipitateNode from './PrecipitateNode.js';
 import RemoveSoluteButton from './RemoveSoluteButton.js';
 import SaturatedIndicator from './SaturatedIndicator.js';
 import ShakerNode from './ShakerNode.js';
 import ShakerParticlesNode from './ShakerParticlesNode.js';
-import SoluteControls from './SoluteControls.js';
+import SolutePanel from './SolutePanel.js';
 import SoluteGramsNode from './SoluteGramsNode.js';
 import SolutionNode from './SolutionNode.js';
 import StockSolutionNode from './StockSolutionNode.js';
@@ -99,16 +99,16 @@ class ConcentrationScreenView extends ScreenView {
 
     // Solute controls
     const soluteListParent = new Node();
-    const soluteControls = new SoluteControls( model.solutes, model.soluteProperty, model.soluteFormProperty, model.shaker,
+    const solutePanel = new SolutePanel( model.solutes, model.soluteProperty, model.soluteFormProperty, model.shaker,
       model.dropper, soluteListParent, {
-        tandem: options.tandem.createTandem( 'soluteControls' ),
+        tandem: options.tandem.createTandem( 'solutePanel' ),
         maxWidth: 480
       } );
 
-    // Evaporation control
-    const evaporationControl = new EvaporationControl( model.evaporator, {
+    // Evaporation panel
+    const evaporationPanel = new EvaporationPanel( model.evaporator, {
       maxWidth: 410,
-      tandem: options.tandem.createTandem( 'evaporationControl' )
+      tandem: options.tandem.createTandem( 'evaporationPanel' )
     } );
 
     // Solute amount, in grams
@@ -143,11 +143,11 @@ class ConcentrationScreenView extends ScreenView {
     this.addChild( shakerParticlesNode );
     this.addChild( shakerNode );
     this.addChild( dropperNode );
-    this.addChild( evaporationControl );
+    this.addChild( evaporationPanel );
     this.addChild( soluteGramsNode );
     this.addChild( removeSoluteButton );
     this.addChild( resetAllButton );
-    this.addChild( soluteControls );
+    this.addChild( solutePanel );
     this.addChild( concentrationMeterNode );
     this.addChild( soluteListParent ); // last, so that combo box list is on top
 
@@ -162,26 +162,26 @@ class ConcentrationScreenView extends ScreenView {
     saturatedIndicator.visible = saturatedIndicatorVisible;
 
     // upper right
-    soluteControls.right = this.layoutBounds.right - 20;
-    soluteControls.top = this.layoutBounds.top + 20;
+    solutePanel.right = this.layoutBounds.right - 20;
+    solutePanel.top = this.layoutBounds.top + 20;
 
     // left-aligned below beaker
-    evaporationControl.left = modelViewTransform.modelToViewPosition( model.beaker.position ).x -
-                              modelViewTransform.modelToViewDeltaX( model.beaker.size.width / 2 );
-    evaporationControl.top = beakerNode.bottom + 30;
+    evaporationPanel.left = modelViewTransform.modelToViewPosition( model.beaker.position ).x -
+                            modelViewTransform.modelToViewDeltaX( model.beaker.size.width / 2 );
+    evaporationPanel.top = beakerNode.bottom + 30;
 
     if ( soluteGramsNode.visible ) {
       // bottom aligned with evaporator
-      removeSoluteButton.left = evaporationControl.right + 30;
-      removeSoluteButton.bottom = evaporationControl.bottom;
+      removeSoluteButton.left = evaporationPanel.right + 30;
+      removeSoluteButton.bottom = evaporationPanel.bottom;
       //  above button
       soluteGramsNode.left = removeSoluteButton.left;
       soluteGramsNode.bottom = removeSoluteButton.top - 20;
     }
     else {
       // left of evaporation control
-      removeSoluteButton.left = evaporationControl.right + 30;
-      removeSoluteButton.centerY = evaporationControl.centerY;
+      removeSoluteButton.left = evaporationPanel.right + 30;
+      removeSoluteButton.centerY = evaporationPanel.centerY;
     }
 
     // bottom right

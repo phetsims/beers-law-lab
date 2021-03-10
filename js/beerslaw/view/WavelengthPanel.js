@@ -1,7 +1,7 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * Control for wavelength.
+ * WavelengthPanel is the panel that contains controls related to wavelength of the light.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -29,7 +29,7 @@ import Light from '../model/Light.js';
 // constants
 const RADIO_BUTTON_TEXT_OPTIONS = { font: new PhetFont( 18 ), fill: 'black' };
 
-class WavelengthControls extends Panel {
+class WavelengthPanel extends Panel {
 
   /**
    * @param {Property.<BeersLawSolution>} solutionProperty
@@ -141,5 +141,5 @@ class WavelengthControls extends Panel {
   }
 }
 
-beersLawLab.register( 'WavelengthControls', WavelengthControls );
-export default WavelengthControls;
+beersLawLab.register( 'WavelengthPanel', WavelengthPanel );
+export default WavelengthPanel;

@@ -18,7 +18,7 @@ import Solute from '../model/Solute.js';
 import SoluteComboBox from './SoluteComboBox.js';
 import SoluteFormRadioButtonGroup from './SoluteFormRadioButtonGroup.js';
 
-class SoluteControls extends Panel {
+class SolutePanel extends Panel {
   /**
    * @param {Solute[]} solutes
    * @param {Property.<Solute>} currentSoluteProperty
@@ -69,5 +69,5 @@ class SoluteControls extends Panel {
   }
 }
 
-beersLawLab.register( 'SoluteControls', SoluteControls );
-export default SoluteControls;
+beersLawLab.register( 'SolutePanel', SolutePanel );
+export default SolutePanel;
