@@ -74,10 +74,9 @@ class ConcentrationModel extends PhetioObject {
     } );
 
     // @public
-    this.solution = new ConcentrationSolution( this.soluteProperty, SOLUTE_AMOUNT_RANGE.defaultValue,
-      SOLUTION_VOLUME_RANGE.defaultValue, {
-        tandem: options.tandem.createTandem( 'solution' )
-      } );
+    this.solution = new ConcentrationSolution( this.soluteProperty, SOLUTE_AMOUNT_RANGE, SOLUTION_VOLUME_RANGE, {
+      tandem: options.tandem.createTandem( 'solution' )
+    } );
     this.beaker = new Beaker( {
       position: new Vector2( 350, 550 )
     } );

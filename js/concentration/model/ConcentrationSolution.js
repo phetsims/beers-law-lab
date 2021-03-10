@@ -10,11 +10,14 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Property from '../../../../axon/js/Property.js';
+import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Utils from '../../../../dot/js/Utils.js';
+import merge from '../../../../phet-core/js/merge.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
-import BLLConstants from '../../common/BLLConstants.js';
 import Fluid from '../../common/model/Fluid.js';
 import Solvent from '../../common/model/Solvent.js';
 
@@ -22,11 +25,18 @@ class ConcentrationSolution extends Fluid {
 
   /**
    * @param {Property.<Solute>} soluteProperty
-   * @param {number} soluteAmount moles
-   * @param {number} volume L
+   * @param {RangeWithValue} soluteAmountRange moles
+   * @param {RangeWithValue} volumeRange L
    * @param {Object} [options]
    */
-  constructor( soluteProperty, soluteAmount, volume, options ) {
+  constructor( soluteProperty, soluteAmountRange, volumeRange, options ) {
+    assert && assert( soluteProperty instanceof Property );
+    assert && assert( soluteAmountRange instanceof RangeWithValue );
+    assert && assert( volumeRange instanceof RangeWithValue );
+
+    options = merge( {
+      tandem: Tandem.REQUIRED
+    }, options );
 
     const solvent = Solvent.WATER; // @public (read-only)
 
@@ -39,16 +49,16 @@ class ConcentrationSolution extends Fluid {
     this.soluteProperty = soluteProperty;
 
     // @public
-    this.soluteMolesProperty = new NumberProperty( soluteAmount, {
+    this.soluteMolesProperty = new NumberProperty( soluteAmountRange.defaultValue, {
       units: 'mol',
-      range: BLLConstants.SOLUTE_AMOUNT_RANGE,
+      range: soluteAmountRange,
       tandem: options.tandem.createTandem( 'soluteMolesProperty' )
     } );
 
     // @public
-    this.volumeProperty = new NumberProperty( volume, {
+    this.volumeProperty = new NumberProperty( volumeRange.defaultValue, {
       units: 'L',
-      range: BLLConstants.SOLUTION_VOLUME_RANGE,
+      range: volumeRange,
       tandem: options.tandem.createTandem( 'volumeProperty' )
     } ); // L
 
