@@ -63,16 +63,14 @@ class BeersLawSolution extends PhetioObject {
       // {ColorRange}
       colorRange: required( config.colorRange ),
 
-      // {Color} color to use when the solution is saturated, default is set below
-      saturatedColor: null,
+      // {Color} color to use when the solution is saturated
+      saturatedColor: config.colorRange.max,
 
       // phet-io
       tandem: Tandem.REQUIRED,
       phetioType: BeersLawSolution.BeersLawSolutionIO
 
     }, config );
-
-    config.saturatedColor = config.saturatedColor || config.colorRange.max;
 
     assert && assert( config.internalName.indexOf( ' ' ) === -1, 'internalName cannot contain spaces: ' + config.internalName );
 
