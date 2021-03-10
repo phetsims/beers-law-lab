@@ -66,25 +66,25 @@ class BeersLawModel {
       } );
 
     // @public
-    this.ruler = new Ruler( 2.1, 0.1, 0.35,
-      new Vector2( this.cuvette.position.x - 2.6, this.cuvette.position.y + 4 ),
-      new Bounds2( 0, 0, 6, 5 ), {
-        tandem: options.tandem.createTandem( 'ruler' )
-      }
-    );
+    this.ruler = new Ruler( {
+      position: new Vector2( this.cuvette.position.x - 2.6, this.cuvette.position.y + 4 ),
+      dragBounds: new Bounds2( 0, 0, 6, 5 ),
+      length: 2.1,
+      insets: 0.1,
+      height: 0.35,
+      tandem: options.tandem.createTandem( 'ruler' )
+    } );
 
     // @public
     this.absorbanceModel = new AbsorbanceModel( this.light, this.solutionProperty, this.cuvette );
 
     // @public
-    this.detector = new ATDetector( new Vector2( this.cuvette.position.x + 3, this.cuvette.position.y - 0.3 ),
-      new Bounds2( 0, 0, 7.9, 5.25 ),
-      new Vector2( this.cuvette.position.x + 3, this.light.position.y ),
-      new Bounds2( 0, 0, 7.9, 5.25 ),
-      this.light, this.cuvette, this.absorbanceModel, {
-        tandem: options.tandem.createTandem( 'detector' )
-      }
-    );
+    this.detector = new ATDetector( this.light, this.cuvette, this.absorbanceModel, {
+      bodyPosition: new Vector2( this.cuvette.position.x + 3, this.cuvette.position.y - 0.3 ),
+      probePosition: new Vector2( this.cuvette.position.x + 3, this.light.position.y ),
+      probeDragBounds: new Bounds2( 0, 0, 7.9, 5.25 ),
+      tandem: options.tandem.createTandem( 'detector' )
+    } );
 
     // @public
     this.beam = new Beam( this.light, this.cuvette, this.detector, this.absorbanceModel, modelViewTransform );

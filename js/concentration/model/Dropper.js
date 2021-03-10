@@ -8,6 +8,7 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Property from '../../../../axon/js/Property.js';
 import Range from '../../../../dot/js/Range.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -17,24 +18,23 @@ import BLLMovable from '../../common/model/BLLMovable.js';
 class Dropper extends BLLMovable {
 
   /**
-   * @param {Vector2} position
-   * @param {Bounds2} dragBounds
    * @param {Property.<Solute>} soluteProperty
-   * @param {number} maxFlowRate
-   * @param {boolean} visible
    * @param {Object} [options]
    */
-  constructor( position, dragBounds, soluteProperty, maxFlowRate, visible, options ) {
+  constructor( soluteProperty, options ) {
+    assert && assert( soluteProperty instanceof Property, 'invalid soluteProperty' );
 
     options = merge( {
+      maxFlowRate: 1, // L/s
+      visible: true,
       tandem: Tandem.REQUIRED
     }, options );
 
-    super( position, dragBounds, options );
+    super( options );
 
     // @public
     this.soluteProperty = soluteProperty;
-    this.visibleProperty = new BooleanProperty( visible );
+    this.visibleProperty = new BooleanProperty( options.visible );
     this.enabledProperty = new BooleanProperty( true );
 
     // @public true if the dropper is dispensing solution
@@ -46,7 +46,7 @@ class Dropper extends BLLMovable {
       phetioReadOnly: true
     } );
     this.flowRateProperty = new NumberProperty( 0, {
-      range: new Range( 0, maxFlowRate ),
+      range: new Range( 0, options.maxFlowRate ),
       units: 'L/s',
       tandem: options.tandem.createTandem( 'flowRateProperty' ),
       phetioReadOnly: true
@@ -61,7 +61,7 @@ class Dropper extends BLLMovable {
 
     // Toggle the flow rate when the dropper is turned on/off.
     this.isDispensingProperty.link( dispensing => {
-      this.flowRateProperty.value = ( dispensing ? maxFlowRate : 0 );
+      this.flowRateProperty.value = ( dispensing ? options.maxFlowRate : 0 );
     } );
 
     // When the dropper becomes empty, disable it.

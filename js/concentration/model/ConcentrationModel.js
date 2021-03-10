@@ -85,27 +85,24 @@ class ConcentrationModel extends PhetioObject {
     this.precipitate = new Precipitate( this.solution, this.beaker, {
       tandem: options.tandem.createTandem( 'precipitate' )
     } );
-    this.shaker = new Shaker(
-      new Vector2( this.beaker.position.x, 170 ),
-      new Bounds2( 250, 50, 575, 210 ),
-      0.75 * Math.PI,
-      this.soluteProperty,
-      SHAKER_MAX_DISPENSING_RATE,
-      this.soluteFormProperty.value === SoluteForm.SOLID, {
-        tandem: options.tandem.createTandem( 'shaker' )
-      } );
+    this.shaker = new Shaker( this.soluteProperty, {
+      position: new Vector2( this.beaker.position.x, 170 ),
+      dragBounds: new Bounds2( 250, 50, 575, 210 ),
+      orientation: 0.75 * Math.PI,
+      maxDispensingRate: SHAKER_MAX_DISPENSING_RATE,
+      visible: ( this.soluteFormProperty.value === SoluteForm.SOLID ),
+      tandem: options.tandem.createTandem( 'shaker' )
+    } );
     this.shakerParticles = new ShakerParticles( this.shaker, this.solution, this.beaker, {
       tandem: options.tandem.createTandem( 'shakerParticles' )
     } );
-    this.dropper = new Dropper(
-      new Vector2( this.beaker.position.x, 225 ),
-      new Bounds2( 260, 225, 580, 225 ),
-      this.soluteProperty,
-      DROPPER_FLOW_RATE,
-      this.soluteFormProperty.value === SoluteForm.SOLUTION, {
-        tandem: options.tandem.createTandem( 'dropper' )
-      }
-    );
+    this.dropper = new Dropper( this.soluteProperty, {
+      position: new Vector2( this.beaker.position.x, 225 ),
+      dragBounds: new Bounds2( 260, 225, 580, 225 ),
+      maxFlowRate: DROPPER_FLOW_RATE,
+      visible: ( this.soluteFormProperty.value === SoluteForm.SOLUTION ),
+      tandem: options.tandem.createTandem( 'dropper' )
+    } );
     this.evaporator = new Evaporator( MAX_EVAPORATION_RATE, this.solution, {
       tandem: options.tandem.createTandem( 'evaporator' )
     } );
@@ -115,11 +112,13 @@ class ConcentrationModel extends PhetioObject {
     this.drainFaucet = new Faucet( new Vector2( 750, 630 ), this.beaker.getRight(), 45, MAX_FAUCET_FLOW_RATE, {
       tandem: options.tandem.createTandem( 'drainFaucet' )
     } );
-    this.concentrationMeter = new ConcentrationMeter(
-      new Vector2( 785, 210 ), new Bounds2( 10, 150, 835, 680 ),
-      new Vector2( 750, 370 ), new Bounds2( 30, 150, 966, 680 ), {
-        tandem: options.tandem.createTandem( 'concentrationMeter' )
-      } );
+    this.concentrationMeter = new ConcentrationMeter( {
+      bodyPosition: new Vector2( 785, 210 ),
+      bodyDragBounds: new Bounds2( 10, 150, 835, 680 ),
+      probePosition: new Vector2( 750, 370 ),
+      probeDragBounds: new Bounds2( 30, 150, 966, 680 ),
+      tandem: options.tandem.createTandem( 'concentrationMeter' )
+    } );
 
     // When the solute is changed, the amount of solute resets to 0.  If this occurs while restoring PhET-iO state,
     // then do nothing, so that we don't blow away the restored state.

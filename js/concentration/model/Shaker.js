@@ -8,8 +8,10 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Property from '../../../../axon/js/Property.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import ObjectLiteralIO from '../../../../tandem/js/types/ObjectLiteralIO.js';
 import VoidIO from '../../../../tandem/js/types/VoidIO.js';
@@ -19,29 +21,29 @@ import BLLMovable from '../../common/model/BLLMovable.js';
 class Shaker extends BLLMovable {
 
   /**
-   * @param {Vector2} position
-   * @param {number} orientation in radians
-   * @param {Bounds2} dragBounds
    * @param {Property.<Solute>} soluteProperty
-   * @param {number} maxDispensingRate
-   * @param {boolean} visible
    * @param {Object} [options]
    */
-  constructor( position, dragBounds, orientation, soluteProperty, maxDispensingRate, visible, options ) {
+  constructor( soluteProperty, options ) {
+    assert && assert( soluteProperty instanceof Property, 'invalid soluteProperty' );
 
     options = merge( {
+      orientation: 0, // radians
+      visible: true,
+      maxDispensingRate: 1, // L/s
+      tandem: Tandem.REQUIRED
       // phetioType: ShakerIO
     }, options );
 
-    super( position, dragBounds, options );
+    super( options );
 
     // @public (read-only)
-    this.orientation = orientation;
-    this.maxDispensingRate = maxDispensingRate;
+    this.orientation = options.orientation;
+    this.maxDispensingRate = options.maxDispensingRate;
 
     // @public
     this.soluteProperty = soluteProperty;
-    this.visibleProperty = new BooleanProperty( visible );
+    this.visibleProperty = new BooleanProperty( options.visible );
     this.isEmptyProperty = new BooleanProperty( false, {
       tandem: options.tandem.createTandem( 'isEmptyProperty' ),
       phetioReadOnly: true
@@ -49,7 +51,7 @@ class Shaker extends BLLMovable {
     this.dispensingRateProperty = new NumberProperty( 0 );
 
     // @private
-    this.previousPosition = position;
+    this.previousPosition = this.positionProperty.value;
 
     // set the dispensing rate to zero when the shaker becomes empty or invisible
     const observer = () => {

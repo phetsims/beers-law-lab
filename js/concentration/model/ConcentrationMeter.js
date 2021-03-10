@@ -11,6 +11,8 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
+import Bounds2 from '../../../../dot/js/Bounds2.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
@@ -21,15 +23,15 @@ import BLLMovable from '../../common/model/BLLMovable.js';
 class ConcentrationMeter {
 
   /**
-   * @param {Vector2} bodyPosition
-   * @param {Bounds2} bodyDragBounds
-   * @param {Vector2} probePosition
-   * @param {Bounds2} probeDragBounds
    * @param {Object} [options]
    */
-  constructor( bodyPosition, bodyDragBounds, probePosition, probeDragBounds, options ) {
+  constructor( options ) {
 
     options = merge( {
+      bodyPosition: Vector2.ZERO,
+      bodyDragBounds: Bounds2.EVERYTHING,
+      probePosition: Vector2.ZERO,
+      probeDragBounds: Bounds2.EVERYTHING,
       tandem: Tandem.REQUIRED
     }, options );
 
@@ -42,10 +44,14 @@ class ConcentrationMeter {
     } );
 
     // @public (read-only)
-    this.body = new BLLMovable( bodyPosition, bodyDragBounds, {
+    this.body = new BLLMovable( {
+      position: options.bodyPosition,
+      dragBounds: options.bodyDragBounds,
       tandem: options.tandem.createTandem( 'body' )
     } );
-    this.probe = new BLLMovable( probePosition, probeDragBounds, {
+    this.probe = new BLLMovable( {
+      position: options.probePosition,
+      dragBounds: options.probeDragBounds,
       tandem: options.tandem.createTandem( 'probe' )
     } );
   }

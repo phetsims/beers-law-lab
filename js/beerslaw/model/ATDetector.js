@@ -9,6 +9,8 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
+import Bounds2 from '../../../../dot/js/Bounds2.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
 import Enumeration from '../../../../phet-core/js/Enumeration.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -16,22 +18,27 @@ import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLMovable from '../../common/model/BLLMovable.js';
+import AbsorbanceModel from './AbsorbanceModel.js';
+import Cuvette from './Cuvette.js';
+import Light from './Light.js';
 
 class ATDetector {
 
   /**
-   * @param {Vector2} bodyPosition
-   * @param {Bounds2} bodyDragBounds
-   * @param {Vector2} probePosition
-   * @param {Bounds2} probeDragBounds
    * @param {Light} light
    * @param {Cuvette} cuvette
    * @param {AbsorbanceModel} absorbanceModel
    * @param {Object} [options]
    */
-  constructor( bodyPosition, bodyDragBounds, probePosition, probeDragBounds, light, cuvette, absorbanceModel, options ) {
+  constructor( light, cuvette, absorbanceModel, options ) {
+    assert && assert( light instanceof Light, 'invalid light' );
+    assert && assert( cuvette instanceof Cuvette, 'invalid cuvette' );
+    assert && assert( absorbanceModel instanceof AbsorbanceModel, 'invalid absorbanceModel' );
 
     options = merge( {
+      bodyPosition: Vector2.ZERO,
+      probePosition: Vector2.ZERO,
+      probeDragBounds: Bounds2.EVERYTHING,
       tandem: Tandem.REQUIRED
     }, options );
 
@@ -39,10 +46,16 @@ class ATDetector {
     this.light = light;
 
     // @public
-    this.body = new BLLMovable( bodyPosition, bodyDragBounds, {
+    this.body = new BLLMovable( {
+      position: options.bodyPosition,
       tandem: options.tandem.createTandem( 'body' )
     } );
-    this.probe = new Probe( probePosition, probeDragBounds, 0.57, {
+
+    // @public
+    this.probe = new Probe( {
+      sensorDiameter: 0.57,
+      position: options.probePosition,
+      dragBounds: options.probeDragBounds,
       tandem: options.tandem.createTandem( 'probe' )
     } );
 
@@ -112,17 +125,19 @@ ATDetector.Mode = Enumeration.byKeys( [ 'TRANSMITTANCE', 'ABSORBANCE' ] );
 class Probe extends BLLMovable {
 
   /**
-   * @param {Vector2} position
-   * @param {Bounds2} dragBounds
-   * @param {number} sensorDiameter cm
    * @param {Object} [options]
    * @constructor
    */
-  constructor( position, dragBounds, sensorDiameter, options ) {
-    super( position, dragBounds, options );
+  constructor( options ) {
+
+    options = merge( {
+      sensorDiameter: 1 // in cm
+    }, options );
+
+    super( options );
 
     // @private
-    this.sensorDiameter = sensorDiameter;
+    this.sensorDiameter = options.sensorDiameter;
   }
 
   // @public @returns {number}

@@ -6,28 +6,30 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import merge from '../../../../phet-core/js/merge.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLMovable from '../../common/model/BLLMovable.js';
 
 class Ruler extends BLLMovable {
 
   /**
-   * @param {number} length cm
-   * @param {number} insets cm, the horizontal insets at the ends of the ruler
-   * @param {number} height cm
-   * @param {Vector2} position
-   * @param {Bounds2} dragBounds
    * @param {Object} [options]
    * @constructor
    */
-  constructor( length, insets, height, position, dragBounds, options ) {
+  constructor( options ) {
 
-    super( position, dragBounds, options );
+    options = merge( {
+      length: 2.1, // in cm
+      insets: 0.1, // the horizontal insets at the ends of the ruler, in cm
+      height: 0.35 // in cm
+    }, options );
+
+    super( options );
 
     // @public (read-only)
-    this.length = length;
-    this.insets = insets;
-    this.height = height;
+    this.length = options.length;
+    this.insets = options.insets;
+    this.height = options.height;
   }
 }
 
