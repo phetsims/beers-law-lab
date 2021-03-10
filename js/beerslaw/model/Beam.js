@@ -39,9 +39,10 @@ class Beam {
     // @public Make the beam visible when the light is on.
     this.visibleProperty = new DerivedProperty( [ light.isOnProperty ], isOn => isOn );
 
-    // beam shape
-    const xOverlap = modelViewTransform.modelToViewDeltaX( 1 ); // add some overlap, to hide space between beam and light housing
-    // @public
+    // beam shape, with add some overlap, to hide space between beam and light housing
+    const xOverlap = modelViewTransform.modelToViewDeltaX( 1 );
+
+    // @public {DerivedProperty.<Shape|null>} shape of the beam
     this.shapeProperty = new DerivedProperty(
       [ this.visibleProperty, cuvette.widthProperty, detector.probe.positionProperty ],
       ( beamVisible, cuvetteWidth, probePosition ) => {
@@ -57,7 +58,7 @@ class Beam {
         }
       } );
 
-    // @public beam color, a left-to-right linear gradient that transitions inside the solution
+    // @public {DerivedProperty.<LinearGradient>|null} beam color, a left-to-right linear gradient that transitions inside the solution
     this.fillProperty = new DerivedProperty(
       [ this.visibleProperty, cuvette.widthProperty, light.wavelengthProperty, absorbanceModel.absorbanceProperty ],
       ( beamVisible, cuvetteWidth, wavelength, absorbance ) => {
