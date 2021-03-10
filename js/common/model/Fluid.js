@@ -1,7 +1,7 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * Base type for all fluids.
+ * Fluid is the base class model for all fluids.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

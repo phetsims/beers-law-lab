@@ -1,7 +1,7 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * A movable model element.
+ * BLLMovable is a movable model element.
  * Semantics of units are determined by the client.
  *
  * @author Chris Malley (PixelZoom, Inc.)
@@ -22,8 +22,8 @@ class BLLMovable {
   constructor( options ) {
 
     options = merge( {
-      position: Vector2.ZERO, // in cm
-      dragBounds: Bounds2.EVERYTHING, // in cm
+      position: Vector2.ZERO,
+      dragBounds: Bounds2.EVERYTHING,
       tandem: Tandem.REQUIRED
     }, options );
 

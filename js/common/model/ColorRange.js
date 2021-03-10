@@ -1,7 +1,7 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * Range for a color, with interpolation.
+ * ColorRange is the range for a color, with linear interpolation in RGBA colorspace.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
