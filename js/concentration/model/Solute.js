@@ -40,7 +40,7 @@ class Solute extends PhetioObject {
 
       // options
       particleColor: config.colorScheme.maxColor,
-      particleSize: 5,
+      particleSize: 5, // cm
       particlesPerMole: 200,
 
       // phet-io
@@ -56,8 +56,6 @@ class Solute extends PhetioObject {
     // @public (read-only)
     this.name = config.name;
     this.formula = config.formula;
-
-    // @public (read-only)
     this.stockSolutionConcentration = config.stockSolutionConcentration; // mol/L
     this.molarMass = config.molarMass; // g/mol
     this.colorScheme = config.colorScheme;
