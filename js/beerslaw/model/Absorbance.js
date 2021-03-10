@@ -1,7 +1,8 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * Model for computing the absorbance (and transmittance) of light passing through a solution in a cuvette.
+ * Absorbance is the model for computing the absorbance (and transmittance) of light passing through a solution
+ * in a cuvette.
  *
  * Absorbance model: A = abC
  *

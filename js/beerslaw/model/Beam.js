@@ -1,7 +1,7 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * Model of the light as a solid beam.
+ * Beam is the model of the light as a solid beam.
  * Changes in wavelength affect the entire beam instantaneously.
  * Consists of 3 segments: left (between light and cuvette), center (inside cuvette), and right (to right of cuvette).
  * Beam may be intercepted at any point by the Absorbance-Transmittance detector.
@@ -48,7 +48,7 @@ class Beam {
         if ( beamVisible ) {
           const x = modelViewTransform.modelToViewPosition( light.position ).x - xOverlap;
           const y = modelViewTransform.modelToViewPosition( light.position ).y - modelViewTransform.modelToViewDeltaY( light.lensDiameter / 2 );
-          const w = modelViewTransform.modelToViewDeltaX( detector.probeInBeam() ? probePosition.x - light.position.x : MAX_LIGHT_WIDTH ) + xOverlap;
+          const w = modelViewTransform.modelToViewDeltaX( detector.isProbeInBeam() ? probePosition.x - light.position.x : MAX_LIGHT_WIDTH ) + xOverlap;
           const h = modelViewTransform.modelToViewDeltaY( light.lensDiameter );
           return Shape.rect( x, y, w, h );
         }
