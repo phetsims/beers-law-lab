@@ -15,6 +15,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Utils from '../../../../dot/js/Utils.js';
@@ -22,11 +23,11 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import Shape from '../../../../kite/js/Shape.js';
 import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
-import MovableDragHandler from '../../../../scenery-phet/js/input/MovableDragHandler.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import ProbeNode from '../../../../scenery-phet/js/ProbeNode.js';
 import ShadedRectangle from '../../../../scenery-phet/js/ShadedRectangle.js';
+import DragListener from '../../../../scenery/js/listeners/DragListener.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
@@ -197,12 +198,12 @@ class BodyNode extends Node {
     vBox.center = bodyNode.center;
 
     if ( BODY_IS_DRAGGABLE ) {
-      const movableDragHandler = new MovableDragHandler( meter.body.positionProperty, {
-        dragBounds: meter.body.dragBounds,
+      this.addInputListener( new DragListener( {
+        positionProperty: meter.body.positionProperty,
+        dragBoundsProperty: new Property( meter.body.dragBounds ),
         modelViewTransform: modelViewTransform,
-        tandem: options.tandem.createTandem( 'movableDragHandler' )
-      } );
-      this.addInputListener( movableDragHandler );
+        tandem: options.tandem.createTandem( 'dragListener' )
+      } ) );
     }
 
     // body position
@@ -279,13 +280,13 @@ class ConcentrationProbeNode extends ProbeNode {
     // touch area
     this.touchArea = this.localBounds.dilatedXY( 0.25 * this.width, 0.25 * this.height );
 
-    // drag handler
-    const movableDragHandler = new MovableDragHandler( probe.positionProperty, {
-      tandem: options.tandem.createTandem( 'movableDragHandler' ),
-      dragBounds: probe.dragBounds,
-      modelViewTransform: modelViewTransform
-    } );
-    this.addInputListener( movableDragHandler );
+    // drag listener
+    this.addInputListener( new DragListener( {
+      positionProperty: probe.positionProperty,
+      dragBoundsProperty: new Property( probe.dragBounds ),
+      modelViewTransform: modelViewTransform,
+      tandem: options.tandem.createTandem( 'movableDragHandler' )
+    } ) );
 
     const isInNode = node => {
       const localPoint = node.parentToLocalPoint( probe.positionProperty.value );
