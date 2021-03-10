@@ -18,7 +18,10 @@ class MolarAbsorptivityData {
    * @param {number[]} molarAbsorptivity
    */
   constructor( molarAbsorptivity ) {
+    assert && assert( Array.isArray( molarAbsorptivity ) );
+    assert && assert( _.every( molarAbsorptivity, value => typeof value === 'number' ) );
     assert && assert( molarAbsorptivity.length === VisibleColor.MAX_WAVELENGTH - VisibleColor.MIN_WAVELENGTH + 1 );
+
     this.molarAbsorptivity = molarAbsorptivity;
     this.lambdaMax = getLambdaMax( molarAbsorptivity );
   }
@@ -30,8 +33,10 @@ class MolarAbsorptivityData {
    * @public
    */
   wavelengthToMolarAbsorptivity( wavelength ) {
+    assert && assert( typeof wavelength === 'number' );
     assert && assert( wavelength >= VisibleColor.MIN_WAVELENGTH && wavelength <= VisibleColor.MAX_WAVELENGTH,
       'invalid wavelength: ' + wavelength );
+
     const index = Math.floor( wavelength - VisibleColor.MIN_WAVELENGTH );
     return this.molarAbsorptivity[ index ];
   }
@@ -44,6 +49,8 @@ class MolarAbsorptivityData {
  * @returns {number}
  */
 function getLambdaMax( molarAbsorptivity ) {
+  assert && assert( Array.isArray( molarAbsorptivity ) );
+
   let indexMax = 0;
   let molarAbsorptivityMax = molarAbsorptivity[ indexMax ];
   for ( let i = 0; i < molarAbsorptivity.length; i++ ) {

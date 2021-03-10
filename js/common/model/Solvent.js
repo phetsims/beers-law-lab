@@ -20,6 +20,10 @@ class Solvent extends Fluid {
    * @param {Color} color
    */
   constructor( name, formula, density, color ) {
+    assert && assert( typeof name === 'string' );
+    assert && assert( typeof formula === 'string' );
+    assert && assert( typeof density === 'number' );
+    assert && assert( color instanceof Color );
 
     super( color );
 

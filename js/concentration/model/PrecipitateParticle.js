@@ -8,6 +8,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
@@ -24,6 +25,9 @@ class PrecipitateParticle extends SoluteParticle {
    * @param {Object} [options]
    */
   constructor( solute, position, orientation, options ) {
+    assert && assert( solute instanceof Solute );
+    assert && assert( position instanceof Vector2 );
+    assert && assert( typeof orientation === 'number' );
 
     options = merge( {
       tandem: Tandem.REQUIRED,

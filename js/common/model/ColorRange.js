@@ -16,6 +16,8 @@ class ColorRange {
    * @param {Color} max
    */
   constructor( min, max ) {
+    assert && assert( min instanceof Color );
+    assert && assert( max instanceof Color );
 
     // @public (read-only)
     this.min = min;
@@ -30,7 +32,9 @@ class ColorRange {
    * @public
    */
   interpolateLinear( distance ) {
+    assert && assert( typeof distance === 'number' );
     assert && assert( distance >= 0 && distance <= 1 );
+
     return Color.interpolateRGBA( this.min, this.max, distance );
   }
 }

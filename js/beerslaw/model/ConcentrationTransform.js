@@ -23,6 +23,8 @@ class ConcentrationTransform {
    * @param {string} units
    */
   constructor( scale, units ) {
+    assert && assert( typeof scale === 'number' );
+    assert && assert( typeof units === 'string' );
 
     // @public (read-only)
     this.scale = scale;

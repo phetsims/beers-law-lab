@@ -12,6 +12,7 @@ import Range from '../../../../dot/js/Range.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
+import ConcentrationSolution from './ConcentrationSolution.js';
 
 class Evaporator {
 
@@ -20,6 +21,7 @@ class Evaporator {
    * @param {Object} [options]
    */
   constructor( solution, options ) {
+    assert && assert( solution instanceof ConcentrationSolution );
 
     options = merge( {
       maxEvaporationRate: 0.25, // L/s

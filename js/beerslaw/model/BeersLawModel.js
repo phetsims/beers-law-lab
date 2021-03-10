@@ -10,6 +10,7 @@ import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import AbsorbanceModel from './AbsorbanceModel.js';
@@ -27,6 +28,7 @@ class BeersLawModel {
    * @param {Object} [options]
    */
   constructor( modelViewTransform, options ) {
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     options = merge( {
       tandem: Tandem.REQUIRED

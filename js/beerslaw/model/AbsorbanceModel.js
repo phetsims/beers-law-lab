@@ -21,7 +21,10 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Property from '../../../../axon/js/Property.js';
 import beersLawLab from '../../beersLawLab.js';
+import Cuvette from './Cuvette.js';
+import Light from './Light.js';
 
 class AbsorbanceModel {
 
@@ -31,6 +34,9 @@ class AbsorbanceModel {
    * @param {Cuvette} cuvette
    */
   constructor( light, solutionProperty, cuvette ) {
+    assert && assert( light instanceof Light );
+    assert && assert( solutionProperty instanceof Property );
+    assert && assert( cuvette instanceof Cuvette );
 
     // @private {DerivedProperty.<number>} a : molar absorptivity
     this.molarAbsorptivityProperty = new DerivedProperty(

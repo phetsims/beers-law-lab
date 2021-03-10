@@ -16,9 +16,14 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Shape from '../../../../kite/js/Shape.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
 import beersLawLab from '../../beersLawLab.js';
+import AbsorbanceModel from './AbsorbanceModel.js';
+import ATDetector from './ATDetector.js';
+import Cuvette from './Cuvette.js';
+import Light from './Light.js';
 
 // constants
 const MAX_LIGHT_WIDTH = 50; // cm, wide enough to be way off the right edge of the play area
@@ -35,6 +40,11 @@ class Beam {
    * @param {ModelViewTransform2} modelViewTransform
    */
   constructor( light, cuvette, detector, absorbanceModel, modelViewTransform ) {
+    assert && assert( light instanceof Light, 'invalid light' );
+    assert && assert( cuvette instanceof Cuvette );
+    assert && assert( detector instanceof ATDetector );
+    assert && assert( absorbanceModel instanceof AbsorbanceModel );
+    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     // @public Make the beam visible when the light is on.
     this.visibleProperty = new DerivedProperty( [ light.isOnProperty ], isOn => isOn );

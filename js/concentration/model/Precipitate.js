@@ -12,6 +12,8 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
+import Beaker from './Beaker.js';
+import ConcentrationSolution from './ConcentrationSolution.js';
 import PrecipitateParticleGroup from './PrecipitateParticleGroup.js';
 
 class Precipitate {
@@ -22,6 +24,8 @@ class Precipitate {
    * @param {Object} [options]
    */
   constructor( solution, beaker, options ) {
+    assert && assert( solution instanceof ConcentrationSolution );
+    assert && assert( beaker instanceof Beaker );
 
     options = merge( {
       tandem: Tandem.REQUIRED,

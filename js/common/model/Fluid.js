@@ -7,6 +7,7 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
+import Color from '../../../../scenery/js/util/Color.js';
 import beersLawLab from '../../beersLawLab.js';
 
 class Fluid {
@@ -15,7 +16,10 @@ class Fluid {
    * @param {Color} color
    */
   constructor( color ) {
-    this.colorProperty = new Property( color ); // @public
+    assert && assert( color instanceof Color );
+
+    // @public
+    this.colorProperty = new Property( color );
   }
 
   // @public
