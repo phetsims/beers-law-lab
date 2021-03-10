@@ -10,6 +10,7 @@
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Range from '../../../../dot/js/Range.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
@@ -17,29 +18,29 @@ import beersLawLab from '../../beersLawLab.js';
 class Faucet {
 
   /**
-   * @param {Vector2} position center of output pipe
-   * @param {number} pipeMinX x-coordinate of where the pipe starts
-   * @param {number} spoutWidth
-   * @param {number} maxFlowRate L/sec
    * @param {Object} [options]
    */
-  constructor( position, pipeMinX, spoutWidth, maxFlowRate, options ) {
-
-    assert && assert( pipeMinX < position.x ); // pipe enters the faucet from the left
+  constructor( options ) {
 
     options = merge( {
+      position: Vector2.ZERO, // center of output pipe, cm
+      pipeMinX: -100, // x-coordinate of where the pipe starts, cm
+      spoutWidth: 45, // cm
+      maxFlowRate: 0.25, // L/s
       tandem: Tandem.REQUIRED
     }, options );
 
+    assert && assert( options.pipeMinX < options.position.x ); // pipe enters the faucet from the left
+
     // @public (read-only)
-    this.position = position;
-    this.pipeMinX = pipeMinX;
-    this.spoutWidth = spoutWidth;
-    this.maxFlowRate = maxFlowRate;
+    this.position = options.position;
+    this.pipeMinX = options.pipeMinX;
+    this.spoutWidth = options.spoutWidth;
+    this.maxFlowRate = options.maxFlowRate;
 
     // @public
     this.flowRateProperty = new NumberProperty( 0, {
-      range: new Range( 0, maxFlowRate ),
+      range: new Range( 0, options.maxFlowRate ),
       units: 'L/s',
       tandem: options.tandem.createTandem( 'flowRateProperty' ),
       phetioReadOnly: true

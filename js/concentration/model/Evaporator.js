@@ -16,21 +16,22 @@ import beersLawLab from '../../beersLawLab.js';
 class Evaporator {
 
   /**
-   * @param {number} maxEvaporationRate L/sec
    * @param {ConcentrationSolution} solution
    * @param {Object} [options]
    */
-  constructor( maxEvaporationRate, solution, options ) {
+  constructor( solution, options ) {
 
     options = merge( {
+      maxEvaporationRate: 0.25, // L/s
       tandem: Tandem.REQUIRED
     }, options );
 
-    this.maxEvaporationRate = maxEvaporationRate; // @public (read-only) L/sec
+    // @public (read-only) L/sec
+    this.maxEvaporationRate = options.maxEvaporationRate;
 
     // @public
     this.evaporationRateProperty = new NumberProperty( 0, {
-      range: new Range( 0, maxEvaporationRate ),
+      range: new Range( 0, options.maxEvaporationRate ),
       units: 'L/s',
       tandem: options.tandem.createTandem( 'evaporationRateProperty' ),
       phetioReadOnly: true // this is controlled by the model

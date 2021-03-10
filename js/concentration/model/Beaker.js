@@ -1,39 +1,41 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * Model of a simple beaker.
+ * Beaker is the model of a simple beaker.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Dimension2 from '../../../../dot/js/Dimension2.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
+import merge from '../../../../phet-core/js/merge.js';
 import beersLawLab from '../../beersLawLab.js';
 
 class Beaker {
 
   /**
-   * @param {Vector2} position bottom center
-   * @param {Dimension2} size
-   * @param {number} volume in liters (L)
+   * @param {Object} [options]
    */
-  constructor( position, size, volume ) {
+  constructor( options ) {
+
+    options = merge( {
+      position: Vector2.ZERO,
+      size: new Dimension2( 600, 300 ),
+      volume: 1
+    }, options );
 
     // @public (read-only)
-    this.position = position;
-    this.size = size;
-    this.volume = volume;
+    this.position = options.position;
+    this.size = options.size;
+    this.volume = options.volume;
   }
 
-  // @public
-  reset() {
-    // currently nothing to reset
-  }
-
-  // @public Gets the x-coordinate of the left wall.
+  // @public @returns {number} Gets the x-coordinate of the left wall.
   getLeft() {
     return this.position.x - ( this.size.width / 2 );
   }
 
-  // @public Gets the x-coordinate of the right wall.
+  // @public @returns {number} Gets the x-coordinate of the right wall.
   getRight() {
     return this.position.x + ( this.size.width / 2 );
   }

@@ -9,7 +9,6 @@
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
@@ -34,8 +33,6 @@ import SoluteForm from './SoluteForm.js';
 // constants
 const SOLUTION_VOLUME_RANGE = BLLConstants.SOLUTION_VOLUME_RANGE; // L
 const SOLUTE_AMOUNT_RANGE = BLLConstants.SOLUTE_AMOUNT_RANGE; // moles
-const MAX_EVAPORATION_RATE = 0.25; // L/sec
-const MAX_FAUCET_FLOW_RATE = 0.25; // L/sec
 const DROPPER_FLOW_RATE = 0.05; // L/sec
 const SHAKER_MAX_DISPENSING_RATE = 0.2; // mol/sec
 
@@ -81,7 +78,9 @@ class ConcentrationModel extends PhetioObject {
       SOLUTION_VOLUME_RANGE.defaultValue, {
         tandem: options.tandem.createTandem( 'solution' )
       } );
-    this.beaker = new Beaker( new Vector2( 350, 550 ), new Dimension2( 600, 300 ), 1 );
+    this.beaker = new Beaker( {
+      position: new Vector2( 350, 550 )
+    } );
     this.precipitate = new Precipitate( this.solution, this.beaker, {
       tandem: options.tandem.createTandem( 'precipitate' )
     } );
@@ -103,13 +102,17 @@ class ConcentrationModel extends PhetioObject {
       visible: ( this.soluteFormProperty.value === SoluteForm.SOLUTION ),
       tandem: options.tandem.createTandem( 'dropper' )
     } );
-    this.evaporator = new Evaporator( MAX_EVAPORATION_RATE, this.solution, {
+    this.evaporator = new Evaporator( this.solution, {
       tandem: options.tandem.createTandem( 'evaporator' )
     } );
-    this.solventFaucet = new Faucet( new Vector2( 155, 220 ), -400, 45, MAX_FAUCET_FLOW_RATE, {
+    this.solventFaucet = new Faucet( {
+      position: new Vector2( 155, 220 ),
+      pipeMinX: -400,
       tandem: options.tandem.createTandem( 'solventFaucet' )
     } );
-    this.drainFaucet = new Faucet( new Vector2( 750, 630 ), this.beaker.getRight(), 45, MAX_FAUCET_FLOW_RATE, {
+    this.drainFaucet = new Faucet( {
+      position: new Vector2( 750, 630 ),
+      pipeMinX: this.beaker.getRight(),
       tandem: options.tandem.createTandem( 'drainFaucet' )
     } );
     this.concentrationMeter = new ConcentrationMeter( {
