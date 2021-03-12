@@ -84,7 +84,7 @@ class Precipitate {
    * @private
    */
   addParticles( numberToAdd ) {
-    assert && assert( numberToAdd > 0, 'invalid numberToAdd: ' + numberToAdd );
+    assert && assert( numberToAdd > 0, `invalid numberToAdd: ${numberToAdd}` );
     for ( let i = 0; i < numberToAdd; i++ ) {
       this.particlesGroup.createNextElement(
         this.solution.soluteProperty.value,

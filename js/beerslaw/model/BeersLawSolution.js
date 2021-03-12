@@ -72,7 +72,7 @@ class BeersLawSolution extends PhetioObject {
 
     }, config );
 
-    assert && assert( config.internalName.indexOf( ' ' ) === -1, 'internalName cannot contain spaces: ' + config.internalName );
+    assert && assert( config.internalName.indexOf( ' ' ) === -1, `internalName cannot contain spaces: ${config.internalName}` );
 
     super( config );
 

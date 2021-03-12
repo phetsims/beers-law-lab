@@ -110,7 +110,7 @@ class ConcentrationSolution extends Fluid {
       [ this.soluteProperty, this.soluteMolesProperty, this.precipitateMolesProperty ],
       ( solute, soluteAmount, precipitateAmount ) => {
         const soluteGrams = solute.molarMass * ( soluteAmount - precipitateAmount );
-        assert && assert( soluteGrams >= 0, 'invalid soluteGrams: ' + soluteGrams );
+        assert && assert( soluteGrams >= 0, `invalid soluteGrams: ${soluteGrams}` );
         return soluteGrams;
       }, {
         tandem: options.tandem.createTandem( 'soluteGramsProperty' ),
@@ -129,7 +129,7 @@ class ConcentrationSolution extends Fluid {
           percentConcentration = 100 * ( soluteGrams / ( soluteGrams + solventGrams ) );
         }
         assert && assert( percentConcentration >= 0 && percentConcentration <= 100,
-          'percentConcentration out of range: ' + percentConcentration );
+          `percentConcentration out of range: ${percentConcentration}` );
         return percentConcentration;
       }, {
         tandem: options.tandem.createTandem( 'percentConcentrationProperty' ),

@@ -78,7 +78,7 @@ function createItem( solution, tandem ) {
 
   const solutionName = new RichText( solution.getDisplayName(), {
     font: new PhetFont( 20 ),
-    tandem: tandem.createTandem( solution.tandemName + 'Text' )
+    tandem: tandem.createTandem( `${solution.tandemName}Text` )
   } );
 
   const hBox = new HBox( {
@@ -87,7 +87,7 @@ function createItem( solution, tandem ) {
   } );
 
   return new ComboBoxItem( hBox, solution, {
-    tandemName: solution.tandemName + 'Item' // Item suffix is required by ComboBoxItem
+    tandemName: `${solution.tandemName}Item` // Item suffix is required by ComboBoxItem
   } );
 }
 

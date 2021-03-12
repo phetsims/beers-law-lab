@@ -35,7 +35,7 @@ class MolarAbsorptivityData {
   wavelengthToMolarAbsorptivity( wavelength ) {
     assert && assert( typeof wavelength === 'number' );
     assert && assert( wavelength >= VisibleColor.MIN_WAVELENGTH && wavelength <= VisibleColor.MAX_WAVELENGTH,
-      'invalid wavelength: ' + wavelength );
+      `invalid wavelength: ${wavelength}` );
 
     const index = Math.floor( wavelength - VisibleColor.MIN_WAVELENGTH );
     return this.molarAbsorptivity[ index ];

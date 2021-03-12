@@ -81,7 +81,7 @@ function createItem( solute ) {
   } );
 
   return new ComboBoxItem( hBox, solute, {
-    tandemName: solute.tandemName + 'Item' // Item suffix is required by ComboBoxItem
+    tandemName: `${solute.tandemName}Item` // Item suffix is required by ComboBoxItem
   } );
 }
 
