@@ -85,7 +85,8 @@ class BeersLawSolution extends PhetioObject {
     this.concentrationProperty = new NumberProperty( config.concentrationRange.defaultValue, {
       units: 'mol/L',
       range: config.concentrationRange,
-      tandem: config.tandem.createTandem( 'concentrationProperty' )
+      tandem: config.tandem.createTandem( 'concentrationProperty' ),
+      phetioStudioControl: false // see https://github.com/phetsims/beers-law-lab/issues/275
     } );
     this.concentrationTransform = config.concentrationTransform;
     this.colorRange = config.colorRange;
