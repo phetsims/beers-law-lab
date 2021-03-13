@@ -13,7 +13,7 @@ import merge from '../../../../phet-core/js/merge.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import beersLawLab from '../../beersLawLab.js';
-import Solute from './Solute.js';
+import Solute from '../../common/model/Solute.js';
 import SoluteParticle from './SoluteParticle.js';
 
 class PrecipitateParticle extends SoluteParticle {

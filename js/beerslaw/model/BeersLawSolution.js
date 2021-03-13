@@ -14,6 +14,7 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Property from '../../../../axon/js/Property.js';
 import StringProperty from '../../../../axon/js/StringProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Utils from '../../../../dot/js/Utils.js';
@@ -28,8 +29,8 @@ import ReferenceIO from '../../../../tandem/js/types/ReferenceIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
-import BLLSymbols from '../../common/BLLSymbols.js';
 import ColorRange from '../../common/model/ColorRange.js';
+import Solute from '../../common/model/Solute.js';
 import Solvent from '../../common/model/Solvent.js';
 import ConcentrationTransform from './ConcentrationTransform.js';
 import MolarAbsorptivityData from './MolarAbsorptivityData.js';
@@ -46,11 +47,11 @@ class BeersLawSolution extends PhetioObject {
       // {string} internalName - used internally, not displayed to the user
       internalName: required( config.internalName ),
 
-      // {string} name - name that is visible to the user
-      name: required( config.name ),
+      // {Property.<string>} name - name that is visible to the user
+      nameProperty: required( config.nameProperty ),
 
-      // {string} formula - formula that is visible to the user
-      formula: required( config.formula ),
+      // {Property.<string|null>} formula - formula that is visible to the user, null defaults to nameProperty.value
+      formulaProperty: required( config.formulaProperty ),
 
       // {MolarAbsorptivityData}
       molarAbsorptivityData: required( config.molarAbsorptivityData ),
@@ -78,10 +79,17 @@ class BeersLawSolution extends PhetioObject {
     super( config );
 
     // @public Added for PhET-iO, see https://github.com/phetsims/beers-law-lab/issues/272
-    this.labelProperty = new StringProperty( formatLabel( config.name, config.formula ), {
+    // This is not a DerivedProperty because RichText options.textProperty does not work with DerivedProperty.
+    this.labelProperty = new StringProperty( formatLabel( config.nameProperty.value, config.formulaProperty.value ), {
       tandem: config.tandem.createTandem( 'labelProperty' ),
-      phetioDocumentation: 'The string used to label the solution, using RichText markup. Changing it here will change it everywhere in the user interface.'
+      phetioDocumentation: 'The string used to label the solution, derived from the solute nameProperty and formulaProperty.',
+      phetioReadOnly: true
     } );
+    Property.lazyMultilink(
+      [ config.nameProperty, config.formulaProperty ],
+      ( name, formula ) => {
+        this.labelProperty.value = formatLabel( name, formula );
+      } );
 
     // @public (read-only)
     this.solvent = Solvent.WATER;
@@ -126,6 +134,8 @@ class BeersLawSolution extends PhetioObject {
  * @returns {string}
  */
 function formatLabel( name, formula ) {
+  assert && assert( typeof name === 'string', `invalid name: ${name}` );
+  assert && assert( typeof formula === 'string', `invalid name: ${formula}` );
   return ( name === formula ) ?
          name :
          StringUtils.format( beersLawLabStrings.pattern[ '0formula' ][ '1name' ], formula, name );
@@ -150,8 +160,8 @@ const SOLUTIONS_TANDEM = BLLConstants.BEERS_LAW_SCREEN_TANDEM.createTandem( 'mod
 
 BeersLawSolution.DRINK_MIX = new BeersLawSolution( {
   internalName: 'drinkMix',
-  name: beersLawLabStrings.drinkMix,
-  formula: BLLSymbols.DRINK_MIX,
+  nameProperty: Solute.DRINK_MIX.nameProperty,
+  formulaProperty: Solute.DRINK_MIX.formulaProperty,
   molarAbsorptivityData: MolarAbsorptivityData.DRINK_MIX,
   concentrationRange: new RangeWithValue( 0, 0.400, 0.100 ),
   concentrationTransform: ConcentrationTransform.mM,
@@ -161,8 +171,8 @@ BeersLawSolution.DRINK_MIX = new BeersLawSolution( {
 
 BeersLawSolution.COBALT_II_NITRATE = new BeersLawSolution( {
   internalName: 'cobaltIINitrate',
-  name: beersLawLabStrings.cobaltIINitrate,
-  formula: BLLSymbols.COBALT_II_NITRATE,
+  nameProperty: Solute.COBALT_II_NITRATE.nameProperty,
+  formulaProperty: Solute.COBALT_II_NITRATE.formulaProperty,
   molarAbsorptivityData: MolarAbsorptivityData.COBALT_II_NITRATE,
   concentrationRange: new RangeWithValue( 0, 0.400, 0.100 ),
   concentrationTransform: ConcentrationTransform.mM,
@@ -172,8 +182,8 @@ BeersLawSolution.COBALT_II_NITRATE = new BeersLawSolution( {
 
 BeersLawSolution.COBALT_CHLORIDE = new BeersLawSolution( {
   internalName: 'cobaltChloride',
-  name: beersLawLabStrings.cobaltChloride,
-  formula: BLLSymbols.COBALT_CHLORIDE,
+  nameProperty: Solute.COBALT_CHLORIDE.nameProperty,
+  formulaProperty: Solute.COBALT_CHLORIDE.formulaProperty,
   molarAbsorptivityData: MolarAbsorptivityData.COBALT_CHLORIDE,
   concentrationRange: new RangeWithValue( 0, 0.250, 0.100 ),
   concentrationTransform: ConcentrationTransform.mM,
@@ -183,8 +193,8 @@ BeersLawSolution.COBALT_CHLORIDE = new BeersLawSolution( {
 
 BeersLawSolution.POTASSIUM_DICHROMATE = new BeersLawSolution( {
   internalName: 'potassiumDichromate',
-  name: beersLawLabStrings.potassiumDichromate,
-  formula: BLLSymbols.POTASSIUM_DICHROMATE,
+  nameProperty: Solute.POTASSIUM_DICHROMATE.nameProperty,
+  formulaProperty: Solute.POTASSIUM_DICHROMATE.formulaProperty,
   molarAbsorptivityData: MolarAbsorptivityData.POTASSIUM_DICHROMATE,
   concentrationRange: new RangeWithValue( 0, 0.000500, 0.000100 ),
   concentrationTransform: ConcentrationTransform.uM,
@@ -194,8 +204,8 @@ BeersLawSolution.POTASSIUM_DICHROMATE = new BeersLawSolution( {
 
 BeersLawSolution.POTASSIUM_CHROMATE = new BeersLawSolution( {
   internalName: 'potassiumChromate',
-  name: beersLawLabStrings.potassiumChromate,
-  formula: BLLSymbols.POTASSIUM_CHROMATE,
+  nameProperty: Solute.POTASSIUM_CHROMATE.nameProperty,
+  formulaProperty: Solute.POTASSIUM_CHROMATE.formulaProperty,
   molarAbsorptivityData: MolarAbsorptivityData.POTASSIUM_CHROMATE,
   concentrationRange: new RangeWithValue( 0, 0.000400, 0.000100 ),
   concentrationTransform: ConcentrationTransform.uM,
@@ -205,8 +215,8 @@ BeersLawSolution.POTASSIUM_CHROMATE = new BeersLawSolution( {
 
 BeersLawSolution.NICKEL_II_CHLORIDE = new BeersLawSolution( {
   internalName: 'nickelIIChloride',
-  name: beersLawLabStrings.nickelIIChloride,
-  formula: BLLSymbols.NICKEL_II_CHLORIDE,
+  nameProperty: Solute.NICKEL_II_CHLORIDE.nameProperty,
+  formulaProperty: Solute.NICKEL_II_CHLORIDE.formulaProperty,
   molarAbsorptivityData: MolarAbsorptivityData.NICKEL_II_CHLORIDE,
   concentrationRange: new RangeWithValue( 0, 0.350, 0.100 ),
   concentrationTransform: ConcentrationTransform.mM,
@@ -216,8 +226,8 @@ BeersLawSolution.NICKEL_II_CHLORIDE = new BeersLawSolution( {
 
 BeersLawSolution.COPPER_SULFATE = new BeersLawSolution( {
   internalName: 'copperSulfate',
-  name: beersLawLabStrings.copperSulfate,
-  formula: BLLSymbols.COPPER_SULFATE,
+  nameProperty: Solute.COPPER_SULFATE.nameProperty,
+  formulaProperty: Solute.COPPER_SULFATE.formulaProperty,
   molarAbsorptivityData: MolarAbsorptivityData.COPPER_SULFATE,
   concentrationRange: new RangeWithValue( 0, 0.200, 0.100 ),
   concentrationTransform: ConcentrationTransform.mM,
@@ -227,8 +237,8 @@ BeersLawSolution.COPPER_SULFATE = new BeersLawSolution( {
 
 BeersLawSolution.POTASSIUM_PERMANGANATE = new BeersLawSolution( {
   internalName: 'potassiumPermanganate',
-  name: beersLawLabStrings.potassiumPermanganate,
-  formula: BLLSymbols.POTASSIUM_PERMANGANATE,
+  nameProperty: Solute.POTASSIUM_PERMANGANATE.nameProperty,
+  formulaProperty: Solute.POTASSIUM_PERMANGANATE.formulaProperty,
   molarAbsorptivityData: MolarAbsorptivityData.POTASSIUM_PERMANGANATE,
   concentrationRange: new RangeWithValue( 0, 0.000800, 0.000100 ),
   concentrationTransform: ConcentrationTransform.uM,

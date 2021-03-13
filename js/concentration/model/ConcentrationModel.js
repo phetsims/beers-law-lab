@@ -27,7 +27,7 @@ import Faucet from './Faucet.js';
 import Precipitate from './Precipitate.js';
 import Shaker from './Shaker.js';
 import ShakerParticles from './ShakerParticles.js';
-import Solute from './Solute.js';
+import Solute from '../../common/model/Solute.js';
 import SoluteForm from './SoluteForm.js';
 
 // constants

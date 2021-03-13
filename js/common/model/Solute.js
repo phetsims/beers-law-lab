@@ -16,10 +16,9 @@ import IOType from '../../../../tandem/js/types/IOType.js';
 import ReferenceIO from '../../../../tandem/js/types/ReferenceIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
-import BLLConstants from '../../common/BLLConstants.js';
-import BLLSymbols from '../../common/BLLSymbols.js';
-import Solvent from '../../common/model/Solvent.js';
-import SoluteColorScheme from './SoluteColorScheme.js';
+import SoluteColorScheme from '../../concentration/model/SoluteColorScheme.js';
+import BLLSymbols from '../BLLSymbols.js';
+import Solvent from './Solvent.js';
 
 class Solute extends PhetioObject {
 
@@ -104,11 +103,11 @@ Solute.SoluteIO = new IOType( 'SoluteIO', {
 // Static instances
 
 // parent tandem for all static instances of Solute
-const SOLUTES_TANDEM = BLLConstants.CONCENTRATION_SCREEN_TANDEM.createTandem( 'model' ).createTandem( 'solutes' );
+const SOLUTES_TANDEM = Tandem.GLOBAL_MODEL.createTandem( 'solutes' );
 
 Solute.DRINK_MIX = new Solute( {
   name: beersLawLabStrings.drinkMix,
-  formula: beersLawLabStrings.drinkMix,
+  formula: beersLawLabStrings.drinkMix, // formula is the same as name
   stockSolutionConcentration: 5.5,
   molarMass: 342.296, // sucrose
   colorScheme: new SoluteColorScheme( 0, new Color( 224, 255, 255 ), 0.05, new Color( 255, 225, 225 ), 5.96, new Color( 255, 0, 0 ) ),

@@ -20,7 +20,7 @@ import ComboBoxItem from '../../../../sun/js/ComboBoxItem.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
-import Solute from '../model/Solute.js';
+import Solute from '../../common/model/Solute.js';
 
 class SoluteComboBox extends ComboBox {
 
