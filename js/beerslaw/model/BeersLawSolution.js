@@ -14,6 +14,7 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import StringProperty from '../../../../axon/js/StringProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Utils from '../../../../dot/js/Utils.js';
 import merge from '../../../../phet-core/js/merge.js';
@@ -76,11 +77,15 @@ class BeersLawSolution extends PhetioObject {
 
     super( config );
 
+    // @public Added for PhET-iO, see https://github.com/phetsims/beers-law-lab/issues/272
+    this.labelProperty = new StringProperty( formatLabel( config.name, config.formula ), {
+      tandem: config.tandem.createTandem( 'labelProperty' ),
+      phetioDocumentation: 'The string used to label the solution, using RichText markup. Changing it here will change it everywhere in the user interface.'
+    } );
+
     // @public (read-only)
     this.solvent = Solvent.WATER;
     this.internalName = config.internalName;
-    this.name = config.name;
-    this.formula = config.formula;
     this.molarAbsorptivityData = config.molarAbsorptivityData;
     this.concentrationProperty = new NumberProperty( config.concentrationRange.defaultValue, {
       units: 'mol/L',
@@ -112,16 +117,26 @@ class BeersLawSolution extends PhetioObject {
   reset() {
     this.concentrationProperty.reset();
   }
-
-  // @public
-  getDisplayName() {
-    if ( this.formula === this.name ) {
-      return this.name;
-    }
-    return StringUtils.format( beersLawLabStrings.pattern[ '0formula' ][ '1name' ], this.formula, this.name );
-  }
 }
 
+/**
+ * Formats the label for a solution.
+ * @param {string} name
+ * @param {string} formula
+ * @returns {string}
+ */
+function formatLabel( name, formula ) {
+  return ( name === formula ) ?
+         name :
+         StringUtils.format( beersLawLabStrings.pattern[ '0formula' ][ '1name' ], formula, name );
+}
+
+/**
+ * BeersLawSolutionIO handles PhET-iO serialization of BeersLawSolution. Since all BeersLawSolution are
+ * static instances, it implements 'Reference type serialization', as described in the Serialization section of
+ * https://github.com/phetsims/phet-io/blob/master/doc/phet-io-instrumentation-technical-guide.md#serialization
+ * @public
+ */
 BeersLawSolution.BeersLawSolutionIO = new IOType( 'BeersLawSolutionIO', {
   valueType: BeersLawSolution,
   supertype: ReferenceIO( IOType.ObjectIO ),

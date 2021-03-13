@@ -76,7 +76,9 @@ function createItem( solution, tandem ) {
     stroke: solution.saturatedColor.darkerColor()
   } );
 
-  const solutionName = new RichText( solution.getDisplayName(), {
+  const solutionName = new RichText( solution.labelProperty.value, {
+    textProperty: solution.labelProperty, // labelProperty may be changed via PhET-iO
+    maxWidth: 305, // determined empirically, so that English strings are not scaled down
     font: new PhetFont( 20 ),
     tandem: tandem.createTandem( `${solution.tandemName}Text` )
   } );

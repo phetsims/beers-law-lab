@@ -73,9 +73,9 @@ function createItem( solute ) {
   } );
 
   const textNode = new RichText( solute.nameProperty.value, {
-    textProperty: solute.nameProperty,
+    textProperty: solute.nameProperty, // nameProperty may be changed via PhET-iO
     font: new PhetFont( 20 ),
-    maxWidth: 230 // set empirically, so that English strings are no scaled down
+    maxWidth: 230 // determined empirically, so that English strings are not scaled down
   } );
 
   const hBox = new HBox( {
