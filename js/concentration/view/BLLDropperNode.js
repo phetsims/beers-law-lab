@@ -84,26 +84,36 @@ class BLLDropperNode extends EyeDropperNode {
       }
     } );
 
-    // Change the label and color when the solute changes.
-    soluteProperty.link( solute => {
+    // Label the shaker with the solute formula, which can be changed via PhET-iO.
+    const soluteFormulaListener = formula => {
+      labelNode.text = formula;
+    };
+    dropper.soluteProperty.link( ( solute, previousSolute ) => {
+      if ( previousSolute && previousSolute.formulaProperty.hasListener( soluteFormulaListener ) ) {
+        previousSolute.formulaProperty.unlink( soluteFormulaListener );
+      }
+      solute.formulaProperty.link( soluteFormulaListener );
+    } );
 
-      // fluid color
-      this.setFluidColor( ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration ) );
-
-      // label, centered in the dropper's glass
-      labelNode.text = solute.formula;
+    // Position the label on the dropper, and resize it's translucent background to fit.
+    labelNode.boundsProperty.link( () => {
 
       // rotate to vertical, center the label in the dropper's glass
       labelNode.rotation = -Math.PI / 2;
       labelNode.centerX = 0;
       labelNode.centerY = EyeDropperNode.GLASS_MAX_Y - ( EyeDropperNode.GLASS_MAX_Y - EyeDropperNode.GLASS_MIN_Y ) / 2;
 
-      // translucent background for the label, so that it's visible on all solution colors
+      // Resize the translucent background.
       const width = 0.75 * EyeDropperNode.GLASS_WIDTH;
       const height = 1.2 * labelNode.height;
       const x = labelNode.centerX - ( width / 2 );
       const y = labelNode.centerY - ( height / 2 );
       labelBackground.shape = Shape.roundRect( x, y, width, height, 5, 5 );
+    } );
+
+    // Change color when the solute changes.
+    soluteProperty.link( solute => {
+      this.setFluidColor( ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration ) );
     } );
 
     // dilate touch area

@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import StringProperty from '../../../../axon/js/StringProperty.js';
 import merge from '../../../../phet-core/js/merge.js';
 import required from '../../../../phet-core/js/required.js';
 import Color from '../../../../scenery/js/util/Color.js';
@@ -13,8 +14,6 @@ import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import ReferenceIO from '../../../../tandem/js/types/ReferenceIO.js';
-import StringIO from '../../../../tandem/js/types/StringIO.js';
-import VoidIO from '../../../../tandem/js/types/VoidIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
@@ -53,9 +52,19 @@ class Solute extends PhetioObject {
     // @public - the name of the solute in tandem id format. Used to other make tandems that pertain to this solute.
     this.tandemName = config.tandem.name;
 
+    // @private Added for PhET-iO, see https://github.com/phetsims/beers-law-lab/issues/272
+    this.nameProperty = new StringProperty( config.name, {
+      tandem: config.tandem.createTandem( 'nameProperty' ),
+      phetioDocumentation: 'The solute name. Changing it here will change it everywhere in the user interface.'
+    } );
+
+    // @private Added for PhET-iO, see https://github.com/phetsims/beers-law-lab/issues/272
+    this.formulaProperty = new StringProperty( config.formula, {
+      tandem: config.tandem.createTandem( 'formulaProperty' ),
+      phetioDocumentation: 'The solute formula, using RichText markup. Changing it here will change it everywhere in the user interface.'
+    } );
+
     // @public (read-only)
-    this.name = config.name;
-    this.formula = config.formula;
     this.stockSolutionConcentration = config.stockSolutionConcentration; // mol/L
     this.molarMass = config.molarMass; // g/mol
     this.colorScheme = config.colorScheme;
@@ -70,35 +79,26 @@ class Solute extends PhetioObject {
     assert && assert( this.stockSolutionPercentConcentration >= 0 && this.stockSolutionPercentConcentration <= 100 );
   }
 
-  // @public @returns {number} gets the saturated concentration, in mol/L
+  /**
+   * Gets the saturated concentration, in mol/L
+   * @returns {number}
+   * @public
+   */
   getSaturatedConcentration() {
     return this.colorScheme.maxConcentration;
   }
 }
 
+/**
+ * SoluteIO handles PhET-iO serialization of Solute. Since all Solutes are static instances, it implements
+ * 'Reference type serialization', as described in the Serialization section of
+ * https://github.com/phetsims/phet-io/blob/master/doc/phet-io-instrumentation-technical-guide.md#serialization
+ * @public
+ */
 Solute.SoluteIO = new IOType( 'SoluteIO', {
   valueType: Solute,
   supertype: ReferenceIO( IOType.ObjectIO ),
-  methods: {
-    setName: {
-      returnType: VoidIO,
-      parameterTypes: [ StringIO ],
-      implementation: text => {
-        this.name = text;
-      },
-      documentation: 'Set the name of the solute',
-      invocableForReadOnlyElements: false
-    },
-    setFormula: {
-      returnType: VoidIO,
-      parameterTypes: [ StringIO ],
-      implementation: text => {
-        this.formula = text;
-      },
-      documentation: 'Set the formula of the solute',
-      invocableForReadOnlyElements: false
-    }
-  }
+  documentation: 'A solute in the Concentration screen'
 } );
 
 // Static instances

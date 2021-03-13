@@ -124,8 +124,8 @@ class BeersLawSolution extends PhetioObject {
 
 BeersLawSolution.BeersLawSolutionIO = new IOType( 'BeersLawSolutionIO', {
   valueType: BeersLawSolution,
-  documentation: 'The solution for the sim',
-  supertype: ReferenceIO( IOType.ObjectIO )
+  supertype: ReferenceIO( IOType.ObjectIO ),
+  documentation: 'A solution in the Beer\'s Law screen'
 } );
 
 // Static instances

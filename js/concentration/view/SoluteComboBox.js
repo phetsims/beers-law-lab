@@ -13,6 +13,7 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import HBox from '../../../../scenery/js/nodes/HBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
+import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ComboBox from '../../../../sun/js/ComboBox.js';
 import ComboBoxItem from '../../../../sun/js/ComboBoxItem.js';
@@ -71,8 +72,10 @@ function createItem( solute ) {
     stroke: solute.colorScheme.maxColor.darkerColor()
   } );
 
-  const textNode = new Text( solute.name, {
-    font: new PhetFont( 20 )
+  const textNode = new RichText( solute.nameProperty.value, {
+    textProperty: solute.nameProperty,
+    font: new PhetFont( 20 ),
+    maxWidth: 230 // set empirically, so that English strings are no scaled down
   } );
 
   const hBox = new HBox( {

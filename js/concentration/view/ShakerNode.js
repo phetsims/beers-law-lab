@@ -55,7 +55,7 @@ class ShakerNode extends Node {
     imageNode.setScaleMagnitude( 0.75 );
 
     // label
-    const labelNode = new RichText( shaker.soluteProperty.value.formula, {
+    const labelNode = new RichText( shaker.soluteProperty.value.formulaProperty.value, {
       font: new PhetFont( { size: 22, weight: 'bold' } ),
       fill: 'black',
       maxWidth: 0.5 * imageNode.width, // constrain width for i18n
@@ -86,13 +86,19 @@ class ShakerNode extends Node {
       this.setVisible( visible );
     } );
 
-    // sync solute with model
-    shaker.soluteProperty.link( solute => {
+    // Label the shaker with the solute formula, which can be changed via PhET-iO.
+    const soluteFormulaListener = formula => {
+      labelNode.text = formula;
+    };
+    shaker.soluteProperty.link( ( solute, previousSolute ) => {
+      if ( previousSolute && previousSolute.formulaProperty.hasListener( soluteFormulaListener ) ) {
+        previousSolute.formulaProperty.unlink( soluteFormulaListener );
+      }
+      solute.formulaProperty.link( soluteFormulaListener );
+    } );
 
-      // label the shaker with the solute formula
-      labelNode.setText( solute.formula );
-
-      // center the label on the shaker
+    // Center the label on the shaker.
+    labelNode.boundsProperty.link( () => {
       const capWidth = 0.3 * imageNode.width; // multiplier is dependent on image file
       labelNode.centerX = capWidth + ( imageNode.width - capWidth ) / 2;
       labelNode.centerY = imageNode.centerY;
