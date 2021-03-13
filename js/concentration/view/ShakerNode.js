@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
 import merge from '../../../../phet-core/js/merge.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
@@ -55,7 +56,7 @@ class ShakerNode extends Node {
     imageNode.setScaleMagnitude( 0.75 );
 
     // label
-    const labelNode = new RichText( shaker.soluteProperty.value.formulaProperty.value, {
+    const labelNode = new RichText( '', {
       font: new PhetFont( { size: 22, weight: 'bold' } ),
       fill: 'black',
       maxWidth: 0.5 * imageNode.width, // constrain width for i18n
@@ -86,15 +87,14 @@ class ShakerNode extends Node {
       this.setVisible( visible );
     } );
 
-    // Label the shaker with the solute formula, which can be changed via PhET-iO.
-    const soluteFormulaListener = formula => {
-      labelNode.text = formula;
-    };
-    shaker.soluteProperty.link( ( solute, previousSolute ) => {
-      if ( previousSolute && previousSolute.formulaProperty.hasListener( soluteFormulaListener ) ) {
-        previousSolute.formulaProperty.unlink( soluteFormulaListener );
-      }
-      solute.formulaProperty.link( soluteFormulaListener );
+    // Label the shaker with the solute formula. If there is no formula, default to the solute name.
+    let multilink;
+    shaker.soluteProperty.link( solute => {
+      multilink && multilink.dispose();
+      multilink = new Multilink( [ solute.nameProperty, solute.formulaProperty ],
+        ( name, formula ) => {
+          labelNode.text = formula ? formula : name;
+        } );
     } );
 
     // Center the label on the shaker.

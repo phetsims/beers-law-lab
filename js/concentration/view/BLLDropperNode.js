@@ -7,6 +7,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
 import Shape from '../../../../kite/js/Shape.js';
 import merge from '../../../../phet-core/js/merge.js';
@@ -84,15 +85,14 @@ class BLLDropperNode extends EyeDropperNode {
       }
     } );
 
-    // Label the shaker with the solute formula, which can be changed via PhET-iO.
-    const soluteFormulaListener = formula => {
-      labelNode.text = formula;
-    };
-    dropper.soluteProperty.link( ( solute, previousSolute ) => {
-      if ( previousSolute && previousSolute.formulaProperty.hasListener( soluteFormulaListener ) ) {
-        previousSolute.formulaProperty.unlink( soluteFormulaListener );
-      }
-      solute.formulaProperty.link( soluteFormulaListener );
+    // Label the dropper with the solute formula. If there is no formula, default to the solute name.
+    let multilink;
+    dropper.soluteProperty.link( solute => {
+      multilink && multilink.dispose();
+      multilink = new Multilink( [ solute.nameProperty, solute.formulaProperty ],
+        ( name, formula ) => {
+          labelNode.text = formula ? formula : name;
+        } );
     } );
 
     // Position the label on the dropper, and resize it's translucent background to fit.

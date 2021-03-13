@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Property from '../../../../axon/js/Property.js';
 import StringProperty from '../../../../axon/js/StringProperty.js';
 import merge from '../../../../phet-core/js/merge.js';
 import required from '../../../../phet-core/js/required.js';
@@ -13,7 +14,9 @@ import Color from '../../../../scenery/js/util/Color.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
+import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import ReferenceIO from '../../../../tandem/js/types/ReferenceIO.js';
+import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
 import SoluteColorScheme from '../../concentration/model/SoluteColorScheme.js';
@@ -31,12 +34,12 @@ class Solute extends PhetioObject {
 
       // required
       name: required( config.name ), // {string}
-      formula: required( config.formula ), // {string}
       stockSolutionConcentration: required( config.stockSolutionConcentration ), // {number} mol/L
       molarMass: required( config.molarMass ), // {number} g/mol
       colorScheme: required( config.colorScheme ), // {SoluteColorScheme}
 
       // options
+      formula: null, // {string|null} null default to nameProperty
       particleColor: config.colorScheme.maxColor,
       particleSize: 5, // cm
       particlesPerMole: 200,
@@ -58,9 +61,12 @@ class Solute extends PhetioObject {
     } );
 
     // @private Added for PhET-iO, see https://github.com/phetsims/beers-law-lab/issues/272
-    this.formulaProperty = new StringProperty( config.formula, {
+    this.formulaProperty = new Property( config.formula, {
       tandem: config.tandem.createTandem( 'formulaProperty' ),
-      phetioDocumentation: 'The solute formula, using RichText markup. Changing it here will change it everywhere in the user interface.'
+      phetioType: Property.PropertyIO( NullableIO( StringIO ) ),
+      phetioDocumentation:
+        'The solute formula, using RichText markup. Changing it here will change it everywhere in ' +
+        'the user interface. A null value will cause the formula to default to the value of nameProperty.'
     } );
 
     // @public (read-only)
@@ -107,7 +113,6 @@ const SOLUTES_TANDEM = Tandem.GLOBAL_MODEL.createTandem( 'solutes' );
 
 Solute.DRINK_MIX = new Solute( {
   name: beersLawLabStrings.drinkMix,
-  formula: beersLawLabStrings.drinkMix, // formula is the same as name
   stockSolutionConcentration: 5.5,
   molarMass: 342.296, // sucrose
   colorScheme: new SoluteColorScheme( 0, new Color( 224, 255, 255 ), 0.05, new Color( 255, 225, 225 ), 5.96, new Color( 255, 0, 0 ) ),

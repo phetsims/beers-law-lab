@@ -130,15 +130,13 @@ class BeersLawSolution extends PhetioObject {
 /**
  * Formats the label for a solution.
  * @param {string} name
- * @param {string} formula
+ * @param {string|null} formula - defaults to name
  * @returns {string}
  */
 function formatLabel( name, formula ) {
   assert && assert( typeof name === 'string', `invalid name: ${name}` );
-  assert && assert( typeof formula === 'string', `invalid name: ${formula}` );
-  return ( name === formula ) ?
-         name :
-         StringUtils.format( beersLawLabStrings.pattern[ '0formula' ][ '1name' ], formula, name );
+  assert && assert( typeof formula === 'string' || formula === null, `invalid name: ${formula}` );
+  return formula ? StringUtils.format( beersLawLabStrings.pattern[ '0formula' ][ '1name' ], formula, name ) : name;
 }
 
 /**
