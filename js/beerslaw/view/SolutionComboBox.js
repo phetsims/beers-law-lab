@@ -54,7 +54,7 @@ class SolutionComboBox extends ComboBox {
     } );
 
     // items
-    const items = solutions.map( solution => createItem( solution, options.tandem ) );
+    const items = solutions.map( createItem );
 
     super( items, selectedSolutionProperty, solutionListParent, options );
   }
@@ -64,12 +64,10 @@ class SolutionComboBox extends ComboBox {
  * Creates a combo box item.
  * @private
  * @param {BeersLawSolution} solution
- * @param {Tandem} tandem
  * @returns {ComboBoxItem}
  */
-function createItem( solution, tandem ) {
+function createItem( solution ) {
   assert && assert( solution instanceof BeersLawSolution );
-  assert && assert( tandem instanceof Tandem );
 
   const colorSquare = new Rectangle( 0, 0, 20, 20, {
     fill: solution.saturatedColor,
@@ -79,8 +77,7 @@ function createItem( solution, tandem ) {
   const solutionName = new RichText( solution.labelProperty.value, {
     textProperty: solution.labelProperty, // labelProperty may be changed via PhET-iO
     maxWidth: 305, // determined empirically, so that English strings are not scaled down
-    font: new PhetFont( 20 ),
-    tandem: tandem.createTandem( `${solution.tandemName}Text` )
+    font: new PhetFont( 20 )
   } );
 
   const hBox = new HBox( {
