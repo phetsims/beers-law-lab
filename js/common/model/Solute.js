@@ -39,7 +39,7 @@ class Solute extends PhetioObject {
       colorScheme: required( config.colorScheme ), // {SoluteColorScheme}
 
       // options
-      formula: null, // {string|null} null default to nameProperty
+      formula: null, // {string|null} null or empty string defaults to nameProperty
       particleColor: config.colorScheme.maxColor,
       particleSize: 5, // cm
       particlesPerMole: 200,
@@ -54,13 +54,13 @@ class Solute extends PhetioObject {
     // @public - the name of the solute in tandem id format. Used to other make tandems that pertain to this solute.
     this.tandemName = config.tandem.name;
 
-    // @private Added for PhET-iO, see https://github.com/phetsims/beers-law-lab/issues/272
+    // @public Added for PhET-iO, see https://github.com/phetsims/beers-law-lab/issues/272
     this.nameProperty = new StringProperty( config.name, {
       tandem: config.tandem.createTandem( 'nameProperty' ),
       phetioDocumentation: 'The solute name. Changing it here will change it everywhere in the user interface.'
     } );
 
-    // @private Added for PhET-iO, see https://github.com/phetsims/beers-law-lab/issues/272
+    // @public Added for PhET-iO, see https://github.com/phetsims/beers-law-lab/issues/272
     this.formulaProperty = new Property( config.formula, {
       tandem: config.tandem.createTandem( 'formulaProperty' ),
       phetioType: Property.PropertyIO( NullableIO( StringIO ) ),
@@ -68,6 +68,7 @@ class Solute extends PhetioObject {
         'The solute formula, using RichText markup. Changing it here will change it everywhere in ' +
         'the user interface. A null value will cause the formula to default to the value of nameProperty.'
     } );
+    this.formulaProperty.link( formula => console.log( `${this.nameProperty.value} formula=${formula}` ) );
 
     // @public (read-only)
     this.stockSolutionConcentration = config.stockSolutionConcentration; // mol/L
