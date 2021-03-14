@@ -85,13 +85,13 @@ class BLLDropperNode extends EyeDropperNode {
       }
     } );
 
-    // Label the dropper with the solute formula. If there is no formula, default to the solute name.
+    // Label the dropper with the solute formula. If formula is null, default to the solute name.
     let multilink;
     dropper.soluteProperty.link( solute => {
       multilink && multilink.dispose();
       multilink = new Multilink( [ solute.nameProperty, solute.formulaProperty ],
         ( name, formula ) => {
-          labelNode.text = formula ? formula : name;
+          labelNode.text = ( formula === null ) ? name : formula;
         } );
     } );
 
