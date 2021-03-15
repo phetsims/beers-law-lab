@@ -105,7 +105,7 @@ class WavelengthPanel extends Panel {
       align: 'left',
       children: [
         new HBox( {
-          spacing: 4,
+          spacing: 10,
           children: [ labelNode, numberDisplay ],
           maxWidth: 250
         } ),
