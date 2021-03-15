@@ -31,7 +31,8 @@ class Shaker extends BLLMovable {
       orientation: 0, // radians
       visible: true,
       maxDispensingRate: 1, // L/s
-      tandem: Tandem.REQUIRED
+      tandem: Tandem.REQUIRED,
+      phetioState: false
       // phetioType: ShakerIO
     }, options );
 

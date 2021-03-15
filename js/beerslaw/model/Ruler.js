@@ -7,6 +7,7 @@
  */
 
 import merge from '../../../../phet-core/js/merge.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLMovable from '../../common/model/BLLMovable.js';
 
@@ -20,7 +21,9 @@ class Ruler extends BLLMovable {
 
     options = merge( {
       length: 2.1, // in cm
-      height: 0.35 // in cm
+      height: 0.35, // in cm
+      tandem: Tandem.REQUIRED,
+      phetioState: false
     }, options );
 
     super( options );

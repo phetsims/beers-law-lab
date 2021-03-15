@@ -27,7 +27,8 @@ class Dropper extends BLLMovable {
     options = merge( {
       maxFlowRate: 1, // L/s
       visible: true,
-      tandem: Tandem.REQUIRED
+      tandem: Tandem.REQUIRED,
+      phetioState: false
     }, options );
 
     super( options );

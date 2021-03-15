@@ -137,7 +137,9 @@ class Probe extends BLLMovable {
   constructor( options ) {
 
     options = merge( {
-      sensorDiameter: 1 // in cm
+      sensorDiameter: 1, // in cm
+      tandem: Tandem.REQUIRED,
+      phetioState: false
     }, options );
 
     super( options );
