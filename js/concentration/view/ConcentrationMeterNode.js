@@ -42,7 +42,6 @@ import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import Dropper from '../model/Dropper.js';
 
 // constants
-const BODY_IS_DRAGGABLE = true;
 const DECIMAL_PLACES_MOLES_PER_LITER = 3;
 const DECIMAL_PLACES_PERCENT = 1;
 const READOUT_NO_VALUE = MathSymbols.NO_VALUE; // displayed in the readout when the meter is not measuring anything
@@ -210,14 +209,12 @@ class BodyNode extends Node {
     this.addChild( vBox );
     vBox.center = bodyNode.center;
 
-    if ( BODY_IS_DRAGGABLE ) {
-      this.addInputListener( new DragListener( {
-        positionProperty: meter.body.positionProperty,
-        dragBoundsProperty: new Property( meter.body.dragBounds ),
-        modelViewTransform: modelViewTransform,
-        tandem: options.tandem.createTandem( 'dragListener' )
-      } ) );
-    }
+    this.addInputListener( new DragListener( {
+      positionProperty: meter.body.positionProperty,
+      dragBoundsProperty: new Property( meter.body.dragBounds ),
+      modelViewTransform: modelViewTransform,
+      tandem: options.tandem.createTandem( 'dragListener' )
+    } ) );
 
     // body position
     meter.body.positionProperty.link( position => {
