@@ -111,6 +111,10 @@ class ShakerNode extends Node {
       modelViewTransform: modelViewTransform,
       tandem: options.tandem.createTandem( 'dragListener' )
     } ) );
+
+    this.addLinkedElement( shaker, {
+      tandem: options.tandem.createTandem( 'shaker' )
+    } );
   }
 }
 

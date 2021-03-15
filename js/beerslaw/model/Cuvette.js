@@ -16,10 +16,11 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
+import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 
-class Cuvette {
+class Cuvette extends PhetioObject {
 
   /**
    * @param {Object} [options]
@@ -30,8 +31,11 @@ class Cuvette {
       position: Vector2.ZERO,
       widthRange: new RangeWithValue( 0.5, 2.0, 1.0 ), // variable width, cm
       height: 3, // fixed height, cm
-      tandem: Tandem.REQUIRED
+      tandem: Tandem.REQUIRED,
+      phetioState: false
     }, options );
+
+    super( options );
 
     // @public (read-only)
     this.position = options.position;

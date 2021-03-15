@@ -26,14 +26,14 @@ class SolutionComboBox extends ComboBox {
 
   /**
    * @param {BeersLawSolution[]} solutions
-   * @param {Property.<BeersLawSolution>} selectedSolutionProperty
+   * @param {Property.<BeersLawSolution>} solutionProperty
    * @param {Node} solutionListParent
    * @param {Object} [options]
    */
-  constructor( solutions, selectedSolutionProperty, solutionListParent, options ) {
+  constructor( solutions, solutionProperty, solutionListParent, options ) {
     assert && assert( Array.isArray( solutions ) );
     assert && assert( _.every( solutions, solution => solution instanceof BeersLawSolution ) );
-    assert && assert( selectedSolutionProperty instanceof Property );
+    assert && assert( solutionProperty instanceof Property );
     assert && assert( solutionListParent instanceof Node );
 
     options = merge( {
@@ -56,7 +56,7 @@ class SolutionComboBox extends ComboBox {
     // items
     const items = solutions.map( createItem );
 
-    super( items, selectedSolutionProperty, solutionListParent, options );
+    super( items, solutionProperty, solutionListParent, options );
   }
 }
 

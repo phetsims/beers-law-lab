@@ -80,6 +80,10 @@ class ATDetectorNode extends Node {
     this.addChild( wireNode );
     this.addChild( bodyNode );
     this.addChild( probeNode );
+
+    this.addLinkedElement( detector, {
+      tandem: options.tandem.createTandem( 'detector' )
+    } );
   }
 }
 

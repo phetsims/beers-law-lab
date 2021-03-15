@@ -127,6 +127,10 @@ class BLLDropperNode extends EyeDropperNode {
       tandem: options.tandem.createTandem( 'dragListener' )
     } );
     this.addInputListener( dragListener );
+
+    this.addLinkedElement( dropper, {
+      tandem: options.tandem.createTandem( 'dropper' )
+    } );
   }
 }
 

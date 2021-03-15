@@ -13,6 +13,7 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Enumeration from '../../../../phet-core/js/Enumeration.js';
 import merge from '../../../../phet-core/js/merge.js';
+import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
@@ -22,7 +23,7 @@ import AbsorbanceModel from './AbsorbanceModel.js';
 import Cuvette from './Cuvette.js';
 import Light from './Light.js';
 
-class ATDetector {
+class ATDetector extends PhetioObject {
 
   /**
    * @param {Light} light
@@ -39,8 +40,11 @@ class ATDetector {
       bodyPosition: Vector2.ZERO,
       probePosition: Vector2.ZERO,
       probeDragBounds: Bounds2.EVERYTHING,
-      tandem: Tandem.REQUIRED
+      tandem: Tandem.REQUIRED,
+      phetioState: false
     }, options );
+
+    super( options );
 
     // @private
     this.light = light;

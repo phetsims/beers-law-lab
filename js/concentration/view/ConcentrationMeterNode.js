@@ -57,7 +57,7 @@ const MIN_BODY_SIZE = new Dimension2( 170, 100 );
 class ConcentrationMeterNode extends Node {
 
   /**
-   * @param {ConcentrationMeter} meter
+   * @param {ConcentrationMeter} concentrationMeter
    * @param {ConcentrationSolution} solution
    * @param {Dropper} dropper
    * @param {Node} solutionNode
@@ -67,9 +67,9 @@ class ConcentrationMeterNode extends Node {
    * @param {ModelViewTransform2} modelViewTransform
    * @param {Object} [options]
    */
-  constructor( meter, solution, dropper, solutionNode, stockSolutionNode, solventFluidNode,
+  constructor( concentrationMeter, solution, dropper, solutionNode, stockSolutionNode, solventFluidNode,
                drainFluidNode, modelViewTransform, options ) {
-    assert && assert( meter instanceof ConcentrationMeter );
+    assert && assert( concentrationMeter instanceof ConcentrationMeter );
     assert && assert( solution instanceof ConcentrationSolution );
     assert && assert( dropper instanceof Dropper );
     assert && assert( solutionNode instanceof Node );
@@ -84,18 +84,18 @@ class ConcentrationMeterNode extends Node {
 
     super( options );
 
-    const bodyNode = new BodyNode( meter, modelViewTransform, {
+    const bodyNode = new BodyNode( concentrationMeter, modelViewTransform, {
       tandem: options.tandem.createTandem( 'bodyNode' ),
       visiblePropertyOptions: { phetioReadOnly: true }
     } );
 
-    const probeNode = new ConcentrationProbeNode( meter.probe, modelViewTransform, solutionNode, stockSolutionNode,
+    const probeNode = new ConcentrationProbeNode( concentrationMeter.probe, modelViewTransform, solutionNode, stockSolutionNode,
       solventFluidNode, drainFluidNode, {
         tandem: options.tandem.createTandem( 'probeNode' ),
         visiblePropertyOptions: { phetioReadOnly: true }
       } );
 
-    const wireNode = new WireNode( meter.body, meter.probe, bodyNode, probeNode );
+    const wireNode = new WireNode( concentrationMeter.body, concentrationMeter.probe, bodyNode, probeNode );
 
     // rendering order
     this.addChild( wireNode );
@@ -104,24 +104,24 @@ class ConcentrationMeterNode extends Node {
 
     const updateValue = () => {
       if ( probeNode.isInSolution() || probeNode.isInDrainFluid() ) {
-        meter.valueProperty.value = DISPLAY_MOLES_PER_LITER ?
-                                    solution.concentrationProperty.value :
-                                    solution.percentConcentrationProperty.value;
+        concentrationMeter.valueProperty.value = DISPLAY_MOLES_PER_LITER ?
+                                                 solution.concentrationProperty.value :
+                                                 solution.percentConcentrationProperty.value;
       }
       else if ( probeNode.isInSolvent() ) {
-        meter.valueProperty.value = 0;
+        concentrationMeter.valueProperty.value = 0;
       }
       else if ( probeNode.isInStockSolution() ) {
-        meter.valueProperty.value = DISPLAY_MOLES_PER_LITER ?
-                                    dropper.soluteProperty.value.stockSolutionConcentration :
-                                    dropper.soluteProperty.value.stockSolutionPercentConcentration;
+        concentrationMeter.valueProperty.value = DISPLAY_MOLES_PER_LITER ?
+                                                 dropper.soluteProperty.value.stockSolutionConcentration :
+                                                 dropper.soluteProperty.value.stockSolutionPercentConcentration;
       }
       else {
-        meter.valueProperty.value = null;
+        concentrationMeter.valueProperty.value = null;
       }
     };
 
-    meter.probe.positionProperty.link( updateValue );
+    concentrationMeter.probe.positionProperty.link( updateValue );
     solution.soluteProperty.link( updateValue );
     if ( DISPLAY_MOLES_PER_LITER ) {
       solution.concentrationProperty.link( updateValue );
@@ -133,6 +133,10 @@ class ConcentrationMeterNode extends Node {
     stockSolutionNode.boundsProperty.lazyLink( updateValue );
     solventFluidNode.boundsProperty.lazyLink( updateValue );
     drainFluidNode.boundsProperty.lazyLink( updateValue );
+
+    this.addLinkedElement( concentrationMeter, {
+      tandem: options.tandem.createTandem( 'concentrationMeter' )
+    } );
   }
 }
 
@@ -143,11 +147,11 @@ class ConcentrationMeterNode extends Node {
 class BodyNode extends Node {
 
   /**
-   * @param {ConcentrationMeter} meter
+   * @param {ConcentrationMeter} concentrationMeter
    * @param {ModelViewTransform2} modelViewTransform
    * @param {Object} [options]
    */
-  constructor( meter, modelViewTransform, options ) {
+  constructor( concentrationMeter, modelViewTransform, options ) {
 
     options = merge( {
       cursor: 'pointer',
@@ -188,7 +192,7 @@ class BodyNode extends Node {
     valueNode.right = backgroundNode.right - READOUT_X_MARGIN;
     valueNode.centerY = backgroundNode.centerY;
 
-    // vertical arrangement of stuff in the meter
+    // vertical arrangement of stuff in the concentrationMeter
     const vBox = new VBox( {
       excludeInvisibleChildrenFromBounds: false,
       resize: false,
@@ -197,7 +201,7 @@ class BodyNode extends Node {
       spacing: 18
     } );
 
-    // meter body
+    // concentrationMeter body
     const bodyWidth = Math.max( MIN_BODY_SIZE.width, vBox.width + ( 2 * BODY_X_MARGIN ) );
     const bodyHeight = Math.max( MIN_BODY_SIZE.height, vBox.height + ( 2 * BODY_Y_MARGIN ) );
     const bodyNode = new ShadedRectangle( new Bounds2( 0, 0, bodyWidth, bodyHeight ), {
@@ -210,19 +214,19 @@ class BodyNode extends Node {
     vBox.center = bodyNode.center;
 
     this.addInputListener( new DragListener( {
-      positionProperty: meter.body.positionProperty,
-      dragBoundsProperty: new Property( meter.body.dragBounds ),
+      positionProperty: concentrationMeter.body.positionProperty,
+      dragBoundsProperty: new Property( concentrationMeter.body.dragBounds ),
       modelViewTransform: modelViewTransform,
       tandem: options.tandem.createTandem( 'dragListener' )
     } ) );
 
     // body position
-    meter.body.positionProperty.link( position => {
+    concentrationMeter.body.positionProperty.link( position => {
       this.translation = modelViewTransform.modelToViewPosition( position );
     } );
 
     // when the value changes, update the readout
-    meter.valueProperty.link( value => {
+    concentrationMeter.valueProperty.link( value => {
 
       if ( value === null ) {
         valueNode.text = READOUT_NO_VALUE;
@@ -243,7 +247,7 @@ class BodyNode extends Node {
 
     // Keep the value properly justified on the background
     valueNode.boundsProperty.link( bounds => {
-      if ( meter.valueProperty.value === null ) {
+      if ( concentrationMeter.valueProperty.value === null ) {
 
         // center justified
         valueNode.centerX = backgroundNode.centerX;

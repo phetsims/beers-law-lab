@@ -21,11 +21,11 @@ class SolutionPanel extends Panel {
 
   /**
    * @param {BeersLawSolution[]} solutions
-   * @param {Property.<BeersLawSolution>} currentSolutionProperty
+   * @param {Property.<BeersLawSolution>} solutionProperty
    * @param {Node} solutionListParent
    * @param {Object} [options]
    */
-  constructor( solutions, currentSolutionProperty, solutionListParent, options ) {
+  constructor( solutions, solutionProperty, solutionListParent, options ) {
     assert && assert( Array.isArray( solutions ) );
     assert && assert( _.every( solutions, solution => solution instanceof BeersLawSolution ) );
     assert && assert( solutionListParent instanceof Node );
@@ -40,7 +40,7 @@ class SolutionPanel extends Panel {
     }, options );
 
     // combo box, to select a solution
-    const solutionComboBox = new SolutionComboBox( solutions, currentSolutionProperty, solutionListParent, {
+    const solutionComboBox = new SolutionComboBox( solutions, solutionProperty, solutionListParent, {
       tandem: options.tandem.createTandem( 'solutionComboBox' )
     } );
 
@@ -57,7 +57,7 @@ class SolutionPanel extends Panel {
     } );
 
     // Makes the control visible for the selected solution
-    const toggleNode = new ToggleNode( currentSolutionProperty, toggleNodeElements );
+    const toggleNode = new ToggleNode( solutionProperty, toggleNodeElements );
 
     const contentNode = new VBox( {
       spacing: 15,
@@ -66,6 +66,10 @@ class SolutionPanel extends Panel {
     } );
 
     super( contentNode, options );
+
+    this.addLinkedElement( solutionProperty, {
+      tandem: options.tandem.createTandem( 'solutionProperty' )
+    } );
   }
 }
 

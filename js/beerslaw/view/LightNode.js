@@ -37,8 +37,8 @@ class LightNode extends LaserPointerNode {
 
     super( light.isOnProperty, options );
 
-    this.addLinkedElement( light.isOnProperty, {
-      tandem: options.tandem.createTandem( 'isOnProperty' )
+    this.addLinkedElement( light, {
+      tandem: options.tandem.createTandem( 'light' )
     } );
   }
 }

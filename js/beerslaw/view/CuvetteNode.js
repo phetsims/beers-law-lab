@@ -130,6 +130,10 @@ class CuvetteNode extends Node {
     const position = modelViewTransform.modelToViewPosition( cuvette.position );
     this.x = position.x;
     this.y = position.y;
+
+    this.addLinkedElement( cuvette, {
+      tandem: options.tandem.createTandem( 'cuvette' )
+    } );
   }
 }
 

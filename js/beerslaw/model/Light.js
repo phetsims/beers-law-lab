@@ -16,10 +16,11 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import Enumeration from '../../../../phet-core/js/Enumeration.js';
 import merge from '../../../../phet-core/js/merge.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
+import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 
-class Light {
+class Light extends PhetioObject {
 
   /**
    * @param {Property.<BeersLawSolution>} solutionProperty
@@ -32,8 +33,11 @@ class Light {
       position: Vector2.ZERO, // cm
       lensDiameter: 0.45, // cm
       isOn: false,
-      tandem: Tandem.REQUIRED
+      tandem: Tandem.REQUIRED,
+      phetioState: false
     }, options );
+
+    super( options );
 
     // @public (read-only)
     this.position = options.position;

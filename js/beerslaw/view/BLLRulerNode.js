@@ -70,6 +70,10 @@ class BLLRulerNode extends RulerNode {
       transform: modelViewTransform,
       tandem: options.tandem.createTandem( 'dragListener' )
     } ) );
+
+    this.addLinkedElement( ruler, {
+      tandem: options.tandem.createTandem( 'ruler' )
+    } );
   }
 }
 

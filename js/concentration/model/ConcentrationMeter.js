@@ -14,13 +14,14 @@ import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
+import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLMovable from '../../common/model/BLLMovable.js';
 
-class ConcentrationMeter {
+class ConcentrationMeter extends PhetioObject {
 
   /**
    * @param {Object} [options]
@@ -32,8 +33,11 @@ class ConcentrationMeter {
       bodyDragBounds: Bounds2.EVERYTHING,
       probePosition: Vector2.ZERO,
       probeDragBounds: Bounds2.EVERYTHING,
-      tandem: Tandem.REQUIRED
+      tandem: Tandem.REQUIRED,
+      phetioState: false
     }, options );
+
+    super( options );
 
     // @public
     this.valueProperty = new Property( null, {
