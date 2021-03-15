@@ -15,6 +15,7 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import WavelengthSlider from '../../../../scenery-phet/js/WavelengthSlider.js';
 import HBox from '../../../../scenery/js/nodes/HBox.js';
 import HStrut from '../../../../scenery/js/nodes/HStrut.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import VBox from '../../../../scenery/js/nodes/VBox.js';
 import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
@@ -100,7 +101,7 @@ class WavelengthPanel extends Panel {
     } );
 
     // rendering order
-    const content = new VBox( {
+    const vBox = new VBox( {
       spacing: 15,
       align: 'left',
       children: [
@@ -115,7 +116,9 @@ class WavelengthPanel extends Panel {
     } );
 
     // add a horizontal strut to prevent width changes
-    content.addChild( new HStrut( Math.max( content.width, wavelengthSlider.width ) ) );
+    const content = new Node( {
+      children: [ new HStrut( vBox.width ), vBox ]
+    } );
 
     super( content, options );
 
