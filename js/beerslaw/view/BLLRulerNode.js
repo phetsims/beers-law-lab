@@ -13,7 +13,6 @@ import merge from '../../../../phet-core/js/merge.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import RulerNode from '../../../../scenery-phet/js/RulerNode.js';
 import DragListener from '../../../../scenery/js/listeners/DragListener.js';
-import Node from '../../../../scenery/js/nodes/Node.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
@@ -22,7 +21,7 @@ import Ruler from '../model/Ruler.js';
 // constants
 const MAJOR_TICK_WIDTH = 0.5; // in model coordinate frame
 
-class BLLRulerNode extends Node {
+class BLLRulerNode extends RulerNode {
 
   /**
    * @param {Ruler} ruler
@@ -35,10 +34,10 @@ class BLLRulerNode extends Node {
 
     options = merge( {
       cursor: 'pointer',
+      minorTicksPerMajorTick: 4,
+      insetsWidth: 0,
       tandem: Tandem.REQUIRED
     }, options );
-
-    super( options );
 
     // Compute tick labels, 1 major tick for every 0.5 unit of length, labels on the ticks that correspond to integer values.
     const majorTickLabels = [];
@@ -47,15 +46,11 @@ class BLLRulerNode extends Node {
       majorTickLabels[ i ] = ( i % 2 === 0 ) ? ( i / 2 ) : '';
     }
 
-    // use the common ruler node
     const width = modelViewTransform.modelToViewDeltaX( ruler.length );
     const height = modelViewTransform.modelToViewDeltaY( ruler.height );
     const majorTickWidth = modelViewTransform.modelToViewDeltaX( MAJOR_TICK_WIDTH );
-    this.addChild( new RulerNode( width, height, majorTickWidth, majorTickLabels, beersLawLabStrings.units.centimeters, {
-      minorTicksPerMajorTick: 4,
-      insetsWidth: 0,
-      tandem: options.tandem.createTandem( 'ruler' )
-    } ) );
+
+    super( width, height, majorTickWidth, majorTickLabels, beersLawLabStrings.units.centimeters, options );
 
     // touch area
     const dx = 0.05 * this.width;
