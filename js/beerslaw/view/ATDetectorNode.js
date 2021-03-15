@@ -182,7 +182,6 @@ class BodyNode extends Node {
       const value = detector.valueProperty.value;
       if ( value === null ) {
         valueNode.text = NO_VALUE;
-        valueNode.centerX = backgroundNode.centerX; // centered
       }
       else {
         if ( detector.modeProperty.value === ATDetector.Mode.TRANSMITTANCE ) {
@@ -192,12 +191,22 @@ class BodyNode extends Node {
         else {
           valueNode.text = Utils.toFixed( value, ABSORBANCE_DECIMAL_PLACES );
         }
-        valueNode.right = backgroundNode.right - VALUE_X_MARGIN; // right justified
       }
-      valueNode.centerY = backgroundNode.centerY;
     };
     detector.valueProperty.link( valueUpdater );
     detector.modeProperty.link( valueUpdater );
+
+    valueNode.boundsProperty.link( bounds => {
+      if ( detector.valueProperty.value === null ) {
+        // centered
+        valueNode.centerX = backgroundNode.centerX;
+      }
+      else {
+        // right justified
+        valueNode.right = backgroundNode.right - VALUE_X_MARGIN;
+        valueNode.centerY = backgroundNode.centerY;
+      }
+    } );
   }
 }
 

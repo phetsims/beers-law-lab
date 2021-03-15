@@ -35,12 +35,12 @@ class ConcentrationMeter {
       tandem: Tandem.REQUIRED
     }, options );
 
-    // @public concentration in mol/L or percent, depending on the concentrationMeterUnits query parameter.
-    // null if the meter is not reading a value
+    // @public
     this.valueProperty = new Property( null, {
       tandem: options.tandem.createTandem( 'valueProperty' ),
-      units: 'mol/L',
-      phetioType: Property.PropertyIO( NullableIO( NumberIO ) )
+      phetioType: Property.PropertyIO( NullableIO( NumberIO ) ),
+      phetioDocumentation: 'mol/L or % concentration, depending on the concentrationMeterUnits query parameter. ' +
+                           'null if the meter is not reading a value'
     } );
 
     // @public (read-only)

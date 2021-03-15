@@ -90,7 +90,9 @@ class ATDetector {
         return value;
       }, {
         tandem: options.tandem.createTandem( 'valueProperty' ),
-        phetioType: DerivedProperty.DerivedPropertyIO( NullableIO( NumberIO ) )
+        phetioType: DerivedProperty.DerivedPropertyIO( NullableIO( NumberIO ) ),
+        phetioDocumentation: 'absorbance (A) or percent transmittance (%T), depending on mode. ' +
+                             'null if the probe is not in the light beam.'
       } );
   }
 

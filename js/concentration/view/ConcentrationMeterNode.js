@@ -192,6 +192,7 @@ class BodyNode extends Node {
     // vertical arrangement of stuff in the meter
     const vBox = new VBox( {
       excludeInvisibleChildrenFromBounds: false,
+      resize: false,
       children: [ titleNode, new Node( { children: [ backgroundNode, valueNode ] } ) ],
       align: 'center',
       spacing: 18
@@ -227,25 +228,34 @@ class BodyNode extends Node {
     meter.valueProperty.link( value => {
 
       if ( value === null ) {
-        valueNode.setText( READOUT_NO_VALUE );
-        valueNode.centerX = backgroundNode.centerX; // center justified
+        valueNode.text = READOUT_NO_VALUE;
       }
       else {
 
         // display concentration as 'mol/L' or '%', see beers-law-lab#149
-        let valueText = null;
         if ( DISPLAY_MOLES_PER_LITER ) {
-          valueText = StringUtils.format( beersLawLabStrings.pattern[ '0value' ][ '1units' ],
+          valueNode.text = StringUtils.format( beersLawLabStrings.pattern[ '0value' ][ '1units' ],
             Utils.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), beersLawLabStrings.units.molesPerLiter );
         }
         else {
-          valueText = StringUtils.format( beersLawLabStrings.pattern[ '0percent' ],
+          valueNode.text = StringUtils.format( beersLawLabStrings.pattern[ '0percent' ],
             Utils.toFixed( value, DECIMAL_PLACES_PERCENT ) );
         }
-        valueNode.setText( valueText );
-        valueNode.right = backgroundNode.right - READOUT_X_MARGIN; // right justified
       }
-      valueNode.centerY = backgroundNode.centerY;
+    } );
+
+    // Keep the value properly justified on the background
+    valueNode.boundsProperty.link( bounds => {
+      if ( meter.valueProperty.value === null ) {
+
+        // center justified
+        valueNode.centerX = backgroundNode.centerX;
+      }
+      else {
+        // right justified
+        valueNode.right = backgroundNode.right - READOUT_X_MARGIN;
+        valueNode.centerY = backgroundNode.centerY;
+      }
     } );
   }
 }
