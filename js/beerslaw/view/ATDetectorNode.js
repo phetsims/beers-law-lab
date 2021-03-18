@@ -66,13 +66,11 @@ class ATDetectorNode extends Node {
     super( options );
 
     const bodyNode = new BodyNode( detector, modelViewTransform, {
-      tandem: options.tandem.createTandem( 'bodyNode' ),
-      visiblePropertyOptions: { phetioReadOnly: true }
+      tandem: options.tandem.createTandem( 'bodyNode' )
     } );
 
     const probeNode = new ATProbeNode( detector.probe, light, modelViewTransform, {
-      tandem: options.tandem.createTandem( 'probeNode' ),
-      visiblePropertyOptions: { phetioReadOnly: true }
+      tandem: options.tandem.createTandem( 'probeNode' )
     } );
 
     const wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
@@ -103,7 +101,8 @@ class BodyNode extends Node {
     assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     options = merge( {
-      tandem: Tandem.REQUIRED
+      tandem: Tandem.REQUIRED,
+      visiblePropertyOptions: { phetioReadOnly: true }
     }, options );
 
     super( options );
@@ -239,7 +238,10 @@ class ATProbeNode extends ProbeNode {
       handleCornerRadius: 22,
       lightAngle: 1.25 * Math.PI,
       color: PROBE_COLOR,
-      tandem: Tandem.REQUIRED
+
+      // phet-io
+      tandem: Tandem.REQUIRED,
+      visiblePropertyOptions: { phetioReadOnly: true }
     }, options );
 
     super( options );
