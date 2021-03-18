@@ -51,16 +51,10 @@ class BLLDropperNode extends EyeDropperNode {
       visibleProperty: dropper.visibleProperty,
 
       // phet-io
-      tandem: Tandem.REQUIRED,
-      inputEnabledPropertyPhetioInstrumented: true
+      tandem: Tandem.REQUIRED
     }, options );
 
     super( options );
-
-    // Hide the button when input is disabled.
-    this.inputEnabledProperty.link( inputEnabled => {
-      this.button.visible = inputEnabled;
-    } );
 
     // label background, so the label shows up on various fluid colors
     const labelBackground = new Path( null, {
