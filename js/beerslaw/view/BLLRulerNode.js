@@ -36,7 +36,8 @@ class BLLRulerNode extends RulerNode {
       cursor: 'pointer',
       minorTicksPerMajorTick: 4,
       insetsWidth: 0,
-      tandem: Tandem.REQUIRED
+      tandem: Tandem.REQUIRED,
+      inputEnabledPropertyPhetioInstrumented: true
     }, options );
 
     // Compute tick labels, 1 major tick for every 0.5 unit of length, labels on the ticks that correspond to integer values.
