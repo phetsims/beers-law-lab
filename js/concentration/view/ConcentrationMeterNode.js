@@ -85,14 +85,12 @@ class ConcentrationMeterNode extends Node {
     super( options );
 
     const bodyNode = new BodyNode( concentrationMeter, modelViewTransform, {
-      tandem: options.tandem.createTandem( 'bodyNode' ),
-      visiblePropertyOptions: { phetioReadOnly: true }
+      tandem: options.tandem.createTandem( 'bodyNode' )
     } );
 
     const probeNode = new ConcentrationProbeNode( concentrationMeter.probe, modelViewTransform, solutionNode, stockSolutionNode,
       solventFluidNode, drainFluidNode, {
-        tandem: options.tandem.createTandem( 'probeNode' ),
-        visiblePropertyOptions: { phetioReadOnly: true }
+        tandem: options.tandem.createTandem( 'probeNode' )
       } );
 
     const wireNode = new WireNode( concentrationMeter.body, concentrationMeter.probe, bodyNode, probeNode );
@@ -155,7 +153,10 @@ class BodyNode extends Node {
 
     options = merge( {
       cursor: 'pointer',
-      tandem: Tandem.REQUIRED
+
+      // phet-io
+      tandem: Tandem.REQUIRED,
+      visiblePropertyOptions: { phetioReadOnly: true }
     }, options );
 
     super( options );
@@ -290,7 +291,11 @@ class ConcentrationProbeNode extends ProbeNode {
       color: PROBE_COLOR,
       rotation: -Math.PI / 2,
       cursor: 'pointer',
-      tandem: Tandem.REQUIRED
+
+      // phet-io
+      tandem: Tandem.REQUIRED,
+      inputEnabledPropertyPhetioInstrumented: true,
+      visiblePropertyOptions: { phetioReadOnly: true }
     }, options );
 
     super( options );

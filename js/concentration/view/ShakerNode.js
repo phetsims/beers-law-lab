@@ -46,7 +46,8 @@ class ShakerNode extends Node {
       cursor: 'pointer',
 
       // phet-io
-      tandem: Tandem.REQUIRED
+      tandem: Tandem.REQUIRED,
+      inputEnabledPropertyPhetioInstrumented: true
     }, options );
 
     super( options );
