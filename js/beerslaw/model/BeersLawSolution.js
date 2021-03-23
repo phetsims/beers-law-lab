@@ -78,8 +78,8 @@ class BeersLawSolution extends PhetioObject {
 
     super( config );
 
-    // @public Added for PhET-iO, see https://github.com/phetsims/beers-law-lab/issues/272
-    // This is not a DerivedProperty because RichText options.textProperty does not work with DerivedProperty.
+    //TODO https://github.com/phetsims/scenery/issues/1187 This should be a DerivedProperty, but RichText options.textProperty does not work with DerivedProperty.
+    // @public
     this.labelProperty = new StringProperty( formatLabel( config.nameProperty.value, config.formulaProperty.value ), {
       tandem: config.tandem.createTandem( 'labelProperty' ),
       phetioDocumentation: 'The string used to label the solution, derived from the solute nameProperty and formulaProperty.',
