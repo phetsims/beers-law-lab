@@ -74,15 +74,15 @@ function createItem( solution ) {
     stroke: solution.saturatedColor.darkerColor()
   } );
 
-  const solutionLabel = new RichText( solution.labelProperty.value, {
-    textProperty: solution.labelProperty, // labelProperty may be changed via PhET-iO
+  const labelNode = new RichText( solution.labelProperty.value, {
+    textProperty: solution.labelProperty,
     maxWidth: 305, // determined empirically, so that English strings are not scaled down
     font: new PhetFont( 20 )
   } );
 
   const hBox = new HBox( {
     spacing: 5,
-    children: [ colorSquare, solutionLabel ]
+    children: [ colorSquare, labelNode ]
   } );
 
   return new ComboBoxItem( hBox, solution, {
