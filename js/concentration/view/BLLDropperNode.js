@@ -72,6 +72,12 @@ class BLLDropperNode extends EyeDropperNode {
     } );
     this.addChild( labelNode );
 
+    // Background is visible only when label is visible.
+    // This is in case labelNode.visibleProperty is changed via PhET-iO.
+    labelNode.visibleProperty.link( visible => {
+      labelBackground.visible = visible;
+    } );
+
     // position
     dropper.positionProperty.link( position => {
       this.translation = modelViewTransform.modelToViewPosition( position );
