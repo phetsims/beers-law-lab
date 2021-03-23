@@ -74,7 +74,7 @@ function createItem( solution ) {
     stroke: solution.saturatedColor.darkerColor()
   } );
 
-  const solutionName = new RichText( solution.labelProperty.value, {
+  const solutionLabel = new RichText( solution.labelProperty.value, {
     textProperty: solution.labelProperty, // labelProperty may be changed via PhET-iO
     maxWidth: 305, // determined empirically, so that English strings are not scaled down
     font: new PhetFont( 20 )
@@ -82,7 +82,7 @@ function createItem( solution ) {
 
   const hBox = new HBox( {
     spacing: 5,
-    children: [ colorSquare, solutionName ]
+    children: [ colorSquare, solutionLabel ]
   } );
 
   return new ComboBoxItem( hBox, solution, {
