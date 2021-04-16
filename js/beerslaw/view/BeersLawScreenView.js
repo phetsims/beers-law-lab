@@ -82,6 +82,7 @@ class BeersLawScreenView extends ScreenView {
     this.addChild( comboBoxListParent ); // last, so that combo box list is on top
 
     // Layout for things that don't have a position in the model.
+    /* eslint-disable-next-line no-lone-blocks */
     {
       // below the light
       wavelengthPanel.left = lightNode.left;
