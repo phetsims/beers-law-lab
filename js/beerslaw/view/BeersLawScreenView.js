@@ -44,27 +44,42 @@ class BeersLawScreenView extends ScreenView {
     const lightNode = new LightNode( model.light, modelViewTransform, {
       tandem: options.tandem.createTandem( 'lightNode' )
     } );
+
     const cuvetteNode = new CuvetteNode( model.cuvette, model.solutionProperty, modelViewTransform, BLLQueryParameters.cuvetteSnapInterval, {
       tandem: options.tandem.createTandem( 'cuvetteNode' )
     } );
+
     const beamNode = new BeamNode( model.beam );
+
     const detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform, {
       tandem: options.tandem.createTandem( 'detectorNode' )
     } );
+
     const wavelengthPanel = new WavelengthPanel( model.solutionProperty, model.light, {
+      // below the light
+      left: lightNode.left,
+      top: lightNode.bottom + 20,
       tandem: options.tandem.createTandem( 'wavelengthPanel' )
     } );
+
     const rulerNode = new BLLRulerNode( model.ruler, modelViewTransform, {
       tandem: options.tandem.createTandem( 'rulerNode' )
     } );
+
     const comboBoxListParent = new Node();
+
     const solutionPanel = new SolutionPanel( model.solutions, model.solutionProperty, comboBoxListParent, {
+      // below the cuvette
+      left: cuvetteNode.left,
+      top: cuvetteNode.bottom + 60,
       maxWidth: 575,
       tandem: options.tandem.createTandem( 'solutionPanel' )
     } );
 
     // Reset All button
     const resetAllButton = new ResetAllButton( {
+      right: this.layoutBounds.right - 30,
+      bottom: this.layoutBounds.bottom - 30,
       scale: 1.32,
       listener: () => model.reset(),
       tandem: options.tandem.createTandem( 'resetAllButton' )
@@ -80,20 +95,6 @@ class BeersLawScreenView extends ScreenView {
     this.addChild( lightNode );
     this.addChild( rulerNode );
     this.addChild( comboBoxListParent ); // last, so that combo box list is on top
-
-    // Layout for things that don't have a position in the model.
-    /* eslint-disable-next-line no-lone-blocks */
-    {
-      // below the light
-      wavelengthPanel.left = lightNode.left;
-      wavelengthPanel.top = lightNode.bottom + 20;
-      // below cuvette
-      solutionPanel.left = cuvetteNode.left;
-      solutionPanel.top = cuvetteNode.bottom + 60;
-      // bottom right
-      resetAllButton.right = this.layoutBounds.right - 30;
-      resetAllButton.bottom = this.layoutBounds.bottom - 30;
-    }
   }
 }
 
