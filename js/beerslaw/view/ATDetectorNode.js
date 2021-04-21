@@ -241,7 +241,7 @@ class ATProbeNode extends ProbeNode {
 
       // phet-io
       tandem: Tandem.REQUIRED,
-      inputEnabledPropertyPhetioInstrumented: true,
+      phetioInputEnabledPropertyInstrumented: true,
       visiblePropertyOptions: { phetioReadOnly: true }
     }, options );
 
