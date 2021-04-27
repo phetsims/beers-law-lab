@@ -22,7 +22,14 @@ const BLLConstants = {
   BEAKER_VOLUME: BEAKER_VOLUME,
   DEFAULT_CUVETTE_SNAP_INTERVAL: 0.1, // cm
   CONCENTRATION_SCREEN_TANDEM: Tandem.ROOT.createTandem( 'concentrationScreen' ),
-  BEERS_LAW_SCREEN_TANDEM: Tandem.ROOT.createTandem( 'beersLawScreen' )
+  BEERS_LAW_SCREEN_TANDEM: Tandem.ROOT.createTandem( 'beersLawScreen' ),
+  CREDITS: {
+    leadDesign: 'Julia Chamberlain',
+    softwareDevelopment: 'Chris Malley (PixelZoom, Inc.)',
+    team: 'Kelly Lancaster, Emily B. Moore, Ariel Paul, Kathy Perkins',
+    qualityAssurance: 'Steele Dalton, Bryce Griebenow, Elise Morgan, Oliver Orejola, Benjamin Roberts, Bryan Yoelin',
+    thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
+  }
 };
 
 beersLawLab.register( 'BLLConstants', BLLConstants );

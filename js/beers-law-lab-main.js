@@ -13,20 +13,13 @@ import beersLawLabStrings from './beersLawLabStrings.js';
 import BLLConstants from './common/BLLConstants.js';
 import ConcentrationScreen from './concentration/ConcentrationScreen.js';
 
-const simOptions = {
-  credits: {
-    leadDesign: 'Julia Chamberlain',
-    softwareDevelopment: 'Chris Malley (PixelZoom, Inc.)',
-    team: 'Kelly Lancaster, Emily B. Moore, Ariel Paul, Kathy Perkins',
-    qualityAssurance: 'Steele Dalton, Bryce Griebenow, Elise Morgan, Oliver Orejola, Benjamin Roberts, Bryan Yoelin',
-    thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
-  }
-};
-
 simLauncher.launch( () => {
-  const sim = new Sim( beersLawLabStrings[ 'beers-law-lab' ].title, [
+  const screens = [
     new ConcentrationScreen( { tandem: BLLConstants.CONCENTRATION_SCREEN_TANDEM } ),
     new BeersLawScreen( { tandem: BLLConstants.BEERS_LAW_SCREEN_TANDEM } )
-  ], simOptions );
+  ];
+  const sim = new Sim( beersLawLabStrings[ 'beers-law-lab' ].title, screens, {
+    credits: BLLConstants.CREDITS
+  } );
   sim.start();
 } );
