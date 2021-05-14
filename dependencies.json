@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.4.18 Mon May 10 2021 13:29:08 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# beers-law-lab 1.4.19-rc.1 Fri May 14 2021 01:44:51 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "7d27130a4d27da15aa7f8a21bbfb9245288c1b44",
     "branch": "HEAD"
@@ -9,7 +9,7 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "d887028a203ab4e411366f0e9da13456d1261f5e",
+    "sha": "f8c2dc1b2bf8eadefc8be6f7a1f12541edc96e27",
     "branch": "1.4"
   },
   "brand": {
@@ -50,7 +50,7 @@
   },
   "scenery": {
     "sha": "fad1915642f8a27aa9a1514d1d2c628dfbdfbcd6",
-    "branch": "beers-law-lab-1.4"
+    "branch": "HEAD"
   },
   "scenery-phet": {
     "sha": "25df207b359edfc7884bf1c5b04a8d40a79946a9",
