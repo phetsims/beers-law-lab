@@ -1,4 +1,4 @@
-// Copyright 2013-2020, University of Colorado Boulder
+// Copyright 2013-2021, University of Colorado Boulder
 
 /**
  * MolarAbsorptivityData is a container for molar absorptivity data for the visible spectrum of light.
