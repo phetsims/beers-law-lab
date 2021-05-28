@@ -46,7 +46,8 @@ class Solute extends PhetioObject {
 
       // phet-io
       tandem: Tandem.REQUIRED,
-      phetioType: Solute.SoluteIO
+      phetioType: Solute.SoluteIO,
+      phetioState: false // because SoluteIO extends ReferenceIO
     }, config );
 
     super( config );
