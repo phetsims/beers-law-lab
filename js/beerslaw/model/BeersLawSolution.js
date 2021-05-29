@@ -70,7 +70,8 @@ class BeersLawSolution extends PhetioObject {
 
       // phet-io
       tandem: Tandem.REQUIRED,
-      phetioType: BeersLawSolution.BeersLawSolutionIO
+      phetioType: BeersLawSolution.BeersLawSolutionIO,
+      phetioState: false // IO Type extends ReferenceIO
 
     }, config );
 
