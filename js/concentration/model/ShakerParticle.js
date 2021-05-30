@@ -100,6 +100,11 @@ ShakerParticle.ShakerParticleIO = new IOType( 'ShakerParticleIO', {
   documentation: 'A particle that comes from the shaker.',
   supertype: SoluteParticle.SoluteParticleIO,
   toStateObject: shakerParticle => shakerParticle.toStateObject(),
+  stateSchema: {
+    solute: Solute.SoluteIO,
+    velocity: Vector2.Vector2IO,
+    acceleration: Vector2.Vector2IO
+  },
   fromStateObject: stateObject => ShakerParticle.fromStateObject,
   stateToArgsForConstructor: stateObject => {
     const parentDeserializedComponents = SoluteParticle.deserializeComponents( stateObject );

@@ -64,7 +64,11 @@ class SoluteParticle extends PhetioObject {
 SoluteParticle.SoluteParticleIO = new IOType( 'SoluteParticleIO', {
   valueType: SoluteParticle,
   documentation: 'A particle of solute to add to the solution',
-  toStateObject: soluteParticle => soluteParticle.toStateObject()
+  toStateObject: soluteParticle => soluteParticle.toStateObject(),
+  stateSchema: {
+    position: Vector2.Vector2IO,
+    orientation: NumberIO
+  }
 } );
 
 beersLawLab.register( 'SoluteParticle', SoluteParticle );
