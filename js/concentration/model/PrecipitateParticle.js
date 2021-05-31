@@ -72,7 +72,10 @@ PrecipitateParticle.PrecipitateParticleIO = new IOType( 'PrecipitateParticleIO',
   supertype: SoluteParticle.SoluteParticleIO,
   documentation: 'A particle that precipitates at the bottom of a saturated solution.',
   toStateObject: precipitateParticle => precipitateParticle.toStateObject(),
-  stateToArgsForConstructor: PrecipitateParticle.stateToArgsForConstructor
+  stateToArgsForConstructor: PrecipitateParticle.stateToArgsForConstructor,
+  stateSchema: {
+    solute: Solute.SoluteIO
+  }
 } );
 
 beersLawLab.register( 'PrecipitateParticle', PrecipitateParticle );
