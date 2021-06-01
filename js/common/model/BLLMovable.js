@@ -25,7 +25,8 @@ class BLLMovable extends PhetioObject {
     options = merge( {
       position: Vector2.ZERO,
       dragBounds: Bounds2.EVERYTHING,
-      tandem: Tandem.REQUIRED
+      tandem: Tandem.REQUIRED,
+      phetioState: false
     }, options );
 
     super( options );
