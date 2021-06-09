@@ -284,7 +284,7 @@ class ConcentrationModel extends PhetioObject {
   }
 }
 
-ConcentrationModel.SOLUTION_VOLUME_RANGE = SOLUTION_VOLUME_RANGE; // Exported for access to phet-io API
+ConcentrationModel.SOLUTION_VOLUME_RANGE = SOLUTION_VOLUME_RANGE; // Exported for access to PhET-iO API
 
 ConcentrationModel.ConcentrationModelIO = new IOType( 'ConcentrationModelIO', {
   valueType: ConcentrationModel,
