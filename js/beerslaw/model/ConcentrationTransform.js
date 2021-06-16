@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+[object Promise]
 
 /**
  * ConcentrationTransform manages the transformation between how concentration values are stored in

@@ -1,4 +1,4 @@
-// Copyright 2020, University of Colorado Boulder
+[object Promise]
 
 /**
  * PrecipitateNode displays precipitate at the bottom of the beaker.

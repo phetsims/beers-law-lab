@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+[object Promise]
 
 /**
  * ParticlesNode is the base class for drawing a system of  particles. It draws directly to canvas for performance.

@@ -1,4 +1,4 @@
-// Copyright 2016-2021, University of Colorado Boulder
+[object Promise]
 
 /**
  * Displays the amount of solute, in grams.  See beers-law-lab#148

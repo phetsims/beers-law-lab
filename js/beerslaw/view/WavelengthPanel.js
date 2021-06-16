@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+[object Promise]
 
 /**
  * WavelengthPanel is the panel that contains controls related to wavelength of the light.

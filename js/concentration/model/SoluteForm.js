@@ -1,4 +1,4 @@
-// Copyright 2021, University of Colorado Boulder
+[object Promise]
 
 /**
  * SoluteForm is an enumeration of the forms that a solute may take in this sim.

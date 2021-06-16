@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+[object Promise]
 
 /**
  * One particle that makes up the precipitate that forms on the bottom of the beaker.

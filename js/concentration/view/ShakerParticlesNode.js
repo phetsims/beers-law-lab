@@ -1,4 +1,4 @@
-// Copyright 2020, University of Colorado Boulder
+[object Promise]
 
 import beersLawLab from '../../beersLawLab.js';
 import ParticlesNode from './ParticlesNode.js';

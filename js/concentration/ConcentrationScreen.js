@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+[object Promise]
 
 /**
  * The 'Concentration' screen. Conforms to the contract specified in joist/Screen.

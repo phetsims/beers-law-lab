@@ -1,4 +1,4 @@
-// Copyright 2020-2021, University of Colorado Boulder
+[object Promise]
 
 /**
  * ShakerParticleGroup is the PhetioGroup for dynamically creating ShakerParticle instances.
