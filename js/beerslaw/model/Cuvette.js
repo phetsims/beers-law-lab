@@ -1,4 +1,4 @@
-[object Promise]
+// Copyright 2013-2021, University of Colorado Boulder
 
 /**
  * Cuvette is a simple model of a cuvette. A cuvette is a small tube of circular or square cross section,

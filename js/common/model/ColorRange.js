@@ -1,4 +1,4 @@
-[object Promise]
+// Copyright 2013-2021, University of Colorado Boulder
 
 /**
  * ColorRange is the range for a color, with linear interpolation in RGBA colorspace.

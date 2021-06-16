@@ -1,4 +1,4 @@
-[object Promise]
+// Copyright 2013-2021, University of Colorado Boulder
 
 /**
  * The 'Beer's Law' screen. Conforms to the contract specified in joist/Screen.

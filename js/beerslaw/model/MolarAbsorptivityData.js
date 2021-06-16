@@ -1,4 +1,4 @@
-[object Promise]
+// Copyright 2013-2021, University of Colorado Boulder
 
 /**
  * MolarAbsorptivityData is a container for molar absorptivity data for the visible spectrum of light.

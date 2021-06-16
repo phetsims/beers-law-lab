@@ -1,4 +1,4 @@
-[object Promise]
+// Copyright 2013-2021, University of Colorado Boulder
 
 /**
  * Radio button group that selects the solute form, either solid (shaker) or solution (dropper).
