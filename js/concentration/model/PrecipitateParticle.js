@@ -47,9 +47,6 @@ class PrecipitateParticle extends SoluteParticle {
    */
   toStateObject() {
     return merge( super.toStateObject(), {
-
-      // TODO: https://github.com/phetsims/phet-io/issues/1709 just call on the core type?
-      // TODO: Should PhetioObject.toStateObject default to tandem.phetioID (reference style)?
       solute: Solute.SoluteIO.toStateObject( this.solute )
     } );
   }
