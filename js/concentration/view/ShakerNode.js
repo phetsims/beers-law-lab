@@ -17,7 +17,7 @@ import Image from '../../../../scenery/js/nodes/Image.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import shakerImage from '../../../images/shaker_png.js';
+import shaker_png from '../../../images/shaker_png.js';
 import beersLawLab from '../../beersLawLab.js';
 import Shaker from '../model/Shaker.js';
 
@@ -53,7 +53,7 @@ class ShakerNode extends Node {
     super( options );
 
     // shaker image
-    const imageNode = new Image( shakerImage );
+    const imageNode = new Image( shaker_png );
     imageNode.setScaleMagnitude( 0.75 );
 
     // label
