@@ -12,7 +12,7 @@ import merge from '../../../phet-core/js/merge.js';
 import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
 import Image from '../../../scenery/js/nodes/Image.js';
 import Tandem from '../../../tandem/js/Tandem.js';
-import screenIcon from '../../images/Concentration-screen-icon_jpg.js';
+import concentrationScreenIcon_jpg from '../../images/concentrationScreenIcon_jpg.js';
 import beersLawLab from '../beersLawLab.js';
 import beersLawLabStrings from '../beersLawLabStrings.js';
 import ConcentrationModel from './model/ConcentrationModel.js';
@@ -46,7 +46,7 @@ class ConcentrationScreen extends Screen {
 }
 
 function createScreenIcon() {
-  return new ScreenIcon( new Image( screenIcon ), {
+  return new ScreenIcon( new Image( concentrationScreenIcon_jpg ), {
     maxIconWidthProportion: 1,
     maxIconHeightProportion: 1
   } );
