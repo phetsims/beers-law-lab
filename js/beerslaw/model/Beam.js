@@ -18,7 +18,7 @@ import Utils from '../../../../dot/js/Utils.js';
 import Shape from '../../../../kite/js/Shape.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
-import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
+import { LinearGradient } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import AbsorbanceModel from './AbsorbanceModel.js';
 import ATDetector from './ATDetector.js';

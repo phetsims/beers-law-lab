@@ -8,7 +8,7 @@
  */
 
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
+import { Rectangle } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import SoluteParticle from '../model/SoluteParticle.js';
 

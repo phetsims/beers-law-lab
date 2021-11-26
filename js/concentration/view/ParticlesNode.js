@@ -9,7 +9,7 @@
  */
 
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import CanvasNode from '../../../../scenery/js/nodes/CanvasNode.js';
+import { CanvasNode } from '../../../../scenery/js/imports.js';
 import PhetioGroup from '../../../../tandem/js/PhetioGroup.js';
 import beersLawLab from '../../beersLawLab.js';
 

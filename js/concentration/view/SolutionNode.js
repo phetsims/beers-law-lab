@@ -9,7 +9,7 @@
 
 import Utils from '../../../../dot/js/Utils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
+import { Rectangle } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import Beaker from '../model/Beaker.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
