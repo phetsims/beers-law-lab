@@ -11,7 +11,7 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import Enumeration from '../../../../phet-core/js/Enumeration.js';
+import EnumerationDeprecated from '../../../../phet-core/js/EnumerationDeprecated.js';
 import merge from '../../../../phet-core/js/merge.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -123,7 +123,7 @@ class ATDetector extends PhetioObject {
 }
 
 // @public Modes for the detector
-ATDetector.Mode = Enumeration.byKeys( [ 'TRANSMITTANCE', 'ABSORBANCE' ] );
+ATDetector.Mode = EnumerationDeprecated.byKeys( [ 'TRANSMITTANCE', 'ABSORBANCE' ] );
 
 /**
  * Probe is the probe part of the detector, whose position indicates where the measurement is being made.

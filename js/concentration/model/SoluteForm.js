@@ -6,10 +6,10 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Enumeration from '../../../../phet-core/js/Enumeration.js';
+import EnumerationDeprecated from '../../../../phet-core/js/EnumerationDeprecated.js';
 import beersLawLab from '../../beersLawLab.js';
 
-const SoluteForm = Enumeration.byKeys( [ 'SOLID', 'SOLUTION' ] );
+const SoluteForm = EnumerationDeprecated.byKeys( [ 'SOLID', 'SOLUTION' ] );
 
 beersLawLab.register( 'SoluteForm', SoluteForm );
 export default SoluteForm;

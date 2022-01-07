@@ -13,7 +13,7 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Range from '../../../../dot/js/Range.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import Enumeration from '../../../../phet-core/js/Enumeration.js';
+import EnumerationDeprecated from '../../../../phet-core/js/EnumerationDeprecated.js';
 import merge from '../../../../phet-core/js/merge.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
@@ -94,7 +94,7 @@ class Light extends PhetioObject {
 }
 
 // @public
-Light.Mode = Enumeration.byKeys( [ 'PRESET', 'VARIABLE' ] );
+Light.Mode = EnumerationDeprecated.byKeys( [ 'PRESET', 'VARIABLE' ] );
 
 beersLawLab.register( 'Light', Light );
 export default Light;
