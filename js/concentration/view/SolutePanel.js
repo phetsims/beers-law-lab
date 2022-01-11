@@ -22,7 +22,7 @@ class SolutePanel extends Panel {
   /**
    * @param {Solute[]} solutes
    * @param {Property.<Solute>} currentSoluteProperty
-   * @param {EnumerationProperty.<SoluteForm>} soluteFormProperty
+   * @param {EnumerationDeprecatedProperty.<SoluteForm>} soluteFormProperty
    * @param {Shaker} shaker
    * @param {Dropper} dropper
    * @param {Node} soluteListParent

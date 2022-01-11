@@ -8,7 +8,7 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
+import EnumerationDeprecatedProperty from '../../../../axon/js/EnumerationDeprecatedProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import EnumerationDeprecated from '../../../../phet-core/js/EnumerationDeprecated.js';
@@ -64,7 +64,7 @@ class ATDetector extends PhetioObject {
     } );
 
     // @public for switching between absorbance (A) and percent transmittance (%T)
-    this.modeProperty = new EnumerationProperty( ATDetector.Mode, ATDetector.Mode.TRANSMITTANCE, {
+    this.modeProperty = new EnumerationDeprecatedProperty( ATDetector.Mode, ATDetector.Mode.TRANSMITTANCE, {
       tandem: options.tandem.createTandem( 'modeProperty' )
     } );
 

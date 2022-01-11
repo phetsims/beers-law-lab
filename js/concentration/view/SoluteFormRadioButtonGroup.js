@@ -27,7 +27,7 @@ const RADIO_BUTTON_TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
 class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup {
 
   /**
-   * @param {EnumerationProperty.<SoluteForm>} soluteFormProperty
+   * @param {EnumerationDeprecatedProperty.<SoluteForm>} soluteFormProperty
    * @param {Property.<boolean>} shakerVisibleProperty
    * @param {Property.<boolean>} dropperVisibleProperty
    * @param {Object} [options]

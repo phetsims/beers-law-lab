@@ -8,7 +8,7 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
-import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
+import EnumerationDeprecatedProperty from '../../../../axon/js/EnumerationDeprecatedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Range from '../../../../dot/js/Range.js';
@@ -57,7 +57,7 @@ class Light extends PhetioObject {
     } );
 
     // @public
-    this.modeProperty = new EnumerationProperty( Light.Mode, Light.Mode.PRESET, {
+    this.modeProperty = new EnumerationDeprecatedProperty( Light.Mode, Light.Mode.PRESET, {
       tandem: options.tandem.createTandem( 'modeProperty' )
     } );
 

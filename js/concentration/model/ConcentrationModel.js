@@ -6,7 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
+import EnumerationDeprecatedProperty from '../../../../axon/js/EnumerationDeprecatedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -69,7 +69,7 @@ class ConcentrationModel extends PhetioObject {
       tandem: options.tandem.createTandem( 'soluteProperty' ),
       phetioType: Property.PropertyIO( Solute.SoluteIO )
     } );
-    this.soluteFormProperty = new EnumerationProperty( SoluteForm, SoluteForm.SOLID, {
+    this.soluteFormProperty = new EnumerationDeprecatedProperty( SoluteForm, SoluteForm.SOLID, {
       tandem: options.tandem.createTandem( 'soluteFormProperty' )
     } );
 
