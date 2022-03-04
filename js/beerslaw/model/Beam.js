@@ -15,7 +15,7 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
-import Shape from '../../../../kite/js/Shape.js';
+import { Shape } from '../../../../kite/js/imports.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import { LinearGradient } from '../../../../scenery/js/imports.js';
