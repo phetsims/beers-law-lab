@@ -106,7 +106,7 @@ class Precipitate {
 
     const removedParticles = particles.slice( particles.length - numberToRemove, numberToRemove );
     assert && assert( removedParticles && removedParticles.length === numberToRemove,
-      `expected to remove ${numberToRemove} particles, but only removed ${removedParticles}` );
+      `expected to remove ${numberToRemove} particles, but only removed ${removedParticles.length}` );
 
     for ( let i = 0; i < removedParticles.length; i++ ) {
       this.particlesGroup.disposeElement( removedParticles[ i ] );
