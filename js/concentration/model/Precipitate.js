@@ -105,7 +105,8 @@ class Precipitate {
     assert && assert( numberToRemove > 0 && numberToRemove <= particles.length, `invalid numberToRemove: ${numberToRemove}` );
 
     const removedParticles = particles.slice( particles.length - numberToRemove, numberToRemove );
-    assert && assert( removedParticles && removedParticles.length === numberToRemove );
+    assert && assert( removedParticles && removedParticles.length === numberToRemove,
+      `expected to remove ${numberToRemove} particles, but only removed ${removedParticles}` );
 
     for ( let i = 0; i < removedParticles.length; i++ ) {
       this.particlesGroup.disposeElement( removedParticles[ i ] );
