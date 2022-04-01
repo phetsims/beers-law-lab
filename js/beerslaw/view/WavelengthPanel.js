@@ -7,17 +7,14 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
+import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Utils from '../../../../dot/js/Utils.js';
 import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import NumberDisplay from '../../../../scenery-phet/js/NumberDisplay.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import WavelengthSlider from '../../../../scenery-phet/js/WavelengthSlider.js';
-import { HBox } from '../../../../scenery/js/imports.js';
-import { HStrut } from '../../../../scenery/js/imports.js';
-import { Node } from '../../../../scenery/js/imports.js';
-import { Text } from '../../../../scenery/js/imports.js';
-import { VBox } from '../../../../scenery/js/imports.js';
+import WavelengthNumberControl from '../../../../scenery-phet/js/WavelengthNumberControl.js';
+import { HBox, HStrut, Node, Text, VBox } from '../../../../scenery/js/imports.js';
 import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Panel from '../../../../sun/js/Panel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -28,6 +25,7 @@ import Light from '../model/Light.js';
 
 // constants
 const RADIO_BUTTON_TEXT_OPTIONS = { font: new PhetFont( 18 ), fill: 'black' };
+const SLIDER_TRACK_SIZE = new Dimension2( 150, 30 );
 
 class WavelengthPanel extends Panel {
 
@@ -42,7 +40,7 @@ class WavelengthPanel extends Panel {
 
     options = merge( {
       xMargin: 20,
-      yMargin: 20,
+      yMargin: 15,
       fill: '#F0F0F0',
       stroke: 'gray',
       lineWidth: 1,
@@ -90,19 +88,34 @@ class WavelengthPanel extends Panel {
       tandem: options.tandem.createTandem( 'radioButtonGroup' )
     } );
 
-    const wavelengthSlider = new WavelengthSlider( light.wavelengthProperty, {
-      trackWidth: 150,
-      trackHeight: 30,
-      valueVisible: false,
-      tweakersTouchAreaXDilation: 10,
-      tweakersTouchAreaYDilation: 10,
+    const wavelengthSlider = new WavelengthNumberControl( light.wavelengthProperty, {
+      spectrumSliderTrackOptions: {
+        size: SLIDER_TRACK_SIZE
+      },
+      spectrumSliderThumbOptions: {
+        width: 35,
+        height: 45,
+        cursorHeight: SLIDER_TRACK_SIZE.height
+      },
+      arrowButtonOptions: {
+        scale: 1,
+        touchAreaXDilation: 5,
+        touchAreaYDilation: 10
+      },
+      layoutFunction: ( titleNode, numberDisplay, slider, decrementButton, incrementButton ) =>
+        new HBox( {
+          align: 'top',
+          spacing: -10,
+          resize: false, // prevent slider from causing a resize when thumb is at min or max
+          children: [ decrementButton, slider, incrementButton ]
+        } ),
       tandem: options.tandem.createTandem( 'wavelengthSlider' ),
       visiblePropertyOptions: { phetioReadOnly: true }
     } );
 
     // rendering order
     const vBox = new VBox( {
-      spacing: 15,
+      spacing: 24,
       align: 'left',
       children: [
         new HBox( {
