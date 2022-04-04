@@ -88,7 +88,7 @@ class WavelengthPanel extends Panel {
       tandem: options.tandem.createTandem( 'radioButtonGroup' )
     } );
 
-    const wavelengthSlider = new WavelengthNumberControl( light.wavelengthProperty, {
+    const wavelengthNumberControl = new WavelengthNumberControl( light.wavelengthProperty, {
       spectrumSliderTrackOptions: {
         size: SLIDER_TRACK_SIZE
       },
@@ -109,7 +109,7 @@ class WavelengthPanel extends Panel {
           resize: false, // prevent slider from causing a resize when thumb is at min or max
           children: [ decrementButton, slider, incrementButton ]
         } ),
-      tandem: options.tandem.createTandem( 'wavelengthSlider' ),
+      tandem: options.tandem.createTandem( 'wavelengthNumberControl' ),
       visiblePropertyOptions: { phetioReadOnly: true }
     } );
 
@@ -124,7 +124,7 @@ class WavelengthPanel extends Panel {
           maxWidth: 250
         } ),
         radioButtonGroup,
-        wavelengthSlider
+        wavelengthNumberControl
       ]
     } );
 
@@ -137,8 +137,8 @@ class WavelengthPanel extends Panel {
 
     // When the radio button selection changes...
     light.modeProperty.link( mode => {
-      wavelengthSlider.interruptSubtreeInput();
-      wavelengthSlider.visible = ( mode === Light.Mode.VARIABLE );
+      wavelengthNumberControl.interruptSubtreeInput();
+      wavelengthNumberControl.visible = ( mode === Light.Mode.VARIABLE );
     } );
   }
 }
