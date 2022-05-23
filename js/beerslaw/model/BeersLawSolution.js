@@ -14,7 +14,7 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import Property from '../../../../axon/js/Property.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 import StringProperty from '../../../../axon/js/StringProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Utils from '../../../../dot/js/Utils.js';
@@ -86,7 +86,7 @@ class BeersLawSolution extends PhetioObject {
       phetioDocumentation: 'The string used to label the solution, derived from the solute nameProperty and formulaProperty.',
       phetioReadOnly: true
     } );
-    Property.lazyMultilink(
+    Multilink.lazyMultilink(
       [ config.nameProperty, config.formulaProperty ],
       ( name, formula ) => {
         this.labelProperty.value = formatLabel( name, formula );
