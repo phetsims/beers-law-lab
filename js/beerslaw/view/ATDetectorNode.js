@@ -19,11 +19,7 @@ import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import ProbeNode from '../../../../scenery-phet/js/ProbeNode.js';
 import ShadedRectangle from '../../../../scenery-phet/js/ShadedRectangle.js';
-import { DragListener } from '../../../../scenery/js/imports.js';
-import { LayoutBox } from '../../../../scenery/js/imports.js';
-import { Node } from '../../../../scenery/js/imports.js';
-import { Path } from '../../../../scenery/js/imports.js';
-import { Text } from '../../../../scenery/js/imports.js';
+import { DragListener, Node, Path, Text, VBox } from '../../../../scenery/js/imports.js';
 import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
@@ -156,9 +152,8 @@ class BodyNode extends Node {
     valueNode.centerY = backgroundNode.centerY;
 
     // vertical arrangement of stuff in the meter
-    const vBox = new LayoutBox( {
+    const vBox = new VBox( {
       children: [ new Node( { children: [ backgroundNode, valueNode ] } ), radioButtonGroup ],
-      orientation: 'vertical',
       align: 'center',
       spacing: 12
     } );
