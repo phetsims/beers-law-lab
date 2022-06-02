@@ -7,7 +7,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Property from '../../../../axon/js/Property.js';
+import { AbstractProperty } from '../../../../axon/js/Property.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Node } from '../../../../scenery/js/imports.js';
 import { Rectangle } from '../../../../scenery/js/imports.js';
@@ -18,10 +18,10 @@ import beersLawLabStrings from '../../beersLawLabStrings.js';
 class SaturatedIndicator extends Node {
 
   /**
-   * @param {Property.<boolean>} isSaturatedProperty
+   * @param {AbstractProperty.<boolean>} isSaturatedProperty
    */
   constructor( isSaturatedProperty ) {
-    assert && assert( isSaturatedProperty instanceof Property );
+    assert && assert( isSaturatedProperty instanceof AbstractProperty );
 
     super();
 

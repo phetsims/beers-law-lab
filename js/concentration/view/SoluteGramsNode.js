@@ -6,7 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Property from '../../../../axon/js/Property.js';
+import { AbstractProperty } from '../../../../axon/js/Property.js';
 import Utils from '../../../../dot/js/Utils.js';
 import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
@@ -25,7 +25,7 @@ class SoluteGramsNode extends Text {
    * @param {Object} [options]
    */
   constructor( soluteGramsProperty, options ) {
-    assert && assert( soluteGramsProperty instanceof Property );
+    assert && assert( soluteGramsProperty instanceof AbstractProperty );
 
     options = merge( {
       font: new PhetFont( 22 )
