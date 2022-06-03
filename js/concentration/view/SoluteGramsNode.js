@@ -1,4 +1,4 @@
-// Copyright 2016-2021, University of Colorado Boulder
+// Copyright 2016-2022, University of Colorado Boulder
 
 /**
  * Displays the amount of solute, in grams.  See beers-law-lab#148
