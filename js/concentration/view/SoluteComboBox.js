@@ -25,12 +25,12 @@ import Solute from '../../common/model/Solute.js';
 class SoluteComboBox extends ComboBox {
 
   /**
-   * @param {Solute[]} solutes
    * @param {Property.<Solute>} selectedSoluteProperty
+   * @param {Solute[]} solutes
    * @param {Node} soluteListParent
    * @param {Object} [options]
    */
-  constructor( solutes, selectedSoluteProperty, soluteListParent, options ) {
+  constructor( selectedSoluteProperty, solutes, soluteListParent, options ) {
     assert && assert( Array.isArray( solutes ) );
     assert && assert( _.every( solutes, solute => solute instanceof Solute ) );
     assert && assert( selectedSoluteProperty instanceof Property );
@@ -56,7 +56,7 @@ class SoluteComboBox extends ComboBox {
     // items
     const items = solutes.map( createItem );
 
-    super( items, selectedSoluteProperty, soluteListParent, options );
+    super( selectedSoluteProperty, items, soluteListParent, options );
   }
 }
 

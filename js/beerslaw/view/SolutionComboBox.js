@@ -25,12 +25,12 @@ import BeersLawSolution from '../model/BeersLawSolution.js';
 class SolutionComboBox extends ComboBox {
 
   /**
-   * @param {BeersLawSolution[]} solutions
    * @param {Property.<BeersLawSolution>} solutionProperty
+   * @param {BeersLawSolution[]} solutions
    * @param {Node} solutionListParent
    * @param {Object} [options]
    */
-  constructor( solutions, solutionProperty, solutionListParent, options ) {
+  constructor( solutionProperty, solutions, solutionListParent, options ) {
     assert && assert( Array.isArray( solutions ) );
     assert && assert( _.every( solutions, solution => solution instanceof BeersLawSolution ) );
     assert && assert( solutionProperty instanceof Property );
@@ -56,7 +56,7 @@ class SolutionComboBox extends ComboBox {
     // items
     const items = solutions.map( createItem );
 
-    super( items, solutionProperty, solutionListParent, options );
+    super( solutionProperty, items, solutionListParent, options );
   }
 }
 

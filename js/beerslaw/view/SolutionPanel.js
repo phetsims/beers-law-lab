@@ -40,7 +40,7 @@ class SolutionPanel extends Panel {
     }, options );
 
     // combo box, to select a solution
-    const solutionComboBox = new SolutionComboBox( solutions, solutionProperty, solutionListParent, {
+    const solutionComboBox = new SolutionComboBox( solutionProperty, solutions, solutionListParent, {
       tandem: options.tandem.createTandem( 'solutionComboBox' )
     } );
 

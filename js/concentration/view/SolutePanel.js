@@ -47,7 +47,7 @@ class SolutePanel extends Panel {
     }, options );
 
     // solute combo box
-    const soluteComboBox = new SoluteComboBox( solutes, currentSoluteProperty, soluteListParent, {
+    const soluteComboBox = new SoluteComboBox( currentSoluteProperty, solutes, soluteListParent, {
       tandem: options.tandem.createTandem( 'soluteComboBox' )
     } );
 
