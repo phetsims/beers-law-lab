@@ -10,13 +10,8 @@ import Property from '../../../../axon/js/Property.js';
 import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { HBox } from '../../../../scenery/js/imports.js';
-import { Node } from '../../../../scenery/js/imports.js';
-import { Rectangle } from '../../../../scenery/js/imports.js';
-import { RichText } from '../../../../scenery/js/imports.js';
-import { Text } from '../../../../scenery/js/imports.js';
+import { HBox, Node, Rectangle, RichText, Text } from '../../../../scenery/js/imports.js';
 import ComboBox from '../../../../sun/js/ComboBox.js';
-import ComboBoxItem from '../../../../sun/js/ComboBoxItem.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
@@ -85,9 +80,11 @@ function createItem( solution ) {
     children: [ colorSquare, labelNode ]
   } );
 
-  return new ComboBoxItem( hBox, solution, {
-    tandemName: `${solution.tandemName}Item` // Item suffix is required by ComboBoxItem
-  } );
+  return {
+    value: solution,
+    node: hBox,
+    tandemName: `${solution.tandemName}${ComboBox.ITEM_TANDEM_NAME_SUFFIX}`
+  };
 }
 
 beersLawLab.register( 'SolutionComboBox', SolutionComboBox );
