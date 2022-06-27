@@ -16,7 +16,6 @@ import { Rectangle } from '../../../../scenery/js/imports.js';
 import { RichText } from '../../../../scenery/js/imports.js';
 import { Text } from '../../../../scenery/js/imports.js';
 import ComboBox from '../../../../sun/js/ComboBox.js';
-import ComboBoxItem from '../../../../sun/js/ComboBoxItem.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import beersLawLabStrings from '../../beersLawLabStrings.js';
@@ -83,9 +82,11 @@ function createItem( solute ) {
     children: [ colorNode, textNode ]
   } );
 
-  return new ComboBoxItem( hBox, solute, {
-    tandemName: `${solute.tandemName}Item` // Item suffix is required by ComboBoxItem
-  } );
+  return {
+    value: solute,
+    node: hBox,
+    tandemName: `${solute.tandemName}${ComboBox.ITEM_TANDEM_NAME_SUFFIX}`
+  };
 }
 
 beersLawLab.register( 'SoluteComboBox', SoluteComboBox );
