@@ -6,7 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import { ReadOnlyProperty } from '../../../../axon/js/Property.js';
+import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import merge from '../../../../phet-core/js/merge.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
