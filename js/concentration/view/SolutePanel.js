@@ -12,9 +12,9 @@ import { Node } from '../../../../scenery/js/imports.js';
 import Panel from '../../../../sun/js/Panel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
+import Solute from '../../common/model/Solute.js';
 import Dropper from '../model/Dropper.js';
 import Shaker from '../model/Shaker.js';
-import Solute from '../../common/model/Solute.js';
 import SoluteComboBox from './SoluteComboBox.js';
 import SoluteFormRadioButtonGroup from './SoluteFormRadioButtonGroup.js';
 

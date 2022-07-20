@@ -13,8 +13,8 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
+import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import StringProperty from '../../../../axon/js/StringProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Utils from '../../../../dot/js/Utils.js';

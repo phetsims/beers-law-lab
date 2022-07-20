@@ -7,8 +7,7 @@
  */
 
 import merge from '../../../../phet-core/js/merge.js';
-import { Node } from '../../../../scenery/js/imports.js';
-import { VBox } from '../../../../scenery/js/imports.js';
+import { Node, VBox } from '../../../../scenery/js/imports.js';
 import Panel from '../../../../sun/js/Panel.js';
 import ToggleNode from '../../../../sun/js/ToggleNode.js';
 import Tandem from '../../../../tandem/js/Tandem.js';

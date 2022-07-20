@@ -11,8 +11,8 @@ import merge from '../../../../phet-core/js/merge.js';
 import PhetioGroup from '../../../../tandem/js/PhetioGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
-import ShakerParticle from './ShakerParticle.js';
 import Solute from '../../common/model/Solute.js';
+import ShakerParticle from './ShakerParticle.js';
 
 // Default args to ShakerParticle constructor, passed to createElement during API harvest
 const DEFAULT_ARGUMENTS = [ Solute.DRINK_MIX, Vector2.ZERO, 0, Vector2.ZERO, Vector2.ZERO ];

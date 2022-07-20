@@ -18,6 +18,7 @@ import IOType from '../../../../tandem/js/types/IOType.js';
 import VoidIO from '../../../../tandem/js/types/VoidIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
+import Solute from '../../common/model/Solute.js';
 import Beaker from './Beaker.js';
 import ConcentrationMeter from './ConcentrationMeter.js';
 import ConcentrationSolution from './ConcentrationSolution.js';
@@ -27,7 +28,6 @@ import Faucet from './Faucet.js';
 import Precipitate from './Precipitate.js';
 import Shaker from './Shaker.js';
 import ShakerParticles from './ShakerParticles.js';
-import Solute from '../../common/model/Solute.js';
 import SoluteForm from './SoluteForm.js';
 
 // constants
