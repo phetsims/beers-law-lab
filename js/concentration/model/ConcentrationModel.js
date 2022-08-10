@@ -67,7 +67,7 @@ class ConcentrationModel extends PhetioObject {
     // @public
     this.soluteProperty = new Property( this.solutes[ 0 ], {
       tandem: options.tandem.createTandem( 'soluteProperty' ),
-      phetioType: Property.PropertyIO( Solute.SoluteIO )
+      phetioValueType: Solute.SoluteIO
     } );
     this.soluteFormProperty = new EnumerationDeprecatedProperty( SoluteForm, SoluteForm.SOLID, {
       tandem: options.tandem.createTandem( 'soluteFormProperty' )

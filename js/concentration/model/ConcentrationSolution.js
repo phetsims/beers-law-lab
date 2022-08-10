@@ -78,7 +78,7 @@ class ConcentrationSolution extends Fluid {
       }, {
         tandem: options.tandem.createTandem( 'precipitateMolesProperty' ),
         units: 'mol',
-        phetioType: DerivedProperty.DerivedPropertyIO( NumberIO )
+        phetioValueType: NumberIO
       }
     );
 
@@ -90,7 +90,7 @@ class ConcentrationSolution extends Fluid {
       }, {
         tandem: options.tandem.createTandem( 'concentrationProperty' ),
         units: 'mol/L',
-        phetioType: DerivedProperty.DerivedPropertyIO( NumberIO )
+        phetioValueType: NumberIO
       }
     );
 
@@ -101,7 +101,7 @@ class ConcentrationSolution extends Fluid {
         return ( volume > 0 ) && ( soluteAmount / volume ) > solute.getSaturatedConcentration();
       }, {
         tandem: options.tandem.createTandem( 'isSaturatedProperty' ),
-        phetioType: DerivedProperty.DerivedPropertyIO( BooleanIO )
+        phetioValueType: BooleanIO
       }
     );
 
@@ -115,7 +115,7 @@ class ConcentrationSolution extends Fluid {
       }, {
         tandem: options.tandem.createTandem( 'soluteGramsProperty' ),
         units: 'g',
-        phetioType: DerivedProperty.DerivedPropertyIO( NumberIO )
+        phetioValueType: NumberIO
       }
     );
 
@@ -133,7 +133,7 @@ class ConcentrationSolution extends Fluid {
         return percentConcentration;
       }, {
         tandem: options.tandem.createTandem( 'percentConcentrationProperty' ),
-        phetioType: DerivedProperty.DerivedPropertyIO( NumberIO ),
+        phetioValueType: NumberIO,
         units: '%'
       }
     );

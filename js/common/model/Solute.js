@@ -64,7 +64,7 @@ class Solute extends PhetioObject {
     // @public Added for PhET-iO, see https://github.com/phetsims/beers-law-lab/issues/272
     this.formulaProperty = new Property( config.formula, {
       tandem: config.tandem.createTandem( 'formulaProperty' ),
-      phetioType: Property.PropertyIO( NullableIO( StringIO ) ),
+      phetioValueType: NullableIO( StringIO ),
       phetioDocumentation:
         'The solute formula, using RichText markup. Changing it here will change it everywhere in ' +
         'the user interface. A null value will cause the formula to default to the value of nameProperty.'

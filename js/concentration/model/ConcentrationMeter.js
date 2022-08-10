@@ -42,7 +42,7 @@ class ConcentrationMeter extends PhetioObject {
     // @public
     this.valueProperty = new Property( null, {
       tandem: options.tandem.createTandem( 'valueProperty' ),
-      phetioType: Property.PropertyIO( NullableIO( NumberIO ) ),
+      phetioValueType: NullableIO( NumberIO ),
       phetioDocumentation: 'mol/L or % concentration, depending on the concentrationMeterUnits query parameter. ' +
                            'null if the meter is not reading a value'
     } );

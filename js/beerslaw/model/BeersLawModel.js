@@ -49,7 +49,7 @@ class BeersLawModel {
     // @public
     this.solutionProperty = new Property( this.solutions[ 0 ], {
       tandem: options.tandem.createTandem( 'solutionProperty' ),
-      phetioType: Property.PropertyIO( BeersLawSolution.BeersLawSolutionIO )
+      phetioValueType: BeersLawSolution.BeersLawSolutionIO
     } );
 
     // @public NOTE: All positions are relative to the position of the cuvette.
