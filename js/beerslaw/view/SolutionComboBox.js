@@ -69,8 +69,7 @@ function createItem( solution ) {
     stroke: solution.saturatedColor.darkerColor()
   } );
 
-  const labelNode = new RichText( solution.labelProperty.value, {
-    textProperty: solution.labelProperty,
+  const labelNode = new RichText( solution.labelProperty, {
     maxWidth: 305, // determined empirically, so that English strings are not scaled down
     font: new PhetFont( 20 )
   } );

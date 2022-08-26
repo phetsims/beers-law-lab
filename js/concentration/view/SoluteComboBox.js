@@ -67,8 +67,7 @@ function createItem( solute ) {
     stroke: solute.colorScheme.maxColor.darkerColor()
   } );
 
-  const textNode = new RichText( solute.nameProperty.value, {
-    textProperty: solute.nameProperty, // nameProperty may be changed via PhET-iO
+  const textNode = new RichText( solute.nameProperty, {
     font: new PhetFont( 20 ),
     maxWidth: 230 // determined empirically, so that English strings are not scaled down
   } );
