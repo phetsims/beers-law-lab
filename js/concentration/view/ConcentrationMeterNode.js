@@ -309,7 +309,7 @@ class ConcentrationProbeNode extends ProbeNode {
       positionProperty: probe.positionProperty,
       dragBoundsProperty: new Property( probe.dragBounds ),
       modelViewTransform: modelViewTransform,
-      tandem: options.tandem.createTandem( 'movableDragHandler' )
+      tandem: options.tandem.createTandem( 'dragListener' )
     } ) );
 
     const isInNode = node => {
