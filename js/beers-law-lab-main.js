@@ -18,7 +18,7 @@ simLauncher.launch( () => {
     new ConcentrationScreen( { tandem: BLLConstants.CONCENTRATION_SCREEN_TANDEM } ),
     new BeersLawScreen( { tandem: BLLConstants.BEERS_LAW_SCREEN_TANDEM } )
   ];
-  const sim = new Sim( beersLawLabStrings[ 'beers-law-lab' ].title, screens, {
+  const sim = new Sim( beersLawLabStrings[ 'beers-law-lab' ].titleStringProperty, screens, {
     credits: BLLConstants.CREDITS
   } );
   sim.start();
