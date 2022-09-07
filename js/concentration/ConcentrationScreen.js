@@ -14,7 +14,7 @@ import { Image } from '../../../scenery/js/imports.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import concentrationScreenIcon_jpg from '../../images/concentrationScreenIcon_jpg.js';
 import beersLawLab from '../beersLawLab.js';
-import beersLawLabStrings from '../beersLawLabStrings.js';
+import BeersLawLabStrings from '../BeersLawLabStrings.js';
 import ConcentrationModel from './model/ConcentrationModel.js';
 import ConcentrationScreenView from './view/ConcentrationScreenView.js';
 
@@ -26,7 +26,7 @@ class ConcentrationScreen extends Screen {
   constructor( options ) {
 
     options = merge( {
-      name: beersLawLabStrings.screen.concentration,
+      name: BeersLawLabStrings.screen.concentration,
       homeScreenIcon: createScreenIcon(),
       tandem: Tandem.REQUIRED
     }, options );

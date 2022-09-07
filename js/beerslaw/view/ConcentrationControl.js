@@ -18,7 +18,7 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { HBox, HStrut, LinearGradient, Text } from '../../../../scenery/js/imports.js';
 import SunConstants from '../../../../sun/js/SunConstants.js';
 import beersLawLab from '../../beersLawLab.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
 
 // constants
@@ -76,11 +76,11 @@ class ConcentrationControl extends NumberControl {
 
     const transform = solution.concentrationTransform;
 
-    const title = StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.concentration );
+    const title = StringUtils.format( BeersLawLabStrings.pattern[ '0label' ], BeersLawLabStrings.concentration );
 
     // e.g. display units that are specific to the solution, e.g. '{0} mM'
     assert && assert( !options.numberDisplayOptions.valuePattern, 'ConcentrationControl sets valuePattern' );
-    options.numberDisplayOptions.valuePattern = StringUtils.format( beersLawLabStrings.pattern[ '0value' ][ '1units' ],
+    options.numberDisplayOptions.valuePattern = StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1units' ],
       SunConstants.VALUE_NUMBERED_PLACEHOLDER, transform.units );
 
     assert && assert( options.delta === undefined, 'ConcentrationControl sets delta' );

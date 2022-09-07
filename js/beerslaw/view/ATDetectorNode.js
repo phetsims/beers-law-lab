@@ -23,7 +23,7 @@ import { DragListener, Node, Path, Text, VBox } from '../../../../scenery/js/imp
 import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import BLLMovable from '../../common/model/BLLMovable.js';
 import ATDetector from '../model/ATDetector.js';
@@ -107,12 +107,12 @@ class BodyNode extends Node {
     const radioButtonItems = [
       {
         value: ATDetector.Mode.TRANSMITTANCE,
-        node: new Text( beersLawLabStrings.transmittance, RADIO_BUTTON_TEXT_OPTIONS ),
+        node: new Text( BeersLawLabStrings.transmittance, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'transmittanceRadioButton'
       },
       {
         value: ATDetector.Mode.ABSORBANCE,
-        node: new Text( beersLawLabStrings.absorbance, RADIO_BUTTON_TEXT_OPTIONS ),
+        node: new Text( BeersLawLabStrings.absorbance, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'absorbanceRadioButton'
       }
     ];
@@ -132,7 +132,7 @@ class BodyNode extends Node {
 
     // value + units
     const maxValue = 100;
-    const valueText = StringUtils.format( beersLawLabStrings.pattern[ '0percent' ],
+    const valueText = StringUtils.format( BeersLawLabStrings.pattern[ '0percent' ],
       Utils.toFixed( maxValue, TRANSMITTANCE_DECIMAL_PLACES ) );
     const valueNode = new Text( valueText, {
       font: new PhetFont( 24 ),
@@ -183,7 +183,7 @@ class BodyNode extends Node {
       }
       else {
         if ( detector.modeProperty.value === ATDetector.Mode.TRANSMITTANCE ) {
-          valueNode.text = StringUtils.format( beersLawLabStrings.pattern[ '0percent' ],
+          valueNode.text = StringUtils.format( BeersLawLabStrings.pattern[ '0percent' ],
             Utils.toFixed( value, TRANSMITTANCE_DECIMAL_PLACES ) );
         }
         else {

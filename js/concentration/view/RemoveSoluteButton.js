@@ -11,7 +11,7 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import TextPushButton from '../../../../sun/js/buttons/TextPushButton.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import ShakerParticles from '../model/ShakerParticles.js';
 
@@ -34,7 +34,7 @@ class RemoveSoluteButton extends TextPushButton {
       tandem: Tandem.REQUIRED
     }, options );
 
-    super( beersLawLabStrings.removeSolute, options );
+    super( BeersLawLabStrings.removeSolute, options );
 
     this.addListener( () => {
       solution.soluteMolesProperty.value = 0;

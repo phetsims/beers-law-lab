@@ -31,7 +31,7 @@ import ShadedRectangle from '../../../../scenery-phet/js/ShadedRectangle.js';
 import { DragListener, Node, Path, Text, VBox } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLQueryParameters from '../../common/BLLQueryParameters.js';
 import ConcentrationMeter from '../model/ConcentrationMeter.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
@@ -158,7 +158,7 @@ class BodyNode extends Node {
     super( options );
 
     // title
-    const titleNode = new Text( beersLawLabStrings.concentration, {
+    const titleNode = new Text( BeersLawLabStrings.concentration, {
       font: new PhetFont( 18 ),
       fill: 'white',
       maxWidth: 150,
@@ -167,9 +167,9 @@ class BodyNode extends Node {
 
     // value + units
     const valueString = StringUtils.format(
-      beersLawLabStrings.pattern[ '0value' ][ '1units' ],
+      BeersLawLabStrings.pattern[ '0value' ][ '1units' ],
       Utils.toFixed( 1, DECIMAL_PLACES_MOLES_PER_LITER ),
-      beersLawLabStrings.units.molesPerLiter
+      BeersLawLabStrings.units.molesPerLiter
     );
     const valueNode = new Text( valueString, {
       font: new PhetFont( 24 ),
@@ -232,11 +232,11 @@ class BodyNode extends Node {
 
         // display concentration as 'mol/L' or '%', see beers-law-lab#149
         if ( DISPLAY_MOLES_PER_LITER ) {
-          valueNode.text = StringUtils.format( beersLawLabStrings.pattern[ '0value' ][ '1units' ],
-            Utils.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), beersLawLabStrings.units.molesPerLiter );
+          valueNode.text = StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1units' ],
+            Utils.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), BeersLawLabStrings.units.molesPerLiter );
         }
         else {
-          valueNode.text = StringUtils.format( beersLawLabStrings.pattern[ '0percent' ],
+          valueNode.text = StringUtils.format( BeersLawLabStrings.pattern[ '0percent' ],
             Utils.toFixed( value, DECIMAL_PLACES_PERCENT ) );
         }
       }

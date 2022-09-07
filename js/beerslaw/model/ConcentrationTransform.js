@@ -14,7 +14,7 @@
  */
 
 import beersLawLab from '../../beersLawLab.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 
 class ConcentrationTransform {
 
@@ -53,8 +53,8 @@ class ConcentrationTransform {
 }
 
 // specific transforms
-ConcentrationTransform.mM = new ConcentrationTransform( 1000, beersLawLabStrings.units.mM );
-ConcentrationTransform.uM = new ConcentrationTransform( 1000000, beersLawLabStrings.units.uM );
+ConcentrationTransform.mM = new ConcentrationTransform( 1000, BeersLawLabStrings.units.mM );
+ConcentrationTransform.uM = new ConcentrationTransform( 1000000, BeersLawLabStrings.units.uM );
 
 beersLawLab.register( 'ConcentrationTransform', ConcentrationTransform );
 export default ConcentrationTransform;

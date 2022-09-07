@@ -15,7 +15,7 @@ import RulerNode from '../../../../scenery-phet/js/RulerNode.js';
 import { DragListener } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Ruler from '../model/Ruler.js';
 
 // constants
@@ -51,7 +51,7 @@ class BLLRulerNode extends RulerNode {
     const height = modelViewTransform.modelToViewDeltaY( ruler.height );
     const majorTickWidth = modelViewTransform.modelToViewDeltaX( MAJOR_TICK_WIDTH );
 
-    super( width, height, majorTickWidth, majorTickLabels, beersLawLabStrings.units.centimeters, options );
+    super( width, height, majorTickWidth, majorTickLabels, BeersLawLabStrings.units.centimeters, options );
 
     // touch area
     const dx = 0.05 * this.width;

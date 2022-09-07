@@ -99,8 +99,8 @@ type StringsType = {
   'wavelengthStringProperty': TReadOnlyProperty<string>;
 };
 
-const beersLawLabStrings = getStringModule( 'BEERS_LAW_LAB' ) as StringsType;
+const BeersLawLabStrings = getStringModule( 'BEERS_LAW_LAB' ) as StringsType;
 
-beersLawLab.register( 'beersLawLabStrings', beersLawLabStrings );
+beersLawLab.register( 'BeersLawLabStrings', BeersLawLabStrings );
 
-export default beersLawLabStrings;
+export default BeersLawLabStrings;

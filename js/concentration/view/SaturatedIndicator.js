@@ -11,7 +11,7 @@ import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Node, Rectangle, Text } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 
 class SaturatedIndicator extends Node {
 
@@ -23,7 +23,7 @@ class SaturatedIndicator extends Node {
 
     super();
 
-    const label = new Text( beersLawLabStrings.saturated, { font: new PhetFont( 20 ), maxWidth: 400 } );
+    const label = new Text( BeersLawLabStrings.saturated, { font: new PhetFont( 20 ), maxWidth: 400 } );
 
     // translucent light-gray background, so this shows up on all solution colors
     const background = new Rectangle( 0, 0, 1.2 * label.width, 1.2 * label.height, 8, 8,

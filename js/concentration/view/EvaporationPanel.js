@@ -16,7 +16,7 @@ import HSlider from '../../../../sun/js/HSlider.js';
 import Panel from '../../../../sun/js/Panel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Evaporator from '../model/Evaporator.js';
 
 class EvaporationPanel extends Panel {
@@ -37,7 +37,7 @@ class EvaporationPanel extends Panel {
       tandem: Tandem.REQUIRED
     }, options );
 
-    const labelString = StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.evaporation );
+    const labelString = StringUtils.format( BeersLawLabStrings.pattern[ '0label' ], BeersLawLabStrings.evaporation );
     const labelNode = new Text( labelString, {
       font: new PhetFont( 22 ),
       maxWidth: 130,
@@ -58,8 +58,8 @@ class EvaporationPanel extends Panel {
 
     // Tick marks
     const tickFont = new PhetFont( 16 );
-    slider.addMajorTick( 0, new Text( beersLawLabStrings.none, { font: tickFont } ) );
-    slider.addMajorTick( evaporator.maxEvaporationRate, new Text( beersLawLabStrings.lots, { font: tickFont } ) );
+    slider.addMajorTick( 0, new Text( BeersLawLabStrings.none, { font: tickFont } ) );
+    slider.addMajorTick( evaporator.maxEvaporationRate, new Text( BeersLawLabStrings.lots, { font: tickFont } ) );
 
     const content = new HBox( {
       spacing: 10,

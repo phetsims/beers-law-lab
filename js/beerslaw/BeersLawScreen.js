@@ -15,7 +15,7 @@ import { Image } from '../../../scenery/js/imports.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import beersLawScreenIcon_jpg from '../../images/beersLawScreenIcon_jpg.js';
 import beersLawLab from '../beersLawLab.js';
-import beersLawLabStrings from '../beersLawLabStrings.js';
+import BeersLawLabStrings from '../BeersLawLabStrings.js';
 import BeersLawModel from './model/BeersLawModel.js';
 import BeersLawScreenView from './view/BeersLawScreenView.js';
 
@@ -27,7 +27,7 @@ class BeersLawScreen extends Screen {
   constructor( options ) {
 
     options = merge( {
-      name: beersLawLabStrings.screen.beersLaw,
+      name: BeersLawLabStrings.screen.beersLaw,
       homeScreenIcon: createScreenIcon(),
       tandem: Tandem.REQUIRED
     }, options );

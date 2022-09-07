@@ -16,7 +16,7 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Node, Path, Text } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLQueryParameters from '../../common/BLLQueryParameters.js';
 import Beaker from '../model/Beaker.js';
 
@@ -101,10 +101,10 @@ class BeakerNode extends Node {
 
           // display ticks in liters or milliliters, see beers-law-lab#150
           const label = ( BLLQueryParameters.beakerUnits === 'liters' ) ?
-                        StringUtils.format( beersLawLabStrings.pattern[ '0value' ][ '1units' ],
-                          MAJOR_TICK_VALUES_LITERS[ labelIndex ], beersLawLabStrings.units.liters ) :
-                        StringUtils.format( beersLawLabStrings.pattern[ '0value' ][ '1units' ],
-                          MAJOR_TICK_VALUES_MILLILITERS[ labelIndex ], beersLawLabStrings.units.milliliters );
+                        StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1units' ],
+                          MAJOR_TICK_VALUES_LITERS[ labelIndex ], BeersLawLabStrings.units.liters ) :
+                        StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1units' ],
+                          MAJOR_TICK_VALUES_MILLILITERS[ labelIndex ], BeersLawLabStrings.units.milliliters );
 
           tickLabelsNode.addChild( new Text( label, {
             font: new PhetFont( 24 ),

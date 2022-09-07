@@ -18,7 +18,7 @@ import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import ReferenceIO from '../../../../tandem/js/types/ReferenceIO.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import SoluteColorScheme from '../../concentration/model/SoluteColorScheme.js';
 import BLLSymbols from '../BLLSymbols.js';
 import Solvent from './Solvent.js';
@@ -113,7 +113,7 @@ Solute.SoluteIO = new IOType( 'SoluteIO', {
 const SOLUTES_TANDEM = Tandem.GLOBAL_MODEL.createTandem( 'solutes' );
 
 Solute.DRINK_MIX = new Solute( {
-  name: beersLawLabStrings.drinkMix,
+  name: BeersLawLabStrings.drinkMix,
   stockSolutionConcentration: 5.5,
   molarMass: 342.296, // sucrose
   colorScheme: new SoluteColorScheme( 0, new Color( 224, 255, 255 ), 0.05, new Color( 255, 225, 225 ), 5.96, new Color( 255, 0, 0 ) ),
@@ -121,7 +121,7 @@ Solute.DRINK_MIX = new Solute( {
 } );
 
 Solute.COBALT_II_NITRATE = new Solute( {
-  name: beersLawLabStrings.cobaltIINitrate,
+  name: BeersLawLabStrings.cobaltIINitrate,
   formula: BLLSymbols.COBALT_II_NITRATE,
   stockSolutionConcentration: 5.0,
   molarMass: 182.942,
@@ -130,7 +130,7 @@ Solute.COBALT_II_NITRATE = new Solute( {
 } );
 
 Solute.COBALT_CHLORIDE = new Solute( {
-  name: beersLawLabStrings.cobaltChloride,
+  name: BeersLawLabStrings.cobaltChloride,
   formula: BLLSymbols.COBALT_CHLORIDE,
   stockSolutionConcentration: 4.0,
   molarMass: 129.839,
@@ -139,7 +139,7 @@ Solute.COBALT_CHLORIDE = new Solute( {
 } );
 
 Solute.POTASSIUM_DICHROMATE = new Solute( {
-  name: beersLawLabStrings.potassiumDichromate,
+  name: BeersLawLabStrings.potassiumDichromate,
   formula: BLLSymbols.POTASSIUM_DICHROMATE,
   stockSolutionConcentration: 0.5,
   molarMass: 294.185,
@@ -148,7 +148,7 @@ Solute.POTASSIUM_DICHROMATE = new Solute( {
 } );
 
 Solute.POTASSIUM_CHROMATE = new Solute( {
-  name: beersLawLabStrings.potassiumChromate,
+  name: BeersLawLabStrings.potassiumChromate,
   formula: BLLSymbols.POTASSIUM_CHROMATE,
   stockSolutionConcentration: 3.0,
   molarMass: 194.191,
@@ -157,7 +157,7 @@ Solute.POTASSIUM_CHROMATE = new Solute( {
 } );
 
 Solute.NICKEL_II_CHLORIDE = new Solute( {
-  name: beersLawLabStrings.nickelIIChloride,
+  name: BeersLawLabStrings.nickelIIChloride,
   formula: BLLSymbols.NICKEL_II_CHLORIDE,
   stockSolutionConcentration: 5.0,
   molarMass: 129.599,
@@ -166,7 +166,7 @@ Solute.NICKEL_II_CHLORIDE = new Solute( {
 } );
 
 Solute.COPPER_SULFATE = new Solute( {
-  name: beersLawLabStrings.copperSulfate,
+  name: BeersLawLabStrings.copperSulfate,
   formula: BLLSymbols.COPPER_SULFATE,
   stockSolutionConcentration: 1.0,
   molarMass: 159.609,
@@ -175,7 +175,7 @@ Solute.COPPER_SULFATE = new Solute( {
 } );
 
 Solute.POTASSIUM_PERMANGANATE = new Solute( {
-  name: beersLawLabStrings.potassiumPermanganate,
+  name: BeersLawLabStrings.potassiumPermanganate,
   formula: BLLSymbols.POTASSIUM_PERMANGANATE,
   stockSolutionConcentration: 0.4,
   molarMass: 158.034,
@@ -185,7 +185,7 @@ Solute.POTASSIUM_PERMANGANATE = new Solute( {
 } );
 
 Solute.SODIUM_CHLORIDE = new Solute( {
-  name: beersLawLabStrings.sodiumChloride,
+  name: BeersLawLabStrings.sodiumChloride,
   formula: BLLSymbols.SODIUM_CHLORIDE,
   stockSolutionConcentration: 5.50,
   molarMass: 58.443,

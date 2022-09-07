@@ -14,7 +14,7 @@ import { HBox, Node, Rectangle, RichText, Text } from '../../../../scenery/js/im
 import ComboBox from '../../../../sun/js/ComboBox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Solute from '../../common/model/Solute.js';
 
 class SoluteComboBox extends ComboBox {
@@ -42,7 +42,7 @@ class SoluteComboBox extends ComboBox {
 
     // 'Solute' label
     assert && assert( !options.labelNode, 'SoluteComboBox sets labelNode' );
-    options.labelNode = new Text( StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.solute ), {
+    options.labelNode = new Text( StringUtils.format( BeersLawLabStrings.pattern[ '0label' ], BeersLawLabStrings.solute ), {
       font: new PhetFont( 22 ),
       maxWidth: 75,
       tandem: options.tandem.createTandem( 'labelNode' )

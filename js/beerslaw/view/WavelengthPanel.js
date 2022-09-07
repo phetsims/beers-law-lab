@@ -19,7 +19,7 @@ import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Panel from '../../../../sun/js/Panel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import Light from '../model/Light.js';
 
@@ -47,7 +47,7 @@ class WavelengthPanel extends Panel {
       tandem: Tandem.REQUIRED
     }, options );
 
-    const labelNode = new Text( StringUtils.format( beersLawLabStrings.pattern[ '0label' ], beersLawLabStrings.wavelength ), {
+    const labelNode = new Text( StringUtils.format( BeersLawLabStrings.pattern[ '0label' ], BeersLawLabStrings.wavelength ), {
       font: new PhetFont( 20 ),
       fill: 'black',
       tandem: options.tandem.createTandem( 'labelNode' )
@@ -56,8 +56,8 @@ class WavelengthPanel extends Panel {
     const numberDisplay = new NumberDisplay( light.wavelengthProperty, light.wavelengthProperty.range, {
       xMargin: 7,
       yMargin: 3,
-      numberFormatter: wavelength => StringUtils.format( beersLawLabStrings.pattern[ '0value' ][ '1units' ],
-        Utils.toFixed( wavelength, 0 ), beersLawLabStrings.units.nm ),
+      numberFormatter: wavelength => StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1units' ],
+        Utils.toFixed( wavelength, 0 ), BeersLawLabStrings.units.nm ),
       tandem: options.tandem.createTandem( 'numberDisplay' )
     } );
 
@@ -65,12 +65,12 @@ class WavelengthPanel extends Panel {
     const radioButtonItems = [
       {
         value: Light.Mode.PRESET,
-        node: new Text( beersLawLabStrings.preset, RADIO_BUTTON_TEXT_OPTIONS ),
+        node: new Text( BeersLawLabStrings.preset, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'presetWavelengthRadioButton'
       },
       {
         value: Light.Mode.VARIABLE,
-        node: new Text( beersLawLabStrings.variable, RADIO_BUTTON_TEXT_OPTIONS ),
+        node: new Text( BeersLawLabStrings.variable, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'variableWavelengthRadioButton'
       }
     ];

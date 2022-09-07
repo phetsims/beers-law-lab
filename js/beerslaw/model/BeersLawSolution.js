@@ -27,7 +27,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import ReferenceIO from '../../../../tandem/js/types/ReferenceIO.js';
 import beersLawLab from '../../beersLawLab.js';
-import beersLawLabStrings from '../../beersLawLabStrings.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import ColorRange from '../../common/model/ColorRange.js';
 import Solute from '../../common/model/Solute.js';
@@ -137,7 +137,7 @@ function formatLabel( name, formula ) {
   assert && assert( typeof name === 'string', `invalid name: ${name}` );
   assert && assert( typeof formula === 'string' || formula === null, `invalid name: ${formula}` );
   return ( formula === null || formula === '' ) ? name :
-         StringUtils.format( beersLawLabStrings.pattern[ '0formula' ][ '1name' ], formula, name );
+         StringUtils.format( BeersLawLabStrings.pattern[ '0formula' ][ '1name' ], formula, name );
 }
 
 /**

@@ -9,7 +9,7 @@
 import Sim from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
 import BeersLawScreen from './beerslaw/BeersLawScreen.js';
-import beersLawLabStrings from './beersLawLabStrings.js';
+import BeersLawLabStrings from './BeersLawLabStrings.js';
 import BLLConstants from './common/BLLConstants.js';
 import ConcentrationScreen from './concentration/ConcentrationScreen.js';
 
@@ -18,7 +18,7 @@ simLauncher.launch( () => {
     new ConcentrationScreen( { tandem: BLLConstants.CONCENTRATION_SCREEN_TANDEM } ),
     new BeersLawScreen( { tandem: BLLConstants.BEERS_LAW_SCREEN_TANDEM } )
   ];
-  const sim = new Sim( beersLawLabStrings[ 'beers-law-lab' ].titleStringProperty, screens, {
+  const sim = new Sim( BeersLawLabStrings[ 'beers-law-lab' ].titleStringProperty, screens, {
     credits: BLLConstants.CREDITS
   } );
   sim.start();
