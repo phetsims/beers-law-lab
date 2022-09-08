@@ -1,6 +1,5 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Fluid coming out of a faucet.
  * Origin is at the top center, to simplify alignment with the center of the faucet's output pipe.
@@ -14,35 +13,19 @@ import beersLawLab from '../../beersLawLab.js';
 import Fluid from '../../common/model/Fluid.js';
 import Faucet from '../model/Faucet.js';
 
-class FaucetFluidNode extends Rectangle {
+export default class FaucetFluidNode extends Rectangle {
 
-  /**
-   * @param {Faucet} faucet
-   * @param {Fluid} fluid
-   * @param {number} height in model coordinates
-   * @param {ModelViewTransform2} modelViewTransform
-   */
-  constructor( faucet, fluid, height, modelViewTransform ) {
-    assert && assert( faucet instanceof Faucet );
-    assert && assert( fluid instanceof Fluid );
-    assert && assert( typeof height === 'number' );
-    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
+  public constructor( faucet: Faucet, fluid: Fluid, height: number, modelViewTransform: ModelViewTransform2 ) {
 
     super( 0, 0, 0, 0, { lineWidth: 1, pickable: false } );
 
-    /*
-     * Set the color of the fluid coming out of the spout.
-     * @param {Color} color
-     */
+    // Set the color of the fluid coming out of the spout.
     fluid.colorProperty.link( color => {
       this.fill = color;
       this.stroke = color.darkerColor();
     } );
 
-    /*
-     * Set the width of the shape to match the flow rate.
-     * @param {number} flowRate
-     */
+    // Set the width of the shape to match the flow rate.
     const viewPosition = modelViewTransform.modelToViewPosition( faucet.position );
     const viewHeight = modelViewTransform.modelToViewDeltaY( height );
     faucet.flowRateProperty.link( flowRate => {
@@ -58,4 +41,3 @@ class FaucetFluidNode extends Rectangle {
 }
 
 beersLawLab.register( 'FaucetFluidNode', FaucetFluidNode );
-export default FaucetFluidNode;

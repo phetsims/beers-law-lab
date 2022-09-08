@@ -1,6 +1,5 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Evaporation control panel.
  *
@@ -9,34 +8,34 @@
 
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Range from '../../../../dot/js/Range.js';
-import merge from '../../../../phet-core/js/merge.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { HBox, Text } from '../../../../scenery/js/imports.js';
 import HSlider from '../../../../sun/js/HSlider.js';
-import Panel from '../../../../sun/js/Panel.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Evaporator from '../model/Evaporator.js';
 
-class EvaporationPanel extends Panel {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {Evaporator} evaporator
-   * @param {Object} [options]
-   */
-  constructor( evaporator, options ) {
-    assert && assert( evaporator instanceof Evaporator );
+type EvaporationPanelOptions = SelfOptions & PickRequired<PanelOptions, 'tandem'>;
 
-    options = merge( {
+export default class EvaporationPanel extends Panel {
+
+  public constructor( evaporator: Evaporator, providedOptions: EvaporationPanelOptions ) {
+
+    const options = optionize<EvaporationPanelOptions, SelfOptions, PanelOptions>()( {
+
+      // PanelOptions
       xMargin: 15,
       yMargin: 8,
       fill: '#F0F0F0',
       stroke: 'gray',
-      lineWidth: 1,
-      tandem: Tandem.REQUIRED
-    }, options );
+      lineWidth: 1
+    }, providedOptions );
 
     const labelString = StringUtils.format( BeersLawLabStrings.pattern[ '0label' ], BeersLawLabStrings.evaporation );
     const labelNode = new Text( labelString, {
@@ -72,4 +71,3 @@ class EvaporationPanel extends Panel {
 }
 
 beersLawLab.register( 'EvaporationPanel', EvaporationPanel );
-export default EvaporationPanel;

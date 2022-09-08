@@ -1,6 +1,5 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Concentration meter, with probe.
  * The probe registers the concentration of all possible fluids that it may contact, including:
@@ -11,7 +10,7 @@
  * - output of the dropper
  *
  * Rather than trying to model the shapes of all of these fluids, we handle 'probe is in fluid'
- * herein via intersection of node shapes.
+ * herein via intersection of Path shapes.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -22,14 +21,15 @@ import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import { Shape } from '../../../../kite/js/imports.js';
-import merge from '../../../../phet-core/js/merge.js';
+import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import ProbeNode from '../../../../scenery-phet/js/ProbeNode.js';
+import ProbeNode, { ProbeNodeOptions } from '../../../../scenery-phet/js/ProbeNode.js';
 import ShadedRectangle from '../../../../scenery-phet/js/ShadedRectangle.js';
-import { DragListener, Node, Path, Text, VBox } from '../../../../scenery/js/imports.js';
+import { DragListener, Node, NodeOptions, Path, PathOptions, Text, VBox } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
@@ -37,6 +37,7 @@ import BLLQueryParameters from '../../common/BLLQueryParameters.js';
 import ConcentrationMeter from '../model/ConcentrationMeter.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import Dropper from '../model/Dropper.js';
+import BLLMovable from '../../common/model/BLLMovable.js';
 
 // constants
 const DECIMAL_PLACES_MOLES_PER_LITER = 3;
@@ -51,44 +52,24 @@ const DISPLAY_MOLES_PER_LITER = ( BLLQueryParameters.concentrationMeterUnits ===
 const MIN_VALUE_SIZE = new Dimension2( 140, 35 );
 const MIN_BODY_SIZE = new Dimension2( 170, 100 );
 
-class ConcentrationMeterNode extends Node {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {ConcentrationMeter} concentrationMeter
-   * @param {ConcentrationSolution} solution
-   * @param {Dropper} dropper
-   * @param {Node} solutionNode
-   * @param {Node} stockSolutionNode
-   * @param {Node} solventFluidNode
-   * @param {Node} drainFluidNode
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Object} [options]
-   */
-  constructor( concentrationMeter, solution, dropper, solutionNode, stockSolutionNode, solventFluidNode,
-               drainFluidNode, modelViewTransform, options ) {
-    assert && assert( concentrationMeter instanceof ConcentrationMeter );
-    assert && assert( solution instanceof ConcentrationSolution );
-    assert && assert( dropper instanceof Dropper );
-    assert && assert( solutionNode instanceof Node );
-    assert && assert( stockSolutionNode instanceof Node );
-    assert && assert( solventFluidNode instanceof Node );
-    assert && assert( drainFluidNode instanceof Node );
-    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
+type ConcentrationMeterNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
-    options = merge( {
-      tandem: Tandem.REQUIRED
-    }, options );
+export default class ConcentrationMeterNode extends Node {
+
+  public constructor( concentrationMeter: ConcentrationMeter, solution: ConcentrationSolution, dropper: Dropper,
+                      solutionNode: Path, stockSolutionNode: Path, solventFluidNode: Path, drainFluidNode: Path,
+                      modelViewTransform: ModelViewTransform2, providedOptions: ConcentrationMeterNodeOptions ) {
+
+    const options = providedOptions;
 
     super( options );
 
-    const bodyNode = new BodyNode( concentrationMeter, modelViewTransform, {
-      tandem: options.tandem.createTandem( 'bodyNode' )
-    } );
+    const bodyNode = new BodyNode( concentrationMeter, modelViewTransform, options.tandem.createTandem( 'bodyNode' ) );
 
     const probeNode = new ConcentrationProbeNode( concentrationMeter.probe, modelViewTransform, solutionNode, stockSolutionNode,
-      solventFluidNode, drainFluidNode, {
-        tandem: options.tandem.createTandem( 'probeNode' )
-      } );
+      solventFluidNode, drainFluidNode, options.tandem.createTandem( 'probeNode' ) );
 
     const wireNode = new WireNode( concentrationMeter.body, concentrationMeter.probe, bodyNode, probeNode );
 
@@ -141,20 +122,13 @@ class ConcentrationMeterNode extends Node {
  */
 class BodyNode extends Node {
 
-  /**
-   * @param {ConcentrationMeter} concentrationMeter
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Object} [options]
-   */
-  constructor( concentrationMeter, modelViewTransform, options ) {
+  public constructor( concentrationMeter: ConcentrationMeter, modelViewTransform: ModelViewTransform2, tandem: Tandem ) {
 
-    options = merge( {
+    const options: NodeOptions = {
       cursor: 'pointer',
-
-      // phet-io
-      tandem: Tandem.REQUIRED,
+      tandem: tandem,
       visiblePropertyOptions: { phetioReadOnly: true }
-    }, options );
+    };
 
     super( options );
 
@@ -163,7 +137,7 @@ class BodyNode extends Node {
       font: new PhetFont( 18 ),
       fill: 'white',
       maxWidth: 150,
-      tandem: options.tandem.createTandem( 'titleNode' )
+      tandem: tandem.createTandem( 'titleNode' )
     } );
 
     // value + units
@@ -176,7 +150,7 @@ class BodyNode extends Node {
       font: new PhetFont( 24 ),
       fill: 'black',
       maxWidth: 150,
-      tandem: options.tandem.createTandem( 'valueNode' ),
+      tandem: tandem.createTandem( 'valueNode' ),
       textPropertyOptions: { phetioReadOnly: true }
     } );
 
@@ -214,8 +188,8 @@ class BodyNode extends Node {
     this.addInputListener( new DragListener( {
       positionProperty: concentrationMeter.body.positionProperty,
       dragBoundsProperty: new Property( concentrationMeter.body.dragBounds ),
-      modelViewTransform: modelViewTransform,
-      tandem: options.tandem.createTandem( 'dragListener' )
+      transform: modelViewTransform,
+      tandem: tandem.createTandem( 'dragListener' )
     } ) );
 
     // body position
@@ -264,18 +238,16 @@ class BodyNode extends Node {
  */
 class ConcentrationProbeNode extends ProbeNode {
 
-  /**
-   * @param {BLLMovable} probe
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Node} solutionNode
-   * @param {Node} stockSolutionNode
-   * @param {Node} solventFluidNode
-   * @param {Node} drainFluidNode
-   * @param {Object} [options]
-   */
-  constructor( probe, modelViewTransform, solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, options ) {
+  public readonly isInSolution: () => boolean;
+  public readonly isInSolvent: () => boolean;
+  public readonly isInDrainFluid: () => boolean;
+  public readonly isInStockSolution: () => boolean;
 
-    options = merge( {
+  public constructor( probe: BLLMovable, modelViewTransform: ModelViewTransform2, solutionNode: Path,
+                      stockSolutionNode: Path, solventFluidNode: Path, drainFluidNode: Path,
+                      tandem: Tandem ) {
+
+    const options: ProbeNodeOptions = {
       sensorTypeFunction: ProbeNode.crosshairs( {
         intersectionRadius: 6
       } ),
@@ -290,10 +262,10 @@ class ConcentrationProbeNode extends ProbeNode {
       cursor: 'pointer',
 
       // phet-io
-      tandem: Tandem.REQUIRED,
+      tandem: tandem,
       phetioInputEnabledPropertyInstrumented: true,
       visiblePropertyOptions: { phetioReadOnly: true }
-    }, options );
+    };
 
     super( options );
 
@@ -309,18 +281,18 @@ class ConcentrationProbeNode extends ProbeNode {
     this.addInputListener( new DragListener( {
       positionProperty: probe.positionProperty,
       dragBoundsProperty: new Property( probe.dragBounds ),
-      modelViewTransform: modelViewTransform,
-      tandem: options.tandem.createTandem( 'dragListener' )
+      transform: modelViewTransform,
+      tandem: tandem.createTandem( 'dragListener' )
     } ) );
 
-    const isInNode = node => {
+    const isInNode = ( node: Path ) => {
       const localPoint = node.parentToLocalPoint( probe.positionProperty.value );
-      const nodeShape = node.getShape();
+      const nodeShape = node.getShape()!;
+      assert && assert( nodeShape );
       const shapeBounds = nodeShape.bounds;
       return shapeBounds.getWidth() > 0 && shapeBounds.getHeight() > 0 && nodeShape.containsPoint( localPoint ); // see issue #65
     };
 
-    // @public
     this.isInSolution = () => isInNode( solutionNode );
     this.isInSolvent = () => isInNode( solventFluidNode );
     this.isInDrainFluid = () => isInNode( drainFluidNode );
@@ -328,23 +300,21 @@ class ConcentrationProbeNode extends ProbeNode {
   }
 }
 
+/**
+ * Wire that connects the body and probe.
+ */
 class WireNode extends Path {
 
-  /**
-   * Wire that connects the body and probe.
-   * @param {BLLMovable} body
-   * @param {BLLMovable} probe
-   * @param {Node} bodyNode
-   * @param {Node} probeNode
-   */
-  constructor( body, probe, bodyNode, probeNode ) {
+  public constructor( body: BLLMovable, probe: BLLMovable, bodyNode: Node, probeNode: Node ) {
 
-    const options = {
+    const options: PathOptions = {
       stroke: 'gray',
       lineWidth: 8,
       lineCap: 'square',
       lineJoin: 'round',
-      pickable: false // no need to drag the wire, and we don't want to do cubic-curve intersection here, or have it get in the way
+
+      // no need to drag the wire, and we don't want to do cubic-curve intersection here, or have it get in the way
+      pickable: false
     };
 
     super( new Shape(), options );
@@ -372,4 +342,3 @@ class WireNode extends Path {
 }
 
 beersLawLab.register( 'ConcentrationMeterNode', ConcentrationMeterNode );
-export default ConcentrationMeterNode;
