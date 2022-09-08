@@ -1,5 +1,6 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * MolarAbsorptivityData is a container for molar absorptivity data for the visible spectrum of light.
  * Integer precision is sufficient for wavelength, and simplifies lookup.

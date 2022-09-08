@@ -1,5 +1,6 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Ruler is the model of a ruler that is movable.
  *

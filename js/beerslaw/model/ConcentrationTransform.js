@@ -1,5 +1,6 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * ConcentrationTransform manages the transformation between how concentration values are stored in
  * the model, and how they are presented in the view.

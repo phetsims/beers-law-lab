@@ -1,5 +1,6 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Beam is the model of the light as a solid beam.
  * Changes in wavelength affect the entire beam instantaneously.
