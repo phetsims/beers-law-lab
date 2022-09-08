@@ -1,6 +1,5 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Shaker that contains a solute in solid form.
  *
@@ -9,11 +8,11 @@
 
 import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
-import merge from '../../../../phet-core/js/merge.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Circle, DragListener, Image, Node, RichText } from '../../../../scenery/js/imports.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import { Circle, DragListener, Image, Node, NodeOptions, RichText } from '../../../../scenery/js/imports.js';
 import shaker_png from '../../../images/shaker_png.js';
 import beersLawLab from '../../beersLawLab.js';
 import Shaker from '../model/Shaker.js';
@@ -21,33 +20,26 @@ import Shaker from '../model/Shaker.js';
 // constants
 const DEBUG_ORIGIN = false;
 
-class ShakerNode extends Node {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {Shaker} shaker
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Object} [options]
-   */
-  constructor( shaker, modelViewTransform, options ) {
-    assert && assert( shaker instanceof Shaker );
-    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
+type ShakerNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
-    options = merge( {
+export default class ShakerNode extends Node {
+
+  public constructor( shaker: Shaker, modelViewTransform: ModelViewTransform2, providedOptions: ShakerNodeOptions ) {
+
+    const options = optionize<ShakerNodeOptions, SelfOptions, NodeOptions>()( {
 
       // Performance optimization so Scenery won't fit blocks around this.
       // See https://github.com/phetsims/beers-law-lab/issues/113
       preventFit: true,
 
-      // Node options
       visibleProperty: shaker.visibleProperty,
       cursor: 'pointer',
-
-      // phet-io
-      tandem: Tandem.REQUIRED,
       phetioInputEnabledPropertyInstrumented: true
-    }, options );
+    }, providedOptions );
 
-    super( options );
+    super( providedOptions );
 
     // shaker image
     const imageNode = new Image( shaker_png );
@@ -86,7 +78,7 @@ class ShakerNode extends Node {
     } );
 
     // Label the shaker with the solute formula. If formula is null, default to the solute name.
-    let multilink;
+    let multilink: { dispose: () => void };
     shaker.soluteProperty.link( solute => {
       multilink && multilink.dispose();
       multilink = new Multilink( [ solute.nameProperty, solute.formulaProperty ],
@@ -106,7 +98,7 @@ class ShakerNode extends Node {
     this.addInputListener( new DragListener( {
       positionProperty: shaker.positionProperty,
       dragBoundsProperty: new Property( shaker.dragBounds ),
-      modelViewTransform: modelViewTransform,
+      transform: modelViewTransform,
       tandem: options.tandem.createTandem( 'dragListener' )
     } ) );
 
@@ -117,4 +109,3 @@ class ShakerNode extends Node {
 }
 
 beersLawLab.register( 'ShakerNode', ShakerNode );
-export default ShakerNode;
