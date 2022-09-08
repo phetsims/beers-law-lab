@@ -1,5 +1,6 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Model element that determines the rate at which solvent is evaporated from the solution in the beaker.
  *

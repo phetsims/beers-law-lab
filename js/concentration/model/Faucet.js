@@ -1,5 +1,6 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Faucet model, used for input and output faucets.
  * This model assumes that the pipe enters the faucet from the left.
