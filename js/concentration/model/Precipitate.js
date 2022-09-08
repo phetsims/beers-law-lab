@@ -1,5 +1,6 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * The precipitate that forms on the bottom of the beaker.
  * Manages the creation and deletion of precipitate particles.
