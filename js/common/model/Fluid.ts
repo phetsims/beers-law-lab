@@ -1,6 +1,5 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Fluid is the base class model for all fluids.
  *
@@ -11,23 +10,17 @@ import Property from '../../../../axon/js/Property.js';
 import { Color } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 
-class Fluid {
+export default class Fluid {
 
-  /**
-   * @param {Color} color
-   */
-  constructor( color ) {
-    assert && assert( color instanceof Color );
+  public readonly colorProperty: Property<Color>;
 
-    // @public
+  public constructor( color: Color ) {
     this.colorProperty = new Property( color );
   }
 
-  // @public
-  reset() {
+  public reset(): void {
     this.colorProperty.reset();
   }
 }
 
 beersLawLab.register( 'Fluid', Fluid );
-export default Fluid;

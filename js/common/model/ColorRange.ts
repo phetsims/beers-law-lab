@@ -1,6 +1,5 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * ColorRange is the range for a color, with linear interpolation in RGBA colorspace.
  *
@@ -10,35 +9,24 @@
 import { Color } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 
-class ColorRange {
+export default class ColorRange {
 
-  /**
-   * @param {Color} min
-   * @param {Color} max
-   */
-  constructor( min, max ) {
-    assert && assert( min instanceof Color );
-    assert && assert( max instanceof Color );
+  public readonly min: Color;
+  public readonly max: Color;
 
-    // @public (read-only)
+  public constructor( min: Color, max: Color ) {
     this.min = min;
     this.max = max;
   }
 
   /**
    * Performs a linear interpolation between min and max colors in RGBA colorspace.
-   *
-   * @param {number} distance 0-1 (0=min, 1=max)
-   * @returns {Color}
-   * @public
    */
-  interpolateLinear( distance ) {
-    assert && assert( typeof distance === 'number' );
-    assert && assert( distance >= 0 && distance <= 1 );
+  public interpolateLinear( distance: number ): Color {
+    assert && assert( isFinite( distance ) && distance >= 0 && distance <= 1, `invalid distance: ${distance}` );
 
     return Color.interpolateRGBA( this.min, this.max, distance );
   }
 }
 
 beersLawLab.register( 'ColorRange', ColorRange );
-export default ColorRange;
