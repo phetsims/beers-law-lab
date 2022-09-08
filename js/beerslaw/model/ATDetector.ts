@@ -1,5 +1,6 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * ATDetector is the detector for absorbance (A) and percent transmittance (%T) of light passing through
  * a solution in a cuvette.

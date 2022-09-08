@@ -1,5 +1,6 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * AbsorbanceModel is the model for computing the absorbance (and transmittance) of light passing through a solution
  * in a cuvette.
