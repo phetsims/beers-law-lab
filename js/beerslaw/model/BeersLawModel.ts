@@ -1,6 +1,5 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * BeersLawModel is the top-level model for the 'Beer's Law' screen.
  *
@@ -10,9 +9,10 @@
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import merge from '../../../../phet-core/js/merge.js';
+import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import beersLawLab from '../../beersLawLab.js';
 import AbsorbanceModel from './AbsorbanceModel.js';
 import ATDetector from './ATDetector.js';
@@ -22,20 +22,29 @@ import Cuvette from './Cuvette.js';
 import Light from './Light.js';
 import Ruler from './Ruler.js';
 
-class BeersLawModel {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Object} [options]
-   */
-  constructor( modelViewTransform, options ) {
-    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
+type BeersLawModelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-    options = merge( {
-      tandem: Tandem.REQUIRED
-    }, options );
+export default class BeersLawModel {
 
-    // @public Solutions, in rainbow (ROYGBIV) order.
+  public readonly solutions: BeersLawSolution[];
+  public readonly solutionProperty: Property<BeersLawSolution>;
+
+  // NOTE: All positions are relative to the position of the cuvette.
+  public readonly cuvette: Cuvette;
+
+  public readonly light: Light;
+  public readonly ruler: Ruler;
+  public readonly absorbanceModel: AbsorbanceModel;
+  public readonly detector: ATDetector;
+  public readonly beam: Beam;
+
+  public constructor( modelViewTransform: ModelViewTransform2, providedOptions: BeersLawModelOptions ) {
+
+    const options = providedOptions;
+
+    // in rainbow (ROYGBIV) order.
     this.solutions = [
       BeersLawSolution.DRINK_MIX,
       BeersLawSolution.COBALT_II_NITRATE,
@@ -47,35 +56,29 @@ class BeersLawModel {
       BeersLawSolution.POTASSIUM_PERMANGANATE
     ];
 
-    // @public
     this.solutionProperty = new Property( this.solutions[ 0 ], {
       tandem: options.tandem.createTandem( 'solutionProperty' ),
       phetioValueType: BeersLawSolution.BeersLawSolutionIO
     } );
 
-    // @public NOTE: All positions are relative to the position of the cuvette.
     this.cuvette = new Cuvette( {
       position: new Vector2( 3.3, 0.5 ),
       tandem: options.tandem.createTandem( 'cuvette' )
     } );
 
-    // @public
     this.light = new Light( this.solutionProperty, {
       position: new Vector2( this.cuvette.position.x - 1.5, this.cuvette.position.y + ( this.cuvette.height / 2 ) ),
       tandem: options.tandem.createTandem( 'light' )
     } );
 
-    // @public
     this.ruler = new Ruler( {
       position: new Vector2( this.cuvette.position.x - 2.6, this.cuvette.position.y + 4 ),
       dragBounds: new Bounds2( 0, 0, 6, 5 ),
       tandem: options.tandem.createTandem( 'ruler' )
     } );
 
-    // @public
     this.absorbanceModel = new AbsorbanceModel( this.light, this.solutionProperty, this.cuvette );
 
-    // @public
     this.detector = new ATDetector( this.light, this.cuvette, this.absorbanceModel, {
       bodyPosition: new Vector2( this.cuvette.position.x + 3, this.cuvette.position.y - 0.3 ),
       probePosition: new Vector2( this.cuvette.position.x + 3, this.light.position.y ),
@@ -83,12 +86,10 @@ class BeersLawModel {
       tandem: options.tandem.createTandem( 'detector' )
     } );
 
-    // @public
     this.beam = new Beam( this.light, this.cuvette, this.detector, this.absorbanceModel, modelViewTransform );
   }
 
-  // @public
-  reset() {
+  public reset(): void {
     for ( let i = 0; i < this.solutions.length; i++ ) {
       this.solutions[ i ].reset();
     }
@@ -101,4 +102,3 @@ class BeersLawModel {
 }
 
 beersLawLab.register( 'BeersLawModel', BeersLawModel );
-export default BeersLawModel;
