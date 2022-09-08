@@ -1,6 +1,5 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Visual representation of a beaker that is filled to the top with a solution.
  * Ticks on the left edge of the beaker. Origin is at the bottom center.
@@ -10,12 +9,12 @@
 
 import Utils from '../../../../dot/js/Utils.js';
 import { Shape } from '../../../../kite/js/imports.js';
-import merge from '../../../../phet-core/js/merge.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Node, Path, Text } from '../../../../scenery/js/imports.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import { Node, NodeOptions, Path, Text } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLQueryParameters from '../../common/BLLQueryParameters.js';
@@ -32,21 +31,19 @@ const MAJOR_TICK_VALUES_LITERS = [ '\u00bd', '1' ]; // 1/2 L, 1 L
 const MAJOR_TICK_VALUES_MILLILITERS = [ '500', '1000' ]; // 500 mL, 1000 mL
 assert && assert( MAJOR_TICK_VALUES_LITERS.length === MAJOR_TICK_VALUES_MILLILITERS.length );
 
-class BeakerNode extends Node {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {Beaker} beaker
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Object} [options]
-   */
-  constructor( beaker, modelViewTransform, options ) {
-    assert && assert( beaker instanceof Beaker );
-    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
+type BeakerNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
-    options = merge( {
-      pickable: false,
-      tandem: Tandem.REQUIRED
-    }, options );
+export default class BeakerNode extends Node {
+
+  public constructor( beaker: Beaker, modelViewTransform: ModelViewTransform2, providedOptions: BeakerNodeOptions ) {
+
+    const options = optionize<BeakerNodeOptions, SelfOptions, NodeOptions>()( {
+
+      // NodeOptions
+      pickable: false
+    }, providedOptions );
 
     super( options );
 
@@ -125,4 +122,3 @@ class BeakerNode extends Node {
 }
 
 beersLawLab.register( 'BeakerNode', BeakerNode );
-export default BeakerNode;

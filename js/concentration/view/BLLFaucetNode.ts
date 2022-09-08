@@ -1,6 +1,5 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Faucet node for this sim.
  * Handles scaling, and adapters our Faucet model to scenery-phet.FaucetNode.
@@ -8,38 +7,36 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import merge from '../../../../phet-core/js/merge.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import FaucetNode from '../../../../scenery-phet/js/FaucetNode.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import FaucetNode, { FaucetNodeOptions } from '../../../../scenery-phet/js/FaucetNode.js';
 import beersLawLab from '../../beersLawLab.js';
 import Faucet from '../model/Faucet.js';
 
 // constants
 const SCALE = 0.75;
 
-class BLLFaucetNode extends FaucetNode {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {Faucet} faucet
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Object} [options]
-   */
-  constructor( faucet, modelViewTransform, options ) {
-    assert && assert( faucet instanceof Faucet );
-    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
+type BLLFaucetNodeOptions = SelfOptions & PickRequired<FaucetNodeOptions, 'tandem'>;
+
+export default class BLLFaucetNode extends FaucetNode {
+
+  public constructor( faucet: Faucet, modelViewTransform: ModelViewTransform2, providedOptions: BLLFaucetNodeOptions ) {
 
     const horizontalPipeLength = modelViewTransform.modelToViewX( faucet.position.x - faucet.pipeMinX ) / SCALE;
 
-    options = merge( {
+    const options = optionize<BLLFaucetNodeOptions, SelfOptions, FaucetNodeOptions>()( {
+
+      // FaucetNodeOptions
       horizontalPipeLength: horizontalPipeLength,
       scale: SCALE,
       shooterOptions: {
         touchAreaXDilation: 37,
         touchAreaYDilation: 60
-      },
-      tandem: Tandem.REQUIRED
-    }, options );
+      }
+    }, providedOptions );
 
     super( faucet.maxFlowRate, faucet.flowRateProperty, faucet.enabledProperty, options );
 
@@ -48,4 +45,3 @@ class BLLFaucetNode extends FaucetNode {
 }
 
 beersLawLab.register( 'BLLFaucetNode', BLLFaucetNode );
-export default BLLFaucetNode;

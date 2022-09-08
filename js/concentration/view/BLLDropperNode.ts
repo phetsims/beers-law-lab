@@ -1,6 +1,5 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Dropper that contains a solute in solution form.
  * Origin is at the center of the hole where solution comes out of the dropper (bottom center).
@@ -11,47 +10,37 @@
 import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
 import { Shape } from '../../../../kite/js/imports.js';
-import merge from '../../../../phet-core/js/merge.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import EyeDropperNode from '../../../../scenery-phet/js/EyeDropperNode.js';
+import EyeDropperNode, { EyeDropperNodeOptions } from '../../../../scenery-phet/js/EyeDropperNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { DragListener, Path, RichText } from '../../../../scenery/js/imports.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
+import Solute from '../../common/model/Solute.js';
 import Solvent from '../../common/model/Solvent.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import Dropper from '../model/Dropper.js';
 
-class BLLDropperNode extends EyeDropperNode {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {Dropper} dropper
-   * @param {Solvent} solvent
-   * @param {Property.<Solute>} soluteProperty
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Object} [options]
-   */
-  constructor( dropper, solvent, soluteProperty, modelViewTransform, options ) {
-    assert && assert( dropper instanceof Dropper );
-    assert && assert( solvent instanceof Solvent );
-    assert && assert( soluteProperty instanceof Property );
-    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
+type BLLDropperNodeOptions = SelfOptions & PickRequired<EyeDropperNodeOptions, 'tandem'>;
 
-    options = merge( {
+export default class BLLDropperNode extends EyeDropperNode {
 
-      // EyeDropperNode options
+  public constructor( dropper:Dropper, solvent: Solvent, soluteProperty: Property<Solute>,
+               modelViewTransform: ModelViewTransform2, providedOptions: BLLDropperNodeOptions ) {
+
+    const options = optionize<BLLDropperNodeOptions, SelfOptions, EyeDropperNodeOptions>()( {
+
+      // EyeDropperNodeOptions
       isDispensingProperty: dropper.isDispensingProperty,
       isEmptyProperty: dropper.isEmptyProperty,
       buttonOptions: {
         enabledProperty: dropper.enabledProperty
       },
-
-      // Node options
-      visibleProperty: dropper.visibleProperty,
-
-      // phet-io
-      tandem: Tandem.REQUIRED
-    }, options );
+      visibleProperty: dropper.visibleProperty
+    }, providedOptions );
 
     super( options );
 
@@ -91,7 +80,7 @@ class BLLDropperNode extends EyeDropperNode {
     } );
 
     // Label the dropper with the solute formula. If formula is null, default to the solute name.
-    let multilink;
+    let multilink: { dispose: () => void };
     dropper.soluteProperty.link( solute => {
       multilink && multilink.dispose();
       multilink = new Multilink( [ solute.nameProperty, solute.formulaProperty ],
@@ -128,7 +117,7 @@ class BLLDropperNode extends EyeDropperNode {
     const dragListener = new DragListener( {
       positionProperty: dropper.positionProperty,
       dragBoundsProperty: new Property( dropper.dragBounds ),
-      modelViewTransform: modelViewTransform,
+      transform: modelViewTransform,
       tandem: options.tandem.createTandem( 'dragListener' )
     } );
     this.addInputListener( dragListener );
@@ -140,4 +129,3 @@ class BLLDropperNode extends EyeDropperNode {
 }
 
 beersLawLab.register( 'BLLDropperNode', BLLDropperNode );
-export default BLLDropperNode;
