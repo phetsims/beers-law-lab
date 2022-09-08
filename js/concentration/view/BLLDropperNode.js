@@ -1,5 +1,6 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Dropper that contains a solute in solution form.
  * Origin is at the center of the hole where solution comes out of the dropper (bottom center).

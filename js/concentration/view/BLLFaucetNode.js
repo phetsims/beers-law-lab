@@ -1,5 +1,6 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Faucet node for this sim.
  * Handles scaling, and adapters our Faucet model to scenery-phet.FaucetNode.
