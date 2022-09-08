@@ -1,39 +1,38 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Button that removes solute from the solution.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import merge from '../../../../phet-core/js/merge.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import TextPushButton from '../../../../sun/js/buttons/TextPushButton.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import TextPushButton, { TextPushButtonOptions } from '../../../../sun/js/buttons/TextPushButton.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import ShakerParticles from '../model/ShakerParticles.js';
 
-class RemoveSoluteButton extends TextPushButton {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {ConcentrationSolution} solution
-   * @param {ShakerParticles} shakerParticles
-   * @param {Object} [options]
-   */
-  constructor( solution, shakerParticles, options ) {
-    assert && assert( solution instanceof ConcentrationSolution );
-    assert && assert( shakerParticles instanceof ShakerParticles );
+type RemoveSoluteButtonOptions = SelfOptions & PickRequired<TextPushButtonOptions, 'tandem'>;
 
-    options = merge( {
+export default class RemoveSoluteButton extends TextPushButton {
+
+  public constructor( solution: ConcentrationSolution,
+                      shakerParticles: ShakerParticles,
+                      providedOptions: RemoveSoluteButtonOptions ) {
+
+    const options = optionize<RemoveSoluteButtonOptions, SelfOptions, TextPushButtonOptions>()( {
+
+      // TextPushButtonOptions
       baseColor: 'rgb(255,200,0)',
       font: new PhetFont( 22 ),
       textFill: 'black',
-      xMargin: 10,
-      tandem: Tandem.REQUIRED
-    }, options );
+      xMargin: 10
+    }, providedOptions );
 
     super( BeersLawLabStrings.removeSolute, options );
 
@@ -50,4 +49,3 @@ class RemoveSoluteButton extends TextPushButton {
 }
 
 beersLawLab.register( 'RemoveSoluteButton', RemoveSoluteButton );
-export default RemoveSoluteButton;

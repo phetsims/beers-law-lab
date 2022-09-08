@@ -1,6 +1,5 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Indicator that the solution is saturated.
  * This consists of 'Saturated!' on a translucent background.
@@ -8,19 +7,15 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Node, Rectangle, Text } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 
-class SaturatedIndicator extends Node {
+export default class SaturatedIndicator extends Node {
 
-  /**
-   * @param {ReadOnlyProperty.<boolean>} isSaturatedProperty
-   */
-  constructor( isSaturatedProperty ) {
-    assert && assert( isSaturatedProperty instanceof ReadOnlyProperty );
+  public constructor( isSaturatedProperty: TReadOnlyProperty<boolean> ) {
 
     super();
 
@@ -46,4 +41,3 @@ class SaturatedIndicator extends Node {
 }
 
 beersLawLab.register( 'SaturatedIndicator', SaturatedIndicator );
-export default SaturatedIndicator;
