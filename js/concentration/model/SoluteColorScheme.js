@@ -1,5 +1,6 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Color scheme for relating concentration to color.
  * The scheme also defines the concentration range for the solute, where maxConcentration

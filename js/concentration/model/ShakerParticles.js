@@ -1,5 +1,6 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Manages the lifetime of shaker particles, from creation when they exit the shaker,
  * to deletion when they are delivered to the solution.
