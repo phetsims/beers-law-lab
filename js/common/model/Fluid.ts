@@ -1,5 +1,6 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
+//TODO https://github.com/phetsims/beers-law-lab/issues/287 consider getting rid of this class. Solvent has a static color, ConcentrationSolution has a dynamic color
 /**
  * Fluid is the base class model for all fluids.
  *
