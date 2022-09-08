@@ -1,5 +1,6 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Concentration meter, with probe.
  * The probe registers the concentration of all possible fluids that it may contact, including:

@@ -1,5 +1,6 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Fluid coming out of a faucet.
  * Origin is at the top center, to simplify alignment with the center of the faucet's output pipe.
