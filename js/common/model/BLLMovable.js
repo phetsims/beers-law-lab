@@ -1,5 +1,6 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * BLLMovable is a movable model element.
  * Semantics of units are determined by the client.

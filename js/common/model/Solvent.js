@@ -1,5 +1,6 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Solvent is the model of a liquid that dissolves another liquid (the solute) to create a solution.
  *
