@@ -1,5 +1,6 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Button that removes solute from the solution.
  *

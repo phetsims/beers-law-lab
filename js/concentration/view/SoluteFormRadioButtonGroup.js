@@ -1,5 +1,6 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Radio button group that selects the solute form, either solid (shaker) or solution (dropper).
  *

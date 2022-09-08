@@ -1,5 +1,6 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Indicator that the solution is saturated.
  * This consists of 'Saturated!' on a translucent background.
