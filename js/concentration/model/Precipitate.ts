@@ -1,6 +1,5 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * The precipitate that forms on the bottom of the beaker.
  * Manages the creation and deletion of precipitate particles.
@@ -10,36 +9,31 @@
 
 import dotRandom from '../../../../dot/js/dotRandom.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import merge from '../../../../phet-core/js/merge.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import beersLawLab from '../../beersLawLab.js';
 import Beaker from './Beaker.js';
 import ConcentrationSolution from './ConcentrationSolution.js';
 import PrecipitateParticleGroup from './PrecipitateParticleGroup.js';
 
-class Precipitate {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {ConcentrationSolution} solution
-   * @param {Beaker} beaker
-   * @param {Object} [options]
-   */
-  constructor( solution, beaker, options ) {
-    assert && assert( solution instanceof ConcentrationSolution );
-    assert && assert( beaker instanceof Beaker );
+type PrecipitateOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-    options = merge( {
-      tandem: Tandem.REQUIRED,
-      phetioState: false
-    }, options );
+export default class Precipitate {
 
-    // @private
+  private readonly solution: ConcentrationSolution;
+  private readonly beaker: Beaker;
+  public readonly particlesGroup: PrecipitateParticleGroup;
+
+  public constructor( solution: ConcentrationSolution, beaker: Beaker, providedOptions: PrecipitateOptions ) {
+
     this.solution = solution;
     this.beaker = beaker;
 
-    // @public
     this.particlesGroup = new PrecipitateParticleGroup( {
-      tandem: options.tandem.createTandem( 'particlesGroup' )
+      tandem: providedOptions.tandem.createTandem( 'particlesGroup' )
     } );
 
     // when the saturation changes, update the number of precipitate particles
@@ -57,12 +51,11 @@ class Precipitate {
   }
 
   /*
-   * Adds/removes particles to match the model.
-   * To optimize performance, clients who register for the 'change' callback will assume that
-   * particles are added/removed from the end of the 'particles' array.  See #48.
-   * @private
+   * Adds/removes particles to match the model. To optimize performance, clients who register for the 'change'
+   * callback will assume that particles are added/removed from the end of the 'particles' array.
+   * See https://github.com/phetsims/beers-law-lab/issues/48
    */
-  updateParticles() {
+  private updateParticles(): void {
 
     // number of particles desired after this update
     const numberOfParticles = this.solution.getNumberOfPrecipitateParticles();
@@ -81,14 +74,13 @@ class Precipitate {
 
   /**
    * Adds particles to the precipitate.
-   * @param {number} numberToAdd
-   * @private
    */
-  addParticles( numberToAdd ) {
+  private addParticles( numberToAdd: number ): void {
     assert && assert( numberToAdd > 0, `invalid numberToAdd: ${numberToAdd}` );
     for ( let i = 0; i < numberToAdd; i++ ) {
-      this.particlesGroup.createNextElement(
-        this.solution.soluteProperty.value,
+
+      // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 PhetioGroup is unhappy with these args
+      this.particlesGroup.createNextElement( this.solution.soluteProperty.value,
         this.getRandomOffset(),
         getRandomOrientation()
       );
@@ -97,10 +89,8 @@ class Precipitate {
 
   /**
    * Removes particles from the precipitate.
-   * @param {number} numberToRemove
-   * @private
    */
-  removeParticles( numberToRemove ) {
+  private removeParticles( numberToRemove: number ): void {
 
     const particles = this.particlesGroup.getArray();
     assert && assert( numberToRemove > 0 && numberToRemove <= particles.length, `invalid numberToRemove: ${numberToRemove}` );
@@ -114,16 +104,20 @@ class Precipitate {
     }
   }
 
-  // @private
-  removeAllParticles() {
+  /**
+   * Removes all particles from the precipitate.
+   */
+  private removeAllParticles(): void {
     this.particlesGroup.clear();
   }
 
-  // @private Gets a random position, in global model coordinate frame.
-  getRandomOffset() {
+  /**
+   * Gets a random position, in global model coordinate frame.
+   */
+  private getRandomOffset(): Vector2 {
     const particleSize = this.solution.soluteProperty.value.particleSize;
 
-    // particles are square, largest margin required is the diagonal length
+    // particles are square, the largest margin required is the diagonal length
     const margin = Math.sqrt( particleSize * particleSize );
 
     // offset
@@ -134,9 +128,8 @@ class Precipitate {
 }
 
 // Gets a random orientation, in radians.
-function getRandomOrientation() {
+function getRandomOrientation(): number {
   return dotRandom.nextDouble() * 2 * Math.PI;
 }
 
 beersLawLab.register( 'Precipitate', Precipitate );
-export default Precipitate;
