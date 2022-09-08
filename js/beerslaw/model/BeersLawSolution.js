@@ -28,7 +28,6 @@ import IOType from '../../../../tandem/js/types/IOType.js';
 import ReferenceIO from '../../../../tandem/js/types/ReferenceIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
-import BLLConstants from '../../common/BLLConstants.js';
 import ColorRange from '../../common/model/ColorRange.js';
 import Solute from '../../common/model/Solute.js';
 import Solvent from '../../common/model/Solvent.js';
@@ -155,7 +154,7 @@ BeersLawSolution.BeersLawSolutionIO = new IOType( 'BeersLawSolutionIO', {
 // Static instances
 
 // parent tandem for all static instances of BeersLawSolution
-const SOLUTIONS_TANDEM = BLLConstants.BEERS_LAW_SCREEN_TANDEM.createTandem( 'model' ).createTandem( 'solutions' );
+const SOLUTIONS_TANDEM = Tandem.ROOT.createTandem( 'beersLawScreen' ).createTandem( 'model' ).createTandem( 'solutions' );
 
 BeersLawSolution.DRINK_MIX = new BeersLawSolution( {
   internalName: 'drinkMix',

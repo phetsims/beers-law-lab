@@ -12,11 +12,12 @@ import BeersLawScreen from './beerslaw/BeersLawScreen.js';
 import BeersLawLabStrings from './BeersLawLabStrings.js';
 import BLLConstants from './common/BLLConstants.js';
 import ConcentrationScreen from './concentration/ConcentrationScreen.js';
+import Tandem from '../../tandem/js/Tandem.js';
 
 simLauncher.launch( () => {
   const screens = [
-    new ConcentrationScreen( { tandem: BLLConstants.CONCENTRATION_SCREEN_TANDEM } ),
-    new BeersLawScreen( { tandem: BLLConstants.BEERS_LAW_SCREEN_TANDEM } )
+    new ConcentrationScreen( { tandem: Tandem.ROOT.createTandem( 'concentrationScreen' ) } ),
+    new BeersLawScreen( { tandem: Tandem.ROOT.createTandem( 'beersLawScreen' ) } )
   ];
   const sim = new Sim( BeersLawLabStrings[ 'beers-law-lab' ].titleStringProperty, screens, {
     credits: BLLConstants.CREDITS
