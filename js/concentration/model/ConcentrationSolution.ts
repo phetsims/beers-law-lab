@@ -38,7 +38,7 @@ export default class ConcentrationSolution extends Fluid {
 
   // for deferring update of precipitateAmount until we've changed both volume and soluteAmount
   // see https://github.com/phetsims/concentration/issues/1
-  public readonly updatePrecipitateAmount: boolean;
+  public updatePrecipitateAmount: boolean;
 
   public readonly precipitateMolesProperty: TReadOnlyProperty<number>; // mol
   public readonly concentrationProperty: TReadOnlyProperty<number>; // M

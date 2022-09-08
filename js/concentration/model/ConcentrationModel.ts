@@ -1,19 +1,18 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Model container for the 'Concentration' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import EnumerationDeprecatedProperty from '../../../../axon/js/EnumerationDeprecatedProperty.js';
+import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import merge from '../../../../phet-core/js/merge.js';
-import PhetioObject from '../../../../tandem/js/PhetioObject.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import ArrayIO from '../../../../tandem/js/types/ArrayIO.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import VoidIO from '../../../../tandem/js/types/VoidIO.js';
@@ -37,22 +36,54 @@ const SOLUTE_AMOUNT_RANGE = BLLConstants.SOLUTE_AMOUNT_RANGE; // moles
 const DROPPER_FLOW_RATE = 0.05; // L/sec
 const SHAKER_MAX_DISPENSING_RATE = 0.2; // mol/sec
 
-class ConcentrationModel extends PhetioObject {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {Object} [options]
-   */
-  constructor( options ) {
+type ConcentrationModelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-    options = merge( {
-      tandem: Tandem.REQUIRED,
+export default class ConcentrationModel extends PhetioObject {
+
+  public solutes: Solute[];
+  public readonly soluteProperty: Property<Solute>;
+  public readonly soluteFormProperty: EnumerationProperty<SoluteForm>;
+  public readonly solution: ConcentrationSolution;
+  public readonly beaker: Beaker;
+  public readonly precipitate: Precipitate;
+  public readonly shaker: Shaker;
+  public readonly shakerParticles: ShakerParticles;
+  public readonly dropper: Dropper;
+  public readonly evaporator: Evaporator;
+  public readonly solventFaucet: Faucet;
+  public readonly drainFaucet: Faucet;
+  public readonly concentrationMeter: ConcentrationMeter;
+
+  public static readonly SOLUTION_VOLUME_RANGE = SOLUTION_VOLUME_RANGE;
+
+  public static readonly ConcentrationModelIO = new IOType( 'ConcentrationModelIO', {
+    valueType: ConcentrationModel,
+    documentation: 'The model for the concentration screen.',
+    methods: {
+      setSolutes: {
+        parameterTypes: [ ArrayIO( Solute.SoluteIO ) ],
+        returnType: VoidIO,
+
+        // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 Property 'setSolutes' does not exist on type 'typeof ConcentrationModel'
+        implementation: solutes => this.setSolutes( solutes ),
+        documentation: 'Set which solutes are allowed for selection',
+        invocableForReadOnlyElements: false
+      }
+    }
+  } );
+
+  public constructor( providedOptions: ConcentrationModelOptions ) {
+
+    const options = optionize<ConcentrationModelOptions, SelfOptions, PhetioObjectOptions>()( {
       phetioType: ConcentrationModel.ConcentrationModelIO,
-      phetioState: false // does not contribute self-state, all of the state is from child instances (via composition)
-    }, options );
+      phetioState: false // does not contribute self-state, all state is from child instances (via composition)
+    }, providedOptions );
 
     super( options );
 
-    // @public {Solute[]} in rainbow (ROYGBIV) order.
+    // in rainbow (ROYGBIV) order.
     this.solutes = [
       Solute.DRINK_MIX,
       Solute.COBALT_II_NITRATE,
@@ -65,25 +96,27 @@ class ConcentrationModel extends PhetioObject {
       Solute.SODIUM_CHLORIDE
     ];
 
-    // @public
     this.soluteProperty = new Property( this.solutes[ 0 ], {
       tandem: options.tandem.createTandem( 'soluteProperty' ),
       phetioValueType: Solute.SoluteIO
     } );
-    this.soluteFormProperty = new EnumerationDeprecatedProperty( SoluteForm, SoluteForm.SOLID, {
+
+    this.soluteFormProperty = new EnumerationProperty( SoluteForm.SOLID, {
       tandem: options.tandem.createTandem( 'soluteFormProperty' )
     } );
 
-    // @public
     this.solution = new ConcentrationSolution( this.soluteProperty, SOLUTE_AMOUNT_RANGE, SOLUTION_VOLUME_RANGE, {
       tandem: options.tandem.createTandem( 'solution' )
     } );
+
     this.beaker = new Beaker( {
       position: new Vector2( 350, 550 )
     } );
+
     this.precipitate = new Precipitate( this.solution, this.beaker, {
       tandem: options.tandem.createTandem( 'precipitate' )
     } );
+
     this.shaker = new Shaker( this.soluteProperty, {
       position: new Vector2( this.beaker.position.x, 170 ),
       dragBounds: new Bounds2( 250, 50, 575, 210 ),
@@ -92,9 +125,11 @@ class ConcentrationModel extends PhetioObject {
       visible: ( this.soluteFormProperty.value === SoluteForm.SOLID ),
       tandem: options.tandem.createTandem( 'shaker' )
     } );
+
     this.shakerParticles = new ShakerParticles( this.shaker, this.solution, this.beaker, {
       tandem: options.tandem.createTandem( 'shakerParticles' )
     } );
+
     this.dropper = new Dropper( this.soluteProperty, {
       position: new Vector2( this.beaker.position.x, 225 ),
       dragBounds: new Bounds2( 260, 225, 580, 225 ),
@@ -102,19 +137,23 @@ class ConcentrationModel extends PhetioObject {
       visible: ( this.soluteFormProperty.value === SoluteForm.SOLUTION ),
       tandem: options.tandem.createTandem( 'dropper' )
     } );
+
     this.evaporator = new Evaporator( this.solution, {
       tandem: options.tandem.createTandem( 'evaporator' )
     } );
+
     this.solventFaucet = new Faucet( {
       position: new Vector2( 155, 220 ),
       pipeMinX: -400,
       tandem: options.tandem.createTandem( 'solventFaucet' )
     } );
+
     this.drainFaucet = new Faucet( {
       position: new Vector2( 750, 630 ),
       pipeMinX: this.beaker.right,
       tandem: options.tandem.createTandem( 'drainFaucet' )
     } );
+
     this.concentrationMeter = new ConcentrationMeter( {
       bodyPosition: new Vector2( 785, 210 ),
       bodyDragBounds: new Bounds2( 10, 150, 835, 680 ),
@@ -150,19 +189,16 @@ class ConcentrationModel extends PhetioObject {
   }
 
   /*
-   * May be called from PhET-iO before the UI is constructed to choose a different set of solutes.  The first solute
-   * becomes the selected solute
-   * @param {Array.<Solute>} solutes
-   * @public
+   * May be called from PhET-iO before the UI is constructed to choose a different set of solutes.
+   * The first solute becomes the selected solute
    */
-  setSolutes( solutes ) {
+  public setSolutes( solutes: Solute[] ): void {
     assert && assert( solutes.length > 0, 'Must specify at least one solute' );
     this.solutes = solutes;
     this.soluteProperty.value = solutes[ 0 ];
   }
 
-  // @public Resets all model elements
-  reset() {
+  public reset(): void {
     this.soluteProperty.reset();
     this.soluteFormProperty.reset();
     this.solution.reset();
@@ -176,27 +212,25 @@ class ConcentrationModel extends PhetioObject {
   }
 
   /*
-   * Moves time forward by the specified amount.
-   * @param {number} deltaSeconds clock time change, in seconds.
-   * @public
+   * Moves time forward by the specified time delta, in seconds.
    */
-  step( deltaSeconds ) {
-    this.addSolventFromInputFaucet( deltaSeconds );
-    this.drainSolutionFromOutputFaucet( deltaSeconds );
-    this.addStockSolutionFromDropper( deltaSeconds );
-    this.evaporateSolvent( deltaSeconds );
-    this.propagateShakerParticles( deltaSeconds );
+  public step( dt: number ): void {
+    this.addSolventFromInputFaucet( dt );
+    this.drainSolutionFromOutputFaucet( dt );
+    this.addStockSolutionFromDropper( dt );
+    this.evaporateSolvent( dt );
+    this.propagateShakerParticles( dt );
     this.createShakerParticles();
   }
 
-  // @private Add solvent from the input faucet
-  addSolventFromInputFaucet( deltaSeconds ) {
-    this.addSolvent( this.solventFaucet.flowRateProperty.value * deltaSeconds );
+  // Adds solvent from the input faucet.
+  private addSolventFromInputFaucet( dt: number ): void {
+    this.addSolvent( this.solventFaucet.flowRateProperty.value * dt );
   }
 
-  // @private Drain solution from the output faucet
-  drainSolutionFromOutputFaucet( deltaSeconds ) {
-    const drainVolume = this.drainFaucet.flowRateProperty.value * deltaSeconds;
+  // Drains solution from the output faucet.
+  private drainSolutionFromOutputFaucet( dt: number ): void {
+    const drainVolume = this.drainFaucet.flowRateProperty.value * dt;
     if ( drainVolume > 0 ) {
       const concentration = this.solution.concentrationProperty.value; // get concentration before changing volume
       const volumeRemoved = this.removeSolvent( drainVolume );
@@ -204,9 +238,9 @@ class ConcentrationModel extends PhetioObject {
     }
   }
 
-  // @private Add stock solution from dropper
-  addStockSolutionFromDropper( deltaSeconds ) {
-    const dropperVolume = this.dropper.flowRateProperty.value * deltaSeconds;
+  // Adds stock solution from dropper.
+  private addStockSolutionFromDropper( dt: number ): void {
+    const dropperVolume = this.dropper.flowRateProperty.value * dt;
     if ( dropperVolume > 0 ) {
 
       // defer update of precipitateAmount until we've changed both volume and solute amount, see concentration#1
@@ -217,23 +251,23 @@ class ConcentrationModel extends PhetioObject {
     }
   }
 
-  // @private Evaporate solvent
-  evaporateSolvent( deltaSeconds ) {
-    this.removeSolvent( this.evaporator.evaporationRateProperty.value * deltaSeconds );
+  // Evaporates solvent.
+  private evaporateSolvent( dt: number ): void {
+    this.removeSolvent( this.evaporator.evaporationRateProperty.value * dt );
   }
 
-  // @private Propagates solid solute that came out of the shaker
-  propagateShakerParticles( deltaSeconds ) {
-    this.shakerParticles.step( deltaSeconds );
+  // Propagates solid solute that came out of the shaker.
+  private propagateShakerParticles( dt: number ): void {
+    this.shakerParticles.step( dt );
   }
 
-  // @private Creates new solute particles when the shaker is shaken.
-  createShakerParticles() {
+  // Creates new solute particles when the shaker is shaken.
+  private createShakerParticles(): void {
     this.shaker.step();
   }
 
-  // @private Adds solvent to the solution. Returns the amount actually added.
-  addSolvent( deltaVolume ) {
+  // Adds solvent to the solution. Returns the amount actually added.
+  private addSolvent( deltaVolume: number ): number {
     if ( deltaVolume > 0 ) {
       const volumeProperty = this.solution.volumeProperty;
       const volumeBefore = volumeProperty.value;
@@ -245,8 +279,8 @@ class ConcentrationModel extends PhetioObject {
     }
   }
 
-  // @private Removes solvent from the solution. Returns the amount actually removed.
-  removeSolvent( deltaVolume ) {
+  // Removes solvent from the solution. Returns the amount actually removed.
+  private removeSolvent( deltaVolume: number ): number {
     if ( deltaVolume > 0 ) {
       const volumeProperty = this.solution.volumeProperty;
       const volumeBefore = volumeProperty.value;
@@ -258,8 +292,8 @@ class ConcentrationModel extends PhetioObject {
     }
   }
 
-  // @private Adds solute to the solution. Returns the amount actually added.
-  addSolute( deltaAmount ) {
+  // Adds solute to the solution. Returns the amount actually added.
+  private addSolute( deltaAmount: number ): number {
     if ( deltaAmount > 0 ) {
       const amountBefore = this.solution.soluteMolesProperty.value;
       this.solution.soluteMolesProperty.value =
@@ -271,8 +305,8 @@ class ConcentrationModel extends PhetioObject {
     }
   }
 
-  // @private Removes solute from the solution. Returns the amount actually removed.
-  removeSolute( deltaAmount ) {
+  // Removes solute from the solution. Returns the amount actually removed.
+  private removeSolute( deltaAmount: number ): number {
     if ( deltaAmount > 0 ) {
       const amountBefore = this.solution.soluteMolesProperty.value;
       this.solution.soluteMolesProperty.value =
@@ -285,21 +319,4 @@ class ConcentrationModel extends PhetioObject {
   }
 }
 
-ConcentrationModel.SOLUTION_VOLUME_RANGE = SOLUTION_VOLUME_RANGE; // Exported for access to PhET-iO API
-
-ConcentrationModel.ConcentrationModelIO = new IOType( 'ConcentrationModelIO', {
-  valueType: ConcentrationModel,
-  documentation: 'The model for the concentration screen.',
-  methods: {
-    setSolutes: {
-      parameterTypes: [ ArrayIO( Solute.SoluteIO ) ],
-      returnType: VoidIO,
-      implementation: solutes => this.setSolutes( solutes ),
-      documentation: 'Set which solutes are allowed for selection',
-      invocableForReadOnlyElements: false
-    }
-  }
-} );
-
 beersLawLab.register( 'ConcentrationModel', ConcentrationModel );
-export default ConcentrationModel;
