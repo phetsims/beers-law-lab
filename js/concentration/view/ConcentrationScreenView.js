@@ -60,8 +60,8 @@ class ConcentrationScreenView extends ScreenView {
 
     // Precipitate particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
     const precipitateNode = new PrecipitateNode( model.precipitate, modelViewTransform, new Bounds2(
-      modelViewTransform.modelToViewX( model.beaker.getLeft() ), modelViewTransform.modelToViewY( model.beaker.position.y ) - 100,
-      modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.position.y ) ) );
+      modelViewTransform.modelToViewX( model.beaker.left ), modelViewTransform.modelToViewY( model.beaker.position.y ) - 100,
+      modelViewTransform.modelToViewX( model.beaker.right ), modelViewTransform.modelToViewY( model.beaker.position.y ) ) );
     const saturatedIndicator = new SaturatedIndicator( model.solution.isSaturatedProperty );
 
     // Shaker
@@ -71,8 +71,8 @@ class ConcentrationScreenView extends ScreenView {
 
     // Shaker particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
     const shakerParticlesNode = new ShakerParticlesNode( model.shakerParticles, modelViewTransform, new Bounds2(
-      modelViewTransform.modelToViewX( model.beaker.getLeft() ), this.layoutBounds.minY,
-      modelViewTransform.modelToViewX( model.beaker.getRight() ), modelViewTransform.modelToViewY( model.beaker.position.y ) ) );
+      modelViewTransform.modelToViewX( model.beaker.left ), this.layoutBounds.minY,
+      modelViewTransform.modelToViewX( model.beaker.right ), modelViewTransform.modelToViewY( model.beaker.position.y ) ) );
 
     // Dropper
     const dropperNode = new BLLDropperNode( model.dropper, model.solution.solvent, model.solution.soluteProperty, modelViewTransform, {

@@ -60,7 +60,7 @@ class ShakerParticle extends SoluteParticle {
      * Note that this is a very simplified model, and only deals with the left wall of the beaker,
      * which is the only wall that the particles can hit in practice.
      */
-    const minX = beaker.getLeft() + this.solute.particleSize;
+    const minX = beaker.left + this.solute.particleSize;
     if ( newPosition.x <= minX ) {
       newPosition.setX( minX );
       this.velocity.setX( Math.abs( this.velocity.x ) );

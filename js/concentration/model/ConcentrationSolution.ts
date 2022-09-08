@@ -11,61 +11,70 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Utils from '../../../../dot/js/Utils.js';
-import merge from '../../../../phet-core/js/merge.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import { Color } from '../../../../scenery/js/imports.js';
+import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import Fluid from '../../common/model/Fluid.js';
+import Solute from '../../common/model/Solute.js';
 import Solvent from '../../common/model/Solvent.js';
 
-class ConcentrationSolution extends Fluid {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {Property.<Solute>} soluteProperty
-   * @param {RangeWithValue} soluteAmountRange moles
-   * @param {RangeWithValue} volumeRange L
-   * @param {Object} [options]
-   */
-  constructor( soluteProperty, soluteAmountRange, volumeRange, options ) {
-    assert && assert( soluteProperty instanceof Property );
-    assert && assert( soluteAmountRange instanceof RangeWithValue );
-    assert && assert( volumeRange instanceof RangeWithValue );
+type ConcentrationSolutionOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-    options = merge( {
-      tandem: Tandem.REQUIRED
-    }, options );
+export default class ConcentrationSolution extends Fluid {
 
-    const solvent = Solvent.WATER; // @public (read-only)
+  public readonly solvent: Solvent;
+  public readonly soluteProperty: Property<Solute>;
+  public readonly soluteMolesProperty: Property<number>; // mol
+  public readonly volumeProperty: Property<number>; // L
+
+  // for deferring update of precipitateAmount until we've changed both volume and soluteAmount
+  // see https://github.com/phetsims/concentration/issues/1
+  public readonly updatePrecipitateAmount: boolean;
+
+  public readonly precipitateMolesProperty: TReadOnlyProperty<number>; // mol
+  public readonly concentrationProperty: TReadOnlyProperty<number>; // M
+  public readonly isSaturatedProperty: TReadOnlyProperty<boolean>;
+  public readonly soluteGramsProperty: TReadOnlyProperty<number>; // grams
+  public readonly percentConcentrationProperty: TReadOnlyProperty<number>; // [0,100]
+
+  public constructor( soluteProperty: Property<Solute>,
+                      soluteAmountRange: RangeWithValue,
+                      volumeRange: RangeWithValue,
+                      providedOptions: ConcentrationSolutionOptions ) {
+
+    const options = providedOptions;
+
+    const solvent = Solvent.WATER;
 
     super( ConcentrationSolution.createColor( solvent, soluteProperty.value, 0 ) );
 
-    // @public (read-only)
     this.solvent = solvent;
 
-    // @public
     this.soluteProperty = soluteProperty;
 
-    // @public
     this.soluteMolesProperty = new NumberProperty( soluteAmountRange.defaultValue, {
       units: 'mol',
       range: soluteAmountRange,
       tandem: options.tandem.createTandem( 'soluteMolesProperty' )
     } );
 
-    // @public
     this.volumeProperty = new NumberProperty( volumeRange.defaultValue, {
       units: 'L',
       range: volumeRange,
       tandem: options.tandem.createTandem( 'volumeProperty' )
-    } ); // L
+    } );
 
-    // @public for deferring update of precipitateAmount until we've changed both volume and soluteAmount, see concentration#1
     this.updatePrecipitateAmount = true;
 
-    // @public derive amount of precipitate (moles)
     this.precipitateMolesProperty = new DerivedProperty(
       [ this.soluteProperty, this.soluteMolesProperty, this.volumeProperty ],
       ( solute, soluteAmount, volume ) => {
@@ -82,7 +91,6 @@ class ConcentrationSolution extends Fluid {
       }
     );
 
-    // @public derive concentration (M = mol/L)
     this.concentrationProperty = new DerivedProperty(
       [ this.soluteProperty, this.soluteMolesProperty, this.volumeProperty ],
       ( solute, soluteAmount, volume ) => {
@@ -94,7 +102,6 @@ class ConcentrationSolution extends Fluid {
       }
     );
 
-    // @public boolean property indicating whether the solution is saturated or not.
     this.isSaturatedProperty = new DerivedProperty(
       [ this.soluteProperty, this.soluteMolesProperty, this.volumeProperty ],
       ( solute, soluteAmount, volume ) => {
@@ -105,7 +112,6 @@ class ConcentrationSolution extends Fluid {
       }
     );
 
-    // @public {number} amount of solute, in grams
     this.soluteGramsProperty = new DerivedProperty(
       [ this.soluteProperty, this.soluteMolesProperty, this.precipitateMolesProperty ],
       ( solute, soluteAmount, precipitateAmount ) => {
@@ -119,7 +125,6 @@ class ConcentrationSolution extends Fluid {
       }
     );
 
-    // @public {number} percent concentration [0,100]
     this.percentConcentrationProperty = new DerivedProperty(
       [ this.volumeProperty, this.soluteGramsProperty ],
       ( volume, soluteGrams ) => {
@@ -147,20 +152,17 @@ class ConcentrationSolution extends Fluid {
     this.concentrationProperty.link( updateColor ); // link to force update of color
   }
 
-  // @public
-  reset() {
+  public override reset(): void {
     super.reset();
     this.soluteMolesProperty.reset();
     this.volumeProperty.reset();
   }
 
-  // @public convenience function
-  getSaturatedConcentration() {
+  public getSaturatedConcentration(): number {
     return this.soluteProperty.value.getSaturatedConcentration();
   }
 
-  // @public
-  getNumberOfPrecipitateParticles() {
+  public getNumberOfPrecipitateParticles(): number {
     let numberOfParticles = Utils.roundSymmetric( this.soluteProperty.value.particlesPerMole * this.precipitateMolesProperty.value );
     if ( numberOfParticles === 0 && this.precipitateMolesProperty.value > 0 ) {
       numberOfParticles = 1;
@@ -170,13 +172,8 @@ class ConcentrationSolution extends Fluid {
 
   /**
    * Creates a color that corresponds to the solution's concentration.
-   * @param {Solvent) solvent
-   * @param {Solute} solute
-   * @param {number} concentration
-   * @public
-   * @static
    */
-  static createColor( solvent, solute, concentration ) {
+  public static createColor( solvent: Solvent, solute: Solute, concentration: number ): Color {
     let color = solvent.colorProperty.value;
     if ( concentration > 0 ) {
       color = solute.colorScheme.concentrationToColor( concentration );
@@ -186,4 +183,3 @@ class ConcentrationSolution extends Fluid {
 }
 
 beersLawLab.register( 'ConcentrationSolution', ConcentrationSolution );
-export default ConcentrationSolution;

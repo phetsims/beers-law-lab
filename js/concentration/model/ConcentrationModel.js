@@ -111,7 +111,7 @@ class ConcentrationModel extends PhetioObject {
     } );
     this.drainFaucet = new Faucet( {
       position: new Vector2( 750, 630 ),
-      pipeMinX: this.beaker.getRight(),
+      pipeMinX: this.beaker.right,
       tandem: options.tandem.createTandem( 'drainFaucet' )
     } );
     this.concentrationMeter = new ConcentrationMeter( {

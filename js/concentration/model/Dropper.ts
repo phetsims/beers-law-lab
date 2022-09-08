@@ -1,6 +1,5 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Model of the dropper, contains solute in solution form (stock solution).
  *
@@ -11,42 +10,54 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Range from '../../../../dot/js/Range.js';
-import merge from '../../../../phet-core/js/merge.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import optionize from '../../../../phet-core/js/optionize.js';
 import beersLawLab from '../../beersLawLab.js';
-import BLLMovable from '../../common/model/BLLMovable.js';
+import BLLMovable, { BLLMovableOptions } from '../../common/model/BLLMovable.js';
+import Solute from '../../common/model/Solute.js';
 
-class Dropper extends BLLMovable {
+type SelfOptions = {
+  maxFlowRate?: number; // L/s
+  visible?: boolean;
+};
 
-  /**
-   * @param {Property.<Solute>} soluteProperty
-   * @param {Object} [options]
-   */
-  constructor( soluteProperty, options ) {
-    assert && assert( soluteProperty instanceof Property, 'invalid soluteProperty' );
+type DropperOptions = SelfOptions & BLLMovableOptions;
 
-    options = merge( {
-      maxFlowRate: 1, // L/s
+export default class Dropper extends BLLMovable {
+
+  public readonly soluteProperty: Property<Solute>;
+  public readonly visibleProperty: Property<boolean>;
+  public readonly enabledProperty: Property<boolean>;
+  public readonly isDispensingProperty: Property<boolean>; // true if the dropper is dispensing solution
+  public readonly isEmptyProperty: Property<boolean>;
+  public readonly flowRateProperty: Property<number>;
+
+  public constructor( soluteProperty: Property<Solute>, providedOptions: DropperOptions ) {
+
+    const options = optionize<DropperOptions, SelfOptions, BLLMovableOptions>()( {
+
+      // SelfOptions
+      maxFlowRate: 1,
       visible: true,
-      tandem: Tandem.REQUIRED,
+
+      // BLLMovableOptions
       phetioState: false
-    }, options );
+    }, providedOptions );
 
     super( options );
 
-    // @public
     this.soluteProperty = soluteProperty;
     this.visibleProperty = new BooleanProperty( options.visible );
     this.enabledProperty = new BooleanProperty( true );
 
-    // @public true if the dropper is dispensing solution
     this.isDispensingProperty = new BooleanProperty( false, {
       tandem: options.tandem.createTandem( 'isDispensingProperty' )
     } );
+
     this.isEmptyProperty = new BooleanProperty( false, {
       tandem: options.tandem.createTandem( 'isEmptyProperty' ),
       phetioReadOnly: true
     } );
+
     this.flowRateProperty = new NumberProperty( 0, {
       range: new Range( 0, options.maxFlowRate ),
       units: 'L/s',
@@ -74,8 +85,7 @@ class Dropper extends BLLMovable {
     } );
   }
 
-  // @public
-  reset() {
+  public override reset(): void {
     super.reset();
     this.visibleProperty.reset();
     this.isDispensingProperty.reset();
@@ -86,4 +96,3 @@ class Dropper extends BLLMovable {
 }
 
 beersLawLab.register( 'Dropper', Dropper );
-export default Dropper;

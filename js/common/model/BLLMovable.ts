@@ -12,6 +12,7 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Vector2Property from '../../../../dot/js/Vector2Property.js';
 import optionize from '../../../../phet-core/js/optionize.js';
+import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import beersLawLab from '../../beersLawLab.js';
@@ -21,7 +22,9 @@ type SelfOptions = {
   dragBounds?: Bounds2; // drag bounds
 };
 
-export type BLLMovableOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
+export type BLLMovableOptions = SelfOptions &
+  PickRequired<PhetioObjectOptions, 'tandem'> &
+  PickOptional<PhetioObjectOptions, 'phetioState'>;
 
 export default class BLLMovable extends PhetioObject {
 

@@ -1,6 +1,5 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Beaker is the model of a simple beaker.
  *
@@ -9,38 +8,43 @@
 
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import merge from '../../../../phet-core/js/merge.js';
+import optionize from '../../../../phet-core/js/optionize.js';
 import beersLawLab from '../../beersLawLab.js';
 
-class Beaker {
+type SelfOptions = {
+  position?: Vector2;
+  size?: Dimension2;
+  volume?: number;
+};
 
-  /**
-   * @param {Object} [options]
-   */
-  constructor( options ) {
+type BeakerOptions = SelfOptions;
 
-    options = merge( {
+export default class Beaker {
+
+  public readonly position: Vector2;
+  public readonly size: Dimension2;
+  public readonly volume: number;
+
+  public readonly left: number; // x-coordinate of the left wall
+  public readonly right: number; // x-coordinate of the right wall
+
+  public constructor( providedOptions?: BeakerOptions ) {
+
+    const options = optionize<BeakerOptions, SelfOptions>()( {
+
+      // SelfOptions
       position: Vector2.ZERO,
       size: new Dimension2( 600, 300 ),
       volume: 1
-    }, options );
+    }, providedOptions );
 
-    // @public (read-only)
     this.position = options.position;
     this.size = options.size;
     this.volume = options.volume;
-  }
 
-  // @public @returns {number} Gets the x-coordinate of the left wall.
-  getLeft() {
-    return this.position.x - ( this.size.width / 2 );
-  }
-
-  // @public @returns {number} Gets the x-coordinate of the right wall.
-  getRight() {
-    return this.position.x + ( this.size.width / 2 );
+    this.left = this.position.x - ( this.size.width / 2 );
+    this.right = this.position.x + ( this.size.width / 2 );
   }
 }
 
 beersLawLab.register( 'Beaker', Beaker );
-export default Beaker;
