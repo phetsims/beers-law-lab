@@ -1,6 +1,5 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Beam is the model of the light as a solid beam.
  * Changes in wavelength affect the entire beam instantaneously.
@@ -15,6 +14,7 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import { Shape } from '../../../../kite/js/imports.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
@@ -31,29 +31,25 @@ const MAX_LIGHT_WIDTH = 50; // cm, wide enough to be way off the right edge of t
 const MAX_LIGHT_ALPHA = 0.78; // transparency of light when transmittance is 1.0 (tuned by eye)
 const MIN_LIGHT_ALPHA = 0.078; // min transparency of light when transmittance is non-zero (tuned by eye)
 
-class Beam {
+export default class Beam {
 
-  /**
-   * @param {Light} light
-   * @param {Cuvette} cuvette
-   * @param {ATDetector} detector
-   * @param {AbsorbanceModel} absorbanceModel
-   * @param {ModelViewTransform2} modelViewTransform
-   */
-  constructor( light, cuvette, detector, absorbanceModel, modelViewTransform ) {
-    assert && assert( light instanceof Light, 'invalid light' );
-    assert && assert( cuvette instanceof Cuvette );
-    assert && assert( detector instanceof ATDetector );
-    assert && assert( absorbanceModel instanceof AbsorbanceModel );
-    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
+  public readonly visibleProperty: TReadOnlyProperty<boolean>;
 
-    // @public Make the beam visible when the light is on.
+  // Shape of the beam, null when the light is off.
+  public readonly shapeProperty: TReadOnlyProperty<Shape | null>;
+
+  // beam color, a left-to-right linear gradient that transitions inside the solution
+  public readonly fillProperty: TReadOnlyProperty<LinearGradient | null>;
+
+  public constructor( light: Light, cuvette: Cuvette, detector: ATDetector,
+                      absorbanceModel: AbsorbanceModel, modelViewTransform: ModelViewTransform2 ) {
+
+    // Make the beam visible when the light is on.
     this.visibleProperty = new DerivedProperty( [ light.isOnProperty ], isOn => isOn );
 
-    // beam shape, with add some overlap, to hide space between beam and light housing
+    // beam shape, with added overlap, to hide space between beam and light housing
     const xOverlap = modelViewTransform.modelToViewDeltaX( 1 );
 
-    // @public {DerivedProperty.<Shape|null>} shape of the beam
     this.shapeProperty = new DerivedProperty(
       [ this.visibleProperty, cuvette.widthProperty, detector.probe.positionProperty ],
       ( beamVisible, cuvetteWidth, probePosition ) => {
@@ -69,7 +65,6 @@ class Beam {
         }
       } );
 
-    // @public {DerivedProperty.<LinearGradient>|null} beam color, a left-to-right linear gradient that transitions inside the solution
     this.fillProperty = new DerivedProperty(
       [ this.visibleProperty, cuvette.widthProperty, light.wavelengthProperty, absorbanceModel.absorbanceProperty ],
       ( beamVisible, cuvetteWidth, wavelength, absorbance ) => {
@@ -89,4 +84,3 @@ class Beam {
 }
 
 beersLawLab.register( 'Beam', Beam );
-export default Beam;

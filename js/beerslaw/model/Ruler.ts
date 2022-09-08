@@ -1,39 +1,44 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Ruler is the model of a ruler that is movable.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import merge from '../../../../phet-core/js/merge.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import optionize from '../../../../phet-core/js/optionize.js';
 import beersLawLab from '../../beersLawLab.js';
-import BLLMovable from '../../common/model/BLLMovable.js';
+import BLLMovable, { BLLMovableOptions } from '../../common/model/BLLMovable.js';
 
-class Ruler extends BLLMovable {
+type SelfOptions = {
+  length?: number; // in cm
+  height?: number; // in cm
+};
 
-  /**
-   * @param {Object} [options]
-   * @constructor
-   */
-  constructor( options ) {
+type RulerOptions = SelfOptions & BLLMovableOptions;
 
-    options = merge( {
-      length: 2.1, // in cm
-      height: 0.35, // in cm
-      tandem: Tandem.REQUIRED,
+export default class Ruler extends BLLMovable {
+
+  public readonly length: number;
+  public readonly height: number;
+
+  public constructor( providedOptions: RulerOptions ) {
+
+    const options = optionize<RulerOptions, SelfOptions, BLLMovableOptions>()( {
+
+      // SelfOptions
+      length: 2.1,
+      height: 0.35,
+
+      // BLLMovableOptions
       phetioState: false
-    }, options );
+    }, providedOptions );
 
     super( options );
 
-    // @public (read-only)
     this.length = options.length;
     this.height = options.height;
   }
 }
 
 beersLawLab.register( 'Ruler', Ruler );
-export default Ruler;

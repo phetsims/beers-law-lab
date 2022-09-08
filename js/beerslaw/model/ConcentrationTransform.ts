@@ -1,6 +1,5 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * ConcentrationTransform manages the transformation between how concentration values are stored in
  * the model, and how they are presented in the view.
@@ -17,45 +16,31 @@
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 
-class ConcentrationTransform {
+export default class ConcentrationTransform {
+
+  // specific transforms
+  public static readonly mM = new ConcentrationTransform( 1000, BeersLawLabStrings.units.mM );
+  public static readonly uM = new ConcentrationTransform( 1000000, BeersLawLabStrings.units.uM );
 
   /**
-   * @param {number} scale scale factor used to convert model units (Moles, M) to view units
-   * @param {string} units
+   * @param scale scale factor used to convert model units (Moles, M) to view units
+   * @param units
    */
-  constructor( scale, units ) {
-    assert && assert( typeof scale === 'number' );
-    assert && assert( typeof units === 'string' );
-
-    // @public (read-only)
-    this.scale = scale;
-    this.units = units;
-  }
+  public constructor( public readonly scale: number, public readonly units: string ) {}
 
   /**
    * Converts from model (M) to view (solution specific).
-   * @param {number} modelConcentration
-   * @returns {number}
-   * @public
    */
-  modelToView( modelConcentration ) {
+  public modelToView( modelConcentration: number ): number {
     return modelConcentration * this.scale;
   }
 
   /**
    * Converts from view (solution specific) to model (M).
-   * @param {number} viewConcentration
-   * @returns {number}
-   * @public
    */
-  viewToModel( viewConcentration ) {
+  public viewToModel( viewConcentration: number ): number {
     return viewConcentration / this.scale;
   }
 }
 
-// specific transforms
-ConcentrationTransform.mM = new ConcentrationTransform( 1000, BeersLawLabStrings.units.mM );
-ConcentrationTransform.uM = new ConcentrationTransform( 1000000, BeersLawLabStrings.units.uM );
-
 beersLawLab.register( 'ConcentrationTransform', ConcentrationTransform );
-export default ConcentrationTransform;
