@@ -1,6 +1,5 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Faucet model, used for input and output faucets.
  * This model assumes that the pipe enters the faucet from the left.
@@ -10,42 +9,57 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Property from '../../../../axon/js/Property.js';
 import Range from '../../../../dot/js/Range.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import merge from '../../../../phet-core/js/merge.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import optionize from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import beersLawLab from '../../beersLawLab.js';
 
-class Faucet {
+type SelfOptions = {
+  position?: Vector2; // center of output pipe, cm
+  pipeMinX?: number; // x-coordinate of where the pipe starts, cm
+  spoutWidth?: number; // cm
+  maxFlowRate?: number; // L/s
+};
 
-  /**
-   * @param {Object} [options]
-   */
-  constructor( options ) {
+type FaucetOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-    options = merge( {
-      position: Vector2.ZERO, // center of output pipe, cm
-      pipeMinX: -100, // x-coordinate of where the pipe starts, cm
-      spoutWidth: 45, // cm
-      maxFlowRate: 0.25, // L/s
-      tandem: Tandem.REQUIRED
-    }, options );
+export default class Faucet {
+
+  public readonly position: Vector2;
+  public readonly pipeMinX: number;
+  public readonly spoutWidth: number;
+  public readonly maxFlowRate: number;
+  public readonly flowRateProperty: NumberProperty;
+  public readonly enabledProperty: Property<boolean>;
+
+  public constructor( providedOptions: FaucetOptions ) {
+
+    const options = optionize<FaucetOptions, SelfOptions, PhetioObjectOptions>()( {
+
+      // SelfOptions
+      position: Vector2.ZERO,
+      pipeMinX: -100,
+      spoutWidth: 45,
+      maxFlowRate: 0.25
+    }, providedOptions );
 
     assert && assert( options.pipeMinX < options.position.x ); // pipe enters the faucet from the left
 
-    // @public (read-only)
     this.position = options.position;
     this.pipeMinX = options.pipeMinX;
     this.spoutWidth = options.spoutWidth;
     this.maxFlowRate = options.maxFlowRate;
 
-    // @public
     this.flowRateProperty = new NumberProperty( 0, {
       range: new Range( 0, options.maxFlowRate ),
       units: 'L/s',
       tandem: options.tandem.createTandem( 'flowRateProperty' ),
       phetioReadOnly: true
     } );
+
     this.enabledProperty = new BooleanProperty( true );
 
     // when disabled, turn off the faucet.
@@ -56,12 +70,10 @@ class Faucet {
     } );
   }
 
-  // @public
-  reset() {
+  public reset(): void {
     this.flowRateProperty.reset();
     this.enabledProperty.reset();
   }
 }
 
 beersLawLab.register( 'Faucet', Faucet );
-export default Faucet;

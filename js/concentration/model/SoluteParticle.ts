@@ -1,76 +1,78 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
- * Base class for solute particles.
+ * SoluteParticle is the base class for solute particles.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Property from '../../../../axon/js/Property.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Vector2Property from '../../../../dot/js/Vector2Property.js';
-import merge from '../../../../phet-core/js/merge.js';
-import PhetioObject from '../../../../tandem/js/PhetioObject.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import { Color } from '../../../../scenery/js/imports.js';
+import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
+import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
 
-class SoluteParticle extends PhetioObject {
+type SelfOptions = EmptySelfOptions;
+
+type SoluteParticleOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
+
+export default class SoluteParticle extends PhetioObject {
+
+  public readonly color: Color;
+  public readonly size: number;
+  public readonly positionProperty: Property<Vector2>;
+  public readonly orientation: number;
 
   /**
-   * @param {Color} color
-   * @param {number} size particles are square, this is the length of one side
-   * @param {Vector2} position position of the particle in the beaker's coordinate frame
-   * @param {number} orientation in radians
-   * @param {Object} [options]
+   * @param color
+   * @param size particles are square, this is the length of one side
+   * @param position position of the particle in the beaker's coordinate frame
+   * @param orientation in radians
+   * @param [providedOptions]
    */
-  constructor( color, size, position, orientation, options ) {
+  protected constructor( color: Color, size: number, position: Vector2, orientation: number,
+                         providedOptions: SoluteParticleOptions ) {
 
-    options = merge( {
-      tandem: Tandem.REQUIRED
-    }, options );
+    super( providedOptions );
 
-    super( options );
-
-    // @public (read-only)
     this.color = color;
     this.size = size;
-    this.orientation = orientation;
-
-    // @public
     this.positionProperty = new Vector2Property( position );
+    this.orientation = orientation;
   }
 
-  /**
-   * @returns {Object}
-   * @public
-   */
-  toStateObject() {
+  // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 return type?
+  public toStateObject(): IntentionalAny {
     return {
       position: this.positionProperty.value.toStateObject(),
       orientation: NumberIO.toStateObject( this.orientation )
     };
   }
 
-  // @public
-  static deserializeComponents( stateObject ) {
+  // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 type of stateObject? return type?
+  public static deserializeComponents( stateObject: IntentionalAny ): IntentionalAny {
     return {
       position: Vector2.Vector2IO.fromStateObject( stateObject.position ),
       orientation: NumberIO.fromStateObject( stateObject.orientation )
     };
   }
+
+  public static readonly SoluteParticleIO = new IOType( 'SoluteParticleIO', {
+    // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 TS error
+    valueType: SoluteParticle,
+    documentation: 'A particle of solute to add to the solution',
+    toStateObject: soluteParticle => soluteParticle.toStateObject(),
+    stateSchema: {
+      position: Vector2.Vector2IO,
+      orientation: NumberIO
+    }
+  } );
 }
 
-SoluteParticle.SoluteParticleIO = new IOType( 'SoluteParticleIO', {
-  valueType: SoluteParticle,
-  documentation: 'A particle of solute to add to the solution',
-  toStateObject: soluteParticle => soluteParticle.toStateObject(),
-  stateSchema: {
-    position: Vector2.Vector2IO,
-    orientation: NumberIO
-  }
-} );
-
 beersLawLab.register( 'SoluteParticle', SoluteParticle );
-export default SoluteParticle;

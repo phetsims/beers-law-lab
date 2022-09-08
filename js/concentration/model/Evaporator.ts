@@ -1,38 +1,43 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
- * Model element that determines the rate at which solvent is evaporated from the solution in the beaker.
+ * Evaporator determines the rate at which solvent is evaporated from the solution in the beaker.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Property from '../../../../axon/js/Property.js';
 import Range from '../../../../dot/js/Range.js';
-import merge from '../../../../phet-core/js/merge.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import optionize from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import beersLawLab from '../../beersLawLab.js';
 import ConcentrationSolution from './ConcentrationSolution.js';
 
-class Evaporator {
+type SelfOptions = {
+  maxEvaporationRate?: number; // L/s
+};
 
-  /**
-   * @param {ConcentrationSolution} solution
-   * @param {Object} [options]
-   */
-  constructor( solution, options ) {
-    assert && assert( solution instanceof ConcentrationSolution );
+type EvaporatorOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-    options = merge( {
-      maxEvaporationRate: 0.25, // L/s
-      tandem: Tandem.REQUIRED
-    }, options );
+export default class Evaporator {
 
-    // @public (read-only) L/sec
+  public readonly maxEvaporationRate: number;
+  public readonly evaporationRateProperty: NumberProperty;
+  public readonly enabledProperty: Property<boolean>;
+
+  public constructor( solution: ConcentrationSolution, providedOptions: EvaporatorOptions ) {
+
+    const options = optionize<EvaporatorOptions, SelfOptions, PhetioObjectOptions>()( {
+
+      // SelfOptions
+      maxEvaporationRate: 0.25
+    }, providedOptions );
+
     this.maxEvaporationRate = options.maxEvaporationRate;
 
-    // @public
     this.evaporationRateProperty = new NumberProperty( 0, {
       range: new Range( 0, options.maxEvaporationRate ),
       units: 'L/s',
@@ -40,7 +45,6 @@ class Evaporator {
       phetioReadOnly: true // this is controlled by the model
     } );
 
-    // @public
     this.enabledProperty = new BooleanProperty( true, {
       tandem: options.tandem.createTandem( 'enabledProperty' ),
       phetioReadOnly: true // this is controlled by the model
@@ -59,12 +63,10 @@ class Evaporator {
     } );
   }
 
-  // @public
-  reset() {
+  public reset(): void {
     this.evaporationRateProperty.reset();
     this.enabledProperty.reset();
   }
 }
 
 beersLawLab.register( 'Evaporator', Evaporator );
-export default Evaporator;
