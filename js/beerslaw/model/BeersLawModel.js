@@ -1,5 +1,6 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * BeersLawModel is the top-level model for the 'Beer's Law' screen.
  *
