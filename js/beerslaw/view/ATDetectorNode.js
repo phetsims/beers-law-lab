@@ -27,6 +27,7 @@ import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import BLLMovable from '../../common/model/BLLMovable.js';
 import ATDetector from '../model/ATDetector.js';
+import ATDetectorMode from '../model/ATDetectorMode.js';
 import Light from '../model/Light.js';
 
 // constants
@@ -106,12 +107,12 @@ class BodyNode extends Node {
     // radio button descriptions
     const radioButtonItems = [
       {
-        value: ATDetector.Mode.TRANSMITTANCE,
+        value: ATDetectorMode.TRANSMITTANCE,
         node: new Text( BeersLawLabStrings.transmittance, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'transmittanceRadioButton'
       },
       {
-        value: ATDetector.Mode.ABSORBANCE,
+        value: ATDetectorMode.ABSORBANCE,
         node: new Text( BeersLawLabStrings.absorbance, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'absorbanceRadioButton'
       }

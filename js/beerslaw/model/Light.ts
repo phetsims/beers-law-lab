@@ -1,6 +1,5 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Light is the model of a simple light.
  * Origin is at the center of the lens.
@@ -9,47 +8,53 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
-import EnumerationDeprecatedProperty from '../../../../axon/js/EnumerationDeprecatedProperty.js';
+import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Range from '../../../../dot/js/Range.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import EnumerationDeprecated from '../../../../phet-core/js/EnumerationDeprecated.js';
-import merge from '../../../../phet-core/js/merge.js';
+import optionize from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
-import PhetioObject from '../../../../tandem/js/PhetioObject.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import beersLawLab from '../../beersLawLab.js';
+import BeersLawSolution from './BeersLawSolution.js';
+import LightMode from './LightMode.js';
 
-class Light extends PhetioObject {
+type SelfOptions = {
+  position?: Vector2; // cm
+  lensDiameter?: 0.45; // cm
+  isOn?: false;
+};
 
-  /**
-   * @param {Property.<BeersLawSolution>} solutionProperty
-   * @param {Object} [options]
-   */
-  constructor( solutionProperty, options ) {
-    assert && assert( solutionProperty instanceof Property );
+type LightOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-    options = merge( {
+export default class Light extends PhetioObject {
+
+  public readonly position: Vector2;
+  public readonly lensDiameter: number;
+  public readonly isOnProperty: Property<boolean>;
+  public readonly wavelengthProperty: Property<number>;
+  public readonly modeProperty: EnumerationProperty<LightMode>;
+
+  public constructor( solutionProperty: Property<BeersLawSolution>, providedOptions: LightOptions ) {
+
+    const options = optionize<LightOptions, SelfOptions, PhetioObjectOptions>()( {
       position: Vector2.ZERO, // cm
       lensDiameter: 0.45, // cm
       isOn: false,
-      tandem: Tandem.REQUIRED,
       phetioState: false
-    }, options );
+    }, providedOptions );
 
     super( options );
 
-    // @public (read-only)
     this.position = options.position;
     this.lensDiameter = options.lensDiameter;
 
-    // @public
     this.isOnProperty = new BooleanProperty( options.isOn, {
       tandem: options.tandem.createTandem( 'isOnProperty' )
     } );
 
-    // @public
     this.wavelengthProperty = new NumberProperty( solutionProperty.value.molarAbsorptivityData.lambdaMax /*nm*/, {
       units: 'nm',
       range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH ),
@@ -57,8 +62,7 @@ class Light extends PhetioObject {
       phetioReadOnly: true
     } );
 
-    // @public
-    this.modeProperty = new EnumerationDeprecatedProperty( Light.Mode, Light.Mode.PRESET, {
+    this.modeProperty = new EnumerationProperty( LightMode.PRESET, {
       tandem: options.tandem.createTandem( 'modeProperty' )
     } );
 
@@ -70,32 +74,25 @@ class Light extends PhetioObject {
     this.modeProperty.link( mode => {
 
       // 'Preset' sets the light to the current solution's lambdaMax wavelength.
-      if ( mode === Light.Mode.PRESET ) {
+      if ( mode === LightMode.PRESET ) {
         this.wavelengthProperty.value = solutionProperty.value.molarAbsorptivityData.lambdaMax;
       }
     } );
   }
 
-  // @public
-  reset() {
+  public reset(): void {
     this.isOnProperty.reset();
     this.wavelengthProperty.reset();
     this.modeProperty.reset();
   }
 
-  // @public @returns {number}
-  getMinY() {
+  public getMinY(): number {
     return this.position.y - ( this.lensDiameter / 2 );
   }
 
-  // @public @returns {number}
-  getMaxY() {
+  public getMaxY(): number {
     return this.position.y + ( this.lensDiameter / 2 );
   }
 }
 
-// @public
-Light.Mode = EnumerationDeprecated.byKeys( [ 'PRESET', 'VARIABLE' ] );
-
 beersLawLab.register( 'Light', Light );
-export default Light;

@@ -22,6 +22,7 @@ import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import Light from '../model/Light.js';
+import LightMode from '../model/LightMode.js';
 
 // constants
 const RADIO_BUTTON_TEXT_OPTIONS = { font: new PhetFont( 18 ), fill: 'black' };
@@ -64,12 +65,12 @@ class WavelengthPanel extends Panel {
     // radio button descriptions
     const radioButtonItems = [
       {
-        value: Light.Mode.PRESET,
+        value: LightMode.PRESET,
         node: new Text( BeersLawLabStrings.preset, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'presetWavelengthRadioButton'
       },
       {
-        value: Light.Mode.VARIABLE,
+        value: LightMode.VARIABLE,
         node: new Text( BeersLawLabStrings.variable, RADIO_BUTTON_TEXT_OPTIONS ),
         tandemName: 'variableWavelengthRadioButton'
       }
@@ -138,7 +139,7 @@ class WavelengthPanel extends Panel {
     // When the radio button selection changes...
     light.modeProperty.link( mode => {
       wavelengthNumberControl.interruptSubtreeInput();
-      wavelengthNumberControl.visible = ( mode === Light.Mode.VARIABLE );
+      wavelengthNumberControl.visible = ( mode === LightMode.VARIABLE );
     } );
   }
 }
