@@ -1,6 +1,5 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * AbsorbanceModel is the model for computing the absorbance (and transmittance) of light passing through a solution
  * in a cuvette.
@@ -23,34 +22,35 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import beersLawLab from '../../beersLawLab.js';
+import BeersLawSolution from './BeersLawSolution.js';
 import Cuvette from './Cuvette.js';
 import Light from './Light.js';
 
-class AbsorbanceModel {
+export default class AbsorbanceModel {
 
-  /**
-   * @param {Light} light
-   * @param {Property.<BeersLawSolution>} solutionProperty
-   * @param {Cuvette} cuvette
-   */
-  constructor( light, solutionProperty, cuvette ) {
-    assert && assert( light instanceof Light );
-    assert && assert( solutionProperty instanceof Property );
-    assert && assert( cuvette instanceof Cuvette );
+  // a : molar absorptivity
+  private readonly molarAbsorptivityProperty: TReadOnlyProperty<number>;
 
-    // @private {DerivedProperty.<number>} a : molar absorptivity
+  // C : concentration property, wired to the current solution's concentration
+  private readonly currentConcentrationProperty: NumberProperty;
+
+  // absorbance: A = abC
+  public readonly absorbanceProperty: TReadOnlyProperty<number>;
+
+  public constructor( light: Light, solutionProperty: Property<BeersLawSolution>, cuvette: Cuvette ) {
+
     this.molarAbsorptivityProperty = new DerivedProperty(
       [ solutionProperty, light.wavelengthProperty ],
       ( solution, wavelength ) => {
         return solution.molarAbsorptivityData.wavelengthToMolarAbsorptivity( wavelength );
       } );
 
-    // @private C : concentration property, wired to the current solution's concentration
     this.currentConcentrationProperty = new NumberProperty( solutionProperty.value.concentrationProperty.value );
 
     // Observe the concentration property of the current solution.
-    const concentrationObserver = concentration => {
+    const concentrationObserver = ( concentration: number ) => {
       this.currentConcentrationProperty.value = concentration;
     };
 
@@ -62,7 +62,6 @@ class AbsorbanceModel {
       newSolution.concentrationProperty.link( concentrationObserver );
     } );
 
-    // @public {DerivedProperty.<number>} absorbance: A = abC
     this.absorbanceProperty = new DerivedProperty(
       [ this.molarAbsorptivityProperty, cuvette.widthProperty, this.currentConcentrationProperty ],
       ( molarAbsorptivity, pathLength, concentration ) => {
@@ -72,53 +71,38 @@ class AbsorbanceModel {
 
   /**
    * Gets absorbance for a specified path length.
-   * @param pathLength
-   * @returns {number}
-   * @public
    */
-  getAbsorbanceAt( pathLength ) {
+  public getAbsorbanceAt( pathLength: number ): number {
     return getAbsorbance( this.molarAbsorptivityProperty.value, pathLength, this.currentConcentrationProperty.value );
   }
 
   /**
    * Gets transmittance for a specified path length.
-   * @param {number} pathLength
-   * @returns {number}
-   * @public
    */
-  getTransmittanceAt( pathLength ) {
+  public getTransmittanceAt( pathLength: number ): number {
     return getTransmittance( this.getAbsorbanceAt( pathLength ) );
   }
 
   /**
    * Converts absorbance to transmittance.
-   * @returns {number}
-   * @public
    */
-  getTransmittance() {
+  public getTransmittance(): number {
     return getTransmittance( this.absorbanceProperty.value );
   }
 }
 
 /*
  * General model of absorbance: A = abC
- * @param {number} molarAbsorptivity
- * @param {number} pathLength
- * @param {number} concentration
- * @returns {number}
  */
-function getAbsorbance( molarAbsorptivity, pathLength, concentration ) {
+function getAbsorbance( molarAbsorptivity: number, pathLength: number, concentration: number ): number {
   return molarAbsorptivity * pathLength * concentration;
 }
 
 /*
  * General model of transmittance: T = 10^A
- * @param {number} absorbance
- * @returns {number}
  */
-function getTransmittance( absorbance ) {
+function getTransmittance( absorbance: number ): number {
   return Math.pow( 10, -absorbance );
 }
 
 beersLawLab.register( 'AbsorbanceModel', AbsorbanceModel );
-export default AbsorbanceModel;
