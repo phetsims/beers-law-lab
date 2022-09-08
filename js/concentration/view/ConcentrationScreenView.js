@@ -46,8 +46,9 @@ class ConcentrationScreenView extends ScreenView {
     assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     options = merge( {
+      layoutBounds: BLLConstants.LAYOUT_BOUNDS,
       tandem: Tandem.REQUIRED
-    }, BLLConstants.SCREEN_VIEW_OPTIONS, options );
+    }, options );
 
     super( options );
 
