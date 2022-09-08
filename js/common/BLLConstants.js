@@ -11,15 +11,14 @@ import RangeWithValue from '../../../dot/js/RangeWithValue.js';
 import beersLawLab from '../beersLawLab.js';
 
 // constants used to compute other constants
-const BEAKER_VOLUME = 1;// L
+const BEAKER_VOLUME = 1; // L
 
 const BLLConstants = {
   LAYOUT_BOUNDS: new Bounds2( 0, 0, 1100, 700 ),
   RADIO_BUTTON_RADIUS: 11,
   SOLUTE_AMOUNT_RANGE: new RangeWithValue( 0, 7, 0 ), // moles
-  SOLUTION_VOLUME_RANGE: new RangeWithValue( 0, BEAKER_VOLUME, 0.5 ), // liters
+  SOLUTION_VOLUME_RANGE: new RangeWithValue( 0, BEAKER_VOLUME, 0.5 ), // L
   BEAKER_VOLUME: BEAKER_VOLUME,
-  DEFAULT_CUVETTE_SNAP_INTERVAL: 0.1, // cm
   CREDITS: {
     leadDesign: 'Julia Chamberlain',
     softwareDevelopment: 'Chris Malley (PixelZoom, Inc.)',

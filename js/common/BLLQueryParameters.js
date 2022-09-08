@@ -8,7 +8,6 @@
 
 import logGlobal from '../../../phet-core/js/logGlobal.js';
 import beersLawLab from '../beersLawLab.js';
-import BLLConstants from './BLLConstants.js';
 
 const BLLQueryParameters = QueryStringMachine.getAll( {
 
@@ -41,7 +40,7 @@ const BLLQueryParameters = QueryStringMachine.getAll( {
   // For external use, see https://github.com/phetsims/phet-io/issues/568
   cuvetteSnapInterval: {
     type: 'number',
-    defaultValue: BLLConstants.DEFAULT_CUVETTE_SNAP_INTERVAL,
+    defaultValue: 0.1, // cm
     isValidValue: value => ( value >= 0 ),
     public: true
   }
