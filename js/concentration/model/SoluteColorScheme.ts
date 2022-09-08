@@ -1,6 +1,5 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Color scheme for relating concentration to color.
  * The scheme also defines the concentration range for the solute, where maxConcentration
@@ -12,32 +11,21 @@
 import { Color } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 
-class SoluteColorScheme {
+export default class SoluteColorScheme {
+
+  public constructor(
+    public readonly minConcentration: number, // mol/L
+    public readonly minColor: Color,
+    public readonly midConcentration: number, // mol/L
+    public readonly midColor: Color,
+    public readonly maxConcentration: number, // mol/L (saturation point)
+    public readonly maxColor: Color
+  ) {}
 
   /**
-   * @param {number} minConcentration - mol/L
-   * @param {Color} minColor
-   * @param {number} midConcentration - mol/L
-   * @param {Color} midColor
-   * @param {number} maxConcentration - mol/L (saturation point)
-   * @param {Color} maxColor
+   * Converts a concentration value (in mol/L) to a Color, using a linear interpolation of RGB colors.
    */
-  constructor( minConcentration, minColor, midConcentration, midColor, maxConcentration, maxColor ) {
-    this.minColor = minColor;
-    this.midColor = midColor;
-    this.maxColor = maxColor;
-    this.minConcentration = minConcentration;
-    this.midConcentration = midConcentration;
-    this.maxConcentration = maxConcentration;
-  }
-
-  /**
-   * Converts a concentration value to a Color, using a linear interpolation of RGB colors.
-   * @param {number} concentration - mol/L
-   * @returns {Color} color
-   * @public
-   */
-  concentrationToColor( concentration ) {
+  public concentrationToColor( concentration: number ): Color {
     if ( concentration >= this.maxConcentration ) {
       return this.maxColor;
     }
@@ -45,13 +33,14 @@ class SoluteColorScheme {
       return this.minColor;
     }
     else if ( concentration <= this.midConcentration ) {
-      return Color.interpolateRGBA( this.minColor, this.midColor, ( concentration - this.minConcentration ) / ( this.midConcentration - this.minConcentration ) );
+      return Color.interpolateRGBA( this.minColor, this.midColor,
+        ( concentration - this.minConcentration ) / ( this.midConcentration - this.minConcentration ) );
     }
     else {
-      return Color.interpolateRGBA( this.midColor, this.maxColor, ( concentration - this.midConcentration ) / ( this.maxConcentration - this.midConcentration ) );
+      return Color.interpolateRGBA( this.midColor, this.maxColor,
+        ( concentration - this.midConcentration ) / ( this.maxConcentration - this.midConcentration ) );
     }
   }
 }
 
 beersLawLab.register( 'SoluteColorScheme', SoluteColorScheme );
-export default SoluteColorScheme;

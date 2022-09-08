@@ -1,6 +1,5 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Manages the lifetime of shaker particles, from creation when they exit the shaker,
  * to deletion when they are delivered to the solution.
@@ -12,8 +11,9 @@ import Emitter from '../../../../axon/js/Emitter.js';
 import dotRandom from '../../../../dot/js/dotRandom.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import merge from '../../../../phet-core/js/merge.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import Beaker from './Beaker.js';
@@ -29,35 +29,24 @@ const GRAVITATIONAL_ACCELERATION_MAGNITUDE = 150;
 const MAX_X_OFFSET = 20;
 const MAX_Y_OFFSET = 5;
 
-class ShakerParticles {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {Shaker} shaker
-   * @param {ConcentrationSolution} solution
-   * @param {Beaker} beaker
-   * @param {Object} [options]
-   * @constructor
-   */
-  constructor( shaker, solution, beaker, options ) {
-    assert && assert( shaker instanceof Shaker );
-    assert && assert( solution instanceof ConcentrationSolution );
-    assert && assert( beaker instanceof Beaker );
+type ShakerParticlesOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-    options = merge( {
-      tandem: Tandem.REQUIRED
-    }, options );
+export default class ShakerParticles {
 
-    // @private
-    this.shaker = shaker;
-    this.solution = solution;
-    this.beaker = beaker;
+  public readonly particlesGroup: ShakerParticleGroup;
+  public readonly particlesMovedEmitter: Emitter; // emits on step if one or more particles has moved
 
-    // @public
+  public constructor( private readonly shaker: Shaker,
+                      private readonly solution: ConcentrationSolution,
+                      private readonly beaker: Beaker,
+                      providedOptions: ShakerParticlesOptions ) {
+
     this.particlesGroup = new ShakerParticleGroup( {
-      tandem: options.tandem.createTandem( 'particlesGroup' )
+      tandem: providedOptions.tandem.createTandem( 'particlesGroup' )
     } );
 
-    // @public emits on step if one or more particles has moved
     this.particlesMovedEmitter = new Emitter();
 
     // when the solute changes, remove all particles
@@ -70,18 +59,16 @@ class ShakerParticles {
     } );
   }
 
-  // @public
-  removeAllParticles() {
+  public removeAllParticles(): void {
     this.particlesGroup.clear();
   }
 
-  // @public
-  reset() {
+  public reset(): void {
     this.removeAllParticles();
   }
 
-  // @public Particle animation and delivery to the solution, called when the simulation clock ticks.
-  step( deltaSeconds ) {
+  // Particle animation and delivery to the solution, called when the simulation clock ticks.
+  public step( dt: number ): void {
 
     const particles = this.particlesGroup.getArray();
     const beaker = this.beaker;
@@ -93,18 +80,17 @@ class ShakerParticles {
     for ( let i = particles.length - 1; i >= 0; i-- ) {
 
       const particle = particles[ i ];
-      particle.step( deltaSeconds, beaker );
+      particle.step( dt, beaker );
 
       // If the particle hits the solution surface or bottom of the beaker, delete it, and add a corresponding amount of solute to the solution.
       const percentFull = solution.volumeProperty.value / beaker.volume;
       const solutionSurfaceY = beaker.position.y - ( percentFull * beaker.size.height ) - solution.soluteProperty.value.particleSize;
       if ( particle.positionProperty.value.y > solutionSurfaceY ) {
         this.particlesGroup.disposeElement( particle );
-        const soluteAmount = Math.min(
+        solution.soluteMolesProperty.value = Math.min(
           BLLConstants.SOLUTE_AMOUNT_RANGE.max,
           solution.soluteMolesProperty.value + ( 1 / solution.soluteProperty.value.particlesPerMole )
         );
-        solution.soluteMolesProperty.value = soluteAmount;
       }
       else {
         someParticleMoved = true;
@@ -115,11 +101,12 @@ class ShakerParticles {
     if ( shaker.dispensingRateProperty.value > 0 ) {
 
       const numberOfParticles = Utils.roundSymmetric( Math.max( 1,
-        shaker.dispensingRateProperty.value * solution.soluteProperty.value.particlesPerMole * deltaSeconds ) );
+        shaker.dispensingRateProperty.value * solution.soluteProperty.value.particlesPerMole * dt ) );
 
       for ( let j = 0; j < numberOfParticles; j++ ) {
-        this.particlesGroup.createNextElement(
-          solution.soluteProperty.value,
+
+        // @ts-ignore https://github.com/phetsims/beers-law-lab/issues/287 TS error
+        this.particlesGroup.createNextElement( solution.soluteProperty.value,
           getRandomPosition( this.shaker.positionProperty.value ),
           getRandomOrientation(),
           this.getInitialVelocity(),
@@ -133,28 +120,27 @@ class ShakerParticles {
     }
   }
 
-  // @private Computes an initial velocity for the particle.
-  getInitialVelocity() {
+  // Computes an initial velocity for the particle.
+  private getInitialVelocity(): Vector2 {
     return Vector2.createPolar( INITIAL_SPEED, this.shaker.orientation ); // in the direction the shaker is pointing
   }
 
-  // @private Gravitational acceleration is in the downward direction.
-  getGravitationalAcceleration() {
+  // Gravitational acceleration is in the downward direction.
+  private getGravitationalAcceleration(): Vector2 {
     return new Vector2( 0, GRAVITATIONAL_ACCELERATION_MAGNITUDE );
   }
 }
 
 // Gets a random position relative to some origin
-function getRandomPosition( origin ) {
+function getRandomPosition( origin: Vector2 ): Vector2 {
   const xOffset = dotRandom.nextIntBetween( -MAX_X_OFFSET, MAX_X_OFFSET ); // positive or negative
   const yOffset = dotRandom.nextIntBetween( 0, MAX_Y_OFFSET ); // positive only
   return new Vector2( origin.x + xOffset, origin.y + yOffset );
 }
 
 // Gets a random orientation, in radians.
-function getRandomOrientation() {
+function getRandomOrientation(): number {
   return dotRandom.nextDouble() * 2 * Math.PI;
 }
 
 beersLawLab.register( 'ShakerParticles', ShakerParticles );
-export default ShakerParticles;
