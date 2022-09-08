@@ -1,5 +1,6 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Solution that appears in the beaker.
  * Origin is at bottom center of beaker.

@@ -1,5 +1,6 @@
 // Copyright 2016-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Displays the amount of solute, in grams.  See beers-law-lab#148
  *
