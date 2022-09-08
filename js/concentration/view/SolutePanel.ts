@@ -1,6 +1,5 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Control panel for selecting the solute and changing its form (solid or solution).
  *
@@ -8,44 +7,36 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import merge from '../../../../phet-core/js/merge.js';
 import { Node } from '../../../../scenery/js/imports.js';
-import Panel from '../../../../sun/js/Panel.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import beersLawLab from '../../beersLawLab.js';
 import Solute from '../../common/model/Solute.js';
 import Dropper from '../model/Dropper.js';
 import Shaker from '../model/Shaker.js';
 import SoluteComboBox from './SoluteComboBox.js';
 import SoluteFormRadioButtonGroup from './SoluteFormRadioButtonGroup.js';
+import SoluteForm from '../model/SoluteForm.js';
+import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 
-class SolutePanel extends Panel {
-  /**
-   * @param {Solute[]} solutes
-   * @param {Property.<Solute>} currentSoluteProperty
-   * @param {EnumerationDeprecatedProperty.<SoluteForm>} soluteFormProperty
-   * @param {Shaker} shaker
-   * @param {Dropper} dropper
-   * @param {Node} soluteListParent
-   * @param {Object} [options]
-   */
-  constructor( solutes, currentSoluteProperty, soluteFormProperty, shaker, dropper, soluteListParent, options ) {
-    assert && assert( Array.isArray( solutes ) );
-    assert && assert( _.every( solutes, solute => solute instanceof Solute ) );
-    assert && assert( currentSoluteProperty instanceof Property );
-    assert && assert( soluteFormProperty instanceof Property );
-    assert && assert( shaker instanceof Shaker );
-    assert && assert( dropper instanceof Dropper );
-    assert && assert( soluteListParent instanceof Node );
+type SelfOptions = EmptySelfOptions;
 
-    options = merge( {
+type SolutePanelOptions = SelfOptions & PickRequired<PanelOptions, 'tandem'>;
+
+export default class SolutePanel extends Panel {
+
+  public constructor( solutes: Solute[], currentSoluteProperty: Property<Solute>,
+                      soluteFormProperty: EnumerationProperty<SoluteForm>, shaker: Shaker, dropper: Dropper,
+                      soluteListParent: Node, providedOptions: SolutePanelOptions ) {
+
+    const options = optionize<SolutePanelOptions, SelfOptions, PanelOptions>()( {
       xMargin: 15,
       yMargin: 15,
       fill: '#F0F0F0',
       stroke: 'gray',
-      lineWidth: 1,
-      tandem: Tandem.REQUIRED
-    }, options );
+      lineWidth: 1
+    }, providedOptions );
 
     // solute combo box
     const soluteComboBox = new SoluteComboBox( currentSoluteProperty, solutes, soluteListParent, {
@@ -71,4 +62,3 @@ class SolutePanel extends Panel {
 }
 
 beersLawLab.register( 'SolutePanel', SolutePanel );
-export default SolutePanel;

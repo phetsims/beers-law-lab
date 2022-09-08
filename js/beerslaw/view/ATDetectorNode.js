@@ -183,7 +183,7 @@ class BodyNode extends Node {
         valueNode.text = NO_VALUE;
       }
       else {
-        if ( detector.modeProperty.value === ATDetector.Mode.TRANSMITTANCE ) {
+        if ( detector.modeProperty.value === ATDetectorMode.TRANSMITTANCE ) {
           valueNode.text = StringUtils.format( BeersLawLabStrings.pattern[ '0percent' ],
             Utils.toFixed( value, TRANSMITTANCE_DECIMAL_PLACES ) );
         }

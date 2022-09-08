@@ -1,6 +1,5 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Stock solution coming out of the dropper.
  *
@@ -11,32 +10,22 @@ import Property from '../../../../axon/js/Property.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import { Rectangle } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
+import Solute from '../../common/model/Solute.js';
 import Solvent from '../../common/model/Solvent.js';
 import Beaker from '../model/Beaker.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import Dropper from '../model/Dropper.js';
 
-class StockSolutionNode extends Rectangle {
-  /**
-   * @param {Solvent} solvent
-   * @param {Property.<Solute>} soluteProperty
-   * @param {Dropper} dropper
-   * @param {Beaker} beaker
-   * @param {number} tipWidth
-   * @param {ModelViewTransform2} modelViewTransform
-   */
-  constructor( solvent, soluteProperty, dropper, beaker, tipWidth, modelViewTransform ) {
-    assert && assert( solvent instanceof Solvent );
-    assert && assert( soluteProperty instanceof Property );
-    assert && assert( dropper instanceof Dropper );
-    assert && assert( beaker instanceof Beaker );
-    assert && assert( typeof tipWidth === 'number' );
-    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
+export default class StockSolutionNode extends Rectangle {
+
+  public constructor( solvent: Solvent, soluteProperty: Property<Solute>, dropper: Dropper, beaker: Beaker,
+                      tipWidth: number, modelViewTransform: ModelViewTransform2 ) {
 
     super( 0, 0, 0, 0, { lineWidth: 1 } );
 
     // shape and position
     const updateShapeAndPosition = () => {
+
       // path
       if ( dropper.isDispensingProperty.value && !dropper.isEmptyProperty.value ) {
         this.setRect( -tipWidth / 2, 0, tipWidth, beaker.position.y - dropper.positionProperty.value.y );
@@ -44,6 +33,7 @@ class StockSolutionNode extends Rectangle {
       else {
         this.setRect( 0, 0, 0, 0 );
       }
+
       // move this node to the dropper's position
       this.translation = modelViewTransform.modelToViewPosition( dropper.positionProperty.value );
     };
@@ -66,4 +56,3 @@ class StockSolutionNode extends Rectangle {
 }
 
 beersLawLab.register( 'StockSolutionNode', StockSolutionNode );
-export default StockSolutionNode;
