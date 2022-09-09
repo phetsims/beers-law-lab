@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+// Copyright 2013-2022, University of Colorado Boulder
 
 //TODO https://github.com/phetsims/beers-law-lab/issues/287 consider getting rid of this class. Solvent has a static color, ConcentrationSolution has a dynamic color
 /**

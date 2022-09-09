@@ -1,4 +1,4 @@
-// Copyright 2013-2021, University of Colorado Boulder
+// Copyright 2013-2022, University of Colorado Boulder
 
 /**
  * AbsorbanceModel is the model for computing the absorbance (and transmittance) of light passing through a solution

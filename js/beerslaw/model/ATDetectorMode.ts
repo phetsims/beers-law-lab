@@ -1,4 +1,4 @@
-// Copyright 2022, University of Colorado Boulder
+// Copyright 2021-2022, University of Colorado Boulder
 
 /**
  * ATDetectorMode is an enumeration of the modes for the AT detector.

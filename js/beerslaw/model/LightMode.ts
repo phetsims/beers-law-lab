@@ -1,4 +1,4 @@
-// Copyright 2022, University of Colorado Boulder
+// Copyright 2021-2022, University of Colorado Boulder
 
 /**
  * LightMode is an enumeration of the modes for the light.
