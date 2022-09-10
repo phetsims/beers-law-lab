@@ -50,6 +50,7 @@ export default class SolutePanel extends Panel {
         tandem: options.tandem.createTandem( 'soluteFormRadioButtonGroup' )
       } );
 
+    //TODO https://github.com/phetsims/beers-law-lab/issues/290 use VBox here when ComboBox layout has been fixed
     const contentNode = new Node();
     contentNode.addChild( soluteFormRadioButtonGroup );
     contentNode.addChild( soluteComboBox ); // add last, so that dropdown is on top
