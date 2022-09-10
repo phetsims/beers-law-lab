@@ -1,6 +1,5 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * The 'Beer's Law' screen. Conforms to the contract specified in joist/Screen.
  *
@@ -8,30 +7,32 @@
  */
 
 import Vector2 from '../../../dot/js/Vector2.js';
-import Screen from '../../../joist/js/Screen.js';
+import Screen, { ScreenOptions } from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
-import merge from '../../../phet-core/js/merge.js';
+import optionize, { EmptySelfOptions } from '../../../phet-core/js/optionize.js';
+import PickRequired from '../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
 import { Image } from '../../../scenery/js/imports.js';
-import Tandem from '../../../tandem/js/Tandem.js';
 import beersLawScreenIcon_jpg from '../../images/beersLawScreenIcon_jpg.js';
 import beersLawLab from '../beersLawLab.js';
 import BeersLawLabStrings from '../BeersLawLabStrings.js';
 import BeersLawModel from './model/BeersLawModel.js';
 import BeersLawScreenView from './view/BeersLawScreenView.js';
 
-class BeersLawScreen extends Screen {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {Object} [options]
-   */
-  constructor( options ) {
+type BeersLawScreenOptions = SelfOptions & PickRequired<ScreenOptions, 'tandem'>;
 
-    options = merge( {
+export default class BeersLawScreen extends Screen {
+
+  public constructor( providedOptions: BeersLawScreenOptions ) {
+
+    const options = optionize<BeersLawScreenOptions, SelfOptions, ScreenOptions>()( {
+
+      // ScreenOptions
       name: BeersLawLabStrings.screen.beersLaw,
-      homeScreenIcon: createScreenIcon(),
-      tandem: Tandem.REQUIRED
-    }, options );
+      homeScreenIcon: createScreenIcon()
+    }, providedOptions );
 
     // No offset, scale 125x when going from model to view (1cm == 125 pixels)
     const modelViewTransform = ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 125 );
@@ -48,7 +49,7 @@ class BeersLawScreen extends Screen {
   }
 }
 
-function createScreenIcon() {
+function createScreenIcon(): ScreenIcon {
   return new ScreenIcon( new Image( beersLawScreenIcon_jpg ), {
     maxIconWidthProportion: 1,
     maxIconHeightProportion: 1
@@ -56,4 +57,3 @@ function createScreenIcon() {
 }
 
 beersLawLab.register( 'BeersLawScreen', BeersLawScreen );
-export default BeersLawScreen;
