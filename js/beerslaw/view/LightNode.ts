@@ -1,6 +1,5 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Visual representation of the light in the Beer's Law screen.
  * Origin is at the right center, where the light comes out of the 'housing'.
@@ -9,32 +8,30 @@
  */
 
 import Dimension2 from '../../../../dot/js/Dimension2.js';
-import merge from '../../../../phet-core/js/merge.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import LaserPointerNode from '../../../../scenery-phet/js/LaserPointerNode.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import LaserPointerNode, { LaserPointerNodeOptions } from '../../../../scenery-phet/js/LaserPointerNode.js';
 import beersLawLab from '../../beersLawLab.js';
 import Light from '../model/Light.js';
 
-class LightNode extends LaserPointerNode {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {Light} light
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Object} [options]
-   */
-  constructor( light, modelViewTransform, options ) {
-    assert && assert( light instanceof Light );
-    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
+type LightNodeOptions = SelfOptions & PickRequired<LaserPointerNodeOptions, 'tandem'>;
 
-    options = merge( {
+export default class LightNode extends LaserPointerNode {
+
+  public constructor( light: Light, modelViewTransform: ModelViewTransform2, providedOptions: LightNodeOptions ) {
+
+    const options = optionize<LightNodeOptions, SelfOptions, LaserPointerNodeOptions>()( {
+
+      // LaserPointerNodeOptions
       bodySize: new Dimension2( 126, 78 ),
       nozzleSize: new Dimension2( 16, 65 ),
       buttonRadius: 26,
       buttonTouchAreaDilation: 25,
-      translation: modelViewTransform.modelToViewPosition( light.position ),
-      tandem: Tandem.REQUIRED
-    }, options );
+      translation: modelViewTransform.modelToViewPosition( light.position )
+    }, providedOptions );
 
     super( light.isOnProperty, options );
 
@@ -45,4 +42,3 @@ class LightNode extends LaserPointerNode {
 }
 
 beersLawLab.register( 'LightNode', LightNode );
-export default LightNode;

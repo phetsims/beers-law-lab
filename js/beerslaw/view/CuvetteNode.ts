@@ -1,6 +1,5 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Visual representation of the cuvette.
  *
@@ -10,12 +9,14 @@
 import Property from '../../../../axon/js/Property.js';
 import Utils from '../../../../dot/js/Utils.js';
 import { Shape } from '../../../../kite/js/imports.js';
-import merge from '../../../../phet-core/js/merge.js';
+import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import ArrowNode from '../../../../scenery-phet/js/ArrowNode.js';
-import { Color, DragListener, Node, Path, PressListener, Rectangle } from '../../../../scenery/js/imports.js';
+import { Color, DragListener, Node, NodeOptions, Path, PressListener, Rectangle } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
+import BeersLawSolution from '../model/BeersLawSolution.js';
 import Cuvette from '../model/Cuvette.js';
 
 // constants
@@ -27,24 +28,17 @@ const ARROW_HEAD_WIDTH = 45;
 const ARROW_TAIL_WIDTH = 23;
 const ARROW_FILL = Color.ORANGE;
 
-class CuvetteNode extends Node {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {Cuvette} cuvette
-   * @param {Property.<BeersLawSolution>} solutionProperty
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {number} snapInterval
-   * @param {Object} [options]
-   */
-  constructor( cuvette, solutionProperty, modelViewTransform, snapInterval, options ) {
-    assert && assert( cuvette instanceof Cuvette );
-    assert && assert( solutionProperty instanceof Property );
-    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
-    assert && assert( typeof snapInterval === 'number' );
+type CuvetteNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
-    options = merge( {
-      tandem: Tandem.REQUIRED
-    }, options );
+export default class CuvetteNode extends Node {
+
+  public constructor( cuvette: Cuvette, solutionProperty: Property<BeersLawSolution>,
+                      modelViewTransform: ModelViewTransform2, snapInterval: number,
+                      providedOptions: CuvetteNodeOptions ) {
+
+    const options = providedOptions;
 
     super( options );
 
@@ -89,7 +83,7 @@ class CuvetteNode extends Node {
     } );
 
     // when the fluid color changes ...
-    const colorObserver = color => {
+    const colorObserver = ( color: Color ) => {
       solutionNode.fill = color.withAlpha( SOLUTION_ALPHA );
       solutionNode.stroke = color.darkerColor();
     };
@@ -112,10 +106,8 @@ class CuvetteNode extends Node {
       arrowNode.fill = isHighlighted ? ARROW_FILL.brighterColor() : ARROW_FILL;
     } );
 
-    const cuvetteDragListener = new CuvetteDragListener( cuvette, modelViewTransform, snapInterval, {
-      tandem: options.tandem.createTandem( 'cuvetteDragListener' )
-    } );
-    arrowNode.addInputListener( cuvetteDragListener );
+    arrowNode.addInputListener( new CuvetteDragListener( cuvette, modelViewTransform, snapInterval,
+      options.tandem.createTandem( 'cuvetteDragListener' ) ) );
 
     // adjust touch area for the arrow
     const dx = 0.25 * arrowNode.width;
@@ -138,22 +130,15 @@ class CuvetteNode extends Node {
  */
 class CuvetteDragListener extends DragListener {
 
-  /**
-   * @param {Cuvette} cuvette
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {number} snapInterval
-   * @param {Object} [options]
-   */
-  constructor( cuvette, modelViewTransform, snapInterval, options ) {
-    assert && assert( cuvette instanceof Cuvette );
-    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
-    assert && assert( typeof snapInterval === 'number' );
+  public constructor( cuvette: Cuvette, modelViewTransform: ModelViewTransform2, snapInterval: number, tandem: Tandem ) {
 
-    const widthRange = cuvette.widthProperty.range;
-    let startX; // x coordinate of mouse click
-    let startWidth; // width of the cuvette when the drag started
+    const widthRange = cuvette.widthProperty.range!;
+    assert && assert( widthRange );
 
-    super( merge( {
+    let startX: number; // x coordinate of mouse click
+    let startWidth: number; // width of the cuvette when the drag started
+
+    super( {
 
       allowTouchSnag: true,
 
@@ -178,10 +163,9 @@ class CuvetteDragListener extends DragListener {
       },
 
       // phet-io
-      tandem: Tandem.REQUIRED
-    }, options ) );
+      tandem: tandem
+    } );
   }
 }
 
 beersLawLab.register( 'CuvetteNode', CuvetteNode );
-export default CuvetteNode;

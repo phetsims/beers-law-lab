@@ -1,6 +1,5 @@
 // Copyright 2018-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Control for changing a solution's concentration.
  *
@@ -12,9 +11,10 @@ import Property from '../../../../axon/js/Property.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Range from '../../../../dot/js/Range.js';
 import Utils from '../../../../dot/js/Utils.js';
-import merge from '../../../../phet-core/js/merge.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
-import NumberControl from '../../../../scenery-phet/js/NumberControl.js';
+import NumberControl, { NumberControlOptions } from '../../../../scenery-phet/js/NumberControl.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { HBox, HStrut, LinearGradient, Text } from '../../../../scenery/js/imports.js';
 import SunConstants from '../../../../sun/js/SunConstants.js';
@@ -27,16 +27,17 @@ const FONT = new PhetFont( 20 );
 const TICK_FONT = new PhetFont( 16 );
 const SLIDER_INTERVAL = 5; // in view units
 
-class ConcentrationControl extends NumberControl {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {BeersLawSolution} solution
-   * @param {Object} [options]
-   */
-  constructor( solution, options ) {
-    assert && assert( solution instanceof BeersLawSolution );
+type ConcentrationControlOptions = SelfOptions & PickRequired<NumberControlOptions, 'tandem'>;
 
-    options = merge( {
+export default class ConcentrationControl extends NumberControl {
+
+  public readonly solution: BeersLawSolution;
+
+  public constructor( solution: BeersLawSolution, providedOptions: ConcentrationControlOptions ) {
+
+    const options = optionize<ConcentrationControlOptions, SelfOptions, NumberControlOptions>()( {
 
       // NumberControl options
       titleNodeOptions: {
@@ -68,12 +69,13 @@ class ConcentrationControl extends NumberControl {
 
       // single-line horizontal layout
       layoutFunction: ( titleNode, numberDisplay, slider, leftArrowButton, rightArrowButton ) => {
+        assert && assert( leftArrowButton && rightArrowButton );
         return new HBox( {
           spacing: 5,
-          children: [ titleNode, numberDisplay, new HStrut( 5 ), leftArrowButton, slider, rightArrowButton ]
+          children: [ titleNode, numberDisplay, new HStrut( 5 ), leftArrowButton!, slider, rightArrowButton! ]
         } );
       }
-    }, options );
+    }, providedOptions );
 
     const transform = solution.concentrationTransform;
 
@@ -88,8 +90,10 @@ class ConcentrationControl extends NumberControl {
     options.delta = 1; // in view coordinates
 
     // fill the track with a linear gradient that corresponds to the solution color
+    const trackSize = options.sliderOptions.trackSize!;
+    assert && assert( trackSize );
     assert && assert( !options.sliderOptions.trackFillEnabled, 'ConcentrationControl sets trackFillEnabled' );
-    options.sliderOptions.trackFillEnabled = new LinearGradient( 0, 0, options.sliderOptions.trackSize.width, 0 )
+    options.sliderOptions.trackFillEnabled = new LinearGradient( 0, 0, trackSize.width, 0 )
       .addColorStop( 0, solution.colorRange.min )
       .addColorStop( 1, solution.colorRange.max );
 
@@ -108,27 +112,24 @@ class ConcentrationControl extends NumberControl {
     } );
 
     // convert solution's concentration range from model to view
+    const concentrationRange = solution.concentrationProperty.range!;
+    assert && assert( concentrationRange );
     const numberRange = new Range(
-      transform.modelToView( solution.concentrationProperty.range.min ),
-      transform.modelToView( solution.concentrationProperty.range.max )
+      transform.modelToView( concentrationRange.min ),
+      transform.modelToView( concentrationRange.max )
     );
 
     // ticks at the min and max of the solution's concentration range
     assert && assert( !options.sliderOptions.majorTicks, 'ConcentrationControl sets majorTicks' );
-    options.sliderOptions.majorTicks = [];
-    [ numberRange.min, numberRange.max ].forEach( value => {
-      options.sliderOptions.majorTicks.push( {
-        value: value,
-        label: new Text( value, { font: TICK_FONT } )
-      } );
-    } );
+    options.sliderOptions.majorTicks = [
+      { value: numberRange.min, label: new Text( numberRange.min, { font: TICK_FONT } ) },
+      { value: numberRange.max, label: new Text( numberRange.max, { font: TICK_FONT } ) }
+    ];
 
     super( title, numberProperty, numberRange, options );
 
-    // @public (read-only)
     this.solution = solution;
   }
 }
 
 beersLawLab.register( 'ConcentrationControl', ConcentrationControl );
-export default ConcentrationControl;
