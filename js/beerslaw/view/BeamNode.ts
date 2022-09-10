@@ -1,6 +1,5 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Representation of light as a beam.
  *
@@ -11,13 +10,9 @@ import { Path } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import Beam from '../model/Beam.js';
 
-class BeamNode extends Path {
+export default class BeamNode extends Path {
 
-  /**
-   * @param {Beam} beam
-   */
-  constructor( beam ) {
-    assert && assert( beam instanceof Beam );
+  public constructor( beam: Beam ) {
 
     super( null, {
       visibleProperty: beam.visibleProperty,
@@ -37,4 +32,3 @@ class BeamNode extends Path {
 }
 
 beersLawLab.register( 'BeamNode', BeamNode );
-export default BeamNode;

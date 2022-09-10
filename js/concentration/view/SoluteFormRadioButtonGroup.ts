@@ -11,17 +11,15 @@ import Property from '../../../../axon/js/Property.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { HBox, Image, Node, Text, TextOptions } from '../../../../scenery/js/imports.js';
+import { HBox, Image, Node, Text } from '../../../../scenery/js/imports.js';
 import AquaRadioButtonGroup, { AquaRadioButtonGroupItem, AquaRadioButtonGroupOptions } from '../../../../sun/js/AquaRadioButtonGroup.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import dropperIcon_png from '../../../images/dropperIcon_png.js';
 import shakerIcon_png from '../../../images/shakerIcon_png.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import SoluteForm from '../model/SoluteForm.js';
-
-// constants
-const RADIO_BUTTON_TEXT_OPTIONS = { font: new PhetFont( 22 ), fill: 'black' };
 
 type SelfOptions = EmptySelfOptions;
 
@@ -50,12 +48,12 @@ export default class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup<Sol
     const items: AquaRadioButtonGroupItem<SoluteForm>[] = [
       {
         value: SoluteForm.SOLID,
-        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.solid, shakerIcon_png, RADIO_BUTTON_TEXT_OPTIONS ),
+        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.solid, shakerIcon_png, tandem ),
         tandemName: 'solidRadioButton'
       },
       {
         value: SoluteForm.SOLUTION,
-        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.solution, dropperIcon_png, RADIO_BUTTON_TEXT_OPTIONS ),
+        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.solution, dropperIcon_png, tandem ),
         tandemName: 'solutionRadioButton'
       }
     ];
@@ -80,10 +78,18 @@ export default class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup<Sol
 /**
  * Creates the label for a radio button.
  */
-function createRadioButtonLabel( text: string, image: HTMLImageElement, textOptions: TextOptions ): Node {
+function createRadioButtonLabel( text: string, image: HTMLImageElement, radioButtonTandem: Tandem ): Node {
   return new HBox( {
     spacing: 10,
-    children: [ new Text( text, textOptions ), new Image( image ) ]
+    children: [
+      new Text( text, {
+        font: new PhetFont( 22 ),
+        fill: 'black',
+        tandem: radioButtonTandem.createTandem( 'labelText' ),
+        phetioVisiblePropertyInstrumented: false
+      } ),
+      new Image( image )
+    ]
   } );
 }
 

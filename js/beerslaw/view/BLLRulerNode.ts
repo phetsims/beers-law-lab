@@ -1,6 +1,5 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Visual representation of the ruler.
  * This is a wrapper around the common-code ruler node.
@@ -10,11 +9,11 @@
 
 import Property from '../../../../axon/js/Property.js';
 import { Shape } from '../../../../kite/js/imports.js';
-import merge from '../../../../phet-core/js/merge.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import RulerNode from '../../../../scenery-phet/js/RulerNode.js';
+import RulerNode, { RulerNodeOptions } from '../../../../scenery-phet/js/RulerNode.js';
 import { DragListener } from '../../../../scenery/js/imports.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Ruler from '../model/Ruler.js';
@@ -22,30 +21,28 @@ import Ruler from '../model/Ruler.js';
 // constants
 const MAJOR_TICK_WIDTH = 0.5; // in model coordinate frame
 
-class BLLRulerNode extends RulerNode {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {Ruler} ruler
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Object} [options]
-   */
-  constructor( ruler, modelViewTransform, options ) {
-    assert && assert( ruler instanceof Ruler );
-    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
+type BLLRulerNodeOptions = SelfOptions & PickRequired<RulerNodeOptions, 'tandem'>;
 
-    options = merge( {
+export default class BLLRulerNode extends RulerNode {
+
+  public constructor( ruler: Ruler, modelViewTransform: ModelViewTransform2, providedOptions: BLLRulerNodeOptions ) {
+
+    const options = optionize<BLLRulerNodeOptions, SelfOptions, RulerNodeOptions>()( {
+
+      //  RulerNodeOptions
       cursor: 'pointer',
       minorTicksPerMajorTick: 4,
       insetsWidth: 0,
-      tandem: Tandem.REQUIRED,
       phetioInputEnabledPropertyInstrumented: true
-    }, options );
+    }, providedOptions );
 
     // Compute tick labels, 1 major tick for every 0.5 unit of length, labels on the ticks that correspond to integer values.
-    const majorTickLabels = [];
+    const majorTickLabels: string[] = [];
     const numberOfTicks = Math.floor( ruler.length / MAJOR_TICK_WIDTH ) + 1;
     for ( let i = 0; i < numberOfTicks; i++ ) {
-      majorTickLabels[ i ] = ( i % 2 === 0 ) ? ( i / 2 ) : '';
+      majorTickLabels[ i ] = ( i % 2 === 0 ) ? `${i / 2}` : '';
     }
 
     const width = modelViewTransform.modelToViewDeltaX( ruler.length );
@@ -80,4 +77,3 @@ class BLLRulerNode extends RulerNode {
 }
 
 beersLawLab.register( 'BLLRulerNode', BLLRulerNode );
-export default BLLRulerNode;

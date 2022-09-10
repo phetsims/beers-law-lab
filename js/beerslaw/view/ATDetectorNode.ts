@@ -1,6 +1,5 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Detector for absorbance (A) and percent transmittance (%T).
  *
@@ -13,15 +12,16 @@ import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import { Shape } from '../../../../kite/js/imports.js';
-import merge from '../../../../phet-core/js/merge.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import ProbeNode from '../../../../scenery-phet/js/ProbeNode.js';
+import ProbeNode, { ProbeNodeOptions } from '../../../../scenery-phet/js/ProbeNode.js';
 import ShadedRectangle from '../../../../scenery-phet/js/ShadedRectangle.js';
-import { DragListener, Node, Path, Text, VBox } from '../../../../scenery/js/imports.js';
-import AquaRadioButtonGroup from '../../../../sun/js/AquaRadioButtonGroup.js';
+import { DragListener, Node, NodeOptions, Path, Text, VBox } from '../../../../scenery/js/imports.js';
+import AquaRadioButtonGroup, { AquaRadioButtonGroupItem } from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
@@ -42,43 +42,32 @@ const VALUE_Y_MARGIN = 4;
 const PROBE_COLOR = 'rgb( 8, 133, 54 )';
 const MIN_VALUE_SIZE = new Dimension2( 150, 36 );
 const MIN_BODY_SIZE = new Dimension2( 185, 140 );
-const RADIO_BUTTON_TEXT_OPTIONS = { font: new PhetFont( 18 ), fill: 'white' };
 
-class ATDetectorNode extends Node {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {ATDetector} detector
-   * @param {Light} light
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Object} [options]
-   */
-  constructor( detector, light, modelViewTransform, options ) {
-    assert && assert( detector instanceof ATDetector );
-    assert && assert( light instanceof Light );
-    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
+type ATDetectorNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
-    options = merge( {
-      tandem: Tandem.REQUIRED
-    }, options );
+export default class ATDetectorNode extends Node {
 
-    super( options );
+  public constructor( detector: ATDetector, light: Light, modelViewTransform: ModelViewTransform2,
+                      providedOptions: ATDetectorNodeOptions ) {
+
+    super( providedOptions );
 
     const bodyNode = new BodyNode( detector, modelViewTransform, {
-      tandem: options.tandem.createTandem( 'bodyNode' )
+      tandem: providedOptions.tandem.createTandem( 'bodyNode' )
     } );
 
     const probeNode = new ATProbeNode( detector.probe, light, modelViewTransform, {
-      tandem: options.tandem.createTandem( 'probeNode' )
+      tandem: providedOptions.tandem.createTandem( 'probeNode' )
     } );
 
     const wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
 
-    this.addChild( wireNode );
-    this.addChild( bodyNode );
-    this.addChild( probeNode );
+    this.children = [ wireNode, bodyNode, probeNode ];
 
     this.addLinkedElement( detector, {
-      tandem: options.tandem.createTandem( 'detector' )
+      tandem: providedOptions.tandem.createTandem( 'detector' )
     } );
   }
 }
@@ -87,34 +76,40 @@ class ATDetectorNode extends Node {
  * The body of the detector, where A and T values are displayed. Note that while the body is a BLLMovable,
  * we have currently decided not to allow it to be moved, so it has no drag handler
  */
+type BodyNodeSelfOptions = EmptySelfOptions;
+type BodyNodeOptions = BodyNodeSelfOptions & PickRequired<NodeOptions, 'tandem'>;
+
 class BodyNode extends Node {
 
-  /**
-   * @param {ATDetector} detector
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Object} [options]
-   */
-  constructor( detector, modelViewTransform, options ) {
-    assert && assert( detector instanceof ATDetector );
-    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
+  public constructor( detector: ATDetector, modelViewTransform: ModelViewTransform2, providedOptions: BodyNodeOptions ) {
 
-    options = merge( {
-      tandem: Tandem.REQUIRED,
+    const options = optionize<BodyNodeOptions, BodyNodeSelfOptions, NodeOptions>()( {
+
+      // NodeOptions
       visiblePropertyOptions: { phetioReadOnly: true }
-    }, options );
+    }, providedOptions );
 
     super( options );
 
+    function createRadioButtonLabel( text: string, radioButtonTandem: Tandem ): Node {
+      return new Text( text, {
+        font: new PhetFont( 18 ),
+        fill: 'white',
+        tandem: radioButtonTandem.createTandem( 'labelText' ),
+        phetioVisiblePropertyInstrumented: false
+      } );
+    }
+
     // radio button descriptions
-    const radioButtonItems = [
+    const radioButtonItems: AquaRadioButtonGroupItem<ATDetectorMode>[] = [
       {
         value: ATDetectorMode.TRANSMITTANCE,
-        node: new Text( BeersLawLabStrings.transmittance, RADIO_BUTTON_TEXT_OPTIONS ),
+        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.transmittance, tandem ),
         tandemName: 'transmittanceRadioButton'
       },
       {
         value: ATDetectorMode.ABSORBANCE,
-        node: new Text( BeersLawLabStrings.absorbance, RADIO_BUTTON_TEXT_OPTIONS ),
+        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.absorbance, tandem ),
         tandemName: 'absorbanceRadioButton'
       }
     ];
@@ -173,7 +168,7 @@ class BodyNode extends Node {
     vBox.center = bodyNode.center;
 
     // body position
-    detector.body.positionProperty.link( position => {
+    detector.body.positionProperty.link( ( position: Vector2 ) => {
       this.translation = modelViewTransform.modelToViewPosition( position );
     } );
 
@@ -213,20 +208,14 @@ class BodyNode extends Node {
 /**
  *  The probe portion of the detector
  */
+type ATProbeNodeSelfOptions = EmptySelfOptions;
+type ATProbeNodeOptions = ATProbeNodeSelfOptions & PickRequired<ProbeNodeOptions, 'tandem'>;
+
 class ATProbeNode extends ProbeNode {
 
-  /**
-   * @param {BLLMovable} probe
-   * @param {Light} light
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Object} [options]
-   */
-  constructor( probe, light, modelViewTransform, options ) {
-    assert && assert( probe instanceof BLLMovable );
-    assert && assert( light instanceof Light );
-    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
+  public constructor( probe: BLLMovable, light: Light, modelViewTransform: ModelViewTransform2, providedOptions: ATProbeNodeOptions ) {
 
-    options = merge( {
+    const options = optionize<ATProbeNodeOptions, ATProbeNodeSelfOptions, ProbeNodeOptions>()( {
       cursor: 'pointer',
       radius: 53,
       innerRadius: 40,
@@ -235,12 +224,9 @@ class ATProbeNode extends ProbeNode {
       handleCornerRadius: 22,
       lightAngle: 1.25 * Math.PI,
       color: PROBE_COLOR,
-
-      // phet-io
-      tandem: Tandem.REQUIRED,
       phetioInputEnabledPropertyInstrumented: true,
       visiblePropertyOptions: { phetioReadOnly: true }
-    }, options );
+    }, providedOptions );
 
     super( options );
 
@@ -253,10 +239,11 @@ class ATProbeNode extends ProbeNode {
       positionProperty: probe.positionProperty,
       dragBoundsProperty: new Property( probe.dragBounds ),
       transform: modelViewTransform,
-      endDrag: () => {
-        // If the light is on and the probe is close enough to the beam...
-        if ( light.isOnProperty.value && ( probe.positionProperty.value.x >= light.position.x ) && ( Math.abs( probe.positionProperty.value.y - light.position.y ) <= 0.5 * light.lensDiameter ) ) {
-          // ... snap the probe to the center of beam.
+      end: () => {
+        // If the light is on and the probe is close enough to the beam, snap the probe to the center of beam.
+        if ( light.isOnProperty.value &&
+             ( probe.positionProperty.value.x >= light.position.x ) &&
+             ( Math.abs( probe.positionProperty.value.y - light.position.y ) <= 0.5 * light.lensDiameter ) ) {
           probe.positionProperty.value = new Vector2( probe.positionProperty.value.x, light.position.y );
         }
       },
@@ -273,28 +260,17 @@ class ATProbeNode extends ProbeNode {
  */
 class WireNode extends Path {
 
-  /**
-   * @param {BLLMovable} body
-   * @param {BLLMovable} probe
-   * @param {Node} bodyNode
-   * @param {Node} probeNode
-   * @param {Object} [options]
-   */
-  constructor( body, probe, bodyNode, probeNode, options ) {
-    assert && assert( body instanceof BLLMovable );
-    assert && assert( probe instanceof BLLMovable );
-    assert && assert( bodyNode instanceof Node );
-    assert && assert( probeNode instanceof Node );
+  public constructor( body: BLLMovable, probe: BLLMovable, bodyNode: Node, probeNode: Node ) {
 
-    options = merge( {
+    super( new Shape(), {
+
+      // PathOptions
       stroke: 'gray',
       lineWidth: 8,
       lineCap: 'square',
       lineJoin: 'round',
       pickable: false
-    }, options );
-
-    super( new Shape(), options );
+    } );
 
     const updateCurve = () => {
 
@@ -320,4 +296,3 @@ class WireNode extends Path {
 }
 
 beersLawLab.register( 'ATDetectorNode', ATDetectorNode );
-export default ATDetectorNode;
