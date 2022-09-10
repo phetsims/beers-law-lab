@@ -1,5 +1,6 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Visual representation of the ruler.
  * This is a wrapper around the common-code ruler node.
