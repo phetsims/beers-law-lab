@@ -1,5 +1,6 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * The 'Beer's Law' screen. Conforms to the contract specified in joist/Screen.
  *
