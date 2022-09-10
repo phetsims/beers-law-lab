@@ -1,6 +1,5 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * View for the 'Concentration' screen.
  *
@@ -8,13 +7,13 @@
  */
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';
-import ScreenView from '../../../../joist/js/ScreenView.js';
-import merge from '../../../../phet-core/js/merge.js';
+import ScreenView, { ScreenViewOptions } from '../../../../joist/js/ScreenView.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import EyeDropperNode from '../../../../scenery-phet/js/EyeDropperNode.js';
 import { Node } from '../../../../scenery/js/imports.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import BLLQueryParameters from '../../common/BLLQueryParameters.js';
@@ -35,21 +34,20 @@ import SolutePanel from './SolutePanel.js';
 import SolutionNode from './SolutionNode.js';
 import StockSolutionNode from './StockSolutionNode.js';
 
-class ConcentrationScreenView extends ScreenView {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {ConcentrationModel} model
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Object} [options]
-   */
-  constructor( model, modelViewTransform, options ) {
-    assert && assert( model instanceof ConcentrationModel );
-    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
+type ConcentrationScreenViewOptions = SelfOptions & PickRequired<ScreenViewOptions, 'tandem'>;
 
-    options = merge( {
-      layoutBounds: BLLConstants.LAYOUT_BOUNDS,
-      tandem: Tandem.REQUIRED
-    }, options );
+export default class ConcentrationScreenView extends ScreenView {
+
+  public constructor( model: ConcentrationModel, modelViewTransform: ModelViewTransform2,
+                      providedOptions: ConcentrationScreenViewOptions ) {
+
+    const options = optionize<ConcentrationScreenViewOptions, SelfOptions, ScreenViewOptions>()( {
+
+      // ScreenViewOptions
+      layoutBounds: BLLConstants.LAYOUT_BOUNDS
+    }, providedOptions );
 
     super( options );
 
@@ -76,10 +74,12 @@ class ConcentrationScreenView extends ScreenView {
       modelViewTransform.modelToViewX( model.beaker.right ), modelViewTransform.modelToViewY( model.beaker.position.y ) ) );
 
     // Dropper
-    const dropperNode = new BLLDropperNode( model.dropper, model.solution.solvent, model.solution.soluteProperty, modelViewTransform, {
-      tandem: options.tandem.createTandem( 'dropperNode' )
-    } );
-    const stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.soluteProperty, model.dropper, model.beaker, EyeDropperNode.TIP_WIDTH - 1, modelViewTransform );
+    const dropperNode = new BLLDropperNode( model.dropper, model.solution.solvent, model.solution.soluteProperty,
+      modelViewTransform, {
+        tandem: options.tandem.createTandem( 'dropperNode' )
+      } );
+    const stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.soluteProperty, model.dropper,
+      model.beaker, EyeDropperNode.TIP_WIDTH - 1, modelViewTransform );
 
     // faucets
     const solventFaucetNode = new BLLFaucetNode( model.solventFaucet, modelViewTransform, {
@@ -103,26 +103,22 @@ class ConcentrationScreenView extends ScreenView {
     const soluteListParent = new Node();
     const solutePanel = new SolutePanel( model.solutes, model.soluteProperty, model.soluteFormProperty, model.shaker,
       model.dropper, soluteListParent, {
-        tandem: options.tandem.createTandem( 'solutePanel' ),
-        maxWidth: 480
+        tandem: options.tandem.createTandem( 'solutePanel' )
       } );
 
     // Evaporation panel
     const evaporationPanel = new EvaporationPanel( model.evaporator, {
-      maxWidth: 410,
       tandem: options.tandem.createTandem( 'evaporationPanel' )
     } );
 
     // Solute amount, in grams
     const soluteGramsNode = new SoluteGramsNode( model.solution.soluteGramsProperty, {
-      maxWidth: 200,
       visible: BLLQueryParameters.showSoluteAmount
     } );
 
     // Remove Solute button
     const removeSoluteButton = new RemoveSoluteButton( model.solution, model.shakerParticles, {
-      tandem: options.tandem.createTandem( 'removeSoluteButton' ),
-      maxWidth: 200
+      tandem: options.tandem.createTandem( 'removeSoluteButton' )
     } );
 
     // Reset All button
@@ -133,27 +129,28 @@ class ConcentrationScreenView extends ScreenView {
     } );
 
     // Rendering order
-    this.addChild( solventFluidNode );
-    this.addChild( solventFaucetNode );
-    this.addChild( drainFluidNode );
-    this.addChild( drainFaucetNode );
-    this.addChild( stockSolutionNode );
-    this.addChild( solutionNode );
-    this.addChild( beakerNode.mutate( { layerSplit: true } ) ); // beaker is static, put in its own layer
-    this.addChild( precipitateNode );
-    this.addChild( saturatedIndicator );
-    this.addChild( shakerParticlesNode );
-    this.addChild( shakerNode );
-    this.addChild( dropperNode );
-    this.addChild( evaporationPanel );
-    this.addChild( soluteGramsNode );
-    this.addChild( removeSoluteButton );
-    this.addChild( resetAllButton );
-    this.addChild( solutePanel );
-    this.addChild( concentrationMeterNode );
-    this.addChild( soluteListParent ); // last, so that combo box list is on top
+    this.children = [
+      solventFluidNode,
+      solventFaucetNode,
+      drainFluidNode,
+      drainFaucetNode,
+      stockSolutionNode,
+      solutionNode,
+      beakerNode.mutate( { layerSplit: true } ), // beaker is static, put in its own layer
+      precipitateNode,
+      saturatedIndicator,
+      shakerParticlesNode,
+      shakerNode,
+      dropperNode,
+      evaporationPanel,
+      soluteGramsNode,
+      removeSoluteButton,
+      resetAllButton,
+      solutePanel,
+      concentrationMeterNode,
+      soluteListParent // last, so that combo box list is on top
+    ];
 
-    ////////
     // Layout for things that don't have a position in the model.
 
     // centered towards bottom of beaker
@@ -193,4 +190,3 @@ class ConcentrationScreenView extends ScreenView {
 }
 
 beersLawLab.register( 'ConcentrationScreenView', ConcentrationScreenView );
-export default ConcentrationScreenView;

@@ -9,7 +9,7 @@
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Text, TextOptions } from '../../../../scenery/js/imports.js';
@@ -21,14 +21,15 @@ const DECIMAL_PLACES = 0;
 
 type SelfOptions = EmptySelfOptions;
 
-type SoluteGramsNodeOptions = SelfOptions & PickRequired<TextOptions, 'tandem'>;
+type SoluteGramsNodeOptions = SelfOptions & PickOptional<TextOptions, 'visible'>;
 
 export default class SoluteGramsNode extends Text {
 
   public constructor( soluteGramsProperty: TReadOnlyProperty<number>, providedOptions: SoluteGramsNodeOptions ) {
 
     const options = optionize<SoluteGramsNodeOptions, SelfOptions, TextOptions>()( {
-      font: new PhetFont( 22 )
+      font: new PhetFont( 22 ),
+      maxWidth: 200
     }, providedOptions );
 
     super( '', options );

@@ -34,7 +34,8 @@ export default class EvaporationPanel extends Panel {
       yMargin: 8,
       fill: '#F0F0F0',
       stroke: 'gray',
-      lineWidth: 1
+      lineWidth: 1,
+      maxWidth: 410
     }, providedOptions );
 
     const labelString = StringUtils.format( BeersLawLabStrings.pattern[ '0label' ], BeersLawLabStrings.evaporation );

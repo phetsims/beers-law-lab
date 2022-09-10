@@ -31,7 +31,8 @@ export default class RemoveSoluteButton extends TextPushButton {
       baseColor: 'rgb(255,200,0)',
       font: new PhetFont( 22 ),
       textFill: 'black',
-      xMargin: 10
+      xMargin: 10,
+      maxWidth: 200
     }, providedOptions );
 
     super( BeersLawLabStrings.removeSolute, options );
