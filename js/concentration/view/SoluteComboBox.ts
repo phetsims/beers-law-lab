@@ -13,7 +13,6 @@ import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { HBox, Node, Rectangle, RichText, Text } from '../../../../scenery/js/imports.js';
 import ComboBox, { ComboBoxItem, ComboBoxOptions } from '../../../../sun/js/ComboBox.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Solute from '../../common/model/Solute.js';
@@ -34,8 +33,7 @@ export default class SoluteComboBox extends ComboBox<Solute> {
       xMargin: 12,
       yMargin: 12,
       highlightFill: 'rgb( 218, 255, 255 )',
-      cornerRadius: 8,
-      tandem: Tandem.REQUIRED
+      cornerRadius: 8
     }, providedOptions );
 
     // 'Solute' label

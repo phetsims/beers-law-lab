@@ -15,7 +15,6 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
@@ -49,7 +48,6 @@ export default class ATDetector extends PhetioObject {
       bodyPosition: Vector2.ZERO,
       probePosition: Vector2.ZERO,
       probeDragBounds: Bounds2.EVERYTHING,
-      tandem: Tandem.REQUIRED,
       phetioState: false
     }, providedOptions );
 
@@ -136,8 +134,11 @@ class Probe extends BLLMovable {
   public constructor( providedOptions: ProbeOptions ) {
 
     const options = optionize<ProbeOptions, ProbeSelfOptions, BLLMovableOptions>()( {
-      sensorDiameter: 1, // in cm
-      tandem: Tandem.REQUIRED,
+
+      // ProbeSelfOptions
+      sensorDiameter: 1,
+
+      // BLLMovableOptions
       phetioState: false
     }, providedOptions );
 
