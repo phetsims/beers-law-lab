@@ -34,7 +34,7 @@ export default class Light extends PhetioObject {
   public readonly position: Vector2;
   public readonly lensDiameter: number;
   public readonly isOnProperty: Property<boolean>;
-  public readonly wavelengthProperty: Property<number>;
+  public readonly wavelengthProperty: NumberProperty;
   public readonly modeProperty: EnumerationProperty<LightMode>;
 
   public constructor( solutionProperty: Property<BeersLawSolution>, providedOptions: LightOptions ) {

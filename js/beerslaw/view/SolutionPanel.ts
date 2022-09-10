@@ -1,50 +1,45 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Control panel for solution.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import merge from '../../../../phet-core/js/merge.js';
+import Property from '../../../../axon/js/Property.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { Node, VBox } from '../../../../scenery/js/imports.js';
-import Panel from '../../../../sun/js/Panel.js';
+import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import ToggleNode from '../../../../sun/js/ToggleNode.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
 import ConcentrationControl from './ConcentrationControl.js';
 import SolutionComboBox from './SolutionComboBox.js';
 
-class SolutionPanel extends Panel {
+type SelfOptions = EmptySelfOptions;
 
-  /**
-   * @param {BeersLawSolution[]} solutions
-   * @param {Property.<BeersLawSolution>} solutionProperty
-   * @param {Node} solutionListParent
-   * @param {Object} [options]
-   */
-  constructor( solutions, solutionProperty, solutionListParent, options ) {
-    assert && assert( Array.isArray( solutions ) );
-    assert && assert( _.every( solutions, solution => solution instanceof BeersLawSolution ) );
-    assert && assert( solutionListParent instanceof Node );
+type SolutionPanelOptions = SelfOptions & PickRequired<PanelOptions, 'tandem'>;
 
-    options = merge( {
+export default class SolutionPanel extends Panel {
+
+  public constructor( solutions: BeersLawSolution[], solutionProperty: Property<BeersLawSolution>,
+                      solutionListParent: Node, providedOptions: SolutionPanelOptions ) {
+
+    const options = optionize<SolutionPanelOptions, SelfOptions, PanelOptions>()( {
       xMargin: 15,
       yMargin: 15,
       fill: '#F0F0F0',
       stroke: 'gray',
-      lineWidth: 1,
-      tandem: Tandem.REQUIRED
-    }, options );
+      lineWidth: 1
+    }, providedOptions );
 
     // combo box, to select a solution
     const solutionComboBox = new SolutionComboBox( solutionProperty, solutions, solutionListParent, {
       tandem: options.tandem.createTandem( 'solutionComboBox' )
     } );
 
-    // {{value:{BeersLawSolution}, node:{ConcentrationControl}} - concentration controls, one for each solution
+    // Concentration controls, one for each solution
     const toggleNodeElements = solutions.map( solution => {
       return {
         value: solution,
@@ -74,4 +69,3 @@ class SolutionPanel extends Panel {
 }
 
 beersLawLab.register( 'SolutionPanel', SolutionPanel );
-export default SolutionPanel;

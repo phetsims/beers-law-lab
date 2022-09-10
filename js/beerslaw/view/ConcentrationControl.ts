@@ -29,7 +29,8 @@ const SLIDER_INTERVAL = 5; // in view units
 
 type SelfOptions = EmptySelfOptions;
 
-type ConcentrationControlOptions = SelfOptions & PickRequired<NumberControlOptions, 'tandem'>;
+type ConcentrationControlOptions = SelfOptions &
+  PickRequired<NumberControlOptions, 'visible' | 'tandem' | 'phetioDocumentation'>;
 
 export default class ConcentrationControl extends NumberControl {
 
@@ -74,7 +75,9 @@ export default class ConcentrationControl extends NumberControl {
           spacing: 5,
           children: [ titleNode, numberDisplay, new HStrut( 5 ), leftArrowButton!, slider, rightArrowButton! ]
         } );
-      }
+      },
+
+      visiblePropertyOptions: { phetioReadOnly: true }
     }, providedOptions );
 
     const transform = solution.concentrationTransform;
