@@ -66,9 +66,7 @@ export default class CuvetteNode extends Node {
     } );
 
     // rendering order
-    this.addChild( solutionNode );
-    this.addChild( cuvetteNode );
-    this.addChild( arrowNode );
+    this.children = [ solutionNode, cuvetteNode, arrowNode ];
 
     // when the cuvette width changes ...
     cuvette.widthProperty.link( () => {

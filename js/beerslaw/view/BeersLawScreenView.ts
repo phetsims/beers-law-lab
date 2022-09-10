@@ -1,18 +1,17 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * Scene graph for the 'Beer's Law' screen.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import ScreenView from '../../../../joist/js/ScreenView.js';
-import merge from '../../../../phet-core/js/merge.js';
+import ScreenView, { ScreenViewOptions } from '../../../../joist/js/ScreenView.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import { Node } from '../../../../scenery/js/imports.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import BLLQueryParameters from '../../common/BLLQueryParameters.js';
@@ -25,21 +24,19 @@ import LightNode from './LightNode.js';
 import SolutionPanel from './SolutionPanel.js';
 import WavelengthPanel from './WavelengthPanel.js';
 
+type SelfOptions = EmptySelfOptions;
+
+type BeersLawScreenViewOptions = SelfOptions & PickRequired<ScreenViewOptions, 'tandem'>;
+
 class BeersLawScreenView extends ScreenView {
 
-  /**
-   * @param {BeersLawModel} model
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Object} [options]
-   */
-  constructor( model, modelViewTransform, options ) {
-    assert && assert( model instanceof BeersLawModel );
-    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
+  public constructor( model: BeersLawModel, modelViewTransform: ModelViewTransform2, providedOptions: BeersLawScreenViewOptions ) {
 
-    options = merge( {
-      layoutBounds: BLLConstants.LAYOUT_BOUNDS,
-      tandem: Tandem.REQUIRED
-    }, options );
+    const options = optionize<BeersLawScreenViewOptions, SelfOptions, ScreenViewOptions>()( {
+
+      // ScreenViewOptions
+      layoutBounds: BLLConstants.LAYOUT_BOUNDS
+    }, providedOptions );
 
     super( options );
 
@@ -74,7 +71,6 @@ class BeersLawScreenView extends ScreenView {
       // below the cuvette
       left: cuvetteNode.left,
       top: cuvetteNode.bottom + 60,
-      maxWidth: 575,
       tandem: options.tandem.createTandem( 'solutionPanel' )
     } );
 
@@ -88,15 +84,17 @@ class BeersLawScreenView extends ScreenView {
     } );
 
     // Rendering order
-    this.addChild( wavelengthPanel );
-    this.addChild( resetAllButton );
-    this.addChild( solutionPanel );
-    this.addChild( detectorNode );
-    this.addChild( cuvetteNode );
-    this.addChild( beamNode );
-    this.addChild( lightNode );
-    this.addChild( rulerNode );
-    this.addChild( comboBoxListParent ); // last, so that combo box list is on top
+    this.children = [
+      wavelengthPanel,
+      resetAllButton,
+      solutionPanel,
+      detectorNode,
+      cuvetteNode,
+      beamNode,
+      lightNode,
+      rulerNode,
+      comboBoxListParent // last, so that combo box list is on top
+    ];
   }
 }
 

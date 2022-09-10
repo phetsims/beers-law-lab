@@ -9,7 +9,7 @@
 import Property from '../../../../axon/js/Property.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import { Node, VBox } from '../../../../scenery/js/imports.js';
+import { Node, NodeTranslationOptions, VBox } from '../../../../scenery/js/imports.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import ToggleNode from '../../../../sun/js/ToggleNode.js';
 import beersLawLab from '../../beersLawLab.js';
@@ -19,7 +19,7 @@ import SolutionComboBox from './SolutionComboBox.js';
 
 type SelfOptions = EmptySelfOptions;
 
-type SolutionPanelOptions = SelfOptions & PickRequired<PanelOptions, 'tandem'>;
+type SolutionPanelOptions = SelfOptions & NodeTranslationOptions & PickRequired<PanelOptions, 'tandem'>;
 
 export default class SolutionPanel extends Panel {
 
@@ -31,7 +31,8 @@ export default class SolutionPanel extends Panel {
       yMargin: 15,
       fill: '#F0F0F0',
       stroke: 'gray',
-      lineWidth: 1
+      lineWidth: 1,
+      maxWidth: 575 // determined empirically
     }, providedOptions );
 
     // combo box, to select a solution

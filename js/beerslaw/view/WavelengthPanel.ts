@@ -15,7 +15,7 @@ import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import NumberDisplay from '../../../../scenery-phet/js/NumberDisplay.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import WavelengthNumberControl from '../../../../scenery-phet/js/WavelengthNumberControl.js';
-import { HBox, HStrut, Node, Text, VBox } from '../../../../scenery/js/imports.js';
+import { HBox, HStrut, Node, NodeTranslationOptions, Text, VBox } from '../../../../scenery/js/imports.js';
 import AquaRadioButtonGroup, { AquaRadioButtonGroupItem } from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -31,7 +31,7 @@ const SLIDER_TRACK_SIZE = new Dimension2( 150, 30 );
 
 type SelfOptions = EmptySelfOptions;
 
-type WavelengthPanelOptions = SelfOptions & PickRequired<PanelOptions, 'tandem'>;
+type WavelengthPanelOptions = SelfOptions & NodeTranslationOptions & PickRequired<PanelOptions, 'tandem'>;
 
 export default class WavelengthPanel extends Panel {
 

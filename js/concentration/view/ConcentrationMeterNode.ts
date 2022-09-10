@@ -181,9 +181,9 @@ class BodyNode extends Node {
       lightOffset: 0.95
     } );
 
-    this.addChild( bodyNode );
-    this.addChild( vBox );
     vBox.center = bodyNode.center;
+
+    this.children = [ bodyNode, vBox ];
 
     this.addInputListener( new DragListener( {
       positionProperty: concentrationMeter.body.positionProperty,

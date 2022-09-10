@@ -163,9 +163,9 @@ class BodyNode extends Node {
       lightOffset: 0.95
     } );
 
-    this.addChild( bodyNode );
-    this.addChild( vBox );
     vBox.center = bodyNode.center;
+
+    this.children = [ bodyNode, vBox ];
 
     // body position
     detector.body.positionProperty.link( ( position: Vector2 ) => {
