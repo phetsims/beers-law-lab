@@ -1,5 +1,6 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * Visual representation of the light in the Beer's Law screen.
  * Origin is at the right center, where the light comes out of the 'housing'.
