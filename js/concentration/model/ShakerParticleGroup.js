@@ -1,5 +1,6 @@
 // Copyright 2020-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * ShakerParticleGroup is the PhetioGroup for dynamically creating ShakerParticle instances.
  *
