@@ -1,5 +1,6 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * BeersLawSolution is the solution model for the Beer's Law screen.
  *
