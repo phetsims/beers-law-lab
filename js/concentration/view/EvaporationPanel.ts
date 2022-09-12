@@ -44,10 +44,10 @@ export default class EvaporationPanel extends Panel {
       ( pattern: string, evaporationString: string ) => StringUtils.format( pattern, evaporationString )
     );
 
-    const labelNode = new Text( labelStringProperty, {
+    const labelText = new Text( labelStringProperty, {
       font: new PhetFont( 22 ),
       maxWidth: 130,
-      tandem: options.tandem.createTandem( 'labelNode' )
+      tandem: options.tandem.createTandem( 'labelText' )
     } );
 
     const slider = new HSlider( evaporator.evaporationRateProperty, new Range( 0, evaporator.maxEvaporationRate ), {
@@ -69,7 +69,7 @@ export default class EvaporationPanel extends Panel {
 
     const content = new HBox( {
       spacing: 10,
-      children: [ labelNode, slider ]
+      children: [ labelText, slider ]
     } );
 
     super( content, options );

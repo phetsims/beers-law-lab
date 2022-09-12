@@ -46,7 +46,7 @@ export default class SoluteComboBox extends ComboBox<Solute> {
     options.labelNode = new Text( labelStringProperty, {
       font: new PhetFont( 22 ),
       maxWidth: 75,
-      tandem: options.tandem.createTandem( 'labelNode' )
+      tandem: options.tandem.createTandem( 'labelText' )
     } );
 
     // items

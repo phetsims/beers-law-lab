@@ -68,14 +68,14 @@ function createItem( solution: BeersLawSolution ): ComboBoxItem<BeersLawSolution
     stroke: solution.saturatedColor.darkerColor()
   } );
 
-  const labelNode = new RichText( solution.labelProperty, {
+  const labelText = new RichText( solution.labelProperty, {
     maxWidth: 305, // determined empirically, so that English strings are not scaled down
     font: new PhetFont( 20 )
   } );
 
   const hBox = new HBox( {
     spacing: 5,
-    children: [ colorSquare, labelNode ]
+    children: [ colorSquare, labelText ]
   } );
 
   return {

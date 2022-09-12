@@ -133,11 +133,11 @@ class BodyNode extends Node {
     super( options );
 
     // title
-    const titleNode = new Text( BeersLawLabStrings.concentrationStringProperty, {
+    const titleText = new Text( BeersLawLabStrings.concentrationStringProperty, {
       font: new PhetFont( 18 ),
       fill: 'white',
       maxWidth: 150,
-      tandem: tandem.createTandem( 'titleNode' )
+      tandem: tandem.createTandem( 'titleText' )
     } );
 
     // value + units
@@ -147,29 +147,29 @@ class BodyNode extends Node {
       Utils.toFixed( 1, DECIMAL_PLACES_MOLES_PER_LITER ),
       BeersLawLabStrings.units.molesPerLiter
     );
-    const valueNode = new Text( valueString, {
+    const valueText = new Text( valueString, {
       font: new PhetFont( 24 ),
       fill: 'black',
       maxWidth: 150,
-      tandem: tandem.createTandem( 'valueNode' ),
+      tandem: tandem.createTandem( 'valueText' ),
       textPropertyOptions: { phetioReadOnly: true }
     } );
 
     // background behind the value
-    const backgroundWidth = Math.max( MIN_VALUE_SIZE.width, Math.max( titleNode.width, valueNode.width ) + ( 2 * READOUT_X_MARGIN ) );
-    const backgroundHeight = Math.max( MIN_VALUE_SIZE.height, valueNode.height + ( 2 * READOUT_Y_MARGIN ) );
+    const backgroundWidth = Math.max( MIN_VALUE_SIZE.width, Math.max( titleText.width, valueText.width ) + ( 2 * READOUT_X_MARGIN ) );
+    const backgroundHeight = Math.max( MIN_VALUE_SIZE.height, valueText.height + ( 2 * READOUT_Y_MARGIN ) );
     const backgroundNode = new ShadedRectangle( new Bounds2( 0, 0, backgroundWidth, backgroundHeight ), {
       baseColor: 'white',
       lightSource: 'rightBottom'
     } );
-    valueNode.right = backgroundNode.right - READOUT_X_MARGIN;
-    valueNode.centerY = backgroundNode.centerY;
+    valueText.right = backgroundNode.right - READOUT_X_MARGIN;
+    valueText.centerY = backgroundNode.centerY;
 
     // vertical arrangement of stuff in the concentrationMeter
     const vBox = new VBox( {
       excludeInvisibleChildrenFromBounds: false,
       resize: false,
-      children: [ titleNode, new Node( { children: [ backgroundNode, valueNode ] } ) ],
+      children: [ titleText, new Node( { children: [ backgroundNode, valueText ] } ) ],
       align: 'center',
       spacing: 18
     } );
@@ -202,34 +202,34 @@ class BodyNode extends Node {
     concentrationMeter.valueProperty.link( value => {
 
       if ( value === null ) {
-        valueNode.text = READOUT_NO_VALUE;
+        valueText.text = READOUT_NO_VALUE;
       }
       else {
 
         // display concentration as 'mol/L' or '%', see beers-law-lab#149
         //TODO https://github.com/phetsims/beers-law-lab/issues/288 support for dynamic locale
         if ( DISPLAY_MOLES_PER_LITER ) {
-          valueNode.text = StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1units' ],
+          valueText.text = StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1units' ],
             Utils.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), BeersLawLabStrings.units.molesPerLiter );
         }
         else {
-          valueNode.text = StringUtils.format( BeersLawLabStrings.pattern[ '0percent' ],
+          valueText.text = StringUtils.format( BeersLawLabStrings.pattern[ '0percent' ],
             Utils.toFixed( value, DECIMAL_PLACES_PERCENT ) );
         }
       }
     } );
 
     // Keep the value properly justified on the background
-    valueNode.boundsProperty.link( bounds => {
+    valueText.boundsProperty.link( bounds => {
       if ( concentrationMeter.valueProperty.value === null ) {
 
         // center justified
-        valueNode.centerX = backgroundNode.centerX;
+        valueText.centerX = backgroundNode.centerX;
       }
       else {
         // right justified
-        valueNode.right = backgroundNode.right - READOUT_X_MARGIN;
-        valueNode.centerY = backgroundNode.centerY;
+        valueText.right = backgroundNode.right - READOUT_X_MARGIN;
+        valueText.centerY = backgroundNode.centerY;
       }
     } );
   }

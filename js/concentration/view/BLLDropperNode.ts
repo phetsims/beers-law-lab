@@ -51,18 +51,18 @@ export default class BLLDropperNode extends EyeDropperNode {
     this.addChild( labelBackground );
 
     // label
-    const labelNode = new RichText( '', {
+    const labelText = new RichText( '', {
       maxWidth: 80, // determined empirically, to cover only the glass portion of the dropper
       font: new PhetFont( { size: 18, weight: 'bold' } ),
       fill: 'black',
-      tandem: options.tandem.createTandem( 'labelNode' ),
+      tandem: options.tandem.createTandem( 'labelText' ),
       textPropertyOptions: { phetioReadOnly: true }
     } );
-    this.addChild( labelNode );
+    this.addChild( labelText );
 
     // Background is visible only when label is visible.
-    // This is in case labelNode.visibleProperty is changed via PhET-iO.
-    labelNode.visibleProperty.link( visible => {
+    // This is in case labelText.visibleProperty is changed via PhET-iO.
+    labelText.visibleProperty.link( visible => {
       labelBackground.visible = visible;
     } );
 
@@ -85,23 +85,23 @@ export default class BLLDropperNode extends EyeDropperNode {
       multilink && multilink.dispose();
       multilink = new Multilink( [ solute.nameProperty, solute.formulaProperty ],
         ( name, formula ) => {
-          labelNode.text = ( formula === null ) ? name : formula;
+          labelText.text = ( formula === null ) ? name : formula;
         } );
     } );
 
     // Position the label on the dropper, and resize it's translucent background to fit.
-    labelNode.boundsProperty.link( () => {
+    labelText.boundsProperty.link( () => {
 
       // rotate to vertical, center the label in the dropper's glass
-      labelNode.rotation = -Math.PI / 2;
-      labelNode.centerX = 0;
-      labelNode.centerY = EyeDropperNode.GLASS_MAX_Y - ( EyeDropperNode.GLASS_MAX_Y - EyeDropperNode.GLASS_MIN_Y ) / 2;
+      labelText.rotation = -Math.PI / 2;
+      labelText.centerX = 0;
+      labelText.centerY = EyeDropperNode.GLASS_MAX_Y - ( EyeDropperNode.GLASS_MAX_Y - EyeDropperNode.GLASS_MIN_Y ) / 2;
 
       // Resize the translucent background.
       const width = 0.75 * EyeDropperNode.GLASS_WIDTH;
-      const height = 1.2 * labelNode.height;
-      const x = labelNode.centerX - ( width / 2 );
-      const y = labelNode.centerY - ( height / 2 );
+      const height = 1.2 * labelText.height;
+      const x = labelText.centerX - ( width / 2 );
+      const y = labelText.centerY - ( height / 2 );
       labelBackground.shape = Shape.roundRect( x, y, width, height, 5, 5 );
     } );
 
