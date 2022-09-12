@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Multilink from '../../../../axon/js/Multilink.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ScreenView, { ScreenViewOptions } from '../../../../joist/js/ScreenView.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
@@ -169,19 +170,26 @@ export default class ConcentrationScreenView extends ScreenView {
                             modelViewTransform.modelToViewDeltaX( model.beaker.size.width / 2 );
     evaporationPanel.top = beakerNode.bottom + 30;
 
-    if ( soluteGramsNode.visible ) {
-      // bottom aligned with evaporator
-      removeSoluteButton.left = evaporationPanel.right + 30;
-      removeSoluteButton.bottom = evaporationPanel.bottom;
-      //  above button
-      soluteGramsNode.left = removeSoluteButton.left;
-      soluteGramsNode.bottom = removeSoluteButton.top - 20;
-    }
-    else {
-      // left of evaporation control
-      removeSoluteButton.left = evaporationPanel.right + 30;
-      removeSoluteButton.centerY = evaporationPanel.centerY;
-    }
+    Multilink.multilink( [
+      soluteGramsNode.visibleProperty,
+      evaporationPanel.boundsProperty,
+      removeSoluteButton.boundsProperty,
+      soluteGramsNode.boundsProperty
+    ], () => {
+      if ( soluteGramsNode.visible ) {
+        // bottom aligned with evaporator
+        removeSoluteButton.left = evaporationPanel.right + 30;
+        removeSoluteButton.bottom = evaporationPanel.bottom;
+        //  above button
+        soluteGramsNode.left = removeSoluteButton.left;
+        soluteGramsNode.bottom = removeSoluteButton.top - 20;
+      }
+      else {
+        // left of evaporation control
+        removeSoluteButton.left = evaporationPanel.right + 30;
+        removeSoluteButton.centerY = evaporationPanel.centerY;
+      }
+    } );
 
     // bottom right
     resetAllButton.right = this.layoutBounds.right - 30;
