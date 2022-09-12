@@ -55,6 +55,7 @@ export default class SoluteParticle extends PhetioObject {
     };
   }
 
+  // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 where is deserializeComponents used?
   // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 type of stateObject? return type?
   public static deserializeComponents( stateObject: IntentionalAny ): IntentionalAny {
     return {
