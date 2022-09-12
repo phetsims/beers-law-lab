@@ -15,7 +15,7 @@ import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioO
 import Tandem from '../../../../tandem/js/Tandem.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
-import ReferenceIO from '../../../../tandem/js/types/ReferenceIO.js';
+import ReferenceIO, { ReferenceIOState } from '../../../../tandem/js/types/ReferenceIO.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
@@ -42,6 +42,8 @@ type SelfOptions = {
 };
 
 type SoluteOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
+
+export type SoluteStateObject = ReferenceIOState;
 
 export default class Solute extends PhetioObject {
 
@@ -202,8 +204,7 @@ export default class Solute extends PhetioObject {
    * 'Reference type serialization', as described in the Serialization section of
    * https://github.com/phetsims/phet-io/blob/master/doc/phet-io-instrumentation-technical-guide.md#serialization
    */
-  //TODO https://github.com/phetsims/beers-law-lab/issues/287 does IOType need generic params?
-  public static readonly SoluteIO = new IOType( 'SoluteIO', {
+  public static readonly SoluteIO = new IOType<Solute, SoluteStateObject>( 'SoluteIO', {
     valueType: Solute,
     supertype: ReferenceIO( IOType.ObjectIO ),
     documentation: 'A solute in the Concentration screen'
