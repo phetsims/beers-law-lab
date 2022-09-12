@@ -26,7 +26,8 @@
         "phet-io-wrapper-lab-book"
       ]
     },
-    "supportsOutputJS": true
+    "supportsOutputJS": true,
+    "supportsDynamicLocale": true
   },
   "eslintConfig": {
     "extends": "../chipper/eslint/sim_eslintrc.js"

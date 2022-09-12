@@ -66,8 +66,8 @@ export default class WavelengthPanel extends Panel {
       yMargin: 3,
 
       //TODO https://github.com/phetsims/beers-law-lab/issues/288 support for dynamic locale
-      numberFormatter: wavelength => StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1units' ],
-        Utils.toFixed( wavelength, 0 ), BeersLawLabStrings.units.nm ),
+      numberFormatter: wavelength => StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value,
+        Utils.toFixed( wavelength, 0 ), BeersLawLabStrings.units.nmStringProperty ),
       tandem: options.tandem.createTandem( 'numberDisplay' )
     } );
 
