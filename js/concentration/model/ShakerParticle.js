@@ -1,5 +1,6 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * A particle that comes out of the shaker.
  * The particle falls towards the surface of the solution, may bounce off the wall
