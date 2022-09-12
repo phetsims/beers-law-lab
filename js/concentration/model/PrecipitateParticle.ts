@@ -1,7 +1,7 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
 /**
- * One particle that makes up the precipitate that forms on the bottom of the beaker.
+ * PrecipitateParticle is one particle that makes up the precipitate that forms on the bottom of the beaker.
  * Precipitate particles are static (they don't move). They have no associated animation,
  * and they magically appear on the bottom of the beaker.
  *
