@@ -7,7 +7,7 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import Vector2 from '../../../../dot/js/Vector2.js';
+import Vector2, { Vector2StateObject } from '../../../../dot/js/Vector2.js';
 import Vector2Property from '../../../../dot/js/Vector2Property.js';
 import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -15,12 +15,17 @@ import { Color } from '../../../../scenery/js/imports.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
-import NumberIO from '../../../../tandem/js/types/NumberIO.js';
+import NumberIO, { NumberStateObject } from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
 
 type SelfOptions = EmptySelfOptions;
 
 type SoluteParticleOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
+
+type SoluteParticleStateObject = {
+  position: Vector2StateObject;
+  orientation: NumberStateObject;
+};
 
 export default class SoluteParticle extends PhetioObject {
 
@@ -47,24 +52,22 @@ export default class SoluteParticle extends PhetioObject {
     this.orientation = orientation;
   }
 
-  // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 return type?
-  public toStateObject(): IntentionalAny {
+  private toStateObject(): SoluteParticleStateObject {
     return {
       position: this.positionProperty.value.toStateObject(),
       orientation: NumberIO.toStateObject( this.orientation )
     };
   }
 
-  // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 where is deserializeComponents used?
-  // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 type of stateObject? return type?
-  public static deserializeComponents( stateObject: IntentionalAny ): IntentionalAny {
+  // TODO https://github.com/phetsims/beers-law-lab/issues/287 where is deserializeComponents used? return type?
+  public static deserializeComponents( stateObject: SoluteParticleStateObject ): IntentionalAny {
     return {
       position: Vector2.Vector2IO.fromStateObject( stateObject.position ),
       orientation: NumberIO.fromStateObject( stateObject.orientation )
     };
   }
 
-  public static readonly SoluteParticleIO = new IOType( 'SoluteParticleIO', {
+  public static readonly SoluteParticleIO = new IOType<SoluteParticle, SoluteParticleStateObject>( 'SoluteParticleIO', {
     // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 TS error
     valueType: SoluteParticle,
     documentation: 'A particle of solute to add to the solution',
