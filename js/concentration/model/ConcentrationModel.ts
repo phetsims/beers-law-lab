@@ -56,22 +56,6 @@ export default class ConcentrationModel extends PhetioObject {
   public readonly drainFaucet: Faucet;
   public readonly concentrationMeter: ConcentrationMeter;
 
-  public static readonly ConcentrationModelIO = new IOType( 'ConcentrationModelIO', {
-    valueType: ConcentrationModel,
-    documentation: 'The model for the concentration screen.',
-    methods: {
-      setSolutes: {
-        parameterTypes: [ ArrayIO( Solute.SoluteIO ) ],
-        returnType: VoidIO,
-
-        // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 Property 'setSolutes' does not exist on type 'typeof ConcentrationModel'
-        implementation: solutes => this.setSolutes( solutes ),
-        documentation: 'Set which solutes are allowed for selection',
-        invocableForReadOnlyElements: false
-      }
-    }
-  } );
-
   public constructor( providedOptions: ConcentrationModelOptions ) {
 
     const options = optionize<ConcentrationModelOptions, SelfOptions, PhetioObjectOptions>()( {
@@ -315,6 +299,22 @@ export default class ConcentrationModel extends PhetioObject {
       return 0;
     }
   }
+
+  public static readonly ConcentrationModelIO = new IOType( 'ConcentrationModelIO', {
+    valueType: ConcentrationModel,
+    documentation: 'The model for the concentration screen.',
+    methods: {
+      setSolutes: {
+        parameterTypes: [ ArrayIO( Solute.SoluteIO ) ],
+        returnType: VoidIO,
+
+        // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 Property 'setSolutes' does not exist on type 'typeof ConcentrationModel'
+        implementation: solutes => this.setSolutes( solutes ),
+        documentation: 'Set which solutes are allowed for selection',
+        invocableForReadOnlyElements: false
+      }
+    }
+  } );
 }
 
 beersLawLab.register( 'ConcentrationModel', ConcentrationModel );
