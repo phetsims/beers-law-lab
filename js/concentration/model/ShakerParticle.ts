@@ -28,7 +28,7 @@ type ShakerParticleStateObject = {
   acceleration: Vector2StateObject;
 } & SoluteParticleStateObject;
 
-type ConstructorParameters = [ Solute, Vector2, number, Vector2, Vector2 ];
+export type ShakerParticleConstructorParameters = [ Solute, Vector2, number, Vector2, Vector2 ];
 
 export default class ShakerParticle extends SoluteParticle {
 
@@ -84,7 +84,7 @@ export default class ShakerParticle extends SoluteParticle {
     } );
   }
 
-  public static stateToArgsForConstructor( stateObject: ShakerParticleStateObject ): ConstructorParameters {
+  public static stateToArgsForConstructor( stateObject: ShakerParticleStateObject ): ShakerParticleConstructorParameters {
     const superComponents = SoluteParticle.deserializeComponents( stateObject );
     return [
       Solute.SoluteIO.fromStateObject( stateObject.solute ),

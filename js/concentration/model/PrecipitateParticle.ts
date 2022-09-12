@@ -24,7 +24,7 @@ type PrecipitateParticleStateObject = {
   solute: SoluteStateObject;
 } & SoluteParticleStateObject;
 
-type ConstructorParameters = [ Solute, Vector2, number ];
+export type PrecipitateParticleConstructorParameters = [ Solute, Vector2, number ];
 
 export default class PrecipitateParticle extends SoluteParticle {
 
@@ -48,7 +48,7 @@ export default class PrecipitateParticle extends SoluteParticle {
     } );
   }
 
-  public static stateToArgsForConstructor( stateObject: PrecipitateParticleStateObject ): ConstructorParameters {
+  public static stateToArgsForConstructor( stateObject: PrecipitateParticleStateObject ): PrecipitateParticleConstructorParameters {
     const superComponents = SoluteParticle.deserializeComponents( stateObject );
     return [
       Solute.SoluteIO.fromStateObject( stateObject.solute ),

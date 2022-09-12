@@ -1,6 +1,5 @@
 // Copyright 2020-2022, University of Colorado Boulder
 
-// @ts-nocheck
 /**
  * PrecipitateParticleGroup is the PhetioGroup for dynamically creating PrecipitateParticle instances.
  *
@@ -8,46 +7,40 @@
  */
 
 import Vector2 from '../../../../dot/js/Vector2.js';
-import merge from '../../../../phet-core/js/merge.js';
-import PhetioGroup from '../../../../tandem/js/PhetioGroup.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import PhetioGroup, { PhetioGroupOptions } from '../../../../tandem/js/PhetioGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import Solute from '../../common/model/Solute.js';
-import PrecipitateParticle from './PrecipitateParticle.js';
+import PrecipitateParticle, { PrecipitateParticleConstructorParameters } from './PrecipitateParticle.js';
 
 // Default args to PrecipitateParticle constructor, passed to createElement during API harvest
-const DEFAULT_ARGUMENTS = [ Solute.DRINK_MIX, Vector2.ZERO, 0 ];
+const DEFAULT_ARGUMENTS: PrecipitateParticleConstructorParameters = [ Solute.DRINK_MIX, Vector2.ZERO, 0 ];
 
-//TODO https://github.com/phetsims/beers-law-lab/issues/287 PhetioGroup requires parameters, why is TS not complaining?
-class PrecipitateParticleGroup extends PhetioGroup {
+type SelfOptions = EmptySelfOptions;
 
-  constructor( options ) {
+type PrecipitateParticleGroupOptions = SelfOptions & PickRequired<PhetioGroupOptions, 'tandem'>;
 
-    options = merge( {
+export default class PrecipitateParticleGroup extends PhetioGroup<PrecipitateParticle, PrecipitateParticleConstructorParameters> {
 
-      // phet-io
-      tandem: Tandem.REQUIRED,
+  public constructor( providedOptions: PrecipitateParticleGroupOptions ) {
+
+    const options = optionize<PrecipitateParticleGroupOptions, SelfOptions, PhetioGroupOptions>()( {
+
+      // PhetioGroupOptions
       phetioType: PhetioGroup.PhetioGroupIO( PrecipitateParticle.PrecipitateParticleIO ),
       phetioDocumentation: 'The group for precipitate particles that are dynamically created'
-    }, options );
+    }, providedOptions );
 
-    /**
-     * Instantiates a dynamic ShakerParticle.
-     * @param {Tandem} tandem - PhetioGroup requires tandem to be the first param
-     * @param {Solute} solute
-     * @param {Vector2} position position in the beaker's coordinate frame
-     * @param {number} orientation in radians
-     * @returns {PrecipitateParticle}
-     */
-    const createElement = ( tandem, solute, position, orientation ) => {
-      return new PrecipitateParticle( solute, position, orientation, {
+    // Instantiates a dynamic PrecipitateParticle.
+    const createElement = ( tandem: Tandem, solute: Solute, position: Vector2, orientation: number ) =>
+      new PrecipitateParticle( solute, position, orientation, {
         tandem: tandem
       } );
-    };
 
     super( createElement, DEFAULT_ARGUMENTS, options );
   }
 }
 
 beersLawLab.register( 'PrecipitateParticleGroup', PrecipitateParticleGroup );
-export default PrecipitateParticleGroup;
