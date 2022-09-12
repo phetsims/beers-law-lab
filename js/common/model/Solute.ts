@@ -20,7 +20,6 @@ import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import SoluteColorScheme from '../../concentration/model/SoluteColorScheme.js';
-import BLLSymbols from '../BLLSymbols.js';
 import Solvent from './Solvent.js';
 
 // parent tandem for all static instances of Solute
@@ -128,7 +127,7 @@ export default class Solute extends PhetioObject {
 
   public static readonly COBALT_II_NITRATE = new Solute( {
     name: BeersLawLabStrings.cobaltIINitrate,
-    formula: BLLSymbols.COBALT_II_NITRATE,
+    formula: 'Co(NO<sub>3</sub>)<sub>2</sub>',
     stockSolutionConcentration: 5.0,
     molarMass: 182.942,
     colorScheme: new SoluteColorScheme( 0, Solvent.WATER.colorProperty.value, 0.05, new Color( 255, 225, 225 ), 5.64, new Color( 255, 0, 0 ) ),
@@ -137,7 +136,7 @@ export default class Solute extends PhetioObject {
 
   public static readonly COBALT_CHLORIDE = new Solute( {
     name: BeersLawLabStrings.cobaltChloride,
-    formula: BLLSymbols.COBALT_CHLORIDE,
+    formula: 'CoCl<sub>2</sub>',
     stockSolutionConcentration: 4.0,
     molarMass: 129.839,
     colorScheme: new SoluteColorScheme( 0, Solvent.WATER.colorProperty.value, 0.05, new Color( 255, 242, 242 ), 4.33, new Color( 255, 106, 106 ) ),
@@ -146,7 +145,7 @@ export default class Solute extends PhetioObject {
 
   public static readonly POTASSIUM_DICHROMATE = new Solute( {
     name: BeersLawLabStrings.potassiumDichromate,
-    formula: BLLSymbols.POTASSIUM_DICHROMATE,
+    formula: 'K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>',
     stockSolutionConcentration: 0.5,
     molarMass: 294.185,
     colorScheme: new SoluteColorScheme( 0, Solvent.WATER.colorProperty.value, 0.01, new Color( 255, 204, 153 ), 0.51, new Color( 255, 127, 0 ) ),
@@ -155,7 +154,7 @@ export default class Solute extends PhetioObject {
 
   public static readonly POTASSIUM_CHROMATE = new Solute( {
     name: BeersLawLabStrings.potassiumChromate,
-    formula: BLLSymbols.POTASSIUM_CHROMATE,
+    formula: 'K<sub>2</sub>CrO<sub>4</sub>',
     stockSolutionConcentration: 3.0,
     molarMass: 194.191,
     colorScheme: new SoluteColorScheme( 0, Solvent.WATER.colorProperty.value, 0.05, new Color( 255, 255, 153 ), 3.35, new Color( 255, 255, 0 ) ),
@@ -164,7 +163,7 @@ export default class Solute extends PhetioObject {
 
   public static readonly NICKEL_II_CHLORIDE = new Solute( {
     name: BeersLawLabStrings.nickelIIChloride,
-    formula: BLLSymbols.NICKEL_II_CHLORIDE,
+    formula: 'NiCl<sub>2</sub>',
     stockSolutionConcentration: 5.0,
     molarMass: 129.599,
     colorScheme: new SoluteColorScheme( 0, Solvent.WATER.colorProperty.value, 0.2, new Color( 170, 255, 170 ), 5.21, new Color( 0, 128, 0 ) ),
@@ -173,7 +172,7 @@ export default class Solute extends PhetioObject {
 
   public static readonly COPPER_SULFATE = new Solute( {
     name: BeersLawLabStrings.copperSulfate,
-    formula: BLLSymbols.COPPER_SULFATE,
+    formula: 'CuSO<sub>4</sub>',
     stockSolutionConcentration: 1.0,
     molarMass: 159.609,
     colorScheme: new SoluteColorScheme( 0, Solvent.WATER.colorProperty.value, 0.2, new Color( 200, 225, 255 ), 1.38, new Color( 30, 144, 255 ) ),
@@ -182,7 +181,7 @@ export default class Solute extends PhetioObject {
 
   public static readonly POTASSIUM_PERMANGANATE = new Solute( {
     name: BeersLawLabStrings.potassiumPermanganate,
-    formula: BLLSymbols.POTASSIUM_PERMANGANATE,
+    formula: 'KMnO<sub>4</sub>',
     stockSolutionConcentration: 0.4,
     molarMass: 158.034,
     colorScheme: new SoluteColorScheme( 0, Solvent.WATER.colorProperty.value, 0.01, new Color( 255, 0, 255 ), 0.48, new Color( 80, 0, 120 ) ),
@@ -192,7 +191,7 @@ export default class Solute extends PhetioObject {
 
   public static readonly SODIUM_CHLORIDE = new Solute( {
     name: BeersLawLabStrings.sodiumChloride,
-    formula: BLLSymbols.SODIUM_CHLORIDE,
+    formula: 'NaCl',
     stockSolutionConcentration: 5.50,
     molarMass: 58.443,
     colorScheme: new SoluteColorScheme( 0, Solvent.WATER.colorProperty.value, 5.00, new Color( 225, 250, 250 ), 6.15, new Color( 225, 240, 240 ) ),
