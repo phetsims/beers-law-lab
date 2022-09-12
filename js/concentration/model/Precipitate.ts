@@ -78,8 +78,6 @@ export default class Precipitate {
   private addParticles( numberToAdd: number ): void {
     assert && assert( numberToAdd > 0, `invalid numberToAdd: ${numberToAdd}` );
     for ( let i = 0; i < numberToAdd; i++ ) {
-
-      // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 PhetioGroup is unhappy with these args
       this.particleGroup.createNextElement( this.solution.soluteProperty.value,
         this.getRandomOffset(),
         getRandomOrientation()

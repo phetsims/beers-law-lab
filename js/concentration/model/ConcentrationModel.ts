@@ -58,7 +58,6 @@ export default class ConcentrationModel extends PhetioObject {
 
   public static readonly SOLUTION_VOLUME_RANGE = SOLUTION_VOLUME_RANGE;
 
-  //TODO https://github.com/phetsims/beers-law-lab/issues/287 does IOType need generic params?
   public static readonly ConcentrationModelIO = new IOType( 'ConcentrationModelIO', {
     valueType: ConcentrationModel,
     documentation: 'The model for the concentration screen.',

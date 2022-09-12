@@ -113,7 +113,6 @@ export default class Shaker extends BLLMovable {
     this.previousPosition = this.positionProperty.value;
   }
 
-  //TODO https://github.com/phetsims/beers-law-lab/issues/287 does IOType need generic params?
   public static readonly ShakerIO = new IOType( 'ShakerIO', {
     valueType: Shaker,
     documentation: 'The Shaker that releases solute',
