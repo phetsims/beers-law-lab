@@ -1,6 +1,5 @@
 // Copyright 2020-2022, University of Colorado Boulder
 
-//TODO https://github.com/phetsims/beers-law-lab/issues/287 rename to ShakerParticlesGroup
 /**
  * ShakerParticleGroup is the PhetioGroup for dynamically creating ShakerParticle instances.
  *

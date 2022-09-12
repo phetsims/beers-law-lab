@@ -17,7 +17,7 @@ class PrecipitateNode extends ParticlesNode {
    * @param {Bounds2} canvasBounds
    */
   constructor( precipitate, modelViewTransform, canvasBounds ) {
-    super( precipitate.particlesGroup, modelViewTransform, canvasBounds );
+    super( precipitate.particleGroup, modelViewTransform, canvasBounds );
   }
 }
 

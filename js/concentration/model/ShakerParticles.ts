@@ -35,7 +35,7 @@ type ShakerParticlesOptions = SelfOptions & PickRequired<PhetioObjectOptions, 't
 
 export default class ShakerParticles {
 
-  public readonly particlesGroup: ShakerParticleGroup;
+  public readonly particleGroup: ShakerParticleGroup;
   public readonly particlesMovedEmitter: Emitter; // emits on step if one or more particles has moved
 
   public constructor( private readonly shaker: Shaker,
@@ -43,8 +43,8 @@ export default class ShakerParticles {
                       private readonly beaker: Beaker,
                       providedOptions: ShakerParticlesOptions ) {
 
-    this.particlesGroup = new ShakerParticleGroup( {
-      tandem: providedOptions.tandem.createTandem( 'particlesGroup' )
+    this.particleGroup = new ShakerParticleGroup( {
+      tandem: providedOptions.tandem.createTandem( 'particleGroup' )
     } );
 
     this.particlesMovedEmitter = new Emitter();
@@ -52,7 +52,7 @@ export default class ShakerParticles {
     // when the solute changes, remove all particles
     solution.soluteProperty.link( () => {
 
-      // Remove all particles, unless solute was being restored by PhET-iO. Particles will be restored by particlesGroup.
+      // Remove all particles, unless solute was being restored by PhET-iO. Particles will be restored by particleGroup.
       if ( !phet.joist.sim.isSettingPhetioStateProperty.value ) {
         this.removeAllParticles();
       }
@@ -60,7 +60,7 @@ export default class ShakerParticles {
   }
 
   public removeAllParticles(): void {
-    this.particlesGroup.clear();
+    this.particleGroup.clear();
   }
 
   public reset(): void {
@@ -70,7 +70,7 @@ export default class ShakerParticles {
   // Particle animation and delivery to the solution, called when the simulation clock ticks.
   public step( dt: number ): void {
 
-    const particles = this.particlesGroup.getArray();
+    const particles = this.particleGroup.getArray();
     const beaker = this.beaker;
     const shaker = this.shaker;
     const solution = this.solution;
@@ -86,7 +86,7 @@ export default class ShakerParticles {
       const percentFull = solution.volumeProperty.value / beaker.volume;
       const solutionSurfaceY = beaker.position.y - ( percentFull * beaker.size.height ) - solution.soluteProperty.value.particleSize;
       if ( particle.positionProperty.value.y > solutionSurfaceY ) {
-        this.particlesGroup.disposeElement( particle );
+        this.particleGroup.disposeElement( particle );
         solution.soluteMolesProperty.value = Math.min(
           BLLConstants.SOLUTE_AMOUNT_RANGE.max,
           solution.soluteMolesProperty.value + ( 1 / solution.soluteProperty.value.particlesPerMole )
@@ -106,7 +106,7 @@ export default class ShakerParticles {
       for ( let j = 0; j < numberOfParticles; j++ ) {
 
         // @ts-ignore https://github.com/phetsims/beers-law-lab/issues/287 TS error
-        this.particlesGroup.createNextElement( solution.soluteProperty.value,
+        this.particleGroup.createNextElement( solution.soluteProperty.value,
           getRandomPosition( this.shaker.positionProperty.value ),
           getRandomOrientation(),
           this.getInitialVelocity(),

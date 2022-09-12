@@ -16,12 +16,12 @@ import beersLawLab from '../../beersLawLab.js';
 class ParticlesNode extends CanvasNode {
 
   /**
-   * @param {PhetioGroup} particlesGroup
+   * @param {PhetioGroup} particleGroup
    * @param {ModelViewTransform2} modelViewTransform
    * @param {Bounds2} canvasBounds
    */
-  constructor( particlesGroup, modelViewTransform, canvasBounds ) {
-    assert && assert( particlesGroup instanceof PhetioGroup );
+  constructor( particleGroup, modelViewTransform, canvasBounds ) {
+    assert && assert( particleGroup instanceof PhetioGroup );
     assert && assert( modelViewTransform instanceof ModelViewTransform2 );
 
     super( {
@@ -30,14 +30,14 @@ class ParticlesNode extends CanvasNode {
     } );
 
     // @public
-    this.particlesGroup = particlesGroup;
+    this.particleGroup = particleGroup;
 
     // @private
     this.modelViewTransform = modelViewTransform;
 
     // If particles are added or removed, then redraw.
-    particlesGroup.elementCreatedEmitter.addListener( () => this.invalidatePaint() );
-    particlesGroup.elementDisposedEmitter.addListener( () => this.invalidatePaint() );
+    particleGroup.elementCreatedEmitter.addListener( () => this.invalidatePaint() );
+    particleGroup.elementDisposedEmitter.addListener( () => this.invalidatePaint() );
   }
 
   /**
@@ -47,7 +47,7 @@ class ParticlesNode extends CanvasNode {
    */
   paintCanvas( context ) {
 
-    const particles = this.particlesGroup.getArray();
+    const particles = this.particleGroup.getArray();
     let halfViewSize;
     const numberOfParticles = particles.length;
 

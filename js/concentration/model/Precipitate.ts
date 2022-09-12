@@ -25,15 +25,15 @@ export default class Precipitate {
 
   private readonly solution: ConcentrationSolution;
   private readonly beaker: Beaker;
-  public readonly particlesGroup: PrecipitateParticleGroup;
+  public readonly particleGroup: PrecipitateParticleGroup;
 
   public constructor( solution: ConcentrationSolution, beaker: Beaker, providedOptions: PrecipitateOptions ) {
 
     this.solution = solution;
     this.beaker = beaker;
 
-    this.particlesGroup = new PrecipitateParticleGroup( {
-      tandem: providedOptions.tandem.createTandem( 'particlesGroup' )
+    this.particleGroup = new PrecipitateParticleGroup( {
+      tandem: providedOptions.tandem.createTandem( 'particleGroup' )
     } );
 
     // when the saturation changes, update the number of precipitate particles
@@ -42,7 +42,7 @@ export default class Precipitate {
     // when the solute changes, remove all particles and create new particles for the solute
     this.solution.soluteProperty.link( () => {
 
-      // Remove all particles, unless solute was being restored by PhET-iO. Particles will be restored by particlesGroup.
+      // Remove all particles, unless solute was being restored by PhET-iO. Particles will be restored by particleGroup.
       if ( !phet.joist.sim.isSettingPhetioStateProperty.value ) {
         this.removeAllParticles();
         this.updateParticles();
@@ -60,16 +60,16 @@ export default class Precipitate {
     // number of particles desired after this update
     const numberOfParticles = this.solution.getNumberOfPrecipitateParticles();
 
-    if ( numberOfParticles === this.particlesGroup.count ) {
+    if ( numberOfParticles === this.particleGroup.count ) {
       return; // no change, do nothing
     }
-    else if ( numberOfParticles < this.particlesGroup.count ) {
-      this.removeParticles( this.particlesGroup.count - numberOfParticles );
+    else if ( numberOfParticles < this.particleGroup.count ) {
+      this.removeParticles( this.particleGroup.count - numberOfParticles );
     }
     else {
-      this.addParticles( numberOfParticles - this.particlesGroup.count );
+      this.addParticles( numberOfParticles - this.particleGroup.count );
     }
-    assert && assert( this.particlesGroup.count === numberOfParticles );
+    assert && assert( this.particleGroup.count === numberOfParticles );
   }
 
   /**
@@ -80,7 +80,7 @@ export default class Precipitate {
     for ( let i = 0; i < numberToAdd; i++ ) {
 
       // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 PhetioGroup is unhappy with these args
-      this.particlesGroup.createNextElement( this.solution.soluteProperty.value,
+      this.particleGroup.createNextElement( this.solution.soluteProperty.value,
         this.getRandomOffset(),
         getRandomOrientation()
       );
@@ -92,7 +92,7 @@ export default class Precipitate {
    */
   private removeParticles( numberToRemove: number ): void {
 
-    const particles = this.particlesGroup.getArray();
+    const particles = this.particleGroup.getArray();
     assert && assert( numberToRemove > 0 && numberToRemove <= particles.length, `invalid numberToRemove: ${numberToRemove}` );
 
     const removedParticles = particles.slice( particles.length - numberToRemove, numberToRemove );
@@ -100,7 +100,7 @@ export default class Precipitate {
       `unexpected number of particles removed: expected ${numberToRemove}, removed ${removedParticles.length}` );
 
     for ( let i = 0; i < removedParticles.length; i++ ) {
-      this.particlesGroup.disposeElement( removedParticles[ i ] );
+      this.particleGroup.disposeElement( removedParticles[ i ] );
     }
   }
 
@@ -108,7 +108,7 @@ export default class Precipitate {
    * Removes all particles from the precipitate.
    */
   private removeAllParticles(): void {
-    this.particlesGroup.clear();
+    this.particleGroup.clear();
   }
 
   /**
