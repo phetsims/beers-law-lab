@@ -13,9 +13,7 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import Multilink from '../../../../axon/js/Multilink.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import StringProperty from '../../../../axon/js/StringProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Utils from '../../../../dot/js/Utils.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -32,9 +30,9 @@ import Solute from '../../common/model/Solute.js';
 import Solvent from '../../common/model/Solvent.js';
 import ConcentrationTransform from './ConcentrationTransform.js';
 import MolarAbsorptivityData from './MolarAbsorptivityData.js';
-import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import optionize from '../../../../phet-core/js/optionize.js';
+import StringIO from '../../../../tandem/js/types/StringIO.js';
 
 // parent tandem for all static instances of BeersLawSolution
 const SOLUTIONS_TANDEM = Tandem.ROOT.createTandem( 'beersLawScreen' ).createTandem( 'model' ).createTandem( 'solutions' );
@@ -42,8 +40,8 @@ const SOLUTIONS_TANDEM = Tandem.ROOT.createTandem( 'beersLawScreen' ).createTand
 type SelfOptions = {
 
   // required
-  nameProperty: Property<string>; // name that is visible to the user
-  formulaProperty: Property<string | null>; // formula that is visible to the user, null defaults to nameProperty.value
+  nameProperty: TReadOnlyProperty<string>; // name that is visible to the user
+  formulaProperty: TReadOnlyProperty<string | null>; // formula that is visible to the user, null defaults to nameProperty.value
   molarAbsorptivityData: MolarAbsorptivityData;
   concentrationRange: RangeWithValue;
   concentrationTransform: ConcentrationTransform;
@@ -63,7 +61,7 @@ export default class BeersLawSolution extends PhetioObject {
   public readonly colorRange: ColorRange;
   public readonly saturatedColor: Color;
 
-  public readonly labelProperty: Property<string>;
+  public readonly labelProperty: TReadOnlyProperty<string>;
   public readonly concentrationProperty: NumberProperty;
   public readonly fluidColorProperty: TReadOnlyProperty<Color>;
 
@@ -91,16 +89,13 @@ export default class BeersLawSolution extends PhetioObject {
     this.colorRange = options.colorRange;
     this.saturatedColor = options.saturatedColor;
 
-    //TODO https://github.com/phetsims/beers-law-lab/issues/288 use DerivedProperty to support dynamic locale
-    this.labelProperty = new StringProperty( formatLabel( options.nameProperty.value, options.formulaProperty.value ), {
-      tandem: options.tandem.createTandem( 'labelProperty' ),
-      phetioDocumentation: 'The string used to label the solution, derived from the solute nameProperty and formulaProperty.',
-      phetioReadOnly: true
-    } );
-    Multilink.lazyMultilink(
-      [ options.nameProperty, options.formulaProperty ],
-      ( name, formula ) => {
-        this.labelProperty.value = formatLabel( name, formula );
+    this.labelProperty = new DerivedProperty(
+      [ BeersLawLabStrings.pattern[ '0formula' ][ '1nameStringProperty' ], options.nameProperty, options.formulaProperty ],
+      ( pattern, name, formula ) => ( formula === null || formula === '' ) ? name : StringUtils.format( pattern, formula, name ), {
+        phetioValueType: StringIO,
+        tandem: options.tandem.createTandem( 'labelProperty' ),
+        phetioDocumentation: 'The string used to label the solution, derived from the solute nameProperty and formulaProperty.',
+        phetioReadOnly: true
       } );
 
     this.concentrationProperty = new NumberProperty( options.concentrationRange.defaultValue, {
@@ -220,14 +215,6 @@ export default class BeersLawSolution extends PhetioObject {
     supertype: ReferenceIO( IOType.ObjectIO ),
     documentation: 'A solution in the Beer\'s Law screen'
   } );
-}
-
-/**
- * Formats the label for a solution.
- */
-function formatLabel( name: string, formula: string | null ): string {
-  return ( formula === null || formula === '' ) ? name :
-         StringUtils.format( BeersLawLabStrings.pattern[ '0formula' ][ '1name' ], formula, name );
 }
 
 beersLawLab.register( 'BeersLawSolution', BeersLawSolution );

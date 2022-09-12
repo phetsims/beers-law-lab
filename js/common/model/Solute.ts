@@ -7,7 +7,7 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import StringProperty from '../../../../axon/js/StringProperty.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { Color } from '../../../../scenery/js/imports.js';
@@ -28,7 +28,7 @@ const SOLUTES_TANDEM = Tandem.GLOBAL_MODEL.createTandem( 'solutes' );
 type SelfOptions = {
 
   // required
-  name: string;
+  nameProperty: TReadOnlyProperty<string>;
   stockSolutionConcentration: number; // mol/L
   molarMass: number; // g/mol
   colorScheme: SoluteColorScheme;
@@ -49,11 +49,10 @@ export default class Solute extends PhetioObject {
   // the solute's tandem name, used to create other tandems that pertain to this solute
   public readonly tandemName: string;
 
-  // Added for PhET-iO, see https://github.com/phetsims/beers-law-lab/issues/272
-  public readonly nameProperty: Property<string>;
+  public readonly nameProperty: TReadOnlyProperty<string>;
 
   // Added for PhET-iO, see https://github.com/phetsims/beers-law-lab/issues/272
-  public readonly formulaProperty: Property<string | null>;
+  public readonly formulaProperty: TReadOnlyProperty<string | null>;
 
   public readonly stockSolutionConcentration: number; // mol/L
   public readonly molarMass: number; // g/mol
@@ -84,10 +83,7 @@ export default class Solute extends PhetioObject {
 
     this.tandemName = options.tandem.name;
 
-    this.nameProperty = new StringProperty( options.name, {
-      tandem: options.tandem.createTandem( 'nameProperty' ),
-      phetioDocumentation: 'The solute name. Changing it here will change it everywhere in the user interface.'
-    } );
+    this.nameProperty = options.nameProperty;
 
     this.formulaProperty = new Property( options.formula, {
       tandem: options.tandem.createTandem( 'formulaProperty' ),
@@ -118,7 +114,7 @@ export default class Solute extends PhetioObject {
   }
 
   public static readonly DRINK_MIX = new Solute( {
-    name: BeersLawLabStrings.drinkMix,
+    nameProperty: BeersLawLabStrings.drinkMixStringProperty,
     stockSolutionConcentration: 5.5,
     molarMass: 342.296, // sucrose
     colorScheme: new SoluteColorScheme( 0, new Color( 224, 255, 255 ), 0.05, new Color( 255, 225, 225 ), 5.96, new Color( 255, 0, 0 ) ),
@@ -126,7 +122,7 @@ export default class Solute extends PhetioObject {
   } );
 
   public static readonly COBALT_II_NITRATE = new Solute( {
-    name: BeersLawLabStrings.cobaltIINitrate,
+    nameProperty: BeersLawLabStrings.cobaltIINitrateStringProperty,
     formula: 'Co(NO<sub>3</sub>)<sub>2</sub>',
     stockSolutionConcentration: 5.0,
     molarMass: 182.942,
@@ -135,7 +131,7 @@ export default class Solute extends PhetioObject {
   } );
 
   public static readonly COBALT_CHLORIDE = new Solute( {
-    name: BeersLawLabStrings.cobaltChloride,
+    nameProperty: BeersLawLabStrings.cobaltChlorideStringProperty,
     formula: 'CoCl<sub>2</sub>',
     stockSolutionConcentration: 4.0,
     molarMass: 129.839,
@@ -144,7 +140,7 @@ export default class Solute extends PhetioObject {
   } );
 
   public static readonly POTASSIUM_DICHROMATE = new Solute( {
-    name: BeersLawLabStrings.potassiumDichromate,
+    nameProperty: BeersLawLabStrings.potassiumDichromateStringProperty,
     formula: 'K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>',
     stockSolutionConcentration: 0.5,
     molarMass: 294.185,
@@ -153,7 +149,7 @@ export default class Solute extends PhetioObject {
   } );
 
   public static readonly POTASSIUM_CHROMATE = new Solute( {
-    name: BeersLawLabStrings.potassiumChromate,
+    nameProperty: BeersLawLabStrings.potassiumChromateStringProperty,
     formula: 'K<sub>2</sub>CrO<sub>4</sub>',
     stockSolutionConcentration: 3.0,
     molarMass: 194.191,
@@ -162,7 +158,7 @@ export default class Solute extends PhetioObject {
   } );
 
   public static readonly NICKEL_II_CHLORIDE = new Solute( {
-    name: BeersLawLabStrings.nickelIIChloride,
+    nameProperty: BeersLawLabStrings.nickelIIChlorideStringProperty,
     formula: 'NiCl<sub>2</sub>',
     stockSolutionConcentration: 5.0,
     molarMass: 129.599,
@@ -171,7 +167,7 @@ export default class Solute extends PhetioObject {
   } );
 
   public static readonly COPPER_SULFATE = new Solute( {
-    name: BeersLawLabStrings.copperSulfate,
+    nameProperty: BeersLawLabStrings.copperSulfateStringProperty,
     formula: 'CuSO<sub>4</sub>',
     stockSolutionConcentration: 1.0,
     molarMass: 159.609,
@@ -180,7 +176,7 @@ export default class Solute extends PhetioObject {
   } );
 
   public static readonly POTASSIUM_PERMANGANATE = new Solute( {
-    name: BeersLawLabStrings.potassiumPermanganate,
+    nameProperty: BeersLawLabStrings.potassiumPermanganateStringProperty,
     formula: 'KMnO<sub>4</sub>',
     stockSolutionConcentration: 0.4,
     molarMass: 158.034,
@@ -190,7 +186,7 @@ export default class Solute extends PhetioObject {
   } );
 
   public static readonly SODIUM_CHLORIDE = new Solute( {
-    name: BeersLawLabStrings.sodiumChloride,
+    nameProperty: BeersLawLabStrings.sodiumChlorideStringProperty,
     formula: 'NaCl',
     stockSolutionConcentration: 5.50,
     molarMass: 58.443,

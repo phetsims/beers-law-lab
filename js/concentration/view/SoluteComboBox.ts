@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -36,8 +37,13 @@ export default class SoluteComboBox extends ComboBox<Solute> {
       cornerRadius: 8
     }, providedOptions );
 
+    const labelStringProperty = new DerivedProperty(
+      [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.soluteStringProperty ],
+      ( pattern: string, soluteString: string ) => StringUtils.format( pattern, soluteString )
+    );
+
     // 'Solute' label
-    options.labelNode = new Text( StringUtils.format( BeersLawLabStrings.pattern[ '0label' ], BeersLawLabStrings.solute ), {
+    options.labelNode = new Text( labelStringProperty, {
       font: new PhetFont( 22 ),
       maxWidth: 75,
       tandem: options.tandem.createTandem( 'labelNode' )
