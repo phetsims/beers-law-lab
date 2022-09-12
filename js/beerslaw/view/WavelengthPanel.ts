@@ -7,6 +7,7 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
@@ -64,12 +65,15 @@ export default class WavelengthPanel extends Panel {
     const numberDisplay = new NumberDisplay( light.wavelengthProperty, light.wavelengthProperty.range!, {
       xMargin: 7,
       yMargin: 3,
-
-      //TODO https://github.com/phetsims/beers-law-lab/issues/288 support for dynamic locale
-      numberFormatter: wavelength => StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value,
-        Utils.toFixed( wavelength, 0 ), BeersLawLabStrings.units.nmStringProperty ),
       tandem: options.tandem.createTandem( 'numberDisplay' )
     } );
+
+    // Whenever one of the strings used to format the NumberDisplay changes, call setNumberFormatter with a
+    // new formatting function.
+    Multilink.multilink(
+      [ BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ], BeersLawLabStrings.units.nmStringProperty ],
+      ( pattern, nmString ) => numberDisplay.setNumberFormatter( wavelength => StringUtils.format( pattern, Utils.toFixed( wavelength, 0 ), nmString ) )
+    );
 
     function createRadioButtonLabel( text: TReadOnlyProperty<string>, radioButtonTandem: Tandem ): Node {
       return new Text( text, {
