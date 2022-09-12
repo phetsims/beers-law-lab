@@ -66,6 +66,8 @@ export default class Solute extends PhetioObject {
 
   public constructor( providedOptions: SoluteOptions ) {
 
+    assert && assert( Solute.SoluteIO, 'SoluteIO and Solute instances are statics, so make sure SoluteIO exists' );
+
     const options = optionize<SoluteOptions, SelfOptions, PhetioObjectOptions>()( {
 
       // SelfOptions
@@ -112,6 +114,17 @@ export default class Solute extends PhetioObject {
   public getSaturatedConcentration(): number {
     return this.colorScheme.maxConcentration;
   }
+
+  /**
+   * SoluteIO handles PhET-iO serialization of Solute. Since all Solutes are static instances, it implements
+   * 'Reference type serialization', as described in the Serialization section of
+   * https://github.com/phetsims/phet-io/blob/master/doc/phet-io-instrumentation-technical-guide.md#serialization
+   */
+  public static readonly SoluteIO = new IOType<Solute, SoluteStateObject>( 'SoluteIO', {
+    valueType: Solute,
+    supertype: ReferenceIO( IOType.ObjectIO ),
+    documentation: 'A solute in the Concentration screen'
+  } );
 
   public static readonly DRINK_MIX = new Solute( {
     nameProperty: BeersLawLabStrings.drinkMixStringProperty,
@@ -192,17 +205,6 @@ export default class Solute extends PhetioObject {
     molarMass: 58.443,
     colorScheme: new SoluteColorScheme( 0, Solvent.WATER.colorProperty.value, 5.00, new Color( 225, 250, 250 ), 6.15, new Color( 225, 240, 240 ) ),
     tandem: SOLUTES_TANDEM.createTandem( 'sodiumChloride' )
-  } );
-
-  /**
-   * SoluteIO handles PhET-iO serialization of Solute. Since all Solutes are static instances, it implements
-   * 'Reference type serialization', as described in the Serialization section of
-   * https://github.com/phetsims/phet-io/blob/master/doc/phet-io-instrumentation-technical-guide.md#serialization
-   */
-  public static readonly SoluteIO = new IOType<Solute, SoluteStateObject>( 'SoluteIO', {
-    valueType: Solute,
-    supertype: ReferenceIO( IOType.ObjectIO ),
-    documentation: 'A solute in the Concentration screen'
   } );
 }
 

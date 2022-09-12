@@ -70,6 +70,9 @@ export default class BeersLawSolution extends PhetioObject {
 
   public constructor( providedOptions: BeersLawSolutionOptions ) {
 
+    assert && assert( BeersLawSolution.BeersLawSolutionIO,
+      'BeersLawSolutionIO and BeersLawSolution instances are statics, so make sure BeersLawSolutionIO exists' );
+
     const options = optionize<BeersLawSolutionOptions, SelfOptions, PhetioObjectOptions>()( {
 
       // SelfOptions
@@ -121,6 +124,17 @@ export default class BeersLawSolution extends PhetioObject {
   public reset(): void {
     this.concentrationProperty.reset();
   }
+
+  /**
+   * BeersLawSolutionIO handles PhET-iO serialization of BeersLawSolution. Since all BeersLawSolution are
+   * static instances, it implements 'Reference type serialization', as described in the Serialization section of
+   * https://github.com/phetsims/phet-io/blob/master/doc/phet-io-instrumentation-technical-guide.md#serialization
+   */
+  public static readonly BeersLawSolutionIO = new IOType( 'BeersLawSolutionIO', {
+    valueType: BeersLawSolution,
+    supertype: ReferenceIO( IOType.ObjectIO ),
+    documentation: 'A solution in the Beer\'s Law screen'
+  } );
 
   public static readonly DRINK_MIX = new BeersLawSolution( {
     nameProperty: Solute.DRINK_MIX.nameProperty,
@@ -203,17 +217,6 @@ export default class BeersLawSolution extends PhetioObject {
     // has a special saturated color
     saturatedColor: new Color( 80, 0, 120 ),
     tandem: SOLUTIONS_TANDEM.createTandem( 'potassiumPermanganate' )
-  } );
-
-  /**
-   * BeersLawSolutionIO handles PhET-iO serialization of BeersLawSolution. Since all BeersLawSolution are
-   * static instances, it implements 'Reference type serialization', as described in the Serialization section of
-   * https://github.com/phetsims/phet-io/blob/master/doc/phet-io-instrumentation-technical-guide.md#serialization
-   */
-  public static readonly BeersLawSolutionIO = new IOType( 'BeersLawSolutionIO', {
-    valueType: BeersLawSolution,
-    supertype: ReferenceIO( IOType.ObjectIO ),
-    documentation: 'A solution in the Beer\'s Law screen'
   } );
 }
 
