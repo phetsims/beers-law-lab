@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
@@ -96,6 +97,7 @@ class BodyNode extends Node {
       return new Text( text, {
         font: new PhetFont( 18 ),
         fill: 'white',
+        maxWidth: 120,
         tandem: radioButtonTandem.createTandem( 'labelText' ),
         phetioVisiblePropertyInstrumented: false
       } );
@@ -124,35 +126,51 @@ class BodyNode extends Node {
       orientation: 'vertical',
       align: 'left',
       spacing: 15,
-      maxWidth: 260,
       tandem: options.tandem.createTandem( 'radioButtonGroup' )
     } );
 
     // value + units
-    const maxValue = 100;
-    const valueText = StringUtils.format( BeersLawLabStrings.pattern[ '0percent' ],
-      Utils.toFixed( maxValue, TRANSMITTANCE_DECIMAL_PLACES ) );
-    const valueNode = new Text( valueText, {
+    const valueStringProperty = new DerivedProperty(
+      [
+        BeersLawLabStrings.pattern[ '0percentStringProperty' ],
+        detector.valueProperty,
+        detector.modeProperty
+      ],
+      ( pattern, value, mode ) => {
+        let valueString: string;
+        if ( value === null ) {
+          valueString = NO_VALUE;
+        }
+        else {
+          if ( mode === ATDetectorMode.TRANSMITTANCE ) {
+            valueString = StringUtils.format( BeersLawLabStrings.pattern[ '0percent' ],
+              Utils.toFixed( value, TRANSMITTANCE_DECIMAL_PLACES ) );
+          }
+          else {
+            valueString = Utils.toFixed( value, ABSORBANCE_DECIMAL_PLACES );
+          }
+        }
+        return valueString;
+      } );
+    const valueText = new Text( valueStringProperty, {
       font: new PhetFont( 24 ),
       maxWidth: 150,
-      tandem: options.tandem.createTandem( 'valueNode' ),
+      tandem: options.tandem.createTandem( 'valueText' ),
       textPropertyOptions: { phetioReadOnly: true }
     } );
 
     // background behind the value
-    const backgroundWidth = Math.max( MIN_VALUE_SIZE.width, Math.max( radioButtonGroup.width, valueNode.width ) + ( 2 * VALUE_X_MARGIN ) );
-    const backgroundHeight = Math.max( MIN_VALUE_SIZE.height, valueNode.height + ( 2 * VALUE_Y_MARGIN ) );
+    const backgroundWidth = Math.max( MIN_VALUE_SIZE.width, Math.max( radioButtonGroup.width, valueText.width ) + ( 2 * VALUE_X_MARGIN ) );
+    const backgroundHeight = Math.max( MIN_VALUE_SIZE.height, valueText.height + ( 2 * VALUE_Y_MARGIN ) );
     const backgroundNode = new ShadedRectangle( new Bounds2( 0, 0, backgroundWidth, backgroundHeight ), {
       baseColor: 'white',
       lightSource: 'rightBottom'
     } );
-    valueNode.right = backgroundNode.right - VALUE_X_MARGIN;
-    valueNode.centerY = backgroundNode.centerY;
 
     // vertical arrangement of stuff in the meter
     const vBox = new VBox( {
-      children: [ new Node( { children: [ backgroundNode, valueNode ] } ), radioButtonGroup ],
-      align: 'center',
+      children: [ new Node( { children: [ backgroundNode, valueText ] } ), radioButtonGroup ],
+      align: 'left',
       spacing: 12
     } );
 
@@ -173,35 +191,16 @@ class BodyNode extends Node {
       this.translation = modelViewTransform.modelToViewPosition( position );
     } );
 
-    // update the value display
-    const valueUpdater = () => {
-      const value = detector.valueProperty.value;
-      if ( value === null ) {
-        valueNode.text = NO_VALUE;
-      }
-      else {
-        if ( detector.modeProperty.value === ATDetectorMode.TRANSMITTANCE ) {
-          valueNode.text = StringUtils.format( BeersLawLabStrings.pattern[ '0percent' ],
-            Utils.toFixed( value, TRANSMITTANCE_DECIMAL_PLACES ) );
-        }
-        else {
-          valueNode.text = Utils.toFixed( value, ABSORBANCE_DECIMAL_PLACES );
-        }
-      }
-    };
-    detector.valueProperty.link( valueUpdater );
-    detector.modeProperty.link( valueUpdater );
-
-    valueNode.boundsProperty.link( bounds => {
+    valueText.boundsProperty.link( bounds => {
       if ( detector.valueProperty.value === null ) {
         // centered
-        valueNode.centerX = backgroundNode.centerX;
+        valueText.centerX = backgroundNode.centerX;
       }
       else {
         // right justified
-        valueNode.right = backgroundNode.right - VALUE_X_MARGIN;
-        valueNode.centerY = backgroundNode.centerY;
+        valueText.right = backgroundNode.right - VALUE_X_MARGIN;
       }
+      valueText.centerY = backgroundNode.centerY;
     } );
   }
 }
