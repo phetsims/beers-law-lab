@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
@@ -48,16 +49,23 @@ export default class WavelengthPanel extends Panel {
       lineWidth: 1
     }, providedOptions );
 
-    const labelNode = new Text( StringUtils.format( BeersLawLabStrings.pattern[ '0label' ], BeersLawLabStrings.wavelength ), {
+    const labelStringProperty = new DerivedProperty(
+      [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.wavelengthStringProperty ],
+      ( pattern: string, wavelengthString: string ) => StringUtils.format( pattern, wavelengthString )
+    );
+
+    const labelText = new Text( labelStringProperty, {
       font: new PhetFont( 20 ),
       fill: 'black',
-      tandem: options.tandem.createTandem( 'labelNode' )
+      tandem: options.tandem.createTandem( 'labelText' )
     } );
 
     assert && assert( light.wavelengthProperty.range );
     const numberDisplay = new NumberDisplay( light.wavelengthProperty, light.wavelengthProperty.range!, {
       xMargin: 7,
       yMargin: 3,
+
+      //TODO https://github.com/phetsims/beers-law-lab/issues/288 support for dynamic locale
       numberFormatter: wavelength => StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1units' ],
         Utils.toFixed( wavelength, 0 ), BeersLawLabStrings.units.nm ),
       tandem: options.tandem.createTandem( 'numberDisplay' )
@@ -132,7 +140,7 @@ export default class WavelengthPanel extends Panel {
       children: [
         new HBox( {
           spacing: 10,
-          children: [ labelNode, numberDisplay ],
+          children: [ labelText, numberDisplay ],
           maxWidth: 250
         } ),
         radioButtonGroup,

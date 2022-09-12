@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Range from '../../../../dot/js/Range.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
@@ -38,8 +39,12 @@ export default class EvaporationPanel extends Panel {
       maxWidth: 410
     }, providedOptions );
 
-    const labelString = StringUtils.format( BeersLawLabStrings.pattern[ '0label' ], BeersLawLabStrings.evaporation );
-    const labelNode = new Text( labelString, {
+    const labelStringProperty = new DerivedProperty(
+      [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.evaporationStringProperty ],
+      ( pattern: string, evaporationString: string ) => StringUtils.format( pattern, evaporationString )
+    );
+
+    const labelNode = new Text( labelStringProperty, {
       font: new PhetFont( 22 ),
       maxWidth: 130,
       tandem: options.tandem.createTandem( 'labelNode' )

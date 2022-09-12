@@ -98,6 +98,7 @@ export default class BeakerNode extends Node {
         if ( labelIndex < MAJOR_TICK_VALUES_LITERS.length ) {
 
           // display ticks in liters or milliliters, see beers-law-lab#150
+          //TODO https://github.com/phetsims/beers-law-lab/issues/288 support for dynamic locale
           const label = ( BLLQueryParameters.beakerUnits === 'liters' ) ?
                         StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1units' ],
                           MAJOR_TICK_VALUES_LITERS[ labelIndex ], BeersLawLabStrings.units.liters ) :

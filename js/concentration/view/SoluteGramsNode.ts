@@ -34,6 +34,7 @@ export default class SoluteGramsNode extends Text {
 
     super( '', options );
 
+    //TODO https://github.com/phetsims/beers-law-lab/issues/288 support for dynamic locale
     soluteGramsProperty.link( soluteGrams => {
       this.text = StringUtils.format( BeersLawLabStrings.pattern[ '0soluteAmount' ],
         Utils.toFixed( soluteGrams, DECIMAL_PLACES ) );

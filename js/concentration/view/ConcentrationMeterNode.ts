@@ -141,6 +141,7 @@ class BodyNode extends Node {
     } );
 
     // value + units
+    //TODO https://github.com/phetsims/beers-law-lab/issues/288 support for dynamic locale
     const valueString = StringUtils.format(
       BeersLawLabStrings.pattern[ '0value' ][ '1units' ],
       Utils.toFixed( 1, DECIMAL_PLACES_MOLES_PER_LITER ),
@@ -206,6 +207,7 @@ class BodyNode extends Node {
       else {
 
         // display concentration as 'mol/L' or '%', see beers-law-lab#149
+        //TODO https://github.com/phetsims/beers-law-lab/issues/288 support for dynamic locale
         if ( DISPLAY_MOLES_PER_LITER ) {
           valueNode.text = StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1units' ],
             Utils.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), BeersLawLabStrings.units.molesPerLiter );
