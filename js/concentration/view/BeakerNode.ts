@@ -7,6 +7,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import { Shape } from '../../../../kite/js/imports.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
@@ -98,14 +99,17 @@ export default class BeakerNode extends Node {
         if ( labelIndex < MAJOR_TICK_VALUES_LITERS.length ) {
 
           // display ticks in liters or milliliters, see beers-law-lab#150
-          //TODO https://github.com/phetsims/beers-law-lab/issues/288 support for dynamic locale
-          const label = ( BLLQueryParameters.beakerUnits === 'liters' ) ?
-                        StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1units' ],
-                          MAJOR_TICK_VALUES_LITERS[ labelIndex ], BeersLawLabStrings.units.liters ) :
-                        StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1units' ],
-                          MAJOR_TICK_VALUES_MILLILITERS[ labelIndex ], BeersLawLabStrings.units.milliliters );
+          const labelStringProperty = new DerivedProperty( [
+              BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
+              BeersLawLabStrings.units.litersStringProperty,
+              BeersLawLabStrings.units.millilitersStringProperty
+            ],
+            ( pattern, litersString, millilitersString ) =>
+              StringUtils.format( pattern, MAJOR_TICK_VALUES_LITERS[ labelIndex ],
+                ( BLLQueryParameters.beakerUnits === 'liters' ) ? litersString : millilitersString )
+          );
 
-          tickLabelsNode.addChild( new Text( label, {
+          tickLabelsNode.addChild( new Text( labelStringProperty, {
             font: new PhetFont( 24 ),
             fill: 'black',
             x: rightX + TICK_LABEL_X_SPACING,

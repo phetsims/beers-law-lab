@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
@@ -32,13 +33,12 @@ export default class SoluteGramsNode extends Text {
       maxWidth: 200
     }, providedOptions );
 
-    super( '', options );
+    const stringProperty = new DerivedProperty(
+      [ BeersLawLabStrings.pattern[ '0soluteAmountStringProperty' ], soluteGramsProperty ],
+      ( pattern, soluteGrams ) => StringUtils.format( pattern, Utils.toFixed( soluteGrams, DECIMAL_PLACES ) )
+    );
 
-    //TODO https://github.com/phetsims/beers-law-lab/issues/288 support for dynamic locale
-    soluteGramsProperty.link( soluteGrams => {
-      this.text = StringUtils.format( BeersLawLabStrings.pattern[ '0soluteAmount' ],
-        Utils.toFixed( soluteGrams, DECIMAL_PLACES ) );
-    } );
+    super( stringProperty, options );
   }
 }
 

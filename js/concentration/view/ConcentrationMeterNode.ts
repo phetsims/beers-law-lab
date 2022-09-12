@@ -38,6 +38,7 @@ import ConcentrationMeter from '../model/ConcentrationMeter.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import Dropper from '../model/Dropper.js';
 import BLLMovable from '../../common/model/BLLMovable.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 
 // constants
 const DECIMAL_PLACES_MOLES_PER_LITER = 3;
@@ -141,13 +142,30 @@ class BodyNode extends Node {
     } );
 
     // value + units
-    //TODO https://github.com/phetsims/beers-law-lab/issues/288 support for dynamic locale
-    const valueString = StringUtils.format(
-      BeersLawLabStrings.pattern[ '0value' ][ '1units' ],
-      Utils.toFixed( 1, DECIMAL_PLACES_MOLES_PER_LITER ),
-      BeersLawLabStrings.units.molesPerLiter
+    const valueStringProperty = new DerivedProperty(
+      [ BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
+        BeersLawLabStrings.pattern[ '0percentStringProperty' ],
+        concentrationMeter.valueProperty,
+        BeersLawLabStrings.units.molesPerLiterStringProperty ],
+      ( patternValueUnits, patternValuePercent, value, molesPerLiterString ) => {
+        let text: string;
+        if ( value === null ) {
+          text = READOUT_NO_VALUE;
+        }
+        else {
+
+          // display concentration as 'mol/L' or '%', see beers-law-lab#149
+          if ( DISPLAY_MOLES_PER_LITER ) {
+            text = StringUtils.format( patternValueUnits, Utils.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), molesPerLiterString );
+          }
+          else {
+            text = StringUtils.format( patternValuePercent, Utils.toFixed( value, DECIMAL_PLACES_PERCENT ) );
+          }
+        }
+        return text;
+      }
     );
-    const valueText = new Text( valueString, {
+    const valueText = new Text( valueStringProperty, {
       font: new PhetFont( 24 ),
       fill: 'black',
       maxWidth: 150,
@@ -196,27 +214,6 @@ class BodyNode extends Node {
     // body position
     concentrationMeter.body.positionProperty.link( position => {
       this.translation = modelViewTransform.modelToViewPosition( position );
-    } );
-
-    // when the value changes, update the readout
-    concentrationMeter.valueProperty.link( value => {
-
-      if ( value === null ) {
-        valueText.text = READOUT_NO_VALUE;
-      }
-      else {
-
-        // display concentration as 'mol/L' or '%', see beers-law-lab#149
-        //TODO https://github.com/phetsims/beers-law-lab/issues/288 support for dynamic locale
-        if ( DISPLAY_MOLES_PER_LITER ) {
-          valueText.text = StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1units' ],
-            Utils.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), BeersLawLabStrings.units.molesPerLiter );
-        }
-        else {
-          valueText.text = StringUtils.format( BeersLawLabStrings.pattern[ '0percent' ],
-            Utils.toFixed( value, DECIMAL_PLACES_PERCENT ) );
-        }
-      }
     } );
 
     // Keep the value properly justified on the background
