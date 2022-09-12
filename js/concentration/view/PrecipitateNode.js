@@ -1,5 +1,6 @@
 // Copyright 2020-2021, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * PrecipitateNode displays precipitate at the bottom of the beaker.
  *

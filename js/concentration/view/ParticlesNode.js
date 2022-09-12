@@ -1,5 +1,6 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
+// @ts-nocheck
 /**
  * ParticlesNode is the base class for drawing a system of  particles. It draws directly to canvas for performance.
  * It's use for drawing particles that fall out of the shaker, and for precipitate on the bottom of the beaker.

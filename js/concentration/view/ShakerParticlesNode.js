@@ -1,5 +1,6 @@
 // Copyright 2020-2021, University of Colorado Boulder
 
+// @ts-nocheck
 import beersLawLab from '../../beersLawLab.js';
 import ParticlesNode from './ParticlesNode.js';
 
