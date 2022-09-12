@@ -108,10 +108,10 @@ export default class ConcentrationControl extends NumberControl {
       reentrant: true,
 
       // map from model to view, apply options.interval to model value
-      map: value => transform.modelToView( value ),
+      map: ( value : number ) => transform.modelToView( value ),
 
       // map from view to model, apply options.interval to model value
-      inverseMap: value => transform.viewToModel( value )
+      inverseMap: ( value: number ) => transform.viewToModel( value )
     } );
 
     // convert solution's concentration range from model to view

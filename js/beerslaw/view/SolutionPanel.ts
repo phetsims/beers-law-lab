@@ -46,8 +46,8 @@ export default class SolutionPanel extends Panel {
         value: solution,
         node: new ConcentrationControl( solution, {
           visible: false,
-          tandem: options.tandem.createTandem( `${solution.internalName}ConcentrationControl` ),
-          phetioDocumentation: `the concentration control for ${solution.internalName}`
+          tandem: options.tandem.createTandem( `${solution.tandemName}ConcentrationControl` ),
+          phetioDocumentation: `the concentration control for ${solution.tandemName}`
         } )
       };
     } );
