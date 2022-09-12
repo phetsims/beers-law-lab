@@ -56,8 +56,6 @@ export default class ConcentrationModel extends PhetioObject {
   public readonly drainFaucet: Faucet;
   public readonly concentrationMeter: ConcentrationMeter;
 
-  public static readonly SOLUTION_VOLUME_RANGE = SOLUTION_VOLUME_RANGE;
-
   public static readonly ConcentrationModelIO = new IOType( 'ConcentrationModelIO', {
     valueType: ConcentrationModel,
     documentation: 'The model for the concentration screen.',
