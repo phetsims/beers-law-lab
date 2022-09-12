@@ -18,6 +18,7 @@ import PrecipitateParticle from './PrecipitateParticle.js';
 // Default args to PrecipitateParticle constructor, passed to createElement during API harvest
 const DEFAULT_ARGUMENTS = [ Solute.DRINK_MIX, Vector2.ZERO, 0 ];
 
+//TODO https://github.com/phetsims/beers-law-lab/issues/287 PhetioGroup required parameters, why is TS not complaining?
 class PrecipitateParticleGroup extends PhetioGroup {
 
   constructor( options ) {
