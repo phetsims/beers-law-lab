@@ -35,7 +35,7 @@ export default class RemoveSoluteButton extends TextPushButton {
       maxWidth: 200
     }, providedOptions );
 
-    super( BeersLawLabStrings.removeSolute, options );
+    super( BeersLawLabStrings.removeSoluteStringProperty, options );
 
     this.addListener( () => {
       solution.soluteMolesProperty.value = 0;

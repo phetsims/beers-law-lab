@@ -58,9 +58,9 @@ export default class EvaporationPanel extends Panel {
     } );
 
     // Tick marks
-    const tickFont = new PhetFont( 16 );
-    slider.addMajorTick( 0, new Text( BeersLawLabStrings.none, { font: tickFont } ) );
-    slider.addMajorTick( evaporator.maxEvaporationRate, new Text( BeersLawLabStrings.lots, { font: tickFont } ) );
+    const tickOptions = { font: new PhetFont( 16 ) };
+    slider.addMajorTick( 0, new Text( BeersLawLabStrings.noneStringProperty, tickOptions ) );
+    slider.addMajorTick( evaporator.maxEvaporationRate, new Text( BeersLawLabStrings.lotsStringProperty, tickOptions ) );
 
     const content = new HBox( {
       spacing: 10,

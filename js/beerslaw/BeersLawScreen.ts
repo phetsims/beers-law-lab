@@ -30,7 +30,7 @@ export default class BeersLawScreen extends Screen {
     const options = optionize<BeersLawScreenOptions, SelfOptions, ScreenOptions>()( {
 
       // ScreenOptions
-      name: BeersLawLabStrings.screen.beersLaw,
+      name: BeersLawLabStrings.screen.beersLawStringProperty,
       homeScreenIcon: createScreenIcon()
     }, providedOptions );
 

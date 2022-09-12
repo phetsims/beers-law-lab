@@ -29,7 +29,7 @@ export default class ConcentrationScreen extends Screen {
     const options = optionize<ConcentrationScreenOptions, SelfOptions, ScreenOptions>()( {
 
       // ScreenOptions
-      name: BeersLawLabStrings.screen.concentration,
+      name: BeersLawLabStrings.screen.concentrationStringProperty,
       homeScreenIcon: createScreenIcon()
     }, providedOptions );
 

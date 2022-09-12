@@ -8,6 +8,7 @@
 
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
@@ -48,12 +49,12 @@ export default class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup<Sol
     const items: AquaRadioButtonGroupItem<SoluteForm>[] = [
       {
         value: SoluteForm.SOLID,
-        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.solid, shakerIcon_png, tandem ),
+        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.solidStringProperty, shakerIcon_png, tandem ),
         tandemName: 'solidRadioButton'
       },
       {
         value: SoluteForm.SOLUTION,
-        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.solution, dropperIcon_png, tandem ),
+        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.solutionStringProperty, dropperIcon_png, tandem ),
         tandemName: 'solutionRadioButton'
       }
     ];
@@ -78,7 +79,7 @@ export default class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup<Sol
 /**
  * Creates the label for a radio button.
  */
-function createRadioButtonLabel( text: string, image: HTMLImageElement, radioButtonTandem: Tandem ): Node {
+function createRadioButtonLabel( text: TReadOnlyProperty<string>, image: HTMLImageElement, radioButtonTandem: Tandem ): Node {
   return new HBox( {
     spacing: 10,
     children: [

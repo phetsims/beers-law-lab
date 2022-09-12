@@ -7,6 +7,7 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Utils from '../../../../dot/js/Utils.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
@@ -62,7 +63,7 @@ export default class WavelengthPanel extends Panel {
       tandem: options.tandem.createTandem( 'numberDisplay' )
     } );
 
-    function createRadioButtonLabel( text: string, radioButtonTandem: Tandem ): Node {
+    function createRadioButtonLabel( text: TReadOnlyProperty<string>, radioButtonTandem: Tandem ): Node {
       return new Text( text, {
         font: new PhetFont( 18 ),
         fill: 'black',
@@ -74,12 +75,12 @@ export default class WavelengthPanel extends Panel {
     const radioButtonItems: AquaRadioButtonGroupItem<LightMode>[] = [
       {
         value: LightMode.PRESET,
-        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.preset, tandem ),
+        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.presetStringProperty, tandem ),
         tandemName: 'presetWavelengthRadioButton'
       },
       {
         value: LightMode.VARIABLE,
-        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.variable, tandem ),
+        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.variableStringProperty, tandem ),
         tandemName: 'variableWavelengthRadioButton'
       }
     ];

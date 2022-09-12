@@ -133,7 +133,7 @@ class BodyNode extends Node {
     super( options );
 
     // title
-    const titleNode = new Text( BeersLawLabStrings.concentration, {
+    const titleNode = new Text( BeersLawLabStrings.concentrationStringProperty, {
       font: new PhetFont( 18 ),
       fill: 'white',
       maxWidth: 150,

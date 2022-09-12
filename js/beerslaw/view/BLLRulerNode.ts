@@ -49,7 +49,7 @@ export default class BLLRulerNode extends RulerNode {
     const height = modelViewTransform.modelToViewDeltaY( ruler.height );
     const majorTickWidth = modelViewTransform.modelToViewDeltaX( MAJOR_TICK_WIDTH );
 
-    super( width, height, majorTickWidth, majorTickLabels, BeersLawLabStrings.units.centimeters, options );
+    super( width, height, majorTickWidth, majorTickLabels, BeersLawLabStrings.units.centimetersStringProperty, options );
 
     // touch area
     const dx = 0.05 * this.width;

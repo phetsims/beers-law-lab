@@ -7,6 +7,7 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Utils from '../../../../dot/js/Utils.js';
@@ -91,7 +92,7 @@ class BodyNode extends Node {
 
     super( options );
 
-    function createRadioButtonLabel( text: string, radioButtonTandem: Tandem ): Node {
+    function createRadioButtonLabel( text: TReadOnlyProperty<string>, radioButtonTandem: Tandem ): Node {
       return new Text( text, {
         font: new PhetFont( 18 ),
         fill: 'white',
@@ -104,12 +105,12 @@ class BodyNode extends Node {
     const radioButtonItems: AquaRadioButtonGroupItem<ATDetectorMode>[] = [
       {
         value: ATDetectorMode.TRANSMITTANCE,
-        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.transmittance, tandem ),
+        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.transmittanceStringProperty, tandem ),
         tandemName: 'transmittanceRadioButton'
       },
       {
         value: ATDetectorMode.ABSORBANCE,
-        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.absorbance, tandem ),
+        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.absorbanceStringProperty, tandem ),
         tandemName: 'absorbanceRadioButton'
       }
     ];

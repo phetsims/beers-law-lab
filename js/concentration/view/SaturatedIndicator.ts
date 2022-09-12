@@ -19,7 +19,7 @@ export default class SaturatedIndicator extends Node {
 
     super();
 
-    const labelText = new Text( BeersLawLabStrings.saturated, { font: new PhetFont( 20 ), maxWidth: 400 } );
+    const labelText = new Text( BeersLawLabStrings.saturatedStringProperty, { font: new PhetFont( 20 ), maxWidth: 400 } );
 
     // translucent light-gray background, so this shows up on all solution colors
     const backgroundNode = new Rectangle( 0, 0, 1.2 * labelText.width, 1.2 * labelText.height, 8, 8,
