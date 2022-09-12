@@ -14,7 +14,6 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { Color } from '../../../../scenery/js/imports.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
-import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
 import NumberIO, { NumberStateObject } from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
@@ -28,6 +27,11 @@ export type SoluteParticleOptions = SelfOptions &
 export type SoluteParticleStateObject = {
   position: Vector2StateObject;
   orientation: NumberStateObject;
+};
+
+export type SoluteParticleComponents = {
+  position: Vector2;
+  orientation: number;
 };
 
 export default class SoluteParticle extends PhetioObject {
@@ -44,8 +48,8 @@ export default class SoluteParticle extends PhetioObject {
    * @param orientation in radians
    * @param [providedOptions]
    */
-  protected constructor( color: Color, size: number, position: Vector2, orientation: number,
-                         providedOptions: SoluteParticleOptions ) {
+  public constructor( color: Color, size: number, position: Vector2, orientation: number,
+                      providedOptions: SoluteParticleOptions ) {
 
     super( providedOptions );
 
@@ -62,8 +66,7 @@ export default class SoluteParticle extends PhetioObject {
     };
   }
 
-  // TODO https://github.com/phetsims/beers-law-lab/issues/287 why is this needed for subclasses? return type?
-  public static deserializeComponents( stateObject: SoluteParticleStateObject ): IntentionalAny {
+  public static deserializeComponents( stateObject: SoluteParticleStateObject ): SoluteParticleComponents {
     return {
       position: Vector2.Vector2IO.fromStateObject( stateObject.position ),
       orientation: NumberIO.fromStateObject( stateObject.orientation )
@@ -71,7 +74,6 @@ export default class SoluteParticle extends PhetioObject {
   }
 
   public static readonly SoluteParticleIO = new IOType<SoluteParticle, SoluteParticleStateObject>( 'SoluteParticleIO', {
-    // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 TS error
     valueType: SoluteParticle,
     documentation: 'A particle of solute to add to the solution',
     toStateObject: soluteParticle => soluteParticle.toStateObject(),

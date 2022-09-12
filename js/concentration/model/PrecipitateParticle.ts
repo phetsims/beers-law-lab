@@ -9,13 +9,11 @@
  */
 
 import Vector2 from '../../../../dot/js/Vector2.js';
-import merge from '../../../../phet-core/js/merge.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize, { combineOptions, EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
-import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
 import beersLawLab from '../../beersLawLab.js';
-import Solute from '../../common/model/Solute.js';
+import Solute, { SoluteStateObject } from '../../common/model/Solute.js';
 import SoluteParticle, { SoluteParticleOptions, SoluteParticleStateObject } from './SoluteParticle.js';
 
 type SelfOptions = EmptySelfOptions;
@@ -23,9 +21,10 @@ type SelfOptions = EmptySelfOptions;
 type PrecipitateParticleOptions = SelfOptions & PickRequired<SoluteParticleOptions, 'tandem'>;
 
 type PrecipitateParticleStateObject = {
-  //TODO https://github.com/phetsims/beers-law-lab/issues/287 what is the state type of solute?
-  //solute: ??
+  solute: SoluteStateObject;
 } & SoluteParticleStateObject;
+
+type ConstructorParameters = [ Solute, Vector2, number ];
 
 export default class PrecipitateParticle extends SoluteParticle {
 
@@ -44,28 +43,23 @@ export default class PrecipitateParticle extends SoluteParticle {
   }
 
   public override toStateObject(): PrecipitateParticleStateObject {
-    return merge( super.toStateObject(), {
+    return combineOptions<PrecipitateParticleStateObject>( super.toStateObject(), {
       solute: Solute.SoluteIO.toStateObject( this.solute )
     } );
   }
 
-  // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 return type?
-  public static stateToArgsForConstructor( stateObject: PrecipitateParticleStateObject ): IntentionalAny {
-    const parentDeserializedComponents = SoluteParticle.deserializeComponents( stateObject );
-
-    // This must match PrecipitateParticle constructor signature
+  public static stateToArgsForConstructor( stateObject: PrecipitateParticleStateObject ): ConstructorParameters {
+    const superComponents = SoluteParticle.deserializeComponents( stateObject );
     return [
-      // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 TS error
       Solute.SoluteIO.fromStateObject( stateObject.solute ),
-      parentDeserializedComponents.position,
-      parentDeserializedComponents.orientation
+      superComponents.position,
+      superComponents.orientation
     ];
   }
 
   public static readonly PrecipitateParticleIO =
     new IOType<PrecipitateParticle, PrecipitateParticleStateObject>( 'PrecipitateParticleIO', {
       valueType: PrecipitateParticle,
-      // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 TS error
       supertype: SoluteParticle.SoluteParticleIO,
       documentation: 'A particle that precipitates at the bottom of a saturated solution.',
       toStateObject: precipitateParticle => precipitateParticle.toStateObject(),
