@@ -13,21 +13,21 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 
 export default class ConcentrationTransform {
 
   // specific transforms
-  //TODO https://github.com/phetsims/phet-io/issues/1878 dynamic locale
-  public static readonly mM = new ConcentrationTransform( 1000, BeersLawLabStrings.units.mM );
-  public static readonly uM = new ConcentrationTransform( 1000000, BeersLawLabStrings.units.uM );
+  public static readonly mM = new ConcentrationTransform( 1000, BeersLawLabStrings.units.mMStringProperty );
+  public static readonly uM = new ConcentrationTransform( 1000000, BeersLawLabStrings.units.uMStringProperty );
 
   /**
    * @param scale scale factor used to convert model units (Moles, M) to view units
-   * @param units
+   * @param unitsStringProperty
    */
-  public constructor( public readonly scale: number, public readonly units: string ) {}
+  public constructor( public readonly scale: number, public readonly unitsStringProperty: TReadOnlyProperty<string> ) {}
 
   /**
    * Converts from model (M) to view (solution specific).

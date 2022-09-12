@@ -90,8 +90,10 @@ export default class ConcentrationControl extends NumberControl {
 
     // e.g. display units that are specific to the solution, e.g. '{0} mM'
     assert && assert( !options.numberDisplayOptions.valuePattern, 'ConcentrationControl sets valuePattern' );
-    options.numberDisplayOptions.valuePattern = StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1units' ],
-      SunConstants.VALUE_NUMBERED_PLACEHOLDER, transform.units );
+    options.numberDisplayOptions.valuePattern = new DerivedProperty(
+      [ BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ], transform.unitsStringProperty ],
+      ( pattern, unitsString ) => StringUtils.format( pattern, SunConstants.VALUE_NUMBERED_PLACEHOLDER, unitsString )
+    );
 
     assert && assert( options.delta === undefined, 'ConcentrationControl sets delta' );
     options.delta = 1; // in view coordinates
