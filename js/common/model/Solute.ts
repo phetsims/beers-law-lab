@@ -202,6 +202,7 @@ export default class Solute extends PhetioObject {
    * 'Reference type serialization', as described in the Serialization section of
    * https://github.com/phetsims/phet-io/blob/master/doc/phet-io-instrumentation-technical-guide.md#serialization
    */
+  //TODO https://github.com/phetsims/beers-law-lab/issues/287 does IOType need generic params?
   public static readonly SoluteIO = new IOType( 'SoluteIO', {
     valueType: Solute,
     supertype: ReferenceIO( IOType.ObjectIO ),

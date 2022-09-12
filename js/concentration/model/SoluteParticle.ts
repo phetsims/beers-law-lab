@@ -17,12 +17,15 @@ import IOType from '../../../../tandem/js/types/IOType.js';
 import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
 import NumberIO, { NumberStateObject } from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
+import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 
 type SelfOptions = EmptySelfOptions;
 
-type SoluteParticleOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
+export type SoluteParticleOptions = SelfOptions &
+  PickRequired<PhetioObjectOptions, 'tandem'> &
+  PickOptional<PhetioObjectOptions, 'phetioType' | 'phetioDynamicElement'>;
 
-type SoluteParticleStateObject = {
+export type SoluteParticleStateObject = {
   position: Vector2StateObject;
   orientation: NumberStateObject;
 };
@@ -52,14 +55,14 @@ export default class SoluteParticle extends PhetioObject {
     this.orientation = orientation;
   }
 
-  private toStateObject(): SoluteParticleStateObject {
+  public toStateObject(): SoluteParticleStateObject {
     return {
       position: this.positionProperty.value.toStateObject(),
       orientation: NumberIO.toStateObject( this.orientation )
     };
   }
 
-  // TODO https://github.com/phetsims/beers-law-lab/issues/287 where is deserializeComponents used? return type?
+  // TODO https://github.com/phetsims/beers-law-lab/issues/287 why is this needed for subclasses? return type?
   public static deserializeComponents( stateObject: SoluteParticleStateObject ): IntentionalAny {
     return {
       position: Vector2.Vector2IO.fromStateObject( stateObject.position ),

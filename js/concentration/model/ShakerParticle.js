@@ -95,6 +95,7 @@ class ShakerParticle extends SoluteParticle {
   }
 }
 
+//TODO https://github.com/phetsims/beers-law-lab/issues/287 does IOType need generic params?
 ShakerParticle.ShakerParticleIO = new IOType( 'ShakerParticleIO', {
   valueType: ShakerParticle,
   documentation: 'A particle that comes from the shaker.',
