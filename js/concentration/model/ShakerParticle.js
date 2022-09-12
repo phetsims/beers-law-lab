@@ -106,6 +106,8 @@ ShakerParticle.ShakerParticleIO = new IOType( 'ShakerParticleIO', {
     velocity: Vector2.Vector2IO,
     acceleration: Vector2.Vector2IO
   },
+
+  //TODO https://github.com/phetsims/beers-law-lab/issues/287 this looks suspect and can probably be deleted
   fromStateObject: stateObject => ShakerParticle.fromStateObject,
   stateToArgsForConstructor: stateObject => {
     const parentDeserializedComponents = SoluteParticle.deserializeComponents( stateObject );
