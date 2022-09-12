@@ -172,7 +172,8 @@ export default class ConcentrationModel extends PhetioObject {
 
   /*
    * May be called from PhET-iO before the UI is constructed to choose a different set of solutes.
-   * The first solute becomes the selected solute
+   * The first solute becomes the selected solute.
+   * See https://github.com/phetsims/phet-io/issues/430
    */
   public setSolutes( solutes: Solute[] ): void {
     assert && assert( solutes.length > 0, 'Must specify at least one solute' );
@@ -304,6 +305,8 @@ export default class ConcentrationModel extends PhetioObject {
     valueType: ConcentrationModel,
     documentation: 'The model for the concentration screen.',
     methods: {
+
+      // Make it possible to select a subset of Solutes. See https://github.com/phetsims/phet-io/issues/430
       setSolutes: {
         parameterTypes: [ ArrayIO( Solute.SoluteIO ) ],
         returnType: VoidIO,
