@@ -11,9 +11,6 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
-import IOType from '../../../../tandem/js/types/IOType.js';
-import ObjectLiteralIO from '../../../../tandem/js/types/ObjectLiteralIO.js';
-import VoidIO from '../../../../tandem/js/types/VoidIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLMovable, { BLLMovableOptions } from '../../common/model/BLLMovable.js';
 import Solute from '../../common/model/Solute.js';
@@ -47,7 +44,6 @@ export default class Shaker extends BLLMovable {
 
       // BLLMovableOptions
       phetioState: false
-      // phetioType: ShakerIO
     }, providedOptions );
 
     super( options );
@@ -112,24 +108,6 @@ export default class Shaker extends BLLMovable {
     }
     this.previousPosition = this.positionProperty.value;
   }
-
-  public static readonly ShakerIO = new IOType( 'ShakerIO', {
-    valueType: Shaker,
-    documentation: 'The Shaker that releases solute',
-    methods: {
-      setValue: {
-        returnType: VoidIO,
-        parameterTypes: [ ObjectLiteralIO ],
-
-        // @ts-ignore TODO https://github.com/phetsims/beers-law-lab/issues/287 Property 'previousPosition' does not exist on type 'typeof Shaker'.
-        implementation: valueStateObject => this.previousPosition.set( Vector2.Vector2IO.fromStateObject( valueStateObject ) ),
-        documentation: 'Load the values recorded in getState',
-        invocableForReadOnlyElements: false
-      }
-    },
-    toStateObject: shaker => ( { position: Vector2.Vector2IO.toStateObject( shaker.previousPosition ) } ),
-    applyState: ( shaker, stateObject ) => shaker.previousPosition.set( Vector2.Vector2IO.fromStateObject( stateObject.position ) )
-  } );
 }
 
 beersLawLab.register( 'Shaker', Shaker );
