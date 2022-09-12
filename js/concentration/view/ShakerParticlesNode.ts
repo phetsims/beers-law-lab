@@ -1,22 +1,20 @@
 // Copyright 2020-2021, University of Colorado Boulder
 
-// @ts-nocheck
-import beersLawLab from '../../beersLawLab.js';
-import ParticlesNode from './ParticlesNode.js';
-
 /**
  * ShakerParticlesNode displays particles that come out of the shaker.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-class ShakerParticlesNode extends ParticlesNode {
 
-  /**
-   * @param {ShakerParticles} shakerParticles
-   * @param {ModelViewTransform2} modelViewTransform
-   * @param {Bounds2} canvasBounds
-   */
-  constructor( shakerParticles, modelViewTransform, canvasBounds ) {
+import Bounds2 from '../../../../dot/js/Bounds2.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import beersLawLab from '../../beersLawLab.js';
+import ShakerParticles from '../model/ShakerParticles.js';
+import ParticlesNode from './ParticlesNode.js';
+
+export default class ShakerParticlesNode extends ParticlesNode {
+
+  public constructor( shakerParticles: ShakerParticles, modelViewTransform: ModelViewTransform2, canvasBounds: Bounds2 ) {
 
     super( shakerParticles.particleGroup, modelViewTransform, canvasBounds );
 
@@ -26,4 +24,3 @@ class ShakerParticlesNode extends ParticlesNode {
 }
 
 beersLawLab.register( 'ShakerParticlesNode', ShakerParticlesNode );
-export default ShakerParticlesNode;

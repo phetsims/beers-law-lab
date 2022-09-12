@@ -1,8 +1,7 @@
 // Copyright 2013-2021, University of Colorado Boulder
 
-// @ts-nocheck
 /**
- * Base type for all particles.
+ * ParticleNode is the base class for drawing a particle.
  * Origin is at the center of the particle.
  *
  * @author Chris Malley (PixelZoom, Inc.)
@@ -13,15 +12,11 @@ import { Rectangle } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import SoluteParticle from '../model/SoluteParticle.js';
 
-class ParticleNode extends Rectangle {
+export default class ParticleNode extends Rectangle {
 
-  /**
-   * @param {SoluteParticle} particle
-   * @param {ModelViewTransform2} modelViewTransform
-   */
-  constructor( particle, modelViewTransform ) {
-    assert && assert( particle instanceof SoluteParticle );
-    assert && assert( modelViewTransform instanceof ModelViewTransform2 );
+  public readonly particle: SoluteParticle;
+
+  public constructor( particle: SoluteParticle, modelViewTransform: ModelViewTransform2 ) {
 
     const viewSize = modelViewTransform.modelToViewDeltaX( particle.size );
 
@@ -32,6 +27,7 @@ class ParticleNode extends Rectangle {
     } );
 
     this.particle = particle;
+
     this.rotation = particle.orientation;
 
     particle.positionProperty.link( () => {
@@ -41,4 +37,3 @@ class ParticleNode extends Rectangle {
 }
 
 beersLawLab.register( 'ParticleNode', ParticleNode );
-export default ParticleNode;
