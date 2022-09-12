@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DynamicProperty from '../../../../axon/js/DynamicProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
@@ -82,7 +83,10 @@ export default class ConcentrationControl extends NumberControl {
 
     const transform = solution.concentrationTransform;
 
-    const title = StringUtils.format( BeersLawLabStrings.pattern[ '0label' ], BeersLawLabStrings.concentration );
+    const titleStringProperty = new DerivedProperty(
+      [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.concentrationStringProperty ],
+      ( pattern, concentrationString ) => StringUtils.format( pattern, concentrationString )
+    );
 
     // e.g. display units that are specific to the solution, e.g. '{0} mM'
     assert && assert( !options.numberDisplayOptions.valuePattern, 'ConcentrationControl sets valuePattern' );
@@ -108,7 +112,7 @@ export default class ConcentrationControl extends NumberControl {
       reentrant: true,
 
       // map from model to view, apply options.interval to model value
-      map: ( value : number ) => transform.modelToView( value ),
+      map: ( value: number ) => transform.modelToView( value ),
 
       // map from view to model, apply options.interval to model value
       inverseMap: ( value: number ) => transform.viewToModel( value )
@@ -129,7 +133,7 @@ export default class ConcentrationControl extends NumberControl {
       { value: numberRange.max, label: new Text( numberRange.max, { font: TICK_FONT } ) }
     ];
 
-    super( title, numberProperty, numberRange, options );
+    super( titleStringProperty, numberProperty, numberRange, options );
 
     this.solution = solution;
   }

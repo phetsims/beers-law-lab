@@ -19,6 +19,7 @@ import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 export default class ConcentrationTransform {
 
   // specific transforms
+  //TODO https://github.com/phetsims/phet-io/issues/1878 dynamic locale
   public static readonly mM = new ConcentrationTransform( 1000, BeersLawLabStrings.units.mM );
   public static readonly uM = new ConcentrationTransform( 1000000, BeersLawLabStrings.units.uM );
 

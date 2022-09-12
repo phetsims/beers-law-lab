@@ -143,8 +143,7 @@ class BodyNode extends Node {
         }
         else {
           if ( mode === ATDetectorMode.TRANSMITTANCE ) {
-            valueString = StringUtils.format( BeersLawLabStrings.pattern[ '0percent' ],
-              Utils.toFixed( value, TRANSMITTANCE_DECIMAL_PLACES ) );
+            valueString = StringUtils.format( pattern, Utils.toFixed( value, TRANSMITTANCE_DECIMAL_PLACES ) );
           }
           else {
             valueString = Utils.toFixed( value, ABSORBANCE_DECIMAL_PLACES );
