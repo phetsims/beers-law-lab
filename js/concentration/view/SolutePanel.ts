@@ -56,10 +56,6 @@ export default class SolutePanel extends Panel {
       children: [ soluteComboBox, soluteFormRadioButtonGroup ]
     } );
 
-    // layout
-    soluteFormRadioButtonGroup.left = soluteComboBox.left;
-    soluteFormRadioButtonGroup.top = soluteComboBox.bottom + 15;
-
     super( contentNode, options );
   }
 }
