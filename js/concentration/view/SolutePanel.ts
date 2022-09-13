@@ -7,7 +7,7 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import { Node } from '../../../../scenery/js/imports.js';
+import { Node, VBox } from '../../../../scenery/js/imports.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import beersLawLab from '../../beersLawLab.js';
 import Solute from '../../common/model/Solute.js';
@@ -50,10 +50,11 @@ export default class SolutePanel extends Panel {
         tandem: options.tandem.createTandem( 'soluteFormRadioButtonGroup' )
       } );
 
-    //TODO https://github.com/phetsims/beers-law-lab/issues/290 use VBox here when ComboBox layout has been fixed
-    const contentNode = new Node();
-    contentNode.addChild( soluteFormRadioButtonGroup );
-    contentNode.addChild( soluteComboBox ); // add last, so that dropdown is on top
+    const contentNode = new VBox( {
+      align: 'left',
+      spacing: 15,
+      children: [ soluteComboBox, soluteFormRadioButtonGroup ]
+    } );
 
     // layout
     soluteFormRadioButtonGroup.left = soluteComboBox.left;
