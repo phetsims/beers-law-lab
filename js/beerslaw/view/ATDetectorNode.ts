@@ -152,8 +152,8 @@ class BodyNode extends Node {
         return valueString;
       } );
     const valueText = new Text( valueStringProperty, {
-      font: new PhetFont( 24 ),
-      maxWidth: 150,
+      font: new PhetFont( 22 ),
+      maxWidth: 125,
       tandem: options.tandem.createTandem( 'valueText' ),
       textPropertyOptions: { phetioReadOnly: true }
     } );
@@ -181,7 +181,9 @@ class BodyNode extends Node {
       lightOffset: 0.95
     } );
 
-    vBox.center = bodyNode.center;
+    vBox.boundsProperty.link( bounds => {
+      vBox.center = bodyNode.center;
+    } );
 
     this.children = [ bodyNode, vBox ];
 

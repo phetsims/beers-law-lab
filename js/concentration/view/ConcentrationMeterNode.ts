@@ -46,7 +46,7 @@ const DECIMAL_PLACES_PERCENT = 1;
 const READOUT_NO_VALUE = MathSymbols.NO_VALUE; // displayed in the readout when the meter is not measuring anything
 const BODY_X_MARGIN = 15;
 const BODY_Y_MARGIN = 15;
-const READOUT_X_MARGIN = 15;
+const READOUT_X_MARGIN = 5;
 const READOUT_Y_MARGIN = 4;
 const PROBE_COLOR = 'rgb( 135, 4, 72 )';
 const DISPLAY_MOLES_PER_LITER = ( BLLQueryParameters.concentrationMeterUnits === 'molesPerLiter' );
@@ -137,7 +137,7 @@ class BodyNode extends Node {
     const titleText = new Text( BeersLawLabStrings.concentrationStringProperty, {
       font: new PhetFont( 18 ),
       fill: 'white',
-      maxWidth: 150,
+      maxWidth: 125,
       tandem: tandem.createTandem( 'titleText' )
     } );
 
@@ -166,9 +166,9 @@ class BodyNode extends Node {
       }
     );
     const valueText = new Text( valueStringProperty, {
-      font: new PhetFont( 24 ),
+      font: new PhetFont( 22 ),
       fill: 'black',
-      maxWidth: 150,
+      maxWidth: 125,
       tandem: tandem.createTandem( 'valueText' ),
       textPropertyOptions: { phetioReadOnly: true }
     } );
@@ -180,13 +180,10 @@ class BodyNode extends Node {
       baseColor: 'white',
       lightSource: 'rightBottom'
     } );
-    valueText.right = backgroundNode.right - READOUT_X_MARGIN;
-    valueText.centerY = backgroundNode.centerY;
 
     // vertical arrangement of stuff in the concentrationMeter
     const vBox = new VBox( {
       excludeInvisibleChildrenFromBounds: false,
-      resize: false,
       children: [ titleText, new Node( { children: [ backgroundNode, valueText ] } ) ],
       align: 'center',
       spacing: 18
@@ -200,7 +197,9 @@ class BodyNode extends Node {
       lightOffset: 0.95
     } );
 
-    vBox.center = bodyNode.center;
+    vBox.boundsProperty.link( bounds => {
+      vBox.center = bodyNode.center;
+    } );
 
     this.children = [ bodyNode, vBox ];
 
@@ -218,6 +217,7 @@ class BodyNode extends Node {
 
     // Keep the value properly justified on the background
     valueText.boundsProperty.link( bounds => {
+      console.log( `valueText width=${valueText.width} height=${valueText.height}` );//XXXX
       if ( concentrationMeter.valueProperty.value === null ) {
 
         // center justified
@@ -226,8 +226,8 @@ class BodyNode extends Node {
       else {
         // right justified
         valueText.right = backgroundNode.right - READOUT_X_MARGIN;
-        valueText.centerY = backgroundNode.centerY;
       }
+      valueText.centerY = backgroundNode.centerY;
     } );
   }
 }

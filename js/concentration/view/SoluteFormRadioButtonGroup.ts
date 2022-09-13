@@ -86,6 +86,7 @@ function createRadioButtonLabel( text: TReadOnlyProperty<string>, image: HTMLIma
       new Text( text, {
         font: new PhetFont( 22 ),
         fill: 'black',
+        maxWidth: 100,
         tandem: radioButtonTandem.createTandem( 'labelText' ),
         phetioVisiblePropertyInstrumented: false
       } ),
