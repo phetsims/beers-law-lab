@@ -217,7 +217,6 @@ class BodyNode extends Node {
 
     // Keep the value properly justified on the background
     valueText.boundsProperty.link( bounds => {
-      console.log( `valueText width=${valueText.width} height=${valueText.height}` );//XXXX
       if ( concentrationMeter.valueProperty.value === null ) {
 
         // center justified
