@@ -10,12 +10,9 @@ import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
-import ArrayIO from '../../../../tandem/js/types/ArrayIO.js';
-import IOType from '../../../../tandem/js/types/IOType.js';
-import VoidIO from '../../../../tandem/js/types/VoidIO.js';
+import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import Solute from '../../common/model/Solute.js';
@@ -40,7 +37,7 @@ type SelfOptions = EmptySelfOptions;
 
 type ConcentrationModelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-export default class ConcentrationModel extends PhetioObject {
+export default class ConcentrationModel {
 
   public solutes: Solute[];
   public readonly soluteProperty: Property<Solute>;
@@ -58,12 +55,7 @@ export default class ConcentrationModel extends PhetioObject {
 
   public constructor( providedOptions: ConcentrationModelOptions ) {
 
-    const options = optionize<ConcentrationModelOptions, SelfOptions, PhetioObjectOptions>()( {
-      phetioType: ConcentrationModel.ConcentrationModelIO,
-      phetioState: false // does not contribute self-state, all state is from child instances (via composition)
-    }, providedOptions );
-
-    super( options );
+    const options = providedOptions;
 
     // in rainbow (ROYGBIV) order.
     this.solutes = [
@@ -168,17 +160,6 @@ export default class ConcentrationModel extends PhetioObject {
       this.dropper.enabledProperty.value =
         ( !this.dropper.isEmptyProperty.value && !containsMaxSolute && this.solution.volumeProperty.value < SOLUTION_VOLUME_RANGE.max );
     } );
-  }
-
-  /*
-   * May be called from PhET-iO before the UI is constructed to choose a different set of solutes.
-   * The first solute becomes the selected solute.
-   * See https://github.com/phetsims/phet-io/issues/430
-   */
-  public setSolutes( solutes: Solute[] ): void {
-    assert && assert( solutes.length > 0, 'Must specify at least one solute' );
-    this.solutes = solutes;
-    this.soluteProperty.value = solutes[ 0 ];
   }
 
   public reset(): void {
@@ -300,24 +281,6 @@ export default class ConcentrationModel extends PhetioObject {
       return 0;
     }
   }
-
-  public static readonly ConcentrationModelIO = new IOType( 'ConcentrationModelIO', {
-    valueType: ConcentrationModel,
-    documentation: 'The model for the concentration screen.',
-    methods: {
-
-      // Make it possible to select a subset of Solutes. See https://github.com/phetsims/phet-io/issues/430
-      setSolutes: {
-        parameterTypes: [ ArrayIO( Solute.SoluteIO ) ],
-        returnType: VoidIO,
-
-        // @ts-ignore TODO https://github.com/phetsims/phet-io/issues/430 Property 'setSolutes' does not exist on type 'typeof ConcentrationModel'
-        implementation: solutes => this.setSolutes( solutes ),
-        documentation: 'Set which solutes are allowed for selection',
-        invocableForReadOnlyElements: false
-      }
-    }
-  } );
 }
 
 beersLawLab.register( 'ConcentrationModel', ConcentrationModel );
