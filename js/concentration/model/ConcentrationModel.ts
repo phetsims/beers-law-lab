@@ -10,6 +10,7 @@ import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
+import TModel from '../../../../joist/js/TModel.js';
 import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
@@ -37,7 +38,7 @@ type SelfOptions = EmptySelfOptions;
 
 type ConcentrationModelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-export default class ConcentrationModel {
+export default class ConcentrationModel implements TModel {
 
   public solutes: Solute[];
   public readonly soluteProperty: Property<Solute>;

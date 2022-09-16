@@ -22,7 +22,7 @@ type SelfOptions = EmptySelfOptions;
 
 type ConcentrationScreenOptions = SelfOptions & PickRequired<ScreenOptions, 'tandem'>;
 
-export default class ConcentrationScreen extends Screen {
+export default class ConcentrationScreen extends Screen<ConcentrationModel, ConcentrationScreenView> {
 
   public constructor( providedOptions: ConcentrationScreenOptions ) {
 

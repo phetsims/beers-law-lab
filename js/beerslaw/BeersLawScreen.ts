@@ -23,7 +23,7 @@ type SelfOptions = EmptySelfOptions;
 
 type BeersLawScreenOptions = SelfOptions & PickRequired<ScreenOptions, 'tandem'>;
 
-export default class BeersLawScreen extends Screen {
+export default class BeersLawScreen extends Screen<BeersLawModel, BeersLawScreenView> {
 
   public constructor( providedOptions: BeersLawScreenOptions ) {
 

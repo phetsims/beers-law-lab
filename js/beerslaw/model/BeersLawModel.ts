@@ -9,6 +9,7 @@
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
+import TModel from '../../../../joist/js/TModel.js';
 import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
@@ -26,7 +27,7 @@ type SelfOptions = EmptySelfOptions;
 
 type BeersLawModelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-export default class BeersLawModel {
+export default class BeersLawModel implements TModel {
 
   public readonly solutions: BeersLawSolution[];
   public readonly solutionProperty: Property<BeersLawSolution>;
@@ -98,6 +99,10 @@ export default class BeersLawModel {
     this.cuvette.reset();
     this.detector.reset();
     this.ruler.reset();
+  }
+
+  public step( dt: number ): void {
+    // required by TModel
   }
 }
 
