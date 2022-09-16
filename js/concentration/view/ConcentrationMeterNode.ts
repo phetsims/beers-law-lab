@@ -170,7 +170,7 @@ class BodyNode extends Node {
       fill: 'black',
       maxWidth: 125,
       tandem: tandem.createTandem( 'valueText' ),
-      textPropertyOptions: { phetioReadOnly: true }
+      stringPropertyOptions: { phetioReadOnly: true }
     } );
 
     // background behind the value

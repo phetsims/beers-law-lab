@@ -56,7 +56,7 @@ export default class BLLDropperNode extends EyeDropperNode {
       font: new PhetFont( { size: 18, weight: 'bold' } ),
       fill: 'black',
       tandem: options.tandem.createTandem( 'labelText' ),
-      textPropertyOptions: { phetioReadOnly: true }
+      stringPropertyOptions: { phetioReadOnly: true }
     } );
     this.addChild( labelText );
 

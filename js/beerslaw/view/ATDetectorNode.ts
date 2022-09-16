@@ -155,7 +155,7 @@ class BodyNode extends Node {
       font: new PhetFont( 22 ),
       maxWidth: 125,
       tandem: options.tandem.createTandem( 'valueText' ),
-      textPropertyOptions: { phetioReadOnly: true }
+      stringPropertyOptions: { phetioReadOnly: true }
     } );
 
     // background behind the value

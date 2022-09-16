@@ -51,7 +51,7 @@ export default class ShakerNode extends Node {
       fill: 'black',
       maxWidth: 0.5 * imageNode.width, // constrain width for i18n
       tandem: options.tandem.createTandem( 'labelText' ),
-      textPropertyOptions: { phetioReadOnly: true }
+      stringPropertyOptions: { phetioReadOnly: true }
     } );
 
     // common parent, to simplify rotation and label alignment.
