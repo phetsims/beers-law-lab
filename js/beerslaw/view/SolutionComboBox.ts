@@ -68,7 +68,12 @@ function createItem( solution: BeersLawSolution ): ComboBoxItem<BeersLawSolution
     stroke: solution.saturatedColor.darkerColor()
   } );
 
-  const labelText = new RichText( solution.labelProperty, {
+  const labelStringProperty = new DerivedProperty(
+    [ BeersLawLabStrings.pattern[ '0formula' ][ '1nameStringProperty' ], solution.nameProperty, solution.formulaProperty ],
+    ( pattern, name, formula ) => ( formula === null || formula === '' ) ? name : StringUtils.format( pattern, formula, name )
+  );
+
+  const labelText = new RichText( labelStringProperty, {
     maxWidth: 305, // determined empirically, so that English strings are not scaled down
     font: new PhetFont( 20 )
   } );

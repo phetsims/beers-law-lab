@@ -17,14 +17,12 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Utils from '../../../../dot/js/Utils.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import { Color } from '../../../../scenery/js/imports.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import ReferenceIO from '../../../../tandem/js/types/ReferenceIO.js';
 import beersLawLab from '../../beersLawLab.js';
-import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import ColorRange from '../../common/model/ColorRange.js';
 import Solute from '../../common/model/Solute.js';
 import Solvent from '../../common/model/Solvent.js';
@@ -32,7 +30,7 @@ import ConcentrationTransform from './ConcentrationTransform.js';
 import MolarAbsorptivityData from './MolarAbsorptivityData.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import optionize from '../../../../phet-core/js/optionize.js';
-import StringIO from '../../../../tandem/js/types/StringIO.js';
+import LinkableProperty from '../../../../axon/js/LinkableProperty.js';
 
 // parent tandem for all static instances of BeersLawSolution
 const SOLUTIONS_TANDEM = Tandem.ROOT.createTandem( 'beersLawScreen' ).createTandem( 'model' ).createTandem( 'solutions' );
@@ -40,8 +38,8 @@ const SOLUTIONS_TANDEM = Tandem.ROOT.createTandem( 'beersLawScreen' ).createTand
 type SelfOptions = {
 
   // required
-  nameProperty: TReadOnlyProperty<string>; // name that is visible to the user
-  formulaProperty: TReadOnlyProperty<string | null>; // formula that is visible to the user, null defaults to nameProperty.value
+  nameProperty: LinkableProperty<string>; // name that is visible to the user
+  formulaProperty: LinkableProperty<string | null>; // formula that is visible to the user, null defaults to nameProperty.value
   molarAbsorptivityData: MolarAbsorptivityData;
   concentrationRange: RangeWithValue;
   concentrationTransform: ConcentrationTransform;
@@ -55,13 +53,18 @@ type BeersLawSolutionOptions = SelfOptions & PickRequired<PhetioObjectOptions, '
 
 export default class BeersLawSolution extends PhetioObject {
 
+  // the name of the solution, displayed to the user
+  public readonly nameProperty: TReadOnlyProperty<string>;
+
+  // // formula that is visible to the user, null defaults to nameProperty.value
+  public readonly formulaProperty: TReadOnlyProperty<string | null>;
+
   public readonly solvent: Solvent;
   public readonly molarAbsorptivityData: MolarAbsorptivityData;
   public readonly concentrationTransform: ConcentrationTransform;
   public readonly colorRange: ColorRange;
   public readonly saturatedColor: Color;
 
-  public readonly labelProperty: TReadOnlyProperty<string>;
   public readonly concentrationProperty: NumberProperty;
   public readonly fluidColorProperty: TReadOnlyProperty<Color>;
 
@@ -86,20 +89,13 @@ export default class BeersLawSolution extends PhetioObject {
 
     super( options );
 
+    this.nameProperty = options.nameProperty;
+    this.formulaProperty = options.formulaProperty;
     this.solvent = Solvent.WATER;
     this.molarAbsorptivityData = options.molarAbsorptivityData;
     this.concentrationTransform = options.concentrationTransform;
     this.colorRange = options.colorRange;
     this.saturatedColor = options.saturatedColor;
-
-    this.labelProperty = new DerivedProperty(
-      [ BeersLawLabStrings.pattern[ '0formula' ][ '1nameStringProperty' ], options.nameProperty, options.formulaProperty ],
-      ( pattern, name, formula ) => ( formula === null || formula === '' ) ? name : StringUtils.format( pattern, formula, name ), {
-        phetioValueType: StringIO,
-        tandem: options.tandem.createTandem( 'labelProperty' ),
-        phetioDocumentation: 'The string used to label the solution, derived from the solute nameProperty and formulaProperty.',
-        phetioReadOnly: true
-      } );
 
     this.concentrationProperty = new NumberProperty( options.concentrationRange.defaultValue, {
       units: 'mol/L',
@@ -119,6 +115,14 @@ export default class BeersLawSolution extends PhetioObject {
       } );
 
     this.tandemName = options.tandem.name;
+
+    this.addLinkedElement( options.nameProperty, {
+      tandem: options.tandem.createTandem( 'nameProperty' )
+    } );
+
+    this.addLinkedElement( options.formulaProperty, {
+      tandem: options.tandem.createTandem( 'formulaProperty' )
+    } );
   }
 
   public reset(): void {
