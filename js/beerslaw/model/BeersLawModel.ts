@@ -100,10 +100,6 @@ export default class BeersLawModel implements TModel {
     this.detector.reset();
     this.ruler.reset();
   }
-
-  public step( dt: number ): void {
-    // required by TModel
-  }
 }
 
 beersLawLab.register( 'BeersLawModel', BeersLawModel );
