@@ -67,7 +67,7 @@ class ConcentrationControls extends Node {
     const toggleNodeElements = solutions.map( solution => {
       return {
         value: solution,
-        node: new ConcentrationControl( solution, {
+        createNode: ( tandem: Tandem ) => new ConcentrationControl( solution, {
           visible: false,
           tandem: tandem.createTandem( `${solution.tandemName}ConcentrationControl` ),
           phetioDocumentation: `the concentration control for ${solution.tandemName}`
