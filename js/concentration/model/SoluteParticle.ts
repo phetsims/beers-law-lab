@@ -14,7 +14,7 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { Color } from '../../../../scenery/js/imports.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
-import NumberIO, { NumberStateObject } from '../../../../tandem/js/types/NumberIO.js';
+import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 
@@ -26,7 +26,7 @@ export type SoluteParticleOptions = SelfOptions &
 
 export type SoluteParticleStateObject = {
   position: Vector2StateObject;
-  orientation: NumberStateObject;
+  orientation: number;
 };
 
 export type SoluteParticleComponents = {
@@ -62,14 +62,14 @@ export default class SoluteParticle extends PhetioObject {
   public toStateObject(): SoluteParticleStateObject {
     return {
       position: this.positionProperty.value.toStateObject(),
-      orientation: NumberIO.toStateObject( this.orientation )
+      orientation: this.orientation
     };
   }
 
   public static deserializeComponents( stateObject: SoluteParticleStateObject ): SoluteParticleComponents {
     return {
       position: Vector2.Vector2IO.fromStateObject( stateObject.position ),
-      orientation: NumberIO.fromStateObject( stateObject.orientation )
+      orientation: stateObject.orientation
     };
   }
 
