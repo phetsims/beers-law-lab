@@ -83,7 +83,7 @@ export default class ShakerNode extends Node {
       multilink && multilink.dispose();
       multilink = new Multilink( [ solute.nameProperty, solute.formulaProperty ],
         ( name, formula ) => {
-          labelText.text = ( formula === null ) ? name : formula;
+          labelText.string = ( formula === null ) ? name : formula;
         } );
     } );
 
