@@ -25,7 +25,7 @@ type SelfOptions = EmptySelfOptions;
 
 type SoluteGramsNodeOptions = SelfOptions & PickRequired<TextOptions, 'tandem'>;
 
-export default class SoluteGramsNode extends Text {
+export default class SoluteAmountNode extends Text {
 
   public constructor( soluteGramsProperty: TReadOnlyProperty<number>, providedOptions: SoluteGramsNodeOptions ) {
 
@@ -49,4 +49,4 @@ export default class SoluteGramsNode extends Text {
   }
 }
 
-beersLawLab.register( 'SoluteGramsNode', SoluteGramsNode );
+beersLawLab.register( 'SoluteGramsNode', SoluteAmountNode );

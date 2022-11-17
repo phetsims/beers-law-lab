@@ -29,7 +29,7 @@ import RemoveSoluteButton from './RemoveSoluteButton.js';
 import SaturatedIndicator from './SaturatedIndicator.js';
 import ShakerNode from './ShakerNode.js';
 import ShakerParticlesNode from './ShakerParticlesNode.js';
-import SoluteGramsNode from './SoluteGramsNode.js';
+import SoluteAmountNode from './SoluteGramsNode.js';
 import SolutePanel from './SolutePanel.js';
 import SolutionNode from './SolutionNode.js';
 import StockSolutionNode from './StockSolutionNode.js';
@@ -122,7 +122,7 @@ export default class ConcentrationScreenView extends ScreenView {
     } );
 
     // Solute amount, in grams
-    const soluteAmountText = new SoluteGramsNode( model.solution.soluteGramsProperty, {
+    const soluteAmountText = new SoluteAmountNode( model.solution.soluteGramsProperty, {
       tandem: options.tandem.createTandem( 'soluteAmountText' )
     } );
 
