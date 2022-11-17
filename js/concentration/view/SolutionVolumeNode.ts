@@ -12,11 +12,12 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Utils from '../../../../dot/js/Utils.js';
+import { Shape } from '../../../../kite/js/imports.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Line, Node, NodeOptions, Text } from '../../../../scenery/js/imports.js';
+import { Node, NodeOptions, Path, Text } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
@@ -35,9 +36,14 @@ export default class SolutionVolumeNode extends Node {
       visibleProperty: BLLPreferences.showSolutionVolumeProperty
     }, providedOptions );
 
-    const tickMarkNode = new Line( 0, 0, 10, 0, {
-      stroke: 'black',
-      lineWidth: 2,
+    const triangleSize = 15;
+    const triangleShape = new Shape()
+      .moveTo( 0, 0 )
+      .lineTo( triangleSize, triangleSize / 2 )
+      .lineTo( 0, triangleSize )
+      .close();
+    const triangleNode = new Path( triangleShape, {
+      fill: 'black',
       centerY: 0
     } );
 
@@ -56,11 +62,11 @@ export default class SolutionVolumeNode extends Node {
     } );
 
     soluteAmountText.boundsProperty.link( bounds => {
-      soluteAmountText.right = tickMarkNode.left - 3;
-      soluteAmountText.centerY = tickMarkNode.centerY;
+      soluteAmountText.right = triangleNode.left - 6;
+      soluteAmountText.centerY = triangleNode.centerY;
     } );
 
-    options.children = [ soluteAmountText, tickMarkNode ];
+    options.children = [ soluteAmountText, triangleNode ];
 
     super( options );
   }
