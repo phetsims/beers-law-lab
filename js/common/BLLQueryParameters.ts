@@ -12,7 +12,7 @@ import beersLawLab from '../beersLawLab.js';
 const BLLQueryParameters = QueryStringMachine.getAll( {
 
   // Whether the volume of the solution (in L) is visible at the surface of the solution in the beaker.
-  // See https://github.com/phetsims/beers-law-lab/issues/161
+  // For external use, see https://github.com/phetsims/beers-law-lab/issues/161
   showSolutionVolume: {
     type: 'flag',
     public: true
