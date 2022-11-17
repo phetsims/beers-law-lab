@@ -34,6 +34,7 @@ import SoluteGramsNode from './SoluteGramsNode.js';
 import SolutePanel from './SolutePanel.js';
 import SolutionNode from './SolutionNode.js';
 import StockSolutionNode from './StockSolutionNode.js';
+import SolutionVolumeNode from './SolutionVolumeNode.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -57,6 +58,16 @@ export default class ConcentrationScreenView extends ScreenView {
       tandem: options.tandem.createTandem( 'beakerNode' )
     } );
     const solutionNode = new SolutionNode( model.solution, model.beaker, modelViewTransform );
+    const solutionVolumeText = new SolutionVolumeNode( model.solution.volumeProperty, {
+      visible: BLLQueryParameters.showSolutionVolume,
+      tandem: options.tandem.createTandem( 'solutionVolumeText' )
+    } );
+
+    Multilink.multilink( [ solutionNode.boundsProperty, solutionVolumeText.boundsProperty ],
+      () => {
+        solutionVolumeText.right = beakerNode.centerX - model.beaker.size.width / 2;
+        solutionVolumeText.y = solutionNode.top + BLLConstants.SOLUTION_LINE_WIDTH / 2;
+      } );
 
     // Precipitate particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
     const precipitateNode = new PrecipitateNode( model.precipitate, modelViewTransform, new Bounds2(
@@ -113,8 +124,9 @@ export default class ConcentrationScreenView extends ScreenView {
     } );
 
     // Solute amount, in grams
-    const soluteGramsNode = new SoluteGramsNode( model.solution.soluteGramsProperty, {
-      visible: BLLQueryParameters.showSoluteAmount
+    const soluteAmountText = new SoluteGramsNode( model.solution.soluteGramsProperty, {
+      visible: BLLQueryParameters.showSoluteAmount,
+      tandem: options.tandem.createTandem( 'soluteAmountText' )
     } );
 
     // Remove Solute button
@@ -137,6 +149,7 @@ export default class ConcentrationScreenView extends ScreenView {
       drainFaucetNode,
       stockSolutionNode,
       solutionNode,
+      solutionVolumeText,
       beakerNode.mutate( { layerSplit: true } ), // beaker is static, put in its own layer
       precipitateNode,
       saturatedIndicator,
@@ -144,7 +157,7 @@ export default class ConcentrationScreenView extends ScreenView {
       shakerNode,
       dropperNode,
       evaporationPanel,
-      soluteGramsNode,
+      soluteAmountText,
       removeSoluteButton,
       resetAllButton,
       solutePanel,
@@ -171,18 +184,18 @@ export default class ConcentrationScreenView extends ScreenView {
     evaporationPanel.top = beakerNode.bottom + 30;
 
     Multilink.multilink( [
-      soluteGramsNode.visibleProperty,
+      soluteAmountText.visibleProperty,
       evaporationPanel.boundsProperty,
       removeSoluteButton.boundsProperty,
-      soluteGramsNode.boundsProperty
+      soluteAmountText.boundsProperty
     ], () => {
-      if ( soluteGramsNode.visible ) {
+      if ( soluteAmountText.visible ) {
         // bottom aligned with evaporator
         removeSoluteButton.left = evaporationPanel.right + 30;
         removeSoluteButton.bottom = evaporationPanel.bottom;
         //  above button
-        soluteGramsNode.left = removeSoluteButton.left;
-        soluteGramsNode.bottom = removeSoluteButton.top - 20;
+        soluteAmountText.left = removeSoluteButton.left;
+        soluteAmountText.bottom = removeSoluteButton.top - 20;
       }
       else {
         // left of evaporation control

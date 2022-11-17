@@ -25,7 +25,8 @@ const BLLConstants = {
     team: 'Kelly Lancaster, Emily B. Moore, Ariel Paul, Kathy Perkins',
     qualityAssurance: 'Steele Dalton, Bryce Griebenow, Elise Morgan, Oliver Orejola, Benjamin Roberts, Bryan Yoelin',
     thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
-  }
+  },
+  SOLUTION_LINE_WIDTH: 1
 };
 
 beersLawLab.register( 'BLLConstants', BLLConstants );

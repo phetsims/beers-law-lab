@@ -11,6 +11,13 @@ import beersLawLab from '../beersLawLab.js';
 
 const BLLQueryParameters = QueryStringMachine.getAll( {
 
+  // Whether the volume of the soution (in L) is visible at the surface of the solution in the beaker.
+  // See https://github.com/phetsims/beers-law-lab/issues/161
+  showSolutionVolume: {
+    type: 'flag',
+    public: true
+  },
+
   // Whether the solute amount (in grams) is visible on the Concentration screen
   // For external use, see https://github.com/phetsims/beers-law-lab/issues/148
   showSoluteAmount: {

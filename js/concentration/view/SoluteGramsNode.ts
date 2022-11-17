@@ -1,7 +1,7 @@
 // Copyright 2016-2022, University of Colorado Boulder
 
 /**
- * Displays the amount of solute, in grams.  See beers-law-lab#148
+ * SoluteGramsNode displays the amount of solute, in grams. See https://github.com/phetsims/beers-law-lab/issues/148
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -11,6 +11,7 @@ import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Text, TextOptions } from '../../../../scenery/js/imports.js';
@@ -22,7 +23,7 @@ const DECIMAL_PLACES = 0;
 
 type SelfOptions = EmptySelfOptions;
 
-type SoluteGramsNodeOptions = SelfOptions & PickOptional<TextOptions, 'visible'>;
+type SoluteGramsNodeOptions = SelfOptions & PickOptional<TextOptions, 'visible'> & PickRequired<TextOptions, 'tandem'>;
 
 export default class SoluteGramsNode extends Text {
 
@@ -39,6 +40,11 @@ export default class SoluteGramsNode extends Text {
     );
 
     super( stringProperty, options );
+  }
+
+  public override dispose(): void {
+    assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
+    super.dispose();
   }
 }
 
