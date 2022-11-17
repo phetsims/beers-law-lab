@@ -17,7 +17,6 @@ import EyeDropperNode from '../../../../scenery-phet/js/EyeDropperNode.js';
 import { Node } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
-import BLLQueryParameters from '../../common/BLLQueryParameters.js';
 import ConcentrationModel from '../model/ConcentrationModel.js';
 import BeakerNode from './BeakerNode.js';
 import BLLDropperNode from './BLLDropperNode.js';
@@ -59,7 +58,6 @@ export default class ConcentrationScreenView extends ScreenView {
     } );
     const solutionNode = new SolutionNode( model.solution, model.beaker, modelViewTransform );
     const solutionVolumeText = new SolutionVolumeNode( model.solution.volumeProperty, {
-      visible: BLLQueryParameters.showSolutionVolume,
       tandem: options.tandem.createTandem( 'solutionVolumeText' )
     } );
 
@@ -125,7 +123,6 @@ export default class ConcentrationScreenView extends ScreenView {
 
     // Solute amount, in grams
     const soluteAmountText = new SoluteGramsNode( model.solution.soluteGramsProperty, {
-      visible: BLLQueryParameters.showSoluteAmount,
       tandem: options.tandem.createTandem( 'soluteAmountText' )
     } );
 

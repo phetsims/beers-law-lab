@@ -10,20 +10,20 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Text, TextOptions } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
+import BLLPreferences from '../../common/model/BLLPreferences.js';
 
 // constants
 const DECIMAL_PLACES = 0;
 
 type SelfOptions = EmptySelfOptions;
 
-type SoluteGramsNodeOptions = SelfOptions & PickOptional<TextOptions, 'visible'> & PickRequired<TextOptions, 'tandem'>;
+type SoluteGramsNodeOptions = SelfOptions & PickRequired<TextOptions, 'tandem'>;
 
 export default class SoluteGramsNode extends Text {
 
@@ -31,7 +31,8 @@ export default class SoluteGramsNode extends Text {
 
     const options = optionize<SoluteGramsNodeOptions, SelfOptions, TextOptions>()( {
       font: new PhetFont( 22 ),
-      maxWidth: 200
+      maxWidth: 200,
+      visibleProperty: BLLPreferences.showSoluteAmountProperty
     }, providedOptions );
 
     const stringProperty = new DerivedProperty(

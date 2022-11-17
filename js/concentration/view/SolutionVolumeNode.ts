@@ -13,24 +13,26 @@ import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Utils from '../../../../dot/js/Utils.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { HBoxOptions, Line, Node, NodeOptions, Text } from '../../../../scenery/js/imports.js';
+import { Line, Node, NodeOptions, Text } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
+import BLLPreferences from '../../common/model/BLLPreferences.js';
 
 type SelfOptions = EmptySelfOptions;
 
-type SolutionVolumeNodeOptions = SelfOptions & PickOptional<HBoxOptions, 'visible'> & PickRequired<NodeOptions, 'tandem'>;
+type SolutionVolumeNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
 export default class SolutionVolumeNode extends Node {
 
   public constructor( volumeProperty: Property<number>, providedOptions: SolutionVolumeNodeOptions ) {
 
     const options = optionize<SolutionVolumeNodeOptions, SelfOptions, NodeOptions>()( {
-      // empty optionize because we're setting options.children below
+
+      // NodeOptions
+      visibleProperty: BLLPreferences.showSolutionVolumeProperty
     }, providedOptions );
 
     const tickMarkNode = new Line( 0, 0, 10, 0, {
