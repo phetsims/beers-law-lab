@@ -49,4 +49,4 @@ export default class SoluteAmountNode extends Text {
   }
 }
 
-beersLawLab.register( 'SoluteGramsNode', SoluteAmountNode );
+beersLawLab.register( 'SoluteAmountNode', SoluteAmountNode );

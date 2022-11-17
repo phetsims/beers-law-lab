@@ -29,7 +29,7 @@ import RemoveSoluteButton from './RemoveSoluteButton.js';
 import SaturatedIndicator from './SaturatedIndicator.js';
 import ShakerNode from './ShakerNode.js';
 import ShakerParticlesNode from './ShakerParticlesNode.js';
-import SoluteAmountNode from './SoluteGramsNode.js';
+import SoluteAmountNode from './SoluteAmountNode.js';
 import SolutePanel from './SolutePanel.js';
 import SolutionNode from './SolutionNode.js';
 import StockSolutionNode from './StockSolutionNode.js';
