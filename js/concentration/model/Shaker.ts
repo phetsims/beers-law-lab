@@ -53,7 +53,10 @@ export default class Shaker extends BLLMovable {
 
     this.soluteProperty = soluteProperty;
 
-    this.visibleProperty = new BooleanProperty( options.visible );
+    this.visibleProperty = new BooleanProperty( options.visible, {
+      tandem: options.tandem.createTandem( 'visibleProperty' ),
+      phetioReadOnly: true
+    } );
 
     this.isEmptyProperty = new BooleanProperty( false, {
       tandem: options.tandem.createTandem( 'isEmptyProperty' ),
@@ -61,7 +64,9 @@ export default class Shaker extends BLLMovable {
     } );
 
     this.dispensingRateProperty = new NumberProperty( 0, {
-      isValidValue: value => ( value >= 0 )
+      isValidValue: value => ( value >= 0 ),
+      tandem: options.tandem.createTandem( 'dispensingRateProperty' ),
+      phetioReadOnly: true
     } );
 
     this.previousPosition = this.positionProperty.value;
@@ -81,6 +86,10 @@ export default class Shaker extends BLLMovable {
       if ( phet.joist.sim.isSettingPhetioStateProperty.value ) {
         this.previousPosition = position;
       }
+    } );
+
+    this.addLinkedElement( soluteProperty, {
+      tandem: options.tandem.createTandem( 'soluteProperty' )
     } );
   }
 
