@@ -46,11 +46,20 @@ export default class Dropper extends BLLMovable {
     super( options );
 
     this.soluteProperty = soluteProperty;
-    this.visibleProperty = new BooleanProperty( options.visible );
-    this.enabledProperty = new BooleanProperty( true );
+
+    this.visibleProperty = new BooleanProperty( options.visible, {
+      tandem: options.tandem.createTandem( 'visibleProperty' ),
+      phetioReadOnly: true
+    } );
+
+    this.enabledProperty = new BooleanProperty( true, {
+      tandem: options.tandem.createTandem( 'enabledProperty' ),
+      phetioReadOnly: true
+    } );
 
     this.isDispensingProperty = new BooleanProperty( false, {
-      tandem: options.tandem.createTandem( 'isDispensingProperty' )
+      tandem: options.tandem.createTandem( 'isDispensingProperty' ),
+      phetioReadOnly: true
     } );
 
     this.isEmptyProperty = new BooleanProperty( false, {
@@ -82,6 +91,10 @@ export default class Dropper extends BLLMovable {
       if ( empty ) {
         this.enabledProperty.value = false;
       }
+    } );
+
+    this.addLinkedElement( soluteProperty, {
+      tandem: options.tandem.createTandem( 'soluteProperty' )
     } );
   }
 
