@@ -17,6 +17,7 @@ import { Text, VBox, VBoxOptions } from '../../../../scenery/js/imports.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLPreferences from '../model/BLLPreferences.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -37,7 +38,7 @@ export default class BLLPreferencesNode extends VBox {
     }, providedOptions );
 
     // 'Show solution volume' checkbox
-    const showSolutionVolumeText = new Text( 'Show solution volume', {
+    const showSolutionVolumeText = new Text( BeersLawLabStrings.showSolutionVolumeStringProperty, {
       font: PreferencesDialog.CONTENT_FONT
     } );
     const showSolutionVolumeCheckbox = new Checkbox( BLLPreferences.showSolutionVolumeProperty, showSolutionVolumeText, {
@@ -45,7 +46,7 @@ export default class BLLPreferencesNode extends VBox {
     } );
 
     // 'Show solute amount' checkbox
-    const showSoluteAmountText = new Text( 'Show solution amount', {
+    const showSoluteAmountText = new Text( BeersLawLabStrings.showSoluteAmountStringProperty, {
       font: PreferencesDialog.CONTENT_FONT
     } );
     const showSoluteAmountCheckbox = new Checkbox( BLLPreferences.showSoluteAmountProperty, showSoluteAmountText, {

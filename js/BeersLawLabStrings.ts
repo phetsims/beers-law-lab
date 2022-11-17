@@ -59,6 +59,8 @@ type StringsType = {
   };
   'variableStringProperty': LinkableProperty<string>;
   'wavelengthStringProperty': LinkableProperty<string>;
+  'showSolutionVolumeStringProperty': LinkableProperty<string>;
+  'showSoluteAmountStringProperty': LinkableProperty<string>;
 };
 
 const BeersLawLabStrings = getStringModule( 'BEERS_LAW_LAB' ) as StringsType;
