@@ -20,7 +20,7 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Node, NodeOptions, Path, Text } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
-import BLLPreferences from '../../common/model/BLLPreferences.js';
+import BLLPreferences from '../../global/model/BLLPreferences.js';
 
 type SelfOptions = EmptySelfOptions;
 
