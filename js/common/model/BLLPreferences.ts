@@ -9,7 +9,7 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import BLLQueryParameters from '../../common/BLLQueryParameters.js';
+import BLLQueryParameters from '../BLLQueryParameters.js';
 import beersLawLab from '../../beersLawLab.js';
 
 const BLLPreferences = {

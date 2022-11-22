@@ -16,7 +16,7 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Text, TextOptions } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
-import BLLPreferences from '../../global/model/BLLPreferences.js';
+import BLLPreferences from '../../common/model/BLLPreferences.js';
 
 // constants
 const DECIMAL_PLACES = 0;

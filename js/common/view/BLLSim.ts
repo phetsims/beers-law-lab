@@ -13,8 +13,8 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../BLLConstants.js';
-import BLLPreferencesNode from '../../global/view/BLLPreferencesNode.js';
-import BLLPreferences from '../../global/model/BLLPreferences.js';
+import BLLPreferencesNode from './BLLPreferencesNode.js';
+import BLLPreferences from '../model/BLLPreferences.js';
 import PreferencesModel from '../../../../joist/js/preferences/PreferencesModel.js';
 
 type SelfOptions = EmptySelfOptions;
