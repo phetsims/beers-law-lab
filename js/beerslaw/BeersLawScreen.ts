@@ -7,43 +7,35 @@
  */
 
 import Vector2 from '../../../dot/js/Vector2.js';
-import Screen, { ScreenOptions } from '../../../joist/js/Screen.js';
+import Screen from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
-import optionize, { EmptySelfOptions } from '../../../phet-core/js/optionize.js';
-import PickRequired from '../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
 import { Image } from '../../../scenery/js/imports.js';
+import Tandem from '../../../tandem/js/Tandem.js';
 import beersLawScreenIcon_jpg from '../../images/beersLawScreenIcon_jpg.js';
 import beersLawLab from '../beersLawLab.js';
 import BeersLawLabStrings from '../BeersLawLabStrings.js';
 import BeersLawModel from './model/BeersLawModel.js';
 import BeersLawScreenView from './view/BeersLawScreenView.js';
 
-type SelfOptions = EmptySelfOptions;
-
-type BeersLawScreenOptions = SelfOptions & PickRequired<ScreenOptions, 'tandem'>;
-
 export default class BeersLawScreen extends Screen<BeersLawModel, BeersLawScreenView> {
 
-  public constructor( providedOptions: BeersLawScreenOptions ) {
+  public constructor( tandem: Tandem ) {
 
-    const options = optionize<BeersLawScreenOptions, SelfOptions, ScreenOptions>()( {
+    const options = {
 
       // ScreenOptions
       name: BeersLawLabStrings.screen.beersLawStringProperty,
-      homeScreenIcon: createScreenIcon()
-    }, providedOptions );
+      homeScreenIcon: createScreenIcon(),
+      tandem: tandem
+    };
 
     // No offset, scale 125x when going from model to view (1cm == 125 pixels)
     const modelViewTransform = ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 125 );
 
     super(
-      () => new BeersLawModel( modelViewTransform, {
-        tandem: options.tandem.createTandem( 'model' )
-      } ),
-      model => new BeersLawScreenView( model, modelViewTransform, {
-        tandem: options.tandem.createTandem( 'view' )
-      } ),
+      () => new BeersLawModel( modelViewTransform, options.tandem.createTandem( 'model' ) ),
+      model => new BeersLawScreenView( model, modelViewTransform, options.tandem.createTandem( 'view' ) ),
       options
     );
   }

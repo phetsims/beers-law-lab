@@ -15,8 +15,8 @@ import BLLSim from './common/view/BLLSim.js';
 
 simLauncher.launch( () => {
   const screens = [
-    new ConcentrationScreen( { tandem: Tandem.ROOT.createTandem( 'concentrationScreen' ) } ),
-    new BeersLawScreen( { tandem: Tandem.ROOT.createTandem( 'beersLawScreen' ) } )
+    new ConcentrationScreen( Tandem.ROOT.createTandem( 'concentrationScreen' ) ),
+    new BeersLawScreen( Tandem.ROOT.createTandem( 'beersLawScreen' ) )
   ];
   const sim = new BLLSim( BeersLawLabStrings[ 'beers-law-lab' ].titleStringProperty, screens );
   sim.start();

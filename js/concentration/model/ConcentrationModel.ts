@@ -11,9 +11,7 @@ import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import TModel from '../../../../joist/js/TModel.js';
-import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import Solute from '../../common/model/Solute.js';
@@ -34,10 +32,6 @@ const SOLUTE_AMOUNT_RANGE = BLLConstants.SOLUTE_AMOUNT_RANGE; // moles
 const DROPPER_FLOW_RATE = 0.05; // L/sec
 const SHAKER_MAX_DISPENSING_RATE = 0.2; // mol/sec
 
-type SelfOptions = EmptySelfOptions;
-
-type ConcentrationModelOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
-
 export default class ConcentrationModel implements TModel {
 
   public solutes: Solute[];
@@ -54,9 +48,7 @@ export default class ConcentrationModel implements TModel {
   public readonly drainFaucet: Faucet;
   public readonly concentrationMeter: ConcentrationMeter;
 
-  public constructor( providedOptions: ConcentrationModelOptions ) {
-
-    const options = providedOptions;
+  public constructor( tandem: Tandem ) {
 
     // in rainbow (ROYGBIV) order.
     this.solutes = [
@@ -72,16 +64,16 @@ export default class ConcentrationModel implements TModel {
     ];
 
     this.soluteProperty = new Property( this.solutes[ 0 ], {
-      tandem: options.tandem.createTandem( 'soluteProperty' ),
+      tandem: tandem.createTandem( 'soluteProperty' ),
       phetioValueType: Solute.SoluteIO
     } );
 
     this.soluteFormProperty = new EnumerationProperty( SoluteForm.SOLID, {
-      tandem: options.tandem.createTandem( 'soluteFormProperty' )
+      tandem: tandem.createTandem( 'soluteFormProperty' )
     } );
 
     this.solution = new ConcentrationSolution( this.soluteProperty, SOLUTE_AMOUNT_RANGE, SOLUTION_VOLUME_RANGE, {
-      tandem: options.tandem.createTandem( 'solution' )
+      tandem: tandem.createTandem( 'solution' )
     } );
 
     this.beaker = new Beaker( {
@@ -89,7 +81,7 @@ export default class ConcentrationModel implements TModel {
     } );
 
     this.precipitate = new Precipitate( this.solution, this.beaker, {
-      tandem: options.tandem.createTandem( 'precipitate' )
+      tandem: tandem.createTandem( 'precipitate' )
     } );
 
     this.shaker = new Shaker( this.soluteProperty, {
@@ -98,11 +90,11 @@ export default class ConcentrationModel implements TModel {
       orientation: 0.75 * Math.PI,
       maxDispensingRate: SHAKER_MAX_DISPENSING_RATE,
       visible: ( this.soluteFormProperty.value === SoluteForm.SOLID ),
-      tandem: options.tandem.createTandem( 'shaker' )
+      tandem: tandem.createTandem( 'shaker' )
     } );
 
     this.shakerParticles = new ShakerParticles( this.shaker, this.solution, this.beaker, {
-      tandem: options.tandem.createTandem( 'shakerParticles' )
+      tandem: tandem.createTandem( 'shakerParticles' )
     } );
 
     this.dropper = new Dropper( this.soluteProperty, {
@@ -110,23 +102,23 @@ export default class ConcentrationModel implements TModel {
       dragBounds: new Bounds2( 260, 225, 580, 225 ),
       maxFlowRate: DROPPER_FLOW_RATE,
       visible: ( this.soluteFormProperty.value === SoluteForm.SOLUTION ),
-      tandem: options.tandem.createTandem( 'dropper' )
+      tandem: tandem.createTandem( 'dropper' )
     } );
 
     this.evaporator = new Evaporator( this.solution, {
-      tandem: options.tandem.createTandem( 'evaporator' )
+      tandem: tandem.createTandem( 'evaporator' )
     } );
 
     this.solventFaucet = new Faucet( {
       position: new Vector2( 155, 220 ),
       pipeMinX: -400,
-      tandem: options.tandem.createTandem( 'solventFaucet' )
+      tandem: tandem.createTandem( 'solventFaucet' )
     } );
 
     this.drainFaucet = new Faucet( {
       position: new Vector2( 750, 630 ),
       pipeMinX: this.beaker.right,
-      tandem: options.tandem.createTandem( 'drainFaucet' )
+      tandem: tandem.createTandem( 'drainFaucet' )
     } );
 
     this.concentrationMeter = new ConcentrationMeter( {
@@ -134,7 +126,7 @@ export default class ConcentrationModel implements TModel {
       bodyDragBounds: new Bounds2( 10, 150, 835, 680 ),
       probePosition: new Vector2( 750, 370 ),
       probeDragBounds: new Bounds2( 30, 150, 966, 680 ),
-      tandem: options.tandem.createTandem( 'concentrationMeter' )
+      tandem: tandem.createTandem( 'concentrationMeter' )
     } );
 
     // When the solute is changed, the amount of solute resets to 0.  If this occurs while restoring PhET-iO state,
