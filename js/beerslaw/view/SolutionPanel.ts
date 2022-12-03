@@ -6,13 +6,14 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { Node, NodeTranslationOptions, VBox } from '../../../../scenery/js/imports.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
-import ToggleNode from '../../../../sun/js/ToggleNode.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
 import ConcentrationControl from './ConcentrationControl.js';
@@ -23,6 +24,9 @@ type SelfOptions = EmptySelfOptions;
 type SolutionPanelOptions = SelfOptions & NodeTranslationOptions & PickRequired<PanelOptions, 'tandem'>;
 
 export default class SolutionPanel extends Panel {
+
+  // The concentration displayed in the panel. For PHET-iO only.
+  private readonly concentrationProperty: TReadOnlyProperty<number>;
 
   public constructor( solutions: BeersLawSolution[], solutionProperty: Property<BeersLawSolution>,
                       solutionListParent: Node, providedOptions: SolutionPanelOptions ) {
@@ -41,14 +45,19 @@ export default class SolutionPanel extends Panel {
       tandem: options.tandem.createTandem( 'solutionComboBox' )
     } );
 
-    // Concentration controls, one for each solution
-    const concentrationControls = new ConcentrationControls( solutions, solutionProperty,
-      options.tandem.createTandem( 'concentrationControls' ) );
+    // Concentration control. This is actually 1 control for each solution, with mutually-exclusive visibility.
+    const concentrationControlTandem = options.tandem.createTandem( 'concentrationControl' );
+    const concentrationControl = new Node( {
+      children: solutions.map( solution => new ConcentrationControl( solution, {
+        visibleProperty: new DerivedProperty( [ solutionProperty ], solutionValue => ( solutionValue === solution ) )
+      } ) ),
+      tandem: concentrationControlTandem
+    } );
 
     const contentNode = new VBox( {
       spacing: 15,
       align: 'left',
-      children: [ solutionComboBox, concentrationControls ]
+      children: [ solutionComboBox, concentrationControl ]
     } );
 
     super( contentNode, options );
@@ -56,32 +65,16 @@ export default class SolutionPanel extends Panel {
     this.addLinkedElement( solutionProperty, {
       tandem: options.tandem.createTandem( 'solutionProperty' )
     } );
-  }
-}
 
-class ConcentrationControls extends Node {
-
-  public constructor( solutions: BeersLawSolution[], solutionProperty: Property<BeersLawSolution>, tandem: Tandem ) {
-
-    // a ConcentrationControl for each solution
-    const toggleNodeElements = solutions.map( solution => {
-      return {
-        value: solution,
-        createNode: ( tandem: Tandem ) => new ConcentrationControl( solution, {
-          visible: false,
-          tandem: tandem.createTandem( `${solution.tandemName}ConcentrationControl` ),
-          phetioDocumentation: `the concentration control for ${solution.tandemName}`
-        } )
-      };
-    } );
-
-    // makes the ConcentrationControl visible for the selected solution
-    const toggleNode = new ToggleNode( solutionProperty, toggleNodeElements );
-
-    super( {
-      children: [ toggleNode ],
-      tandem: tandem
-    } );
+    const concentrationProperties = solutions.map( solution => solution.concentrationProperty );
+    this.concentrationProperty = DerivedProperty.deriveAny( [ solutionProperty, ...concentrationProperties ],
+      () => solutionProperty.value.concentrationProperty.value, {
+        units: 'mol/L',
+        tandem: concentrationControlTandem.createTandem( 'concentrationProperty' ),
+        phetioDocumentation: 'the concentration value currently displayed by this control',
+        phetioValueType: NumberIO,
+        phetioLinkDependencies: false
+      } );
   }
 }
 

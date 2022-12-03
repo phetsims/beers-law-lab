@@ -19,6 +19,7 @@ import NumberControl, { NumberControlOptions } from '../../../../scenery-phet/js
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { HBox, HStrut, LinearGradient, Text } from '../../../../scenery/js/imports.js';
 import SunConstants from '../../../../sun/js/SunConstants.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
@@ -30,8 +31,7 @@ const SLIDER_INTERVAL = 5; // in view units
 
 type SelfOptions = EmptySelfOptions;
 
-type ConcentrationControlOptions = SelfOptions &
-  PickRequired<NumberControlOptions, 'visible' | 'tandem' | 'phetioDocumentation'>;
+type ConcentrationControlOptions = SelfOptions & PickRequired<NumberControlOptions, 'visibleProperty'>;
 
 export default class ConcentrationControl extends NumberControl {
 
@@ -62,11 +62,7 @@ export default class ConcentrationControl extends NumberControl {
         trackSize: new Dimension2( 200, 15 ),
         thumbSize: new Dimension2( 22, 45 ),
         constrainValue: value => Utils.roundToInterval( value, SLIDER_INTERVAL ),
-
-        // phet-io
-        // {Property.<number>} - keep track of the underlying model Property to form a LinkedElement to from the slider.
-        // This helps support a good PhET-iO Studio interface. See Slider.phetioLinkedProperty
-        phetioLinkedProperty: solution.concentrationProperty
+        tandem: Tandem.OPT_OUT
       },
 
       // single-line horizontal layout
@@ -78,7 +74,7 @@ export default class ConcentrationControl extends NumberControl {
         } );
       },
 
-      visiblePropertyOptions: { phetioReadOnly: true }
+      tandem: Tandem.OPT_OUT // see https://github.com/phetsims/beers-law-lab/issues/270
     }, providedOptions );
 
     const transform = solution.concentrationTransform;
@@ -138,6 +134,10 @@ export default class ConcentrationControl extends NumberControl {
     super( titleStringProperty, numberProperty, numberRange, options );
 
     this.solution = solution;
+
+    this.addLinkedElement( solution.concentrationProperty, {
+      tandem: options.tandem.createTandem( solution.concentrationProperty.tandem.name )
+    } );
   }
 }
 
