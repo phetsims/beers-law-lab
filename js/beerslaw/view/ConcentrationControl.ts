@@ -117,7 +117,7 @@ export default class ConcentrationControl extends NumberControl {
     } );
 
     // convert solution's concentration range from model to view
-    const concentrationRange = solution.concentrationProperty.range!;
+    const concentrationRange = solution.concentrationProperty.range;
     assert && assert( concentrationRange );
     const numberRange = new Range(
       transform.modelToView( concentrationRange.min ),

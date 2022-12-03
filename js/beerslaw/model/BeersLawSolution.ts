@@ -107,7 +107,7 @@ export default class BeersLawSolution extends PhetioObject {
       concentration => {
         let color = this.solvent.colorProperty.value;
         if ( concentration > 0 ) {
-          const range = this.concentrationProperty.range!;
+          const range = this.concentrationProperty.range;
           const distance = Utils.linear( range.min, range.max, 0, 1, concentration );
           color = this.colorRange.interpolateLinear( distance );
         }
