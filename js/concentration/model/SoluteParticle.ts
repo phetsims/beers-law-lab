@@ -41,6 +41,12 @@ export default class SoluteParticle extends PhetioObject {
   public readonly positionProperty: Property<Vector2>;
   public readonly orientation: number;
 
+  // Precompute these things, to improve the performance of ParticlesNode.
+  public readonly cos: number; // cosine of orientation
+  public readonly sin: number; // since of orientation
+  public readonly fillStyle: string; // fillStyle for rendering with Canvas
+  public readonly strokeStyle: string; // strokeStyle for rendering with Canvas
+
   /**
    * @param color
    * @param size particles are square, this is the length of one side
@@ -57,6 +63,11 @@ export default class SoluteParticle extends PhetioObject {
     this.size = size;
     this.positionProperty = new Vector2Property( position );
     this.orientation = orientation;
+
+    this.cos = Math.cos( orientation );
+    this.sin = Math.sin( orientation );
+    this.fillStyle = color.getCanvasStyle();
+    this.strokeStyle = color.darkerColor().getCanvasStyle();
   }
 
   public toStateObject(): SoluteParticleStateObject {

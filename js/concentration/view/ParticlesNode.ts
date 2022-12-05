@@ -42,7 +42,7 @@ export default class ParticlesNode extends CanvasNode {
    */
   public override paintCanvas( context: CanvasRenderingContext2D ): void {
 
-    const particles = this.particleGroup.getArray();
+    const particles = this.particleGroup.getArray(); // reference - do not modify!
     const numberOfParticles = particles.length;
 
     // Set and compute static properties that should be shared by all the particles, and start the path.
@@ -51,8 +51,8 @@ export default class ParticlesNode extends CanvasNode {
 
       const halfViewSize = this.modelViewTransform.modelToViewDeltaX( particles[ 0 ].size ) * Math.SQRT2 / 2;
 
-      context.fillStyle = particles[ 0 ].color.getCanvasStyle();
-      context.strokeStyle = particles[ 0 ].color.darkerColor().getCanvasStyle();
+      context.fillStyle = particles[ 0 ].fillStyle;
+      context.strokeStyle = particles[ 0 ].strokeStyle;
       context.lineWidth = 1;
 
       context.beginPath();
@@ -60,12 +60,10 @@ export default class ParticlesNode extends CanvasNode {
       // draw into one big path
       for ( let i = 0; i < numberOfParticles; i++ ) {
         const particle = particles[ i ];
-
-        const position = this.modelViewTransform.modelToViewPosition( particle.positionProperty.value );
-        const x = position.x;
-        const y = position.y;
-        const cos = Math.cos( particle.orientation ) * halfViewSize;
-        const sin = Math.sin( particle.orientation ) * halfViewSize;
+        const x = this.modelViewTransform.modelToViewX( particle.positionProperty.value.x );
+        const y = this.modelViewTransform.modelToViewY( particle.positionProperty.value.y );
+        const cos = particle.cos * halfViewSize;
+        const sin = particle.sin * halfViewSize;
         context.moveTo( x + cos, y + sin );
         context.lineTo( x - sin, y + cos );
         context.lineTo( x - cos, y - sin );
