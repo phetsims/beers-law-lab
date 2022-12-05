@@ -93,7 +93,7 @@ export default class ConcentrationModel implements TModel {
       tandem: tandem.createTandem( 'shaker' )
     } );
 
-    this.shakerParticles = new ShakerParticles( this.shaker, this.solution, this.beaker, {
+    this.shakerParticles = new ShakerParticles( this.solution, this.beaker, this.shaker, {
       tandem: tandem.createTandem( 'shakerParticles' )
     } );
 

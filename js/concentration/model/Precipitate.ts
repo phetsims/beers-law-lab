@@ -15,19 +15,22 @@ import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import beersLawLab from '../../beersLawLab.js';
 import Beaker from './Beaker.js';
 import ConcentrationSolution from './ConcentrationSolution.js';
+import Particles from './Particles.js';
 import PrecipitateParticleGroup from './PrecipitateParticleGroup.js';
 
 type SelfOptions = EmptySelfOptions;
 
 type PrecipitateOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-export default class Precipitate {
+export default class Precipitate extends Particles {
 
   private readonly solution: ConcentrationSolution;
   private readonly beaker: Beaker;
   public readonly particleGroup: PrecipitateParticleGroup;
 
   public constructor( solution: ConcentrationSolution, beaker: Beaker, providedOptions: PrecipitateOptions ) {
+
+    super( solution.soluteProperty );
 
     this.solution = solution;
     this.beaker = beaker;
@@ -40,7 +43,7 @@ export default class Precipitate {
     this.solution.precipitateMolesProperty.link( () => this.updateParticles() );
 
     // when the solute changes, remove all particles and create new particles for the solute
-    this.solution.soluteProperty.link( () => {
+    this.solution.soluteProperty.link( solute => {
 
       // Remove all particles, unless solute was being restored by PhET-iO. Particles will be restored by particleGroup.
       if ( !phet.joist.sim.isSettingPhetioStateProperty.value ) {

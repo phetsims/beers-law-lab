@@ -18,6 +18,7 @@ import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import Beaker from './Beaker.js';
 import ConcentrationSolution from './ConcentrationSolution.js';
+import Particles from './Particles.js';
 import Shaker from './Shaker.js';
 import ShakerParticleGroup from './ShakerParticleGroup.js';
 
@@ -33,15 +34,24 @@ type SelfOptions = EmptySelfOptions;
 
 type ShakerParticlesOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-export default class ShakerParticles {
+export default class ShakerParticles extends Particles {
 
+  private readonly solution: ConcentrationSolution;
+  private readonly beaker: Beaker;
+  private readonly shaker: Shaker;
   public readonly particleGroup: ShakerParticleGroup;
   public readonly particlesMovedEmitter: Emitter; // emits on step if one or more particles has moved
 
-  public constructor( private readonly shaker: Shaker,
-                      private readonly solution: ConcentrationSolution,
-                      private readonly beaker: Beaker,
+  public constructor( solution: ConcentrationSolution,
+                      beaker: Beaker,
+                      shaker: Shaker,
                       providedOptions: ShakerParticlesOptions ) {
+
+    super( solution.soluteProperty );
+
+    this.solution = solution;
+    this.beaker = beaker;
+    this.shaker = shaker;
 
     this.particleGroup = new ShakerParticleGroup( {
       tandem: providedOptions.tandem.createTandem( 'particleGroup' )

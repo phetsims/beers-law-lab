@@ -64,7 +64,11 @@ export default class Solute extends PhetioObject {
   // percent concentration [0,100] of stock solution, see https://github.com/phetsims/beers-law-lab/issues/149
   public readonly stockSolutionPercentConcentration: number;
 
-  public constructor( providedOptions: SoluteOptions ) {
+  // Precomputed for rendering performance with Canvas.
+  public readonly fillStyle: string;
+  public readonly strokeStyle: string;
+
+  private constructor( providedOptions: SoluteOptions ) {
 
     assert && assert( Solute.SoluteIO, 'SoluteIO and Solute instances are statics, so make sure SoluteIO exists' );
 
@@ -106,6 +110,9 @@ export default class Solute extends PhetioObject {
       100 * ( options.molarMass * options.stockSolutionConcentration ) /
       ( Solvent.WATER.density + ( options.molarMass * options.stockSolutionConcentration ) );
     assert && assert( this.stockSolutionPercentConcentration >= 0 && this.stockSolutionPercentConcentration <= 100 );
+
+    this.fillStyle = options.particleColor.getCanvasStyle();
+    this.strokeStyle = options.particleColor.darkerColor().getCanvasStyle();
 
     this.addLinkedElement( options.nameProperty, {
       tandem: options.tandem.createTandem( 'nameProperty' )
