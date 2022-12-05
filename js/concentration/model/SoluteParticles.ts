@@ -1,15 +1,16 @@
 // Copyright 2022, University of Colorado Boulder
 
 /**
- * Particles is the base class for all systems of particles.
+ * SoluteParticles is the base class for a system of Solute particles.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
 import Solute from '../../common/model/Solute.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import beersLawLab from '../../beersLawLab.js';
 
-export default class Particles {
+export default class SoluteParticles {
 
   protected readonly soluteProperty: TReadOnlyProperty<Solute>;
 
@@ -38,3 +39,5 @@ export default class Particles {
     return this.soluteProperty.value.strokeStyle;
   }
 }
+
+beersLawLab.register( 'SoluteParticles', SoluteParticles );

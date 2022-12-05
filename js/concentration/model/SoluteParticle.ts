@@ -54,7 +54,7 @@ export default class SoluteParticle extends PhetioObject {
    * @param orientation in radians
    * @param [providedOptions]
    */
-  public constructor( color: Color, size: number, position: Vector2, orientation: number,
+  protected constructor( color: Color, size: number, position: Vector2, orientation: number,
                       providedOptions: SoluteParticleOptions ) {
 
     super( providedOptions );

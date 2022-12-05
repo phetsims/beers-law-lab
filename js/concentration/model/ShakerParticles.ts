@@ -18,7 +18,7 @@ import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import Beaker from './Beaker.js';
 import ConcentrationSolution from './ConcentrationSolution.js';
-import Particles from './Particles.js';
+import SoluteParticles from './SoluteParticles.js';
 import Shaker from './Shaker.js';
 import ShakerParticleGroup from './ShakerParticleGroup.js';
 
@@ -34,7 +34,7 @@ type SelfOptions = EmptySelfOptions;
 
 type ShakerParticlesOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-export default class ShakerParticles extends Particles {
+export default class ShakerParticles extends SoluteParticles {
 
   private readonly solution: ConcentrationSolution;
   private readonly beaker: Beaker;

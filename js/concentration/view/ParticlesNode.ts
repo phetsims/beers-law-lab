@@ -12,29 +12,29 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import { CanvasNode } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
-import PrecipitateParticleGroup from '../model/PrecipitateParticleGroup.js';
-import ShakerParticleGroup from '../model/ShakerParticleGroup.js';
+import Precipitate from '../model/Precipitate.js';
+import ShakerParticles from '../model/ShakerParticles.js';
 
 export default class ParticlesNode extends CanvasNode {
 
-  public readonly particleGroup: PrecipitateParticleGroup | ShakerParticleGroup;
+  public readonly particles: Precipitate | ShakerParticles;
   private readonly modelViewTransform: ModelViewTransform2;
 
-  public constructor( particleGroup: PrecipitateParticleGroup | ShakerParticleGroup,
-                      modelViewTransform: ModelViewTransform2, canvasBounds: Bounds2 ) {
+  protected constructor( particles: Precipitate | ShakerParticles,
+                         modelViewTransform: ModelViewTransform2, canvasBounds: Bounds2 ) {
 
     super( {
       pickable: false,
       canvasBounds: canvasBounds
     } );
 
-    this.particleGroup = particleGroup;
+    this.particles = particles;
 
     this.modelViewTransform = modelViewTransform;
 
     // If particles are added or removed, then redraw.
-    particleGroup.elementCreatedEmitter.addListener( () => this.invalidatePaint() );
-    particleGroup.elementDisposedEmitter.addListener( () => this.invalidatePaint() );
+    this.particles.particleGroup.elementCreatedEmitter.addListener( () => this.invalidatePaint() );
+    this.particles.particleGroup.elementDisposedEmitter.addListener( () => this.invalidatePaint() );
   }
 
   /**
@@ -42,17 +42,18 @@ export default class ParticlesNode extends CanvasNode {
    */
   public override paintCanvas( context: CanvasRenderingContext2D ): void {
 
-    const particles = this.particleGroup.getArray(); // reference - do not modify!
+    const particles = this.particles.particleGroup.getArray(); // reference - do not modify!
     const numberOfParticles = particles.length;
 
     // Set and compute static properties that should be shared by all the particles, and start the path.
     // Assumes that all particles are the same color and size.
     if ( numberOfParticles > 0 ) {
 
-      const halfViewSize = this.modelViewTransform.modelToViewDeltaX( particles[ 0 ].size ) * Math.SQRT2 / 2;
+      const particleSize = this.particles.getParticleSize();
+      const halfViewSize = this.modelViewTransform.modelToViewDeltaX( particleSize ) * Math.SQRT2 / 2;
 
-      context.fillStyle = particles[ 0 ].fillStyle;
-      context.strokeStyle = particles[ 0 ].strokeStyle;
+      context.fillStyle = this.particles.getFillStyle();
+      context.strokeStyle = this.particles.getStrokeStyle();
       context.lineWidth = 1;
 
       context.beginPath();

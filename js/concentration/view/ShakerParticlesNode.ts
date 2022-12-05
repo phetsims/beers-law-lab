@@ -16,7 +16,7 @@ export default class ShakerParticlesNode extends ParticlesNode {
 
   public constructor( shakerParticles: ShakerParticles, modelViewTransform: ModelViewTransform2, canvasBounds: Bounds2 ) {
 
-    super( shakerParticles.particleGroup, modelViewTransform, canvasBounds );
+    super( shakerParticles, modelViewTransform, canvasBounds );
 
     // If particles move, then redraw.
     shakerParticles.particlesMovedEmitter.addListener( this.invalidatePaint.bind( this ) );

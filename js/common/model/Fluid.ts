@@ -14,7 +14,7 @@ export default class Fluid {
 
   public readonly colorProperty: Property<Color>;
 
-  public constructor( color: Color ) {
+  protected constructor( color: Color ) {
     this.colorProperty = new Property( color );
   }
 

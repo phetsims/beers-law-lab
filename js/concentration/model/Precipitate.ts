@@ -15,14 +15,14 @@ import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import beersLawLab from '../../beersLawLab.js';
 import Beaker from './Beaker.js';
 import ConcentrationSolution from './ConcentrationSolution.js';
-import Particles from './Particles.js';
+import SoluteParticles from './SoluteParticles.js';
 import PrecipitateParticleGroup from './PrecipitateParticleGroup.js';
 
 type SelfOptions = EmptySelfOptions;
 
 type PrecipitateOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-export default class Precipitate extends Particles {
+export default class Precipitate extends SoluteParticles {
 
   private readonly solution: ConcentrationSolution;
   private readonly beaker: Beaker;
