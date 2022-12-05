@@ -37,7 +37,10 @@ export default class ParticlesNode extends CanvasNode {
     particleGroup.elementDisposedEmitter.addListener( () => this.invalidatePaint() );
   }
 
-  public paintCanvas( context: CanvasRenderingContext2D ): void {
+  /**
+   * Called when this.invalidatePaint is called.
+   */
+  public override paintCanvas( context: CanvasRenderingContext2D ): void {
 
     const particles = this.particleGroup.getArray();
     const numberOfParticles = particles.length;
