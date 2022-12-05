@@ -90,16 +90,18 @@ export default class Precipitate {
    */
   private removeParticles( numberToRemove: number ): void {
 
+    const numberBefore = this.particleGroup.count;
+
     const particles = this.particleGroup.getArray();
     assert && assert( numberToRemove > 0 && numberToRemove <= particles.length, `invalid numberToRemove: ${numberToRemove}` );
 
-    const removedParticles = particles.slice( particles.length - numberToRemove, numberToRemove );
-    assert && assert( removedParticles && removedParticles.length === numberToRemove,
-      `unexpected number of particles removed: expected ${numberToRemove}, removed ${removedParticles.length}` );
-
-    for ( let i = 0; i < removedParticles.length; i++ ) {
-      this.particleGroup.disposeElement( removedParticles[ i ] );
+    // Remove from the end of the array.
+    for ( let i = 0; i < numberToRemove; i++ ) {
+      this.particleGroup.disposeElement( this.particleGroup.getLastElement() );
     }
+
+    assert && assert( this.particleGroup.count + numberToRemove === numberBefore,
+      `unexpected number of particles removed: expected ${numberToRemove}, removed ${numberBefore - this.particleGroup.count}` );
   }
 
   /**
