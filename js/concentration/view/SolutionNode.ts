@@ -49,6 +49,11 @@ export default class SolutionNode extends Rectangle {
       this.setRect( viewPosition.x - ( viewWidth / 2 ), viewPosition.y - viewHeight, viewWidth, viewHeight );
     } );
   }
+
+  public override dispose(): void {
+    assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
+    super.dispose();
+  }
 }
 
 beersLawLab.register( 'SolutionNode', SolutionNode );

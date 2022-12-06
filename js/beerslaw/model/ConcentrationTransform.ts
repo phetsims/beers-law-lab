@@ -29,6 +29,10 @@ export default class ConcentrationTransform {
    */
   public constructor( public readonly scale: number, public readonly unitsStringProperty: TReadOnlyProperty<string> ) {}
 
+  public dispose(): void {
+    assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
+  }
+
   /**
    * Converts from model (M) to view (solution specific).
    */

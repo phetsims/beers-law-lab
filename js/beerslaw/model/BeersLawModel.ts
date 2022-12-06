@@ -82,6 +82,10 @@ export default class BeersLawModel implements TModel {
     this.beam = new Beam( this.light, this.cuvette, this.detector, this.absorbanceModel, modelViewTransform );
   }
 
+  public dispose(): void {
+    assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
+  }
+
   public reset(): void {
     for ( let i = 0; i < this.solutions.length; i++ ) {
       this.solutions[ i ].reset();

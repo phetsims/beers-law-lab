@@ -42,6 +42,11 @@ export default class PrecipitateParticle extends SoluteParticle {
     this.solute = solute;
   }
 
+  public override dispose(): void {
+    assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
+    super.dispose();
+  }
+
   public override toStateObject(): PrecipitateParticleStateObject {
     return combineOptions<PrecipitateParticleStateObject>( super.toStateObject(), {
       solute: Solute.SoluteIO.toStateObject( this.solute )

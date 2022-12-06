@@ -53,6 +53,10 @@ export default class Precipitate extends SoluteParticles {
     } );
   }
 
+  public dispose(): void {
+    assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
+  }
+
   /*
    * Adds/removes particles to match the model. To optimize performance, clients who register for the 'change'
    * callback will assume that particles are added/removed from the end of the 'particles' array.

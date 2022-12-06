@@ -76,6 +76,11 @@ export default class SolutionPanel extends Panel {
         phetioLinkDependencies: false
       } );
   }
+
+  public override dispose(): void {
+    assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
+    super.dispose();
+  }
 }
 
 beersLawLab.register( 'SolutionPanel', SolutionPanel );

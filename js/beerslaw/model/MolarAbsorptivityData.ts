@@ -29,6 +29,10 @@ class MolarAbsorptivityData {
     this.lambdaMax = MolarAbsorptivityData.getLambdaMax( molarAbsorptivityValues );
   }
 
+  public dispose(): void {
+    assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
+  }
+
   /**
    * Maps a visible wavelength to its corresponding molar absorptivity.
    */

@@ -42,6 +42,11 @@ export default class BLLFaucetNode extends FaucetNode {
 
     this.translation = modelViewTransform.modelToViewPosition( faucet.position );
   }
+
+  public override dispose(): void {
+    assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
+    super.dispose();
+  }
 }
 
 beersLawLab.register( 'BLLFaucetNode', BLLFaucetNode );

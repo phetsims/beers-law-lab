@@ -72,6 +72,11 @@ export default class ATDetectorNode extends Node {
       tandem: providedOptions.tandem.createTandem( 'detector' )
     } );
   }
+
+  public override dispose(): void {
+    assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
+    super.dispose();
+  }
 }
 
 /**

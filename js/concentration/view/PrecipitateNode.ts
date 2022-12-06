@@ -17,6 +17,11 @@ export default class PrecipitateNode extends ParticlesNode {
   public constructor( precipitate: Precipitate, modelViewTransform: ModelViewTransform2, canvasBounds: Bounds2 ) {
     super( precipitate, modelViewTransform, canvasBounds );
   }
+
+  public override dispose(): void {
+    assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
+    super.dispose();
+  }
 }
 
 beersLawLab.register( 'PrecipitateNode', PrecipitateNode );

@@ -199,6 +199,11 @@ export default class ConcentrationScreenView extends ScreenView {
     resetAllButton.right = this.layoutBounds.right - 30;
     resetAllButton.bottom = this.layoutBounds.bottom - 30;
   }
+
+  public override dispose(): void {
+    assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
+    super.dispose();
+  }
 }
 
 beersLawLab.register( 'ConcentrationScreenView', ConcentrationScreenView );

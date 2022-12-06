@@ -38,6 +38,11 @@ export default class FaucetFluidNode extends Rectangle {
       }
     } );
   }
+
+  public override dispose(): void {
+    assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
+    super.dispose();
+  }
 }
 
 beersLawLab.register( 'FaucetFluidNode', FaucetFluidNode );
