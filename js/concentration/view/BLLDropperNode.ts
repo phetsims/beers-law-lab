@@ -28,8 +28,8 @@ type BLLDropperNodeOptions = SelfOptions & PickRequired<EyeDropperNodeOptions, '
 
 export default class BLLDropperNode extends EyeDropperNode {
 
-  public constructor( dropper:Dropper, solvent: Solvent, soluteProperty: Property<Solute>,
-               modelViewTransform: ModelViewTransform2, providedOptions: BLLDropperNodeOptions ) {
+  public constructor( dropper: Dropper, solvent: Solvent, soluteProperty: Property<Solute>,
+                      modelViewTransform: ModelViewTransform2, providedOptions: BLLDropperNodeOptions ) {
 
     const options = optionize<BLLDropperNodeOptions, SelfOptions, EyeDropperNodeOptions>()( {
 
