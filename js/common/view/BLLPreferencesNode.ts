@@ -18,6 +18,8 @@ import Checkbox from '../../../../sun/js/Checkbox.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLPreferences from '../model/BLLPreferences.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
+import BeakerUnitsControl from './BeakerUnitsControl.js';
+import ConcentrationMeterUnitsControl from './ConcentrationMeterUnitsControl.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -53,7 +55,22 @@ export default class BLLPreferencesNode extends VBox {
       tandem: options.tandem.createTandem( 'showSoluteAmountCheckbox' )
     } );
 
-    options.children = [ showSolutionVolumeCheckbox, showSoluteAmountCheckbox ];
+    // 'Beaker units' radio buttons
+    const beakerUnitsControl = new BeakerUnitsControl( BLLPreferences.beakerUnitsProperty, {
+      tandem: options.tandem.createTandem( 'beakerUnitsControl' )
+    } );
+
+    // 'Concentration Meter units' radio buttons
+    const concentrationMeterUnitsControl = new ConcentrationMeterUnitsControl( BLLPreferences.concentrationMeterUnitsProperty, {
+      tandem: options.tandem.createTandem( 'concentrationMeterUnitsControl' )
+    } );
+
+    options.children = [
+      showSolutionVolumeCheckbox,
+      showSoluteAmountCheckbox,
+      beakerUnitsControl,
+      concentrationMeterUnitsControl
+    ];
 
     super( options );
 

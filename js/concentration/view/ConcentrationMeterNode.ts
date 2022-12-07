@@ -33,12 +33,13 @@ import { DragListener, Node, NodeOptions, Path, PathOptions, Text, VBox } from '
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
-import BLLQueryParameters from '../../common/BLLQueryParameters.js';
 import ConcentrationMeter from '../model/ConcentrationMeter.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import Dropper from '../model/Dropper.js';
 import BLLMovable from '../../common/model/BLLMovable.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import BLLPreferences from '../../common/model/BLLPreferences.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 
 // constants
 const DECIMAL_PLACES_MOLES_PER_LITER = 3;
@@ -49,7 +50,6 @@ const BODY_Y_MARGIN = 15;
 const READOUT_X_MARGIN = 5;
 const READOUT_Y_MARGIN = 4;
 const PROBE_COLOR = 'rgb( 135, 4, 72 )';
-const DISPLAY_MOLES_PER_LITER = ( BLLQueryParameters.concentrationMeterUnits === 'molesPerLiter' );
 const MIN_VALUE_SIZE = new Dimension2( 140, 35 );
 const MIN_BODY_SIZE = new Dimension2( 170, 100 );
 
@@ -81,7 +81,7 @@ export default class ConcentrationMeterNode extends Node {
 
     const updateValue = () => {
       if ( probeNode.isInSolution() || probeNode.isInDrainFluid() ) {
-        concentrationMeter.valueProperty.value = DISPLAY_MOLES_PER_LITER ?
+        concentrationMeter.valueProperty.value = ( BLLPreferences.concentrationMeterUnitsProperty.value === 'molesPerLiter' ) ?
                                                  solution.concentrationProperty.value :
                                                  solution.percentConcentrationProperty.value;
       }
@@ -89,7 +89,7 @@ export default class ConcentrationMeterNode extends Node {
         concentrationMeter.valueProperty.value = 0;
       }
       else if ( probeNode.isInStockSolution() ) {
-        concentrationMeter.valueProperty.value = DISPLAY_MOLES_PER_LITER ?
+        concentrationMeter.valueProperty.value = ( BLLPreferences.concentrationMeterUnitsProperty.value === 'molesPerLiter' ) ?
                                                  dropper.soluteProperty.value.stockSolutionConcentration :
                                                  dropper.soluteProperty.value.stockSolutionPercentConcentration;
       }
@@ -98,18 +98,17 @@ export default class ConcentrationMeterNode extends Node {
       }
     };
 
-    concentrationMeter.probe.positionProperty.link( updateValue );
-    solution.soluteProperty.link( updateValue );
-    if ( DISPLAY_MOLES_PER_LITER ) {
-      solution.concentrationProperty.link( updateValue );
-    }
-    else {
-      solution.percentConcentrationProperty.link( updateValue );
-    }
-    solutionNode.boundsProperty.lazyLink( updateValue );
-    stockSolutionNode.boundsProperty.lazyLink( updateValue );
-    solventFluidNode.boundsProperty.lazyLink( updateValue );
-    drainFluidNode.boundsProperty.lazyLink( updateValue );
+    Multilink.multilink( [
+      BLLPreferences.concentrationMeterUnitsProperty,
+      concentrationMeter.probe.positionProperty,
+      solution.soluteProperty,
+      solution.concentrationProperty,
+      solution.percentConcentrationProperty,
+      solutionNode.boundsProperty,
+      stockSolutionNode.boundsProperty,
+      solventFluidNode.boundsProperty,
+      drainFluidNode.boundsProperty
+    ], () => updateValue() );
 
     this.addLinkedElement( concentrationMeter, {
       tandem: options.tandem.createTandem( 'concentrationMeter' )
@@ -148,11 +147,14 @@ class BodyNode extends Node {
 
     // value + units
     const valueStringProperty = new DerivedProperty(
-      [ BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
+      [
+        BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
         BeersLawLabStrings.pattern[ '0percentStringProperty' ],
         concentrationMeter.valueProperty,
-        BeersLawLabStrings.units.molesPerLiterStringProperty ],
-      ( patternValueUnits, patternValuePercent, value, molesPerLiterString ) => {
+        BeersLawLabStrings.units.molesPerLiterStringProperty,
+        BLLPreferences.concentrationMeterUnitsProperty
+      ],
+      ( patternValueUnits, patternValuePercent, value, molesPerLiterString, concentrationMeterUnits ) => {
         let text: string;
         if ( value === null ) {
           text = READOUT_NO_VALUE;
@@ -160,7 +162,7 @@ class BodyNode extends Node {
         else {
 
           // display concentration as 'mol/L' or '%', see beers-law-lab#149
-          if ( DISPLAY_MOLES_PER_LITER ) {
+          if ( concentrationMeterUnits === 'molesPerLiter' ) {
             text = StringUtils.format( patternValueUnits, Utils.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), molesPerLiterString );
           }
           else {

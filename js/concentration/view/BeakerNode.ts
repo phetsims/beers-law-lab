@@ -18,8 +18,8 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Node, NodeOptions, Path, Text } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
-import BLLQueryParameters from '../../common/BLLQueryParameters.js';
 import Beaker from '../model/Beaker.js';
+import BLLPreferences from '../../common/model/BLLPreferences.js';
 
 // constants
 const RIM_OFFSET = 20;
@@ -102,11 +102,12 @@ export default class BeakerNode extends Node {
           const labelStringProperty = new DerivedProperty( [
               BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
               BeersLawLabStrings.units.litersStringProperty,
-              BeersLawLabStrings.units.millilitersStringProperty
+              BeersLawLabStrings.units.millilitersStringProperty,
+              BLLPreferences.beakerUnitsProperty
             ],
-            ( pattern, litersString, millilitersString ) =>
+            ( pattern, litersString, millilitersString, beakerUnits ) =>
               StringUtils.format( pattern, MAJOR_TICK_VALUES_LITERS[ labelIndex ],
-                ( BLLQueryParameters.beakerUnits === 'liters' ) ? litersString : millilitersString )
+                ( beakerUnits === 'liters' ) ? litersString : millilitersString )
           );
 
           tickLabelsNode.addChild( new Text( labelStringProperty, {

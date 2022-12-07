@@ -9,6 +9,12 @@
 import logGlobal from '../../../phet-core/js/logGlobal.js';
 import beersLawLab from '../beersLawLab.js';
 
+export const BeakerUnitsValues = [ 'liters', 'milliliters' ] as const;
+export type BeakerUnits = ( typeof BeakerUnitsValues )[number];
+
+export const ConcentrationMeterUnitsValues = [ 'molesPerLiter', 'percent' ] as const;
+export type ConcentrationMeterUnits = ( typeof ConcentrationMeterUnitsValues )[number];
+
 const BLLQueryParameters = QueryStringMachine.getAll( {
 
   // Whether the volume of the solution (in L) is visible at the surface of the solution in the beaker.
@@ -25,21 +31,21 @@ const BLLQueryParameters = QueryStringMachine.getAll( {
     public: true
   },
 
-  // Units on the concentration meter
-  // For external use, see https://github.com/phetsims/beers-law-lab/issues/149
-  concentrationMeterUnits: {
-    type: 'string',
-    validValues: [ 'molesPerLiter', 'percent' ],
-    defaultValue: 'molesPerLiter',
-    public: true
-  },
-
   // Units for beaker ticks
   // For external use, see https://github.com/phetsims/beers-law-lab/issues/150
   beakerUnits: {
     type: 'string',
-    validValues: [ 'liters', 'milliliters' ],
+    validValues: BeakerUnitsValues,
     defaultValue: 'liters',
+    public: true
+  },
+
+  // Units on the concentration meter
+  // For external use, see https://github.com/phetsims/beers-law-lab/issues/149
+  concentrationMeterUnits: {
+    type: 'string',
+    validValues: ConcentrationMeterUnitsValues,
+    defaultValue: 'molesPerLiter',
     public: true
   },
 
@@ -48,7 +54,7 @@ const BLLQueryParameters = QueryStringMachine.getAll( {
   cuvetteSnapInterval: {
     type: 'number',
     defaultValue: 0.1, // cm
-    isValidValue: value => ( value >= 0 ),
+    isValidValue: ( value: number ) => ( value >= 0 ),
     public: true
   }
 } );

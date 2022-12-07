@@ -56,11 +56,14 @@ type StringsType = {
     'mMStringProperty': LinkableProperty<string>;
     'uMStringProperty': LinkableProperty<string>;
     'nmStringProperty': LinkableProperty<string>;
+    'percentStringProperty': LinkableProperty<string>;
   };
   'variableStringProperty': LinkableProperty<string>;
   'wavelengthStringProperty': LinkableProperty<string>;
   'showSolutionVolumeStringProperty': LinkableProperty<string>;
   'showSoluteAmountStringProperty': LinkableProperty<string>;
+  'beakerUnitsStringProperty': LinkableProperty<string>;
+  'concentrationMeterUnitsStringProperty': LinkableProperty<string>;
 };
 
 const BeersLawLabStrings = getStringModule( 'BEERS_LAW_LAB' ) as StringsType;
