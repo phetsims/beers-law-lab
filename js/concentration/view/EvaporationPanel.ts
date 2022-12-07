@@ -16,6 +16,7 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { HBox, Text } from '../../../../scenery/js/imports.js';
 import HSlider from '../../../../sun/js/HSlider.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
+import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Evaporator from '../model/Evaporator.js';
@@ -39,15 +40,20 @@ export default class EvaporationPanel extends Panel {
       maxWidth: 410
     }, providedOptions );
 
-    const labelStringProperty = new DerivedProperty(
+    const labelTextTandem = options.tandem.createTandem( 'labelText' );
+
+    const stringProperty = new DerivedProperty(
       [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.evaporationStringProperty ],
-      ( pattern: string, evaporationString: string ) => StringUtils.format( pattern, evaporationString )
+      ( pattern: string, evaporationString: string ) => StringUtils.format( pattern, evaporationString ), {
+        tandem: labelTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
+        phetioValueType: StringIO
+      }
     );
 
-    const labelText = new Text( labelStringProperty, {
+    const labelText = new Text( stringProperty, {
       font: new PhetFont( 22 ),
       maxWidth: 130,
-      tandem: options.tandem.createTandem( 'labelText' )
+      tandem: labelTextTandem
     } );
 
     const slider = new HSlider( evaporator.evaporationRateProperty, new Range( 0, evaporator.maxEvaporationRate ), {

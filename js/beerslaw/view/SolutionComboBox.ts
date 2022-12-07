@@ -14,6 +14,7 @@ import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { HBox, Node, Rectangle, RichText, Text } from '../../../../scenery/js/imports.js';
 import ComboBox, { ComboBoxItem, ComboBoxOptions } from '../../../../sun/js/ComboBox.js';
+import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
@@ -39,16 +40,20 @@ export default class SolutionComboBox extends ComboBox<BeersLawSolution> {
       cornerRadius: 8
     }, providedOptions );
 
-    const labelStringProperty = new DerivedProperty(
+    const labelTextTandem = options.tandem.createTandem( 'labelText' );
+
+    const stringProperty = new DerivedProperty(
       [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.solutionStringProperty ],
-      ( pattern: string, solutionString: string ) => StringUtils.format( pattern, solutionString )
-    );
+      ( pattern: string, solutionString: string ) => StringUtils.format( pattern, solutionString ), {
+        tandem: labelTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
+        phetioValueType: StringIO
+      } );
 
     // 'Solution' label
-    options.labelNode = new Text( labelStringProperty, {
+    options.labelNode = new Text( stringProperty, {
       font: new PhetFont( 20 ),
       maxWidth: 85,
-      tandem: options.tandem.createTandem( 'labelText' )
+      tandem: labelTextTandem
     } );
 
     // items

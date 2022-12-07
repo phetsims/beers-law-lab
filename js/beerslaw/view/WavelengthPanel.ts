@@ -22,6 +22,7 @@ import { HBox, HStrut, Node, NodeTranslationOptions, Text, VBox } from '../../..
 import AquaRadioButtonGroup, { AquaRadioButtonGroupItem } from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
@@ -50,15 +51,19 @@ export default class WavelengthPanel extends Panel {
       lineWidth: 1
     }, providedOptions );
 
-    const labelStringProperty = new DerivedProperty(
-      [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.wavelengthStringProperty ],
-      ( pattern: string, wavelengthString: string ) => StringUtils.format( pattern, wavelengthString )
-    );
+    const labelTextTandem = options.tandem.createTandem( 'labelText' );
 
-    const labelText = new Text( labelStringProperty, {
+    const stringProperty = new DerivedProperty(
+      [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.wavelengthStringProperty ],
+      ( pattern: string, wavelengthString: string ) => StringUtils.format( pattern, wavelengthString ), {
+        tandem: labelTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
+        phetioValueType: StringIO
+      } );
+
+    const labelText = new Text( stringProperty, {
       font: new PhetFont( 20 ),
       fill: 'black',
-      tandem: options.tandem.createTandem( 'labelText' )
+      tandem: labelTextTandem
     } );
 
     assert && assert( light.wavelengthProperty.range );
