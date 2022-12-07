@@ -114,8 +114,6 @@ export default class ShakerParticles extends SoluteParticles {
         shaker.dispensingRateProperty.value * solution.soluteProperty.value.particlesPerMole * dt ) );
 
       for ( let j = 0; j < numberOfParticles; j++ ) {
-
-        // @ts-ignore https://github.com/phetsims/beers-law-lab/issues/287 TS error
         this.particleGroup.createNextElement( solution.soluteProperty.value,
           getRandomPosition( this.shaker.positionProperty.value ),
           getRandomOrientation(),
