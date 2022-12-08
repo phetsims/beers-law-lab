@@ -106,7 +106,8 @@ export default class BeakerNode extends Node {
               BLLPreferences.beakerUnitsProperty
             ],
             ( pattern, litersString, millilitersString, beakerUnits ) =>
-              StringUtils.format( pattern, MAJOR_TICK_VALUES_LITERS[ labelIndex ],
+              StringUtils.format( pattern,
+                ( beakerUnits === 'liters' ) ? MAJOR_TICK_VALUES_LITERS[ labelIndex ] : MAJOR_TICK_VALUES_MILLILITERS[ labelIndex ],
                 ( beakerUnits === 'liters' ) ? litersString : millilitersString )
           );
 
