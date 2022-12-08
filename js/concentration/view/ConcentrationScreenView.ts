@@ -48,14 +48,14 @@ export default class ConcentrationScreenView extends ScreenView {
       tandem: tandem.createTandem( 'beakerNode' )
     } );
     const solutionNode = new SolutionNode( model.solution, model.beaker, modelViewTransform );
-    const solutionVolumeText = new SolutionVolumeNode( model.solution.volumeProperty, {
-      tandem: tandem.createTandem( 'solutionVolumeText' )
+    const solutionVolumeNode = new SolutionVolumeNode( model.solution.volumeProperty, {
+      tandem: tandem.createTandem( 'solutionVolumeNode' )
     } );
 
-    Multilink.multilink( [ solutionNode.boundsProperty, solutionVolumeText.boundsProperty ],
+    Multilink.multilink( [ solutionNode.boundsProperty, solutionVolumeNode.boundsProperty ],
       () => {
-        solutionVolumeText.right = beakerNode.centerX - model.beaker.size.width / 2;
-        solutionVolumeText.y = solutionNode.top + BLLConstants.SOLUTION_LINE_WIDTH / 2;
+        solutionVolumeNode.right = beakerNode.centerX - model.beaker.size.width / 2;
+        solutionVolumeNode.y = solutionNode.top + BLLConstants.SOLUTION_LINE_WIDTH / 2;
       } );
 
     // Precipitate particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
@@ -138,7 +138,7 @@ export default class ConcentrationScreenView extends ScreenView {
         drainFaucetNode,
         stockSolutionNode,
         solutionNode,
-        solutionVolumeText,
+        solutionVolumeNode,
         beakerNode.mutate( { layerSplit: true } ), // beaker is static, put in its own layer
         precipitateNode,
         saturatedIndicator,
