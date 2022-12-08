@@ -54,7 +54,7 @@ export default class ConcentrationScreenView extends ScreenView {
 
     Multilink.multilink( [ solutionNode.boundsProperty, solutionVolumeNode.boundsProperty ],
       () => {
-        solutionVolumeNode.right = beakerNode.centerX - model.beaker.size.width / 2;
+        solutionVolumeNode.right = beakerNode.centerX + model.beaker.size.width / 2;
         solutionVolumeNode.y = solutionNode.top + BLLConstants.SOLUTION_LINE_WIDTH / 2;
       } );
 

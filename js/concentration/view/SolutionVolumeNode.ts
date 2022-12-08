@@ -47,18 +47,32 @@ export default class SolutionVolumeNode extends Node {
       centerY: 0
     } );
 
-    const soluteAmountStringProperty = new DerivedProperty(
-      [ BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ], volumeProperty, BeersLawLabStrings.units.litersStringProperty ],
-      ( pattern, volume, liters ) => {
+    const soluteAmountStringProperty = new DerivedProperty( [
+        BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
+        volumeProperty,
+        BeersLawLabStrings.units.litersStringProperty,
+        BeersLawLabStrings.units.millilitersStringProperty,
+        BLLPreferences.beakerUnitsProperty
+      ],
+      ( pattern, volume, litersString, millilitersString, beakerUnits ) => {
 
         // Display integer values with 0 decimal places, non-integer values with 2 decimal places.
-        const valueString = Number.isInteger( volume ) ? Utils.toFixed( volume, 0 ) : Utils.toFixed( volume, 2 );
-        return StringUtils.format( pattern, valueString, liters );
+        let volumeString: string;
+        let units: string;
+        if ( beakerUnits === 'liters' ) {
+          volumeString = Number.isInteger( volume ) ? Utils.toFixed( volume, 0 ) : Utils.toFixed( volume, 2 );
+          units = litersString;
+        }
+        else {
+          volumeString = Utils.toFixed( volume * 1000, 0 ); // convert L to mL
+          units = millilitersString;
+        }
+        return StringUtils.format( pattern, volumeString, units );
       } );
 
     const soluteAmountText = new Text( soluteAmountStringProperty, {
-      font: new PhetFont( 20 ),
-      maxWidth: 60 // determined empirically
+      font: new PhetFont( 22 ),
+      maxWidth: 100 // determined empirically
     } );
 
     soluteAmountText.boundsProperty.link( bounds => {
