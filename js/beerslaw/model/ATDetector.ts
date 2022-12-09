@@ -71,6 +71,7 @@ export default class ATDetector extends PhetioObject {
       tandem: options.tandem.createTandem( 'modeProperty' )
     } );
 
+    //TODO https://github.com/phetsims/beers-law-lab/issues/298 add units
     this.valueProperty = new DerivedProperty( [
         this.probe.positionProperty,
         this.light.isOnProperty,

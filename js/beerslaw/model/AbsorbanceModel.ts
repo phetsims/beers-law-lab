@@ -41,12 +41,14 @@ export default class AbsorbanceModel {
 
   public constructor( light: Light, solutionProperty: Property<BeersLawSolution>, cuvette: Cuvette ) {
 
+    //TODO https://github.com/phetsims/beers-law-lab/issues/298 add units
     this.molarAbsorptivityProperty = new DerivedProperty(
       [ solutionProperty, light.wavelengthProperty ],
       ( solution, wavelength ) => {
         return solution.molarAbsorptivityData.wavelengthToMolarAbsorptivity( wavelength );
       } );
 
+    //TODO https://github.com/phetsims/beers-law-lab/issues/298 add units
     this.currentConcentrationProperty = new NumberProperty( solutionProperty.value.concentrationProperty.value );
 
     // Observe the concentration property of the current solution.
@@ -62,6 +64,7 @@ export default class AbsorbanceModel {
       newSolution.concentrationProperty.link( concentrationObserver );
     } );
 
+    //TODO https://github.com/phetsims/beers-law-lab/issues/298 add units
     this.absorbanceProperty = new DerivedProperty(
       [ this.molarAbsorptivityProperty, cuvette.widthProperty, this.currentConcentrationProperty ],
       ( molarAbsorptivity, pathLength, concentration ) => {
