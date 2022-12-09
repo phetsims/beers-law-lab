@@ -77,7 +77,7 @@ export default class SolutionVolumeNode extends Node {
 
     soluteAmountText.boundsProperty.link( bounds => {
       soluteAmountText.right = triangleNode.left - 6;
-      soluteAmountText.centerY = triangleNode.centerY;
+      soluteAmountText.bottom = triangleNode.centerY - 1;
     } );
 
     options.children = [ soluteAmountText, triangleNode ];
