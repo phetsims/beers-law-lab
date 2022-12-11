@@ -36,8 +36,7 @@ export default class EvaporationPanel extends Panel {
       yMargin: 8,
       fill: '#F0F0F0',
       stroke: 'gray',
-      lineWidth: 1,
-      maxWidth: 410
+      lineWidth: 1
     }, providedOptions );
 
     const labelTextTandem = options.tandem.createTandem( 'labelText' );
@@ -52,7 +51,7 @@ export default class EvaporationPanel extends Panel {
 
     const labelText = new Text( stringProperty, {
       font: new PhetFont( 22 ),
-      maxWidth: 130,
+      maxWidth: 100,
       tandem: labelTextTandem
     } );
 
@@ -71,7 +70,7 @@ export default class EvaporationPanel extends Panel {
     // Tick marks
     const tickOptions = {
       font: new PhetFont( 16 ),
-      maxWidth: 80
+      maxWidth: 50
     };
     slider.addMajorTick( 0, new Text( BeersLawLabStrings.noneStringProperty, tickOptions ) );
     slider.addMajorTick( evaporator.maxEvaporationRate, new Text( BeersLawLabStrings.lotsStringProperty, tickOptions ) );
