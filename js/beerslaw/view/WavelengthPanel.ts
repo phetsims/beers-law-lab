@@ -66,7 +66,6 @@ export default class WavelengthPanel extends Panel {
       tandem: labelTextTandem
     } );
 
-    assert && assert( light.wavelengthProperty.range );
     const numberDisplay = new NumberDisplay( light.wavelengthProperty, light.wavelengthProperty.range, {
       xMargin: 7,
       yMargin: 3,
