@@ -8,7 +8,6 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
-import Range from '../../../../dot/js/Range.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
@@ -54,7 +53,7 @@ export default class EvaporationPanel extends Panel {
       tandem: labelTextTandem
     } );
 
-    const slider = new HSlider( evaporator.evaporationRateProperty, new Range( 0, evaporator.maxEvaporationRate ), {
+    const slider = new HSlider( evaporator.evaporationRateProperty, evaporator.evaporationRateProperty.range, {
       trackSize: new Dimension2( 150, 6 ),
       thumbSize: new Dimension2( 22, 45 ),
       enabledProperty: evaporator.enabledProperty,
