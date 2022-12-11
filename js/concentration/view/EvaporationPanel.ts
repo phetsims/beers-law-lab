@@ -75,8 +75,8 @@ export default class EvaporationPanel extends Panel {
     slider.addMajorTick( evaporator.maxEvaporationRate, new Text( BeersLawLabStrings.lotsStringProperty, tickOptions ) );
 
     const content = new HBox( {
-      spacing: 10,
-      children: [ labelText, slider ]
+      children: [ labelText, slider ],
+      spacing: 10
     } );
 
     super( content, options );
