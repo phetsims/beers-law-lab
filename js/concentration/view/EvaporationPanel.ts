@@ -32,11 +32,10 @@ export default class EvaporationPanel extends Panel {
     const options = optionize<EvaporationPanelOptions, SelfOptions, PanelOptions>()( {
 
       // PanelOptions
-      xMargin: 15,
-      yMargin: 8,
       fill: '#F0F0F0',
       stroke: 'gray',
-      lineWidth: 1
+      xMargin: 15,
+      yMargin: 8
     }, providedOptions );
 
     const labelTextTandem = options.tandem.createTandem( 'labelText' );
