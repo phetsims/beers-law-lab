@@ -48,8 +48,9 @@ export default class AbsorbanceModel {
         return solution.molarAbsorptivityData.wavelengthToMolarAbsorptivity( wavelength );
       } );
 
-    //TODO https://github.com/phetsims/beers-law-lab/issues/298 add units
-    this.currentConcentrationProperty = new NumberProperty( solutionProperty.value.concentrationProperty.value );
+    this.currentConcentrationProperty = new NumberProperty( solutionProperty.value.concentrationProperty.value, {
+      units: 'mol/L'
+    } );
 
     // Observe the concentration property of the current solution.
     const concentrationObserver = ( concentration: number ) => {
