@@ -24,6 +24,7 @@ import { HBox, HStrut, LinearGradient, Node, NodeOptions, Text } from '../../../
 import SunConstants from '../../../../sun/js/SunConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
+import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
@@ -50,10 +51,13 @@ export default class ConcentrationControl extends Node {
       // empty optionize because we're setting options.children below
     }, providedOptions );
 
-    const titleStringProperty = new DerivedProperty(
+    // Concentration:
+    const concentrationStringProperty = new DerivedProperty(
       [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.concentrationStringProperty ],
-      ( pattern, concentrationString ) => StringUtils.format( pattern, concentrationString )
-    );
+      ( pattern, concentrationString ) => StringUtils.format( pattern, concentrationString ), {
+        tandem: options.tandem.createTandem( 'concentrationStringProperty' ),
+        phetioValueType: StringIO
+      } );
 
     // Whether concentration is editable. If false, hides the slider and arrow buttons. For PHET-iO only.
     const isEditableProperty = new BooleanProperty( true, {
@@ -63,7 +67,7 @@ export default class ConcentrationControl extends Node {
 
     // 1 control for each solution, with mutually-exclusive visibility
     options.children = solutions.map( solution =>
-      new SoluteConcentrationControl( titleStringProperty, solution, isEditableProperty, {
+      new SoluteConcentrationControl( concentrationStringProperty, solution, isEditableProperty, {
         visibleProperty: new DerivedProperty( [ solutionProperty ], solutionValue => ( solutionValue === solution ) )
       } )
     );
