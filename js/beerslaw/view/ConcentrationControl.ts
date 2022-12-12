@@ -60,14 +60,14 @@ export default class ConcentrationControl extends Node {
       } );
 
     // Whether concentration is editable. If false, hides the slider and arrow buttons. For PHET-iO only.
-    const isEditableProperty = new BooleanProperty( true, {
-      tandem: options.tandem.createTandem( 'isEditableProperty' ),
-      phetioDocumentation: 'Setting this to false will hide the slider and arrow buttons, showing only the value.'
+    const displayOnlyProperty = new BooleanProperty( false, {
+      tandem: options.tandem.createTandem( 'displayOnlyProperty' ),
+      phetioDocumentation: 'Setting this to true will hide the slider and arrow buttons, showing only the value.'
     } );
 
     // 1 control for each solution, with mutually-exclusive visibility
     options.children = solutions.map( solution =>
-      new SoluteConcentrationControl( concentrationStringProperty, solution, isEditableProperty, {
+      new SoluteConcentrationControl( concentrationStringProperty, solution, displayOnlyProperty, {
         visibleProperty: new DerivedProperty( [ solutionProperty ], solutionValue => ( solutionValue === solution ) )
       } )
     );
@@ -106,7 +106,7 @@ class SoluteConcentrationControl extends NumberControl {
 
   public constructor( titleStringProperty: TReadOnlyProperty<string>,
                       solution: BeersLawSolution,
-                      isEditableProperty: TReadOnlyProperty<boolean>,
+                      displayOnlyProperty: TReadOnlyProperty<boolean>,
                       providedOptions: SoluteConcentrationControlOptions ) {
 
     const options = optionize<SoluteConcentrationControlOptions, SoluteConcentrationControlSelfOptions, NumberControlOptions>()( {
@@ -122,7 +122,7 @@ class SoluteConcentrationControl extends NumberControl {
         minBackgroundWidth: 95 // determined empirically
       },
       arrowButtonOptions: {
-        visibleProperty: isEditableProperty,
+        visibleProperty: DerivedProperty.not( displayOnlyProperty ),
         scale: 1,
         touchAreaXDilation: 8,
         touchAreaYDilation: 15
@@ -130,7 +130,7 @@ class SoluteConcentrationControl extends NumberControl {
 
       // Slider options, passed through by NumberControl
       sliderOptions: {
-        visibleProperty: isEditableProperty,
+        visibleProperty: DerivedProperty.not( displayOnlyProperty ),
         trackSize: new Dimension2( 200, 15 ),
         thumbSize: new Dimension2( 22, 45 ),
         constrainValue: value => Utils.roundToInterval( value, SLIDER_INTERVAL ),
