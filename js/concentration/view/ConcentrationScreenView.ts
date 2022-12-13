@@ -39,6 +39,10 @@ export default class ConcentrationScreenView extends ScreenView {
   public constructor( model: ConcentrationModel, modelViewTransform: ModelViewTransform2, tandem: Tandem ) {
 
     super( {
+
+      // Workaround for things shifting around while dragging.
+      // See https://github.com/phetsims/scenery/issues/1289 and https://github.com/phetsims/beers-law-lab/issues/299.
+      preventFit: true,
       layoutBounds: BLLConstants.LAYOUT_BOUNDS,
       tandem: tandem
     } );
