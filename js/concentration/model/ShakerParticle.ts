@@ -99,8 +99,8 @@ export default class ShakerParticle extends SoluteParticle {
   }
 
   public static readonly ShakerParticleIO = new IOType<ShakerParticle, ShakerParticleStateObject>( 'ShakerParticleIO', {
-    documentation: 'A particle that comes from the shaker.',
     valueType: ShakerParticle,
+    documentation: 'A particle that comes from the shaker.',
     stateSchema: {
       solute: Solute.SoluteIO,
       position: Vector2.Vector2IO,
