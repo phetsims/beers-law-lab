@@ -115,7 +115,10 @@ export default class ConcentrationSolution extends Fluid {
     this.soluteGramsProperty = new DerivedProperty(
       [ this.soluteProperty, this.soluteMolesProperty, this.precipitateMolesProperty ],
       ( solute, soluteMoles, precipitateMoles ) => {
-        const soluteGrams = solute.molarMass * ( soluteMoles - precipitateMoles );
+
+        // Use Math.max to prevent a negative value during intermediate states.
+        // See https://github.com/phetsims/beers-law-lab/issues/253
+        const soluteGrams = solute.molarMass * Math.max( 0, soluteMoles - precipitateMoles );
         assert && assert( soluteGrams >= 0, `invalid soluteGrams: ${soluteGrams}` );
         return soluteGrams;
       }, {
