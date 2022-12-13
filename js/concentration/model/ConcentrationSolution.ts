@@ -33,7 +33,7 @@ export default class ConcentrationSolution extends Fluid {
 
   public readonly solvent: Solvent;
   public readonly soluteProperty: Property<Solute>;
-  public readonly soluteMolesProperty: Property<number>; // mol
+  public readonly soluteMolesProperty: Property<number>; // total solute, dissolved and precipitate, in mol
   public readonly volumeProperty: Property<number>; // L
 
   // for deferring update of precipitateAmount until we've changed both volume and soluteAmount
@@ -43,7 +43,7 @@ export default class ConcentrationSolution extends Fluid {
   public readonly precipitateMolesProperty: TReadOnlyProperty<number>; // mol
   public readonly concentrationProperty: TReadOnlyProperty<number>; // M
   public readonly isSaturatedProperty: TReadOnlyProperty<boolean>;
-  public readonly soluteGramsProperty: TReadOnlyProperty<number>; // grams
+  public readonly soluteGramsProperty: TReadOnlyProperty<number>; // solute dissolved in solution, in grams
   public readonly percentConcentrationProperty: TReadOnlyProperty<number>; // [0,100]
 
   public constructor( soluteProperty: Property<Solute>,

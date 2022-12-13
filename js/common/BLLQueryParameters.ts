@@ -24,7 +24,7 @@ const BLLQueryParameters = QueryStringMachine.getAll( {
     public: true
   },
 
-  // Whether the solute amount (in grams) is visible on the Concentration screen
+  // Whether the solute amount (in grams) dissolved in solution is visible on the Concentration screen
   // For external use, see https://github.com/phetsims/beers-law-lab/issues/148
   showSoluteAmount: {
     type: 'flag',
