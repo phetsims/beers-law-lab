@@ -60,15 +60,15 @@ export default class PrecipitateParticle extends SoluteParticle {
 
   public static readonly PrecipitateParticleIO =
     new IOType<PrecipitateParticle, PrecipitateParticleStateObject>( 'PrecipitateParticleIO', {
-      valueType: PrecipitateParticle,
       documentation: 'A particle that precipitates at the bottom of a saturated solution.',
-      toStateObject: precipitateParticle => precipitateParticle.toStateObject(),
-      stateToArgsForConstructor: PrecipitateParticle.stateToArgsForConstructor,
       stateSchema: {
         solute: Solute.SoluteIO,
         position: Vector2.Vector2IO,
         orientation: NumberIO
-      }
+      },
+      valueType: PrecipitateParticle,
+      toStateObject: precipitateParticle => precipitateParticle.toStateObject(),
+      stateToArgsForConstructor: PrecipitateParticle.stateToArgsForConstructor
     } );
 }
 
