@@ -116,7 +116,7 @@ export default class ShakerParticles extends SoluteParticles {
       for ( let j = 0; j < numberOfParticles; j++ ) {
         this.particleGroup.createNextElement( solution.soluteProperty.value,
           getRandomPosition( this.shaker.positionProperty.value ),
-          getRandomOrientation(),
+          ShakerParticles.getRandomOrientation(),
           this.getInitialVelocity(),
           this.getGravitationalAcceleration()
         );
@@ -144,11 +144,6 @@ function getRandomPosition( origin: Vector2 ): Vector2 {
   const xOffset = dotRandom.nextIntBetween( -MAX_X_OFFSET, MAX_X_OFFSET ); // positive or negative
   const yOffset = dotRandom.nextIntBetween( 0, MAX_Y_OFFSET ); // positive only
   return new Vector2( origin.x + xOffset, origin.y + yOffset );
-}
-
-// Gets a random orientation, in radians.
-function getRandomOrientation(): number {
-  return dotRandom.nextDouble() * 2 * Math.PI;
 }
 
 beersLawLab.register( 'ShakerParticles', ShakerParticles );

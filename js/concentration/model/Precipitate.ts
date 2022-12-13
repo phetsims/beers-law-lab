@@ -87,7 +87,7 @@ export default class Precipitate extends SoluteParticles {
     for ( let i = 0; i < numberToAdd; i++ ) {
       this.particleGroup.createNextElement( this.solution.soluteProperty.value,
         this.getRandomOffset(),
-        getRandomOrientation()
+        Precipitate.getRandomOrientation()
       );
     }
   }
@@ -132,11 +132,6 @@ export default class Precipitate extends SoluteParticles {
     const y = this.beaker.position.y - margin; // this was tweaked based on the lineWidth used to stroke the beaker
     return new Vector2( x, y );
   }
-}
-
-// Gets a random orientation, in radians.
-function getRandomOrientation(): number {
-  return dotRandom.nextDouble() * 2 * Math.PI;
 }
 
 beersLawLab.register( 'Precipitate', Precipitate );

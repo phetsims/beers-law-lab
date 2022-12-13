@@ -9,6 +9,7 @@
 import Solute from '../../common/model/Solute.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import beersLawLab from '../../beersLawLab.js';
+import dotRandom from '../../../../dot/js/dotRandom.js';
 
 export default class SoluteParticles {
 
@@ -37,6 +38,13 @@ export default class SoluteParticles {
    */
   public getStrokeStyle(): string {
     return this.soluteProperty.value.strokeStyle;
+  }
+
+  /**
+   * Gets a random orientation for a particle, in radians.
+   */
+  protected static getRandomOrientation(): number {
+    return dotRandom.nextDouble() * 2 * Math.PI;
   }
 }
 
