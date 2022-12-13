@@ -77,9 +77,9 @@ export default class ConcentrationSolution extends Fluid {
 
     this.precipitateMolesProperty = new DerivedProperty(
       [ this.soluteProperty, this.soluteMolesProperty, this.volumeProperty ],
-      ( solute, soluteAmount, volume ) => {
+      ( solute, soluteMoles, volume ) => {
         if ( this.updatePrecipitateAmount ) {
-          return Math.max( 0, soluteAmount - ( volume * this.getSaturatedConcentration() ) );
+          return Math.max( 0, soluteMoles - ( volume * this.getSaturatedConcentration() ) );
         }
         else {
           return this.precipitateMolesProperty.value;
@@ -93,8 +93,8 @@ export default class ConcentrationSolution extends Fluid {
 
     this.concentrationProperty = new DerivedProperty(
       [ this.soluteProperty, this.soluteMolesProperty, this.volumeProperty ],
-      ( solute, soluteAmount, volume ) => {
-        return ( volume > 0 ) ? Math.min( this.getSaturatedConcentration(), soluteAmount / volume ) : 0;
+      ( solute, soluteMoles, volume ) => {
+        return ( volume > 0 ) ? Math.min( this.getSaturatedConcentration(), soluteMoles / volume ) : 0;
       }, {
         tandem: options.tandem.createTandem( 'concentrationProperty' ),
         units: 'mol/L',
@@ -104,8 +104,8 @@ export default class ConcentrationSolution extends Fluid {
 
     this.isSaturatedProperty = new DerivedProperty(
       [ this.soluteProperty, this.soluteMolesProperty, this.volumeProperty ],
-      ( solute, soluteAmount, volume ) => {
-        return ( volume > 0 ) && ( soluteAmount / volume ) > solute.getSaturatedConcentration();
+      ( solute, soluteMoles, volume ) => {
+        return ( volume > 0 ) && ( soluteMoles / volume ) > solute.getSaturatedConcentration();
       }, {
         tandem: options.tandem.createTandem( 'isSaturatedProperty' ),
         phetioValueType: BooleanIO
@@ -114,8 +114,8 @@ export default class ConcentrationSolution extends Fluid {
 
     this.soluteGramsProperty = new DerivedProperty(
       [ this.soluteProperty, this.soluteMolesProperty, this.precipitateMolesProperty ],
-      ( solute, soluteAmount, precipitateAmount ) => {
-        const soluteGrams = solute.molarMass * ( soluteAmount - precipitateAmount );
+      ( solute, soluteMoles, precipitateMoles ) => {
+        const soluteGrams = solute.molarMass * ( soluteMoles - precipitateMoles );
         assert && assert( soluteGrams >= 0, `invalid soluteGrams: ${soluteGrams}` );
         return soluteGrams;
       }, {

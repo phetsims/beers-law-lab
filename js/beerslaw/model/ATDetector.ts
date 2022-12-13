@@ -79,7 +79,7 @@ export default class ATDetector extends PhetioObject {
         cuvette.widthProperty,
         absorbanceModel.absorbanceProperty
       ],
-      ( probePosition, lightOn, mode, cuvetteWidth, absorbance ) => {
+      ( probePosition, lightIsOn, mode, cuvetteWidth, absorbance ) => {
 
         // Computes the displayed value, null if the light is off or the probe is outside the beam.
         let value = null;

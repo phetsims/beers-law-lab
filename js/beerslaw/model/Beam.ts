@@ -45,7 +45,7 @@ export default class Beam {
                       absorbanceModel: AbsorbanceModel, modelViewTransform: ModelViewTransform2 ) {
 
     // Make the beam visible when the light is on.
-    this.visibleProperty = new DerivedProperty( [ light.isOnProperty ], isOn => isOn );
+    this.visibleProperty = new DerivedProperty( [ light.isOnProperty ], lightIsOn => lightIsOn );
 
     // beam shape, with added overlap, to hide space between beam and light housing
     const xOverlap = modelViewTransform.modelToViewDeltaX( 1 );

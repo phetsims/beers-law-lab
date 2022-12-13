@@ -42,7 +42,7 @@ export default class SoluteComboBox extends ComboBox<Solute> {
 
     const stringProperty = new DerivedProperty(
       [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.soluteStringProperty ],
-      ( pattern: string, soluteString: string ) => StringUtils.format( pattern, soluteString ), {
+      ( pattern, soluteString ) => StringUtils.format( pattern, soluteString ), {
         tandem: labelTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
         phetioValueType: StringIO
       }

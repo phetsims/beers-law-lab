@@ -34,7 +34,7 @@ export default class AbsorbanceModel {
   private readonly molarAbsorptivityProperty: TReadOnlyProperty<number>;
 
   // C : concentration property, wired to the current solution's concentration
-  private readonly currentConcentrationProperty: NumberProperty;
+  private readonly concentrationProperty: NumberProperty;
 
   // absorbance: A = abC
   public readonly absorbanceProperty: TReadOnlyProperty<number>;
@@ -48,13 +48,13 @@ export default class AbsorbanceModel {
         return solution.molarAbsorptivityData.wavelengthToMolarAbsorptivity( wavelength );
       } );
 
-    this.currentConcentrationProperty = new NumberProperty( solutionProperty.value.concentrationProperty.value, {
+    this.concentrationProperty = new NumberProperty( solutionProperty.value.concentrationProperty.value, {
       units: 'mol/L'
     } );
 
     // Observe the concentration property of the current solution.
     const concentrationObserver = ( concentration: number ) => {
-      this.currentConcentrationProperty.value = concentration;
+      this.concentrationProperty.value = concentration;
     };
 
     // Rewire the concentration observer when the solution changes.
@@ -67,9 +67,9 @@ export default class AbsorbanceModel {
 
     //TODO https://github.com/phetsims/beers-law-lab/issues/298 add units
     this.absorbanceProperty = new DerivedProperty(
-      [ this.molarAbsorptivityProperty, cuvette.widthProperty, this.currentConcentrationProperty ],
-      ( molarAbsorptivity, pathLength, concentration ) => {
-        return getAbsorbance( molarAbsorptivity, pathLength, concentration );
+      [ this.molarAbsorptivityProperty, cuvette.widthProperty, this.concentrationProperty ],
+      ( molarAbsorptivity, cuvetteWidth, concentration ) => {
+        return getAbsorbance( molarAbsorptivity, cuvetteWidth, concentration );
       } );
   }
 
@@ -81,7 +81,7 @@ export default class AbsorbanceModel {
    * Gets absorbance for a specified path length.
    */
   public getAbsorbanceAt( pathLength: number ): number {
-    return getAbsorbance( this.molarAbsorptivityProperty.value, pathLength, this.currentConcentrationProperty.value );
+    return getAbsorbance( this.molarAbsorptivityProperty.value, pathLength, this.concentrationProperty.value );
   }
 
   /**

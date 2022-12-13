@@ -41,7 +41,7 @@ export default class EvaporationPanel extends Panel {
 
     const stringProperty = new DerivedProperty(
       [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.evaporationStringProperty ],
-      ( pattern: string, evaporationString: string ) => StringUtils.format( pattern, evaporationString ), {
+      ( pattern, evaporationString ) => StringUtils.format( pattern, evaporationString ), {
         tandem: labelTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
         phetioValueType: StringIO
       }
