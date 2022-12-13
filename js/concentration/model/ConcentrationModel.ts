@@ -148,6 +148,9 @@ export default class ConcentrationModel implements TModel {
     // Empty shaker and dropper when max solute is reached.
     this.solution.soluteMolesProperty.link( soluteAmount => {
       const containsMaxSolute = ( soluteAmount >= SOLUTE_AMOUNT_RANGE.max );
+
+      // Shaker might actually dispense a bit more than SOLUTE_AMOUNT_RANGE.max, but we'll live with it.
+      // See https://github.com/phetsims/beers-law-lab/issues/179
       this.shaker.isEmptyProperty.value = containsMaxSolute;
       this.dropper.isEmptyProperty.value = containsMaxSolute;
       this.dropper.enabledProperty.value =
