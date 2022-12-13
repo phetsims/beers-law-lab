@@ -8,13 +8,14 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Vector2 from '../../../../dot/js/Vector2.js';
-import optionize, { combineOptions, EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import Vector2, { Vector2StateObject } from '../../../../dot/js/Vector2.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
+import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import Solute, { SoluteStateObject } from '../../common/model/Solute.js';
-import SoluteParticle, { SoluteParticleOptions, SoluteParticleStateObject } from './SoluteParticle.js';
+import SoluteParticle, { SoluteParticleOptions } from './SoluteParticle.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -22,13 +23,13 @@ type PrecipitateParticleOptions = SelfOptions & PickRequired<SoluteParticleOptio
 
 type PrecipitateParticleStateObject = {
   solute: SoluteStateObject;
-} & SoluteParticleStateObject;
+  position: Vector2StateObject;
+  orientation: number;
+};
 
 export type PrecipitateParticleConstructorParameters = [ Solute, Vector2, number ];
 
 export default class PrecipitateParticle extends SoluteParticle {
-
-  public readonly solute: Solute;
 
   public constructor( solute: Solute, position: Vector2, orientation: number, providedOptions: PrecipitateParticleOptions ) {
 
@@ -37,35 +38,36 @@ export default class PrecipitateParticle extends SoluteParticle {
       phetioDynamicElement: true
     }, providedOptions );
 
-    super( solute.particleColor, solute.particleSize, position, orientation, options );
-
-    this.solute = solute;
+    super( solute, position, orientation, options );
   }
 
-  public override toStateObject(): PrecipitateParticleStateObject {
-    return combineOptions<PrecipitateParticleStateObject>( super.toStateObject(), {
-      solute: Solute.SoluteIO.toStateObject( this.solute )
-    } );
+  public toStateObject(): PrecipitateParticleStateObject {
+    return {
+      solute: Solute.SoluteIO.toStateObject( this.solute ),
+      position: this.positionProperty.value.toStateObject(),
+      orientation: this.orientation
+    };
   }
 
+  // PrecipitateParticles are created by a PhetioGroup, so we must use stateToArgsForConstructor instead of fromStateObject.
   public static stateToArgsForConstructor( stateObject: PrecipitateParticleStateObject ): PrecipitateParticleConstructorParameters {
-    const superComponents = SoluteParticle.deserializeComponents( stateObject );
     return [
       Solute.SoluteIO.fromStateObject( stateObject.solute ),
-      superComponents.position,
-      superComponents.orientation
+      Vector2.Vector2IO.fromStateObject( stateObject.position ),
+      stateObject.orientation
     ];
   }
 
   public static readonly PrecipitateParticleIO =
     new IOType<PrecipitateParticle, PrecipitateParticleStateObject>( 'PrecipitateParticleIO', {
       valueType: PrecipitateParticle,
-      supertype: SoluteParticle.SoluteParticleIO,
       documentation: 'A particle that precipitates at the bottom of a saturated solution.',
       toStateObject: precipitateParticle => precipitateParticle.toStateObject(),
       stateToArgsForConstructor: PrecipitateParticle.stateToArgsForConstructor,
       stateSchema: {
-        solute: Solute.SoluteIO
+        solute: Solute.SoluteIO,
+        position: Vector2.Vector2IO,
+        orientation: NumberIO
       }
     } );
 }

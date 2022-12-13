@@ -10,13 +10,14 @@
  */
 
 import Vector2, { Vector2StateObject } from '../../../../dot/js/Vector2.js';
-import optionize, { combineOptions, EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import beersLawLab from '../../beersLawLab.js';
 import Solute, { SoluteStateObject } from '../../common/model/Solute.js';
-import SoluteParticle, { SoluteParticleOptions, SoluteParticleStateObject } from './SoluteParticle.js';
+import SoluteParticle, { SoluteParticleOptions } from './SoluteParticle.js';
 import Beaker from './Beaker.js';
+import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -24,15 +25,16 @@ type ShakerParticleOptions = SelfOptions & PickRequired<SoluteParticleOptions, '
 
 type ShakerParticleStateObject = {
   solute: SoluteStateObject;
+  position: Vector2StateObject;
+  orientation: number;
   velocity: Vector2StateObject;
   acceleration: Vector2StateObject;
-} & SoluteParticleStateObject;
+};
 
 export type ShakerParticleConstructorParameters = [ Solute, Vector2, number, Vector2, Vector2 ];
 
 export default class ShakerParticle extends SoluteParticle {
 
-  public readonly solute: Solute;
   public velocity: Vector2;
   public readonly acceleration: Vector2;
 
@@ -46,9 +48,8 @@ export default class ShakerParticle extends SoluteParticle {
       phetioDynamicElement: true
     }, providedOptions );
 
-    super( solute.particleColor, solute.particleSize, position, orientation, options );
+    super( solute, position, orientation, options );
 
-    this.solute = solute;
     this.velocity = initialVelocity;
     this.acceleration = acceleration;
   }
@@ -76,20 +77,22 @@ export default class ShakerParticle extends SoluteParticle {
     this.positionProperty.value = newPosition;
   }
 
-  public override toStateObject(): ShakerParticleStateObject {
-    return combineOptions<ShakerParticleStateObject>( super.toStateObject(), {
+  public toStateObject(): ShakerParticleStateObject {
+    return {
       solute: Solute.SoluteIO.toStateObject( this.solute ),
+      position: this.positionProperty.value.toStateObject(),
+      orientation: this.orientation,
       velocity: Vector2.Vector2IO.toStateObject( this.velocity ),
       acceleration: Vector2.Vector2IO.toStateObject( this.acceleration )
-    } );
+    };
   }
 
+  // ShakerParticles are created by a PhetioGroup, so we must use stateToArgsForConstructor instead of fromStateObject.
   public static stateToArgsForConstructor( stateObject: ShakerParticleStateObject ): ShakerParticleConstructorParameters {
-    const superComponents = SoluteParticle.deserializeComponents( stateObject );
     return [
       Solute.SoluteIO.fromStateObject( stateObject.solute ),
-      superComponents.position,
-      superComponents.orientation,
+      Vector2.Vector2IO.fromStateObject( stateObject.position ),
+      stateObject.orientation,
       Vector2.Vector2IO.fromStateObject( stateObject.velocity ),
       Vector2.Vector2IO.fromStateObject( stateObject.acceleration )
     ];
@@ -97,12 +100,13 @@ export default class ShakerParticle extends SoluteParticle {
 
   public static readonly ShakerParticleIO = new IOType<ShakerParticle, ShakerParticleStateObject>( 'ShakerParticleIO', {
     valueType: ShakerParticle,
-    supertype: SoluteParticle.SoluteParticleIO,
     documentation: 'A particle that comes from the shaker.',
     toStateObject: shakerParticle => shakerParticle.toStateObject(),
     stateToArgsForConstructor: ShakerParticle.stateToArgsForConstructor,
     stateSchema: {
       solute: Solute.SoluteIO,
+      position: Vector2.Vector2IO,
+      orientation: NumberIO,
       velocity: Vector2.Vector2IO,
       acceleration: Vector2.Vector2IO
     }
