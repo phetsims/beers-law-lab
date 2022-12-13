@@ -21,7 +21,7 @@ import ConcentrationSolution from './ConcentrationSolution.js';
 import Dropper from './Dropper.js';
 import Evaporator from './Evaporator.js';
 import Faucet from './Faucet.js';
-import Precipitate from './Precipitate.js';
+import PrecipitateParticles from './PrecipitateParticles.js';
 import Shaker from './Shaker.js';
 import ShakerParticles from './ShakerParticles.js';
 import SoluteForm from './SoluteForm.js';
@@ -39,7 +39,7 @@ export default class ConcentrationModel implements TModel {
   public readonly soluteFormProperty: EnumerationProperty<SoluteForm>;
   public readonly solution: ConcentrationSolution;
   public readonly beaker: Beaker;
-  public readonly precipitate: Precipitate;
+  public readonly precipitate: PrecipitateParticles;
   public readonly shaker: Shaker;
   public readonly shakerParticles: ShakerParticles;
   public readonly dropper: Dropper;
@@ -80,7 +80,7 @@ export default class ConcentrationModel implements TModel {
       position: new Vector2( 350, 550 )
     } );
 
-    this.precipitate = new Precipitate( this.solution, this.beaker, {
+    this.precipitate = new PrecipitateParticles( this.solution, this.beaker, {
       tandem: tandem.createTandem( 'precipitate' )
     } );
 

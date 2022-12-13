@@ -12,15 +12,15 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import { CanvasNode } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
-import Precipitate from '../model/Precipitate.js';
+import PrecipitateParticles from '../model/PrecipitateParticles.js';
 import ShakerParticles from '../model/ShakerParticles.js';
 
 export default class ParticlesNode extends CanvasNode {
 
-  public readonly particles: Precipitate | ShakerParticles;
+  public readonly particles: PrecipitateParticles | ShakerParticles;
   private readonly modelViewTransform: ModelViewTransform2;
 
-  protected constructor( particles: Precipitate | ShakerParticles,
+  protected constructor( particles: PrecipitateParticles | ShakerParticles,
                          modelViewTransform: ModelViewTransform2, canvasBounds: Bounds2 ) {
 
     super( {

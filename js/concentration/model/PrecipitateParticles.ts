@@ -22,7 +22,7 @@ type SelfOptions = EmptySelfOptions;
 
 type PrecipitateOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-export default class Precipitate extends SoluteParticles {
+export default class PrecipitateParticles extends SoluteParticles {
 
   private readonly solution: ConcentrationSolution;
   private readonly beaker: Beaker;
@@ -87,7 +87,7 @@ export default class Precipitate extends SoluteParticles {
     for ( let i = 0; i < numberToAdd; i++ ) {
       this.particleGroup.createNextElement( this.solution.soluteProperty.value,
         this.getRandomOffset(),
-        Precipitate.getRandomOrientation()
+        PrecipitateParticles.getRandomOrientation()
       );
     }
   }
@@ -134,4 +134,4 @@ export default class Precipitate extends SoluteParticles {
   }
 }
 
-beersLawLab.register( 'Precipitate', Precipitate );
+beersLawLab.register( 'PrecipitateParticles', PrecipitateParticles );

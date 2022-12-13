@@ -58,7 +58,7 @@ export default class ConcentrationScreenView extends ScreenView {
         solutionVolumeNode.y = solutionNode.top + BLLConstants.SOLUTION_LINE_WIDTH / 2;
       } );
 
-    // Precipitate particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
+    // PrecipitateParticles particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
     const precipitateNode = new PrecipitateNode( model.precipitate, modelViewTransform, new Bounds2(
       modelViewTransform.modelToViewX( model.beaker.left ), modelViewTransform.modelToViewY( model.beaker.position.y ) - 100,
       modelViewTransform.modelToViewX( model.beaker.right ), modelViewTransform.modelToViewY( model.beaker.position.y ) ) );
