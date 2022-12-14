@@ -135,6 +135,8 @@ class BodyNode extends Node {
       tandem: options.tandem.createTandem( 'radioButtonGroup' )
     } );
 
+    const valueTextTandem = options.tandem.createTandem( 'valueText' );
+
     // value + units
     const valueStringProperty = new DerivedProperty(
       [
@@ -157,14 +159,14 @@ class BodyNode extends Node {
         }
         return valueString;
       }, {
-        tandem: options.tandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
+        tandem: valueTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
         phetioValueType: StringIO
       } );
 
     const valueText = new Text( valueStringProperty, {
       font: new PhetFont( 22 ),
       maxWidth: 125,
-      tandem: options.tandem.createTandem( 'valueText' )
+      tandem: valueTextTandem
     } );
 
     // background behind the value
