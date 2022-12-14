@@ -13,7 +13,7 @@ import TModel from '../../../../joist/js/TModel.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
-import AbsorbanceModel from './AbsorbanceModel.js';
+import SolutionInCuvette from './SolutionInCuvette.js';
 import ATDetector from './ATDetector.js';
 import Beam from './Beam.js';
 import BeersLawSolution from './BeersLawSolution.js';
@@ -31,7 +31,7 @@ export default class BeersLawModel implements TModel {
 
   public readonly light: Light;
   public readonly ruler: Ruler;
-  public readonly solutionInCuvette: AbsorbanceModel;
+  public readonly solutionInCuvette: SolutionInCuvette;
   public readonly detector: ATDetector;
   public readonly beam: Beam;
 
@@ -71,7 +71,7 @@ export default class BeersLawModel implements TModel {
       tandem: tandem.createTandem( 'ruler' )
     } );
 
-    this.solutionInCuvette = new AbsorbanceModel( this.solutions, this.solutionProperty,
+    this.solutionInCuvette = new SolutionInCuvette( this.solutions, this.solutionProperty,
       this.cuvette, this.light, tandem.createTandem( 'solutionInCuvette' ) );
 
     this.detector = new ATDetector( this.light, this.cuvette, this.solutionInCuvette, {

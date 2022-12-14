@@ -1,10 +1,10 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
 /**
- * AbsorbanceModel is the model for computing the absorbance (and transmittance) of light passing through a solution
+ * SolutionInCuvette is the model for computing the absorbance (and transmittance) of light passing through a solution
  * in a cuvette.
  *
- * AbsorbanceModel model: A = abC
+ * SolutionInCuvette model: A = abC
  *
  * Transmittance model: T = 10^A
  *
@@ -30,7 +30,7 @@ import BeersLawSolution from './BeersLawSolution.js';
 import Cuvette from './Cuvette.js';
 import Light from './Light.js';
 
-export default class AbsorbanceModel extends PhetioObject {
+export default class SolutionInCuvette extends PhetioObject {
 
   // a : molar absorptivity
   private readonly molarAbsorptivityProperty: TReadOnlyProperty<number>;
@@ -133,4 +133,4 @@ function getTransmittance( absorbance: number ): number {
   return Math.pow( 10, -absorbance );
 }
 
-beersLawLab.register( 'AbsorbanceModel', AbsorbanceModel );
+beersLawLab.register( 'SolutionInCuvette', SolutionInCuvette );

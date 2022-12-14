@@ -19,7 +19,7 @@ import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLMovable, { BLLMovableOptions } from '../../common/model/BLLMovable.js';
-import AbsorbanceModel from './AbsorbanceModel.js';
+import SolutionInCuvette from './SolutionInCuvette.js';
 import ATDetectorMode from './ATDetectorMode.js';
 import Cuvette from './Cuvette.js';
 import Light from './Light.js';
@@ -42,7 +42,7 @@ export default class ATDetector extends PhetioObject {
   // value is either absorbance (A) or percent transmittance (%T) depending on mode
   public readonly valueProperty: TReadOnlyProperty<number | null>;
 
-  public constructor( light: Light, cuvette: Cuvette, solutionInCuvette: AbsorbanceModel, providedOptions: ATDetectorOptions ) {
+  public constructor( light: Light, cuvette: Cuvette, solutionInCuvette: SolutionInCuvette, providedOptions: ATDetectorOptions ) {
 
     const options = optionize<ATDetectorOptions, SelfOptions, PhetioObjectOptions>()( {
       bodyPosition: Vector2.ZERO,

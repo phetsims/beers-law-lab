@@ -4,7 +4,7 @@
  * Beam is the model of the light as a solid beam.
  * Changes in wavelength affect the entire beam instantaneously.
  * Consists of 3 segments: left (between light and cuvette), center (inside cuvette), and right (to right of cuvette).
- * Beam may be intercepted at any point by the AbsorbanceModel-Transmittance detector.
+ * Beam may be intercepted at any point by the SolutionInCuvette-Transmittance detector.
  * The beam is in the probe if the entire beam is in contact with the probe lens.
  *
  * Unlike most model types, properties are in view coordinates.
@@ -21,7 +21,7 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import { LinearGradient } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
-import AbsorbanceModel from './AbsorbanceModel.js';
+import SolutionInCuvette from './SolutionInCuvette.js';
 import ATDetector from './ATDetector.js';
 import Cuvette from './Cuvette.js';
 import Light from './Light.js';
@@ -42,7 +42,7 @@ export default class Beam {
   public readonly fillProperty: TReadOnlyProperty<LinearGradient | null>;
 
   public constructor( light: Light, cuvette: Cuvette, detector: ATDetector,
-                      solutionInCuvette: AbsorbanceModel, modelViewTransform: ModelViewTransform2 ) {
+                      solutionInCuvette: SolutionInCuvette, modelViewTransform: ModelViewTransform2 ) {
 
     // Make the beam visible when the light is on.
     this.visibleProperty = new DerivedProperty( [ light.isOnProperty ], lightIsOn => lightIsOn );
