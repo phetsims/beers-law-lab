@@ -14,7 +14,7 @@ import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Utils from '../../../../dot/js/Utils.js';
-import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { Color } from '../../../../scenery/js/imports.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
@@ -51,7 +51,9 @@ export default class ConcentrationSolution extends Fluid {
                       volumeRange: RangeWithValue,
                       providedOptions: ConcentrationSolutionOptions ) {
 
-    const options = providedOptions;
+    const options = optionize<ConcentrationSolutionOptions, SelfOptions>()( {
+      phetioDocumentation: 'The solution in the beaker'
+    }, providedOptions );
 
     const solvent = Solvent.WATER;
 

@@ -65,11 +65,13 @@ export default class ConcentrationModel implements TModel {
 
     this.soluteProperty = new Property( this.solutes[ 0 ], {
       tandem: tandem.createTandem( 'soluteProperty' ),
-      phetioValueType: Solute.SoluteIO
+      phetioValueType: Solute.SoluteIO,
+      phetioDocumentation: 'The selected solute'
     } );
 
     this.soluteFormProperty = new EnumerationProperty( SoluteForm.SOLID, {
-      tandem: tandem.createTandem( 'soluteFormProperty' )
+      tandem: tandem.createTandem( 'soluteFormProperty' ),
+      phetioDocumentation: 'Form of the solute being added to the beaker'
     } );
 
     this.solution = new ConcentrationSolution( this.soluteProperty, SOLUTE_AMOUNT_RANGE, SOLUTION_VOLUME_RANGE, {
