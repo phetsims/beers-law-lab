@@ -63,7 +63,8 @@ export default class BeersLawScreenView extends ScreenView {
 
     const comboBoxListParent = new Node();
 
-    const solutionPanel = new SolutionPanel( model.solutions, model.solutionProperty, comboBoxListParent, {
+    const solutionPanel = new SolutionPanel( model.solutions, model.solutionProperty,
+      model.solutionInCuvette.concentrationProperty, comboBoxListParent, {
       // below the cuvette
       left: cuvetteNode.left,
       top: cuvetteNode.bottom + 60,

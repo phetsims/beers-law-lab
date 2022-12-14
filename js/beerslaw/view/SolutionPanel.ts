@@ -7,6 +7,7 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
+import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { Node, NodeTranslationOptions, VBox } from '../../../../scenery/js/imports.js';
@@ -22,8 +23,11 @@ type SolutionPanelOptions = SelfOptions & NodeTranslationOptions & PickRequired<
 
 export default class SolutionPanel extends Panel {
 
-  public constructor( solutions: BeersLawSolution[], solutionProperty: Property<BeersLawSolution>,
-                      solutionListParent: Node, providedOptions: SolutionPanelOptions ) {
+  public constructor( solutions: BeersLawSolution[],
+                      solutionProperty: Property<BeersLawSolution>,
+                      concentrationProperty: ReadOnlyProperty<number>,
+                      solutionListParent: Node,
+                      providedOptions: SolutionPanelOptions ) {
 
     const options = optionize<SolutionPanelOptions, SelfOptions, PanelOptions>()( {
       xMargin: 15,
@@ -38,7 +42,7 @@ export default class SolutionPanel extends Panel {
       tandem: options.tandem.createTandem( 'solutionComboBox' )
     } );
 
-    const concentrationControl = new ConcentrationControl( solutions, solutionProperty, {
+    const concentrationControl = new ConcentrationControl( solutions, solutionProperty, concentrationProperty, {
       tandem: options.tandem.createTandem( 'concentrationControl' )
     } );
 

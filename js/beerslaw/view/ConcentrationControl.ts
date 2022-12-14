@@ -11,6 +11,7 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DynamicProperty from '../../../../axon/js/DynamicProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Range from '../../../../dot/js/Range.js';
@@ -23,7 +24,6 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { HBox, HStrut, LinearGradient, Node, NodeOptions, Text } from '../../../../scenery/js/imports.js';
 import SunConstants from '../../../../sun/js/SunConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
@@ -40,11 +40,9 @@ type ConcentrationControlOptions = SelfOptions & PickRequired<NumberControlOptio
 
 export default class ConcentrationControl extends Node {
 
-  // The displayed concentration, for whichever solution is selected. For PHET-iO only.
-  private readonly concentrationProperty: TReadOnlyProperty<number>;
-
   public constructor( solutions: BeersLawSolution[],
                       solutionProperty: Property<BeersLawSolution>,
+                      concentrationProperty: ReadOnlyProperty<number>,
                       providedOptions: ConcentrationControlOptions ) {
 
     const options = optionize<ConcentrationControlOptions, SelfOptions, NodeOptions>()( {
@@ -74,16 +72,11 @@ export default class ConcentrationControl extends Node {
 
     super( options );
 
-    // The concentration for whichever solute is selected.
-    const concentrationProperties = solutions.map( solution => solution.concentrationProperty );
-    this.concentrationProperty = DerivedProperty.deriveAny( [ solutionProperty, ...concentrationProperties ],
-      () => solutionProperty.value.concentrationProperty.value, {
-        units: 'mol/L',
-        tandem: options.tandem.createTandem( 'concentrationProperty' ),
-        phetioDocumentation: 'Concentration of the selected solution',
-        phetioValueType: NumberIO,
-        phetioLinkDependencies: false
-      } );
+    // concentrationProperty is unused in this class, and provided only so that it can be linked for PhET-iO.
+    this.addLinkedElement( concentrationProperty, {
+      tandem: options.tandem.createTandem( concentrationProperty.tandem.name ),
+      phetioDocumentation: concentrationProperty.phetioDocumentation
+    } );
   }
 
   public override dispose(): void {

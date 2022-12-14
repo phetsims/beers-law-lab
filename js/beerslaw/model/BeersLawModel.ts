@@ -31,7 +31,7 @@ export default class BeersLawModel implements TModel {
 
   public readonly light: Light;
   public readonly ruler: Ruler;
-  public readonly absorbanceModel: AbsorbanceModel;
+  public readonly solutionInCuvette: AbsorbanceModel;
   public readonly detector: ATDetector;
   public readonly beam: Beam;
 
@@ -51,7 +51,8 @@ export default class BeersLawModel implements TModel {
 
     this.solutionProperty = new Property( this.solutions[ 0 ], {
       tandem: tandem.createTandem( 'solutionProperty' ),
-      phetioValueType: BeersLawSolution.BeersLawSolutionIO
+      phetioValueType: BeersLawSolution.BeersLawSolutionIO,
+      phetioDocumentation: 'the selected solution, which appears in the cuvette'
     } );
 
     this.cuvette = new Cuvette( {
@@ -70,16 +71,17 @@ export default class BeersLawModel implements TModel {
       tandem: tandem.createTandem( 'ruler' )
     } );
 
-    this.absorbanceModel = new AbsorbanceModel( this.light, this.solutionProperty, this.cuvette );
+    this.solutionInCuvette = new AbsorbanceModel( this.solutions, this.solutionProperty,
+      this.cuvette, this.light, tandem.createTandem( 'solutionInCuvette' ) );
 
-    this.detector = new ATDetector( this.light, this.cuvette, this.absorbanceModel, {
+    this.detector = new ATDetector( this.light, this.cuvette, this.solutionInCuvette, {
       bodyPosition: new Vector2( this.cuvette.position.x + 3, this.cuvette.position.y - 0.3 ),
       probePosition: new Vector2( this.cuvette.position.x + 3, this.light.position.y ),
       probeDragBounds: new Bounds2( 0, 0, 7.9, 5.25 ),
       tandem: tandem.createTandem( 'detector' )
     } );
 
-    this.beam = new Beam( this.light, this.cuvette, this.detector, this.absorbanceModel, modelViewTransform );
+    this.beam = new Beam( this.light, this.cuvette, this.detector, this.solutionInCuvette, modelViewTransform );
   }
 
   public dispose(): void {

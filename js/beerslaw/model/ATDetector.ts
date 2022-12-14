@@ -42,7 +42,7 @@ export default class ATDetector extends PhetioObject {
   // value is either absorbance (A) or percent transmittance (%T) depending on mode
   public readonly valueProperty: TReadOnlyProperty<number | null>;
 
-  public constructor( light: Light, cuvette: Cuvette, absorbanceModel: AbsorbanceModel, providedOptions: ATDetectorOptions ) {
+  public constructor( light: Light, cuvette: Cuvette, solutionInCuvette: AbsorbanceModel, providedOptions: ATDetectorOptions ) {
 
     const options = optionize<ATDetectorOptions, SelfOptions, PhetioObjectOptions>()( {
       bodyPosition: Vector2.ZERO,
@@ -77,7 +77,7 @@ export default class ATDetector extends PhetioObject {
         this.light.isOnProperty,
         this.modeProperty,
         cuvette.widthProperty,
-        absorbanceModel.absorbanceProperty
+        solutionInCuvette.absorbanceProperty
       ],
       ( probePosition, lightIsOn, mode, cuvetteWidth, absorbance ) => {
 
@@ -88,10 +88,10 @@ export default class ATDetector extends PhetioObject {
           // path length is between 0 and cuvette width
           const pathLength = Math.min( Math.max( 0, probePosition.x - cuvette.position.x ), cuvetteWidth );
           if ( this.modeProperty.value === ATDetectorMode.ABSORBANCE ) {
-            value = absorbanceModel.getAbsorbanceAt( pathLength );
+            value = solutionInCuvette.getAbsorbanceAt( pathLength );
           }
           else {
-            value = 100 * absorbanceModel.getTransmittanceAt( pathLength );
+            value = 100 * solutionInCuvette.getTransmittanceAt( pathLength );
           }
         }
         return value;

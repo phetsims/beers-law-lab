@@ -42,7 +42,7 @@ export default class Beam {
   public readonly fillProperty: TReadOnlyProperty<LinearGradient | null>;
 
   public constructor( light: Light, cuvette: Cuvette, detector: ATDetector,
-                      absorbanceModel: AbsorbanceModel, modelViewTransform: ModelViewTransform2 ) {
+                      solutionInCuvette: AbsorbanceModel, modelViewTransform: ModelViewTransform2 ) {
 
     // Make the beam visible when the light is on.
     this.visibleProperty = new DerivedProperty( [ light.isOnProperty ], lightIsOn => lightIsOn );
@@ -66,12 +66,12 @@ export default class Beam {
       } );
 
     this.fillProperty = new DerivedProperty(
-      [ this.visibleProperty, cuvette.widthProperty, light.wavelengthProperty, absorbanceModel.absorbanceProperty ],
+      [ this.visibleProperty, cuvette.widthProperty, light.wavelengthProperty, solutionInCuvette.absorbanceProperty ],
       ( beamVisible, cuvetteWidth, wavelength, absorbance ) => {
         if ( beamVisible ) {
           const baseColor = VisibleColor.wavelengthToColor( wavelength );
           const leftColor = baseColor.withAlpha( MAX_LIGHT_ALPHA );
-          const rightColor = baseColor.withAlpha( Utils.linear( 0, 1, MIN_LIGHT_ALPHA, MAX_LIGHT_ALPHA, absorbanceModel.getTransmittance() ) );
+          const rightColor = baseColor.withAlpha( Utils.linear( 0, 1, MIN_LIGHT_ALPHA, MAX_LIGHT_ALPHA, solutionInCuvette.getTransmittance() ) );
           const x = modelViewTransform.modelToViewPosition( cuvette.position ).x;
           const w = modelViewTransform.modelToViewDeltaX( cuvetteWidth );
           return new LinearGradient( x, 0, x + w, 0 ).addColorStop( 0, leftColor ).addColorStop( 1, rightColor );

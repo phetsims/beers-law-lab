@@ -20,61 +20,88 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import Property from '../../../../axon/js/Property.js';
+import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import PhetioObject from '../../../../tandem/js/PhetioObject.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
+import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawSolution from './BeersLawSolution.js';
 import Cuvette from './Cuvette.js';
 import Light from './Light.js';
 
-export default class AbsorbanceModel {
+export default class AbsorbanceModel extends PhetioObject {
 
   // a : molar absorptivity
   private readonly molarAbsorptivityProperty: TReadOnlyProperty<number>;
 
   // C : concentration property, wired to the current solution's concentration
-  private readonly concentrationProperty: NumberProperty;
+  public readonly concentrationProperty: ReadOnlyProperty<number>;
 
   // absorbance: A = abC
   public readonly absorbanceProperty: TReadOnlyProperty<number>;
 
-  public constructor( light: Light, solutionProperty: Property<BeersLawSolution>, cuvette: Cuvette ) {
+  // absorbance: T = 10^-A
+  public readonly transmittanceProperty: TReadOnlyProperty<number>;
 
-    //TODO https://github.com/phetsims/beers-law-lab/issues/298 add units
+  public constructor( solutions: BeersLawSolution[],
+                      solutionProperty: ReadOnlyProperty<BeersLawSolution>,
+                      cuvette: Cuvette,
+                      light: Light,
+                      tandem: Tandem ) {
+
+    super( {
+      tandem: tandem,
+      phetioState: false,
+      phetioDocumentation: 'the solution in the cuvette'
+    } );
+
+    const concentrationProperties = solutions.map( solution => solution.concentrationProperty );
+    this.concentrationProperty = DerivedProperty.deriveAny(
+      [ solutionProperty, ...concentrationProperties ],
+      () => solutionProperty.value.concentrationProperty.value, {
+        units: 'mol/L',
+        tandem: tandem.createTandem( 'concentrationProperty' ),
+        phetioValueType: NumberIO,
+        phetioDocumentation: 'concentration of the solution in the cuvette'
+      } );
+
     this.molarAbsorptivityProperty = new DerivedProperty(
       [ solutionProperty, light.wavelengthProperty ],
-      ( solution, wavelength ) => {
-        return solution.molarAbsorptivityData.wavelengthToMolarAbsorptivity( wavelength );
+      ( solution, wavelength ) => solution.molarAbsorptivityData.wavelengthToMolarAbsorptivity( wavelength ), {
+        units: 'm^2/mol',
+        tandem: tandem.createTandem( 'molarAbsorptivityProperty' ),
+        phetioValueType: NumberIO,
+        phetioDocumentation: 'molar absorptivity (molar absorption coefficient) of the solution in the cuvette'
       } );
 
-    this.concentrationProperty = new NumberProperty( solutionProperty.value.concentrationProperty.value, {
-      units: 'mol/L'
-    } );
-
-    // Observe the concentration property of the current solution.
-    const concentrationObserver = ( concentration: number ) => {
-      this.concentrationProperty.value = concentration;
-    };
-
-    // Rewire the concentration observer when the solution changes.
-    solutionProperty.link( ( newSolution, oldSolution ) => {
-      if ( oldSolution !== null ) {
-        oldSolution.concentrationProperty.unlink( concentrationObserver );
-      }
-      newSolution.concentrationProperty.link( concentrationObserver );
-    } );
-
-    //TODO https://github.com/phetsims/beers-law-lab/issues/298 add units
     this.absorbanceProperty = new DerivedProperty(
       [ this.molarAbsorptivityProperty, cuvette.widthProperty, this.concentrationProperty ],
-      ( molarAbsorptivity, cuvetteWidth, concentration ) => {
-        return getAbsorbance( molarAbsorptivity, cuvetteWidth, concentration );
+      ( molarAbsorptivity, cuvetteWidth, concentration ) =>
+        getAbsorbance( molarAbsorptivity, cuvetteWidth, concentration ), {
+        tandem: tandem.createTandem( 'absorbanceProperty' ),
+        phetioValueType: NumberIO,
+        phetioDocumentation: 'absorbance of the selected solution'
       } );
+
+    this.transmittanceProperty = new DerivedProperty(
+      [ this.absorbanceProperty ],
+      absorbance => getTransmittance( absorbance ), {
+        units: '%',
+        tandem: tandem.createTandem( 'transmittanceProperty' ),
+        phetioValueType: NumberIO,
+        phetioDocumentation: 'transmittance of the solution in the cuvette'
+      } );
+
+    this.addLinkedElement( solutionProperty, {
+      tandem: tandem.createTandem( solutionProperty.tandem.name ),
+      phetioDocumentation: solutionProperty.phetioDocumentation
+    } );
   }
 
-  public dispose(): void {
+  public override dispose(): void {
     assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
+    super.dispose();
   }
 
   /**
@@ -107,7 +134,7 @@ function getAbsorbance( molarAbsorptivity: number, pathLength: number, concentra
 }
 
 /*
- * General model of transmittance: T = 10^A
+ * General model of transmittance: T = 10^-A
  */
 function getTransmittance( absorbance: number ): number {
   return Math.pow( 10, -absorbance );
