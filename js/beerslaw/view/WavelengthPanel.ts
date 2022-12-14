@@ -168,6 +168,10 @@ export default class WavelengthPanel extends Panel {
       wavelengthNumberControl.interruptSubtreeInput();
       wavelengthNumberControl.visible = ( mode === LightMode.VARIABLE );
     } );
+
+    this.addLinkedElement( light.wavelengthProperty, {
+      tandem: options.tandem.createTandem( light.wavelengthProperty.tandem.name )
+    } );
   }
 
   public override dispose(): void {
