@@ -6,7 +6,7 @@
  *
  * SolutionInCuvette model: A = abC
  *
- * Transmittance model: T = 10^A
+ * Transmittance model: T = 10^-A
  *
  * where:
  *
