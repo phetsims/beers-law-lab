@@ -52,7 +52,7 @@ export default class BeersLawModel implements TModel {
     this.solutionProperty = new Property( this.solutions[ 0 ], {
       tandem: tandem.createTandem( 'solutionProperty' ),
       phetioValueType: BeersLawSolution.BeersLawSolutionIO,
-      phetioDocumentation: 'the selected solution, which appears in the cuvette'
+      phetioDocumentation: 'The selected solution, which appears in the cuvette'
     } );
 
     this.cuvette = new Cuvette( {

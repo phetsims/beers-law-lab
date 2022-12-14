@@ -53,7 +53,7 @@ export default class SolutionInCuvette extends PhetioObject {
     super( {
       tandem: tandem,
       phetioState: false,
-      phetioDocumentation: 'the solution in the cuvette'
+      phetioDocumentation: 'The solution in the cuvette'
     } );
 
     const concentrationProperties = solutions.map( solution => solution.concentrationProperty );
@@ -63,7 +63,7 @@ export default class SolutionInCuvette extends PhetioObject {
         units: 'mol/L',
         tandem: tandem.createTandem( 'concentrationProperty' ),
         phetioValueType: NumberIO,
-        phetioDocumentation: 'concentration of the solution in the cuvette'
+        phetioDocumentation: 'Concentration of the solution in the cuvette'
       } );
 
     this.molarAbsorptivityProperty = new DerivedProperty(
@@ -72,7 +72,7 @@ export default class SolutionInCuvette extends PhetioObject {
         units: 'm^2/mol',
         tandem: tandem.createTandem( 'molarAbsorptivityProperty' ),
         phetioValueType: NumberIO,
-        phetioDocumentation: 'molar absorptivity (molar absorption coefficient) of the solution in the cuvette'
+        phetioDocumentation: 'Molar absorptivity (molar absorption coefficient) of the solution in the cuvette'
       } );
 
     this.absorbanceProperty = new DerivedProperty(
@@ -81,16 +81,15 @@ export default class SolutionInCuvette extends PhetioObject {
         getAbsorbance( molarAbsorptivity, cuvetteWidth, concentration ), {
         tandem: tandem.createTandem( 'absorbanceProperty' ),
         phetioValueType: NumberIO,
-        phetioDocumentation: 'absorbance of the selected solution'
+        phetioDocumentation: 'Absorbance of the selected solution'
       } );
 
     this.transmittanceProperty = new DerivedProperty(
       [ this.absorbanceProperty ],
       absorbance => getTransmittance( absorbance ), {
-        units: '%',
         tandem: tandem.createTandem( 'transmittanceProperty' ),
         phetioValueType: NumberIO,
-        phetioDocumentation: 'transmittance of the solution in the cuvette'
+        phetioDocumentation: 'Transmittance of the solution in the cuvette'
       } );
 
     this.addLinkedElement( solutionProperty, {

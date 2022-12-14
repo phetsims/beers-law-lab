@@ -17,24 +17,24 @@ const BLLPreferences = {
 
   showSolutionVolumeProperty: new BooleanProperty( BLLQueryParameters.showSolutionVolume, {
     tandem: Tandem.PREFERENCES.createTandem( 'showSolutionVolumeProperty' ),
-    phetioDocumentation: 'shows the volume of the solution that is in the beaker'
+    phetioDocumentation: 'Shows the volume of the solution that is in the beaker'
   } ),
 
   showSoluteAmountProperty: new BooleanProperty( BLLQueryParameters.showSoluteAmount, {
     tandem: Tandem.PREFERENCES.createTandem( 'showSoluteAmountProperty' ),
-    phetioDocumentation: 'shows the amount of solute that is in the beaker'
+    phetioDocumentation: 'Shows the amount of solute that is in the beaker'
   } ),
 
   beakerUnitsProperty: new StringEnumerationProperty<BeakerUnits>( BLLQueryParameters.beakerUnits as BeakerUnits, {
     validValues: BeakerUnitsValues,
     tandem: Tandem.PREFERENCES.createTandem( 'beakerUnitsProperty' ),
-    phetioDocumentation: 'units displayed on the beaker tick marks'
+    phetioDocumentation: 'Units displayed on the beaker tick marks'
   } ),
 
   concentrationMeterUnitsProperty: new StringEnumerationProperty<ConcentrationMeterUnits>( BLLQueryParameters.concentrationMeterUnits as ConcentrationMeterUnits, {
     validValues: ConcentrationMeterUnitsValues,
     tandem: Tandem.PREFERENCES.createTandem( 'concentrationMeterUnitsProperty' ),
-    phetioDocumentation: 'units displayed by the concentration meter'
+    phetioDocumentation: 'Units displayed by the concentration meter'
   } )
 };
 
