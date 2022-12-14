@@ -74,8 +74,7 @@ export default class ConcentrationControl extends Node {
 
     // concentrationProperty is unused in this class, and provided only so that it can be linked for PhET-iO.
     this.addLinkedElement( concentrationProperty, {
-      tandem: options.tandem.createTandem( concentrationProperty.tandem.name ),
-      phetioDocumentation: concentrationProperty.phetioDocumentation
+      tandem: options.tandem.createTandem( concentrationProperty.tandem.name )
     } );
   }
 
