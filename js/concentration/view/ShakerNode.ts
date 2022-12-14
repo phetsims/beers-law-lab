@@ -39,7 +39,7 @@ export default class ShakerNode extends Node {
       phetioInputEnabledPropertyInstrumented: true
     }, providedOptions );
 
-    super( providedOptions );
+    super( options );
 
     // shaker image
     const imageNode = new Image( shaker_png );
@@ -70,11 +70,6 @@ export default class ShakerNode extends Node {
     // sync position with model
     shaker.positionProperty.link( position => {
       this.translation = modelViewTransform.modelToViewPosition( position );
-    } );
-
-    // sync visibility with model
-    shaker.visibleProperty.link( visible => {
-      this.setVisible( visible );
     } );
 
     // Label the shaker with the solute formula. If formula is null, default to the solute name.
