@@ -117,13 +117,6 @@ export default class AbsorbanceModel extends PhetioObject {
   public getTransmittanceAt( pathLength: number ): number {
     return getTransmittance( this.getAbsorbanceAt( pathLength ) );
   }
-
-  /**
-   * Converts absorbance to transmittance.
-   */
-  public getTransmittance(): number {
-    return getTransmittance( this.absorbanceProperty.value );
-  }
 }
 
 /*
