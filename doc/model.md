@@ -83,7 +83,7 @@ Concentration (C) is in units of M, and is the concentration of the solution in 
 
 Absorbance model: A = abC
 
-Transmittance model: T = 10^A
+Transmittance model: T = 10^-A
 
 Transmittance varies between 0 (fully absorbed) and 1 (fully transmitted.)
 Multiplying by 100 gives percent transmittance (%T).
