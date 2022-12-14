@@ -7,6 +7,7 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -72,14 +73,12 @@ export default class Shaker extends BLLMovable {
 
     this.previousPosition = this.positionProperty.value;
 
-    // set the dispensing rate to zero when the shaker becomes empty or invisible
-    const observer = () => {
-      if ( this.isEmptyProperty.value || !this.visibleProperty.value ) {
+    // Set the dispensing rate to zero when the shaker becomes empty or invisible.
+    Multilink.multilink( [ this.isEmptyProperty, this.visibleProperty ], ( isEmpty, visible ) => {
+      if ( isEmpty || !visible ) {
         this.dispensingRateProperty.value = 0;
       }
-    };
-    this.isEmptyProperty.link( observer );
-    this.visibleProperty.link( observer );
+    } );
 
     // If the position changes while restoring PhET-iO state, then set previousPosition to position to prevent the
     // shaker from effective being moved and dispensing solute. See https://github.com/phetsims/beers-law-lab/issues/247.
