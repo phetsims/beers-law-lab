@@ -69,7 +69,7 @@ export default class SolutionInCuvette extends PhetioObject {
     this.molarAbsorptivityProperty = new DerivedProperty(
       [ solutionProperty, light.wavelengthProperty ],
       ( solution, wavelength ) => solution.molarAbsorptivityData.wavelengthToMolarAbsorptivity( wavelength ), {
-        units: 'm^2/mol',
+        units: '1/(cm*M)',
         tandem: tandem.createTandem( 'molarAbsorptivityProperty' ),
         phetioValueType: NumberIO,
         phetioDocumentation: 'Molar absorptivity (molar absorption coefficient) of the solution in the cuvette'
