@@ -66,12 +66,12 @@ export default class Beam {
       } );
 
     this.fillProperty = new DerivedProperty(
-      [ this.visibleProperty, cuvette.widthProperty, light.wavelengthProperty, solutionInCuvette.absorbanceProperty ],
-      ( beamVisible, cuvetteWidth, wavelength, absorbance ) => {
+      [ this.visibleProperty, cuvette.widthProperty, light.wavelengthProperty, solutionInCuvette.transmittanceProperty ],
+      ( beamVisible, cuvetteWidth, wavelength, transmittance ) => {
         if ( beamVisible ) {
           const baseColor = VisibleColor.wavelengthToColor( wavelength );
           const leftColor = baseColor.withAlpha( MAX_LIGHT_ALPHA );
-          const rightColor = baseColor.withAlpha( Utils.linear( 0, 1, MIN_LIGHT_ALPHA, MAX_LIGHT_ALPHA, solutionInCuvette.getTransmittance() ) );
+          const rightColor = baseColor.withAlpha( Utils.linear( 0, 1, MIN_LIGHT_ALPHA, MAX_LIGHT_ALPHA, transmittance ) );
           const x = modelViewTransform.modelToViewPosition( cuvette.position ).x;
           const w = modelViewTransform.modelToViewDeltaX( cuvetteWidth );
           return new LinearGradient( x, 0, x + w, 0 ).addColorStop( 0, leftColor ).addColorStop( 1, rightColor );
