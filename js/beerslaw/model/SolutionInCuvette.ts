@@ -14,7 +14,7 @@
  * T is transmittance (1=fully transmitted, 0=fully absorbed)
  * a is molar absorptivity (1/(cm*M))
  * b is path length, synonymous with cuvette width (cm)
- * C is concentration (M)
+ * C is concentration (M or mol/L)
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

@@ -7,7 +7,6 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { Node, NodeTranslationOptions, VBox } from '../../../../scenery/js/imports.js';
@@ -16,6 +15,7 @@ import beersLawLab from '../../beersLawLab.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
 import ConcentrationControl from './ConcentrationControl.js';
 import SolutionComboBox from './SolutionComboBox.js';
+import SolutionInCuvette from '../model/SolutionInCuvette.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -25,7 +25,7 @@ export default class SolutionPanel extends Panel {
 
   public constructor( solutions: BeersLawSolution[],
                       solutionProperty: Property<BeersLawSolution>,
-                      concentrationProperty: ReadOnlyProperty<number>,
+                      solutionInCuvette: SolutionInCuvette,
                       solutionListParent: Node,
                       providedOptions: SolutionPanelOptions ) {
 
@@ -42,7 +42,7 @@ export default class SolutionPanel extends Panel {
       tandem: options.tandem.createTandem( 'solutionComboBox' )
     } );
 
-    const concentrationControl = new ConcentrationControl( solutions, solutionProperty, concentrationProperty, {
+    const concentrationControl = new ConcentrationControl( solutions, solutionProperty, solutionInCuvette.concentrationProperty, {
       tandem: options.tandem.createTandem( 'concentrationControl' )
     } );
 
@@ -54,8 +54,8 @@ export default class SolutionPanel extends Panel {
 
     super( contentNode, options );
 
-    this.addLinkedElement( solutionProperty, {
-      tandem: options.tandem.createTandem( 'solutionProperty' )
+    this.addLinkedElement( solutionInCuvette, {
+      tandem: options.tandem.createTandem( 'solutionInCuvette' )
     } );
   }
 

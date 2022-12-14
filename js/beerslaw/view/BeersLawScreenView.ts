@@ -63,13 +63,13 @@ export default class BeersLawScreenView extends ScreenView {
 
     const comboBoxListParent = new Node();
 
-    const solutionPanel = new SolutionPanel( model.solutions, model.solutionProperty,
-      model.solutionInCuvette.concentrationProperty, comboBoxListParent, {
-      // below the cuvette
-      left: cuvetteNode.left,
-      top: cuvetteNode.bottom + 60,
-      tandem: tandem.createTandem( 'solutionPanel' )
-    } );
+    const solutionPanel = new SolutionPanel( model.solutions, model.solutionProperty, model.solutionInCuvette,
+      comboBoxListParent, {
+        // below the cuvette
+        left: cuvetteNode.left,
+        top: cuvetteNode.bottom + 60,
+        tandem: tandem.createTandem( 'solutionPanel' )
+      } );
 
     // Reset All button
     const resetAllButton = new ResetAllButton( {
