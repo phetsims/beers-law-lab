@@ -72,7 +72,7 @@ export default class BeersLawModel implements TModel {
     } );
 
     this.solutionInCuvette = new SolutionInCuvette( this.solutions, this.solutionProperty,
-      this.cuvette, this.light, tandem.createTandem( 'solutionInCuvette' ) );
+      this.cuvette.widthProperty, this.light.wavelengthProperty, tandem.createTandem( 'solutionInCuvette' ) );
 
     this.detector = new ATDetector( this.light, this.cuvette, this.solutionInCuvette, {
       bodyPosition: new Vector2( this.cuvette.position.x + 3, this.cuvette.position.y - 0.3 ),

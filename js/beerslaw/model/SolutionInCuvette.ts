@@ -27,8 +27,6 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawSolution from './BeersLawSolution.js';
-import Cuvette from './Cuvette.js';
-import Light from './Light.js';
 
 export default class SolutionInCuvette extends PhetioObject {
 
@@ -46,8 +44,8 @@ export default class SolutionInCuvette extends PhetioObject {
 
   public constructor( solutions: BeersLawSolution[],
                       solutionProperty: ReadOnlyProperty<BeersLawSolution>,
-                      cuvette: Cuvette,
-                      light: Light,
+                      cuvetteWidthProperty: TReadOnlyProperty<number>,
+                      wavelengthProperty: TReadOnlyProperty<number>,
                       tandem: Tandem ) {
 
     super( {
@@ -67,7 +65,7 @@ export default class SolutionInCuvette extends PhetioObject {
       } );
 
     this.molarAbsorptivityProperty = new DerivedProperty(
-      [ solutionProperty, light.wavelengthProperty ],
+      [ solutionProperty, wavelengthProperty ],
       ( solution, wavelength ) => solution.molarAbsorptivityData.wavelengthToMolarAbsorptivity( wavelength ), {
         units: '1/(cm*M)',
         tandem: tandem.createTandem( 'molarAbsorptivityProperty' ),
@@ -76,7 +74,7 @@ export default class SolutionInCuvette extends PhetioObject {
       } );
 
     this.absorbanceProperty = new DerivedProperty(
-      [ this.molarAbsorptivityProperty, cuvette.widthProperty, this.concentrationProperty ],
+      [ this.molarAbsorptivityProperty, cuvetteWidthProperty, this.concentrationProperty ],
       ( molarAbsorptivity, cuvetteWidth, concentration ) =>
         getAbsorbance( molarAbsorptivity, cuvetteWidth, concentration ), {
         tandem: tandem.createTandem( 'absorbanceProperty' ),
