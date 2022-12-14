@@ -22,6 +22,7 @@ import { HBox, HStrut, Node, NodeTranslationOptions, Text, VBox } from '../../..
 import AquaRadioButtonGroup, { AquaRadioButtonGroupItem } from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
@@ -114,7 +115,12 @@ export default class WavelengthPanel extends Panel {
       tandem: options.tandem.createTandem( 'radioButtonGroup' )
     } );
 
+    const wavelengthNumberControlTandem = options.tandem.createTandem( 'wavelengthNumberControl' );
     const wavelengthNumberControl = new WavelengthNumberControl( light.wavelengthProperty, {
+      visibleProperty: new DerivedProperty( [ light.modeProperty ], mode => ( mode === LightMode.VARIABLE ), {
+        tandem: wavelengthNumberControlTandem.createTandem( 'visibleProperty' ),
+        phetioValueType: BooleanIO
+      } ),
       spectrumSliderTrackOptions: {
         size: SLIDER_TRACK_SIZE
       },
@@ -137,8 +143,7 @@ export default class WavelengthPanel extends Panel {
           children: [ decrementButton!, slider, incrementButton! ]
         } );
       },
-      tandem: options.tandem.createTandem( 'wavelengthNumberControl' ),
-      visiblePropertyOptions: { phetioReadOnly: true }
+      tandem: wavelengthNumberControlTandem
     } );
 
     // rendering order
@@ -162,12 +167,6 @@ export default class WavelengthPanel extends Panel {
     } );
 
     super( content, options );
-
-    // When the radio button selection changes...
-    light.modeProperty.link( mode => {
-      wavelengthNumberControl.interruptSubtreeInput();
-      wavelengthNumberControl.visible = ( mode === LightMode.VARIABLE );
-    } );
 
     this.addLinkedElement( light.wavelengthProperty, {
       tandem: options.tandem.createTandem( light.wavelengthProperty.tandem.name )
