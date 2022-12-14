@@ -86,12 +86,11 @@ export default class ConcentrationModel implements TModel {
       tandem: tandem.createTandem( 'precipitate' )
     } );
 
-    this.shaker = new Shaker( this.soluteProperty, {
+    this.shaker = new Shaker( this.soluteProperty, this.soluteFormProperty, {
       position: new Vector2( this.beaker.position.x, 170 ),
       dragBounds: new Bounds2( 250, 50, 575, 210 ),
       orientation: 0.75 * Math.PI,
       maxDispensingRate: SHAKER_MAX_DISPENSING_RATE,
-      visible: ( this.soluteFormProperty.value === SoluteForm.SOLID ),
       tandem: tandem.createTandem( 'shaker' )
     } );
 
@@ -99,11 +98,10 @@ export default class ConcentrationModel implements TModel {
       tandem: tandem.createTandem( 'shakerParticles' )
     } );
 
-    this.dropper = new Dropper( this.soluteProperty, {
+    this.dropper = new Dropper( this.soluteProperty, this.soluteFormProperty, {
       position: new Vector2( this.beaker.position.x, 225 ),
       dragBounds: new Bounds2( 260, 225, 580, 225 ),
       maxFlowRate: DROPPER_FLOW_RATE,
-      visible: ( this.soluteFormProperty.value === SoluteForm.SOLUTION ),
       tandem: tandem.createTandem( 'dropper' )
     } );
 

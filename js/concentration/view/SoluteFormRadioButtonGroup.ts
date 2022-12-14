@@ -7,7 +7,6 @@
  */
 
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
-import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -29,8 +28,6 @@ type SoluteFormRadioButtonGroupOptions = SelfOptions & PickRequired<AquaRadioBut
 export default class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup<SoluteForm> {
 
   public constructor( soluteFormProperty: EnumerationProperty<SoluteForm>,
-                      shakerVisibleProperty: Property<boolean>,
-                      dropperVisibleProperty: Property<boolean>,
                       providedOptions: SoluteFormRadioButtonGroupOptions ) {
 
     const options = optionize<SoluteFormRadioButtonGroupOptions, SelfOptions, AquaRadioButtonGroupOptions>()( {
@@ -60,19 +57,6 @@ export default class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup<Sol
     ];
 
     super( soluteFormProperty, items, options );
-
-    soluteFormProperty.link( soluteForm => {
-      shakerVisibleProperty.value = ( soluteForm === SoluteForm.SOLID );
-      dropperVisibleProperty.value = ( soluteForm === SoluteForm.SOLUTION );
-    } );
-
-    shakerVisibleProperty.link( visible => {
-      soluteFormProperty.value = ( visible ? SoluteForm.SOLID : SoluteForm.SOLUTION );
-    } );
-
-    dropperVisibleProperty.link( visible => {
-      soluteFormProperty.value = ( visible ? SoluteForm.SOLUTION : SoluteForm.SOLID );
-    } );
   }
 
   public override dispose(): void {

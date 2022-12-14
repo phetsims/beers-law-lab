@@ -7,13 +7,18 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Range from '../../../../dot/js/Range.js';
 import optionize from '../../../../phet-core/js/optionize.js';
+import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLMovable, { BLLMovableOptions } from '../../common/model/BLLMovable.js';
 import Solute from '../../common/model/Solute.js';
+import SoluteForm from './SoluteForm.js';
 
 type SelfOptions = {
   maxFlowRate?: number; // L/s
@@ -25,13 +30,14 @@ type DropperOptions = SelfOptions & BLLMovableOptions;
 export default class Dropper extends BLLMovable {
 
   public readonly soluteProperty: Property<Solute>;
-  public readonly visibleProperty: Property<boolean>;
+  public readonly visibleProperty: TReadOnlyProperty<boolean>;
   public readonly enabledProperty: Property<boolean>;
   public readonly isDispensingProperty: Property<boolean>; // true if the dropper is dispensing solution
   public readonly isEmptyProperty: Property<boolean>;
   public readonly flowRateProperty: Property<number>;
 
-  public constructor( soluteProperty: Property<Solute>, providedOptions: DropperOptions ) {
+  public constructor( soluteProperty: Property<Solute>, soluteFormProperty: EnumerationProperty<SoluteForm>,
+                      providedOptions: DropperOptions ) {
 
     const options = optionize<DropperOptions, SelfOptions, BLLMovableOptions>()( {
 
@@ -47,10 +53,11 @@ export default class Dropper extends BLLMovable {
 
     this.soluteProperty = soluteProperty;
 
-    this.visibleProperty = new BooleanProperty( options.visible, {
-      tandem: options.tandem.createTandem( 'visibleProperty' ),
-      phetioReadOnly: true
-    } );
+    this.visibleProperty = new DerivedProperty( [ soluteFormProperty ],
+      soluteForm => ( soluteForm === SoluteForm.SOLUTION ), {
+        tandem: options.tandem.createTandem( 'visibleProperty' ),
+        phetioValueType: BooleanIO
+      } );
 
     this.enabledProperty = new BooleanProperty( true, {
       tandem: options.tandem.createTandem( 'enabledProperty' ),
@@ -112,7 +119,6 @@ export default class Dropper extends BLLMovable {
 
   public override reset(): void {
     super.reset();
-    this.visibleProperty.reset();
     this.isDispensingProperty.reset();
     this.enabledProperty.reset();
     this.isEmptyProperty.reset();

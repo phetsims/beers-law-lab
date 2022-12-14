@@ -7,14 +7,19 @@
  */
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
+import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLMovable, { BLLMovableOptions } from '../../common/model/BLLMovable.js';
 import Solute from '../../common/model/Solute.js';
+import SoluteForm from './SoluteForm.js';
 
 type SelfOptions = {
   orientation?: number; // radians
@@ -29,12 +34,13 @@ export default class Shaker extends BLLMovable {
   public readonly orientation: number;
   public readonly maxDispensingRate: number;
   public readonly soluteProperty: Property<Solute>;
-  public readonly visibleProperty: Property<boolean>;
+  public readonly visibleProperty: TReadOnlyProperty<boolean>;
   public readonly isEmptyProperty: Property<boolean>;
   public readonly dispensingRateProperty: Property<number>;
   private previousPosition: Vector2;
 
-  public constructor( soluteProperty: Property<Solute>, providedOptions: ShakerOptions ) {
+  public constructor( soluteProperty: Property<Solute>, soluteFormProperty: EnumerationProperty<SoluteForm>,
+                      providedOptions: ShakerOptions ) {
 
     const options = optionize<ShakerOptions, SelfOptions, BLLMovableOptions>()( {
 
@@ -54,10 +60,11 @@ export default class Shaker extends BLLMovable {
 
     this.soluteProperty = soluteProperty;
 
-    this.visibleProperty = new BooleanProperty( options.visible, {
-      tandem: options.tandem.createTandem( 'visibleProperty' ),
-      phetioReadOnly: true
-    } );
+    this.visibleProperty = new DerivedProperty( [ soluteFormProperty ],
+      soluteForm => ( soluteForm === SoluteForm.SOLID ), {
+        tandem: options.tandem.createTandem( 'visibleProperty' ),
+        phetioValueType: BooleanIO
+      } );
 
     this.isEmptyProperty = new BooleanProperty( false, {
       tandem: options.tandem.createTandem( 'isEmptyProperty' ),
@@ -95,7 +102,6 @@ export default class Shaker extends BLLMovable {
 
   public override reset(): void {
     super.reset();
-    this.visibleProperty.reset();
     this.isEmptyProperty.reset();
     this.dispensingRateProperty.reset();
 
