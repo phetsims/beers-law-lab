@@ -25,6 +25,7 @@ import ShadedRectangle from '../../../../scenery-phet/js/ShadedRectangle.js';
 import { DragListener, Node, NodeOptions, Path, Text, VBox } from '../../../../scenery/js/imports.js';
 import AquaRadioButtonGroup, { AquaRadioButtonGroupItem } from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
@@ -138,29 +139,32 @@ class BodyNode extends Node {
     const valueStringProperty = new DerivedProperty(
       [
         BeersLawLabStrings.pattern[ '0percentStringProperty' ],
-        detector.valueProperty,
-        detector.modeProperty
+        detector.modeProperty,
+        detector.absorbanceProperty,
+        detector.transmittanceProperty
       ],
-      ( pattern, value, mode ) => {
+      ( pattern, mode, absorbance, transmittance ) => {
         let valueString: string;
-        if ( value === null ) {
-          valueString = NO_VALUE;
+        if ( mode === ATDetectorMode.TRANSMITTANCE ) {
+          valueString = ( transmittance === null ) ?
+                        NO_VALUE :
+                        StringUtils.format( pattern, Utils.toFixed( 100 * transmittance, TRANSMITTANCE_DECIMAL_PLACES ) );
         }
         else {
-          if ( mode === ATDetectorMode.TRANSMITTANCE ) {
-            valueString = StringUtils.format( pattern, Utils.toFixed( value, TRANSMITTANCE_DECIMAL_PLACES ) );
-          }
-          else {
-            valueString = Utils.toFixed( value, ABSORBANCE_DECIMAL_PLACES );
-          }
+          valueString = ( absorbance === null ) ?
+                        NO_VALUE :
+                        Utils.toFixed( absorbance, ABSORBANCE_DECIMAL_PLACES );
         }
         return valueString;
+      }, {
+        tandem: options.tandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
+        phetioValueType: StringIO
       } );
+
     const valueText = new Text( valueStringProperty, {
       font: new PhetFont( 22 ),
       maxWidth: 125,
-      tandem: options.tandem.createTandem( 'valueText' ),
-      stringPropertyOptions: { phetioReadOnly: true }
+      tandem: options.tandem.createTandem( 'valueText' )
     } );
 
     // background behind the value
@@ -198,7 +202,7 @@ class BodyNode extends Node {
     } );
 
     valueText.boundsProperty.link( bounds => {
-      if ( detector.valueProperty.value === null ) {
+      if ( valueStringProperty.value === NO_VALUE ) {
         // centered
         valueText.centerX = backgroundNode.centerX;
       }

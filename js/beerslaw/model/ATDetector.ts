@@ -39,8 +39,8 @@ export default class ATDetector extends PhetioObject {
   public readonly probe: Probe;
   public readonly modeProperty: EnumerationProperty<ATDetectorMode>;
 
-  // value is either absorbance (A) or percent transmittance (%T) depending on mode
-  public readonly valueProperty: TReadOnlyProperty<number | null>;
+  public readonly absorbanceProperty: TReadOnlyProperty<number | null>;
+  public readonly transmittanceProperty: TReadOnlyProperty<number | null>;
 
   public constructor( light: Light, cuvette: Cuvette, solutionInCuvette: SolutionInCuvette, providedOptions: ATDetectorOptions ) {
 
@@ -71,35 +71,32 @@ export default class ATDetector extends PhetioObject {
       tandem: options.tandem.createTandem( 'modeProperty' )
     } );
 
-    //TODO https://github.com/phetsims/beers-law-lab/issues/298 add units
-    this.valueProperty = new DerivedProperty( [
-        this.probe.positionProperty,
-        this.light.isOnProperty,
-        this.modeProperty,
-        cuvette.widthProperty,
-        solutionInCuvette.absorbanceProperty
-      ],
-      ( probePosition, lightIsOn, mode, cuvetteWidth, absorbance ) => {
-
-        // Computes the displayed value, null if the light is off or the probe is outside the beam.
-        let value = null;
-        if ( this.isProbeInBeam() ) {
-
-          // path length is between 0 and cuvette width
-          const pathLength = Math.min( Math.max( 0, probePosition.x - cuvette.position.x ), cuvetteWidth );
-          if ( this.modeProperty.value === ATDetectorMode.ABSORBANCE ) {
-            value = solutionInCuvette.getAbsorbanceAt( pathLength );
-          }
-          else {
-            value = 100 * solutionInCuvette.getTransmittanceAt( pathLength );
-          }
-        }
-        return value;
-      }, {
-        tandem: options.tandem.createTandem( 'valueProperty' ),
+    const pathLengthProperty = new DerivedProperty( [ this.light.isOnProperty, this.probe.positionProperty, cuvette.widthProperty ],
+      ( lightIsOn, probePosition, cuvetteWidth ) =>
+        ( lightIsOn && this.isProbeInBeam() ) ? Math.min( Math.max( 0, probePosition.x - cuvette.position.x ), cuvetteWidth ) : null, {
+        units: 'cm',
+        tandem: options.tandem.createTandem( 'pathLengthProperty' ),
         phetioValueType: NullableIO( NumberIO ),
-        phetioDocumentation: 'absorbance (A) or percent transmittance (%T), depending on mode. ' +
-                             'null if the probe is not in the light beam.'
+        phetioDocumentation: 'The distance that the light beam passes through the solution before hitting the probe. ' +
+                             'null if the light is off or the probe is not in the beam.'
+      } );
+
+    this.absorbanceProperty = new DerivedProperty(
+      [ pathLengthProperty, solutionInCuvette.absorbanceProperty ],
+      ( pathLength, solutionInCuvetteAbsorbance ) =>
+        ( pathLength === null ) ? null : solutionInCuvette.getAbsorbanceAt( pathLength ), {
+        tandem: options.tandem.createTandem( 'absorbanceProperty' ),
+        phetioValueType: NullableIO( NumberIO ),
+        phetioDocumentation: 'Absorbance at the position of the probe, null if the probe is not in the light beam'
+      } );
+
+    this.transmittanceProperty = new DerivedProperty(
+      [ pathLengthProperty, solutionInCuvette.transmittanceProperty ],
+      ( pathLength, solutionInCuvetteTransmittance ) =>
+        ( pathLength === null ) ? null : solutionInCuvette.getTransmittanceAt( pathLength ), {
+        tandem: options.tandem.createTandem( 'transmittanceProperty' ),
+        phetioValueType: NullableIO( NumberIO ),
+        phetioDocumentation: 'Transmittance at the position of the probe, null if the probe is not in the light beam'
       } );
   }
 
