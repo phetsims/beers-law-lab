@@ -93,6 +93,13 @@ export default class Dropper extends BLLMovable {
       }
     } );
 
+    // When the dropper becomes invisible, set its flow rate to zero.
+    this.visibleProperty.link( visible => {
+      if ( !visible ) {
+        this.flowRateProperty.value = 0;
+      }
+    } );
+
     this.addLinkedElement( soluteProperty, {
       tandem: options.tandem.createTandem( 'soluteProperty' )
     } );

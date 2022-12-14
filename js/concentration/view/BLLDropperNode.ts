@@ -71,14 +71,6 @@ export default class BLLDropperNode extends EyeDropperNode {
       this.translation = modelViewTransform.modelToViewPosition( position );
     } );
 
-    // visibility
-    dropper.visibleProperty.link( visible => {
-      this.visible = visible;
-      if ( !visible ) {
-        dropper.flowRateProperty.value = 0;
-      }
-    } );
-
     // Label the dropper with the solute formula. If formula is null, default to the solute name.
     let multilink: { dispose: () => void };
     dropper.soluteProperty.link( solute => {
