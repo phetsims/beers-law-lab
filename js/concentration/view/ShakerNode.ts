@@ -6,15 +6,17 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Multilink from '../../../../axon/js/Multilink.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Circle, DragListener, Image, Node, NodeOptions, RichText } from '../../../../scenery/js/imports.js';
+import StringIO from '../../../../tandem/js/types/StringIO.js';
 import shaker_png from '../../../images/shaker_png.js';
 import beersLawLab from '../../beersLawLab.js';
+import Solute from '../../common/model/Solute.js';
 import Shaker from '../model/Shaker.js';
 
 // constants
@@ -26,7 +28,8 @@ type ShakerNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
 export default class ShakerNode extends Node {
 
-  public constructor( shaker: Shaker, modelViewTransform: ModelViewTransform2, providedOptions: ShakerNodeOptions ) {
+  public constructor( shaker: Shaker, solutes: Solute[], modelViewTransform: ModelViewTransform2,
+                      providedOptions: ShakerNodeOptions ) {
 
     const options = optionize<ShakerNodeOptions, SelfOptions, NodeOptions>()( {
 
@@ -45,13 +48,27 @@ export default class ShakerNode extends Node {
     const imageNode = new Image( shaker_png );
     imageNode.setScaleMagnitude( 0.75 );
 
+    const labelTextTandem = options.tandem.createTandem( 'labelText' );
+
+    const labelStringProperty = DerivedProperty.deriveAny( [
+      shaker.soluteProperty,
+      ...solutes.map( solute => solute.formulaProperty ),
+      ...solutes.map( solute => solute.nameProperty )
+    ], () => {
+      const formula = shaker.soluteProperty.value.formulaProperty.value;
+      const name = shaker.soluteProperty.value.nameProperty.value;
+      return formula ? formula : name;
+    }, {
+      tandem: labelTextTandem.createTandem( RichText.STRING_PROPERTY_TANDEM_NAME ),
+      phetioValueType: StringIO
+    } );
+
     // label
-    const labelText = new RichText( '', {
+    const labelText = new RichText( labelStringProperty, {
       font: new PhetFont( { size: 22, weight: 'bold' } ),
       fill: 'black',
       maxWidth: 0.5 * imageNode.width, // constrain width for i18n
-      tandem: options.tandem.createTandem( 'labelText' ),
-      stringPropertyOptions: { phetioReadOnly: true }
+      tandem: labelTextTandem
     } );
 
     // common parent, to simplify rotation and label alignment.
@@ -70,16 +87,6 @@ export default class ShakerNode extends Node {
     // sync position with model
     shaker.positionProperty.link( position => {
       this.translation = modelViewTransform.modelToViewPosition( position );
-    } );
-
-    // Label the shaker with the solute formula. If formula is null, default to the solute name.
-    let multilink: { dispose: () => void };
-    shaker.soluteProperty.link( solute => {
-      multilink && multilink.dispose();
-      multilink = new Multilink( [ solute.nameProperty, solute.formulaProperty ],
-        ( name, formula ) => {
-          labelText.string = ( formula === null ) ? name : formula;
-        } );
     } );
 
     // Center the label on the shaker.

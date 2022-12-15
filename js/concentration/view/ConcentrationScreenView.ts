@@ -69,7 +69,7 @@ export default class ConcentrationScreenView extends ScreenView {
     const saturatedIndicator = new SaturatedIndicator( model.solution.isSaturatedProperty );
 
     // Shaker
-    const shakerNode = new ShakerNode( model.shaker, modelViewTransform, {
+    const shakerNode = new ShakerNode( model.shaker, model.solutes, modelViewTransform, {
       tandem: tandem.createTandem( 'shakerNode' )
     } );
 
