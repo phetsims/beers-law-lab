@@ -50,10 +50,10 @@ export default class ConcentrationControl extends Node {
     }, providedOptions );
 
     // Concentration:
-    const concentrationStringProperty = new DerivedProperty(
+    const labelStringProperty = new DerivedProperty(
       [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.concentrationStringProperty ],
       ( pattern, concentrationString ) => StringUtils.format( pattern, concentrationString ), {
-        tandem: options.tandem.createTandem( 'concentrationStringProperty' ),
+        tandem: options.tandem.createTandem( 'labelStringProperty' ),
         phetioValueType: StringIO
       } );
 
@@ -65,7 +65,7 @@ export default class ConcentrationControl extends Node {
 
     // 1 control for each solution, with mutually-exclusive visibility
     options.children = solutions.map( solution =>
-      new SoluteConcentrationControl( concentrationStringProperty, solution, displayOnlyProperty, {
+      new SoluteConcentrationControl( labelStringProperty, solution, displayOnlyProperty, {
         visibleProperty: new DerivedProperty( [ solutionProperty ], solutionValue => ( solutionValue === solution ) )
       } )
     );
@@ -96,7 +96,7 @@ class SoluteConcentrationControl extends NumberControl {
 
   public readonly solution: BeersLawSolution;
 
-  public constructor( titleStringProperty: TReadOnlyProperty<string>,
+  public constructor( labelStringProperty: TReadOnlyProperty<string>,
                       solution: BeersLawSolution,
                       displayOnlyProperty: TReadOnlyProperty<boolean>,
                       providedOptions: SoluteConcentrationControlOptions ) {
@@ -190,7 +190,7 @@ class SoluteConcentrationControl extends NumberControl {
       { value: numberRange.max, label: new Text( numberRange.max, { font: TICK_FONT } ) }
     ];
 
-    super( titleStringProperty, numberProperty, numberRange, options );
+    super( labelStringProperty, numberProperty, numberRange, options );
 
     this.solution = solution;
 
