@@ -52,14 +52,15 @@ export default class BLLDropperNode extends EyeDropperNode {
       tandem: options.tandem.createTandem( 'labelText' ),
       stringPropertyOptions: { phetioReadOnly: true }
     } );
-    this.addChild( labelText );
 
     // label background, so the label shows up on various fluid colors
     const labelBackground = new Path( null, {
       fill: 'rgba( 240, 240, 240, 0.6 )', // translucent gray
       visibleProperty: labelText.visibleProperty
     } );
+
     this.addChild( labelBackground );
+    this.addChild( labelText );
 
     // position
     dropper.positionProperty.link( position => {
