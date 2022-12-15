@@ -7,8 +7,8 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import { Shape } from '../../../../kite/js/imports.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -28,7 +28,8 @@ type BLLDropperNodeOptions = SelfOptions & PickRequired<EyeDropperNodeOptions, '
 
 export default class BLLDropperNode extends EyeDropperNode {
 
-  public constructor( dropper: Dropper, solvent: Solvent, soluteProperty: Property<Solute>,
+  public constructor( dropper: Dropper, soluteLabelStringProperty: TReadOnlyProperty<string>,
+                      solvent: Solvent, soluteProperty: Property<Solute>,
                       modelViewTransform: ModelViewTransform2, providedOptions: BLLDropperNodeOptions ) {
 
     const options = optionize<BLLDropperNodeOptions, SelfOptions, EyeDropperNodeOptions>()( {
@@ -45,7 +46,7 @@ export default class BLLDropperNode extends EyeDropperNode {
     super( options );
 
     // label
-    const labelText = new RichText( '', {
+    const labelText = new RichText( soluteLabelStringProperty, {
       maxWidth: 80, // determined empirically, to cover only the glass portion of the dropper
       font: new PhetFont( { size: 18, weight: 'bold' } ),
       fill: 'black',
@@ -65,16 +66,6 @@ export default class BLLDropperNode extends EyeDropperNode {
     // position
     dropper.positionProperty.link( position => {
       this.translation = modelViewTransform.modelToViewPosition( position );
-    } );
-
-    // Label the dropper with the solute formula. If formula is null, default to the solute name.
-    let multilink: { dispose: () => void };
-    dropper.soluteProperty.link( solute => {
-      multilink && multilink.dispose();
-      multilink = new Multilink( [ solute.nameProperty, solute.formulaProperty ],
-        ( name, formula ) => {
-          labelText.string = ( formula === null ) ? name : formula;
-        } );
     } );
 
     // Position the label on the dropper, and resize it's translucent background to fit.
