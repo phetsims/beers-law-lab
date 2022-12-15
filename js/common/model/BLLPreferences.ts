@@ -11,7 +11,7 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import BLLQueryParameters, { BeakerUnits, BeakerUnitsValues, ConcentrationMeterUnits, ConcentrationMeterUnitsValues } from '../BLLQueryParameters.js';
 import beersLawLab from '../../beersLawLab.js';
-import StringEnumerationProperty from '../../../../axon/js/StringEnumerationProperty.js';
+import StringUnionProperty from '../../../../axon/js/StringUnionProperty.js';
 
 const BLLPreferences = {
 
@@ -25,13 +25,13 @@ const BLLPreferences = {
     phetioDocumentation: 'Shows the amount of solute that is in the beaker'
   } ),
 
-  beakerUnitsProperty: new StringEnumerationProperty<BeakerUnits>( BLLQueryParameters.beakerUnits as BeakerUnits, {
+  beakerUnitsProperty: new StringUnionProperty<BeakerUnits>( BLLQueryParameters.beakerUnits as BeakerUnits, {
     validValues: BeakerUnitsValues,
     tandem: Tandem.PREFERENCES.createTandem( 'beakerUnitsProperty' ),
     phetioDocumentation: 'Units displayed on the beaker tick marks'
   } ),
 
-  concentrationMeterUnitsProperty: new StringEnumerationProperty<ConcentrationMeterUnits>( BLLQueryParameters.concentrationMeterUnits as ConcentrationMeterUnits, {
+  concentrationMeterUnitsProperty: new StringUnionProperty<ConcentrationMeterUnits>( BLLQueryParameters.concentrationMeterUnits as ConcentrationMeterUnits, {
     validValues: ConcentrationMeterUnitsValues,
     tandem: Tandem.PREFERENCES.createTandem( 'concentrationMeterUnitsProperty' ),
     phetioDocumentation: 'Units displayed by the concentration meter'
