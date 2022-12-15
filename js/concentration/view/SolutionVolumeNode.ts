@@ -48,9 +48,9 @@ export default class SolutionVolumeNode extends Node {
       centerY: 0
     } );
 
-    const solutionVolumeTextTandem = options.tandem.createTandem( 'solutionVolumeText' );
+    const textTandem = options.tandem.createTandem( 'text' );
 
-    const solutionVolumeStringProperty = new DerivedProperty( [
+    const stringProperty = new DerivedProperty( [
         BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
         volumeProperty,
         BeersLawLabStrings.units.litersStringProperty,
@@ -72,22 +72,22 @@ export default class SolutionVolumeNode extends Node {
         }
         return StringUtils.format( pattern, volumeString, units );
       }, {
-        tandem: solutionVolumeTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
+        tandem: textTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
         phetioValueType: StringIO
       } );
 
-    const solutionVolumeText = new Text( solutionVolumeStringProperty, {
+    const text = new Text( stringProperty, {
       font: new PhetFont( 22 ),
       maxWidth: 100, // determined empirically
-      tandem: solutionVolumeTextTandem
+      tandem: textTandem
     } );
 
-    solutionVolumeText.boundsProperty.link( bounds => {
-      solutionVolumeText.right = triangleNode.left - 6;
-      solutionVolumeText.bottom = triangleNode.centerY - 1;
+    text.boundsProperty.link( bounds => {
+      text.right = triangleNode.left - 6;
+      text.bottom = triangleNode.centerY - 1;
     } );
 
-    options.children = [ solutionVolumeText, triangleNode ];
+    options.children = [ text, triangleNode ];
 
     super( options );
   }
