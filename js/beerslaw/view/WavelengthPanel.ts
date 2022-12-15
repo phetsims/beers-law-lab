@@ -117,6 +117,9 @@ export default class WavelengthPanel extends Panel {
 
     const wavelengthNumberControlTandem = options.tandem.createTandem( 'wavelengthNumberControl' );
     const wavelengthNumberControl = new WavelengthNumberControl( light.wavelengthProperty, {
+      titleNodeOptions: {
+        tandem: Tandem.OPT_OUT // because our title is not part of WavelengthNumberControl
+      },
       visibleProperty: new DerivedProperty( [ light.modeProperty ], mode => ( mode === LightMode.VARIABLE ), {
         tandem: wavelengthNumberControlTandem.createTandem( 'visibleProperty' ),
         phetioValueType: BooleanIO

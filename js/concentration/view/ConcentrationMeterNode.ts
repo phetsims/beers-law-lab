@@ -137,12 +137,11 @@ class BodyNode extends Node {
 
     super( options );
 
-    // title
-    const titleText = new Text( BeersLawLabStrings.concentrationStringProperty, {
+    const labelText = new Text( BeersLawLabStrings.concentrationStringProperty, {
       font: new PhetFont( 18 ),
       fill: 'white',
       maxWidth: 125,
-      tandem: tandem.createTandem( 'titleText' )
+      tandem: tandem.createTandem( 'labelText' )
     } );
 
     // value + units
@@ -181,7 +180,7 @@ class BodyNode extends Node {
     } );
 
     // background behind the value
-    const backgroundWidth = Math.max( MIN_VALUE_SIZE.width, Math.max( titleText.width, valueText.width ) + ( 2 * READOUT_X_MARGIN ) );
+    const backgroundWidth = Math.max( MIN_VALUE_SIZE.width, Math.max( labelText.width, valueText.width ) + ( 2 * READOUT_X_MARGIN ) );
     const backgroundHeight = Math.max( MIN_VALUE_SIZE.height, valueText.height + ( 2 * READOUT_Y_MARGIN ) );
     const backgroundNode = new ShadedRectangle( new Bounds2( 0, 0, backgroundWidth, backgroundHeight ), {
       baseColor: 'white',
@@ -191,7 +190,7 @@ class BodyNode extends Node {
     // vertical arrangement of stuff in the concentrationMeter
     const vBox = new VBox( {
       excludeInvisibleChildrenFromBounds: false,
-      children: [ titleText, new Node( { children: [ backgroundNode, valueText ] } ) ],
+      children: [ labelText, new Node( { children: [ backgroundNode, valueText ] } ) ],
       align: 'center',
       spacing: 18
     } );
