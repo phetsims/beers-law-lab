@@ -44,12 +44,6 @@ export default class BLLDropperNode extends EyeDropperNode {
 
     super( options );
 
-    // label background, so the label shows up on various fluid colors
-    const labelBackground = new Path( null, {
-      fill: 'rgba( 240, 240, 240, 0.6 )' // translucent gray
-    } );
-    this.addChild( labelBackground );
-
     // label
     const labelText = new RichText( '', {
       maxWidth: 80, // determined empirically, to cover only the glass portion of the dropper
@@ -60,11 +54,12 @@ export default class BLLDropperNode extends EyeDropperNode {
     } );
     this.addChild( labelText );
 
-    // Background is visible only when label is visible.
-    // This is in case labelText.visibleProperty is changed via PhET-iO.
-    labelText.visibleProperty.link( visible => {
-      labelBackground.visible = visible;
+    // label background, so the label shows up on various fluid colors
+    const labelBackground = new Path( null, {
+      fill: 'rgba( 240, 240, 240, 0.6 )', // translucent gray
+      visibleProperty: labelText.visibleProperty
     } );
+    this.addChild( labelBackground );
 
     // position
     dropper.positionProperty.link( position => {
