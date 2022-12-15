@@ -18,6 +18,7 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Node, NodeOptions, Path, Text } from '../../../../scenery/js/imports.js';
+import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
@@ -47,7 +48,9 @@ export default class SolutionVolumeNode extends Node {
       centerY: 0
     } );
 
-    const soluteAmountStringProperty = new DerivedProperty( [
+    const solutionVolumeTextTandem = options.tandem.createTandem( 'solutionVolumeText' );
+
+    const solutionVolumeStringProperty = new DerivedProperty( [
         BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
         volumeProperty,
         BeersLawLabStrings.units.litersStringProperty,
@@ -68,19 +71,23 @@ export default class SolutionVolumeNode extends Node {
           units = millilitersString;
         }
         return StringUtils.format( pattern, volumeString, units );
+      }, {
+        tandem: solutionVolumeTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
+        phetioValueType: StringIO
       } );
 
-    const soluteAmountText = new Text( soluteAmountStringProperty, {
+    const solutionVolumeText = new Text( solutionVolumeStringProperty, {
       font: new PhetFont( 22 ),
-      maxWidth: 100 // determined empirically
+      maxWidth: 100, // determined empirically
+      tandem: solutionVolumeTextTandem
     } );
 
-    soluteAmountText.boundsProperty.link( bounds => {
-      soluteAmountText.right = triangleNode.left - 6;
-      soluteAmountText.bottom = triangleNode.centerY - 1;
+    solutionVolumeText.boundsProperty.link( bounds => {
+      solutionVolumeText.right = triangleNode.left - 6;
+      solutionVolumeText.bottom = triangleNode.centerY - 1;
     } );
 
-    options.children = [ soluteAmountText, triangleNode ];
+    options.children = [ solutionVolumeText, triangleNode ];
 
     super( options );
   }
