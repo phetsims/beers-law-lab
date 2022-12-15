@@ -91,8 +91,7 @@ export default class SolutionInCuvette extends PhetioObject {
       } );
 
     this.addLinkedElement( solutionProperty, {
-      tandem: tandem.createTandem( solutionProperty.tandem.name ),
-      phetioDocumentation: solutionProperty.phetioDocumentation
+      tandem: tandem.createTandem( solutionProperty.tandem.name )
     } );
   }
 
