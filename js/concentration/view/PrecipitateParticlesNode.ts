@@ -1,7 +1,7 @@
 // Copyright 2020-2022, University of Colorado Boulder
 
 /**
- * PrecipitateNode displays precipitate at the bottom of the beaker.
+ * PrecipitateParticlesNode displays precipitate at the bottom of the beaker.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -12,7 +12,7 @@ import beersLawLab from '../../beersLawLab.js';
 import PrecipitateParticles from '../model/PrecipitateParticles.js';
 import ParticlesNode from './ParticlesNode.js';
 
-export default class PrecipitateNode extends ParticlesNode {
+export default class PrecipitateParticlesNode extends ParticlesNode {
 
   public constructor( precipitateParticles: PrecipitateParticles, modelViewTransform: ModelViewTransform2, canvasBounds: Bounds2 ) {
     super( precipitateParticles, modelViewTransform, canvasBounds );
@@ -24,4 +24,4 @@ export default class PrecipitateNode extends ParticlesNode {
   }
 }
 
-beersLawLab.register( 'PrecipitateNode', PrecipitateNode );
+beersLawLab.register( 'PrecipitateParticlesNode', PrecipitateParticlesNode );

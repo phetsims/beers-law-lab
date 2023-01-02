@@ -22,7 +22,7 @@ import BLLFaucetNode from './BLLFaucetNode.js';
 import ConcentrationMeterNode from './ConcentrationMeterNode.js';
 import EvaporationPanel from './EvaporationPanel.js';
 import FaucetFluidNode from './FaucetFluidNode.js';
-import PrecipitateNode from './PrecipitateNode.js';
+import PrecipitateParticlesNode from './PrecipitateParticlesNode.js';
 import RemoveSoluteButton from './RemoveSoluteButton.js';
 import SaturatedIndicator from './SaturatedIndicator.js';
 import ShakerNode from './ShakerNode.js';
@@ -65,7 +65,7 @@ export default class ConcentrationScreenView extends ScreenView {
       } );
 
     // PrecipitateParticles particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
-    const precipitateNode = new PrecipitateNode( model.precipitateParticles, modelViewTransform, new Bounds2(
+    const precipitateNode = new PrecipitateParticlesNode( model.precipitateParticles, modelViewTransform, new Bounds2(
       modelViewTransform.modelToViewX( model.beaker.left ), modelViewTransform.modelToViewY( model.beaker.position.y ) - 100,
       modelViewTransform.modelToViewX( model.beaker.right ), modelViewTransform.modelToViewY( model.beaker.position.y ) ) );
     const saturatedIndicator = new SaturatedIndicator( model.solution.isSaturatedProperty );
