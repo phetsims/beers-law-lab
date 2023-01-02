@@ -1,5 +1,6 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
+//TODO https://github.com/phetsims/beers-law-lab/issues/265 address TODOs in this file
 /**
  * ShakerParticle is a particle that comes out of the shaker.
  * The particle falls towards the surface of the solution, may bounce off the wall
@@ -14,19 +15,15 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import beersLawLab from '../../beersLawLab.js';
-import Solute, { SoluteStateObject } from '../../common/model/Solute.js';
-import SoluteParticle, { SoluteParticleOptions } from './SoluteParticle.js';
+import Solute from '../../common/model/Solute.js';
+import SoluteParticle, { SoluteParticleOptions, SoluteParticleStateObject } from './SoluteParticle.js';
 import Beaker from './Beaker.js';
-import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 
 type SelfOptions = EmptySelfOptions;
 
 type ShakerParticleOptions = SelfOptions & PickRequired<SoluteParticleOptions, 'tandem'>;
 
-type ShakerParticleStateObject = {
-  solute: SoluteStateObject;
-  position: Vector2StateObject;
-  orientation: number;
+type ShakerParticleStateObject = SoluteParticleStateObject & {
   velocity: Vector2StateObject;
   acceleration: Vector2StateObject;
 };
@@ -44,8 +41,7 @@ export default class ShakerParticle extends SoluteParticle {
     const options = optionize<ShakerParticleOptions, SelfOptions, SoluteParticleOptions>()( {
 
       // SoluteParticleOptions
-      phetioType: ShakerParticle.ShakerParticleIO,
-      phetioDynamicElement: true
+      phetioType: ShakerParticle.ShakerParticleIO
     }, providedOptions );
 
     super( solute, position, orientation, options );
@@ -77,18 +73,19 @@ export default class ShakerParticle extends SoluteParticle {
     this.positionProperty.value = newPosition;
   }
 
-  public toStateObject(): ShakerParticleStateObject {
+  //TODO Sounds like I need this because default toStateObject will not handle supertype.
+  protected override toStateObject(): ShakerParticleStateObject {
     return {
-      solute: Solute.SoluteIO.toStateObject( this.solute ),
-      position: this.positionProperty.value.toStateObject(),
-      orientation: this.orientation,
+      //TODO Is this the preferred pattern when there is an IOType supertype?
+      ...super.toStateObject(),
       velocity: Vector2.Vector2IO.toStateObject( this.velocity ),
       acceleration: Vector2.Vector2IO.toStateObject( this.acceleration )
     };
   }
 
-  // ShakerParticles are created by a PhetioGroup, so we must use stateToArgsForConstructor instead of fromStateObject.
-  public static stateToArgsForConstructor( stateObject: ShakerParticleStateObject ): ShakerParticleConstructorParameters {
+  //TODO OK that this gets nothing from super, while Resistor does?
+  //TODO This method is poorly named. It's not args for constructor. It's args for ShakerParticleGroup.createElement.
+  private static stateToArgsForConstructor( stateObject: ShakerParticleStateObject ): ShakerParticleConstructorParameters {
     return [
       Solute.SoluteIO.fromStateObject( stateObject.solute ),
       Vector2.Vector2IO.fromStateObject( stateObject.position ),
@@ -100,16 +97,21 @@ export default class ShakerParticle extends SoluteParticle {
 
   public static readonly ShakerParticleIO = new IOType<ShakerParticle, ShakerParticleStateObject>( 'ShakerParticleIO', {
     valueType: ShakerParticle,
+
+    //TODO What is this telling IOType? IOTypeOptions.supertype and IOType.supertype have no documentation.
+    supertype: SoluteParticle.SoluteParticleIO,
     documentation: 'A particle that comes from the shaker.',
+
+    //TODO As in Resistor... Do I only need to specify additional subclass fields here? Are other fields inherited from SoluteParticleIO stateSchema?
+    //TODO If so... What if my subclass does not need all supertype schema fields?
     stateSchema: {
-      solute: Solute.SoluteIO,
-      position: Vector2.Vector2IO,
-      orientation: NumberIO,
       velocity: Vector2.Vector2IO,
       acceleration: Vector2.Vector2IO
     },
     toStateObject: shakerParticle => shakerParticle.toStateObject(),
-    stateToArgsForConstructor: ShakerParticle.stateToArgsForConstructor
+
+    // ShakerParticle is instantiated by a PhetioGroup, so we must use stateToArgsForConstructor instead of fromStateObject.
+    stateToArgsForConstructor: stateObject => ShakerParticle.stateToArgsForConstructor( stateObject )
   } );
 }
 
