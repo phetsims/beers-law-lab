@@ -131,7 +131,6 @@ class CuvetteDragListener extends DragListener {
   public constructor( cuvette: Cuvette, modelViewTransform: ModelViewTransform2, snapInterval: number, tandem: Tandem ) {
 
     const widthRange = cuvette.widthProperty.range;
-    assert && assert( widthRange );
 
     let startX: number; // x coordinate of mouse click
     let startWidth: number; // width of the cuvette when the drag started
