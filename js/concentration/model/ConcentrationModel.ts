@@ -39,7 +39,7 @@ export default class ConcentrationModel implements TModel {
   public readonly soluteFormProperty: EnumerationProperty<SoluteForm>;
   public readonly solution: ConcentrationSolution;
   public readonly beaker: Beaker;
-  public readonly precipitate: PrecipitateParticles;
+  public readonly precipitateParticles: PrecipitateParticles;
   public readonly shaker: Shaker;
   public readonly shakerParticles: ShakerParticles;
   public readonly dropper: Dropper;
@@ -82,8 +82,8 @@ export default class ConcentrationModel implements TModel {
       position: new Vector2( 350, 550 )
     } );
 
-    this.precipitate = new PrecipitateParticles( this.solution, this.beaker, {
-      tandem: tandem.createTandem( 'precipitate' )
+    this.precipitateParticles = new PrecipitateParticles( this.solution, this.beaker, {
+      tandem: tandem.createTandem( 'precipitateParticles' )
     } );
 
     this.shaker = new Shaker( this.soluteProperty, this.soluteFormProperty, {

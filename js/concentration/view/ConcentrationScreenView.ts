@@ -65,7 +65,7 @@ export default class ConcentrationScreenView extends ScreenView {
       } );
 
     // PrecipitateParticles particles are drawn using canvas. Specify bounds of the canvas (smaller for speed).
-    const precipitateNode = new PrecipitateNode( model.precipitate, modelViewTransform, new Bounds2(
+    const precipitateNode = new PrecipitateNode( model.precipitateParticles, modelViewTransform, new Bounds2(
       modelViewTransform.modelToViewX( model.beaker.left ), modelViewTransform.modelToViewY( model.beaker.position.y ) - 100,
       modelViewTransform.modelToViewX( model.beaker.right ), modelViewTransform.modelToViewY( model.beaker.position.y ) ) );
     const saturatedIndicator = new SaturatedIndicator( model.solution.isSaturatedProperty );
