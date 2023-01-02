@@ -85,7 +85,7 @@ export default class ShakerParticle extends SoluteParticle {
 
   //TODO OK that this gets nothing from super, while Resistor does?
   //TODO This method is poorly named. It's not args for constructor. It's args for ShakerParticleGroup.createElement.
-  private static stateToArgsForConstructor( stateObject: ShakerParticleStateObject ): ShakerParticleConstructorParameters {
+  private static stateObjectToCreateElementArguments( stateObject: ShakerParticleStateObject ): ShakerParticleConstructorParameters {
     return [
       Solute.SoluteIO.fromStateObject( stateObject.solute ),
       Vector2.Vector2IO.fromStateObject( stateObject.position ),
@@ -110,8 +110,8 @@ export default class ShakerParticle extends SoluteParticle {
     },
     toStateObject: shakerParticle => shakerParticle.toStateObject(),
 
-    // ShakerParticle is instantiated by a PhetioGroup, so we must use stateToArgsForConstructor instead of fromStateObject.
-    stateToArgsForConstructor: stateObject => ShakerParticle.stateToArgsForConstructor( stateObject )
+    // ShakerParticle is instantiated by a PhetioGroup, so we must use stateObjectToCreateElementArguments instead of fromStateObject.
+    stateObjectToCreateElementArguments: stateObject => ShakerParticle.stateObjectToCreateElementArguments( stateObject )
   } );
 }
 

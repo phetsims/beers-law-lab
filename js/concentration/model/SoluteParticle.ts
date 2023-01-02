@@ -90,7 +90,7 @@ export default class SoluteParticle extends PhetioObject {
       orientation: NumberIO
     },
     toStateObject: soluteParticle => soluteParticle.toStateObject()
-    // SoluteParticle subclasses are created by a PhetioGroup, so they will be defining stateToArgsForConstructor for deserialization.
+    // SoluteParticle subclasses are created by a PhetioGroup, so they will be defining stateObjectToCreateElementArguments for deserialization.
     //TODO ... but what is the default deserialization in this case?
   } );
 }

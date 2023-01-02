@@ -42,7 +42,7 @@ export default class PrecipitateParticle extends SoluteParticle {
 
   //TODO OK that this gets nothing from super, while Resistor does?
   //TODO This method is poorly named. It's not args for constructor. It's args for PrecipitateParticleGroup.createElement.
-  private static stateToArgsForConstructor( stateObject: PrecipitateParticleStateObject ): PrecipitateParticleConstructorParameters {
+  private static stateObjectToCreateElementArguments( stateObject: PrecipitateParticleStateObject ): PrecipitateParticleConstructorParameters {
     return [
       Solute.SoluteIO.fromStateObject( stateObject.solute ),
       Vector2.Vector2IO.fromStateObject( stateObject.position ),
@@ -58,8 +58,8 @@ export default class PrecipitateParticle extends SoluteParticle {
       //TODO do I need stateSchema, or is it inherited from supertype?
       toStateObject: precipitateParticle => precipitateParticle.toStateObject(),
 
-      // PrecipitateParticle is instantiated by a PhetioGroup, so we must use stateToArgsForConstructor instead of fromStateObject.
-      stateToArgsForConstructor: stateObject => PrecipitateParticle.stateToArgsForConstructor( stateObject )
+      // PrecipitateParticle is instantiated by a PhetioGroup, so we must use stateObjectToCreateElementArguments instead of fromStateObject.
+      stateObjectToCreateElementArguments: stateObject => PrecipitateParticle.stateObjectToCreateElementArguments( stateObject )
     } );
 }
 
