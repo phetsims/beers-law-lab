@@ -1,4 +1,4 @@
-// Copyright 2020-2022, University of Colorado Boulder
+// Copyright 2020-2023, University of Colorado Boulder
 
 /**
  * SoluteParticleGroup is the PhetioGroup for dynamically creating SoluteParticle instances.
