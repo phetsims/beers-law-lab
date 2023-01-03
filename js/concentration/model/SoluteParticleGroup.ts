@@ -16,8 +16,13 @@ import Solute from '../../common/model/Solute.js';
 import SoluteParticle, { SoluteParticleCreateElementArguments } from './SoluteParticle.js';
 
 // Arguments passed to createElement when creating the archetype
-const DEFAULT_ARGUMENTS: SoluteParticleCreateElementArguments =
-  [ Solute.DRINK_MIX, Vector2.ZERO, 0, Vector2.ZERO, Vector2.ZERO ];
+const DEFAULT_ARGUMENTS: SoluteParticleCreateElementArguments = [
+  Solute.DRINK_MIX, // solute
+  Vector2.ZERO, // position
+  0, // orientation
+  Vector2.ZERO, // velocity
+  Vector2.ZERO // acceleration
+];
 
 type SelfOptions = EmptySelfOptions;
 
@@ -35,9 +40,9 @@ export default class SoluteParticleGroup extends PhetioGroup<SoluteParticle, Sol
 
     // Instantiates a dynamic SoluteParticle.
     const createElement = ( tandem: Tandem, solute: Solute, position: Vector2, orientation: number,
-                            initialVelocity: Vector2, acceleration: Vector2 ) =>
+                            velocity: Vector2, acceleration: Vector2 ) =>
       new SoluteParticle( solute, position, orientation, {
-        velocity: initialVelocity,
+        velocity: velocity,
         acceleration: acceleration,
         tandem: tandem
       } );
