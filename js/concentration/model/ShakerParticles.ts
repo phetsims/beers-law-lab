@@ -1,7 +1,7 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
 /**
- * Manages the lifetime of shaker particles, from creation when they exit the shaker,
+ * ShakerParticles manages the lifetime of solute particles, from creation when they exit the shaker,
  * to deletion when they are delivered to the solution.
  *
  * @author Chris Malley (PixelZoom, Inc.)
@@ -11,16 +11,15 @@ import Emitter from '../../../../axon/js/Emitter.js';
 import dotRandom from '../../../../dot/js/dotRandom.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import Beaker from './Beaker.js';
 import ConcentrationSolution from './ConcentrationSolution.js';
-import SoluteParticles from './SoluteParticles.js';
+import SoluteParticles, { SoluteParticlesOptions } from './SoluteParticles.js';
 import Shaker from './Shaker.js';
-import SoluteParticleGroup from './SoluteParticleGroup.js';
 import SoluteParticle from './SoluteParticle.js';
 
 // Units for speed and acceleration are not meaningful here, adjust these so that it looks good.
@@ -40,7 +39,6 @@ export default class ShakerParticles extends SoluteParticles {
   private readonly solution: ConcentrationSolution;
   private readonly beaker: Beaker;
   private readonly shaker: Shaker;
-  public readonly particleGroup: SoluteParticleGroup;
   public readonly particlesMovedEmitter: Emitter; // emits on step if one or more particles has moved
 
   public constructor( solution: ConcentrationSolution,
@@ -48,17 +46,17 @@ export default class ShakerParticles extends SoluteParticles {
                       shaker: Shaker,
                       providedOptions: ShakerParticlesOptions ) {
 
-    super( solution.soluteProperty );
+    const options = optionize<ShakerParticlesOptions, SelfOptions, SoluteParticlesOptions>()( {
+
+      // SoluteParticlesOptions
+      particleGroupDocumentation: 'Dynamically creates solute particles for the shaker'
+    }, providedOptions );
+
+    super( solution.soluteProperty, options );
 
     this.solution = solution;
     this.beaker = beaker;
     this.shaker = shaker;
-
-    this.particleGroup = new SoluteParticleGroup( {
-      tandem: providedOptions.tandem.createTandem( 'particleGroup' ),
-      phetioDocumentation: 'Dynamically creates solute particles for the shaker'
-    } );
-
     this.particlesMovedEmitter = new Emitter();
 
     // when the solute changes, remove all particles
@@ -71,8 +69,8 @@ export default class ShakerParticles extends SoluteParticles {
     } );
   }
 
-  public removeAllParticles(): void {
-    this.particleGroup.clear();
+  public override dispose(): void {
+    assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
   }
 
   public reset(): void {
@@ -82,7 +80,7 @@ export default class ShakerParticles extends SoluteParticles {
   // Particle animation and delivery to the solution, called when the simulation clock ticks.
   public step( dt: number ): void {
 
-    const particles = this.particleGroup.getArray();
+    const particles = this.getParticlesReference();
     const beaker = this.beaker;
     const shaker = this.shaker;
     const solution = this.solution;
@@ -98,7 +96,7 @@ export default class ShakerParticles extends SoluteParticles {
       const percentFull = solution.volumeProperty.value / beaker.volume;
       const solutionSurfaceY = beaker.position.y - ( percentFull * beaker.size.height ) - solution.soluteProperty.value.particleSize;
       if ( particle.positionProperty.value.y > solutionSurfaceY ) {
-        this.particleGroup.disposeElement( particle );
+        this.disposeParticle( particle );
         solution.soluteMolesProperty.value = Math.min(
           BLLConstants.SOLUTE_AMOUNT_RANGE.max,
           solution.soluteMolesProperty.value + ( 1 / solution.soluteProperty.value.particlesPerMole )
@@ -116,7 +114,7 @@ export default class ShakerParticles extends SoluteParticles {
         shaker.dispensingRateProperty.value * solution.soluteProperty.value.particlesPerMole * dt ) );
 
       for ( let j = 0; j < numberOfParticles; j++ ) {
-        this.particleGroup.createNextElement( solution.soluteProperty.value,
+        this.createParticle( solution.soluteProperty.value,
           getRandomPosition( this.shaker.positionProperty.value ),
           ShakerParticles.getRandomOrientation(),
           this.getInitialVelocity(),

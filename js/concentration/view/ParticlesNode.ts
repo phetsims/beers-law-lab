@@ -12,16 +12,14 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import { CanvasNode } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
-import PrecipitateParticles from '../model/PrecipitateParticles.js';
-import ShakerParticles from '../model/ShakerParticles.js';
+import SoluteParticles from '../model/SoluteParticles.js';
 
 export default class ParticlesNode extends CanvasNode {
 
-  public readonly particles: PrecipitateParticles | ShakerParticles;
+  public readonly particles: SoluteParticles;
   private readonly modelViewTransform: ModelViewTransform2;
 
-  protected constructor( particles: PrecipitateParticles | ShakerParticles,
-                         modelViewTransform: ModelViewTransform2, canvasBounds: Bounds2 ) {
+  protected constructor( particles: SoluteParticles, modelViewTransform: ModelViewTransform2, canvasBounds: Bounds2 ) {
 
     super( {
       pickable: false,
@@ -33,8 +31,8 @@ export default class ParticlesNode extends CanvasNode {
     this.modelViewTransform = modelViewTransform;
 
     // If particles are added or removed, then redraw.
-    this.particles.particleGroup.elementCreatedEmitter.addListener( () => this.invalidatePaint() );
-    this.particles.particleGroup.elementDisposedEmitter.addListener( () => this.invalidatePaint() );
+    this.particles.addParticleCreatedListener( () => this.invalidatePaint() );
+    this.particles.addParticleDisposedListener( () => this.invalidatePaint() );
   }
 
   public override dispose(): void {
@@ -47,7 +45,7 @@ export default class ParticlesNode extends CanvasNode {
    */
   public override paintCanvas( context: CanvasRenderingContext2D ): void {
 
-    const particles = this.particles.particleGroup.getArray(); // reference - do not modify!
+    const particles = this.particles.getParticlesReference(); // reference - do not modify!
     const numberOfParticles = particles.length;
 
     // Set and compute static properties that should be shared by all the particles, and start the path.

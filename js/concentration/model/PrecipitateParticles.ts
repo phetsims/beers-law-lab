@@ -1,44 +1,42 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
 /**
- * The precipitate that forms on the bottom of the beaker.
- * Manages the creation and deletion of precipitate particles.
+ * PrecipitateParticles manages the creation and deletion of solute particles that form on the bottom of
+ * the beaker as precipitate.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
 import dotRandom from '../../../../dot/js/dotRandom.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import beersLawLab from '../../beersLawLab.js';
 import Beaker from './Beaker.js';
 import ConcentrationSolution from './ConcentrationSolution.js';
-import SoluteParticles from './SoluteParticles.js';
-import SoluteParticleGroup from './SoluteParticleGroup.js';
+import SoluteParticles, { SoluteParticlesOptions } from './SoluteParticles.js';
 
 type SelfOptions = EmptySelfOptions;
 
-type PrecipitateOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
+type PrecipitateOptions = SelfOptions & PickRequired<SoluteParticlesOptions, 'tandem'>;
 
 export default class PrecipitateParticles extends SoluteParticles {
 
   private readonly solution: ConcentrationSolution;
   private readonly beaker: Beaker;
-  public readonly particleGroup: SoluteParticleGroup;
 
   public constructor( solution: ConcentrationSolution, beaker: Beaker, providedOptions: PrecipitateOptions ) {
 
-    super( solution.soluteProperty );
+    const options = optionize<PrecipitateOptions, SelfOptions, SoluteParticlesOptions>()( {
+
+      // SoluteParticlesOptions
+      particleGroupDocumentation: 'Dynamically creates solute particles for the precipitate'
+    }, providedOptions );
+
+    super( solution.soluteProperty, options );
 
     this.solution = solution;
     this.beaker = beaker;
-
-    this.particleGroup = new SoluteParticleGroup( {
-      tandem: providedOptions.tandem.createTandem( 'particleGroup' ),
-      phetioDocumentation: 'Dynamically creates solute particles for the precipitate'
-    } );
 
     // when the saturation changes, update the number of precipitate particles
     this.solution.precipitateMolesProperty.link( () => this.updateParticles() );
@@ -54,7 +52,7 @@ export default class PrecipitateParticles extends SoluteParticles {
     } );
   }
 
-  public dispose(): void {
+  public override dispose(): void {
     assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
   }
 
@@ -68,26 +66,26 @@ export default class PrecipitateParticles extends SoluteParticles {
     // number of particles desired after this update
     const numberOfParticles = this.solution.getNumberOfPrecipitateParticles();
 
-    if ( numberOfParticles === this.particleGroup.count ) {
+    if ( numberOfParticles === this.numberOfParticles ) {
       return; // no change, do nothing
     }
-    else if ( numberOfParticles < this.particleGroup.count ) {
-      this.removeParticles( this.particleGroup.count - numberOfParticles );
+    else if ( numberOfParticles < this.numberOfParticles ) {
+      this.removeParticles( this.numberOfParticles - numberOfParticles );
     }
     else {
-      this.addParticles( numberOfParticles - this.particleGroup.count );
+      this.addParticles( numberOfParticles - this.numberOfParticles );
     }
-    assert && assert( this.particleGroup.count === numberOfParticles );
+    assert && assert( this.numberOfParticles === numberOfParticles );
   }
 
   /**
-   * Adds particles to the precipitate.
+   * Adds a specified number of particles to the precipitate.
    */
   private addParticles( numberToAdd: number ): void {
     assert && assert( numberToAdd > 0, `invalid numberToAdd: ${numberToAdd}` );
     for ( let i = 0; i < numberToAdd; i++ ) {
-      this.particleGroup.createNextElement( this.solution.soluteProperty.value,
-        this.getRandomOffset(),
+      this.createParticle( this.solution.soluteProperty.value,
+        this.getRandomPosition(),
         PrecipitateParticles.getRandomOrientation(),
         Vector2.ZERO,
         Vector2.ZERO
@@ -96,41 +94,33 @@ export default class PrecipitateParticles extends SoluteParticles {
   }
 
   /**
-   * Removes particles from the precipitate.
+   * Removes a specified number of particles from the precipitate.
    */
   private removeParticles( numberToRemove: number ): void {
 
-    const numberBefore = this.particleGroup.count;
+    const numberBefore = this.numberOfParticles;
 
-    const particles = this.particleGroup.getArray();
+    const particles = this.getParticlesReference();
     assert && assert( numberToRemove > 0 && numberToRemove <= particles.length, `invalid numberToRemove: ${numberToRemove}` );
 
     // Remove from the end of the array.
     for ( let i = 0; i < numberToRemove; i++ ) {
-      this.particleGroup.disposeElement( this.particleGroup.getLastElement() );
+      this.disposeLastParticle();
     }
 
-    assert && assert( this.particleGroup.count + numberToRemove === numberBefore,
-      `unexpected number of particles removed: expected ${numberToRemove}, removed ${numberBefore - this.particleGroup.count}` );
+    assert && assert( this.numberOfParticles + numberToRemove === numberBefore,
+      `unexpected number of particles removed: expected ${numberToRemove}, removed ${numberBefore - this.numberOfParticles}` );
   }
 
   /**
-   * Removes all particles from the precipitate.
+   * Gets a random position at the bottom of the beaker, in the global model coordinate frame.
    */
-  private removeAllParticles(): void {
-    this.particleGroup.clear();
-  }
-
-  /**
-   * Gets a random position, in global model coordinate frame.
-   */
-  private getRandomOffset(): Vector2 {
+  private getRandomPosition(): Vector2 {
     const particleSize = this.solution.soluteProperty.value.particleSize;
 
-    // particles are square, the largest margin required is the diagonal length
+    // Particles are square, so the largest margin required is the diagonal length.
     const margin = Math.sqrt( particleSize * particleSize );
 
-    // offset
     const x = this.beaker.position.x - ( this.beaker.size.width / 2 ) + margin + ( dotRandom.nextDouble() * ( this.beaker.size.width - ( 2 * margin ) ) );
     const y = this.beaker.position.y - margin; // this was tweaked based on the lineWidth used to stroke the beaker
     return new Vector2( x, y );
