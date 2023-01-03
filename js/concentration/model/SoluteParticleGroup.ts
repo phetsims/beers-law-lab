@@ -15,19 +15,19 @@ import beersLawLab from '../../beersLawLab.js';
 import Solute from '../../common/model/Solute.js';
 import SoluteParticle, { SoluteParticleCreateElementArguments } from './SoluteParticle.js';
 
-// Default args to ShakerParticle constructor, passed to createElement during API harvest
+// Arguments passed to createElement when creating the archetype
 const DEFAULT_ARGUMENTS: SoluteParticleCreateElementArguments =
   [ Solute.DRINK_MIX, Vector2.ZERO, 0, Vector2.ZERO, Vector2.ZERO ];
 
 type SelfOptions = EmptySelfOptions;
 
-type ShakerParticleGroupOptions = SelfOptions & PickRequired<PhetioGroupOptions, 'tandem' | 'phetioDocumentation'>;
+type SoluteParticleGroupOptions = SelfOptions & PickRequired<PhetioGroupOptions, 'tandem' | 'phetioDocumentation'>;
 
 export default class SoluteParticleGroup extends PhetioGroup<SoluteParticle, SoluteParticleCreateElementArguments> {
 
-  public constructor( providedOptions: ShakerParticleGroupOptions ) {
+  public constructor( providedOptions: SoluteParticleGroupOptions ) {
 
-    const options = optionize<ShakerParticleGroupOptions, SelfOptions, PhetioGroupOptions>()( {
+    const options = optionize<SoluteParticleGroupOptions, SelfOptions, PhetioGroupOptions>()( {
 
       // PhetioGroupOptions
       phetioType: PhetioGroup.PhetioGroupIO( SoluteParticle.SoluteParticleIO )
