@@ -16,7 +16,7 @@ import beersLawLab from '../../beersLawLab.js';
 import Beaker from './Beaker.js';
 import ConcentrationSolution from './ConcentrationSolution.js';
 import SoluteParticles from './SoluteParticles.js';
-import PrecipitateParticleGroup from './PrecipitateParticleGroup.js';
+import ShakerParticleGroup from './ShakerParticleGroup.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -26,7 +26,7 @@ export default class PrecipitateParticles extends SoluteParticles {
 
   private readonly solution: ConcentrationSolution;
   private readonly beaker: Beaker;
-  public readonly particleGroup: PrecipitateParticleGroup;
+  public readonly particleGroup: ShakerParticleGroup;
 
   public constructor( solution: ConcentrationSolution, beaker: Beaker, providedOptions: PrecipitateOptions ) {
 
@@ -35,8 +35,9 @@ export default class PrecipitateParticles extends SoluteParticles {
     this.solution = solution;
     this.beaker = beaker;
 
-    this.particleGroup = new PrecipitateParticleGroup( {
-      tandem: providedOptions.tandem.createTandem( 'particleGroup' )
+    this.particleGroup = new ShakerParticleGroup( {
+      tandem: providedOptions.tandem.createTandem( 'particleGroup' ),
+      phetioDocumentation: 'Dynamically creates solute particles for the precipitate'
     } );
 
     // when the saturation changes, update the number of precipitate particles
@@ -87,7 +88,9 @@ export default class PrecipitateParticles extends SoluteParticles {
     for ( let i = 0; i < numberToAdd; i++ ) {
       this.particleGroup.createNextElement( this.solution.soluteProperty.value,
         this.getRandomOffset(),
-        PrecipitateParticles.getRandomOrientation()
+        PrecipitateParticles.getRandomOrientation(),
+        Vector2.ZERO,
+        Vector2.ZERO
       );
     }
   }

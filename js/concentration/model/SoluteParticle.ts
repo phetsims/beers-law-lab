@@ -1,8 +1,12 @@
 // Copyright 2013-2022, University of Colorado Boulder
 
-//TODO https://github.com/phetsims/beers-law-lab/issues/265 address TODOs in this file
 /**
- * SoluteParticle is the base class for solute particles.
+ * SoluteParticle is the model for all solute particles. This includes particles coming out of the shaker, and
+ * precipitate particles on the bottom of the beaker.
+ *
+ * Note that this was formerly a base class, with ShakerParticle and PrecipitateParticle subclasses. Due to problems
+ * with IOTypes in https://github.com/phetsims/beers-law-lab/issues/265, we decided to collapse the hierarchy into
+ * a single class.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -10,7 +14,7 @@
 import Property from '../../../../axon/js/Property.js';
 import Vector2, { Vector2StateObject } from '../../../../dot/js/Vector2.js';
 import Vector2Property from '../../../../dot/js/Vector2Property.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { Color } from '../../../../scenery/js/imports.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
@@ -19,25 +23,39 @@ import Solute, { SoluteStateObject } from '../../common/model/Solute.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 
-type SelfOptions = EmptySelfOptions;
+type SelfOptions = {
+  velocity?: Vector2;
+  acceleration?: Vector2;
+};
 
-export type SoluteParticleOptions = SelfOptions &
-  PickRequired<PhetioObjectOptions, 'tandem' | 'phetioType'>;
+export type SoluteParticleOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
 export type SoluteParticleStateObject = {
   solute: SoluteStateObject;
   position: Vector2StateObject;
   orientation: number;
+  velocity: Vector2StateObject;
+  acceleration: Vector2StateObject;
 };
+
+export type SoluteParticleCreateElementArguments = [
+  Solute, // solute
+  Vector2,  // position
+  number, // orientation
+  Vector2, // velocity
+  Vector2 // acceleration
+];
 
 export default class SoluteParticle extends PhetioObject {
 
-  protected readonly solute: Solute;
+  public readonly solute: Solute;
 
   public readonly color: Color;
   public readonly size: number;
   public readonly positionProperty: Property<Vector2>;
   public readonly orientation: number;
+  public velocity: Vector2;
+  public readonly acceleration: Vector2;
 
   // Precompute these things, to improve the performance of ParticlesNode.
   public readonly cos: number; // cosine of orientation
@@ -51,11 +69,16 @@ export default class SoluteParticle extends PhetioObject {
    * @param orientation in radians
    * @param [providedOptions]
    */
-  protected constructor( solute: Solute, position: Vector2, orientation: number, providedOptions: SoluteParticleOptions ) {
+  public constructor( solute: Solute, position: Vector2, orientation: number, providedOptions: SoluteParticleOptions ) {
 
     const options = optionize<SoluteParticleOptions, SelfOptions, PhetioObjectOptions>()( {
 
+      // SelfOptions
+      velocity: Vector2.ZERO,
+      acceleration: Vector2.ZERO,
+
       // PhetioObjectOptions
+      phetioType: SoluteParticle.SoluteParticleIO,
       phetioDynamicElement: true
     }, providedOptions );
 
@@ -66,6 +89,8 @@ export default class SoluteParticle extends PhetioObject {
     this.size = solute.particleSize;
     this.positionProperty = new Vector2Property( position );
     this.orientation = orientation;
+    this.velocity = options.velocity;
+    this.acceleration = options.acceleration;
 
     this.cos = Math.cos( orientation );
     this.sin = Math.sin( orientation );
@@ -73,25 +98,35 @@ export default class SoluteParticle extends PhetioObject {
     this.strokeStyle = this.color.darkerColor().getCanvasStyle();
   }
 
-  //TODO It sounds like this is the default from stateSchema. But do I need it because subclasses need to call it?
   protected toStateObject(): SoluteParticleStateObject {
     return {
       solute: Solute.SoluteIO.toStateObject( this.solute ),
       position: this.positionProperty.value.toStateObject(),
-      orientation: this.orientation
+      orientation: this.orientation,
+      velocity: Vector2.Vector2IO.toStateObject( this.velocity ),
+      acceleration: Vector2.Vector2IO.toStateObject( this.acceleration )
     };
   }
 
-  protected static readonly SoluteParticleIO = new IOType<SoluteParticle, SoluteParticleStateObject>( 'SoluteParticleIO', {
+  private static stateObjectToCreateElementArguments( stateObject: SoluteParticleStateObject ): SoluteParticleCreateElementArguments {
+    return [
+      Solute.SoluteIO.fromStateObject( stateObject.solute ),
+      Vector2.Vector2IO.fromStateObject( stateObject.position ),
+      stateObject.orientation,
+      Vector2.Vector2IO.fromStateObject( stateObject.velocity ),
+      Vector2.Vector2IO.fromStateObject( stateObject.acceleration )
+    ];
+  }
+
+  public static readonly SoluteParticleIO = new IOType<SoluteParticle, SoluteParticleStateObject>( 'SoluteParticleIO', {
     valueType: SoluteParticle,
     stateSchema: {
       solute: Solute.SoluteIO,
       position: Vector2.Vector2IO,
       orientation: NumberIO
     },
-    toStateObject: soluteParticle => soluteParticle.toStateObject()
-    // SoluteParticle subclasses are created by a PhetioGroup, so they will be defining stateObjectToCreateElementArguments for deserialization.
-    //TODO ... but what is the default deserialization in this case?
+    toStateObject: soluteParticle => soluteParticle.toStateObject(),
+    stateObjectToCreateElementArguments: stateObject => SoluteParticle.stateObjectToCreateElementArguments( stateObject )
   } );
 }
 

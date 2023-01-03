@@ -21,6 +21,7 @@ import ConcentrationSolution from './ConcentrationSolution.js';
 import SoluteParticles from './SoluteParticles.js';
 import Shaker from './Shaker.js';
 import ShakerParticleGroup from './ShakerParticleGroup.js';
+import SoluteParticle from './SoluteParticle.js';
 
 // Units for speed and acceleration are not meaningful here, adjust these so that it looks good.
 const INITIAL_SPEED = 100;
@@ -54,7 +55,8 @@ export default class ShakerParticles extends SoluteParticles {
     this.shaker = shaker;
 
     this.particleGroup = new ShakerParticleGroup( {
-      tandem: providedOptions.tandem.createTandem( 'particleGroup' )
+      tandem: providedOptions.tandem.createTandem( 'particleGroup' ),
+      phetioDocumentation: 'Dynamically creates solute particles for the shaker'
     } );
 
     this.particlesMovedEmitter = new Emitter();
@@ -90,7 +92,7 @@ export default class ShakerParticles extends SoluteParticles {
     for ( let i = particles.length - 1; i >= 0; i-- ) {
 
       const particle = particles[ i ];
-      particle.step( dt, beaker );
+      this.stepParticle( dt, particle );
 
       // If the particle hits the solution surface or bottom of the beaker, delete it, and add a corresponding amount of solute to the solution.
       const percentFull = solution.volumeProperty.value / beaker.volume;
@@ -126,6 +128,29 @@ export default class ShakerParticles extends SoluteParticles {
     if ( someParticleMoved ) {
       this.particlesMovedEmitter.emit();
     }
+  }
+
+  /**
+   * Propagates a particle to a new position.
+   */
+  private stepParticle( deltaSeconds: number, particle: SoluteParticle ): void {
+
+    // mutable calls added to remove the number of new objects we create
+    particle.velocity = particle.acceleration.times( deltaSeconds ).add( particle.velocity );
+    const newPosition = particle.velocity.times( deltaSeconds ).add( particle.positionProperty.value );
+
+    /*
+     * Did the particle hit the left wall of the beaker? If so, change direction.
+     * Note that this is a very simplified model, and only deals with the left wall of the beaker,
+     * which is the only wall that the particles can hit in practice.
+     */
+    const minX = this.beaker.left + particle.solute.particleSize;
+    if ( newPosition.x <= minX ) {
+      newPosition.setX( minX );
+      particle.velocity.setX( Math.abs( particle.velocity.x ) );
+    }
+
+    particle.positionProperty.value = newPosition;
   }
 
   // Computes an initial velocity for the particle.
