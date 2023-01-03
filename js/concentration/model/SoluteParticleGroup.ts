@@ -1,7 +1,7 @@
 // Copyright 2020-2022, University of Colorado Boulder
 
 /**
- * ShakerParticleGroup is the PhetioGroup for dynamically creating SoluteParticle instances.
+ * SoluteParticleGroup is the PhetioGroup for dynamically creating SoluteParticle instances.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -23,7 +23,7 @@ type SelfOptions = EmptySelfOptions;
 
 type ShakerParticleGroupOptions = SelfOptions & PickRequired<PhetioGroupOptions, 'tandem' | 'phetioDocumentation'>;
 
-export default class ShakerParticleGroup extends PhetioGroup<SoluteParticle, SoluteParticleCreateElementArguments> {
+export default class SoluteParticleGroup extends PhetioGroup<SoluteParticle, SoluteParticleCreateElementArguments> {
 
   public constructor( providedOptions: ShakerParticleGroupOptions ) {
 
@@ -46,4 +46,4 @@ export default class ShakerParticleGroup extends PhetioGroup<SoluteParticle, Sol
   }
 }
 
-beersLawLab.register( 'ShakerParticleGroup', ShakerParticleGroup );
+beersLawLab.register( 'SoluteParticleGroup', SoluteParticleGroup );

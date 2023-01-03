@@ -16,7 +16,7 @@ import beersLawLab from '../../beersLawLab.js';
 import Beaker from './Beaker.js';
 import ConcentrationSolution from './ConcentrationSolution.js';
 import SoluteParticles from './SoluteParticles.js';
-import ShakerParticleGroup from './ShakerParticleGroup.js';
+import SoluteParticleGroup from './SoluteParticleGroup.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -26,7 +26,7 @@ export default class PrecipitateParticles extends SoluteParticles {
 
   private readonly solution: ConcentrationSolution;
   private readonly beaker: Beaker;
-  public readonly particleGroup: ShakerParticleGroup;
+  public readonly particleGroup: SoluteParticleGroup;
 
   public constructor( solution: ConcentrationSolution, beaker: Beaker, providedOptions: PrecipitateOptions ) {
 
@@ -35,7 +35,7 @@ export default class PrecipitateParticles extends SoluteParticles {
     this.solution = solution;
     this.beaker = beaker;
 
-    this.particleGroup = new ShakerParticleGroup( {
+    this.particleGroup = new SoluteParticleGroup( {
       tandem: providedOptions.tandem.createTandem( 'particleGroup' ),
       phetioDocumentation: 'Dynamically creates solute particles for the precipitate'
     } );

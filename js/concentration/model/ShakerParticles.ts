@@ -20,7 +20,7 @@ import Beaker from './Beaker.js';
 import ConcentrationSolution from './ConcentrationSolution.js';
 import SoluteParticles from './SoluteParticles.js';
 import Shaker from './Shaker.js';
-import ShakerParticleGroup from './ShakerParticleGroup.js';
+import SoluteParticleGroup from './SoluteParticleGroup.js';
 import SoluteParticle from './SoluteParticle.js';
 
 // Units for speed and acceleration are not meaningful here, adjust these so that it looks good.
@@ -40,7 +40,7 @@ export default class ShakerParticles extends SoluteParticles {
   private readonly solution: ConcentrationSolution;
   private readonly beaker: Beaker;
   private readonly shaker: Shaker;
-  public readonly particleGroup: ShakerParticleGroup;
+  public readonly particleGroup: SoluteParticleGroup;
   public readonly particlesMovedEmitter: Emitter; // emits on step if one or more particles has moved
 
   public constructor( solution: ConcentrationSolution,
@@ -54,7 +54,7 @@ export default class ShakerParticles extends SoluteParticles {
     this.beaker = beaker;
     this.shaker = shaker;
 
-    this.particleGroup = new ShakerParticleGroup( {
+    this.particleGroup = new SoluteParticleGroup( {
       tandem: providedOptions.tandem.createTandem( 'particleGroup' ),
       phetioDocumentation: 'Dynamically creates solute particles for the shaker'
     } );
