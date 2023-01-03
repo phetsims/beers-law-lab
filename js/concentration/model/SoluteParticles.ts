@@ -1,7 +1,8 @@
 // Copyright 2022, University of Colorado Boulder
 
 /**
- * SoluteParticles is the base class for a system of solute particles.
+ * SoluteParticles is the base class for a system of solute particles. It delegates most of its responsibilities
+ * to a PhetioGroup, and hides that PhetioGroup from the rest of the sim.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
