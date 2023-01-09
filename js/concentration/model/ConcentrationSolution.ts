@@ -52,6 +52,7 @@ export default class ConcentrationSolution extends Fluid {
                       providedOptions: ConcentrationSolutionOptions ) {
 
     const options = optionize<ConcentrationSolutionOptions, SelfOptions>()( {
+      // @ts-expect-error TODO CM: fix options or remove the phetioDocumentation, https://github.com/phetsims/chipper/issues/1360
       phetioDocumentation: 'The solution in the beaker'
     }, providedOptions );
 
