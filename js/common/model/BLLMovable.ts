@@ -48,6 +48,7 @@ export default class BLLMovable extends PhetioObject {
     super( options );
 
     this.positionProperty = new Vector2Property( options.position, {
+      units: 'cm',
       tandem: options.tandem.createTandem( 'positionProperty' ),
       phetioReadOnly: options.positionPhetioReadOnly
     } );
