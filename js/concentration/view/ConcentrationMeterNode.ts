@@ -40,6 +40,7 @@ import BLLMovable from '../../common/model/BLLMovable.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
 import Multilink from '../../../../axon/js/Multilink.js';
+import StringIO from '../../../../tandem/js/types/StringIO.js';
 
 // constants
 const DECIMAL_PLACES_MOLES_PER_LITER = 3;
@@ -145,6 +146,7 @@ class BodyNode extends Node {
     } );
 
     // value + units
+    const valueTextTandem = tandem.createTandem( 'valueText' );
     const valueStringProperty = new DerivedProperty(
       [
         BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
@@ -169,13 +171,15 @@ class BodyNode extends Node {
           }
         }
         return text;
-      }
-    );
+      }, {
+        tandem: valueTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
+        phetioValueType: StringIO
+      } );
     const valueText = new Text( valueStringProperty, {
       font: new PhetFont( 22 ),
       fill: 'black',
       maxWidth: 125,
-      tandem: tandem.createTandem( 'valueText' ),
+      tandem: valueTextTandem,
       stringPropertyOptions: { phetioReadOnly: true }
     } );
 
