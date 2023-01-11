@@ -32,7 +32,10 @@ export default class RemoveSoluteButton extends TextPushButton {
       font: new PhetFont( 22 ),
       textFill: 'black',
       xMargin: 10,
-      maxWidth: 200
+      maxWidth: 200,
+      enabledPropertyOptions: {
+        phetioReadOnly: true
+      }
     }, providedOptions );
 
     super( BeersLawLabStrings.removeSoluteStringProperty, options );

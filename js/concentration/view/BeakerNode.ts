@@ -43,7 +43,10 @@ export default class BeakerNode extends Node {
     const options = optionize<BeakerNodeOptions, SelfOptions, NodeOptions>()( {
 
       // NodeOptions
-      pickable: false
+      pickable: false,
+      visiblePropertyOptions: {
+        phetioReadOnly: true
+      }
     }, providedOptions );
 
     super( options );

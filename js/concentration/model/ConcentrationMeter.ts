@@ -56,6 +56,7 @@ export default class ConcentrationMeter extends PhetioObject {
       units: 'mol/L',
       tandem: options.tandem.createTandem( 'valueProperty' ),
       phetioValueType: NullableIO( NumberIO ),
+      phetioReadOnly: true,
       phetioDocumentation: 'mol/L or % concentration, depending on the concentrationMeterUnits query parameter. ' +
                            'null if the meter is not reading a value'
     } );
@@ -68,6 +69,7 @@ export default class ConcentrationMeter extends PhetioObject {
 
     this.probe = new BLLMovable( {
       position: options.probePosition,
+      positionPhetioReadOnly: false,
       dragBounds: options.probeDragBounds,
       tandem: options.tandem.createTandem( 'probe' )
     } );

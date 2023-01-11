@@ -19,6 +19,7 @@ import beersLawLab from '../../beersLawLab.js';
 
 type SelfOptions = {
   position?: Vector2; // initial position
+  positionPhetioReadOnly?: boolean; // whether positionProperty is read-only
   dragBounds?: Bounds2; // drag bounds
 };
 
@@ -37,6 +38,7 @@ export default class BLLMovable extends PhetioObject {
 
       // SelfOptions
       position: Vector2.ZERO,
+      positionPhetioReadOnly: true,
       dragBounds: Bounds2.EVERYTHING,
 
       // PhetioObjectOptions
@@ -47,7 +49,7 @@ export default class BLLMovable extends PhetioObject {
 
     this.positionProperty = new Vector2Property( options.position, {
       tandem: options.tandem.createTandem( 'positionProperty' ),
-      phetioReadOnly: true
+      phetioReadOnly: options.positionPhetioReadOnly
     } );
 
     this.dragBounds = options.dragBounds;

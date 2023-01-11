@@ -31,7 +31,7 @@ export default class Ruler extends BLLMovable {
       height: 0.35,
 
       // BLLMovableOptions
-      phetioState: false
+      positionPhetioReadOnly: false
     }, providedOptions );
 
     super( options );
