@@ -145,7 +145,8 @@ export default class ConcentrationSolution extends Fluid {
       }, {
         tandem: options.tandem.createTandem( 'percentConcentrationProperty' ),
         phetioValueType: NumberIO,
-        units: '%'
+        units: '%',
+        phetioDocumentation: 'Calculated as a mass percent.'
       }
     );
 
