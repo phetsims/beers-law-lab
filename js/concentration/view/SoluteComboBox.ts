@@ -89,7 +89,7 @@ function createItem( solute: Solute ): ComboBoxItem<Solute> {
 
   return {
     value: solute,
-    node: hBox,
+    createNode: tandem => hBox,
     tandemName: `${solute.tandemName}${ComboBox.ITEM_TANDEM_NAME_SUFFIX}`
   };
 }
