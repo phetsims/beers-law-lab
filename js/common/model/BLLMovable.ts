@@ -51,7 +51,7 @@ export default class BLLMovable extends PhetioObject {
       units: 'cm',
       tandem: options.tandem.createTandem( 'positionProperty' ),
       phetioReadOnly: options.positionPhetioReadOnly,
-      phetioDocumentation: 'Note that (0,0) is at the upper-LEFT, +x is to the right, and +y is DOWN'
+      phetioDocumentation: 'Note that (0,0) is at the upper-LEFT, +x is to the right, and +y is DOWN.'
     } );
 
     this.dragBounds = options.dragBounds;
