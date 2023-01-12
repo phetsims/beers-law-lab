@@ -67,6 +67,9 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "beersLawLab.beersLawScreen.model.solutions.potassiumDichromate.concentrationProperty": {
       "phetioFeatured": true
     },
+    "beersLawLab.beersLawScreen.model.solutions.potassiumPermanganate.concentrationProperty": {
+      "phetioFeatured": true
+    },
     "beersLawLab.beersLawScreen.view.cuvetteNode.arrowNode.visibleProperty": {
       "phetioFeatured": true
     },
@@ -199,7 +202,13 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "beersLawLab.global.model.solutes.potassiumDichromate": {
       "phetioFeatured": true
     },
+    "beersLawLab.global.model.solutes.potassiumDichromate.formulaProperty": {
+      "phetioFeatured": true
+    },
     "beersLawLab.global.model.solutes.potassiumPermanganate": {
+      "phetioFeatured": true
+    },
+    "beersLawLab.global.model.solutes.potassiumPermanganate.formulaProperty": {
       "phetioFeatured": true
     },
     "beersLawLab.global.model.solutes.sodiumChloride": {
