@@ -50,7 +50,8 @@ export default class BLLMovable extends PhetioObject {
     this.positionProperty = new Vector2Property( options.position, {
       units: 'cm',
       tandem: options.tandem.createTandem( 'positionProperty' ),
-      phetioReadOnly: options.positionPhetioReadOnly
+      phetioReadOnly: options.positionPhetioReadOnly,
+      phetioDocumentation: 'Note that (0,0) is at the upper-LEFT, +x is to the right, and +y is DOWN'
     } );
 
     this.dragBounds = options.dragBounds;
