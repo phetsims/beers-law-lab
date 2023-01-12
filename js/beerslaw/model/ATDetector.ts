@@ -57,7 +57,6 @@ export default class ATDetector extends PhetioObject {
 
     this.body = new BLLMovable( {
       position: options.bodyPosition,
-      positionPhetioReadOnly: false,
       tandem: options.tandem.createTandem( 'body' )
     } );
 
