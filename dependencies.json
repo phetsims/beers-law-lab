@@ -9,7 +9,7 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "6d1e905dc992a2cb3ee61df853c9dc90ce8ef248",
+    "sha": "b92c408236fb1b1ac90efae1dab58c38bb08bcf2",
     "branch": "1.6-phetio"
   },
   "brand": {
@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "chipper": {
-    "sha": "9e9419fe0bdc8da66268f92b818302d77f4e0c2d",
+    "sha": "e2d4a94d253d69f76cd17b360de623fc0360014b",
     "branch": "HEAD"
   },
   "dot": {
