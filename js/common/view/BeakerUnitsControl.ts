@@ -90,7 +90,7 @@ class BeakerUnitsRadioButtonGroup extends AquaRadioButtonGroup<BeakerUnits> {
 function createItem( value: BeakerUnits, stringProperty: TReadOnlyProperty<string> ): AquaRadioButtonGroupItem<BeakerUnits> {
   return {
     value: value,
-    createNode: tandem => new Text( stringProperty, {
+    createNode: () => new Text( stringProperty, {
       font: PreferencesDialog.CONTENT_FONT,
       maxWidth: 200
     } ),

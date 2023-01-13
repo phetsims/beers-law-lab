@@ -90,7 +90,7 @@ class ConcentrationMeterUnitsRadioButtonGroup extends AquaRadioButtonGroup<Conce
 function createItem( value: ConcentrationMeterUnits, stringProperty: TReadOnlyProperty<string> ): AquaRadioButtonGroupItem<ConcentrationMeterUnits> {
   return {
     value: value,
-    createNode: tandem => new Text( stringProperty, {
+    createNode: () => new Text( stringProperty, {
       font: PreferencesDialog.CONTENT_FONT,
       maxWidth: 200
     } ),
