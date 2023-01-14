@@ -1,4 +1,4 @@
-// Copyright 2022, University of Colorado Boulder
+// Copyright 2022-2023, University of Colorado Boulder
 
 /**
  * ConcentrationMeterUnitsControl is the Preferences dialog control for setting the units for the concentration meter.
