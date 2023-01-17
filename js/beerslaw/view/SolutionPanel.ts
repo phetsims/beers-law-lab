@@ -14,7 +14,7 @@ import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
 import ConcentrationControl from './ConcentrationControl.js';
-import SolutionComboBox from './SolutionComboBox.js';
+import SolutionControl from './SolutionControl.js';
 import SolutionInCuvette from '../model/SolutionInCuvette.js';
 
 type SelfOptions = EmptySelfOptions;
@@ -38,8 +38,10 @@ export default class SolutionPanel extends Panel {
       maxWidth: 575 // determined empirically
     }, providedOptions );
 
-    const solutionComboBox = new SolutionComboBox( solutionProperty, solutions, solutionListParent, {
-      tandem: options.tandem.createTandem( 'solutionComboBox' )
+    const solutionComboBox = new SolutionControl( solutionProperty, solutions, solutionListParent, {
+      comboBoxOptions: {
+        tandem: options.tandem.createTandem( 'solutionComboBox' )
+      }
     } );
 
     const concentrationControl = new ConcentrationControl( solutions, solutionProperty, solutionInCuvette.concentrationProperty, {

@@ -13,7 +13,7 @@ import beersLawLab from '../../beersLawLab.js';
 import Solute from '../../common/model/Solute.js';
 import Dropper from '../model/Dropper.js';
 import Shaker from '../model/Shaker.js';
-import SoluteComboBox from './SoluteComboBox.js';
+import SoluteControl from './SoluteControl.js';
 import SoluteFormRadioButtonGroup from './SoluteFormRadioButtonGroup.js';
 import SoluteForm from '../model/SoluteForm.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
@@ -40,8 +40,10 @@ export default class SolutePanel extends Panel {
     }, providedOptions );
 
     // solute combo box
-    const soluteComboBox = new SoluteComboBox( currentSoluteProperty, solutes, soluteListParent, {
-      tandem: options.tandem.createTandem( 'soluteComboBox' )
+    const soluteComboBox = new SoluteControl( currentSoluteProperty, solutes, soluteListParent, {
+      comboBoxOptions: {
+        tandem: options.tandem.createTandem( 'soluteComboBox' )
+      }
     } );
 
     // radio buttons for solid vs solution

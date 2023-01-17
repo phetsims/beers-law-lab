@@ -8,39 +8,46 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import optionize from '../../../../phet-core/js/optionize.js';
+import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
+import StrictOmit from '../../../../phet-core/js/types/StrictOmit.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { HBox, Node, Rectangle, RichText, Text } from '../../../../scenery/js/imports.js';
+import { HBox, HBoxOptions, Node, Rectangle, RichText, Text } from '../../../../scenery/js/imports.js';
 import ComboBox, { ComboBoxItem, ComboBoxOptions } from '../../../../sun/js/ComboBox.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 
-type SelfOptions = EmptySelfOptions;
+type SelfOptions = {
+  comboBoxOptions?: WithRequired<ComboBoxOptions, 'tandem'>;
+};
 
-type SolutionComboBoxOptions = SelfOptions & PickRequired<ComboBoxOptions, 'tandem'>;
+type SolutionComboBoxOptions = SelfOptions & StrictOmit<HBoxOptions, 'children'>;
 
-export default class SolutionComboBox extends ComboBox<BeersLawSolution> {
+export default class SolutionControl extends HBox {
 
   public constructor( solutionProperty: Property<BeersLawSolution>,
                       solutions: BeersLawSolution[],
                       solutionListParent: Node,
                       providedOptions: SolutionComboBoxOptions ) {
 
-    const options = optionize<SolutionComboBoxOptions, SelfOptions, ComboBoxOptions>()( {
+    const options = optionize<SolutionComboBoxOptions, SelfOptions, HBoxOptions>()( {
+      spacing: 10,
 
-      // ComboBoxOptions
-      listPosition: 'above',
-      xMargin: 12,
-      yMargin: 12,
-      highlightFill: 'rgb( 218, 255, 255 )',
-      cornerRadius: 8
+      comboBoxOptions: {
+        tandem: Tandem.REQUIRED,
+        listPosition: 'above',
+        xMargin: 12,
+        yMargin: 12,
+        highlightFill: 'rgb( 218, 255, 255 )',
+        cornerRadius: 8
+      }
     }, providedOptions );
 
-    const labelTextTandem = options.tandem.createTandem( 'labelText' );
+    const labelTextTandem = options.comboBoxOptions.tandem.createTandem( 'labelText' );
 
     const stringProperty = new DerivedProperty(
       [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.solutionStringProperty ],
@@ -49,17 +56,19 @@ export default class SolutionComboBox extends ComboBox<BeersLawSolution> {
         phetioValueType: StringIO
       } );
 
-    // 'Solution' label
-    options.labelNode = new Text( stringProperty, {
-      font: new PhetFont( 20 ),
-      maxWidth: 85,
-      tandem: labelTextTandem
-    } );
-
     // items
     const items = solutions.map( createItem );
 
-    super( solutionProperty, items, solutionListParent, options );
+    options.children = [
+      new Text( stringProperty, {
+        font: new PhetFont( 20 ),
+        maxWidth: 85,
+        tandem: labelTextTandem
+      } ),
+      new ComboBox<BeersLawSolution>( solutionProperty, items, solutionListParent, options.comboBoxOptions )
+    ];
+
+    super( options );
   }
 
   public override dispose(): void {
@@ -100,4 +109,4 @@ function createItem( solution: BeersLawSolution ): ComboBoxItem<BeersLawSolution
   };
 }
 
-beersLawLab.register( 'SolutionComboBox', SolutionComboBox );
+beersLawLab.register( 'SolutionControl', SolutionControl );
