@@ -41,7 +41,8 @@ export default class BLLSim extends Sim {
             ]
           } ]
         }
-      } )
+      } ),
+      phetioDesigned: true
     }, providedOptions );
 
     super( simNameProperty, screens, options );
