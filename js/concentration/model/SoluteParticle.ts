@@ -123,7 +123,9 @@ export default class SoluteParticle extends PhetioObject {
     stateSchema: {
       solute: Solute.SoluteIO,
       position: Vector2.Vector2IO,
-      orientation: NumberIO
+      orientation: NumberIO,
+      velocity: Vector2.Vector2IO,
+      acceleration: Vector2.Vector2IO
     },
     toStateObject: soluteParticle => soluteParticle.toStateObject(),
     stateObjectToCreateElementArguments: stateObject => SoluteParticle.stateObjectToCreateElementArguments( stateObject )
