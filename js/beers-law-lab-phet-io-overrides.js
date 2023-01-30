@@ -210,5 +210,8 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     },
     "beersLawLab.global.model.solutes.sodiumChloride": {
       "phetioFeatured": true
+    },
+    "beersLawLab.global.model.solutes.sodiumChloride.formulaProperty": {
+      "phetioFeatured": true
     }
   };
