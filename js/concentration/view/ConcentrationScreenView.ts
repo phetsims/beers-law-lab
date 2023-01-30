@@ -11,8 +11,8 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
+import { ManualConstraint, Node } from '../../../../scenery/js/imports.js';
 import EyeDropperNode from '../../../../scenery-phet/js/EyeDropperNode.js';
-import { Node } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import ConcentrationModel from '../model/ConcentrationModel.js';
@@ -178,14 +178,13 @@ export default class ConcentrationScreenView extends ScreenView {
     } );
     this.addChild( screenViewRootNode );
 
-    // Layout for things that don't have a position in the model.
+    // Layout for things that don't have a position in the model. Keep centered even if "Saturated" text changes.
+    ManualConstraint.create( this, [ saturatedIndicator, beakerNode ], ( saturatedIndicatorProxy, beakerNodeProxy ) => {
 
-    // centered towards bottom of beaker
-    const saturatedIndicatorVisible = saturatedIndicator.visible; // so we can layout an invisible node
-    saturatedIndicator.visible = true;
-    saturatedIndicator.centerX = beakerNode.centerX;
-    saturatedIndicator.bottom = beakerNode.bottom - 30;
-    saturatedIndicator.visible = saturatedIndicatorVisible;
+      // centered towards bottom of beaker
+      saturatedIndicatorProxy.centerX = beakerNodeProxy.centerX;
+      saturatedIndicatorProxy.bottom = beakerNodeProxy.bottom - 30;
+    } );
 
     // upper right
     solutePanel.right = this.layoutBounds.right - 20;
