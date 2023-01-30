@@ -15,6 +15,7 @@ import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Utils from '../../../../dot/js/Utils.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { Color } from '../../../../scenery/js/imports.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
@@ -25,9 +26,11 @@ import Fluid from '../../common/model/Fluid.js';
 import Solute from '../../common/model/Solute.js';
 import Solvent from '../../common/model/Solvent.js';
 
-type SelfOptions = EmptySelfOptions;
+type SelfOptions = EmptySelfOptions &
+  PickOptional<PhetioObjectOptions, 'phetioDocumentation'> &
+  PickRequired<PhetioObjectOptions, 'tandem'>;
 
-type ConcentrationSolutionOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
+type ConcentrationSolutionOptions = SelfOptions;
 
 export default class ConcentrationSolution extends Fluid {
 
@@ -52,7 +55,6 @@ export default class ConcentrationSolution extends Fluid {
                       providedOptions: ConcentrationSolutionOptions ) {
 
     const options = optionize<ConcentrationSolutionOptions, SelfOptions>()( {
-      // @ts-expect-error TODO CM: fix options or remove the phetioDocumentation, https://github.com/phetsims/chipper/issues/1360
       phetioDocumentation: 'The solution in the beaker'
     }, providedOptions );
 
