@@ -185,8 +185,20 @@ class SoluteConcentrationControl extends NumberControl {
     // ticks at the min and max of the solution's concentration range
     assert && assert( !options.sliderOptions.majorTicks, 'ConcentrationControl sets majorTicks' );
     options.sliderOptions.majorTicks = [
-      { value: numberRange.min, label: new Text( numberRange.min, { font: TICK_FONT } ) },
-      { value: numberRange.max, label: new Text( numberRange.max, { font: TICK_FONT } ) }
+      {
+        value: numberRange.min,
+        label: new Text( numberRange.min, {
+          font: TICK_FONT
+          // No PhET-iO instrumentation is desired.
+        } )
+      },
+      {
+        value: numberRange.max,
+        label: new Text( numberRange.max, {
+          font: TICK_FONT
+          // No PhET-iO instrumentation is desired.
+        } )
+      }
     ];
 
     super( labelStringProperty, numberProperty, numberRange, options );
