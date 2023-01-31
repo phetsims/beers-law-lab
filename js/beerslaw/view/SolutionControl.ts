@@ -95,6 +95,7 @@ function createItem( solution: BeersLawSolution ): ComboBoxItem<BeersLawSolution
   const labelText = new RichText( labelStringProperty, {
     maxWidth: 305, // determined empirically, so that English strings are not scaled down
     font: new PhetFont( 20 )
+    // No PhET-iO instrumentation is desired.
   } );
 
   const hBox = new HBox( {

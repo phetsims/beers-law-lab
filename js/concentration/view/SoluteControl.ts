@@ -90,6 +90,7 @@ function createItem( solute: Solute ): ComboBoxItem<Solute> {
   const textNode = new RichText( solute.nameProperty, {
     font: new PhetFont( 20 ),
     maxWidth: 230 // determined empirically, so that English strings are not scaled down
+    // No PhET-iO instrumentation is desired.
   } );
 
   const hBox = new HBox( {
