@@ -10,38 +10,31 @@
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import BackgroundNode from '../../../../scenery-phet/js/BackgroundNode.js';
-import { Node, Text } from '../../../../scenery/js/imports.js';
+import { Color, Text } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 
-export default class SaturatedIndicator extends Node {
+export default class SaturatedIndicator extends BackgroundNode {
 
-  public constructor( isSaturatedProperty: TReadOnlyProperty<boolean> ) {
+  public constructor( isSaturatedProperty: TReadOnlyProperty<boolean>, tandem: Tandem ) {
 
-    super();
-
-    const labelText = new Text( BeersLawLabStrings.saturatedStringProperty, {
+    const text = new Text( BeersLawLabStrings.saturatedStringProperty, {
       font: new PhetFont( 20 ),
-      maxWidth: 400
+      maxWidth: 400,
+      tandem: tandem.createTandem( 'text' )
     } );
 
-    // translucent light-gray background, so this shows up on all solution colors.
-    const backgroundNode = new BackgroundNode( labelText, {
+    super( text, {
+      visibleProperty: isSaturatedProperty,
       xMargin: 10,
       yMargin: 5,
       rectangleOptions: {
-        fill: 'rgba( 240, 240, 240, 0.6 )',
-        opacity: 1,
+        fill: Color.grayColor( 240 ),
+        opacity: 0.6,
         cornerRadius: 8
-      }
-    } );
-
-    // rendering order
-    this.children = [ backgroundNode ];
-
-    // make this node visible when the solution is saturated
-    isSaturatedProperty.link( saturated => {
-      this.setVisible( saturated );
+      },
+      tandem: tandem
     } );
   }
 

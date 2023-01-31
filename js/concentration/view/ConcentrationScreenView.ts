@@ -68,7 +68,7 @@ export default class ConcentrationScreenView extends ScreenView {
     const precipitateParticlesNode = new PrecipitateParticlesNode( model.precipitateParticles, modelViewTransform, new Bounds2(
       modelViewTransform.modelToViewX( model.beaker.left ), modelViewTransform.modelToViewY( model.beaker.position.y ) - 100,
       modelViewTransform.modelToViewX( model.beaker.right ), modelViewTransform.modelToViewY( model.beaker.position.y ) ) );
-    const saturatedIndicator = new SaturatedIndicator( model.solution.isSaturatedProperty );
+    const saturatedIndicator = new SaturatedIndicator( model.solution.isSaturatedProperty, tandem.createTandem( 'saturatedIndicator' ) );
 
     // Label for the shaker and dropper. If formula is null, use the solute name.
     const soluteLabelStringProperty = DerivedProperty.deriveAny( [
