@@ -49,9 +49,10 @@ export default class EvaporationPanel extends Panel {
 
     const labelText = new Text( stringProperty, {
       font: new PhetFont( 22 ),
-      maxWidth: 100,
+      maxWidth: 130,
       tandem: labelTextTandem
     } );
+    console.log( `labelText.width=${labelText.width}` );
 
     const sliderTandem = options.tandem.createTandem( 'slider' );
 
