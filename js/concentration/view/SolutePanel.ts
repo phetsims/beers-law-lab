@@ -48,8 +48,8 @@ export default class SolutePanel extends Panel {
 
     // radio buttons for solid vs solution
     const soluteFormRadioButtonGroup = new SoluteFormRadioButtonGroup( soluteFormProperty, {
-        tandem: options.tandem.createTandem( 'soluteFormRadioButtonGroup' )
-      } );
+      tandem: options.tandem.createTandem( 'soluteFormRadioButtonGroup' )
+    } );
 
     const contentNode = new VBox( {
       align: 'left',
