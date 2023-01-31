@@ -52,7 +52,6 @@ export default class EvaporationPanel extends Panel {
       maxWidth: 130,
       tandem: labelTextTandem
     } );
-    console.log( `labelText.width=${labelText.width}` );
 
     const sliderTandem = options.tandem.createTandem( 'slider' );
 
