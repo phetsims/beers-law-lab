@@ -39,7 +39,10 @@ export default class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup<Sol
         radius: BLLConstants.RADIO_BUTTON_RADIUS,
         visiblePropertyOptions: { phetioReadOnly: true }
       },
-      touchAreaYDilation: 2
+      touchAreaXDilation: 8,
+      touchAreaYDilation: 3,
+      mouseAreaXDilation: 8,
+      mouseAreaYDilation: 3
     }, providedOptions );
 
     // radio button descriptions
