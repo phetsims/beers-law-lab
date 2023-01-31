@@ -40,19 +40,23 @@ export default class BLLPreferencesNode extends VBox {
     }, providedOptions );
 
     // 'Show solution volume' checkbox
+    const showSolutionVolumeCheckboxTandem = options.tandem.createTandem( 'showSolutionVolumeCheckbox' );
     const showSolutionVolumeText = new Text( BeersLawLabStrings.showSolutionVolumeStringProperty, {
-      font: PreferencesDialog.CONTENT_FONT
+      font: PreferencesDialog.CONTENT_FONT,
+      tandem: showSolutionVolumeCheckboxTandem.createTandem( 'text' )
     } );
     const showSolutionVolumeCheckbox = new Checkbox( BLLPreferences.showSolutionVolumeProperty, showSolutionVolumeText, {
-      tandem: options.tandem.createTandem( 'showSolutionVolumeCheckbox' )
+      tandem: showSolutionVolumeCheckboxTandem
     } );
 
     // 'Show solute amount' checkbox
+    const showSoluteAmountCheckboxTandem = options.tandem.createTandem( 'showSoluteAmountCheckbox' );
     const showSoluteAmountText = new Text( BeersLawLabStrings.showSoluteAmountStringProperty, {
-      font: PreferencesDialog.CONTENT_FONT
+      font: PreferencesDialog.CONTENT_FONT,
+      tandem: showSoluteAmountCheckboxTandem.createTandem( 'text' )
     } );
     const showSoluteAmountCheckbox = new Checkbox( BLLPreferences.showSoluteAmountProperty, showSoluteAmountText, {
-      tandem: options.tandem.createTandem( 'showSoluteAmountCheckbox' )
+      tandem: showSoluteAmountCheckboxTandem
     } );
 
     // 'Beaker units' radio buttons
