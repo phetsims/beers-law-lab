@@ -81,6 +81,10 @@ export default class BLLPreferencesNode extends VBox {
     this.disposeBLLPreferencesNode = () => {
       showSolutionVolumeText.dispose();
       showSolutionVolumeCheckbox.dispose();
+      showSoluteAmountText.dispose();
+      showSoluteAmountCheckbox.dispose();
+      beakerUnitsControl.dispose();
+      concentrationMeterUnitsControl.dispose();
     };
   }
 
