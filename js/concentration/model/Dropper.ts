@@ -13,22 +13,25 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Range from '../../../../dot/js/Range.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import beersLawLab from '../../beersLawLab.js';
-import BLLMovable, { BLLMovableOptions } from '../../common/model/BLLMovable.js';
 import Solute from '../../common/model/Solute.js';
 import SoluteForm from './SoluteForm.js';
 
 type SelfOptions = {
+  position?: Vector2;
   maxFlowRate?: number; // L/s
-  visible?: boolean;
 };
 
-type DropperOptions = SelfOptions & BLLMovableOptions;
+type DropperOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-export default class Dropper extends BLLMovable {
+export default class Dropper extends PhetioObject {
 
+  public readonly position: Vector2;
   public readonly soluteProperty: Property<Solute>;
   public readonly visibleProperty: TReadOnlyProperty<boolean>;
   public readonly enabledProperty: Property<boolean>;
@@ -39,18 +42,19 @@ export default class Dropper extends BLLMovable {
   public constructor( soluteProperty: Property<Solute>, soluteFormProperty: EnumerationProperty<SoluteForm>,
                       providedOptions: DropperOptions ) {
 
-    const options = optionize<DropperOptions, SelfOptions, BLLMovableOptions>()( {
+    const options = optionize<DropperOptions, SelfOptions, PhetioObjectOptions>()( {
 
       // SelfOptions
+      position: Vector2.ZERO,
       maxFlowRate: 1,
-      visible: true,
 
-      // BLLMovableOptions
+      // PhetioObjectpOptions
       phetioState: false
     }, providedOptions );
 
     super( options );
 
+    this.position = options.position;
     this.soluteProperty = soluteProperty;
 
     this.visibleProperty = new DerivedProperty( [ soluteFormProperty ],
@@ -117,8 +121,7 @@ export default class Dropper extends BLLMovable {
     super.dispose();
   }
 
-  public override reset(): void {
-    super.reset();
+  public reset(): void {
     this.isDispensingProperty.reset();
     this.enabledProperty.reset();
     this.isEmptyProperty.reset();

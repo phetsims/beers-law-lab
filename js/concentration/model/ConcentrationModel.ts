@@ -100,8 +100,7 @@ export default class ConcentrationModel implements TModel {
     } );
 
     this.dropper = new Dropper( this.soluteProperty, this.soluteFormProperty, {
-      position: new Vector2( this.beaker.position.x, 225 ),
-      dragBounds: new Bounds2( 260, 225, 580, 225 ),
+      position: new Vector2( 410, 225 ),
       maxFlowRate: DROPPER_FLOW_RATE,
       tandem: tandem.createTandem( 'dropper' )
     } );

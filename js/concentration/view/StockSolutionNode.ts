@@ -28,16 +28,15 @@ export default class StockSolutionNode extends Rectangle {
 
       // path
       if ( dropper.isDispensingProperty.value && !dropper.isEmptyProperty.value ) {
-        this.setRect( -tipWidth / 2, 0, tipWidth, beaker.position.y - dropper.positionProperty.value.y );
+        this.setRect( -tipWidth / 2, 0, tipWidth, beaker.position.y - dropper.position.y );
       }
       else {
         this.setRect( 0, 0, 0, 0 );
       }
 
       // move this node to the dropper's position
-      this.translation = modelViewTransform.modelToViewPosition( dropper.positionProperty.value );
+      this.translation = modelViewTransform.modelToViewPosition( dropper.position );
     };
-    dropper.positionProperty.link( updateShapeAndPosition );
     dropper.isDispensingProperty.link( updateShapeAndPosition );
     dropper.isEmptyProperty.link( updateShapeAndPosition );
 

@@ -15,7 +15,7 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import EyeDropperNode, { EyeDropperNodeOptions } from '../../../../scenery-phet/js/EyeDropperNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { DragListener, Path, RichText } from '../../../../scenery/js/imports.js';
+import { Path, RichText } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import Solute from '../../common/model/Solute.js';
 import Solvent from '../../common/model/Solvent.js';
@@ -64,9 +64,7 @@ export default class BLLDropperNode extends EyeDropperNode {
     this.addChild( labelText );
 
     // position
-    dropper.positionProperty.link( position => {
-      this.translation = modelViewTransform.modelToViewPosition( position );
-    } );
+    this.translation = modelViewTransform.modelToViewPosition( dropper.position );
 
     // Position the label on the dropper, and resize it's translucent background to fit.
     labelText.boundsProperty.link( () => {
@@ -92,17 +90,8 @@ export default class BLLDropperNode extends EyeDropperNode {
     // dilate touch area
     this.touchArea = this.localBounds.dilatedX( 0.25 * this.width );
 
-    // move the dropper
-    const dragListener = new DragListener( {
-      positionProperty: dropper.positionProperty,
-      dragBoundsProperty: new Property( dropper.dragBounds ),
-      transform: modelViewTransform,
-      tandem: options.tandem.createTandem( 'dragListener' )
-    } );
-    this.addInputListener( dragListener );
-
     this.addLinkedElement( dropper, {
-      tandem: options.tandem.createTandem( 'dropper' )
+      tandem: options.tandem.createTandem( dropper.tandem.name )
     } );
   }
 
