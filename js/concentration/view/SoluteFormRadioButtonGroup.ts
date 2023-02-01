@@ -37,7 +37,7 @@ export default class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup<Sol
       spacing: 60,
       radioButtonOptions: {
         radius: BLLConstants.RADIO_BUTTON_RADIUS,
-        visiblePropertyOptions: { phetioReadOnly: true }
+        phetioVisiblePropertyInstrumented: false
       },
       touchAreaXDilation: 8,
       touchAreaYDilation: 3,

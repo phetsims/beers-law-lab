@@ -94,7 +94,7 @@ class BodyNode extends Node {
     const options = optionize<BodyNodeOptions, BodyNodeSelfOptions, NodeOptions>()( {
 
       // NodeOptions
-      visiblePropertyOptions: { phetioReadOnly: true }
+      phetioVisiblePropertyInstrumented: false
     }, providedOptions );
 
     super( options );
@@ -127,7 +127,7 @@ class BodyNode extends Node {
     const radioButtonGroup = new AquaRadioButtonGroup( detector.modeProperty, radioButtonItems, {
       radioButtonOptions: {
         radius: BLLConstants.RADIO_BUTTON_RADIUS,
-        visiblePropertyOptions: { phetioReadOnly: true }
+        phetioVisiblePropertyInstrumented: false
       },
       orientation: 'vertical',
       align: 'left',
@@ -237,7 +237,7 @@ class ATProbeNode extends ProbeNode {
       lightAngle: 1.25 * Math.PI,
       color: PROBE_COLOR,
       phetioInputEnabledPropertyInstrumented: true,
-      visiblePropertyOptions: { phetioReadOnly: true }
+      phetioVisiblePropertyInstrumented: false
     }, providedOptions );
 
     super( options );

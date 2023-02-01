@@ -133,7 +133,7 @@ class BodyNode extends Node {
     const options: NodeOptions = {
       cursor: 'pointer',
       tandem: tandem,
-      visiblePropertyOptions: { phetioReadOnly: true }
+      phetioVisiblePropertyInstrumented: false
     };
 
     super( options );
@@ -272,7 +272,7 @@ class ConcentrationProbeNode extends ProbeNode {
       // phet-io
       tandem: tandem,
       phetioInputEnabledPropertyInstrumented: true,
-      visiblePropertyOptions: { phetioReadOnly: true }
+      phetioVisiblePropertyInstrumented: false
     };
 
     super( options );
