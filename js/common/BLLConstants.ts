@@ -23,7 +23,8 @@ const BLLConstants = {
     leadDesign: 'Julia Chamberlain',
     softwareDevelopment: 'Chris Malley (PixelZoom, Inc.)',
     team: 'Kelly Lancaster, Emily B. Moore, Ariel Paul, Kathy Perkins',
-    qualityAssurance: 'Steele Dalton, Bryce Griebenow, Elise Morgan, Oliver Orejola, Benjamin Roberts, Bryan Yoelin',
+    qualityAssurance: 'Steele Dalton, Jaron Droder, Bryce Griebenow, Emily Miller, Elise Morgan, Oliver Orejola, ' +
+                      'Benjamin Roberts, Nancy Salpepi, Kathryn Woessner, Bryan Yoelin',
     thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
   },
   SOLUTION_LINE_WIDTH: 1
