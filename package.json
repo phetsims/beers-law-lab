@@ -24,7 +24,8 @@
     "phet-io": {
       "wrappers": [
         "phet-io-wrapper-lab-book"
-      ]
+      ],
+      "compareDesignedAPIChanges": true
     },
     "simFeatures": {
       "supportsDynamicLocale": true
