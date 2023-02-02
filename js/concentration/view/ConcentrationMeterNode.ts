@@ -73,7 +73,7 @@ export default class ConcentrationMeterNode extends Node {
     const probeNode = new ConcentrationProbeNode( concentrationMeter.probe, modelViewTransform, solutionNode, stockSolutionNode,
       solventFluidNode, drainFluidNode, options.tandem.createTandem( 'probeNode' ) );
 
-    const wireNode = new WireNode( concentrationMeter.body, concentrationMeter.probe, bodyNode, probeNode );
+    const wireNode = new WireNode( concentrationMeter.bodyPosition, concentrationMeter.probe, bodyNode, probeNode );
 
     // rendering order
     this.addChild( wireNode );
@@ -213,17 +213,8 @@ class BodyNode extends Node {
 
     this.children = [ bodyNode, vBox ];
 
-    this.addInputListener( new DragListener( {
-      positionProperty: concentrationMeter.body.positionProperty,
-      dragBoundsProperty: new Property( concentrationMeter.body.dragBounds ),
-      transform: modelViewTransform,
-      tandem: tandem.createTandem( 'dragListener' )
-    } ) );
-
     // body position
-    concentrationMeter.body.positionProperty.link( position => {
-      this.translation = modelViewTransform.modelToViewPosition( position );
-    } );
+    this.translation = modelViewTransform.modelToViewPosition( concentrationMeter.bodyPosition );
 
     // Keep the value properly justified on the background
     valueText.boundsProperty.link( bounds => {
@@ -313,7 +304,7 @@ class ConcentrationProbeNode extends ProbeNode {
  */
 class WireNode extends Path {
 
-  public constructor( body: BLLMovable, probe: BLLMovable, bodyNode: Node, probeNode: Node ) {
+  public constructor( bodyPosition: Vector2, probe: BLLMovable, bodyNode: Node, probeNode: Node ) {
 
     const options: PathOptions = {
       stroke: 'gray',
@@ -344,7 +335,6 @@ class WireNode extends Path {
         .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
         .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
     };
-    body.positionProperty.link( updateCurve );
     probe.positionProperty.link( updateCurve );
   }
 }

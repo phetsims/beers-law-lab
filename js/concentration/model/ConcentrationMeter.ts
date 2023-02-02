@@ -32,8 +32,8 @@ type ConcentrationMeterOptions = SelfOptions & PickRequired<PhetioObjectOptions,
 
 export default class ConcentrationMeter extends PhetioObject {
 
+  public readonly bodyPosition: Vector2;
   public readonly valueProperty: Property<number | null>;
-  public readonly body: BLLMovable;
   public readonly probe: BLLMovable;
 
   public constructor( providedOptions: ConcentrationMeterOptions ) {
@@ -61,11 +61,7 @@ export default class ConcentrationMeter extends PhetioObject {
                            'null if the meter is not reading a value'
     } );
 
-    this.body = new BLLMovable( {
-      position: options.bodyPosition,
-      dragBounds: options.bodyDragBounds,
-      tandem: options.tandem.createTandem( 'body' )
-    } );
+    this.bodyPosition = options.bodyPosition;
 
     this.probe = new BLLMovable( {
       position: options.probePosition,
@@ -82,7 +78,6 @@ export default class ConcentrationMeter extends PhetioObject {
 
   public reset(): void {
     this.valueProperty.reset();
-    this.body.reset();
     this.probe.reset();
   }
 }
