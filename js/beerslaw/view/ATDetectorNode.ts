@@ -126,8 +126,7 @@ class BodyNode extends Node {
     // radio button group
     const radioButtonGroup = new AquaRadioButtonGroup( detector.modeProperty, radioButtonItems, {
       radioButtonOptions: {
-        radius: BLLConstants.RADIO_BUTTON_RADIUS,
-        phetioVisiblePropertyInstrumented: false
+        radius: BLLConstants.RADIO_BUTTON_RADIUS
       },
       orientation: 'vertical',
       align: 'left',

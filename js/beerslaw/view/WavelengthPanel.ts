@@ -105,8 +105,7 @@ export default class WavelengthPanel extends Panel {
     // radio button group
     const radioButtonGroup = new AquaRadioButtonGroup( light.modeProperty, radioButtonItems, {
       radioButtonOptions: {
-        radius: BLLConstants.RADIO_BUTTON_RADIUS,
-        phetioVisiblePropertyInstrumented: false
+        radius: BLLConstants.RADIO_BUTTON_RADIUS
       },
       orientation: 'horizontal',
       spacing: 15,
