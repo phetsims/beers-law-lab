@@ -9,7 +9,7 @@
 import Property from '../../../../axon/js/Property.js';
 import Utils from '../../../../dot/js/Utils.js';
 import { Shape } from '../../../../kite/js/imports.js';
-import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import ArrowNode from '../../../../scenery-phet/js/ArrowNode.js';
@@ -38,7 +38,11 @@ export default class CuvetteNode extends Node {
                       modelViewTransform: ModelViewTransform2, snapInterval: number,
                       providedOptions: CuvetteNodeOptions ) {
 
-    const options = providedOptions;
+    const options = optionize<CuvetteNodeOptions, SelfOptions, NodeOptions>()( {
+
+      // NodeOptions
+      phetioVisiblePropertyInstrumented: false
+    }, providedOptions );
 
     super( options );
 

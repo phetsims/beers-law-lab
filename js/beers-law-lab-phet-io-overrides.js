@@ -73,9 +73,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "beersLawLab.beersLawScreen.view.cuvetteNode.arrowNode.visibleProperty": {
       "phetioFeatured": true
     },
-    "beersLawLab.beersLawScreen.view.cuvetteNode.visibleProperty": {
-      "phetioFeatured": true
-    },
     "beersLawLab.beersLawScreen.view.detectorNode.bodyNode.valueText.stringProperty": {
       "phetioFeatured": true
     },
