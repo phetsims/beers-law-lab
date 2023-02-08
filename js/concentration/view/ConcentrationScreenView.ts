@@ -35,6 +35,7 @@ import SolutionVolumeNode from './SolutionVolumeNode.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 
 export default class ConcentrationScreenView extends ScreenView {
 
@@ -79,7 +80,7 @@ export default class ConcentrationScreenView extends ScreenView {
       const solute = model.shaker.soluteProperty.value;
       const formula = solute.formulaProperty.value;
       const name = solute.nameProperty.value;
-      return formula ? formula : name;
+      return formula ? StringUtils.wrapLTR( formula ) : name;
     }, {
       tandem: tandem.createTandem( 'soluteLabelStringProperty' ),
       phetioValueType: StringIO,
