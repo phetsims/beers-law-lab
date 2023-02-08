@@ -89,7 +89,15 @@ function createItem( solution: BeersLawSolution ): ComboBoxItem<BeersLawSolution
 
   const labelStringProperty = new DerivedProperty(
     [ BeersLawLabStrings.pattern[ '0formula' ][ '1nameStringProperty' ], solution.nameProperty, solution.formulaProperty ],
-    ( pattern, name, formula ) => ( formula === null || formula === '' ) ? name : StringUtils.format( pattern, formula, name )
+    ( pattern, name, formula ) => {
+      if ( formula === null || formula === '' ) {
+        return name; // if there is no formula, default to the solution name
+      }
+      else {
+        // See https://github.com/phetsims/beers-law-lab/issues/326 for StringUtils.wrapLTR
+        return StringUtils.format( pattern, StringUtils.wrapLTR( formula ), name );
+      }
+    }
   );
 
   const labelText = new RichText( labelStringProperty, {
