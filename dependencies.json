@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.7.0-rc.2 Thu Feb 09 2023 09:40:45 GMT-0700 (Mountain Standard Time)",
+  "comment": "# beers-law-lab 1.7.0-rc.2 Wed Feb 15 2023 11:24:31 GMT-0700 (Mountain Standard Time)",
   "assert": {
     "sha": "c13a8c7741d95fbd8e37619c66ebcca8686dffe7",
     "branch": "HEAD"
@@ -9,7 +9,7 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "ec6a111553b11df6671e953379d4e61e7c2c1c80",
+    "sha": "7ebd3405af7cbf1422f522ecacbb1f2b6db9ac32",
     "branch": "1.7"
   },
   "brand": {
@@ -17,16 +17,16 @@
     "branch": "HEAD"
   },
   "chipper": {
-    "sha": "328a898ede3252b2247c1ab4a22980bb83b745ee",
-    "branch": "HEAD"
+    "sha": "2dfecc23626591d6f5dca99a703aa37217aa0654",
+    "branch": "beers-law-lab-1.7"
   },
   "dot": {
     "sha": "54c4dfe41ffc6b756285db3e43d29938979125a6",
     "branch": "HEAD"
   },
   "joist": {
-    "sha": "c9db456f7ffe1c6bee29d9db109b67397b90f2ce",
-    "branch": "HEAD"
+    "sha": "30a18bdbc849f7d6eebca74b3d6350a377ed7258",
+    "branch": "beers-law-lab-1.7"
   },
   "kite": {
     "sha": "e38653fe65c019e954a9393b2c13a8f202cc1c09",
@@ -74,7 +74,7 @@
   },
   "scenery": {
     "sha": "761ac1e29ef8e9ebc771265e83c4fcd8982e2879",
-    "branch": "beers-law-lab-1.7"
+    "branch": "HEAD"
   },
   "scenery-phet": {
     "sha": "daff436a3e89ea02d09e2dc37366749d76561aa3",
