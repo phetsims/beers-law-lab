@@ -46,7 +46,8 @@
         "phet-io": {
           "wrappers": [
             "phet-io-wrapper-lab-book"
-          ]
+          ],
+          "compareDesignedAPIChanges": true
         },
         "simFeatures": {
           "supportsDynamicLocale": true
@@ -89,6 +90,7 @@
         "requirejsNamespace": "TWIXT"
       }
     ];
+  window.phet.chipper.allowLocaleSwitching = true;
 
   // Identify the brand (assume generated brand if not provided with query parameters)
   const brandMatch = location.search.match( /brand=([^&]+)/ );
