@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.7.1 Fri Feb 24 2023 17:43:20 GMT-0700 (Mountain Standard Time)",
+  "comment": "# beers-law-lab 1.7.1 Wed Mar 01 2023 18:35:33 GMT-0500 (Eastern Standard Time)",
   "assert": {
     "sha": "c13a8c7741d95fbd8e37619c66ebcca8686dffe7",
     "branch": "HEAD"
@@ -9,7 +9,7 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "d594b3846187a748974f97f20392e00bb0f17794",
+    "sha": "67f09daf3eab03078561c14e9ab9997b6afa18de",
     "branch": "1.7"
   },
   "brand": {
@@ -49,8 +49,8 @@
     "branch": "HEAD"
   },
   "phet-io-sim-specific": {
-    "sha": "ea8d9237c89ca68ae315c9e28d5da918b3e53eb2",
-    "branch": "HEAD"
+    "sha": "903b6a76ab0a4850a3c6d22fb7c3e4f9285f8251",
+    "branch": "beers-law-lab-1.7"
   },
   "phet-io-wrapper-lab-book": {
     "sha": "d28bf105231528398cfe345a37b24b35ec05e93e",
@@ -85,8 +85,8 @@
     "branch": "HEAD"
   },
   "studio": {
-    "sha": "00064f4f1d13d03a5285e4ff691119f0eed80bad",
-    "branch": "HEAD"
+    "sha": "bfee76963c8e858a8c45cf8f648f38c9864ed9f2",
+    "branch": "beers-law-lab-1.7"
   },
   "sun": {
     "sha": "c932983b3b2be473872c0e4bab8350522571f6c9",
