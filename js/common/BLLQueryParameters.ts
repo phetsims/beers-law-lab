@@ -8,6 +8,7 @@
 
 import logGlobal from '../../../phet-core/js/logGlobal.js';
 import beersLawLab from '../beersLawLab.js';
+import BLLConstants from './BLLConstants.js';
 
 export const BeakerUnitsValues = [ 'liters', 'milliliters' ] as const;
 export type BeakerUnits = ( typeof BeakerUnitsValues )[number];
@@ -54,7 +55,7 @@ const BLLQueryParameters = QueryStringMachine.getAll( {
   cuvetteSnapInterval: {
     type: 'number',
     defaultValue: 0.1, // cm
-    isValidValue: ( value: number ) => ( value >= 0 ),
+    isValidValue: value => BLLConstants.CUVETTE_SNAP_INTERVAL_RANGE.contains( value ),
     public: true
   }
 } );

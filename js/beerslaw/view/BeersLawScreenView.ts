@@ -12,7 +12,6 @@ import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.j
 import { Node } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
-import BLLQueryParameters from '../../common/BLLQueryParameters.js';
 import BeersLawModel from '../model/BeersLawModel.js';
 import ATDetectorNode from './ATDetectorNode.js';
 import BeamNode from './BeamNode.js';
@@ -40,7 +39,7 @@ export default class BeersLawScreenView extends ScreenView {
       tandem: tandem.createTandem( 'lightNode' )
     } );
 
-    const cuvetteNode = new CuvetteNode( model.cuvette, model.solutionProperty, modelViewTransform, BLLQueryParameters.cuvetteSnapInterval, {
+    const cuvetteNode = new CuvetteNode( model.cuvette, model.solutionProperty, modelViewTransform, {
       tandem: tandem.createTandem( 'cuvetteNode' )
     } );
 

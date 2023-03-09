@@ -19,6 +19,8 @@ import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import beersLawLab from '../../beersLawLab.js';
+import BLLQueryParameters from '../../common/BLLQueryParameters.js';
+import BLLConstants from '../../common/BLLConstants.js';
 
 type SelfOptions = {
   position?: Vector2;
@@ -31,7 +33,17 @@ type CuvetteOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 export default class Cuvette extends PhetioObject {
 
   public readonly position: Vector2;
+
+  // Variable width of the cuvette, in cm
   public readonly widthProperty: NumberProperty;
+
+  // When dragging the cuvette, it's width will snap to this interval when the drag ends. 0 causes no snapping.
+  // Note that is only consulted at the end of a drag sequence - see CuvetteDragListener. If you change
+  // snapIntervalProperty, it will NOT modify the value of widthProperty.
+  // See https://github.com/phetsims/beers-law-lab/issues/330.
+  public readonly snapIntervalProperty: NumberProperty;
+
+  // Fixed height of the cuvette, in cm
   public readonly height: number;
 
   public constructor( providedOptions: CuvetteOptions ) {
@@ -55,6 +67,14 @@ export default class Cuvette extends PhetioObject {
       units: 'cm',
       range: options.widthRange,
       tandem: options.tandem.createTandem( 'widthProperty' )
+    } );
+
+    this.snapIntervalProperty = new NumberProperty( BLLQueryParameters.cuvetteSnapInterval, {
+      units: 'cm',
+      range: BLLConstants.CUVETTE_SNAP_INTERVAL_RANGE,
+      tandem: options.tandem.createTandem( 'snapIntervalProperty' ),
+      phetioFeatured: true, // Properties associated with query parameters are typically featured
+      phetioDocumentation: 'When dragging the cuvette, it\'s width will snap to this interval when the drag ends. Use 0 for no snapping.'
     } );
 
     this.height = options.height;

@@ -7,6 +7,7 @@
  */
 
 import Bounds2 from '../../../dot/js/Bounds2.js';
+import Range from '../../../dot/js/Range.js';
 import RangeWithValue from '../../../dot/js/RangeWithValue.js';
 import beersLawLab from '../beersLawLab.js';
 
@@ -18,6 +19,8 @@ const BLLConstants = {
   RADIO_BUTTON_RADIUS: 11,
   SOLUTE_AMOUNT_RANGE: new RangeWithValue( 0, 7, 0 ), // moles
   SOLUTION_VOLUME_RANGE: new RangeWithValue( 0, BEAKER_VOLUME, 0.5 ), // L
+  CUVETTE_WIDTH_RANGE: new RangeWithValue( 0.5, 2.0, 1.0 ), // cm
+  CUVETTE_SNAP_INTERVAL_RANGE: new Range( 0, 0.5 ), // cm - Careful! This depends on CUVETTE_WIDTH_RANGE
   BEAKER_VOLUME: BEAKER_VOLUME,
   CREDITS: {
     leadDesign: 'Julia Chamberlain',

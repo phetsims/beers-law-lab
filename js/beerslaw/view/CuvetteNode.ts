@@ -34,8 +34,9 @@ type CuvetteNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
 export default class CuvetteNode extends Node {
 
-  public constructor( cuvette: Cuvette, solutionProperty: Property<BeersLawSolution>,
-                      modelViewTransform: ModelViewTransform2, snapInterval: number,
+  public constructor( cuvette: Cuvette,
+                      solutionProperty: Property<BeersLawSolution>,
+                      modelViewTransform: ModelViewTransform2,
                       providedOptions: CuvetteNodeOptions ) {
 
     const options = optionize<CuvetteNodeOptions, SelfOptions, NodeOptions>()( {
@@ -108,7 +109,7 @@ export default class CuvetteNode extends Node {
       arrowNode.fill = isHighlighted ? ARROW_FILL.brighterColor() : ARROW_FILL;
     } );
 
-    arrowNode.addInputListener( new CuvetteDragListener( cuvette, modelViewTransform, snapInterval,
+    arrowNode.addInputListener( new CuvetteDragListener( cuvette, modelViewTransform,
       options.tandem.createTandem( 'cuvetteDragListener' ) ) );
 
     // adjust touch area for the arrow
@@ -132,7 +133,7 @@ export default class CuvetteNode extends Node {
  */
 class CuvetteDragListener extends DragListener {
 
-  public constructor( cuvette: Cuvette, modelViewTransform: ModelViewTransform2, snapInterval: number, tandem: Tandem ) {
+  public constructor( cuvette: Cuvette, modelViewTransform: ModelViewTransform2, tandem: Tandem ) {
 
     const widthRange = cuvette.widthProperty.range;
 
@@ -155,11 +156,9 @@ class CuvetteDragListener extends DragListener {
       },
 
       end: () => {
-
-        // snapInterval can be customized via query parameter
+        const snapInterval = cuvette.snapIntervalProperty.value;
         if ( snapInterval > 0 ) {
-          const numberOfIntervals = Math.floor( ( cuvette.widthProperty.value + ( snapInterval / 2 ) ) / snapInterval );
-          cuvette.widthProperty.value = numberOfIntervals * snapInterval;
+          cuvette.widthProperty.value = Utils.roundToInterval( cuvette.widthProperty.value, snapInterval );
         }
       },
 
