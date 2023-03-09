@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.7.0-dev.9 Wed Mar 08 2023 17:28:38 GMT-0700 (Mountain Standard Time)",
+  "comment": "# beers-law-lab 1.7.0-dev.10 Wed Mar 08 2023 17:34:20 GMT-0700 (Mountain Standard Time)",
   "assert": {
     "sha": "c13a8c7741d95fbd8e37619c66ebcca8686dffe7",
     "branch": "master"
@@ -9,7 +9,7 @@
     "branch": "master"
   },
   "beers-law-lab": {
-    "sha": "e977c6c073bb16daa7fd4186c0a2d9657f315b6b",
+    "sha": "545c1db777af88950bf037074140fe68a98fe183",
     "branch": "master"
   },
   "brand": {
@@ -53,7 +53,7 @@
     "branch": "master"
   },
   "phet-io-wrapper-lab-book": {
-    "sha": "d80cc8a3edbf6bb89a287ad8e658ac4d1073f165",
+    "sha": "761a0bbc4ee0d6b68b58473fc9092aca052c9173",
     "branch": "master"
   },
   "phet-io-wrappers": {
