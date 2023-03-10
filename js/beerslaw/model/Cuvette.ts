@@ -1,4 +1,4 @@
-// Copyright 2013-2022, University of Colorado Boulder
+// Copyright 2013-2023, University of Colorado Boulder
 
 /**
  * Cuvette is a simple model of a cuvette. A cuvette is a small tube of circular or square cross section,
