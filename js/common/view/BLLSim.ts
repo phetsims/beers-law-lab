@@ -8,7 +8,7 @@
 
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Sim, { SimOptions } from '../../../../joist/js/Sim.js';
-import Screen from '../../../../joist/js/Screen.js';
+import { AnyScreen } from '../../../../joist/js/Screen.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import beersLawLab from '../../beersLawLab.js';
@@ -23,7 +23,7 @@ type BLLSimOptions = SelfOptions & PickOptional<SimOptions, 'phetioDesigned'>;
 
 export default class BLLSim extends Sim {
 
-  public constructor( simNameProperty: TReadOnlyProperty<string>, screens: Screen[], providedOptions?: BLLSimOptions ) {
+  public constructor( simNameProperty: TReadOnlyProperty<string>, screens: AnyScreen[], providedOptions?: BLLSimOptions ) {
 
     const options = optionize<BLLSimOptions, SelfOptions, SimOptions>()( {
 
