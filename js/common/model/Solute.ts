@@ -93,6 +93,7 @@ export default class Solute extends PhetioObject {
 
     this.formulaProperty = new Property( options.formula, {
       tandem: options.tandem.createTandem( 'formulaProperty' ),
+      phetioFeatured: true,
       phetioValueType: NullableIO( StringIO ),
       phetioDocumentation:
         'The solute formula, using RichText markup. Changing it here will change it everywhere in ' +

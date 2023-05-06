@@ -43,40 +43,13 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "beersLawLab.concentrationScreen.view.solventFaucetNode.visibleProperty": {
       "phetioFeatured": true
     },
-    "beersLawLab.global.model.solutes.cobaltChloride.formulaProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.global.model.solutes.cobaltIINitrate.formulaProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.global.model.solutes.copperSulfate.formulaProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.global.model.solutes.drinkMix.formulaProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.global.model.solutes.nickelIIChloride.formulaProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.global.model.solutes.potassiumChromate.formulaProperty": {
-      "phetioFeatured": true
-    },
     "beersLawLab.global.model.solutes.potassiumDichromate": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.global.model.solutes.potassiumDichromate.formulaProperty": {
       "phetioFeatured": true
     },
     "beersLawLab.global.model.solutes.potassiumPermanganate": {
       "phetioFeatured": true
     },
-    "beersLawLab.global.model.solutes.potassiumPermanganate.formulaProperty": {
-      "phetioFeatured": true
-    },
     "beersLawLab.global.model.solutes.sodiumChloride": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.global.model.solutes.sodiumChloride.formulaProperty": {
       "phetioFeatured": true
     }
   };
