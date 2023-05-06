@@ -66,7 +66,8 @@ export default class Cuvette extends PhetioObject {
     this.widthProperty = new NumberProperty( options.widthRange.defaultValue, {
       units: 'cm',
       range: options.widthRange,
-      tandem: options.tandem.createTandem( 'widthProperty' )
+      tandem: options.tandem.createTandem( 'widthProperty' ),
+      phetioFeatured: true
     } );
 
     this.snapIntervalProperty = new NumberProperty( BLLQueryParameters.cuvetteSnapInterval, {

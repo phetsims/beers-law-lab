@@ -60,6 +60,7 @@ export default class SolutionInCuvette extends PhetioObject {
       () => solutionProperty.value.concentrationProperty.value, {
         units: 'mol/L',
         tandem: tandem.createTandem( 'concentrationProperty' ),
+        phetioFeatured: true,
         phetioValueType: NumberIO,
         phetioDocumentation: 'Concentration of the solution in the cuvette'
       } );
@@ -69,6 +70,7 @@ export default class SolutionInCuvette extends PhetioObject {
       ( solution, wavelength ) => solution.molarAbsorptivityData.wavelengthToMolarAbsorptivity( wavelength ), {
         units: '1/(cm*M)',
         tandem: tandem.createTandem( 'molarAbsorptivityProperty' ),
+        phetioFeatured: true,
         phetioValueType: NumberIO,
         phetioDocumentation: 'Molar absorptivity (molar absorption coefficient) of the solution in the cuvette'
       } );
@@ -78,6 +80,7 @@ export default class SolutionInCuvette extends PhetioObject {
       ( molarAbsorptivity, cuvetteWidth, concentration ) =>
         getAbsorbance( molarAbsorptivity, cuvetteWidth, concentration ), {
         tandem: tandem.createTandem( 'absorbanceProperty' ),
+        phetioFeatured: true,
         phetioValueType: NumberIO,
         phetioDocumentation: 'Absorbance of the selected solution'
       } );
@@ -86,6 +89,7 @@ export default class SolutionInCuvette extends PhetioObject {
       [ this.absorbanceProperty ],
       absorbance => getTransmittance( absorbance ), {
         tandem: tandem.createTandem( 'transmittanceProperty' ),
+        phetioFeatured: true,
         phetioValueType: NumberIO,
         phetioDocumentation: 'Transmittance of the solution in the cuvette'
       } );

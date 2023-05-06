@@ -69,7 +69,8 @@ export default class ATDetector extends PhetioObject {
     } );
 
     this.modeProperty = new EnumerationProperty( ATDetectorMode.TRANSMITTANCE, {
-      tandem: options.tandem.createTandem( 'modeProperty' )
+      tandem: options.tandem.createTandem( 'modeProperty' ),
+      phetioFeatured: true
     } );
 
     const pathLengthProperty = new DerivedProperty( [ this.light.isOnProperty, this.probe.positionProperty, cuvette.widthProperty ],
@@ -77,6 +78,7 @@ export default class ATDetector extends PhetioObject {
         ( lightIsOn && this.isProbeInBeam() ) ? Math.min( Math.max( 0, probePosition.x - cuvette.position.x ), cuvetteWidth ) : null, {
         units: 'cm',
         tandem: options.tandem.createTandem( 'pathLengthProperty' ),
+        phetioFeatured: true,
         phetioValueType: NullableIO( NumberIO ),
         phetioDocumentation: 'The distance that the light beam passes through the solution before hitting the probe. ' +
                              'null if the light is off or the probe is not in the beam.'
@@ -87,6 +89,7 @@ export default class ATDetector extends PhetioObject {
       ( pathLength, solutionInCuvetteAbsorbance ) =>
         ( pathLength === null ) ? null : solutionInCuvette.getAbsorbanceAt( pathLength ), {
         tandem: options.tandem.createTandem( 'absorbanceProperty' ),
+        phetioFeatured: true,
         phetioValueType: NullableIO( NumberIO ),
         phetioDocumentation: 'Absorbance at the position of the probe, null if the probe is not in the light beam'
       } );
@@ -96,6 +99,7 @@ export default class ATDetector extends PhetioObject {
       ( pathLength, solutionInCuvetteTransmittance ) =>
         ( pathLength === null ) ? null : solutionInCuvette.getTransmittanceAt( pathLength ), {
         tandem: options.tandem.createTandem( 'transmittanceProperty' ),
+        phetioFeatured: true,
         phetioValueType: NullableIO( NumberIO ),
         phetioDocumentation: 'Transmittance at the position of the probe, null if the probe is not in the light beam'
       } );

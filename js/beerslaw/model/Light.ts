@@ -52,18 +52,21 @@ export default class Light extends PhetioObject {
     this.lensDiameter = options.lensDiameter;
 
     this.isOnProperty = new BooleanProperty( options.isOn, {
-      tandem: options.tandem.createTandem( 'isOnProperty' )
+      tandem: options.tandem.createTandem( 'isOnProperty' ),
+      phetioFeatured: true
     } );
 
     this.wavelengthProperty = new NumberProperty( solutionProperty.value.molarAbsorptivityData.lambdaMax /*nm*/, {
       units: 'nm',
       range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH ),
       tandem: options.tandem.createTandem( 'wavelengthProperty' ),
+      phetioFeatured: true,
       phetioReadOnly: true
     } );
 
     this.modeProperty = new EnumerationProperty( LightMode.PRESET, {
-      tandem: options.tandem.createTandem( 'modeProperty' )
+      tandem: options.tandem.createTandem( 'modeProperty' ),
+      phetioFeatured: true
     } );
 
     // when the solution changes, set the light to the solution's lambdaMax wavelength

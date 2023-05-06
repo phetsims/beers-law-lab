@@ -100,7 +100,8 @@ export default class BeersLawSolution extends PhetioObject {
     this.concentrationProperty = new NumberProperty( options.concentrationRange.defaultValue, {
       units: 'mol/L',
       range: options.concentrationRange,
-      tandem: options.tandem.createTandem( 'concentrationProperty' )
+      tandem: options.tandem.createTandem( 'concentrationProperty' ),
+      phetioFeatured: true
     } );
 
     this.fluidColorProperty = new DerivedProperty( [ this.concentrationProperty ],
