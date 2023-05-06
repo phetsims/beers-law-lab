@@ -63,11 +63,13 @@ export default class Shaker extends BLLMovable {
     this.visibleProperty = new DerivedProperty( [ soluteFormProperty ],
       soluteForm => ( soluteForm === SoluteForm.SOLID ), {
         tandem: options.tandem.createTandem( 'visibleProperty' ),
+        phetioFeatured: true,
         phetioValueType: BooleanIO
       } );
 
     this.isEmptyProperty = new BooleanProperty( false, {
       tandem: options.tandem.createTandem( 'isEmptyProperty' ),
+      phetioFeatured: true,
       phetioReadOnly: true
     } );
 

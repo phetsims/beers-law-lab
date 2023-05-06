@@ -60,6 +60,7 @@ export default class Dropper extends PhetioObject {
     this.visibleProperty = new DerivedProperty( [ soluteFormProperty ],
       soluteForm => ( soluteForm === SoluteForm.SOLUTION ), {
         tandem: options.tandem.createTandem( 'visibleProperty' ),
+        phetioFeatured: true,
         phetioValueType: BooleanIO
       } );
 
@@ -75,6 +76,7 @@ export default class Dropper extends PhetioObject {
 
     this.isEmptyProperty = new BooleanProperty( false, {
       tandem: options.tandem.createTandem( 'isEmptyProperty' ),
+      phetioFeatured: true,
       phetioReadOnly: true
     } );
 

@@ -100,22 +100,10 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "beersLawLab.concentrationScreen.model.concentrationMeter.valueProperty": {
       "phetioFeatured": true
     },
-    "beersLawLab.concentrationScreen.model.dropper.isEmptyProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.model.dropper.visibleProperty": {
-      "phetioFeatured": true
-    },
     "beersLawLab.concentrationScreen.model.evaporator.enabledProperty": {
       "phetioFeatured": true
     },
     "beersLawLab.concentrationScreen.model.evaporator.evaporationRateProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.model.shaker.isEmptyProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.model.shaker.visibleProperty": {
       "phetioFeatured": true
     },
     "beersLawLab.concentrationScreen.model.soluteFormProperty": {
