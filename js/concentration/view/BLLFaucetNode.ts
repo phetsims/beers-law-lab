@@ -35,6 +35,9 @@ export default class BLLFaucetNode extends FaucetNode {
       shooterOptions: {
         touchAreaXDilation: 37,
         touchAreaYDilation: 60
+      },
+      visiblePropertyOptions: {
+        phetioFeatured: true
       }
     }, providedOptions );
 

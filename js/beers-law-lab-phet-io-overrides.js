@@ -25,24 +25,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "beersLawLab.beersLawScreen.view.wavelengthPanel.visibleProperty": {
       "phetioFeatured": true
     },
-    "beersLawLab.concentrationScreen.view.concentrationMeterNode.visibleProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.view.drainFaucetNode.visibleProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.view.evaporationPanel.slider.visibleProperty": {
-      "phetioFeatured": false
-    },
-    "beersLawLab.concentrationScreen.view.evaporationPanel.visibleProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.view.solutePanel.visibleProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.view.solventFaucetNode.visibleProperty": {
-      "phetioFeatured": true
-    },
     "beersLawLab.global.model.solutes.potassiumDichromate": {
       "phetioFeatured": true
     },

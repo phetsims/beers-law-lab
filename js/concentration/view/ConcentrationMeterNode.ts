@@ -21,7 +21,7 @@ import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import { Shape } from '../../../../kite/js/imports.js';
-import { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
@@ -64,7 +64,13 @@ export default class ConcentrationMeterNode extends Node {
                       solutionNode: Path, stockSolutionNode: Path, solventFluidNode: Path, drainFluidNode: Path,
                       modelViewTransform: ModelViewTransform2, providedOptions: ConcentrationMeterNodeOptions ) {
 
-    const options = providedOptions;
+    const options = optionize<ConcentrationMeterNodeOptions, SelfOptions, NodeOptions>()( {
+
+      // NodeOptions
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
+    }, providedOptions );
 
     super( options );
 

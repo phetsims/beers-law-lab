@@ -36,7 +36,10 @@ export default class SolutePanel extends Panel {
       fill: '#F0F0F0',
       stroke: 'gray',
       lineWidth: 1,
-      maxWidth: 480
+      maxWidth: 480,
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
     }, providedOptions );
 
     // solute combo box

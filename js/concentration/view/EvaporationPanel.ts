@@ -34,7 +34,10 @@ export default class EvaporationPanel extends Panel {
       fill: '#F0F0F0',
       stroke: 'gray',
       xMargin: 15,
-      yMargin: 8
+      yMargin: 8,
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
     }, providedOptions );
 
     const labelTextTandem = options.tandem.createTandem( 'labelText' );
@@ -64,7 +67,10 @@ export default class EvaporationPanel extends Panel {
       endDrag: () => {
         evaporator.evaporationRateProperty.value = 0;
       },
-      tandem: sliderTandem
+      tandem: sliderTandem,
+      visiblePropertyOptions: {
+        phetioFeatured: false
+      }
     } );
 
     // Tick marks
