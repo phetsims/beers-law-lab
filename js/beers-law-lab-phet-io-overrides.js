@@ -163,18 +163,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "beersLawLab.concentrationScreen.view.solventFaucetNode.visibleProperty": {
       "phetioFeatured": true
     },
-    "beersLawLab.global.model.preferences.beakerUnitsProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.global.model.preferences.concentrationMeterUnitsProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.global.model.preferences.showSoluteAmountProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.global.model.preferences.showSolutionVolumeProperty": {
-      "phetioFeatured": true
-    },
     "beersLawLab.global.model.solutes.cobaltChloride.formulaProperty": {
       "phetioFeatured": true
     },
