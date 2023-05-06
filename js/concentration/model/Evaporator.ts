@@ -42,11 +42,13 @@ export default class Evaporator {
       range: new Range( 0, options.maxEvaporationRate ),
       units: 'L/s',
       tandem: options.tandem.createTandem( 'evaporationRateProperty' ),
+      phetioFeatured: true,
       phetioReadOnly: true // this is controlled by the model
     } );
 
     this.enabledProperty = new BooleanProperty( true, {
       tandem: options.tandem.createTandem( 'enabledProperty' ),
+      phetioFeatured: true,
       phetioReadOnly: true // this is controlled by the model
     } );
 

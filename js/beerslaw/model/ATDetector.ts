@@ -57,7 +57,8 @@ export default class ATDetector extends PhetioObject {
 
     this.body = new BLLMovable( {
       position: options.bodyPosition,
-      tandem: options.tandem.createTandem( 'body' )
+      tandem: options.tandem.createTandem( 'body' ),
+      positionPropertyFeatured: false
     } );
 
     this.probe = new Probe( {
@@ -142,7 +143,7 @@ class Probe extends BLLMovable {
       sensorDiameter: 1,
 
       // BLLMovableOptions
-      positionPhetioReadOnly: false
+      positionPropertyReadOnly: false
     }, providedOptions );
 
     super( options );

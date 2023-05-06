@@ -50,6 +50,7 @@ export default class Shaker extends BLLMovable {
       maxDispensingRate: 1,
 
       // BLLMovableOptions
+      positionPropertyFeatured: false,
       phetioState: false
     }, providedOptions );
 

@@ -13,9 +13,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
     "beersLawLab.beersLawScreen.model.detector.pathLengthProperty": {
       "phetioFeatured": true
     },
-    "beersLawLab.beersLawScreen.model.detector.probe.positionProperty": {
-      "phetioFeatured": true
-    },
     "beersLawLab.beersLawScreen.model.detector.transmittanceProperty": {
       "phetioFeatured": true
     },
@@ -26,9 +23,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
       "phetioFeatured": true
     },
     "beersLawLab.beersLawScreen.model.light.wavelengthProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.beersLawScreen.model.ruler.positionProperty": {
       "phetioFeatured": true
     },
     "beersLawLab.beersLawScreen.model.solutionInCuvette.absorbanceProperty": {
@@ -92,45 +86,6 @@ window.phet.preloads.phetio.phetioElementsOverrides =
       "phetioFeatured": true
     },
     "beersLawLab.beersLawScreen.view.wavelengthPanel.visibleProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.model.concentrationMeter.probe.positionProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.model.concentrationMeter.valueProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.model.evaporator.enabledProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.model.evaporator.evaporationRateProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.model.soluteFormProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.model.soluteProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.model.solution.concentrationProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.model.solution.isSaturatedProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.model.solution.percentConcentrationProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.model.solution.precipitateMolesProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.model.solution.soluteGramsProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.model.solution.soluteMolesProperty": {
-      "phetioFeatured": true
-    },
-    "beersLawLab.concentrationScreen.model.solution.volumeProperty": {
       "phetioFeatured": true
     },
     "beersLawLab.concentrationScreen.view.concentrationMeterNode.visibleProperty": {

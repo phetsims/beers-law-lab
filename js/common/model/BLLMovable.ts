@@ -19,7 +19,8 @@ import beersLawLab from '../../beersLawLab.js';
 
 type SelfOptions = {
   position?: Vector2; // initial position
-  positionPhetioReadOnly?: boolean; // whether positionProperty is read-only
+  positionPropertyFeatured?: boolean; // whether positionProperty is phetioFeatured
+  positionPropertyReadOnly?: boolean; // whether positionProperty is read-only
   dragBounds?: Bounds2; // drag bounds
 };
 
@@ -38,7 +39,8 @@ export default class BLLMovable extends PhetioObject {
 
       // SelfOptions
       position: Vector2.ZERO,
-      positionPhetioReadOnly: true,
+      positionPropertyFeatured: true,
+      positionPropertyReadOnly: true,
       dragBounds: Bounds2.EVERYTHING,
 
       // PhetioObjectOptions
@@ -50,7 +52,8 @@ export default class BLLMovable extends PhetioObject {
     this.positionProperty = new Vector2Property( options.position, {
       units: 'cm',
       tandem: options.tandem.createTandem( 'positionProperty' ),
-      phetioReadOnly: options.positionPhetioReadOnly,
+      phetioFeatured: options.positionPropertyFeatured,
+      phetioReadOnly: options.positionPropertyReadOnly,
       phetioDocumentation: 'Note that (0,0) is at the upper-LEFT, +x is to the right, and +y is DOWN.'
     } );
 

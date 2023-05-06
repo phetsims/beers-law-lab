@@ -69,13 +69,15 @@ export default class ConcentrationSolution extends Fluid {
     this.soluteMolesProperty = new NumberProperty( soluteAmountRange.defaultValue, {
       units: 'mol',
       range: soluteAmountRange,
-      tandem: options.tandem.createTandem( 'soluteMolesProperty' )
+      tandem: options.tandem.createTandem( 'soluteMolesProperty' ),
+      phetioFeatured: true
     } );
 
     this.volumeProperty = new NumberProperty( volumeRange.defaultValue, {
       units: 'L',
       range: volumeRange,
-      tandem: options.tandem.createTandem( 'volumeProperty' )
+      tandem: options.tandem.createTandem( 'volumeProperty' ),
+      phetioFeatured: true
     } );
 
     this.updatePrecipitateAmount = true;
@@ -91,6 +93,7 @@ export default class ConcentrationSolution extends Fluid {
         }
       }, {
         tandem: options.tandem.createTandem( 'precipitateMolesProperty' ),
+        phetioFeatured: true,
         units: 'mol',
         phetioValueType: NumberIO
       }
@@ -102,6 +105,7 @@ export default class ConcentrationSolution extends Fluid {
         return ( volume > 0 ) ? Math.min( this.getSaturatedConcentration(), soluteMoles / volume ) : 0;
       }, {
         tandem: options.tandem.createTandem( 'concentrationProperty' ),
+        phetioFeatured: true,
         units: 'mol/L',
         phetioValueType: NumberIO
       }
@@ -113,6 +117,7 @@ export default class ConcentrationSolution extends Fluid {
         return ( volume > 0 ) && ( soluteMoles / volume ) > solute.getSaturatedConcentration();
       }, {
         tandem: options.tandem.createTandem( 'isSaturatedProperty' ),
+        phetioFeatured: true,
         phetioValueType: BooleanIO
       }
     );
@@ -128,6 +133,7 @@ export default class ConcentrationSolution extends Fluid {
         return soluteGrams;
       }, {
         tandem: options.tandem.createTandem( 'soluteGramsProperty' ),
+        phetioFeatured: true,
         units: 'g',
         phetioValueType: NumberIO
       }
@@ -146,6 +152,7 @@ export default class ConcentrationSolution extends Fluid {
         return percentConcentration;
       }, {
         tandem: options.tandem.createTandem( 'percentConcentrationProperty' ),
+        phetioFeatured: true,
         phetioValueType: NumberIO,
         units: '%',
         phetioDocumentation: 'Calculated as a mass percent.'
