@@ -35,7 +35,10 @@ export default class BLLRulerNode extends RulerNode {
       cursor: 'pointer',
       minorTicksPerMajorTick: 4,
       insetsWidth: 0,
-      phetioInputEnabledPropertyInstrumented: true
+      phetioInputEnabledPropertyInstrumented: true,
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
     }, providedOptions );
 
     // Compute tick labels, 1 major tick for every 0.5 unit of length, labels on the ticks that correspond to integer values.

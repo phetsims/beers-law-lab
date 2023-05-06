@@ -55,14 +55,22 @@ export default class ATDetectorNode extends Node {
   public constructor( detector: ATDetector, light: Light, modelViewTransform: ModelViewTransform2,
                       providedOptions: ATDetectorNodeOptions ) {
 
-    super( providedOptions );
+    const options = optionize<ATDetectorNodeOptions, SelfOptions, NodeOptions>()( {
+
+      // NodeOptions
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
+    }, providedOptions );
+
+    super( options );
 
     const bodyNode = new BodyNode( detector, modelViewTransform, {
-      tandem: providedOptions.tandem.createTandem( 'bodyNode' )
+      tandem: options.tandem.createTandem( 'bodyNode' )
     } );
 
     const probeNode = new ATProbeNode( detector.probe, light, modelViewTransform, {
-      tandem: providedOptions.tandem.createTandem( 'probeNode' )
+      tandem: options.tandem.createTandem( 'probeNode' )
     } );
 
     const wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
@@ -70,7 +78,7 @@ export default class ATDetectorNode extends Node {
     this.children = [ wireNode, bodyNode, probeNode ];
 
     this.addLinkedElement( detector, {
-      tandem: providedOptions.tandem.createTandem( 'detector' )
+      tandem: options.tandem.createTandem( 'detector' )
     } );
   }
 
@@ -159,7 +167,8 @@ class BodyNode extends Node {
         return valueString;
       }, {
         tandem: valueTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
-        phetioValueType: StringIO
+        phetioValueType: StringIO,
+        phetioFeatured: true
       } );
 
     const valueText = new Text( valueStringProperty, {

@@ -67,7 +67,10 @@ export default class CuvetteNode extends Node {
       fill: ARROW_FILL,
       stroke: 'black',
       lineWidth: 1,
-      tandem: options.tandem.createTandem( 'arrowNode' )
+      tandem: options.tandem.createTandem( 'arrowNode' ),
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
     } );
 
     // rendering order

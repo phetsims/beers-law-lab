@@ -46,7 +46,11 @@ export default class ConcentrationControl extends Node {
                       providedOptions: ConcentrationControlOptions ) {
 
     const options = optionize<ConcentrationControlOptions, SelfOptions, NodeOptions>()( {
-      // empty optionize because we're setting options.children below
+
+      // NodeOptions
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
     }, providedOptions );
 
     // Concentration:
@@ -60,6 +64,7 @@ export default class ConcentrationControl extends Node {
     // Whether concentration is editable. If false, hides the slider and arrow buttons. For PHET-iO only.
     const displayOnlyProperty = new BooleanProperty( false, {
       tandem: options.tandem.createTandem( 'displayOnlyProperty' ),
+      phetioFeatured: true,
       phetioDocumentation: 'Setting this to true will hide the slider and arrow buttons, showing only the value.'
     } );
 

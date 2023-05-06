@@ -35,7 +35,10 @@ export default class SolutionPanel extends Panel {
       fill: '#F0F0F0',
       stroke: 'gray',
       lineWidth: 1,
-      maxWidth: 575 // determined empirically
+      maxWidth: 575, // determined empirically
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
     }, providedOptions );
 
     const solutionComboBox = new SolutionControl( solutionProperty, solutions, solutionListParent, {

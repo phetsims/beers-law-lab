@@ -49,7 +49,10 @@ export default class WavelengthPanel extends Panel {
       yMargin: 15,
       fill: '#F0F0F0',
       stroke: 'gray',
-      lineWidth: 1
+      lineWidth: 1,
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
     }, providedOptions );
 
     const labelTextTandem = options.tandem.createTandem( 'labelText' );
