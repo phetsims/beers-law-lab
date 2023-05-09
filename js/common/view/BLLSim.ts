@@ -8,7 +8,6 @@
 
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Sim, { SimOptions } from '../../../../joist/js/Sim.js';
-import { AnyScreen } from '../../../../joist/js/Screen.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import beersLawLab from '../../beersLawLab.js';
@@ -16,6 +15,8 @@ import BLLConstants from '../BLLConstants.js';
 import BLLPreferencesNode from './BLLPreferencesNode.js';
 import BLLPreferences from '../model/BLLPreferences.js';
 import PreferencesModel from '../../../../joist/js/preferences/PreferencesModel.js';
+import BeersLawScreen from '../../beerslaw/BeersLawScreen.js';
+import ConcentrationScreen from '../../concentration/ConcentrationScreen.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -23,7 +24,8 @@ type BLLSimOptions = SelfOptions & PickOptional<SimOptions, 'phetioDesigned'>;
 
 export default class BLLSim extends Sim {
 
-  public constructor( simNameProperty: TReadOnlyProperty<string>, screens: AnyScreen[], providedOptions?: BLLSimOptions ) {
+  public constructor( simNameProperty: TReadOnlyProperty<string>, screens: Array<BeersLawScreen | ConcentrationScreen>,
+                      providedOptions?: BLLSimOptions ) {
 
     const options = optionize<BLLSimOptions, SelfOptions, SimOptions>()( {
 
