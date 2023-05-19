@@ -15,7 +15,10 @@ import beersLawLab from '../beersLawLab.js';
 const BEAKER_VOLUME = 1; // L
 
 const BLLConstants = {
-  LAYOUT_BOUNDS: new Bounds2( 0, 0, 1100, 700 ), //TODO https://github.com/phetsims/beers-law-lab/issues/289
+
+  // While the layoutBounds differ from the default, PhET-iO customizations may rely on these bounds. So do not change.
+  // See https://github.com/phetsims/beers-law-lab/issues/289.
+  LAYOUT_BOUNDS: new Bounds2( 0, 0, 1100, 700 ),
   RADIO_BUTTON_RADIUS: 11,
   SOLUTE_AMOUNT_RANGE: new RangeWithValue( 0, 7, 0 ), // moles
   SOLUTION_VOLUME_RANGE: new RangeWithValue( 0, BEAKER_VOLUME, 0.5 ), // L
