@@ -16,8 +16,8 @@ const BEAKER_VOLUME = 1; // L
 
 const BLLConstants = {
 
-  // While the layoutBounds differ from the default, PhET-iO customizations may rely on these bounds. So do not change.
-  // See https://github.com/phetsims/beers-law-lab/issues/289.
+  // While these layoutBounds differ from the default, PhET-iO customizations may rely on these bounds.
+  // So do not change. See https://github.com/phetsims/beers-law-lab/issues/289.
   LAYOUT_BOUNDS: new Bounds2( 0, 0, 1100, 700 ),
   RADIO_BUTTON_RADIUS: 11,
   SOLUTE_AMOUNT_RANGE: new RangeWithValue( 0, 7, 0 ), // moles
