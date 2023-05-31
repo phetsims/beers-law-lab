@@ -20,6 +20,7 @@ import beersLawLab from '../../beersLawLab.js';
 import BLLMovable, { BLLMovableOptions } from '../../common/model/BLLMovable.js';
 import Solute from '../../common/model/Solute.js';
 import SoluteForm from './SoluteForm.js';
+import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 
 type SelfOptions = {
   orientation?: number; // radians
@@ -93,7 +94,7 @@ export default class Shaker extends BLLMovable {
     // If the position changes while restoring PhET-iO state, then set previousPosition to position to prevent the
     // shaker from effective being moved and dispensing solute. See https://github.com/phetsims/beers-law-lab/issues/247.
     this.positionProperty.link( position => {
-      if ( phet.joist.sim.isSettingPhetioStateProperty.value ) {
+      if ( isSettingPhetioStateProperty.value ) {
         this.previousPosition = position;
       }
     } );

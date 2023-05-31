@@ -15,6 +15,7 @@ import beersLawLab from '../../beersLawLab.js';
 import Beaker from './Beaker.js';
 import ConcentrationSolution from './ConcentrationSolution.js';
 import SoluteParticles, { SoluteParticlesOptions } from './SoluteParticles.js';
+import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -45,7 +46,7 @@ export default class PrecipitateParticles extends SoluteParticles {
     this.solution.soluteProperty.link( solute => {
 
       // Remove all particles, unless solute was being restored by PhET-iO. Particles will be restored by particleGroup.
-      if ( !phet.joist.sim.isSettingPhetioStateProperty.value ) {
+      if ( !isSettingPhetioStateProperty.value ) {
         this.removeAllParticles();
         this.updateParticles();
       }

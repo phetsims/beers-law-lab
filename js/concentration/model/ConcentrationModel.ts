@@ -25,6 +25,7 @@ import PrecipitateParticles from './PrecipitateParticles.js';
 import Shaker from './Shaker.js';
 import ShakerParticles from './ShakerParticles.js';
 import SoluteForm from './SoluteForm.js';
+import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 
 // constants
 const SOLUTION_VOLUME_RANGE = BLLConstants.SOLUTION_VOLUME_RANGE; // L
@@ -135,7 +136,7 @@ export default class ConcentrationModel implements TModel {
     // then do nothing, so that we don't blow away the restored state.
     // See https://github.com/phetsims/beers-law-lab/issues/247
     this.soluteProperty.link( () => {
-      if ( !phet.joist.sim.isSettingPhetioStateProperty.value ) {
+      if ( !isSettingPhetioStateProperty.value ) {
         this.solution.soluteMolesProperty.value = 0;
       }
     } );

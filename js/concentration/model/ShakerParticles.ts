@@ -21,6 +21,7 @@ import ConcentrationSolution from './ConcentrationSolution.js';
 import SoluteParticles, { SoluteParticlesOptions } from './SoluteParticles.js';
 import Shaker from './Shaker.js';
 import SoluteParticle from './SoluteParticle.js';
+import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 
 // Units for speed and acceleration are not meaningful here, adjust these so that it looks good.
 const INITIAL_SPEED = 100;
@@ -63,7 +64,7 @@ export default class ShakerParticles extends SoluteParticles {
     solution.soluteProperty.link( () => {
 
       // Remove all particles, unless solute was being restored by PhET-iO. Particles will be restored by particleGroup.
-      if ( !phet.joist.sim.isSettingPhetioStateProperty.value ) {
+      if ( !isSettingPhetioStateProperty.value ) {
         this.removeAllParticles();
       }
     } );
