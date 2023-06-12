@@ -27,8 +27,6 @@ type BLLPreferencesNodeOptions = SelfOptions & PickRequired<VBoxOptions, 'tandem
 
 export default class BLLPreferencesNode extends VBox {
 
-  private readonly disposeBLLPreferencesNode: () => void;
-
   public constructor( providedOptions: BLLPreferencesNodeOptions ) {
 
     const options = optionize<BLLPreferencesNodeOptions, SelfOptions, VBoxOptions>()( {
@@ -77,20 +75,6 @@ export default class BLLPreferencesNode extends VBox {
     ];
 
     super( options );
-
-    this.disposeBLLPreferencesNode = () => {
-      showSolutionVolumeText.dispose();
-      showSolutionVolumeCheckbox.dispose();
-      showSoluteAmountText.dispose();
-      showSoluteAmountCheckbox.dispose();
-      beakerUnitsControl.dispose();
-      concentrationMeterUnitsControl.dispose();
-    };
-  }
-
-  public override dispose(): void {
-    this.disposeBLLPreferencesNode();
-    super.dispose();
   }
 }
 
