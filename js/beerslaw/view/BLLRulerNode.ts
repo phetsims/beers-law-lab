@@ -74,7 +74,7 @@ export default class BLLRulerNode extends RulerNode {
     } ) );
 
     this.addLinkedElement( ruler, {
-      tandem: options.tandem.createTandem( 'ruler' )
+      tandemName: 'ruler'
     } );
   }
 

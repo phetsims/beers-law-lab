@@ -78,9 +78,7 @@ export default class ConcentrationControl extends Node {
     super( options );
 
     // concentrationProperty is unused in this class, and provided only so that it can be linked for PhET-iO.
-    this.addLinkedElement( concentrationProperty, {
-      tandem: options.tandem.createTandem( concentrationProperty.tandem.name )
-    } );
+    this.addLinkedElement( concentrationProperty );
   }
 
   public override dispose(): void {
@@ -210,9 +208,7 @@ class SoluteConcentrationControl extends NumberControl {
 
     this.solution = solution;
 
-    this.addLinkedElement( solution.concentrationProperty, {
-      tandem: options.tandem.createTandem( solution.concentrationProperty.tandem.name )
-    } );
+    this.addLinkedElement( solution.concentrationProperty );
   }
 
   public override dispose(): void {

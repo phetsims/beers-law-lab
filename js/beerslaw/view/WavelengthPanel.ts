@@ -173,9 +173,7 @@ export default class WavelengthPanel extends Panel {
 
     super( content, options );
 
-    this.addLinkedElement( light.wavelengthProperty, {
-      tandem: options.tandem.createTandem( light.wavelengthProperty.tandem.name )
-    } );
+    this.addLinkedElement( light.wavelengthProperty );
   }
 
   public override dispose(): void {

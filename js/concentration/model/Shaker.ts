@@ -100,7 +100,7 @@ export default class Shaker extends BLLMovable {
     } );
 
     this.addLinkedElement( soluteProperty, {
-      tandem: options.tandem.createTandem( 'soluteProperty' )
+      tandemName: 'soluteProperty'
     } );
   }
 

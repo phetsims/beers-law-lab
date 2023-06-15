@@ -47,9 +47,7 @@ export default class BeakerUnitsControl extends HBox {
 
     super( options );
 
-    this.addLinkedElement( beakerUnitsProperty, {
-      tandem: options.tandem.createTandem( beakerUnitsProperty.tandem.name )
-    } );
+    this.addLinkedElement( beakerUnitsProperty );
 
     this.disposeBeakerUnitsControl = (): void => {
       labelText.dispose();

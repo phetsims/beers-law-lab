@@ -118,7 +118,7 @@ export default class ConcentrationMeterNode extends Node {
     ], () => updateValue() );
 
     this.addLinkedElement( concentrationMeter, {
-      tandem: options.tandem.createTandem( 'concentrationMeter' )
+      tandemName: 'concentrationMeter'
     } );
   }
 

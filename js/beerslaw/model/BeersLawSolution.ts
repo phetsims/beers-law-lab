@@ -118,11 +118,11 @@ export default class BeersLawSolution extends PhetioObject {
     this.tandemName = options.tandem.name;
 
     this.addLinkedElement( options.nameProperty, {
-      tandem: options.tandem.createTandem( 'nameProperty' )
+      tandemName: 'nameProperty'
     } );
 
     this.addLinkedElement( options.formulaProperty, {
-      tandem: options.tandem.createTandem( 'formulaProperty' )
+      tandemName: 'formulaProperty'
     } );
   }
 

@@ -125,9 +125,7 @@ export default class CuvetteNode extends Node {
     this.x = position.x;
     this.y = position.y;
 
-    this.addLinkedElement( cuvette, {
-      tandem: options.tandem.createTandem( 'cuvette' )
-    } );
+    this.addLinkedElement( cuvette );
   }
 }
 

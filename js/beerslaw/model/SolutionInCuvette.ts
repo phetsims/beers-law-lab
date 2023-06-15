@@ -94,9 +94,7 @@ export default class SolutionInCuvette extends PhetioObject {
         phetioDocumentation: 'Transmittance of the solution in the cuvette'
       } );
 
-    this.addLinkedElement( solutionProperty, {
-      tandem: tandem.createTandem( solutionProperty.tandem.name )
-    } );
+    this.addLinkedElement( solutionProperty );
   }
 
   public override dispose(): void {

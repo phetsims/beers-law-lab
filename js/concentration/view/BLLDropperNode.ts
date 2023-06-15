@@ -90,9 +90,7 @@ export default class BLLDropperNode extends EyeDropperNode {
     // dilate touch area
     this.touchArea = this.localBounds.dilatedX( 0.25 * this.width );
 
-    this.addLinkedElement( dropper, {
-      tandem: options.tandem.createTandem( dropper.tandem.name )
-    } );
+    this.addLinkedElement( dropper );
   }
 
   public override dispose(): void {

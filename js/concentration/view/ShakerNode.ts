@@ -88,7 +88,7 @@ export default class ShakerNode extends Node {
     } ) );
 
     this.addLinkedElement( shaker, {
-      tandem: options.tandem.createTandem( 'shaker' )
+      tandemName: 'shaker'
     } );
   }
 

@@ -60,7 +60,7 @@ export default class SolutionPanel extends Panel {
     super( contentNode, options );
 
     this.addLinkedElement( solutionInCuvette, {
-      tandem: options.tandem.createTandem( 'solutionInCuvette' )
+      tandemName: 'solutionInCuvette'
     } );
   }
 

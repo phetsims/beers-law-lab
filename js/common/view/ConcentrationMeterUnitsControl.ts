@@ -47,9 +47,7 @@ export default class ConcentrationMeterUnitsControl extends HBox {
 
     super( options );
 
-    this.addLinkedElement( beakerUnitsProperty, {
-      tandem: options.tandem.createTandem( beakerUnitsProperty.tandem.name )
-    } );
+    this.addLinkedElement( beakerUnitsProperty );
 
     this.disposeConcentrationMeterUnitsControl = (): void => {
       labelText.dispose();

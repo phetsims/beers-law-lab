@@ -116,7 +116,7 @@ export default class Solute extends PhetioObject {
     this.strokeStyle = options.particleColor.darkerColor().getCanvasStyle();
 
     this.addLinkedElement( options.nameProperty, {
-      tandem: options.tandem.createTandem( 'nameProperty' )
+      tandemName: 'nameProperty'
     } );
   }
 

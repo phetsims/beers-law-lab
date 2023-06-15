@@ -114,7 +114,7 @@ export default class Dropper extends PhetioObject {
     } );
 
     this.addLinkedElement( soluteProperty, {
-      tandem: options.tandem.createTandem( 'soluteProperty' )
+      tandemName: 'soluteProperty'
     } );
   }
 
