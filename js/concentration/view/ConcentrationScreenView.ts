@@ -84,6 +84,7 @@ export default class ConcentrationScreenView extends ScreenView {
     }, {
       tandem: tandem.createTandem( 'soluteLabelStringProperty' ),
       phetioValueType: StringIO,
+      phetioFeatured: true,
       phetioDocumentation: 'The label used on the shaker and dropper'
     } );
 

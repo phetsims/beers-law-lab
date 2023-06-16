@@ -6,7 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
@@ -14,7 +14,6 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Text, TextOptions } from '../../../../scenery/js/imports.js';
-import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
@@ -36,11 +35,10 @@ export default class SoluteAmountText extends Text {
       visibleProperty: BLLPreferences.showSoluteAmountProperty
     }, providedOptions );
 
-    const stringProperty = new DerivedProperty(
+    const stringProperty = new DerivedStringProperty(
       [ BeersLawLabStrings.pattern[ '0soluteAmountStringProperty' ], soluteGramsProperty ],
       ( pattern, soluteGrams ) => StringUtils.format( pattern, Utils.toFixed( soluteGrams, DECIMAL_PLACES ) ), {
-        tandem: options.tandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
-        phetioValueType: StringIO
+        tandem: options.tandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME )
       } );
 
     super( stringProperty, options );

@@ -24,10 +24,10 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { HBox, HStrut, LinearGradient, Node, NodeOptions, Text } from '../../../../scenery/js/imports.js';
 import SunConstants from '../../../../sun/js/SunConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 
 // constants
 const FONT = new PhetFont( 20 );
@@ -54,11 +54,10 @@ export default class ConcentrationControl extends Node {
     }, providedOptions );
 
     // Concentration:
-    const labelStringProperty = new DerivedProperty(
+    const labelStringProperty = new DerivedStringProperty(
       [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.concentrationStringProperty ],
       ( pattern, concentrationString ) => StringUtils.format( pattern, concentrationString ), {
-        tandem: options.tandem.createTandem( 'labelStringProperty' ),
-        phetioValueType: StringIO
+        tandem: options.tandem.createTandem( 'labelStringProperty' )
       } );
 
     // Whether concentration is editable. If false, hides the slider and arrow buttons. For PHET-iO only.

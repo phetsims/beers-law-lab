@@ -7,6 +7,7 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import WithRequired from '../../../../phet-core/js/types/WithRequired.js';
@@ -15,7 +16,6 @@ import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { HBox, HBoxOptions, Node, Rectangle, RichText, Text } from '../../../../scenery/js/imports.js';
 import ComboBox, { ComboBoxItem, ComboBoxOptions } from '../../../../sun/js/ComboBox.js';
-import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
@@ -49,11 +49,10 @@ export default class SolutionControl extends HBox {
 
     const labelTextTandem = options.comboBoxOptions.tandem.createTandem( 'labelText' );
 
-    const stringProperty = new DerivedProperty(
+    const stringProperty = new DerivedStringProperty(
       [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.solutionStringProperty ],
       ( pattern: string, solutionString: string ) => StringUtils.format( pattern, solutionString ), {
-        tandem: labelTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
-        phetioValueType: StringIO
+        tandem: labelTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME )
       } );
 
     // items

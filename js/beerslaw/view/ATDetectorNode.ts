@@ -6,7 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
@@ -25,7 +25,6 @@ import ShadedRectangle from '../../../../scenery-phet/js/ShadedRectangle.js';
 import { DragListener, Node, NodeOptions, Path, Text, VBox } from '../../../../scenery/js/imports.js';
 import AquaRadioButtonGroup, { AquaRadioButtonGroupItem } from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
@@ -145,7 +144,7 @@ class BodyNode extends Node {
     const valueTextTandem = options.tandem.createTandem( 'valueText' );
 
     // value + units
-    const valueStringProperty = new DerivedProperty(
+    const valueStringProperty = new DerivedStringProperty(
       [
         BeersLawLabStrings.pattern[ '0percentStringProperty' ],
         detector.modeProperty,
@@ -167,7 +166,7 @@ class BodyNode extends Node {
         return valueString;
       }, {
         tandem: valueTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
-        phetioValueType: StringIO,
+
         phetioFeatured: true
       } );
 

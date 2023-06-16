@@ -6,7 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import optionize, { combineOptions, EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -15,7 +15,6 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { HBox, Text, TextOptions } from '../../../../scenery/js/imports.js';
 import HSlider from '../../../../sun/js/HSlider.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
-import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Evaporator from '../model/Evaporator.js';
@@ -42,11 +41,10 @@ export default class EvaporationPanel extends Panel {
 
     const labelTextTandem = options.tandem.createTandem( 'labelText' );
 
-    const stringProperty = new DerivedProperty(
+    const stringProperty = new DerivedStringProperty(
       [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.evaporationStringProperty ],
       ( pattern, evaporationString ) => StringUtils.format( pattern, evaporationString ), {
-        tandem: labelTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
-        phetioValueType: StringIO
+        tandem: labelTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME )
       }
     );
 

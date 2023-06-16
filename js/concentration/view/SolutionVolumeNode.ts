@@ -9,7 +9,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Utils from '../../../../dot/js/Utils.js';
 import { Shape } from '../../../../kite/js/imports.js';
@@ -18,7 +18,6 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Node, NodeOptions, Path, Text } from '../../../../scenery/js/imports.js';
-import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
@@ -50,7 +49,7 @@ export default class SolutionVolumeNode extends Node {
 
     const textTandem = options.tandem.createTandem( 'text' );
 
-    const stringProperty = new DerivedProperty( [
+    const stringProperty = new DerivedStringProperty( [
         BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
         volumeProperty,
         BeersLawLabStrings.units.litersStringProperty,
@@ -72,8 +71,7 @@ export default class SolutionVolumeNode extends Node {
         }
         return StringUtils.format( pattern, volumeString, units );
       }, {
-        tandem: textTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
-        phetioValueType: StringIO
+        tandem: textTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME )
       } );
 
     const text = new Text( stringProperty, {

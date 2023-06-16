@@ -7,6 +7,7 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
@@ -23,7 +24,6 @@ import AquaRadioButtonGroup, { AquaRadioButtonGroupItem } from '../../../../sun/
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
-import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
@@ -57,11 +57,11 @@ export default class WavelengthPanel extends Panel {
 
     const labelTextTandem = options.tandem.createTandem( 'labelText' );
 
-    const stringProperty = new DerivedProperty(
+    const stringProperty = new DerivedStringProperty(
       [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.wavelengthStringProperty ],
       ( pattern, wavelengthString ) => StringUtils.format( pattern, wavelengthString ), {
-        tandem: labelTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
-        phetioValueType: StringIO
+        tandem: labelTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME )
+
       } );
 
     const labelText = new Text( stringProperty, {
