@@ -166,7 +166,6 @@ class BodyNode extends Node {
         return valueString;
       }, {
         tandem: valueTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
-
         phetioFeatured: true
       } );
 

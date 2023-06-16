@@ -61,7 +61,6 @@ export default class WavelengthPanel extends Panel {
       [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.wavelengthStringProperty ],
       ( pattern, wavelengthString ) => StringUtils.format( pattern, wavelengthString ), {
         tandem: labelTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME )
-
       } );
 
     const labelText = new Text( stringProperty, {

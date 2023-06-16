@@ -178,7 +178,6 @@ class BodyNode extends Node {
         return text;
       }, {
         tandem: valueTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME )
-
       } );
     const valueText = new Text( valueStringProperty, {
       font: new PhetFont( 22 ),
