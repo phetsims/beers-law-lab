@@ -34,6 +34,8 @@ export default class SoluteParticleGroup extends PhetioGroup<SoluteParticle, Sol
 
     const options = optionize<SoluteParticleGroupOptions, SelfOptions, PhetioGroupOptions>()( {
 
+      groupElementStartingIndex: 0,
+
       // PhetioGroupOptions
       phetioType: PhetioGroup.PhetioGroupIO( SoluteParticle.SoluteParticleIO )
     }, providedOptions );
