@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import LinkableProperty from '../../../../axon/js/LinkableProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -21,6 +20,7 @@ import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import SoluteColorScheme from '../../concentration/model/SoluteColorScheme.js';
 import Solvent from './Solvent.js';
+import PhetioProperty from '../../../../axon/js/PhetioProperty.js';
 
 // parent tandem for all static instances of Solute
 const SOLUTES_TANDEM = Tandem.GLOBAL_MODEL.createTandem( 'solutes' );
@@ -28,7 +28,7 @@ const SOLUTES_TANDEM = Tandem.GLOBAL_MODEL.createTandem( 'solutes' );
 type SelfOptions = {
 
   // required
-  nameProperty: LinkableProperty<string>;
+  nameProperty: PhetioProperty<string>;
   stockSolutionConcentration: number; // mol/L
   molarMass: number; // g/mol
   colorScheme: SoluteColorScheme;
@@ -49,10 +49,10 @@ export default class Solute extends PhetioObject {
   // the solute's tandem name, used to create other tandems that pertain to this solute
   public readonly tandemName: string;
 
-  public readonly nameProperty: LinkableProperty<string>;
+  public readonly nameProperty: PhetioProperty<string>;
 
   // Added for PhET-iO, see https://github.com/phetsims/beers-law-lab/issues/272
-  public readonly formulaProperty: LinkableProperty<string | null>;
+  public readonly formulaProperty: Property<string | null>;
 
   public readonly stockSolutionConcentration: number; // mol/L
   public readonly molarMass: number; // g/mol

@@ -5,65 +5,65 @@
  */
 /* eslint-disable */
 import getStringModule from '../../chipper/js/getStringModule.js';
-import LinkableProperty from '../../axon/js/LinkableProperty.js';
+import type LocalizedStringProperty from '../../chipper/js/LocalizedStringProperty.js';
 import beersLawLab from './beersLawLab.js';
 
 type StringsType = {
-  'absorbanceStringProperty': LinkableProperty<string>;
+  'absorbanceStringProperty': LocalizedStringProperty;
   'beers-law-lab': {
-    'titleStringProperty': LinkableProperty<string>;
+    'titleStringProperty': LocalizedStringProperty;
   };
-  'cobaltIINitrateStringProperty': LinkableProperty<string>;
-  'cobaltChlorideStringProperty': LinkableProperty<string>;
-  'concentrationStringProperty': LinkableProperty<string>;
-  'copperSulfateStringProperty': LinkableProperty<string>;
-  'drinkMixStringProperty': LinkableProperty<string>;
-  'evaporationStringProperty': LinkableProperty<string>;
-  'presetStringProperty': LinkableProperty<string>;
-  'lotsStringProperty': LinkableProperty<string>;
-  'nickelIIChlorideStringProperty': LinkableProperty<string>;
-  'noneStringProperty': LinkableProperty<string>;
+  'cobaltIINitrateStringProperty': LocalizedStringProperty;
+  'cobaltChlorideStringProperty': LocalizedStringProperty;
+  'concentrationStringProperty': LocalizedStringProperty;
+  'copperSulfateStringProperty': LocalizedStringProperty;
+  'drinkMixStringProperty': LocalizedStringProperty;
+  'evaporationStringProperty': LocalizedStringProperty;
+  'presetStringProperty': LocalizedStringProperty;
+  'lotsStringProperty': LocalizedStringProperty;
+  'nickelIIChlorideStringProperty': LocalizedStringProperty;
+  'noneStringProperty': LocalizedStringProperty;
   'pattern': {
-    '0labelStringProperty': LinkableProperty<string>;
+    '0labelStringProperty': LocalizedStringProperty;
     '0value': {
-      '1unitsStringProperty': LinkableProperty<string>;
+      '1unitsStringProperty': LocalizedStringProperty;
     };
-    '0percentStringProperty': LinkableProperty<string>;
+    '0percentStringProperty': LocalizedStringProperty;
     '0formula': {
-      '1nameStringProperty': LinkableProperty<string>;
+      '1nameStringProperty': LocalizedStringProperty;
     };
-    '0soluteAmountStringProperty': LinkableProperty<string>;
+    '0soluteAmountStringProperty': LocalizedStringProperty;
   };
-  'potassiumChromateStringProperty': LinkableProperty<string>;
-  'potassiumDichromateStringProperty': LinkableProperty<string>;
-  'potassiumPermanganateStringProperty': LinkableProperty<string>;
-  'removeSoluteStringProperty': LinkableProperty<string>;
-  'saturatedStringProperty': LinkableProperty<string>;
-  'sodiumChlorideStringProperty': LinkableProperty<string>;
-  'solidStringProperty': LinkableProperty<string>;
-  'soluteStringProperty': LinkableProperty<string>;
-  'solutionStringProperty': LinkableProperty<string>;
+  'potassiumChromateStringProperty': LocalizedStringProperty;
+  'potassiumDichromateStringProperty': LocalizedStringProperty;
+  'potassiumPermanganateStringProperty': LocalizedStringProperty;
+  'removeSoluteStringProperty': LocalizedStringProperty;
+  'saturatedStringProperty': LocalizedStringProperty;
+  'sodiumChlorideStringProperty': LocalizedStringProperty;
+  'solidStringProperty': LocalizedStringProperty;
+  'soluteStringProperty': LocalizedStringProperty;
+  'solutionStringProperty': LocalizedStringProperty;
   'screen': {
-    'concentrationStringProperty': LinkableProperty<string>;
-    'beersLawStringProperty': LinkableProperty<string>;
+    'concentrationStringProperty': LocalizedStringProperty;
+    'beersLawStringProperty': LocalizedStringProperty;
   };
-  'transmittanceStringProperty': LinkableProperty<string>;
+  'transmittanceStringProperty': LocalizedStringProperty;
   'units': {
-    'centimetersStringProperty': LinkableProperty<string>;
-    'litersStringProperty': LinkableProperty<string>;
-    'millilitersStringProperty': LinkableProperty<string>;
-    'molesPerLiterStringProperty': LinkableProperty<string>;
-    'mMStringProperty': LinkableProperty<string>;
-    'uMStringProperty': LinkableProperty<string>;
-    'nmStringProperty': LinkableProperty<string>;
-    'percentStringProperty': LinkableProperty<string>;
+    'centimetersStringProperty': LocalizedStringProperty;
+    'litersStringProperty': LocalizedStringProperty;
+    'millilitersStringProperty': LocalizedStringProperty;
+    'molesPerLiterStringProperty': LocalizedStringProperty;
+    'mMStringProperty': LocalizedStringProperty;
+    'uMStringProperty': LocalizedStringProperty;
+    'nmStringProperty': LocalizedStringProperty;
+    'percentStringProperty': LocalizedStringProperty;
   };
-  'variableStringProperty': LinkableProperty<string>;
-  'wavelengthStringProperty': LinkableProperty<string>;
-  'showSolutionVolumeStringProperty': LinkableProperty<string>;
-  'showSoluteAmountStringProperty': LinkableProperty<string>;
-  'beakerUnitsStringProperty': LinkableProperty<string>;
-  'concentrationMeterUnitsStringProperty': LinkableProperty<string>;
+  'variableStringProperty': LocalizedStringProperty;
+  'wavelengthStringProperty': LocalizedStringProperty;
+  'showSolutionVolumeStringProperty': LocalizedStringProperty;
+  'showSoluteAmountStringProperty': LocalizedStringProperty;
+  'beakerUnitsStringProperty': LocalizedStringProperty;
+  'concentrationMeterUnitsStringProperty': LocalizedStringProperty;
 };
 
 const BeersLawLabStrings = getStringModule( 'BEERS_LAW_LAB' ) as StringsType;

@@ -30,7 +30,7 @@ import ConcentrationTransform from './ConcentrationTransform.js';
 import MolarAbsorptivityData from './MolarAbsorptivityData.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import optionize from '../../../../phet-core/js/optionize.js';
-import LinkableProperty from '../../../../axon/js/LinkableProperty.js';
+import PhetioProperty from '../../../../axon/js/PhetioProperty.js';
 
 // parent tandem for all static instances of BeersLawSolution
 const SOLUTIONS_TANDEM = Tandem.ROOT.createTandem( 'beersLawScreen' ).createTandem( 'model' ).createTandem( 'solutions' );
@@ -38,8 +38,8 @@ const SOLUTIONS_TANDEM = Tandem.ROOT.createTandem( 'beersLawScreen' ).createTand
 type SelfOptions = {
 
   // required
-  nameProperty: LinkableProperty<string>; // name that is visible to the user
-  formulaProperty: LinkableProperty<string | null>; // formula that is visible to the user, null defaults to nameProperty.value
+  nameProperty: PhetioProperty<string>; // name that is visible to the user
+  formulaProperty: PhetioProperty<string | null>; // formula that is visible to the user, null defaults to nameProperty.value
   molarAbsorptivityData: MolarAbsorptivityData;
   concentrationRange: RangeWithValue;
   concentrationTransform: ConcentrationTransform;
