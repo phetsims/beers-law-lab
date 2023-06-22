@@ -9,6 +9,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Disposable from '../../../../axon/js/Disposable.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import beersLawLab from '../../beersLawLab.js';
 
@@ -30,7 +31,7 @@ class MolarAbsorptivityData {
   }
 
   public dispose(): void {
-    assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
+    Disposable.assertNotDisposable();
   }
 
   /**

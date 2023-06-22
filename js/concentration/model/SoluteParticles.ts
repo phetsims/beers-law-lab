@@ -7,6 +7,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Disposable from '../../../../axon/js/Disposable.js';
 import Solute from '../../common/model/Solute.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import beersLawLab from '../../beersLawLab.js';
@@ -39,7 +40,7 @@ export default class SoluteParticles {
   }
 
   public dispose(): void {
-    assert && assert( false, 'dispose is not supported, exists for the lifetime of the sim' );
+    Disposable.assertNotDisposable();
   }
 
   /**
@@ -60,7 +61,7 @@ export default class SoluteParticles {
    * Creates a particle.
    */
   protected createParticle( solute: Solute, position: Vector2, orientation: number,
-                                velocity: Vector2, acceleration: Vector2 ): void {
+                            velocity: Vector2, acceleration: Vector2 ): void {
     this.particleGroup.createNextElement( solute, position, orientation, velocity, acceleration );
   }
 
