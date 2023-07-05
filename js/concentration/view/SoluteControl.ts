@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import optionize from '../../../../phet-core/js/optionize.js';
@@ -33,17 +32,20 @@ export default class SoluteControl extends HBox {
                       providedOptions: SoluteComboBoxOptions ) {
 
     const options = optionize<SoluteComboBoxOptions, SelfOptions, HBoxOptions>()( {
-      spacing: 10,
 
+      // SelfOptions
       comboBoxOptions: {
-        // ComboBoxOptions
         listPosition: 'below',
         xMargin: 12,
         yMargin: 12,
         highlightFill: 'rgb( 218, 255, 255 )',
         cornerRadius: 8,
         tandem: Tandem.REQUIRED
-      }
+      },
+
+      // HBoxOptions
+      isDisposable: false,
+      spacing: 10
     }, providedOptions );
 
     const labelTextTandem = options.comboBoxOptions.tandem.createTandem( 'labelText' );
@@ -68,11 +70,6 @@ export default class SoluteControl extends HBox {
     ];
 
     super( options );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import optionize, { combineOptions, EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
@@ -31,6 +30,7 @@ export default class EvaporationPanel extends Panel {
     const options = optionize<EvaporationPanelOptions, SelfOptions, PanelOptions>()( {
 
       // PanelOptions
+      isDisposable: false,
       fill: '#F0F0F0',
       stroke: 'gray',
       xMargin: 15,
@@ -92,11 +92,6 @@ export default class EvaporationPanel extends Panel {
     } );
 
     super( content, options );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

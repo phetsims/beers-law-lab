@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import Property from '../../../../axon/js/Property.js';
 import { Node, VBox } from '../../../../scenery/js/imports.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
@@ -56,17 +55,13 @@ export default class SolutePanel extends Panel {
     } );
 
     const contentNode = new VBox( {
+      isDisposable: false,
       align: 'left',
       spacing: 15,
       children: [ soluteComboBox, soluteFormRadioButtonGroup ]
     } );
 
     super( contentNode, options );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

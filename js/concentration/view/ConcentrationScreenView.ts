@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
@@ -48,6 +47,7 @@ export default class ConcentrationScreenView extends ScreenView {
       // See https://github.com/phetsims/scenery/issues/1289 and https://github.com/phetsims/beers-law-lab/issues/299.
       preventFit: true,
       layoutBounds: BLLConstants.LAYOUT_BOUNDS,
+      isDisposable: false,
       tandem: tandem
     } );
 
@@ -223,11 +223,6 @@ export default class ConcentrationScreenView extends ScreenView {
     // bottom right
     resetAllButton.right = this.layoutBounds.right - 30;
     resetAllButton.bottom = this.layoutBounds.bottom - 30;
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

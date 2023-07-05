@@ -56,6 +56,7 @@ export default class PrecipitateParticles extends SoluteParticles {
 
   public override dispose(): void {
     Disposable.assertNotDisposable();
+    super.dispose();
   }
 
   /*

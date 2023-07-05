@@ -7,7 +7,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import Property from '../../../../axon/js/Property.js';
 import { Shape } from '../../../../kite/js/imports.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
@@ -36,6 +35,7 @@ export default class BLLRulerNode extends RulerNode {
       cursor: 'pointer',
       minorTicksPerMajorTick: 4,
       insetsWidth: 0,
+      isDisposable: false,
       phetioInputEnabledPropertyInstrumented: true,
       visiblePropertyOptions: {
         phetioFeatured: true
@@ -77,11 +77,6 @@ export default class BLLRulerNode extends RulerNode {
     this.addLinkedElement( ruler, {
       tandemName: 'ruler'
     } );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

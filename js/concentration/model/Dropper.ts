@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
@@ -49,7 +48,8 @@ export default class Dropper extends PhetioObject {
       position: Vector2.ZERO,
       maxFlowRate: 1,
 
-      // PhetioObjectpOptions
+      // PhetioObjectOptions
+      isDisposable: false,
       phetioState: false
     }, providedOptions );
 
@@ -117,11 +117,6 @@ export default class Dropper extends PhetioObject {
     this.addLinkedElement( soluteProperty, {
       tandemName: 'soluteProperty'
     } );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 
   public reset(): void {

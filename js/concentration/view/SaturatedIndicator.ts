@@ -7,7 +7,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import BackgroundNode from '../../../../scenery-phet/js/BackgroundNode.js';
@@ -27,6 +26,7 @@ export default class SaturatedIndicator extends BackgroundNode {
     } );
 
     super( text, {
+      isDisposable: false,
       visibleProperty: isSaturatedProperty,
       xMargin: 10,
       yMargin: 5,
@@ -37,11 +37,6 @@ export default class SaturatedIndicator extends BackgroundNode {
       },
       tandem: tandem
     } );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

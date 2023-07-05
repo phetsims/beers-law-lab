@@ -7,7 +7,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
@@ -49,6 +48,7 @@ export default class ATDetector extends PhetioObject {
       bodyPosition: Vector2.ZERO,
       probePosition: Vector2.ZERO,
       probeDragBounds: Bounds2.EVERYTHING,
+      isDisposable: false,
       phetioState: false
     }, providedOptions );
 
@@ -104,11 +104,6 @@ export default class ATDetector extends PhetioObject {
         phetioValueType: NullableIO( NumberIO ),
         phetioDocumentation: 'Transmittance at the position of the probe, null if the probe is not in the light beam'
       } );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 
   public reset(): void {

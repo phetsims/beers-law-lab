@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
@@ -31,6 +30,7 @@ export default class SoluteAmountText extends Text {
   public constructor( soluteGramsProperty: TReadOnlyProperty<number>, providedOptions: SoluteGramsNodeOptions ) {
 
     const options = optionize<SoluteGramsNodeOptions, SelfOptions, TextOptions>()( {
+      isDisposable: false,
       font: new PhetFont( 22 ),
       maxWidth: 200,
       visibleProperty: BLLPreferences.showSoluteAmountProperty
@@ -43,11 +43,6 @@ export default class SoluteAmountText extends Text {
       } );
 
     super( stringProperty, options );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

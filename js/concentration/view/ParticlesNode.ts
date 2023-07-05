@@ -8,7 +8,6 @@
  * @author Jonathan Olson
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import { CanvasNode } from '../../../../scenery/js/imports.js';
@@ -23,6 +22,7 @@ export default class ParticlesNode extends CanvasNode {
   protected constructor( particles: SoluteParticles, modelViewTransform: ModelViewTransform2, canvasBounds: Bounds2 ) {
 
     super( {
+      isDisposable: false,
       pickable: false,
       canvasBounds: canvasBounds
     } );
@@ -34,11 +34,6 @@ export default class ParticlesNode extends CanvasNode {
     // If particles are added or removed, then redraw.
     this.particles.addParticleCreatedListener( () => this.invalidatePaint() );
     this.particles.addParticleDisposedListener( () => this.invalidatePaint() );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 
   /**

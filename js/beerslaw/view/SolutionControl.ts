@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Property from '../../../../axon/js/Property.js';
@@ -36,8 +35,8 @@ export default class SolutionControl extends HBox {
                       providedOptions: SolutionComboBoxOptions ) {
 
     const options = optionize<SolutionComboBoxOptions, SelfOptions, HBoxOptions>()( {
+      isDisposable: false,
       spacing: 10,
-
       comboBoxOptions: {
         tandem: Tandem.REQUIRED,
         listPosition: 'above',
@@ -69,11 +68,6 @@ export default class SolutionControl extends HBox {
     ];
 
     super( options );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

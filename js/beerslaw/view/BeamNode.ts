@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import { Path } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import Beam from '../model/Beam.js';
@@ -19,7 +18,8 @@ export default class BeamNode extends Path {
       visibleProperty: beam.visibleProperty,
       stroke: 'rgba( 192, 192, 192, 0.8 )',
       lineWidth: 0.5,
-      pickable: false
+      pickable: false,
+      isDisposable: false
     } );
 
     // shape
@@ -29,11 +29,6 @@ export default class BeamNode extends Path {
     beam.fillProperty.link( fill => {
       this.fill = fill;
     } );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

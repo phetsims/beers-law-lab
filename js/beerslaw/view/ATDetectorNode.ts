@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
@@ -58,6 +57,7 @@ export default class ATDetectorNode extends Node {
     const options = optionize<ATDetectorNodeOptions, SelfOptions, NodeOptions>()( {
 
       // NodeOptions
+      isDisposable: false,
       visiblePropertyOptions: {
         phetioFeatured: true
       }
@@ -80,11 +80,6 @@ export default class ATDetectorNode extends Node {
     this.addLinkedElement( detector, {
       tandemName: 'detector'
     } );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

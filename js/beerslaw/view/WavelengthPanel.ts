@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
@@ -46,6 +45,7 @@ export default class WavelengthPanel extends Panel {
     const options = optionize<WavelengthPanelOptions, SelfOptions, PanelOptions>()( {
 
       // PanelOptions
+      isDisposable: false,
       xMargin: 20,
       yMargin: 15,
       fill: '#F0F0F0',
@@ -174,11 +174,6 @@ export default class WavelengthPanel extends Panel {
     super( content, options );
 
     this.addLinkedElement( light.wavelengthProperty );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

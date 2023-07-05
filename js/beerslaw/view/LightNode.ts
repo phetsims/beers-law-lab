@@ -7,7 +7,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -27,6 +26,7 @@ export default class LightNode extends LaserPointerNode {
     const options = optionize<LightNodeOptions, SelfOptions, LaserPointerNodeOptions>()( {
 
       // LaserPointerNodeOptions
+      isDisposable: false,
       bodySize: new Dimension2( 126, 78 ),
       nozzleSize: new Dimension2( 16, 65 ),
       buttonRadius: 26,
@@ -40,11 +40,6 @@ export default class LightNode extends LaserPointerNode {
     this.addLinkedElement( light, {
       tandemName: 'light'
     } );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

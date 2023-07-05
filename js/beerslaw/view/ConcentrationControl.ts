@@ -7,7 +7,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DynamicProperty from '../../../../axon/js/DynamicProperty.js';
@@ -49,6 +48,7 @@ export default class ConcentrationControl extends Node {
     const options = optionize<ConcentrationControlOptions, SelfOptions, NodeOptions>()( {
 
       // NodeOptions
+      isDisposable: false,
       visiblePropertyOptions: {
         phetioFeatured: true
       }
@@ -80,11 +80,6 @@ export default class ConcentrationControl extends Node {
     // concentrationProperty is unused in this class, and provided only so that it can be linked for PhET-iO.
     this.addLinkedElement( concentrationProperty );
   }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
-  }
 }
 
 /**
@@ -107,6 +102,7 @@ class SoluteConcentrationControl extends NumberControl {
     const options = optionize<SoluteConcentrationControlOptions, SoluteConcentrationControlSelfOptions, NumberControlOptions>()( {
 
       // NumberControl options
+      isDisposable: false,
       titleNodeOptions: {
         font: FONT
       },
@@ -209,11 +205,6 @@ class SoluteConcentrationControl extends NumberControl {
     this.solution = solution;
 
     this.addLinkedElement( solution.concentrationProperty );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

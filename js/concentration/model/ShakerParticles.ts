@@ -73,6 +73,7 @@ export default class ShakerParticles extends SoluteParticles {
 
   public override dispose(): void {
     Disposable.assertNotDisposable();
+    super.dispose();
   }
 
   public reset(): void {

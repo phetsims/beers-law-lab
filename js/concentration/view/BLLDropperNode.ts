@@ -7,7 +7,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import { Shape } from '../../../../kite/js/imports.js';
@@ -36,6 +35,7 @@ export default class BLLDropperNode extends EyeDropperNode {
     const options = optionize<BLLDropperNodeOptions, SelfOptions, EyeDropperNodeOptions>()( {
 
       // EyeDropperNodeOptions
+      isDisposable: false,
       isDispensingProperty: dropper.isDispensingProperty,
       isEmptyProperty: dropper.isEmptyProperty,
       buttonOptions: {
@@ -92,11 +92,6 @@ export default class BLLDropperNode extends EyeDropperNode {
     this.touchArea = this.localBounds.dilatedX( 0.25 * this.width );
 
     this.addLinkedElement( dropper );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

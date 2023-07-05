@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
@@ -33,6 +32,7 @@ export default class BeersLawScreenView extends ScreenView {
       // See https://github.com/phetsims/scenery/issues/1289 and https://github.com/phetsims/beers-law-lab/issues/299.
       preventFit: true,
       layoutBounds: BLLConstants.LAYOUT_BOUNDS,
+      isDisposable: false,
       tandem: tandem
     } );
 
@@ -97,11 +97,6 @@ export default class BeersLawScreenView extends ScreenView {
       ]
     } );
     this.addChild( screenViewRootNode );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

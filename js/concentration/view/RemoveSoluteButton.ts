@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
@@ -29,6 +28,7 @@ export default class RemoveSoluteButton extends TextPushButton {
     const options = optionize<RemoveSoluteButtonOptions, SelfOptions, TextPushButtonOptions>()( {
 
       // TextPushButtonOptions
+      isDisposable: false,
       baseColor: 'rgb(255,200,0)',
       font: new PhetFont( 22 ),
       textFill: 'black',
@@ -50,11 +50,6 @@ export default class RemoveSoluteButton extends TextPushButton {
     solution.soluteMolesProperty.link( soluteAmount => {
       this.enabled = ( soluteAmount > 0 );
     } );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

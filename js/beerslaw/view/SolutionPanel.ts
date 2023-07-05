@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import Property from '../../../../axon/js/Property.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -31,6 +30,7 @@ export default class SolutionPanel extends Panel {
                       providedOptions: SolutionPanelOptions ) {
 
     const options = optionize<SolutionPanelOptions, SelfOptions, PanelOptions>()( {
+      isDisposable: false,
       xMargin: 15,
       yMargin: 15,
       fill: '#F0F0F0',
@@ -63,11 +63,6 @@ export default class SolutionPanel extends Panel {
     this.addLinkedElement( solutionInCuvette, {
       tandemName: 'solutionInCuvette'
     } );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

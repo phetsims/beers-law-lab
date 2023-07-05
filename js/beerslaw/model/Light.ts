@@ -7,7 +7,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
@@ -41,9 +40,14 @@ export default class Light extends PhetioObject {
   public constructor( solutionProperty: Property<BeersLawSolution>, providedOptions: LightOptions ) {
 
     const options = optionize<LightOptions, SelfOptions, PhetioObjectOptions>()( {
+
+      // SelfOptions
       position: Vector2.ZERO, // cm
       lensDiameter: 0.45, // cm
       isOn: false,
+
+      // PhetioObjectOptions
+      isDisposable: false,
       phetioState: false
     }, providedOptions );
 
@@ -82,11 +86,6 @@ export default class Light extends PhetioObject {
         this.wavelengthProperty.value = solutionProperty.value.molarAbsorptivityData.lambdaMax;
       }
     } );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 
   public reset(): void {

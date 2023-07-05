@@ -7,7 +7,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import Utils from '../../../../dot/js/Utils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import { Rectangle } from '../../../../scenery/js/imports.js';
@@ -24,7 +23,8 @@ export default class SolutionNode extends Rectangle {
   public constructor( solution: ConcentrationSolution, beaker: Beaker, modelViewTransform: ModelViewTransform2 ) {
 
     super( 0, 0, 1, 1, {
-      lineWidth: BLLConstants.SOLUTION_LINE_WIDTH
+      lineWidth: BLLConstants.SOLUTION_LINE_WIDTH,
+      isDisposable: false
     } );
 
     // Update the color of the solution, accounting for saturation.
@@ -49,11 +49,6 @@ export default class SolutionNode extends Rectangle {
       const viewHeight = modelViewTransform.modelToViewDeltaY( solutionHeight );
       this.setRect( viewPosition.x - ( viewWidth / 2 ), viewPosition.y - viewHeight, viewWidth, viewHeight );
     } );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

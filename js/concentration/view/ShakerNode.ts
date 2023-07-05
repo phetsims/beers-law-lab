@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
@@ -38,6 +37,7 @@ export default class ShakerNode extends Node {
 
       visibleProperty: shaker.visibleProperty,
       cursor: 'pointer',
+      isDisposable: false,
       phetioInputEnabledPropertyInstrumented: true
     }, providedOptions );
 
@@ -91,11 +91,6 @@ export default class ShakerNode extends Node {
     this.addLinkedElement( shaker, {
       tandemName: 'shaker'
     } );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

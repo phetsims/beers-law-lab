@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import Property from '../../../../axon/js/Property.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import { Rectangle } from '../../../../scenery/js/imports.js';
@@ -22,7 +21,10 @@ export default class StockSolutionNode extends Rectangle {
   public constructor( solvent: Solvent, soluteProperty: Property<Solute>, dropper: Dropper, beaker: Beaker,
                       tipWidth: number, modelViewTransform: ModelViewTransform2 ) {
 
-    super( 0, 0, 0, 0, { lineWidth: 1 } );
+    super( 0, 0, 0, 0, {
+      lineWidth: 1,
+      isDisposable: false
+    } );
 
     // shape and position
     const updateShapeAndPosition = () => {
@@ -52,11 +54,6 @@ export default class StockSolutionNode extends Rectangle {
     dropper.visibleProperty.link( visible => {
       this.setVisible( visible );
     } );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

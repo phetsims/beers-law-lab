@@ -19,7 +19,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
@@ -50,6 +49,7 @@ export default class SolutionInCuvette extends PhetioObject {
                       tandem: Tandem ) {
 
     super( {
+      isDisposable: false,
       tandem: tandem,
       phetioState: false,
       phetioDocumentation: 'The solution in the cuvette'
@@ -96,11 +96,6 @@ export default class SolutionInCuvette extends PhetioObject {
       } );
 
     this.addLinkedElement( solutionProperty );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 
   /**

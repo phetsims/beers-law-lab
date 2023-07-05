@@ -7,7 +7,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import { Shape } from '../../../../kite/js/imports.js';
@@ -44,6 +43,7 @@ export default class BeakerNode extends Node {
     const options = optionize<BeakerNodeOptions, SelfOptions, NodeOptions>()( {
 
       // NodeOptions
+      isDisposable: false,
       pickable: false,
       visiblePropertyOptions: {
         phetioReadOnly: true
@@ -130,11 +130,6 @@ export default class BeakerNode extends Node {
     const position = modelViewTransform.modelToViewPosition( beaker.position );
     this.x = position.x;
     this.y = position.y;
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

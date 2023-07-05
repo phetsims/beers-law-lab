@@ -7,7 +7,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import { Rectangle } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
@@ -18,7 +17,11 @@ export default class FaucetFluidNode extends Rectangle {
 
   public constructor( faucet: Faucet, fluid: Fluid, height: number, modelViewTransform: ModelViewTransform2 ) {
 
-    super( 0, 0, 0, 0, { lineWidth: 1, pickable: false } );
+    super( 0, 0, 0, 0, {
+      isDisposable: false,
+      lineWidth: 1,
+      pickable: false
+    } );
 
     // Set the color of the fluid coming out of the spout.
     fluid.colorProperty.link( color => {
@@ -38,11 +41,6 @@ export default class FaucetFluidNode extends Rectangle {
         this.setRect( viewPosition.x - ( viewWidth / 2 ), viewPosition.y, viewWidth, viewHeight );
       }
     } );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

@@ -7,7 +7,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
@@ -31,6 +30,7 @@ export default class BLLFaucetNode extends FaucetNode {
     const options = optionize<BLLFaucetNodeOptions, SelfOptions, FaucetNodeOptions>()( {
 
       // FaucetNodeOptions
+      isDisposable: false,
       horizontalPipeLength: horizontalPipeLength,
       scale: SCALE,
       shooterOptions: {
@@ -45,11 +45,6 @@ export default class BLLFaucetNode extends FaucetNode {
     super( faucet.maxFlowRate, faucet.flowRateProperty, faucet.enabledProperty, options );
 
     this.translation = modelViewTransform.modelToViewPosition( faucet.position );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

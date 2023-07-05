@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
@@ -34,6 +33,7 @@ export default class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup<Sol
     const options = optionize<SoluteFormRadioButtonGroupOptions, SelfOptions, AquaRadioButtonGroupOptions>()( {
 
       // AquaRadioButtonGroupOptions
+      isDisposable: false,
       orientation: 'horizontal',
       spacing: 60,
       radioButtonOptions: {
@@ -60,11 +60,6 @@ export default class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup<Sol
     ];
 
     super( soluteFormProperty, items, options );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

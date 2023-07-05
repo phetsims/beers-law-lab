@@ -12,7 +12,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
@@ -83,6 +82,7 @@ export default class BeersLawSolution extends PhetioObject {
       saturatedColor: providedOptions.colorRange.max,
 
       // PhetioObjectOptions
+      isDisposable: false,
       phetioType: BeersLawSolution.BeersLawSolutionIO,
       phetioState: false
 
@@ -125,11 +125,6 @@ export default class BeersLawSolution extends PhetioObject {
     this.addLinkedElement( options.formulaProperty, {
       tandemName: 'formulaProperty'
     } );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 
   public reset(): void {

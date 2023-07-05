@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import Property from '../../../../axon/js/Property.js';
 import Utils from '../../../../dot/js/Utils.js';
 import { Shape } from '../../../../kite/js/imports.js';
@@ -43,6 +42,7 @@ export default class CuvetteNode extends Node {
     const options = optionize<CuvetteNodeOptions, SelfOptions, NodeOptions>()( {
 
       // NodeOptions
+      isDisposable: false,
       phetioVisiblePropertyInstrumented: false
     }, providedOptions );
 
@@ -144,6 +144,7 @@ class CuvetteDragListener extends DragListener {
 
     super( {
 
+      isDisposable: false,
       allowTouchSnag: true,
 
       start: event => {
@@ -167,11 +168,6 @@ class CuvetteDragListener extends DragListener {
       // phet-io
       tandem: tandem
     } );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 

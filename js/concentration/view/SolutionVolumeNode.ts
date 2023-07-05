@@ -9,7 +9,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Utils from '../../../../dot/js/Utils.js';
@@ -34,6 +33,7 @@ export default class SolutionVolumeNode extends Node {
     const options = optionize<SolutionVolumeNodeOptions, SelfOptions, NodeOptions>()( {
 
       // NodeOptions
+      isDisposable: false,
       visibleProperty: BLLPreferences.showSolutionVolumeProperty
     }, providedOptions );
 
@@ -89,11 +89,6 @@ export default class SolutionVolumeNode extends Node {
     options.children = [ text, triangleNode ];
 
     super( options );
-  }
-
-  public override dispose(): void {
-    Disposable.assertNotDisposable();
-    super.dispose();
   }
 }
 
