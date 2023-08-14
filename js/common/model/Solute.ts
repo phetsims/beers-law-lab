@@ -130,7 +130,7 @@ export default class Solute extends PhetioObject {
   /**
    * SoluteIO handles PhET-iO serialization of Solute. Since all Solutes are static instances, it implements
    * 'Reference type serialization', as described in the Serialization section of
-   * https://github.com/phetsims/phet-io/blob/master/doc/phet-io-instrumentation-technical-guide.md#serialization
+   * https://github.com/phetsims/phet-io/blob/main/doc/phet-io-instrumentation-technical-guide.md#serialization
    */
   public static readonly SoluteIO = new IOType<Solute, SoluteStateObject>( 'SoluteIO', {
     valueType: Solute,

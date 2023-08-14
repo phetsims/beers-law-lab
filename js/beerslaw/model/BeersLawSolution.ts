@@ -134,7 +134,7 @@ export default class BeersLawSolution extends PhetioObject {
   /**
    * BeersLawSolutionIO handles PhET-iO serialization of BeersLawSolution. Since all BeersLawSolution are
    * static instances, it implements 'Reference type serialization', as described in the Serialization section of
-   * https://github.com/phetsims/phet-io/blob/master/doc/phet-io-instrumentation-technical-guide.md#serialization
+   * https://github.com/phetsims/phet-io/blob/main/doc/phet-io-instrumentation-technical-guide.md#serialization
    */
   public static readonly BeersLawSolutionIO = new IOType( 'BeersLawSolutionIO', {
     valueType: BeersLawSolution,
