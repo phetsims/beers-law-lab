@@ -4,6 +4,7 @@ This implementation was ported from the Java version of this sim. These notes ar
 the Java version, with changes to reflect differences in the HTML5 version.
 
 Source code directory structure is as follows:
+
 * stuff under the "common" subpackage is used by >1 screen
 * stuff under the "concentration" subpackage is used only by the "Concentration" screen
 * stuff under the "beerslaw" subpackage is used only by the "Beer's Law" screen

@@ -45,15 +45,16 @@ Percent Concentration of a solution is:
 
 Percent Concentration of a stock solution is:
 
-&nbsp;&nbsp;&nbsp;&nbsp;stockSolutionPercentConcentration = 100 * ( soluteMolarMass * stockSolutionConcentration ) / ( solventDensity + ( soluteMolarMass * stockSolutionConcentration ) )
+&nbsp;&nbsp;&nbsp;&nbsp;stockSolutionPercentConcentration = 100 * ( soluteMolarMass * stockSolutionConcentration ) / (
+solventDensity + ( soluteMolarMass * stockSolutionConcentration ) )
 
 The solvent is pure water. Solvent can be added to the solution using the faucet in
-the upper-left corner of the play area.  Solvent can be removed from the solution using
+the upper-left corner of the play area. Solvent can be removed from the solution using
 the Evaporation control.
 
 Solute can be added via either the shaker or dropper. The dropper contains a stock solution,
 so it adds both solute and solvent. You can measure the concentration of the stock using
-the Concentration meter.  Pressing the "Remove Solute" button removes all solute from
+the Concentration meter. Pressing the "Remove Solute" button removes all solute from
 the solution.
 
 The faucet in the lower-right corner of the play area is a drain to remove solution
