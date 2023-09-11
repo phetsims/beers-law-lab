@@ -48,37 +48,33 @@ Percent Concentration of a stock solution is:
 &nbsp;&nbsp;&nbsp;&nbsp;stockSolutionPercentConcentration = 100 * ( soluteMolarMass * stockSolutionConcentration ) / (
 solventDensity + ( soluteMolarMass * stockSolutionConcentration ) )
 
-The solvent is pure water. Solvent can be added to the solution using the faucet in
-the upper-left corner of the play area. Solvent can be removed from the solution using
-the Evaporation control.
+The solvent is pure water. Solvent can be added to the solution using the faucet in the upper-left corner of the play
+area. Solvent can be removed from the solution using the Evaporation control.
 
-Solute can be added via either the shaker or dropper. The dropper contains a stock solution,
-so it adds both solute and solvent. You can measure the concentration of the stock using
-the Concentration meter. Pressing the "Remove Solute" button removes all solute from
-the solution.
+Solute can be added via either the shaker or dropper. The dropper contains a stock solution, so it adds both solute and
+solvent. You can measure the concentration of the stock using the Concentration meter. Pressing the "Remove Solute"
+button removes all solute from the solution.
 
 The faucet in the lower-right corner of the play area is a drain to remove solution
 (solvent and solute together). This decreases volume with no change to solution concentration.
 
-Displaced volume due to dissolved solutes is ignored in the simulation; it is a small value,
-but would be non-negligible if we chose to model it. We removed the effect of volume on dissolved
-solutes for the following reasons:
+Displaced volume due to dissolved solutes is ignored in the simulation; it is a small value, but would be non-negligible
+if we chose to model it. We removed the effect of volume on dissolved solutes for the following reasons:
 (a) the effect is relatively small, since solute particles have a small mass
-(b) implementation difficulty in terms of both math and software design
-Regarding this latter point, it reduces to a pair of coupled equations:
+(b) implementation difficulty in terms of both math and software design Regarding this latter point, it reduces to a
+pair of coupled equations:
 molesDissolved = f(volume) and volume = f(molesDissolved)
 
 For additional details, consult the source files in js/concentration/model/.
 
 ## Beer's Law screen
 
-Molar absorptivity (a) is in units of 1/(cm*M), and varies with solution and wavelength.
-For the solutions in this sim, we measured molar absorptivity for visible wavelengths in the laboratory.
-That data is used in the sim, and can be found in Java class MolarAbsorptivityData and
-file beers-law-lab/doc/wavelength-to-molarAbsorptivity.csv
+Molar absorptivity (a) is in units of 1/(cm*M), and varies with solution and wavelength. For the solutions in this sim,
+we measured molar absorptivity for visible wavelengths in the laboratory. That data is used in the sim, and can be found
+in Java class MolarAbsorptivityData and file beers-law-lab/doc/wavelength-to-molarAbsorptivity.csv
 
-Path length (b) is the amount of solution that the beam passes through, in units of cm.
-It depends on the width of the cuvette and the position of the detector probe.
+Path length (b) is the amount of solution that the beam passes through, in units of cm. It depends on the width of the
+cuvette and the position of the detector probe.
 
 Concentration (C) is in units of M, and is the concentration of the solution in the cuvette.
 
