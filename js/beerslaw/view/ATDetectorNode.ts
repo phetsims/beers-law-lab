@@ -106,9 +106,7 @@ class BodyNode extends Node {
       return new Text( text, {
         font: new PhetFont( 18 ),
         fill: 'white',
-        maxWidth: 120,
-        tandem: radioButtonTandem.createTandem( 'labelText' ),
-        phetioVisiblePropertyInstrumented: false
+        maxWidth: 120
       } );
     }
 
@@ -137,8 +135,6 @@ class BodyNode extends Node {
       tandem: options.tandem.createTandem( 'radioButtonGroup' )
     } );
 
-    const valueTextTandem = options.tandem.createTandem( 'valueText' );
-
     // value + units
     const valueStringProperty = new DerivedStringProperty(
       [
@@ -161,14 +157,13 @@ class BodyNode extends Node {
         }
         return valueString;
       }, {
-        tandem: valueTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME ),
+        tandem: options.tandem.createTandem( 'valueStringProperty' ),
         phetioFeatured: true
       } );
 
     const valueText = new Text( valueStringProperty, {
       font: new PhetFont( 22 ),
-      maxWidth: 125,
-      tandem: valueTextTandem
+      maxWidth: 125
     } );
 
     // background behind the value

@@ -13,7 +13,6 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { HBox, Image, Node, Text } from '../../../../scenery/js/imports.js';
 import AquaRadioButtonGroup, { AquaRadioButtonGroupItem, AquaRadioButtonGroupOptions } from '../../../../sun/js/AquaRadioButtonGroup.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import dropperIcon_png from '../../../images/dropperIcon_png.js';
 import shakerIcon_png from '../../../images/shakerIcon_png.js';
 import beersLawLab from '../../beersLawLab.js';
@@ -49,12 +48,12 @@ export default class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup<Sol
     const items: AquaRadioButtonGroupItem<SoluteForm>[] = [
       {
         value: SoluteForm.SOLID,
-        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.solidStringProperty, shakerIcon_png, tandem ),
+        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.solidStringProperty, shakerIcon_png ),
         tandemName: 'solidRadioButton'
       },
       {
         value: SoluteForm.SOLUTION,
-        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.solutionStringProperty, dropperIcon_png, tandem ),
+        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.solutionStringProperty, dropperIcon_png ),
         tandemName: 'solutionRadioButton'
       }
     ];
@@ -66,16 +65,14 @@ export default class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup<Sol
 /**
  * Creates the label for a radio button.
  */
-function createRadioButtonLabel( text: TReadOnlyProperty<string>, image: HTMLImageElement, radioButtonTandem: Tandem ): Node {
+function createRadioButtonLabel( text: TReadOnlyProperty<string>, image: HTMLImageElement ): Node {
   return new HBox( {
     spacing: 10,
     children: [
       new Text( text, {
         font: new PhetFont( 22 ),
         fill: 'black',
-        maxWidth: 100,
-        tandem: radioButtonTandem.createTandem( 'text' ),
-        phetioVisiblePropertyInstrumented: false
+        maxWidth: 100
       } ),
       new Image( image )
     ]

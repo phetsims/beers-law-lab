@@ -21,8 +21,7 @@ export default class SaturatedIndicator extends BackgroundNode {
 
     const text = new Text( BeersLawLabStrings.saturatedStringProperty, {
       font: new PhetFont( 20 ),
-      maxWidth: 400,
-      tandem: tandem.createTandem( 'text' )
+      maxWidth: 400
     } );
 
     super( text, {

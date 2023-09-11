@@ -48,8 +48,6 @@ export default class SolutionVolumeNode extends Node {
       centerY: 0
     } );
 
-    const textTandem = options.tandem.createTandem( 'text' );
-
     const stringProperty = new DerivedStringProperty( [
         BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
         volumeProperty,
@@ -71,14 +69,11 @@ export default class SolutionVolumeNode extends Node {
           units = millilitersString;
         }
         return StringUtils.format( pattern, volumeString, units );
-      }, {
-        tandem: textTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME )
       } );
 
     const text = new Text( stringProperty, {
       font: new PhetFont( 22 ),
-      maxWidth: 100, // determined empirically
-      tandem: textTandem
+      maxWidth: 100 // determined empirically
     } );
 
     text.boundsProperty.link( bounds => {

@@ -35,8 +35,7 @@ export default class ConcentrationMeterUnitsControl extends HBox {
     }, providedOptions );
 
     const labelText = new Text( BeersLawLabStrings.concentrationMeterUnitsStringProperty, {
-      font: PreferencesDialog.CONTENT_FONT,
-      tandem: options.tandem.createTandem( 'labelText' )
+      font: PreferencesDialog.CONTENT_FONT
     } );
 
     const radioButtonGroup = new ConcentrationMeterUnitsRadioButtonGroup( beakerUnitsProperty, {
@@ -90,8 +89,7 @@ function createItem( value: ConcentrationMeterUnits, stringProperty: TReadOnlyPr
     value: value,
     createNode: tandem => new Text( stringProperty, {
       font: PreferencesDialog.CONTENT_FONT,
-      maxWidth: 200,
-      tandem: tandem.createTandem( 'text' )
+      maxWidth: 200
     } ),
     tandemName: `${value}${AquaRadioButton.TANDEM_NAME_SUFFIX}`
   };

@@ -186,17 +186,11 @@ class SoluteConcentrationControl extends NumberControl {
     options.sliderOptions.majorTicks = [
       {
         value: numberRange.min,
-        label: new Text( numberRange.min, {
-          font: TICK_FONT
-          // No PhET-iO instrumentation is desired.
-        } )
+        label: new Text( numberRange.min, { font: TICK_FONT } )
       },
       {
         value: numberRange.max,
-        label: new Text( numberRange.max, {
-          font: TICK_FONT
-          // No PhET-iO instrumentation is desired.
-        } )
+        label: new Text( numberRange.max, { font: TICK_FONT } )
       }
     ];
 

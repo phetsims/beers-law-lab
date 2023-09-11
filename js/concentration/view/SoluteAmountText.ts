@@ -13,7 +13,7 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Text, TextOptions } from '../../../../scenery/js/imports.js';
+import { Node, NodeOptions, Text } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
@@ -23,16 +23,13 @@ const DECIMAL_PLACES = 0;
 
 type SelfOptions = EmptySelfOptions;
 
-type SoluteGramsNodeOptions = SelfOptions & PickRequired<TextOptions, 'tandem'>;
+type SoluteGramsNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
-export default class SoluteAmountText extends Text {
+export default class SoluteAmountText extends Node {
 
   public constructor( soluteGramsProperty: TReadOnlyProperty<number>, providedOptions: SoluteGramsNodeOptions ) {
 
-    const options = optionize<SoluteGramsNodeOptions, SelfOptions, TextOptions>()( {
-      isDisposable: false,
-      font: new PhetFont( 22 ),
-      maxWidth: 200,
+    const options = optionize<SoluteGramsNodeOptions, SelfOptions, NodeOptions>()( {
       visibleProperty: BLLPreferences.showSoluteAmountProperty
     }, providedOptions );
 
@@ -42,7 +39,14 @@ export default class SoluteAmountText extends Text {
         tandem: options.tandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME )
       } );
 
-    super( stringProperty, options );
+    const text = new Text( stringProperty, {
+      isDisposable: false,
+      font: new PhetFont( 22 ),
+      maxWidth: 200
+    } );
+    options.children = [ text ];
+
+    super( options );
   }
 }
 

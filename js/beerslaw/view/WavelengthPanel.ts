@@ -56,18 +56,15 @@ export default class WavelengthPanel extends Panel {
       }
     }, providedOptions );
 
-    const labelTextTandem = options.tandem.createTandem( 'labelText' );
-
-    const stringProperty = new DerivedStringProperty(
+    const labelStringProperty = new DerivedStringProperty(
       [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.wavelengthStringProperty ],
       ( pattern, wavelengthString ) => StringUtils.format( pattern, wavelengthString ), {
-        tandem: labelTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME )
+        tandem: options.tandem.createTandem( 'labelStringProperty' )
       } );
 
-    const labelText = new Text( stringProperty, {
+    const labelText = new Text( labelStringProperty, {
       font: new PhetFont( 20 ),
-      fill: 'black',
-      tandem: labelTextTandem
+      fill: 'black'
     } );
 
     const numberDisplay = new NumberDisplay( light.wavelengthProperty, light.wavelengthProperty.range, {
@@ -83,11 +80,10 @@ export default class WavelengthPanel extends Panel {
       ( pattern, nmString ) => numberDisplay.setNumberFormatter( wavelength => StringUtils.format( pattern, Utils.toFixed( wavelength, 0 ), nmString ) )
     );
 
-    function createRadioButtonLabel( text: TReadOnlyProperty<string>, radioButtonTandem: Tandem ): Node {
+    function createRadioButtonLabel( text: TReadOnlyProperty<string> ): Node {
       return new Text( text, {
         font: new PhetFont( 18 ),
-        fill: 'black',
-        tandem: radioButtonTandem.createTandem( 'labelText' )
+        fill: 'black'
       } );
     }
 
@@ -95,12 +91,12 @@ export default class WavelengthPanel extends Panel {
     const radioButtonItems: AquaRadioButtonGroupItem<LightMode>[] = [
       {
         value: LightMode.PRESET,
-        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.presetStringProperty, tandem ),
+        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.presetStringProperty ),
         tandemName: 'presetWavelengthRadioButton'
       },
       {
         value: LightMode.VARIABLE,
-        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.variableStringProperty, tandem ),
+        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.variableStringProperty ),
         tandemName: 'variableWavelengthRadioButton'
       }
     ];

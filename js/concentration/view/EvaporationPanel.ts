@@ -8,11 +8,11 @@
 
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
-import optionize, { combineOptions, EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { HBox, Text, TextOptions } from '../../../../scenery/js/imports.js';
+import { HBox, Text } from '../../../../scenery/js/imports.js';
 import HSlider from '../../../../sun/js/HSlider.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import beersLawLab from '../../beersLawLab.js';
@@ -40,19 +40,16 @@ export default class EvaporationPanel extends Panel {
       }
     }, providedOptions );
 
-    const labelTextTandem = options.tandem.createTandem( 'labelText' );
-
-    const stringProperty = new DerivedStringProperty(
+    const labelStringProperty = new DerivedStringProperty(
       [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.evaporationStringProperty ],
       ( pattern, evaporationString ) => StringUtils.format( pattern, evaporationString ), {
-        tandem: labelTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME )
+        tandem: options.tandem.createTandem( 'labelStringProperty' )
       }
     );
 
-    const labelText = new Text( stringProperty, {
+    const labelText = new Text( labelStringProperty, {
       font: new PhetFont( 22 ),
-      maxWidth: 130,
-      tandem: labelTextTandem
+      maxWidth: 130
     } );
 
     const sliderTandem = options.tandem.createTandem( 'slider' );
@@ -77,14 +74,8 @@ export default class EvaporationPanel extends Panel {
       font: new PhetFont( 16 ),
       maxWidth: 50
     };
-    slider.addMajorTick( 0, new Text( BeersLawLabStrings.noneStringProperty,
-      combineOptions<TextOptions>( {
-        tandem: sliderTandem.createTandem( 'minTickLabelText' )
-      }, tickOptions ) ) );
-    slider.addMajorTick( evaporator.maxEvaporationRate, new Text( BeersLawLabStrings.lotsStringProperty,
-      combineOptions<TextOptions>( {
-        tandem: sliderTandem.createTandem( 'maxTickLabelText' )
-      }, tickOptions ) ) );
+    slider.addMajorTick( 0, new Text( BeersLawLabStrings.noneStringProperty, tickOptions ) );
+    slider.addMajorTick( evaporator.maxEvaporationRate, new Text( BeersLawLabStrings.lotsStringProperty, tickOptions ) );
 
     const content = new HBox( {
       children: [ labelText, slider ],

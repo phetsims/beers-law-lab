@@ -142,12 +142,10 @@ class BodyNode extends Node {
     const labelText = new Text( BeersLawLabStrings.concentrationStringProperty, {
       font: new PhetFont( 18 ),
       fill: 'white',
-      maxWidth: 125,
-      tandem: tandem.createTandem( 'labelText' )
+      maxWidth: 125
     } );
 
     // value + units
-    const valueTextTandem = tandem.createTandem( 'valueText' );
     const valueStringProperty = new DerivedStringProperty(
       [
         BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
@@ -172,15 +170,11 @@ class BodyNode extends Node {
           }
         }
         return text;
-      }, {
-        tandem: valueTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME )
       } );
     const valueText = new Text( valueStringProperty, {
       font: new PhetFont( 22 ),
       fill: 'black',
-      maxWidth: 125,
-      tandem: valueTextTandem,
-      stringPropertyOptions: { phetioReadOnly: true }
+      maxWidth: 125
     } );
 
     // background behind the value

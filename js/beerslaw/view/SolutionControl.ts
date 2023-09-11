@@ -47,22 +47,19 @@ export default class SolutionControl extends HBox {
       }
     }, providedOptions );
 
-    const labelTextTandem = options.comboBoxOptions.tandem.createTandem( 'labelText' );
-
-    const stringProperty = new DerivedStringProperty(
+    const labelStringProperty = new DerivedStringProperty(
       [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.solutionStringProperty ],
       ( pattern: string, solutionString: string ) => StringUtils.format( pattern, solutionString ), {
-        tandem: labelTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME )
+        tandem: options.comboBoxOptions.tandem.createTandem( 'labelStringProperty' )
       } );
 
     // items
     const items = solutions.map( createItem );
 
     options.children = [
-      new Text( stringProperty, {
+      new Text( labelStringProperty, {
         font: new PhetFont( 20 ),
-        maxWidth: 85,
-        tandem: labelTextTandem
+        maxWidth: 85
       } ),
       new ComboBox<BeersLawSolution>( solutionProperty, items, solutionListParent, options.comboBoxOptions )
     ];

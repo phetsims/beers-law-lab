@@ -48,12 +48,10 @@ export default class SoluteControl extends HBox {
       spacing: 10
     }, providedOptions );
 
-    const labelTextTandem = options.comboBoxOptions.tandem.createTandem( 'labelText' );
-
-    const stringProperty = new DerivedStringProperty(
+    const labelStringProperty = new DerivedStringProperty(
       [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.soluteStringProperty ],
       ( pattern, soluteString ) => StringUtils.format( pattern, soluteString ), {
-        tandem: labelTextTandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME )
+        tandem: options.comboBoxOptions.tandem?.createTandem( 'labelStringProperty' )
       }
     );
 
@@ -61,10 +59,9 @@ export default class SoluteControl extends HBox {
     const items = solutes.map( createItem );
 
     options.children = [
-      new Text( stringProperty, {
+      new Text( labelStringProperty, {
         font: new PhetFont( 22 ),
-        maxWidth: 75,
-        tandem: labelTextTandem
+        maxWidth: 75
       } ),
       new ComboBox( selectedSoluteProperty, items, soluteListParent, options.comboBoxOptions )
     ];

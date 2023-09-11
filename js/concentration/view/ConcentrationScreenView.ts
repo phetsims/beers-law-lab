@@ -138,8 +138,8 @@ export default class ConcentrationScreenView extends ScreenView {
     } );
 
     // Solute amount, in grams
-    const soluteAmountText = new SoluteAmountText( model.solution.soluteGramsProperty, {
-      tandem: tandem.createTandem( 'soluteAmountText' )
+    const soluteAmountNode = new SoluteAmountText( model.solution.soluteGramsProperty, {
+      tandem: tandem.createTandem( 'soluteAmountNode' )
     } );
 
     // Remove Solute button
@@ -174,7 +174,7 @@ export default class ConcentrationScreenView extends ScreenView {
         shakerNode,
         dropperNode,
         evaporationPanel,
-        soluteAmountText,
+        soluteAmountNode,
         removeSoluteButton,
         resetAllButton,
         solutePanel,
@@ -200,18 +200,18 @@ export default class ConcentrationScreenView extends ScreenView {
     evaporationPanel.top = beakerNode.bottom + 30;
 
     Multilink.multilink( [
-      soluteAmountText.visibleProperty,
+      soluteAmountNode.visibleProperty,
       evaporationPanel.boundsProperty,
       removeSoluteButton.boundsProperty,
-      soluteAmountText.boundsProperty
+      soluteAmountNode.boundsProperty
     ], () => {
-      if ( soluteAmountText.visible ) {
+      if ( soluteAmountNode.visible ) {
         // bottom aligned with evaporator
         removeSoluteButton.left = evaporationPanel.right + 30;
         removeSoluteButton.bottom = evaporationPanel.bottom;
         //  above button
-        soluteAmountText.left = removeSoluteButton.left;
-        soluteAmountText.bottom = removeSoluteButton.top - 20;
+        soluteAmountNode.left = removeSoluteButton.left;
+        soluteAmountNode.bottom = removeSoluteButton.top - 20;
       }
       else {
         // left of evaporation control

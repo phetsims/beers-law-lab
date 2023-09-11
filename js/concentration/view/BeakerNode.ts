@@ -121,7 +121,6 @@ export default class BeakerNode extends Node {
             x: rightX + TICK_LABEL_X_SPACING,
             centerY: tickPath.centerY,
             maxWidth: 0.25 * beaker.size.width // constrain width for i18n
-            // No PhET-iO instrumentation is desired.
           } ) );
         }
       }
