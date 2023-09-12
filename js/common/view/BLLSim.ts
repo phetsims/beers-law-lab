@@ -13,7 +13,6 @@ import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../BLLConstants.js';
 import BLLPreferencesNode from './BLLPreferencesNode.js';
-import BLLPreferences from '../model/BLLPreferences.js';
 import PreferencesModel from '../../../../joist/js/preferences/PreferencesModel.js';
 import BeersLawScreen from '../../beerslaw/BeersLawScreen.js';
 import ConcentrationScreen from '../../concentration/ConcentrationScreen.js';
@@ -36,11 +35,7 @@ export default class BLLSim extends Sim {
           customPreferences: [ {
             createContent: tandem => new BLLPreferencesNode( {
               tandem: tandem.createTandem( 'simPreferences' )
-            } ),
-            modelLinkables: [
-              { property: BLLPreferences.showSoluteAmountProperty },
-              { property: BLLPreferences.showSolutionVolumeProperty }
-            ]
+            } )
           } ]
         }
       } ),
