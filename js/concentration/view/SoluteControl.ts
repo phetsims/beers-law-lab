@@ -51,7 +51,7 @@ export default class SoluteControl extends HBox {
     const labelStringProperty = new DerivedStringProperty(
       [ BeersLawLabStrings.pattern[ '0labelStringProperty' ], BeersLawLabStrings.soluteStringProperty ],
       ( pattern, soluteString ) => StringUtils.format( pattern, soluteString ), {
-        tandem: options.comboBoxOptions.tandem?.createTandem( 'labelStringProperty' )
+        tandem: options.comboBoxOptions.tandem.createTandem( 'labelStringProperty' )
       }
     );
 
