@@ -17,6 +17,7 @@ import beersLawLab from '../beersLawLab.js';
 import BeersLawLabStrings from '../BeersLawLabStrings.js';
 import BeersLawModel from './model/BeersLawModel.js';
 import BeersLawScreenView from './view/BeersLawScreenView.js';
+import BLLColors from '../common/BLLColors.js';
 
 export default class BeersLawScreen extends Screen<BeersLawModel, BeersLawScreenView> {
 
@@ -27,6 +28,7 @@ export default class BeersLawScreen extends Screen<BeersLawModel, BeersLawScreen
       // ScreenOptions
       name: BeersLawLabStrings.screen.beersLawStringProperty,
       homeScreenIcon: createScreenIcon(),
+      backgroundColorProperty: BLLColors.screenBackgroundColorProperty,
       tandem: tandem
     };
 

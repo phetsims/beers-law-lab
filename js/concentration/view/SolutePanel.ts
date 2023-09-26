@@ -19,6 +19,7 @@ import SoluteForm from '../model/SoluteForm.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import BLLColors from '../../common/BLLColors.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -33,7 +34,7 @@ export default class SolutePanel extends Panel {
     const options = optionize<SolutePanelOptions, SelfOptions, PanelOptions>()( {
       xMargin: 15,
       yMargin: 15,
-      fill: '#F0F0F0',
+      fill: BLLColors.panelFillProperty,
       stroke: 'gray',
       lineWidth: 1,
       maxWidth: 480,

@@ -30,6 +30,7 @@ import BLLConstants from '../../common/BLLConstants.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
 import Light from '../model/Light.js';
 import LightMode from '../model/LightMode.js';
+import BLLColors from '../../common/BLLColors.js';
 
 // constants
 const SLIDER_TRACK_SIZE = new Dimension2( 150, 30 );
@@ -48,7 +49,7 @@ export default class WavelengthPanel extends Panel {
       isDisposable: false,
       xMargin: 20,
       yMargin: 15,
-      fill: '#F0F0F0',
+      fill: BLLColors.panelFillProperty,
       stroke: 'gray',
       lineWidth: 1,
       visiblePropertyOptions: {

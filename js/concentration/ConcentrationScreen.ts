@@ -16,6 +16,7 @@ import beersLawLab from '../beersLawLab.js';
 import BeersLawLabStrings from '../BeersLawLabStrings.js';
 import ConcentrationModel from './model/ConcentrationModel.js';
 import ConcentrationScreenView from './view/ConcentrationScreenView.js';
+import BLLColors from '../common/BLLColors.js';
 
 export default class ConcentrationScreen extends Screen<ConcentrationModel, ConcentrationScreenView> {
 
@@ -26,6 +27,7 @@ export default class ConcentrationScreen extends Screen<ConcentrationModel, Conc
       // ScreenOptions
       name: BeersLawLabStrings.screen.concentrationStringProperty,
       homeScreenIcon: createScreenIcon(),
+      backgroundColorProperty: BLLColors.screenBackgroundColorProperty,
       tandem: tandem
     };
 

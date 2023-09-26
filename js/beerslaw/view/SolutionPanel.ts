@@ -16,6 +16,7 @@ import BeersLawSolution from '../model/BeersLawSolution.js';
 import ConcentrationControl from './ConcentrationControl.js';
 import SolutionControl from './SolutionControl.js';
 import SolutionInCuvette from '../model/SolutionInCuvette.js';
+import BLLColors from '../../common/BLLColors.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -33,7 +34,7 @@ export default class SolutionPanel extends Panel {
       isDisposable: false,
       xMargin: 15,
       yMargin: 15,
-      fill: '#F0F0F0',
+      fill: BLLColors.panelFillProperty,
       stroke: 'gray',
       lineWidth: 1,
       maxWidth: 575, // determined empirically

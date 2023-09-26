@@ -18,6 +18,7 @@ import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Evaporator from '../model/Evaporator.js';
+import BLLColors from '../../common/BLLColors.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -31,7 +32,7 @@ export default class EvaporationPanel extends Panel {
 
       // PanelOptions
       isDisposable: false,
-      fill: '#F0F0F0',
+      fill: BLLColors.panelFillProperty,
       stroke: 'gray',
       xMargin: 15,
       yMargin: 8,
