@@ -105,12 +105,12 @@ export default class BeersLawSolution extends PhetioObject {
       phetioFeatured: true
     } );
 
-    this.fluidColorProperty = new DerivedProperty( [ this.concentrationProperty ],
-      concentration => {
-        let color = this.solvent.colorProperty.value;
+    this.fluidColorProperty = new DerivedProperty(
+      [ this.concentrationProperty, this.concentrationProperty.rangeProperty, this.solvent.colorProperty ],
+      ( concentration, concentrationRange, solventColor ) => {
+        let color = solventColor;
         if ( concentration > 0 ) {
-          const range = this.concentrationProperty.range;
-          const distance = Utils.linear( range.min, range.max, 0, 1, concentration );
+          const distance = Utils.linear( concentrationRange.min, concentrationRange.max, 0, 1, concentration );
           color = this.colorRange.interpolateLinear( distance );
         }
         return color;
