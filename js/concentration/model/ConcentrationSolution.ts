@@ -96,7 +96,8 @@ export default class ConcentrationSolution extends Fluid {
         tandem: options.tandem.createTandem( 'precipitateMolesProperty' ),
         phetioFeatured: true,
         units: 'mol',
-        phetioValueType: NumberIO
+        phetioValueType: NumberIO,
+        accessNonDependencies: true
       }
     );
 
