@@ -64,6 +64,8 @@ export default class Beam {
         else {
           return null;
         }
+      }, {
+        accessNonDependencies: true
       } );
 
     this.fillProperty = new DerivedProperty(

@@ -92,7 +92,8 @@ export default class ATDetector extends PhetioObject {
         tandem: options.tandem.createTandem( 'absorbanceProperty' ),
         phetioFeatured: true,
         phetioValueType: NullableIO( NumberIO ),
-        phetioDocumentation: 'Absorbance at the position of the probe, null if the probe is not in the light beam'
+        phetioDocumentation: 'Absorbance at the position of the probe, null if the probe is not in the light beam',
+        accessNonDependencies: true
       } );
 
     this.transmittanceProperty = new DerivedProperty(
@@ -102,7 +103,8 @@ export default class ATDetector extends PhetioObject {
         tandem: options.tandem.createTandem( 'transmittanceProperty' ),
         phetioFeatured: true,
         phetioValueType: NullableIO( NumberIO ),
-        phetioDocumentation: 'Transmittance at the position of the probe, null if the probe is not in the light beam'
+        phetioDocumentation: 'Transmittance at the position of the probe, null if the probe is not in the light beam',
+        accessNonDependencies: true
       } );
   }
 
