@@ -65,7 +65,7 @@ export default class Beam {
           return null;
         }
       }, {
-        accessNonDependencies: true
+        accessNonDependencies: true //TODO https://github.com/phetsims/beers-law-lab/issues/333
       } );
 
     this.fillProperty = new DerivedProperty(

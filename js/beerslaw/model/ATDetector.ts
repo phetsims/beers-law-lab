@@ -93,7 +93,7 @@ export default class ATDetector extends PhetioObject {
         phetioFeatured: true,
         phetioValueType: NullableIO( NumberIO ),
         phetioDocumentation: 'Absorbance at the position of the probe, null if the probe is not in the light beam',
-        accessNonDependencies: true
+        accessNonDependencies: true //TODO https://github.com/phetsims/beers-law-lab/issues/333
       } );
 
     this.transmittanceProperty = new DerivedProperty(
@@ -104,7 +104,7 @@ export default class ATDetector extends PhetioObject {
         phetioFeatured: true,
         phetioValueType: NullableIO( NumberIO ),
         phetioDocumentation: 'Transmittance at the position of the probe, null if the probe is not in the light beam',
-        accessNonDependencies: true
+        accessNonDependencies: true //TODO https://github.com/phetsims/beers-law-lab/issues/333
       } );
   }
 
