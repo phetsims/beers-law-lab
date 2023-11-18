@@ -31,7 +31,7 @@ import BeersLawSolution from './BeersLawSolution.js';
 export default class SolutionInCuvette extends PhetioObject {
 
   // a : molar absorptivity
-  private readonly molarAbsorptivityProperty: TReadOnlyProperty<number>;
+  public readonly molarAbsorptivityProperty: TReadOnlyProperty<number>;
 
   // C : concentration property, wired to the current solution's concentration
   public readonly concentrationProperty: ReadOnlyProperty<number>;
@@ -79,7 +79,7 @@ export default class SolutionInCuvette extends PhetioObject {
     this.absorbanceProperty = new DerivedProperty(
       [ this.molarAbsorptivityProperty, cuvetteWidthProperty, this.concentrationProperty ],
       ( molarAbsorptivity, cuvetteWidth, concentration ) =>
-        getAbsorbance( molarAbsorptivity, cuvetteWidth, concentration ), {
+        SolutionInCuvette.getAbsorbance( molarAbsorptivity, cuvetteWidth, concentration ), {
         tandem: tandem.createTandem( 'absorbanceProperty' ),
         phetioFeatured: true,
         phetioValueType: NumberIO,
@@ -88,7 +88,7 @@ export default class SolutionInCuvette extends PhetioObject {
 
     this.transmittanceProperty = new DerivedProperty(
       [ this.absorbanceProperty ],
-      absorbance => getTransmittance( absorbance ), {
+      absorbance => SolutionInCuvette.getTransmittance( absorbance ), {
         tandem: tandem.createTandem( 'transmittanceProperty' ),
         phetioFeatured: true,
         phetioValueType: NumberIO,
@@ -99,32 +99,18 @@ export default class SolutionInCuvette extends PhetioObject {
   }
 
   /**
-   * Gets absorbance for a specified path length.
+   * General model of absorbance: A = abC
    */
-  public getAbsorbanceAt( pathLength: number ): number {
-    return getAbsorbance( this.molarAbsorptivityProperty.value, pathLength, this.concentrationProperty.value );
+  public static getAbsorbance( molarAbsorptivity: number, pathLength: number, concentration: number ): number {
+    return molarAbsorptivity * pathLength * concentration;
   }
 
-  /**
-   * Gets transmittance for a specified path length.
-   */
-  public getTransmittanceAt( pathLength: number ): number {
-    return getTransmittance( this.getAbsorbanceAt( pathLength ) );
-  }
-}
-
-/*
- * General model of absorbance: A = abC
- */
-function getAbsorbance( molarAbsorptivity: number, pathLength: number, concentration: number ): number {
-  return molarAbsorptivity * pathLength * concentration;
-}
-
-/*
+  /*
  * General model of transmittance: T = 10^-A
  */
-function getTransmittance( absorbance: number ): number {
-  return Math.pow( 10, -absorbance );
+  public static getTransmittance( absorbance: number ): number {
+    return Math.pow( 10, -absorbance );
+  }
 }
 
 beersLawLab.register( 'SolutionInCuvette', SolutionInCuvette );

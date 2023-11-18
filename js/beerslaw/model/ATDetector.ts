@@ -86,25 +86,22 @@ export default class ATDetector extends PhetioObject {
       } );
 
     this.absorbanceProperty = new DerivedProperty(
-      [ pathLengthProperty, solutionInCuvette.absorbanceProperty ],
-      ( pathLength, solutionInCuvetteAbsorbance ) =>
-        ( pathLength === null ) ? null : solutionInCuvette.getAbsorbanceAt( pathLength ), {
+      [ solutionInCuvette.molarAbsorptivityProperty, pathLengthProperty, solutionInCuvette.concentrationProperty ],
+      ( molarAbsorptivity, pathLength, concentration ) =>
+        ( pathLength === null ) ? null : SolutionInCuvette.getAbsorbance( molarAbsorptivity, pathLength, concentration ), {
         tandem: options.tandem.createTandem( 'absorbanceProperty' ),
         phetioFeatured: true,
         phetioValueType: NullableIO( NumberIO ),
-        phetioDocumentation: 'Absorbance at the position of the probe, null if the probe is not in the light beam',
-        accessNonDependencies: true //TODO https://github.com/phetsims/beers-law-lab/issues/333
+        phetioDocumentation: 'Absorbance at the position of the probe, null if the probe is not in the light beam'
       } );
 
     this.transmittanceProperty = new DerivedProperty(
-      [ pathLengthProperty, solutionInCuvette.transmittanceProperty ],
-      ( pathLength, solutionInCuvetteTransmittance ) =>
-        ( pathLength === null ) ? null : solutionInCuvette.getTransmittanceAt( pathLength ), {
+      [ this.absorbanceProperty ],
+      absorbance => ( absorbance === null ) ? null : SolutionInCuvette.getTransmittance( absorbance ), {
         tandem: options.tandem.createTandem( 'transmittanceProperty' ),
         phetioFeatured: true,
         phetioValueType: NullableIO( NumberIO ),
-        phetioDocumentation: 'Transmittance at the position of the probe, null if the probe is not in the light beam',
-        accessNonDependencies: true //TODO https://github.com/phetsims/beers-law-lab/issues/333
+        phetioDocumentation: 'Transmittance at the position of the probe, null if the probe is not in the light beam'
       } );
   }
 
