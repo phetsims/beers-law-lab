@@ -52,9 +52,9 @@ export default class Beam {
     const xOverlap = modelViewTransform.modelToViewDeltaX( 1 );
 
     this.shapeProperty = new DerivedProperty(
-      [ this.visibleProperty, cuvette.widthProperty, detector.probe.positionProperty ],
-      ( beamVisible, cuvetteWidth, probePosition ) => {
-        if ( beamVisible ) {
+      [ light.isOnProperty, detector.probe.positionProperty ],
+      ( lightIsOn, probePosition ) => {
+        if ( lightIsOn ) {
           const x = modelViewTransform.modelToViewPosition( light.position ).x - xOverlap;
           const y = modelViewTransform.modelToViewPosition( light.position ).y - modelViewTransform.modelToViewDeltaY( light.lensDiameter / 2 );
           const w = modelViewTransform.modelToViewDeltaX( detector.isProbeInBeam() ? probePosition.x - light.position.x : MAX_LIGHT_WIDTH ) + xOverlap;
@@ -64,8 +64,6 @@ export default class Beam {
         else {
           return null;
         }
-      }, {
-        accessNonDependencies: true //TODO https://github.com/phetsims/beers-law-lab/issues/333
       } );
 
     this.fillProperty = new DerivedProperty(
