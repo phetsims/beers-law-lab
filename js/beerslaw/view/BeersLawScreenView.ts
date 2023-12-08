@@ -31,6 +31,10 @@ export default class BeersLawScreenView extends ScreenView {
       // Workaround for things shifting around while dragging.
       // See https://github.com/phetsims/scenery/issues/1289 and https://github.com/phetsims/beers-law-lab/issues/299.
       preventFit: true,
+
+      // A PhET wide decision was made to not update custom layout bounds even if they do not match the
+      // default layout bounds in ScreenView. Do not change these bounds as changes could break or disturb
+      // any phet-io instrumention. https://github.com/phetsims/phet-io/issues/1939
       layoutBounds: BLLConstants.LAYOUT_BOUNDS,
       isDisposable: false,
       tandem: tandem
