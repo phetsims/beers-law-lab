@@ -9,7 +9,7 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "4e3ac647e6643578086d97ecc1128bfda198e62b",
+    "sha": "950e5a1c9203f34b1ea6a5881f659733f5e79b46",
     "branch": "1.7"
   },
   "brand": {
@@ -45,7 +45,7 @@
     "branch": "HEAD"
   },
   "phet-io": {
-    "sha": "b825fddc116deeb357979f18d6b3b5f3ee762a6d",
+    "sha": "bb9a7618d36d0583b0acd9d86327c9648dfdaf0e",
     "branch": "HEAD"
   },
   "phet-io-sim-specific": {
