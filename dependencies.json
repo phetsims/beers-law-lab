@@ -9,7 +9,7 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "950e5a1c9203f34b1ea6a5881f659733f5e79b46",
+    "sha": "1b1fe8fdcb36c0d2718bee5206f2eaac418b6ad1",
     "branch": "1.7"
   },
   "brand": {
@@ -89,7 +89,7 @@
     "branch": "HEAD"
   },
   "sun": {
-    "sha": "c932983b3b2be473872c0e4bab8350522571f6c9",
+    "sha": "943319cc3c242a80b4c3ab7aca41721f542d5817",
     "branch": "HEAD"
   },
   "tambo": {
