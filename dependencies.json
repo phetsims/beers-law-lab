@@ -9,7 +9,7 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "c307cb0fb53c3a418cbfa1420fe85d86144c7895",
+    "sha": "5d00604e3ab6dcdfdecaa0c6260124fd4079f2ef",
     "branch": "1.7"
   },
   "brand": {
@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "chipper": {
-    "sha": "6be5da4a99cd0c305906943fac7312979a621043",
+    "sha": "07b4373eeb623567d126e28e15ca34151fc5ce14",
     "branch": "HEAD"
   },
   "dot": {
@@ -49,7 +49,7 @@
     "branch": "HEAD"
   },
   "phet-io-sim-specific": {
-    "sha": "45d90b8eb3e807fc393cf985e82d0283f4e89f7e",
+    "sha": "404f5c532d7585cf4aa76e1b5f5a53e3104f476f",
     "branch": "HEAD"
   },
   "phet-io-wrapper-lab-book": {
@@ -57,7 +57,7 @@
     "branch": "HEAD"
   },
   "phet-io-wrappers": {
-    "sha": "32589cfbc21617b705235a864ba072c0c2cde7a6",
+    "sha": "3c8a7815b6e6d8e7a3f3f9cbc1c4b12540f56c96",
     "branch": "HEAD"
   },
   "phetcommon": {
