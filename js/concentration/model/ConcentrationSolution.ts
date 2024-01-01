@@ -97,7 +97,7 @@ export default class ConcentrationSolution extends Fluid {
         phetioFeatured: true,
         units: 'mol',
         phetioValueType: NumberIO,
-        accessNonDependencies: true // see https://github.com/phetsims/beers-law-lab/issues/333#issuecomment-1861779660
+        strictAxonDependencies: false // see https://github.com/phetsims/beers-law-lab/issues/333#issuecomment-1861779660
       }
     );
 
