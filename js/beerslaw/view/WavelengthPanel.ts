@@ -8,7 +8,6 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
-import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
@@ -34,6 +33,8 @@ import BLLColors from '../../common/BLLColors.js';
 
 // constants
 const SLIDER_TRACK_SIZE = new Dimension2( 150, 30 );
+const PATTERN_STRING_PROPERTY = BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ];
+const UNITS_STRING_PROPERTY = BeersLawLabStrings.units.nmStringProperty;
 
 type SelfOptions = EmptySelfOptions;
 
@@ -69,17 +70,12 @@ export default class WavelengthPanel extends Panel {
     } );
 
     const numberDisplay = new NumberDisplay( light.wavelengthProperty, light.wavelengthProperty.range, {
+      numberFormatter: wavelength => StringUtils.format( PATTERN_STRING_PROPERTY.value, Utils.toFixed( wavelength, 0 ), UNITS_STRING_PROPERTY.value ),
+      numberFormatterDependencies: [ PATTERN_STRING_PROPERTY, UNITS_STRING_PROPERTY ],
       xMargin: 7,
       yMargin: 3,
       tandem: options.tandem.createTandem( 'numberDisplay' )
     } );
-
-    // Whenever one of the strings used to format the NumberDisplay changes, call setNumberFormatter with a
-    // new formatting function.
-    Multilink.multilink(
-      [ BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ], BeersLawLabStrings.units.nmStringProperty ],
-      ( pattern, nmString ) => numberDisplay.setNumberFormatter( wavelength => StringUtils.format( pattern, Utils.toFixed( wavelength, 0 ), nmString ) )
-    );
 
     function createRadioButtonLabel( text: TReadOnlyProperty<string> ): Node {
       return new Text( text, {
