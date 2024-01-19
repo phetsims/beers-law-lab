@@ -100,7 +100,7 @@ export default class ConcentrationSolution extends Fluid {
 
         // This DerivedProperty has itself as a dependency, which is not supported by strictAxonDependencies.
         // So we need to opt out. See https://github.com/phetsims/beers-law-lab/issues/333#issuecomment-1861779660
-        strictAxonDependencies: false
+        strictAxonDependencies: false // has itself as a dependency
       }
     );
 
