@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
@@ -271,18 +272,10 @@ class WireNode extends Path {
 
   public constructor( body: BLLMovable, probe: BLLMovable, bodyNode: Node, probeNode: Node ) {
 
-    super( new Shape(), {
-
-      // PathOptions
-      stroke: 'gray',
-      lineWidth: 8,
-      lineCap: 'square',
-      lineJoin: 'round',
-      pickable: false
-    } );
-
-    const updateCurve = () => {
-
+    const shapeProperty = new DerivedProperty( [
+      body.positionProperty,
+      probe.positionProperty
+    ], () => {
       // connection points
       const bodyConnectionPoint = new Vector2( bodyNode.centerX, bodyNode.bottom );
       const probeConnectionPoint = new Vector2( probeNode.centerX, probeNode.bottom );
@@ -295,12 +288,22 @@ class WireNode extends Path {
       const c2 = new Vector2( probeConnectionPoint.x + c2Offset.x, probeConnectionPoint.y + c2Offset.y );
 
       // cubic curve
-      this.shape = new Shape()
+      return new Shape()
         .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
         .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
-    };
-    body.positionProperty.link( updateCurve );
-    probe.positionProperty.link( updateCurve );
+    }, {
+      strictAxonDependencies: false
+    } );
+
+    super( shapeProperty, {
+
+      // PathOptions
+      stroke: 'gray',
+      lineWidth: 8,
+      lineCap: 'square',
+      lineJoin: 'round',
+      pickable: false
+    } );
   }
 }
 
