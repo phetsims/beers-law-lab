@@ -13,7 +13,6 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import AquaRadioButtonGroup, { AquaRadioButtonGroupItem, AquaRadioButtonGroupOptions } from '../../../../sun/js/AquaRadioButtonGroup.js';
 import { ConcentrationMeterUnits } from '../BLLQueryParameters.js';
 import beersLawLab from '../../beersLawLab.js';
-import AquaRadioButton from '../../../../sun/js/AquaRadioButton.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import PreferencesDialog from '../../../../joist/js/preferences/PreferencesDialog.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
@@ -91,7 +90,7 @@ function createItem( value: ConcentrationMeterUnits, stringProperty: TReadOnlyPr
       font: PreferencesDialog.CONTENT_FONT,
       maxWidth: 200
     } ),
-    tandemName: `${value}${AquaRadioButton.TANDEM_NAME_SUFFIX}`
+    tandemName: `${value}RadioButton`
   };
 }
 
