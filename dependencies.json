@@ -5,11 +5,11 @@
     "branch": "HEAD"
   },
   "axon": {
-    "sha": "23a9f04718f7976637026b29f23c09ae1ae904a4",
+    "sha": "8eeefabc241b9ed81b7c7fc6a80b480200230af0",
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "aee6a5ce64da86d4104b41512085af3c1661fb29",
+    "sha": "073b7d76d2e36da012f350f0b18be7b7c68d7f63",
     "branch": "1.7"
   },
   "brand": {
@@ -25,7 +25,7 @@
     "branch": "HEAD"
   },
   "joist": {
-    "sha": "008834e2196d5c5d5878e5349cfe629250aca3fc",
+    "sha": "33036413b984eb6db65c2dff824239dfa12e9a28",
     "branch": "HEAD"
   },
   "kite": {
