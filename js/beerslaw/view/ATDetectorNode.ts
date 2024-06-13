@@ -291,8 +291,6 @@ class WireNode extends Path {
       return new Shape()
         .moveTo( bodyConnectionPoint.x, bodyConnectionPoint.y )
         .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
-    }, {
-      strictAxonDependencies: false
     } );
 
     super( shapeProperty, {
