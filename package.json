@@ -57,6 +57,11 @@
               "ts-nocheck": true
             }
           ]
+        },
+        "parserOptions": {
+          "project": [
+            "../beers-law-lab/tsconfig.json"
+          ]
         }
       }
     ]
