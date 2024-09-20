@@ -60,7 +60,7 @@
         },
         "parserOptions": {
           "project": [
-            "../beers-law-lab/tsconfig.json"
+            "../chipper/tsconfig/eslint-all/tsconfig.json"
           ]
         }
       }
