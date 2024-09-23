@@ -7,11 +7,11 @@
  */
 
 import simLauncher from '../../joist/js/simLauncher.js';
+import Tandem from '../../tandem/js/Tandem.js';
 import BeersLawScreen from './beerslaw/BeersLawScreen.js';
 import BeersLawLabStrings from './BeersLawLabStrings.js';
-import ConcentrationScreen from './concentration/ConcentrationScreen.js';
-import Tandem from '../../tandem/js/Tandem.js';
 import BLLSim from './common/view/BLLSim.js';
+import ConcentrationScreen from './concentration/ConcentrationScreen.js';
 
 simLauncher.launch( () => {
   const screens = [
