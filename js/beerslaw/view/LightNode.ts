@@ -29,8 +29,10 @@ export default class LightNode extends LaserPointerNode {
       isDisposable: false,
       bodySize: new Dimension2( 126, 78 ),
       nozzleSize: new Dimension2( 16, 65 ),
-      buttonRadius: 26,
-      buttonTouchAreaDilation: 25,
+      buttonOptions: {
+        radius: 26,
+        touchAreaDilation: 25
+      },
       translation: modelViewTransform.modelToViewPosition( light.position ),
       phetioVisiblePropertyInstrumented: false // see https://github.com/phetsims/beers-law-lab/issues/310
     }, providedOptions );
