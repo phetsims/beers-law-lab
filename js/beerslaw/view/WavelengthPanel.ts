@@ -25,11 +25,11 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
+import BLLColors from '../../common/BLLColors.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
 import Light from '../model/Light.js';
 import LightMode from '../model/LightMode.js';
-import BLLColors from '../../common/BLLColors.js';
 
 // constants
 const SLIDER_TRACK_SIZE = new Dimension2( 150, 30 );

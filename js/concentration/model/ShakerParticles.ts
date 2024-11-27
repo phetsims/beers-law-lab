@@ -14,15 +14,15 @@ import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import Beaker from './Beaker.js';
 import ConcentrationSolution from './ConcentrationSolution.js';
-import SoluteParticles, { SoluteParticlesOptions } from './SoluteParticles.js';
 import Shaker from './Shaker.js';
 import SoluteParticle from './SoluteParticle.js';
-import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
+import SoluteParticles, { SoluteParticlesOptions } from './SoluteParticles.js';
 
 // Units for speed and acceleration are not meaningful here, adjust these so that it looks good.
 const INITIAL_SPEED = 100;

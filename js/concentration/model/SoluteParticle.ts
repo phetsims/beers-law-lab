@@ -18,10 +18,10 @@ import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { Color } from '../../../../scenery/js/imports.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
-import beersLawLab from '../../beersLawLab.js';
-import Solute, { SoluteStateObject } from '../../common/model/Solute.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
+import beersLawLab from '../../beersLawLab.js';
+import Solute, { SoluteStateObject } from '../../common/model/Solute.js';
 
 type SelfOptions = {
   velocity?: Vector2;

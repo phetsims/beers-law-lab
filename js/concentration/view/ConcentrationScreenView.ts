@@ -6,13 +6,17 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
-import { Node } from '../../../../scenery/js/imports.js';
 import EyeDropperNode from '../../../../scenery-phet/js/EyeDropperNode.js';
+import { Node } from '../../../../scenery/js/imports.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
+import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import ConcentrationModel from '../model/ConcentrationModel.js';
@@ -30,12 +34,8 @@ import ShakerParticlesNode from './ShakerParticlesNode.js';
 import SoluteAmountText from './SoluteAmountText.js';
 import SolutePanel from './SolutePanel.js';
 import SolutionNode from './SolutionNode.js';
-import StockSolutionNode from './StockSolutionNode.js';
 import SolutionVolumeNode from './SolutionVolumeNode.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import StringIO from '../../../../tandem/js/types/StringIO.js';
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import StockSolutionNode from './StockSolutionNode.js';
 
 export default class ConcentrationScreenView extends ScreenView {
 

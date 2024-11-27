@@ -8,12 +8,12 @@
  */
 
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
-import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import BackgroundNode from '../../../../scenery-phet/js/BackgroundNode.js';
+import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Color, Text } from '../../../../scenery/js/imports.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 
 export default class SaturatedIndicator extends BackgroundNode {
 

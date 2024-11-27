@@ -12,6 +12,7 @@ import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.j
 import { Node } from '../../../../scenery/js/imports.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
+import BLLConstants from '../../common/BLLConstants.js';
 import BeersLawModel from '../model/BeersLawModel.js';
 import ATDetectorNode from './ATDetectorNode.js';
 import BeamNode from './BeamNode.js';
@@ -20,7 +21,6 @@ import CuvetteNode from './CuvetteNode.js';
 import LightNode from './LightNode.js';
 import SolutionPanel from './SolutionPanel.js';
 import WavelengthPanel from './WavelengthPanel.js';
-import BLLConstants from '../../common/BLLConstants.js';
 
 export default class BeersLawScreenView extends ScreenView {
 

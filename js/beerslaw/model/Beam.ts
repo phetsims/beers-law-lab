@@ -13,8 +13,8 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Disposable from '../../../../axon/js/Disposable.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import Disposable from '../../../../axon/js/Disposable.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import { Shape } from '../../../../kite/js/imports.js';
@@ -22,10 +22,10 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import { LinearGradient } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
-import SolutionInCuvette from './SolutionInCuvette.js';
 import ATDetector from './ATDetector.js';
 import Cuvette from './Cuvette.js';
 import Light from './Light.js';
+import SolutionInCuvette from './SolutionInCuvette.js';
 
 // constants
 const MAX_LIGHT_WIDTH = 50; // cm, wide enough to be way off the right edge of the play area

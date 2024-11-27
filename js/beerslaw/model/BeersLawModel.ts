@@ -14,13 +14,13 @@ import TModel from '../../../../joist/js/TModel.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
-import SolutionInCuvette from './SolutionInCuvette.js';
 import ATDetector from './ATDetector.js';
 import Beam from './Beam.js';
 import BeersLawSolution from './BeersLawSolution.js';
 import Cuvette from './Cuvette.js';
 import Light from './Light.js';
 import Ruler from './Ruler.js';
+import SolutionInCuvette from './SolutionInCuvette.js';
 
 export default class BeersLawModel implements TModel {
 

@@ -6,8 +6,8 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import beersLawLab from '../beersLawLab.js';
 import { ProfileColorProperty } from '../../../scenery/js/imports.js';
+import beersLawLab from '../beersLawLab.js';
 
 const BLLColors = {
 

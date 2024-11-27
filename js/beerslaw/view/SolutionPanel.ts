@@ -12,11 +12,11 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { Node, NodeTranslationOptions, VBox } from '../../../../scenery/js/imports.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import beersLawLab from '../../beersLawLab.js';
+import BLLColors from '../../common/BLLColors.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
+import SolutionInCuvette from '../model/SolutionInCuvette.js';
 import ConcentrationControl from './ConcentrationControl.js';
 import SolutionControl from './SolutionControl.js';
-import SolutionInCuvette from '../model/SolutionInCuvette.js';
-import BLLColors from '../../common/BLLColors.js';
 
 type SelfOptions = EmptySelfOptions;
 

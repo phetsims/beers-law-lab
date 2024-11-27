@@ -15,6 +15,8 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
+import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
@@ -33,13 +35,11 @@ import { DragListener, Node, NodeOptions, Path, PathOptions, Text, VBox } from '
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
+import BLLMovable from '../../common/model/BLLMovable.js';
+import BLLPreferences from '../../common/model/BLLPreferences.js';
 import ConcentrationMeter from '../model/ConcentrationMeter.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import Dropper from '../model/Dropper.js';
-import BLLMovable from '../../common/model/BLLMovable.js';
-import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
-import BLLPreferences from '../../common/model/BLLPreferences.js';
-import Multilink from '../../../../axon/js/Multilink.js';
 
 // constants
 const DECIMAL_PLACES_MOLES_PER_LITER = 3;

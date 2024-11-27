@@ -18,8 +18,8 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import { Node, NodeOptions, Path, Text } from '../../../../scenery/js/imports.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
-import Beaker from '../model/Beaker.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
+import Beaker from '../model/Beaker.js';
 
 // constants
 const RIM_OFFSET = 20;

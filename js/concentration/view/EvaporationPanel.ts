@@ -17,8 +17,8 @@ import HSlider from '../../../../sun/js/HSlider.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
-import Evaporator from '../model/Evaporator.js';
 import BLLColors from '../../common/BLLColors.js';
+import Evaporator from '../model/Evaporator.js';
 
 type SelfOptions = EmptySelfOptions;
 

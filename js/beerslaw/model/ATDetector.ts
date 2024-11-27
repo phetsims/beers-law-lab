@@ -19,10 +19,10 @@ import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLMovable, { BLLMovableOptions } from '../../common/model/BLLMovable.js';
-import SolutionInCuvette from './SolutionInCuvette.js';
 import ATDetectorMode from './ATDetectorMode.js';
 import Cuvette from './Cuvette.js';
 import Light from './Light.js';
+import SolutionInCuvette from './SolutionInCuvette.js';
 
 type SelfOptions = {
   bodyPosition?: Vector2;

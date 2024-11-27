@@ -7,15 +7,15 @@
  */
 
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import PreferencesModel from '../../../../joist/js/preferences/PreferencesModel.js';
 import Sim, { SimOptions } from '../../../../joist/js/Sim.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
+import BeersLawScreen from '../../beerslaw/BeersLawScreen.js';
 import beersLawLab from '../../beersLawLab.js';
+import ConcentrationScreen from '../../concentration/ConcentrationScreen.js';
 import BLLConstants from '../BLLConstants.js';
 import BLLPreferencesNode from './BLLPreferencesNode.js';
-import PreferencesModel from '../../../../joist/js/preferences/PreferencesModel.js';
-import BeersLawScreen from '../../beerslaw/BeersLawScreen.js';
-import ConcentrationScreen from '../../concentration/ConcentrationScreen.js';
 
 type SelfOptions = EmptySelfOptions;
 

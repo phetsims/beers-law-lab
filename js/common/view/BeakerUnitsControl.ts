@@ -7,15 +7,15 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import PreferencesDialog from '../../../../joist/js/preferences/PreferencesDialog.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import { HBox, HBoxOptions, Text } from '../../../../scenery/js/imports.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import { HBox, HBoxOptions, Text } from '../../../../scenery/js/imports.js';
 import AquaRadioButtonGroup, { AquaRadioButtonGroupItem, AquaRadioButtonGroupOptions } from '../../../../sun/js/AquaRadioButtonGroup.js';
-import { BeakerUnits } from '../BLLQueryParameters.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
-import PreferencesDialog from '../../../../joist/js/preferences/PreferencesDialog.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import { BeakerUnits } from '../BLLQueryParameters.js';
 
 type SelfOptions = EmptySelfOptions;
 

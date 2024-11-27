@@ -15,9 +15,9 @@ import Tandem from '../../../tandem/js/Tandem.js';
 import beersLawScreenIcon_jpg from '../../images/beersLawScreenIcon_jpg.js';
 import beersLawLab from '../beersLawLab.js';
 import BeersLawLabStrings from '../BeersLawLabStrings.js';
+import BLLColors from '../common/BLLColors.js';
 import BeersLawModel from './model/BeersLawModel.js';
 import BeersLawScreenView from './view/BeersLawScreenView.js';
-import BLLColors from '../common/BLLColors.js';
 
 export default class BeersLawScreen extends Screen<BeersLawModel, BeersLawScreenView> {
 

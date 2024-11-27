@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import PhetioProperty from '../../../../axon/js/PhetioProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -20,7 +21,6 @@ import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import SoluteColorScheme from '../../concentration/model/SoluteColorScheme.js';
 import Solvent from './Solvent.js';
-import PhetioProperty from '../../../../axon/js/PhetioProperty.js';
 
 // parent tandem for all static instances of Solute
 const SOLUTES_TANDEM = Tandem.GLOBAL_MODEL.createTandem( 'solutes' );

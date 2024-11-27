@@ -16,8 +16,8 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { Text, VBox, VBoxOptions } from '../../../../scenery/js/imports.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
 import beersLawLab from '../../beersLawLab.js';
-import BLLPreferences from '../model/BLLPreferences.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
+import BLLPreferences from '../model/BLLPreferences.js';
 import BeakerUnitsControl from './BeakerUnitsControl.js';
 import ConcentrationMeterUnitsControl from './ConcentrationMeterUnitsControl.js';
 

@@ -14,9 +14,9 @@ import Tandem from '../../../tandem/js/Tandem.js';
 import concentrationScreenIcon_jpg from '../../images/concentrationScreenIcon_jpg.js';
 import beersLawLab from '../beersLawLab.js';
 import BeersLawLabStrings from '../BeersLawLabStrings.js';
+import BLLColors from '../common/BLLColors.js';
 import ConcentrationModel from './model/ConcentrationModel.js';
 import ConcentrationScreenView from './view/ConcentrationScreenView.js';
-import BLLColors from '../common/BLLColors.js';
 
 export default class ConcentrationScreen extends Screen<ConcentrationModel, ConcentrationScreenView> {
 

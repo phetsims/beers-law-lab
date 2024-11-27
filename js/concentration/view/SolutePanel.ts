@@ -6,20 +6,20 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import Property from '../../../../axon/js/Property.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { Node, VBox } from '../../../../scenery/js/imports.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import beersLawLab from '../../beersLawLab.js';
+import BLLColors from '../../common/BLLColors.js';
 import Solute from '../../common/model/Solute.js';
 import Dropper from '../model/Dropper.js';
 import Shaker from '../model/Shaker.js';
+import SoluteForm from '../model/SoluteForm.js';
 import SoluteControl from './SoluteControl.js';
 import SoluteFormRadioButtonGroup from './SoluteFormRadioButtonGroup.js';
-import SoluteForm from '../model/SoluteForm.js';
-import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import BLLColors from '../../common/BLLColors.js';
 
 type SelfOptions = EmptySelfOptions;
 
