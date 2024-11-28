@@ -1,4 +1,4 @@
-// Copyright 2022-2023, University of Colorado Boulder
+// Copyright 2022-2024, University of Colorado Boulder
 
 /**
  * SoluteParticles is the base class for a system of solute particles. It delegates most of its responsibilities

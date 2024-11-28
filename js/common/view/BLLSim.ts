@@ -1,4 +1,4 @@
-// Copyright 2022-2023, University of Colorado Boulder
+// Copyright 2022-2024, University of Colorado Boulder
 
 /**
  * BLLSim is the subclass of Sim used by both beers-law-lab and concentration sims.
