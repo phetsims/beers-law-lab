@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.7.13 Fri Jul 12 2024 15:50:22 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# beers-law-lab 1.7.14-rc.1 Wed Jan 29 2025 18:48:03 GMT-0700 (Mountain Standard Time)",
   "assert": {
     "sha": "c13a8c7741d95fbd8e37619c66ebcca8686dffe7",
     "branch": "HEAD"
@@ -9,7 +9,7 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "50442ae073ababe2b01157a93864cdd87598ce5a",
+    "sha": "d8e15e51db03176568fe2621a767ec23592dcf76",
     "branch": "1.7"
   },
   "brand": {
