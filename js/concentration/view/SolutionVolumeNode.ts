@@ -12,12 +12,14 @@
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Utils from '../../../../dot/js/Utils.js';
-import { Shape } from '../../../../kite/js/imports.js';
+import Shape from '../../../../kite/js/Shape.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Node, NodeOptions, Path, Text } from '../../../../scenery/js/imports.js';
+import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
+import Path from '../../../../scenery/js/nodes/Path.js';
+import Text from '../../../../scenery/js/nodes/Text.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';

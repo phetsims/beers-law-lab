@@ -6,7 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import { Path } from '../../../../scenery/js/imports.js';
+import Path from '../../../../scenery/js/nodes/Path.js';
 import beersLawLab from '../../beersLawLab.js';
 import Beam from '../model/Beam.js';
 

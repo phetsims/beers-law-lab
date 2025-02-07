@@ -20,7 +20,7 @@ import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Utils from '../../../../dot/js/Utils.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import { Color } from '../../../../scenery/js/imports.js';
+import Color from '../../../../scenery/js/util/Color.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import IOType from '../../../../tandem/js/types/IOType.js';

@@ -12,7 +12,11 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Circle, DragListener, Image, Node, NodeOptions, RichText } from '../../../../scenery/js/imports.js';
+import DragListener from '../../../../scenery/js/listeners/DragListener.js';
+import Circle from '../../../../scenery/js/nodes/Circle.js';
+import Image from '../../../../scenery/js/nodes/Image.js';
+import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
+import RichText from '../../../../scenery/js/nodes/RichText.js';
 import shaker_png from '../../../images/shaker_png.js';
 import beersLawLab from '../../beersLawLab.js';
 import Shaker from '../model/Shaker.js';

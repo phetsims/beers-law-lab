@@ -18,7 +18,7 @@ import Utils from '../../../../dot/js/Utils.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import { Color } from '../../../../scenery/js/imports.js';
+import Color from '../../../../scenery/js/util/Color.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';

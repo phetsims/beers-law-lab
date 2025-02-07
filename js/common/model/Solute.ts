@@ -10,7 +10,7 @@ import PhetioProperty from '../../../../axon/js/PhetioProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import { Color } from '../../../../scenery/js/imports.js';
+import Color from '../../../../scenery/js/util/Color.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import IOType from '../../../../tandem/js/types/IOType.js';

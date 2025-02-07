@@ -9,7 +9,7 @@
 import ScreenView from '../../../../joist/js/ScreenView.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
-import { Node } from '../../../../scenery/js/imports.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';

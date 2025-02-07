@@ -10,7 +10,8 @@
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import BackgroundNode from '../../../../scenery-phet/js/BackgroundNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Color, Text } from '../../../../scenery/js/imports.js';
+import Text from '../../../../scenery/js/nodes/Text.js';
+import Color from '../../../../scenery/js/util/Color.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';

@@ -9,7 +9,8 @@
 import Property from '../../../../axon/js/Property.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import { Node, NodeTranslationOptions, VBox } from '../../../../scenery/js/imports.js';
+import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
+import Node, { NodeTranslationOptions } from '../../../../scenery/js/nodes/Node.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLColors from '../../common/BLLColors.js';

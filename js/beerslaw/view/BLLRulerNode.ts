@@ -8,12 +8,12 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import { Shape } from '../../../../kite/js/imports.js';
+import Shape from '../../../../kite/js/Shape.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import RulerNode, { RulerNodeOptions } from '../../../../scenery-phet/js/RulerNode.js';
-import { DragListener } from '../../../../scenery/js/imports.js';
+import DragListener from '../../../../scenery/js/listeners/DragListener.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Ruler from '../model/Ruler.js';

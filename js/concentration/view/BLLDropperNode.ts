@@ -9,13 +9,14 @@
 
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
-import { Shape } from '../../../../kite/js/imports.js';
+import Shape from '../../../../kite/js/Shape.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import EyeDropperNode, { EyeDropperNodeOptions } from '../../../../scenery-phet/js/EyeDropperNode.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Path, RichText } from '../../../../scenery/js/imports.js';
+import Path from '../../../../scenery/js/nodes/Path.js';
+import RichText from '../../../../scenery/js/nodes/RichText.js';
 import beersLawLab from '../../beersLawLab.js';
 import Solute from '../../common/model/Solute.js';
 import Solvent from '../../common/model/Solvent.js';

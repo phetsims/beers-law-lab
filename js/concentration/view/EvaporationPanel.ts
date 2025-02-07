@@ -12,7 +12,8 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { HBox, Text } from '../../../../scenery/js/imports.js';
+import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
+import Text from '../../../../scenery/js/nodes/Text.js';
 import HSlider from '../../../../sun/js/HSlider.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import beersLawLab from '../../beersLawLab.js';

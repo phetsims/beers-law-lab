@@ -13,7 +13,8 @@
 import PreferencesDialog from '../../../../joist/js/preferences/PreferencesDialog.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import { Text, VBox, VBoxOptions } from '../../../../scenery/js/imports.js';
+import VBox, { VBoxOptions } from '../../../../scenery/js/layout/nodes/VBox.js';
+import Text from '../../../../scenery/js/nodes/Text.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';

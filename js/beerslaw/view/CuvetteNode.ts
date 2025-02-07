@@ -8,12 +8,17 @@
 
 import Property from '../../../../axon/js/Property.js';
 import Utils from '../../../../dot/js/Utils.js';
-import { Shape } from '../../../../kite/js/imports.js';
+import Shape from '../../../../kite/js/Shape.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import ArrowNode from '../../../../scenery-phet/js/ArrowNode.js';
-import { Color, DragListener, Node, NodeOptions, Path, PressListener, Rectangle } from '../../../../scenery/js/imports.js';
+import DragListener from '../../../../scenery/js/listeners/DragListener.js';
+import PressListener from '../../../../scenery/js/listeners/PressListener.js';
+import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
+import Path from '../../../../scenery/js/nodes/Path.js';
+import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
+import Color from '../../../../scenery/js/util/Color.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';

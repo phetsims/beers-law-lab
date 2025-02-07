@@ -14,7 +14,7 @@ import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import EyeDropperNode from '../../../../scenery-phet/js/EyeDropperNode.js';
-import { Node } from '../../../../scenery/js/imports.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
 import beersLawLab from '../../beersLawLab.js';

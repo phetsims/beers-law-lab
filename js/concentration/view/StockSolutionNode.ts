@@ -8,7 +8,7 @@
 
 import Property from '../../../../axon/js/Property.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import { Rectangle } from '../../../../scenery/js/imports.js';
+import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import beersLawLab from '../../beersLawLab.js';
 import Solute from '../../common/model/Solute.js';
 import Solvent from '../../common/model/Solvent.js';

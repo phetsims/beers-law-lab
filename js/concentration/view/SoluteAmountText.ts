@@ -13,7 +13,8 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import { Node, NodeOptions, Text } from '../../../../scenery/js/imports.js';
+import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
+import Text from '../../../../scenery/js/nodes/Text.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
