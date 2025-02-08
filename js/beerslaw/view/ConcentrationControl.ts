@@ -1,4 +1,4 @@
-// Copyright 2018-2024, University of Colorado Boulder
+// Copyright 2018-2025, University of Colorado Boulder
 
 /**
  * ConcentrationControl is actually a set of NumberControls, one for each solute.  Since each solute has its

@@ -1,4 +1,4 @@
-// Copyright 2013-2024, University of Colorado Boulder
+// Copyright 2013-2025, University of Colorado Boulder
 
 /**
  * SoluteParticle is the model for all solute particles. This includes particles coming out of the shaker, and
