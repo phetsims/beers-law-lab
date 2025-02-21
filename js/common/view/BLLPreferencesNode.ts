@@ -10,7 +10,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import PreferencesDialog from '../../../../joist/js/preferences/PreferencesDialog.js';
+import PreferencesDialogConstants from '../../../../joist/js/preferences/PreferencesDialogConstants.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import VBox, { VBoxOptions } from '../../../../scenery/js/layout/nodes/VBox.js';
@@ -40,7 +40,7 @@ export default class BLLPreferencesNode extends VBox {
 
     // 'Show solution volume' checkbox
     const showSolutionVolumeText = new Text( BeersLawLabStrings.showSolutionVolumeStringProperty, {
-      font: PreferencesDialog.CONTENT_FONT
+      font: PreferencesDialogConstants.CONTENT_FONT
     } );
     const showSolutionVolumeCheckbox = new Checkbox( BLLPreferences.showSolutionVolumeProperty, showSolutionVolumeText, {
       tandem: options.tandem.createTandem( 'showSolutionVolumeCheckbox' )
@@ -48,7 +48,7 @@ export default class BLLPreferencesNode extends VBox {
 
     // 'Show solute amount' checkbox
     const showSoluteAmountText = new Text( BeersLawLabStrings.showSoluteAmountStringProperty, {
-      font: PreferencesDialog.CONTENT_FONT
+      font: PreferencesDialogConstants.CONTENT_FONT
     } );
     const showSoluteAmountCheckbox = new Checkbox( BLLPreferences.showSoluteAmountProperty, showSoluteAmountText, {
       tandem: options.tandem.createTandem( 'showSoluteAmountCheckbox' )

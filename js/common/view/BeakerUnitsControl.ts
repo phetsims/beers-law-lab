@@ -8,7 +8,7 @@
 
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
-import PreferencesDialog from '../../../../joist/js/preferences/PreferencesDialog.js';
+import PreferencesDialogConstants from '../../../../joist/js/preferences/PreferencesDialogConstants.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import HBox, { HBoxOptions } from '../../../../scenery/js/layout/nodes/HBox.js';
@@ -35,7 +35,7 @@ export default class BeakerUnitsControl extends HBox {
     }, providedOptions );
 
     const labelText = new Text( BeersLawLabStrings.beakerUnitsStringProperty, {
-      font: PreferencesDialog.CONTENT_FONT
+      font: PreferencesDialogConstants.CONTENT_FONT
     } );
 
     const radioButtonGroup = new BeakerUnitsRadioButtonGroup( beakerUnitsProperty, {
@@ -88,7 +88,7 @@ function createItem( value: BeakerUnits, stringProperty: TReadOnlyProperty<strin
   return {
     value: value,
     createNode: tandem => new Text( stringProperty, {
-      font: PreferencesDialog.CONTENT_FONT,
+      font: PreferencesDialogConstants.CONTENT_FONT,
       maxWidth: 200
     } ),
     tandemName: `${value}RadioButton`
