@@ -9,15 +9,15 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "682e7d2c7e7347b371443a142b7f75a226175294",
+    "sha": "d5f36e7d2fb0659fe215a4539858183a87e1fd99",
     "branch": "1.7"
   },
   "brand": {
-    "sha": "c73b827b08b394ced9442e88e5ef33755f50ad73",
+    "sha": "fa194e9fcf136e36aca7a2bd97fbd3891201f122",
     "branch": "HEAD"
   },
   "chipper": {
-    "sha": "de235a0ec2f17af236b99bccff01f8cdfe4115ac",
+    "sha": "3b50559d680ee2d7e2cb0b6e94a8c0d635853f7a",
     "branch": "HEAD"
   },
   "dot": {
@@ -25,7 +25,7 @@
     "branch": "HEAD"
   },
   "joist": {
-    "sha": "a682e67992414f4195ccf6ceea7f1c6452a28ba2",
+    "sha": "1893025c0e9a763f1c339f06c9a85ffad0806195",
     "branch": "HEAD"
   },
   "kite": {
