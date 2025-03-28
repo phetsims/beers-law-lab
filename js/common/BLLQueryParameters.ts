@@ -7,6 +7,7 @@
  */
 
 import logGlobal from '../../../phet-core/js/logGlobal.js';
+import { QueryStringMachine } from '../../../query-string-machine/js/QueryStringMachineModule.js';
 import beersLawLab from '../beersLawLab.js';
 import BLLConstants from './BLLConstants.js';
 
