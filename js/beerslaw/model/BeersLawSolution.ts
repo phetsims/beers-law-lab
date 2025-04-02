@@ -19,6 +19,7 @@ import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
 import Utils from '../../../../dot/js/Utils.js';
 import optionize from '../../../../phet-core/js/optionize.js';
+import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import Color from '../../../../scenery/js/util/Color.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
@@ -136,7 +137,7 @@ export default class BeersLawSolution extends PhetioObject {
    * static instances, it implements 'Reference type serialization', as described in the Serialization section of
    * https://github.com/phetsims/phet-io/blob/main/doc/phet-io-instrumentation-technical-guide.md#serialization
    */
-  public static readonly BeersLawSolutionIO = new IOType( 'BeersLawSolutionIO', {
+  public static readonly BeersLawSolutionIO = new IOType<IntentionalAny, IntentionalAny>( 'BeersLawSolutionIO', {
     valueType: BeersLawSolution,
     supertype: ReferenceIO( IOType.ObjectIO ),
     documentation: 'A solution in the Beer\'s Law screen'
