@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.7.0-research20250417.0 Thu Apr 17 2025 16:08:22 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# beers-law-lab 1.7.0-research20250417.1 Thu Apr 17 2025 16:21:35 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "c13a8c7741d95fbd8e37619c66ebcca8686dffe7",
     "branch": "HEAD"
@@ -9,7 +9,7 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "1b8eb534ef65f478145db7cb0d7bb28c18ac11f4",
+    "sha": "6ee41451fa024e72382e03e1d57dfb0aa26857fa",
     "branch": "research20250417"
   },
   "brand": {
