@@ -114,6 +114,9 @@ class BodyNode extends Node {
       {
         value: ATDetectorMode.TRANSMITTANCE,
         createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.transmittanceStringProperty, tandem ),
+        options: {
+          visible: false
+        },
         tandemName: 'transmittanceRadioButton'
       },
       {

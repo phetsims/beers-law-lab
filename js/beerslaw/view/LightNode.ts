@@ -26,6 +26,7 @@ export default class LightNode extends LaserPointerNode {
     const options = optionize<LightNodeOptions, SelfOptions, LaserPointerNodeOptions>()( {
 
       // LaserPointerNodeOptions
+      buttonType: 'momentary',
       bodySize: new Dimension2( 126, 78 ),
       nozzleSize: new Dimension2( 16, 65 ),
       buttonRadius: 26,

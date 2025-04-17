@@ -67,7 +67,7 @@ export default class ATDetector extends PhetioObject {
       tandem: options.tandem.createTandem( 'probe' )
     } );
 
-    this.modeProperty = new EnumerationProperty( ATDetectorMode.TRANSMITTANCE, {
+    this.modeProperty = new EnumerationProperty( ATDetectorMode.ABSORBANCE, {
       tandem: options.tandem.createTandem( 'modeProperty' )
     } );
 
