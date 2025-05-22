@@ -33,7 +33,7 @@ For an exemplar, see https://github.com/phetsims/balancing-chemical-equations/bl
 
 ### New Features
 * Preferences
-* Dynamic locale: see _Preferences > Localization_
+* Dynamic locale: see _Preferences > Localization > Languages_
 * TypeScript implementation
 
 ## 1.6 (skipped, see 1.6.0-phetio and https://github.com/phetsims/beers-law-lab/issues/207)
