@@ -9,7 +9,6 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Utils from '../../../../dot/js/Utils.js';
@@ -27,11 +26,8 @@ import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import AquaRadioButtonGroup, { AquaRadioButtonGroupItem } from '../../../../sun/js/AquaRadioButtonGroup.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
-import BLLConstants from '../../common/BLLConstants.js';
 import BLLMovable from '../../common/model/BLLMovable.js';
 import ATDetector from '../model/ATDetector.js';
 import ATDetectorMode from '../model/ATDetectorMode.js';
@@ -41,6 +37,7 @@ import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import { linear } from '../../../../dot/js/util/linear.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
+import ATDetectorModeRadioButtonGroup from './ATDetectorModeRadioButtonGroup.js';
 
 const ABSORBANCE_DECIMAL_PLACES = 2;
 const TRANSMITTANCE_DECIMAL_PLACES = 2;
@@ -115,39 +112,8 @@ class BodyNode extends Node {
 
     super( options );
 
-    function createRadioButtonLabel( text: TReadOnlyProperty<string>, radioButtonTandem: Tandem ): Node {
-      return new Text( text, {
-        font: new PhetFont( 18 ),
-        fill: 'white',
-        maxWidth: 120
-      } );
-    }
-
-    // radio button descriptions
-    const radioButtonItems: AquaRadioButtonGroupItem<ATDetectorMode>[] = [
-      {
-        value: ATDetectorMode.TRANSMITTANCE,
-        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.transmittanceStringProperty, tandem ),
-        tandemName: 'transmittanceRadioButton'
-      },
-      {
-        value: ATDetectorMode.ABSORBANCE,
-        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.absorbanceStringProperty, tandem ),
-        tandemName: 'absorbanceRadioButton'
-      }
-    ];
-
     // radio button group
-    const radioButtonGroup = new AquaRadioButtonGroup( detector.modeProperty, radioButtonItems, {
-      radioButtonOptions: {
-        radius: BLLConstants.RADIO_BUTTON_RADIUS
-      },
-      orientation: 'vertical',
-      align: 'left',
-      spacing: 15,
-      accessibleName: BeersLawLabStrings.a11y.detectorModeRadioButtonGroup.accessibleNameStringProperty,
-      tandem: options.tandem.createTandem( 'radioButtonGroup' )
-    } );
+    const radioButtonGroup = new ATDetectorModeRadioButtonGroup( detector.modeProperty, options.tandem.createTandem( 'radioButtonGroup' ) );
 
     // value + units
     const valueStringProperty = new DerivedStringProperty(
