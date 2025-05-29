@@ -40,6 +40,7 @@ import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicin
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import { linear } from '../../../../dot/js/util/linear.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
+import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 
 const ABSORBANCE_DECIMAL_PLACES = 2;
 const TRANSMITTANCE_DECIMAL_PLACES = 2;
@@ -269,6 +270,15 @@ class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
         }
       },
       tandem: options.tandem.createTandem( 'dragListener' )
+    } ) );
+
+    this.addInputListener( new SoundKeyboardDragListener( {
+      positionProperty: probe.positionProperty,
+      dragBoundsProperty: new Property( probe.dragBounds ),
+      transform: modelViewTransform,
+      dragSpeed: 300,
+      shiftDragSpeed: 20,
+      tandem: options.tandem.createTandem( 'keyboardDragListener' )
     } ) );
 
     // touch area
