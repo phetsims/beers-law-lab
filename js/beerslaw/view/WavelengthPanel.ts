@@ -8,7 +8,6 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Utils from '../../../../dot/js/Utils.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
@@ -22,16 +21,15 @@ import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import HStrut from '../../../../scenery/js/nodes/HStrut.js';
 import Node, { NodeTranslationOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import AquaRadioButtonGroup, { AquaRadioButtonGroupItem } from '../../../../sun/js/AquaRadioButtonGroup.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLColors from '../../common/BLLColors.js';
-import BLLConstants from '../../common/BLLConstants.js';
 import Light from '../model/Light.js';
 import LightMode from '../model/LightMode.js';
+import LightModeRadioButtonGroup from './LightModeRadioButtonGroup.js';
 
 const SLIDER_TRACK_SIZE = new Dimension2( 150, 30 );
 const PATTERN_STRING_PROPERTY = BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ];
@@ -78,39 +76,8 @@ export default class WavelengthPanel extends Panel {
       tandem: options.tandem.createTandem( 'numberDisplay' )
     } );
 
-    function createRadioButtonLabel( text: TReadOnlyProperty<string> ): Node {
-      return new Text( text, {
-        font: new PhetFont( 18 ),
-        fill: 'black'
-      } );
-    }
-
-    // radio button descriptions
-    const radioButtonItems: AquaRadioButtonGroupItem<LightMode>[] = [
-      {
-        value: LightMode.PRESET,
-        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.presetStringProperty ),
-        tandemName: 'presetWavelengthRadioButton'
-      },
-      {
-        value: LightMode.VARIABLE,
-        createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.variableStringProperty ),
-        tandemName: 'variableWavelengthRadioButton'
-      }
-    ];
-
     // radio button group
-    const radioButtonGroup = new AquaRadioButtonGroup( light.modeProperty, radioButtonItems, {
-      radioButtonOptions: {
-        radius: BLLConstants.RADIO_BUTTON_RADIUS
-      },
-      orientation: 'horizontal',
-      spacing: 15,
-      touchAreaYDilation: 8,
-      maxWidth: 250,
-      accessibleName: BeersLawLabStrings.a11y.lightModeRadioButtonGroup.accessibleNameStringProperty,
-      tandem: options.tandem.createTandem( 'radioButtonGroup' )
-    } );
+    const radioButtonGroup = new LightModeRadioButtonGroup( light.modeProperty, options.tandem.createTandem( 'radioButtonGroup' ) );
 
     const wavelengthNumberControlTandem = options.tandem.createTandem( 'wavelengthNumberControl' );
     const wavelengthNumberControl = new WavelengthNumberControl( light.wavelengthProperty, {
