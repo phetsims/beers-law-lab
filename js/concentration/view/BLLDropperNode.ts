@@ -43,9 +43,7 @@ export default class BLLDropperNode extends InteractiveHighlighting( EyeDropperN
       buttonOptions: {
         enabledProperty: dropper.enabledProperty
       },
-      visibleProperty: dropper.visibleProperty,
-      tagName: 'div',
-      focusable: true
+      visibleProperty: dropper.visibleProperty
     }, providedOptions );
 
     super( options );
