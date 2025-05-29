@@ -12,7 +12,6 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import ArrowNode from '../../../../scenery-phet/js/ArrowNode.js';
-import DragListener from '../../../../scenery/js/listeners/DragListener.js';
 import PressListener from '../../../../scenery/js/listeners/PressListener.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
@@ -25,6 +24,7 @@ import Cuvette from '../model/Cuvette.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 import { clamp } from '../../../../dot/js/util/clamp.js';
 import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
+import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 
 const PERCENT_FULL = 0.92;
 const SOLUTION_ALPHA = 0.6;
@@ -111,7 +111,7 @@ export default class CuvetteNode extends Node {
 /**
  * Drag listener that is attached to the cuvette's handle.
  */
-class CuvetteDragListener extends DragListener {
+class CuvetteDragListener extends SoundDragListener {
 
   public constructor( cuvette: Cuvette, modelViewTransform: ModelViewTransform2, tandem: Tandem ) {
 
