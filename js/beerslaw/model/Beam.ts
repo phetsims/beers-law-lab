@@ -41,8 +41,11 @@ export default class Beam {
   // beam color, a left-to-right linear gradient that transitions inside the solution
   public readonly fillProperty: TReadOnlyProperty<LinearGradient | null>;
 
-  public constructor( light: Light, cuvette: Cuvette, detector: ATDetector,
-                      solutionInCuvette: SolutionInCuvette, modelViewTransform: ModelViewTransform2 ) {
+  public constructor( light: Light,
+                      cuvette: Cuvette,
+                      detector: ATDetector,
+                      solutionInCuvette: SolutionInCuvette,
+                      modelViewTransform: ModelViewTransform2 ) {
 
     // Make the beam visible when the light is on.
     this.visibleProperty = new DerivedProperty( [ light.isOnProperty ], lightIsOn => lightIsOn );

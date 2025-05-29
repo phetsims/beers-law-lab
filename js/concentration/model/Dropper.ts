@@ -39,7 +39,8 @@ export default class Dropper extends PhetioObject {
   public readonly isEmptyProperty: Property<boolean>;
   public readonly flowRateProperty: Property<number>;
 
-  public constructor( soluteProperty: Property<Solute>, soluteFormProperty: EnumerationProperty<SoluteForm>,
+  public constructor( soluteProperty: Property<Solute>,
+                      soluteFormProperty: EnumerationProperty<SoluteForm>,
                       providedOptions: DropperOptions ) {
 
     const options = optionize<DropperOptions, SelfOptions, PhetioObjectOptions>()( {

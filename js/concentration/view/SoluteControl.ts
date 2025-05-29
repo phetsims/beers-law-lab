@@ -32,7 +32,9 @@ type SoluteComboBoxOptions = SelfOptions & StrictOmit<HBoxOptions, 'children'>;
 
 export default class SoluteControl extends HBox {
 
-  public constructor( selectedSoluteProperty: Property<Solute>, solutes: Solute[], soluteListParent: Node,
+  public constructor( selectedSoluteProperty: Property<Solute>,
+                      solutes: Solute[],
+                      soluteListParent: Node,
                       providedOptions: SoluteComboBoxOptions ) {
 
     const options = optionize<SoluteComboBoxOptions, SelfOptions, HBoxOptions>()( {

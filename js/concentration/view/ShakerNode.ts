@@ -30,8 +30,10 @@ type ShakerNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
 export default class ShakerNode extends InteractiveHighlighting( Node ) {
 
-  public constructor( shaker: Shaker, soluteLabelStringProperty: TReadOnlyProperty<string>,
-                      modelViewTransform: ModelViewTransform2, providedOptions: ShakerNodeOptions ) {
+  public constructor( shaker: Shaker,
+                      soluteLabelStringProperty: TReadOnlyProperty<string>,
+                      modelViewTransform: ModelViewTransform2,
+                      providedOptions: ShakerNodeOptions ) {
 
     const options = optionize<ShakerNodeOptions, SelfOptions, NodeOptions>()( {
 

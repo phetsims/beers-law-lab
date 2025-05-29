@@ -14,7 +14,9 @@ import ParticlesNode from './ParticlesNode.js';
 
 export default class ShakerParticlesNode extends ParticlesNode {
 
-  public constructor( shakerParticles: ShakerParticles, modelViewTransform: ModelViewTransform2, canvasBounds: Bounds2 ) {
+  public constructor( shakerParticles: ShakerParticles,
+                      modelViewTransform: ModelViewTransform2,
+                      canvasBounds: Bounds2 ) {
 
     super( shakerParticles, modelViewTransform, canvasBounds );
 

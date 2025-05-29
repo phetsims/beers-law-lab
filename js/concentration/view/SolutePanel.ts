@@ -28,8 +28,11 @@ type SolutePanelOptions = SelfOptions & PickRequired<PanelOptions, 'tandem'>;
 
 export default class SolutePanel extends Panel {
 
-  public constructor( solutes: Solute[], currentSoluteProperty: Property<Solute>,
-                      soluteFormProperty: EnumerationProperty<SoluteForm>, shaker: Shaker, dropper: Dropper,
+  public constructor( solutes: Solute[],
+                      currentSoluteProperty: Property<Solute>,
+                      soluteFormProperty: EnumerationProperty<SoluteForm>,
+                      shaker: Shaker,
+                      dropper: Dropper,
                       soluteListParent: Node, providedOptions: SolutePanelOptions ) {
 
     const options = optionize<SolutePanelOptions, SelfOptions, PanelOptions>()( {

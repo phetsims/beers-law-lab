@@ -58,7 +58,9 @@ type ATDetectorNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
 export default class ATDetectorNode extends Node {
 
-  public constructor( detector: ATDetector, light: Light, modelViewTransform: ModelViewTransform2,
+  public constructor( detector: ATDetector,
+                      light: Light,
+                      modelViewTransform: ModelViewTransform2,
                       providedOptions: ATDetectorNodeOptions ) {
 
     const options = optionize<ATDetectorNodeOptions, SelfOptions, NodeOptions>()( {

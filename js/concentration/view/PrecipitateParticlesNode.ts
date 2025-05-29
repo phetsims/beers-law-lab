@@ -14,7 +14,9 @@ import ParticlesNode from './ParticlesNode.js';
 
 export default class PrecipitateParticlesNode extends ParticlesNode {
 
-  public constructor( precipitateParticles: PrecipitateParticles, modelViewTransform: ModelViewTransform2, canvasBounds: Bounds2 ) {
+  public constructor( precipitateParticles: PrecipitateParticles,
+                      modelViewTransform: ModelViewTransform2,
+                      canvasBounds: Bounds2 ) {
     super( precipitateParticles, modelViewTransform, canvasBounds );
   }
 }

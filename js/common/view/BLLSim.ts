@@ -23,7 +23,8 @@ type BLLSimOptions = SelfOptions & PickOptional<SimOptions, 'phetioDesigned'>;
 
 export default class BLLSim extends Sim {
 
-  public constructor( simNameProperty: TReadOnlyProperty<string>, screens: Array<BeersLawScreen | ConcentrationScreen>,
+  public constructor( simNameProperty: TReadOnlyProperty<string>,
+                      screens: Array<BeersLawScreen | ConcentrationScreen>,
                       providedOptions?: BLLSimOptions ) {
 
     const options = optionize<BLLSimOptions, SelfOptions, SimOptions>()( {

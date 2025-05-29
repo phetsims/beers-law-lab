@@ -45,7 +45,9 @@ type WavelengthPanelOptions = SelfOptions & NodeTranslationOptions & PickRequire
 
 export default class WavelengthPanel extends Panel {
 
-  public constructor( solutionProperty: Property<BeersLawSolution>, light: Light, providedOptions: WavelengthPanelOptions ) {
+  public constructor( solutionProperty: Property<BeersLawSolution>,
+                      light: Light,
+                      providedOptions: WavelengthPanelOptions ) {
 
     const options = optionize<WavelengthPanelOptions, SelfOptions, PanelOptions>()( {
 

@@ -40,7 +40,8 @@ export default class Shaker extends BLLMovable {
   public readonly dispensingRateProperty: Property<number>;
   private previousPosition: Vector2;
 
-  public constructor( soluteProperty: Property<Solute>, soluteFormProperty: EnumerationProperty<SoluteForm>,
+  public constructor( soluteProperty: Property<Solute>,
+                      soluteFormProperty: EnumerationProperty<SoluteForm>,
                       providedOptions: ShakerOptions ) {
 
     const options = optionize<ShakerOptions, SelfOptions, BLLMovableOptions>()( {

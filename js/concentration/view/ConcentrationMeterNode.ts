@@ -64,9 +64,15 @@ type ConcentrationMeterNodeOptions = SelfOptions & PickRequired<NodeOptions, 'ta
 
 export default class ConcentrationMeterNode extends Node {
 
-  public constructor( concentrationMeter: ConcentrationMeter, solution: ConcentrationSolution, dropper: Dropper,
-                      solutionNode: Path, stockSolutionNode: Path, solventFluidNode: Path, drainFluidNode: Path,
-                      modelViewTransform: ModelViewTransform2, providedOptions: ConcentrationMeterNodeOptions ) {
+  public constructor( concentrationMeter: ConcentrationMeter,
+                      solution: ConcentrationSolution,
+                      dropper: Dropper,
+                      solutionNode: Path,
+                      stockSolutionNode: Path,
+                      solventFluidNode: Path,
+                      drainFluidNode: Path,
+                      modelViewTransform: ModelViewTransform2,
+                      providedOptions: ConcentrationMeterNodeOptions ) {
 
     const options = optionize<ConcentrationMeterNodeOptions, SelfOptions, NodeOptions>()( {
 

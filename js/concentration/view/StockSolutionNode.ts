@@ -18,8 +18,12 @@ import Dropper from '../model/Dropper.js';
 
 export default class StockSolutionNode extends Rectangle {
 
-  public constructor( solvent: Solvent, soluteProperty: Property<Solute>, dropper: Dropper, beaker: Beaker,
-                      tipWidth: number, modelViewTransform: ModelViewTransform2 ) {
+  public constructor( solvent: Solvent,
+                      soluteProperty: Property<Solute>,
+                      dropper: Dropper,
+                      beaker: Beaker,
+                      tipWidth: number,
+                      modelViewTransform: ModelViewTransform2 ) {
 
     super( 0, 0, 0, 0, {
       lineWidth: 1,
