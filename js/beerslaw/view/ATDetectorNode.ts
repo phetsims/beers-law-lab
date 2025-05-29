@@ -11,7 +11,6 @@ import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js'
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
-import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Shape from '../../../../kite/js/Shape.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
@@ -128,7 +127,7 @@ class BodyNode extends Node {
         if ( mode === ATDetectorMode.TRANSMITTANCE ) {
           valueString = ( transmittance === null ) ?
                         NO_VALUE :
-                        StringUtils.format( pattern, Utils.toFixed( 100 * transmittance, TRANSMITTANCE_DECIMAL_PLACES ) );
+                        StringUtils.format( pattern, toFixed( 100 * transmittance, TRANSMITTANCE_DECIMAL_PLACES ) );
         }
         else {
           valueString = ( absorbance === null ) ? NO_VALUE : toFixed( absorbance, ABSORBANCE_DECIMAL_PLACES );
