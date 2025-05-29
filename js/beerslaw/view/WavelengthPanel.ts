@@ -68,12 +68,16 @@ export default class WavelengthPanel extends Panel {
       numberFormatterDependencies: [ PATTERN_STRING_PROPERTY, UNITS_STRING_PROPERTY ],
       xMargin: 7,
       yMargin: 3,
+      textOptions: {
+        maxWidth: 90
+      },
       tandem: options.tandem.createTandem( 'numberDisplay' )
     } );
 
     const labelText = new Text( labelStringProperty, {
       font: new PhetFont( 20 ),
       fill: 'black',
+      maxWidth: 150,
       visibleProperty: numberDisplay.visibleProperty
     } );
 
@@ -122,8 +126,7 @@ export default class WavelengthPanel extends Panel {
       children: [
         new HBox( {
           spacing: 10,
-          children: [ labelText, numberDisplay ],
-          maxWidth: 250
+          children: [ labelText, numberDisplay ]
         } ),
         radioButtonGroup,
         wavelengthNumberControl

@@ -22,7 +22,8 @@ export default class LightModeRadioButtonGroup extends AquaRadioButtonGroup<Ligh
 
     const textOptions: TextOptions = {
       font: new PhetFont( 18 ),
-      fill: 'black'
+      fill: 'black',
+      maxWidth: 75
     };
 
     const items: AquaRadioButtonGroupItem<LightMode>[] = [
@@ -45,7 +46,6 @@ export default class LightModeRadioButtonGroup extends AquaRadioButtonGroup<Ligh
       orientation: 'horizontal',
       spacing: 15,
       touchAreaYDilation: 8,
-      maxWidth: 250,
       accessibleName: BeersLawLabStrings.a11y.lightModeRadioButtonGroup.accessibleNameStringProperty,
       tandem: tandem
     } );
