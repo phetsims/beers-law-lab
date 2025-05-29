@@ -17,6 +17,7 @@ import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Ruler from '../model/Ruler.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
+import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 
 const MAJOR_TICK_WIDTH = 0.5; // in model coordinate frame
@@ -74,6 +75,15 @@ export default class BLLRulerNode extends InteractiveHighlighting( RulerNode ) {
       dragBoundsProperty: new Property( ruler.dragBounds ),
       transform: modelViewTransform,
       tandem: options.tandem.createTandem( 'dragListener' )
+    } ) );
+
+    this.addInputListener( new SoundKeyboardDragListener( {
+      positionProperty: ruler.positionProperty,
+      dragBoundsProperty: new Property( ruler.dragBounds ),
+      transform: modelViewTransform,
+      dragSpeed: 300,
+      shiftDragSpeed: 20,
+      tandem: options.tandem.createTandem( 'keyboardDragListener' )
     } ) );
 
     this.addLinkedElement( ruler );
