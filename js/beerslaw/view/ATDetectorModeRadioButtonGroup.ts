@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * ATDetectorModeRadioButtonGroup is the radio button group for selecting the mode of the AT detector.
+ * ATDetectorModeRadioButtonGroup selects the detector mode ('transmittance' or 'absorbance').
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
