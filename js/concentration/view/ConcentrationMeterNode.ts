@@ -31,7 +31,6 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import ProbeNode, { ProbeNodeOptions } from '../../../../scenery-phet/js/ProbeNode.js';
 import ShadedRectangle from '../../../../scenery-phet/js/ShadedRectangle.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
-import DragListener from '../../../../scenery/js/listeners/DragListener.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Path, { PathOptions } from '../../../../scenery/js/nodes/Path.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
@@ -46,6 +45,7 @@ import Dropper from '../model/Dropper.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import { linear } from '../../../../dot/js/util/linear.js';
+import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 
 const DECIMAL_PLACES_MOLES_PER_LITER = 3;
 const DECIMAL_PLACES_PERCENT = 1;
@@ -278,7 +278,7 @@ class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode ) {
     this.touchArea = this.localBounds.dilatedXY( 0.25 * this.width, 0.25 * this.height );
 
     // drag listener
-    this.addInputListener( new DragListener( {
+    this.addInputListener( new SoundDragListener( {
       positionProperty: probe.positionProperty,
       dragBoundsProperty: new Property( probe.dragBounds ),
       transform: modelViewTransform,
