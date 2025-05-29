@@ -21,6 +21,7 @@ import beersLawLab from '../../beersLawLab.js';
 import Shaker from '../model/Shaker.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
+import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 
 const DEBUG_ORIGIN = false;
 
@@ -94,6 +95,16 @@ export default class ShakerNode extends InteractiveHighlighting( Node ) {
       dragBoundsProperty: new Property( shaker.dragBounds ),
       transform: modelViewTransform,
       tandem: options.tandem.createTandem( 'dragListener' )
+    } ) );
+
+    // keyboard drag listener
+    this.addInputListener( new SoundKeyboardDragListener( {
+      positionProperty: shaker.positionProperty,
+      dragBoundsProperty: new Property( shaker.dragBounds ),
+      transform: modelViewTransform,
+      dragSpeed: 200,
+      shiftDragSpeed: 20,
+      tandem: options.tandem.createTandem( 'keyboardDragListener' )
     } ) );
 
     this.addLinkedElement( shaker );
