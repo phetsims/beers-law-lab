@@ -25,6 +25,7 @@ import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicin
 import { clamp } from '../../../../dot/js/util/clamp.js';
 import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
+import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 
 const PERCENT_FULL = 0.92;
 const SOLUTION_ALPHA = 0.6;
@@ -98,6 +99,19 @@ export default class CuvetteNode extends Node {
 
     arrowNode.addInputListener( new CuvetteDragListener( cuvette, modelViewTransform,
       options.tandem.createTandem( 'cuvetteDragListener' ) ) );
+
+    arrowNode.addInputListener( new SoundKeyboardDragListener( {
+      transform: modelViewTransform,
+      drag: ( event, listener ) => {
+        // To support all arrow keys and WASD keys, use the modelDelta component that is non-zero.
+        const delta = ( listener.modelDelta.x !== 0 ) ? listener.modelDelta.x : listener.modelDelta.y;
+        const newWidth = cuvette.widthProperty.value + delta;
+        cuvette.widthProperty.value = clamp( newWidth, cuvette.widthProperty.range.min, cuvette.widthProperty.range.max );
+      },
+      dragSpeed: 300,
+      shiftDragSpeed: 20,
+      tandem: options.tandem.createTandem( 'cuvetteKeyboardDragListener' )
+    } ) );
 
     // position of the cuvette
     const position = modelViewTransform.modelToViewPosition( cuvette.position );
