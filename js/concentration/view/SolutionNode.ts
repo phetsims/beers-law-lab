@@ -7,13 +7,13 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Utils from '../../../../dot/js/Utils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import Beaker from '../model/Beaker.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
+import { linear } from '../../../../dot/js/util/linear.js';
 
 const MIN_NONZERO_HEIGHT = 5; // minimum height for a solution with non-zero volume, set by visual inspection
 
@@ -38,7 +38,7 @@ export default class SolutionNode extends Rectangle {
     solution.volumeProperty.link( volume => {
 
       // determine dimensions in model coordinates
-      let solutionHeight = Utils.linear( 0, beaker.volume, 0, beaker.size.height, volume ); // volume -> height
+      let solutionHeight = linear( 0, beaker.volume, 0, beaker.size.height, volume ); // volume -> height
       if ( volume > 0 && solutionHeight < MIN_NONZERO_HEIGHT ) {
         // constrain non-zero volume to minimum height, so that the solution is visible to the user and detectable by the concentration probe
         solutionHeight = MIN_NONZERO_HEIGHT;

@@ -7,7 +7,6 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import Utils from '../../../../dot/js/Utils.js';
 import Shape from '../../../../kite/js/Shape.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -24,6 +23,8 @@ import beersLawLab from '../../beersLawLab.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
 import Cuvette from '../model/Cuvette.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
+import { clamp } from '../../../../dot/js/util/clamp.js';
+import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
 
 const PERCENT_FULL = 0.92;
 const SOLUTION_ALPHA = 0.6;
@@ -132,13 +133,13 @@ class CuvetteDragListener extends DragListener {
       drag: event => {
         const dragX = event.pointer.point.x;
         const deltaWidth = modelViewTransform.viewToModelDeltaX( dragX - startX );
-        cuvette.widthProperty.value = Utils.clamp( startWidth + deltaWidth, widthRange.min, widthRange.max );
+        cuvette.widthProperty.value = clamp( startWidth + deltaWidth, widthRange.min, widthRange.max );
       },
 
       end: () => {
         const snapInterval = cuvette.snapIntervalProperty.value;
         if ( snapInterval > 0 ) {
-          cuvette.widthProperty.value = Utils.roundToInterval( cuvette.widthProperty.value, snapInterval );
+          cuvette.widthProperty.value = roundToInterval( cuvette.widthProperty.value, snapInterval );
         }
       },
 

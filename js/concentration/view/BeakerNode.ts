@@ -8,7 +8,6 @@
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
-import Utils from '../../../../dot/js/Utils.js';
 import Shape from '../../../../kite/js/Shape.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -22,6 +21,7 @@ import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
 import Beaker from '../model/Beaker.js';
+import { roundSymmetric } from '../../../../dot/js/util/roundSymmetric.js';
 
 const RIM_OFFSET = 20;
 const MINOR_TICK_SPACING = 0.1; // L
@@ -80,7 +80,7 @@ export default class BeakerNode extends Node {
     } );
     this.addChild( tickLabelsNode );
 
-    const numberOfTicks = Utils.roundSymmetric( beaker.volume / MINOR_TICK_SPACING );
+    const numberOfTicks = roundSymmetric( beaker.volume / MINOR_TICK_SPACING );
     const deltaY = height / numberOfTicks;
     for ( let i = 1; i <= numberOfTicks; i++ ) {
 

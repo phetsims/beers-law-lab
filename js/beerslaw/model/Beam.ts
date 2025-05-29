@@ -16,7 +16,6 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Disposable from '../../../../axon/js/Disposable.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
-import Utils from '../../../../dot/js/Utils.js';
 import Shape from '../../../../kite/js/Shape.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
@@ -26,6 +25,7 @@ import ATDetector from './ATDetector.js';
 import Cuvette from './Cuvette.js';
 import Light from './Light.js';
 import SolutionInCuvette from './SolutionInCuvette.js';
+import { linear } from '../../../../dot/js/util/linear.js';
 
 const MAX_LIGHT_WIDTH = 50; // cm, wide enough to be way off the right edge of the play area
 const MAX_LIGHT_ALPHA = 0.78; // transparency of light when transmittance is 1.0 (tuned by eye)
@@ -71,7 +71,7 @@ export default class Beam {
         if ( beamVisible ) {
           const baseColor = VisibleColor.wavelengthToColor( wavelength );
           const leftColor = baseColor.withAlpha( MAX_LIGHT_ALPHA );
-          const rightColor = baseColor.withAlpha( Utils.linear( 0, 1, MIN_LIGHT_ALPHA, MAX_LIGHT_ALPHA, transmittance ) );
+          const rightColor = baseColor.withAlpha( linear( 0, 1, MIN_LIGHT_ALPHA, MAX_LIGHT_ALPHA, transmittance ) );
           const x = modelViewTransform.modelToViewPosition( cuvette.position ).x;
           const w = modelViewTransform.modelToViewDeltaX( cuvetteWidth );
           return new LinearGradient( x, 0, x + w, 0 ).addColorStop( 0, leftColor ).addColorStop( 1, rightColor );

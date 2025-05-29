@@ -16,7 +16,6 @@ import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Range from '../../../../dot/js/Range.js';
-import Utils from '../../../../dot/js/Utils.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
@@ -32,6 +31,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
+import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
 
 const FONT = new PhetFont( 20 );
 const TICK_FONT = new PhetFont( 16 );
@@ -127,7 +127,7 @@ class SoluteConcentrationControl extends NumberControl {
         visibleProperty: DerivedProperty.not( displayOnlyProperty ),
         trackSize: new Dimension2( 200, 15 ),
         thumbSize: new Dimension2( 22, 45 ),
-        constrainValue: value => Utils.roundToInterval( value, SLIDER_INTERVAL ),
+        constrainValue: value => roundToInterval( value, SLIDER_INTERVAL ),
         tandem: Tandem.OPT_OUT
       },
 

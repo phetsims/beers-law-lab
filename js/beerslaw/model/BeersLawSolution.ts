@@ -17,7 +17,6 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import PhetioProperty from '../../../../axon/js/PhetioProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
-import Utils from '../../../../dot/js/Utils.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import IntentionalAny from '../../../../phet-core/js/types/IntentionalAny.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -32,6 +31,7 @@ import Solute from '../../common/model/Solute.js';
 import Solvent from '../../common/model/Solvent.js';
 import ConcentrationTransform from './ConcentrationTransform.js';
 import MolarAbsorptivityData from './MolarAbsorptivityData.js';
+import { linear } from '../../../../dot/js/util/linear.js';
 
 // parent tandem for all static instances of BeersLawSolution
 const SOLUTIONS_TANDEM = Tandem.ROOT.createTandem( 'beersLawScreen' ).createTandem( 'model' ).createTandem( 'solutions' );
@@ -111,7 +111,7 @@ export default class BeersLawSolution extends PhetioObject {
       ( concentration, concentrationRange, solventColor ) => {
         let color = solventColor;
         if ( concentration > 0 ) {
-          const distance = Utils.linear( concentrationRange.min, concentrationRange.max, 0, 1, concentration );
+          const distance = linear( concentrationRange.min, concentrationRange.max, 0, 1, concentration );
           color = this.colorRange.interpolateLinear( distance );
         }
         return color;

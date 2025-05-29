@@ -14,7 +14,6 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import RangeWithValue from '../../../../dot/js/RangeWithValue.js';
-import Utils from '../../../../dot/js/Utils.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -26,6 +25,7 @@ import beersLawLab from '../../beersLawLab.js';
 import Fluid from '../../common/model/Fluid.js';
 import Solute from '../../common/model/Solute.js';
 import Solvent from '../../common/model/Solvent.js';
+import { roundSymmetric } from '../../../../dot/js/util/roundSymmetric.js';
 
 type SelfOptions = EmptySelfOptions &
   PickOptional<PhetioObjectOptions, 'phetioDocumentation'> &
@@ -185,7 +185,7 @@ export default class ConcentrationSolution extends Fluid {
   }
 
   public getNumberOfPrecipitateParticles(): number {
-    let numberOfParticles = Utils.roundSymmetric( this.soluteProperty.value.particlesPerMole * this.precipitateMolesProperty.value );
+    let numberOfParticles = roundSymmetric( this.soluteProperty.value.particlesPerMole * this.precipitateMolesProperty.value );
     if ( numberOfParticles === 0 && this.precipitateMolesProperty.value > 0 ) {
       numberOfParticles = 1;
     }

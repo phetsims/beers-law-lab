@@ -10,7 +10,6 @@
 import Disposable from '../../../../axon/js/Disposable.js';
 import Emitter from '../../../../axon/js/Emitter.js';
 import dotRandom from '../../../../dot/js/dotRandom.js';
-import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -23,6 +22,7 @@ import ConcentrationSolution from './ConcentrationSolution.js';
 import Shaker from './Shaker.js';
 import SoluteParticle from './SoluteParticle.js';
 import SoluteParticles, { SoluteParticlesOptions } from './SoluteParticles.js';
+import { roundSymmetric } from '../../../../dot/js/util/roundSymmetric.js';
 
 // Units for speed and acceleration are not meaningful here, adjust these so that it looks good.
 const INITIAL_SPEED = 100;
@@ -113,7 +113,7 @@ export default class ShakerParticles extends SoluteParticles {
     // create new particles
     if ( shaker.dispensingRateProperty.value > 0 ) {
 
-      const numberOfParticles = Utils.roundSymmetric( Math.max( 1,
+      const numberOfParticles = roundSymmetric( Math.max( 1,
         shaker.dispensingRateProperty.value * solution.soluteProperty.value.particlesPerMole * dt ) );
 
       for ( let j = 0; j < numberOfParticles; j++ ) {

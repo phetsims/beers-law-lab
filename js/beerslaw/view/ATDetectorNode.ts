@@ -38,6 +38,8 @@ import ATDetector from '../model/ATDetector.js';
 import ATDetectorMode from '../model/ATDetectorMode.js';
 import Light from '../model/Light.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
+import { toFixed } from '../../../../dot/js/util/toFixed.js';
+import { linear } from '../../../../dot/js/util/linear.js';
 
 const ABSORBANCE_DECIMAL_PLACES = 2;
 const TRANSMITTANCE_DECIMAL_PLACES = 2;
@@ -161,9 +163,7 @@ class BodyNode extends Node {
                         StringUtils.format( pattern, Utils.toFixed( 100 * transmittance, TRANSMITTANCE_DECIMAL_PLACES ) );
         }
         else {
-          valueString = ( absorbance === null ) ?
-                        NO_VALUE :
-                        Utils.toFixed( absorbance, ABSORBANCE_DECIMAL_PLACES );
+          valueString = ( absorbance === null ) ? NO_VALUE : toFixed( absorbance, ABSORBANCE_DECIMAL_PLACES );
         }
         return valueString;
       }, {
@@ -293,7 +293,7 @@ class WireNode extends Path {
 
       // control points
       // The y coordinate of the body's control point varies with the x distance between the body and probe.
-      const c1Offset = new Vector2( 0, Utils.linear( 0, 800, 0, 200, bodyNode.centerX - probeNode.left ) ); // x distance -> y coordinate
+      const c1Offset = new Vector2( 0, linear( 0, 800, 0, 200, bodyNode.centerX - probeNode.left ) ); // x distance -> y coordinate
       const c2Offset = new Vector2( 50, 150 );
       const c1 = new Vector2( bodyConnectionPoint.x + c1Offset.x, bodyConnectionPoint.y + c1Offset.y );
       const c2 = new Vector2( probeConnectionPoint.x + c2Offset.x, probeConnectionPoint.y + c2Offset.y );

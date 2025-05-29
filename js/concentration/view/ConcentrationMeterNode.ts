@@ -20,7 +20,6 @@ import Multilink from '../../../../axon/js/Multilink.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
-import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Shape from '../../../../kite/js/Shape.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
@@ -45,6 +44,8 @@ import ConcentrationMeter from '../model/ConcentrationMeter.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import Dropper from '../model/Dropper.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
+import { toFixed } from '../../../../dot/js/util/toFixed.js';
+import { linear } from '../../../../dot/js/util/linear.js';
 
 const DECIMAL_PLACES_MOLES_PER_LITER = 3;
 const DECIMAL_PLACES_PERCENT = 1;
@@ -167,10 +168,10 @@ class BodyNode extends Node {
 
           // display concentration as 'mol/L' or '%', see beers-law-lab#149
           if ( concentrationMeterUnits === 'molesPerLiter' ) {
-            text = StringUtils.format( patternValueUnits, Utils.toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), molesPerLiterString );
+            text = StringUtils.format( patternValueUnits, toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), molesPerLiterString );
           }
           else {
-            text = StringUtils.format( patternValuePercent, Utils.toFixed( value, DECIMAL_PLACES_PERCENT ) );
+            text = StringUtils.format( patternValuePercent, toFixed( value, DECIMAL_PLACES_PERCENT ) );
           }
         }
         return text;
@@ -326,7 +327,7 @@ class WireNode extends Path {
 
       // control points
       // The y coordinate of the body's control point varies with the x distance between the body and probe.
-      const c1Offset = new Vector2( 0, Utils.linear( 0, 800, 0, 200, bodyNode.centerX - probeNode.left ) ); // x distance -> y coordinate
+      const c1Offset = new Vector2( 0, linear( 0, 800, 0, 200, bodyNode.centerX - probeNode.left ) ); // x distance -> y coordinate
       const c2Offset = new Vector2( 50, 0 );
       const c1 = new Vector2( bodyConnectionPoint.x + c1Offset.x, bodyConnectionPoint.y + c1Offset.y );
       const c2 = new Vector2( probeConnectionPoint.x + c2Offset.x, probeConnectionPoint.y + c2Offset.y );

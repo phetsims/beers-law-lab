@@ -11,7 +11,6 @@
 
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import Utils from '../../../../dot/js/Utils.js';
 import Shape from '../../../../kite/js/Shape.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -23,6 +22,7 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
+import { toFixed } from '../../../../dot/js/util/toFixed.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -63,11 +63,11 @@ export default class SolutionVolumeNode extends Node {
         let volumeString: string;
         let units: string;
         if ( beakerUnits === 'liters' ) {
-          volumeString = Number.isInteger( volume ) ? Utils.toFixed( volume, 0 ) : Utils.toFixed( volume, 2 );
+          volumeString = Number.isInteger( volume ) ? toFixed( volume, 0 ) : toFixed( volume, 2 );
           units = litersString;
         }
         else {
-          volumeString = Utils.toFixed( volume * 1000, 0 ); // convert L to mL
+          volumeString = toFixed( volume * 1000, 0 ); // convert L to mL
           units = millilitersString;
         }
         return StringUtils.format( pattern, volumeString, units );
