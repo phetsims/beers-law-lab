@@ -107,11 +107,13 @@ class SoluteConcentrationControl extends NumberControl {
       // NumberControl options
       isDisposable: false,
       titleNodeOptions: {
-        font: FONT
+        font: FONT,
+        maxWidth: 120
       },
       numberDisplayOptions: {
         textOptions: {
-          font: FONT
+          font: FONT,
+          maxWidth: 75
         },
         minBackgroundWidth: 95 // determined empirically
       },

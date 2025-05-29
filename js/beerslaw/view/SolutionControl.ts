@@ -65,7 +65,7 @@ export default class SolutionControl extends HBox {
 
     const labelText = new Text( labelStringProperty, {
       font: new PhetFont( 20 ),
-      maxWidth: 85,
+      maxWidth: 100,
       visibleProperty: comboBox.visibleProperty
     } );
 
