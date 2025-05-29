@@ -215,6 +215,11 @@
       "accessibleName": {
         "value": "Cuvette Resize Handle"
       }
+    },
+    "lightToggleButton": {
+      "accessibleName": {
+        "value": "Light Toggle Button"
+      }
     }
   }
 }
