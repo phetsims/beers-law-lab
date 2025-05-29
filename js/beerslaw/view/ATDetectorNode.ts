@@ -84,9 +84,7 @@ export default class ATDetectorNode extends Node {
 
     this.children = [ wireNode, bodyNode, probeNode ];
 
-    this.addLinkedElement( detector, {
-      tandemName: 'detector'
-    } );
+    this.addLinkedElement( detector );
 
     this.pdomOrder = [
       probeNode,

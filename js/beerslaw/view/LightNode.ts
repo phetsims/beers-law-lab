@@ -39,9 +39,7 @@ export default class LightNode extends LaserPointerNode {
 
     super( light.isOnProperty, options );
 
-    this.addLinkedElement( light, {
-      tandemName: 'light'
-    } );
+    this.addLinkedElement( light );
   }
 }
 

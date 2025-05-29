@@ -99,9 +99,7 @@ export default class Shaker extends BLLMovable {
       }
     } );
 
-    this.addLinkedElement( soluteProperty, {
-      tandemName: 'soluteProperty'
-    } );
+    this.addLinkedElement( soluteProperty );
   }
 
   public override reset(): void {

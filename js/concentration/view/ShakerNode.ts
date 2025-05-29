@@ -94,9 +94,7 @@ export default class ShakerNode extends InteractiveHighlighting( Node ) {
       tandem: options.tandem.createTandem( 'dragListener' )
     } ) );
 
-    this.addLinkedElement( shaker, {
-      tandemName: 'shaker'
-    } );
+    this.addLinkedElement( shaker );
   }
 }
 

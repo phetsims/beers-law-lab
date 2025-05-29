@@ -122,9 +122,7 @@ export default class ConcentrationMeterNode extends Node {
       drainFluidNode.boundsProperty
     ], () => updateValue() );
 
-    this.addLinkedElement( concentrationMeter, {
-      tandemName: 'concentrationMeter'
-    } );
+    this.addLinkedElement( concentrationMeter );
   }
 }
 

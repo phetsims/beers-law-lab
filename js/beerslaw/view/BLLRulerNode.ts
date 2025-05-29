@@ -76,9 +76,7 @@ export default class BLLRulerNode extends InteractiveHighlighting( RulerNode ) {
       tandem: options.tandem.createTandem( 'dragListener' )
     } ) );
 
-    this.addLinkedElement( ruler, {
-      tandemName: 'ruler'
-    } );
+    this.addLinkedElement( ruler );
   }
 }
 

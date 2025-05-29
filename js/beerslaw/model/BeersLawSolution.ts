@@ -123,9 +123,7 @@ export default class BeersLawSolution extends PhetioObject {
       tandemName: 'nameProperty'
     } );
 
-    this.addLinkedElement( options.formulaProperty, {
-      tandemName: 'formulaProperty'
-    } );
+    this.addLinkedElement( options.formulaProperty );
   }
 
   public reset(): void {
