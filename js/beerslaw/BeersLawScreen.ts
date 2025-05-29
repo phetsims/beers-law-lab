@@ -18,6 +18,7 @@ import BeersLawLabStrings from '../BeersLawLabStrings.js';
 import BLLColors from '../common/BLLColors.js';
 import BeersLawModel from './model/BeersLawModel.js';
 import BeersLawScreenView from './view/BeersLawScreenView.js';
+import BeersLawKeyboardHelpContent from './view/BeersLawKeyboardHelpContent.js';
 
 export default class BeersLawScreen extends Screen<BeersLawModel, BeersLawScreenView> {
 
@@ -30,6 +31,7 @@ export default class BeersLawScreen extends Screen<BeersLawModel, BeersLawScreen
       homeScreenIcon: createScreenIcon(),
       backgroundColorProperty: BLLColors.screenBackgroundColorProperty,
       screenButtonsHelpText: BeersLawLabStrings.a11y.beersLawScreen.screenButtonsHelpTextStringProperty,
+      createKeyboardHelpNode: () => new BeersLawKeyboardHelpContent(),
       tandem: tandem
     };
 

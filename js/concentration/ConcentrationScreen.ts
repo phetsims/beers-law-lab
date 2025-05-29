@@ -17,6 +17,7 @@ import BeersLawLabStrings from '../BeersLawLabStrings.js';
 import BLLColors from '../common/BLLColors.js';
 import ConcentrationModel from './model/ConcentrationModel.js';
 import ConcentrationScreenView from './view/ConcentrationScreenView.js';
+import ConcentrationKeyboardHelpContent from './view/ConcentrationKeyboardHelpContent.js';
 
 export default class ConcentrationScreen extends Screen<ConcentrationModel, ConcentrationScreenView> {
 
@@ -29,6 +30,7 @@ export default class ConcentrationScreen extends Screen<ConcentrationModel, Conc
       homeScreenIcon: createScreenIcon(),
       backgroundColorProperty: BLLColors.screenBackgroundColorProperty,
       screenButtonsHelpText: BeersLawLabStrings.a11y.concentrationScreen.screenButtonsHelpTextStringProperty,
+      createKeyboardHelpNode: () => new ConcentrationKeyboardHelpContent(),
       tandem: tandem
     };
 
