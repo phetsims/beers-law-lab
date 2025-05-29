@@ -67,6 +67,24 @@ type StringsType = {
   'showSoluteAmountStringProperty': LocalizedStringProperty;
   'beakerUnitsStringProperty': LocalizedStringProperty;
   'concentrationMeterUnitsStringProperty': LocalizedStringProperty;
+  'a11y': {
+    'concentrationScreen': {
+      'screenButtonsHelpTextStringProperty': LocalizedStringProperty;
+      'screenSummary': {
+        'playAreaStringProperty': LocalizedStringProperty;
+        'controlAreaStringProperty': LocalizedStringProperty;
+        'interactionHintStringProperty': LocalizedStringProperty;
+      }
+    };
+    'beersLawScreen': {
+      'screenButtonsHelpTextStringProperty': LocalizedStringProperty;
+      'screenSummary': {
+        'playAreaStringProperty': LocalizedStringProperty;
+        'controlAreaStringProperty': LocalizedStringProperty;
+        'interactionHintStringProperty': LocalizedStringProperty;
+      }
+    }
+  }
 };
 
 const BeersLawLabStrings = getStringModule( 'BEERS_LAW_LAB' ) as StringsType;

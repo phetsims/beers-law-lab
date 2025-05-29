@@ -29,6 +29,7 @@ export default class BeersLawScreen extends Screen<BeersLawModel, BeersLawScreen
       name: BeersLawLabStrings.screen.beersLawStringProperty,
       homeScreenIcon: createScreenIcon(),
       backgroundColorProperty: BLLColors.screenBackgroundColorProperty,
+      screenButtonsHelpText: BeersLawLabStrings.a11y.beersLawScreen.screenButtonsHelpTextStringProperty,
       tandem: tandem
     };
 

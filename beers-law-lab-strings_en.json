@@ -127,5 +127,39 @@
   },
   "concentrationMeterUnits": {
     "value": "Concentration Meter units:"
+  },
+  "a11y": {
+    "concentrationScreen": {
+      "screenButtonsHelpText": {
+        "value": "TODO.concentrationScreen.screenButtonsHelpText"
+      },
+      "screenSummary": {
+        "playArea": {
+          "value": "TODO.concentrationScreen.screenSummary.playArea"
+        },
+        "controlArea": {
+          "value": "TODO.concentrationScreen.screenSummary.controlArea"
+        },
+        "interactionHint": {
+          "value": "TODO.concentrationScreen.screenSummary.interactionHint"
+        }
+      }
+    },
+    "beersLawScreen": {
+      "screenButtonsHelpText": {
+        "value": "TODO.beersLawScreen.screenButtonsHelpText"
+      },
+      "screenSummary": {
+        "playArea": {
+          "value": "TODO.beersLawScreen.screenSummary.playArea"
+        },
+        "controlArea": {
+          "value": "TODO.beersLawScreen.screenSummary.controlArea"
+        },
+        "interactionHint": {
+          "value": "TODO.beersLawScreen.screenSummary.interactionHint"
+        }
+      }
+    }
   }
 }

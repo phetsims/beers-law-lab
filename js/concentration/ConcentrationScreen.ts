@@ -28,6 +28,7 @@ export default class ConcentrationScreen extends Screen<ConcentrationModel, Conc
       name: BeersLawLabStrings.screen.concentrationStringProperty,
       homeScreenIcon: createScreenIcon(),
       backgroundColorProperty: BLLColors.screenBackgroundColorProperty,
+      screenButtonsHelpText: BeersLawLabStrings.a11y.concentrationScreen.screenButtonsHelpTextStringProperty,
       tandem: tandem
     };
 
