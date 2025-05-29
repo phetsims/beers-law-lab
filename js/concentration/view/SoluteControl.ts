@@ -65,13 +65,15 @@ export default class SoluteControl extends HBox {
     // items
     const items = solutes.map( createItem );
 
-    options.children = [
-      new Text( labelStringProperty, {
-        font: new PhetFont( 22 ),
-        maxWidth: 75
-      } ),
-      new ComboBox( selectedSoluteProperty, items, soluteListParent, options.comboBoxOptions )
-    ];
+    const comboBox = new ComboBox( selectedSoluteProperty, items, soluteListParent, options.comboBoxOptions );
+
+    const labelText = new Text( labelStringProperty, {
+      font: new PhetFont( 22 ),
+      maxWidth: 75,
+      visibleProperty: comboBox.visibleProperty
+    } );
+
+    options.children = [ labelText, comboBox ];
 
     super( options );
   }

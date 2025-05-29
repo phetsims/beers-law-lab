@@ -63,17 +63,18 @@ export default class WavelengthPanel extends Panel {
         tandem: options.tandem.createTandem( 'labelStringProperty' )
       } );
 
-    const labelText = new Text( labelStringProperty, {
-      font: new PhetFont( 20 ),
-      fill: 'black'
-    } );
-
     const numberDisplay = new NumberDisplay( light.wavelengthProperty, light.wavelengthProperty.range, {
       numberFormatter: wavelength => StringUtils.format( PATTERN_STRING_PROPERTY.value, toFixed( wavelength, 0 ), UNITS_STRING_PROPERTY.value ),
       numberFormatterDependencies: [ PATTERN_STRING_PROPERTY, UNITS_STRING_PROPERTY ],
       xMargin: 7,
       yMargin: 3,
       tandem: options.tandem.createTandem( 'numberDisplay' )
+    } );
+
+    const labelText = new Text( labelStringProperty, {
+      font: new PhetFont( 20 ),
+      fill: 'black',
+      visibleProperty: numberDisplay.visibleProperty
     } );
 
     // radio button group

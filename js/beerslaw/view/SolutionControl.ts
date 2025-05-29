@@ -61,12 +61,17 @@ export default class SolutionControl extends HBox {
     // items
     const items = solutions.map( createItem );
 
+    const comboBox = new ComboBox<BeersLawSolution>( solutionProperty, items, solutionListParent, options.comboBoxOptions );
+
+    const labelText = new Text( labelStringProperty, {
+      font: new PhetFont( 20 ),
+      maxWidth: 85,
+      visibleProperty: comboBox.visibleProperty
+    } );
+
     options.children = [
-      new Text( labelStringProperty, {
-        font: new PhetFont( 20 ),
-        maxWidth: 85
-      } ),
-      new ComboBox<BeersLawSolution>( solutionProperty, items, solutionListParent, options.comboBoxOptions )
+      labelText,
+      comboBox
     ];
 
     super( options );
