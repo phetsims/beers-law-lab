@@ -42,8 +42,9 @@ export default class SoluteAmountText extends Node {
     const text = new Text( stringProperty, {
       isDisposable: false,
       font: new PhetFont( 22 ),
-      maxWidth: 200
+      maxWidth: 225
     } );
+
     options.children = [ text ];
 
     super( options );
