@@ -8,7 +8,6 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
-import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Utils from '../../../../dot/js/Utils.js';
@@ -31,7 +30,6 @@ import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLColors from '../../common/BLLColors.js';
 import BLLConstants from '../../common/BLLConstants.js';
-import BeersLawSolution from '../model/BeersLawSolution.js';
 import Light from '../model/Light.js';
 import LightMode from '../model/LightMode.js';
 
@@ -45,9 +43,7 @@ type WavelengthPanelOptions = SelfOptions & NodeTranslationOptions & PickRequire
 
 export default class WavelengthPanel extends Panel {
 
-  public constructor( solutionProperty: Property<BeersLawSolution>,
-                      light: Light,
-                      providedOptions: WavelengthPanelOptions ) {
+  public constructor( light: Light, providedOptions: WavelengthPanelOptions ) {
 
     const options = optionize<WavelengthPanelOptions, SelfOptions, PanelOptions>()( {
 

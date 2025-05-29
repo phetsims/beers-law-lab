@@ -54,7 +54,7 @@ export default class BeersLawScreenView extends ScreenView {
       tandem: tandem.createTandem( 'detectorNode' )
     } );
 
-    const wavelengthPanel = new WavelengthPanel( model.solutionProperty, model.light, {
+    const wavelengthPanel = new WavelengthPanel( model.light, {
       // below the light
       left: lightNode.left,
       top: lightNode.bottom + 20,

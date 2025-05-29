@@ -16,8 +16,6 @@ import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLColors from '../../common/BLLColors.js';
 import Solute from '../../common/model/Solute.js';
-import Dropper from '../model/Dropper.js';
-import Shaker from '../model/Shaker.js';
 import SoluteForm from '../model/SoluteForm.js';
 import SoluteControl from './SoluteControl.js';
 import SoluteFormRadioButtonGroup from './SoluteFormRadioButtonGroup.js';
@@ -31,9 +29,8 @@ export default class SolutePanel extends Panel {
   public constructor( solutes: Solute[],
                       currentSoluteProperty: Property<Solute>,
                       soluteFormProperty: EnumerationProperty<SoluteForm>,
-                      shaker: Shaker,
-                      dropper: Dropper,
-                      soluteListParent: Node, providedOptions: SolutePanelOptions ) {
+                      soluteListParent: Node,
+                      providedOptions: SolutePanelOptions ) {
 
     const options = optionize<SolutePanelOptions, SelfOptions, PanelOptions>()( {
       xMargin: 15,

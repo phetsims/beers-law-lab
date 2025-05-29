@@ -127,10 +127,9 @@ export default class ConcentrationScreenView extends ScreenView {
 
     // Solute controls
     const soluteListParent = new Node();
-    const solutePanel = new SolutePanel( model.solutes, model.soluteProperty, model.soluteFormProperty, model.shaker,
-      model.dropper, soluteListParent, {
-        tandem: tandem.createTandem( 'solutePanel' )
-      } );
+    const solutePanel = new SolutePanel( model.solutes, model.soluteProperty, model.soluteFormProperty, soluteListParent, {
+      tandem: tandem.createTandem( 'solutePanel' )
+    } );
 
     // Evaporation panel
     const evaporationPanel = new EvaporationPanel( model.evaporator, {
