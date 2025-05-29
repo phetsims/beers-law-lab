@@ -26,6 +26,7 @@ import { clamp } from '../../../../dot/js/util/clamp.js';
 import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 
 const PERCENT_FULL = 0.92;
 const SOLUTION_ALPHA = 0.6;
@@ -178,6 +179,7 @@ class CuvetteArrowNode extends InteractiveHighlighting( ArrowNode ) {
       lineWidth: 1,
       tagName: 'div',
       focusable: true,
+      accessibleName: BeersLawLabStrings.a11y.cuvetteArrowNode.accessibleNameStringProperty,
       tandem: tandem,
       visiblePropertyOptions: {
         phetioFeatured: true

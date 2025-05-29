@@ -113,6 +113,9 @@ type StringsType = {
     };
     'rulerNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
+    };
+    'cuvetteArrowNode': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
     }
   }
 };
