@@ -13,11 +13,11 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import RulerNode, { RulerNodeOptions } from '../../../../scenery-phet/js/RulerNode.js';
-import DragListener from '../../../../scenery/js/listeners/DragListener.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Ruler from '../model/Ruler.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
+import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 
 const MAJOR_TICK_WIDTH = 0.5; // in model coordinate frame
 
@@ -69,7 +69,7 @@ export default class BLLRulerNode extends InteractiveHighlighting( RulerNode ) {
       this.y = viewPosition.y;
     } );
 
-    this.addInputListener( new DragListener( {
+    this.addInputListener( new SoundDragListener( {
       positionProperty: ruler.positionProperty,
       dragBoundsProperty: new Property( ruler.dragBounds ),
       transform: modelViewTransform,
