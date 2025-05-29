@@ -23,6 +23,7 @@ import Solvent from '../../common/model/Solvent.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import Dropper from '../model/Dropper.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -44,7 +45,8 @@ export default class BLLDropperNode extends InteractiveHighlighting( EyeDropperN
       isDispensingProperty: dropper.isDispensingProperty,
       isEmptyProperty: dropper.isEmptyProperty,
       buttonOptions: {
-        enabledProperty: dropper.enabledProperty
+        enabledProperty: dropper.enabledProperty,
+        accessibleName: BeersLawLabStrings.a11y.soluteDropperToggleButton.accessibleNameStringProperty
       },
       visibleProperty: dropper.visibleProperty
     }, providedOptions );

@@ -47,7 +47,8 @@ export default class SolutionControl extends HBox {
         xMargin: 12,
         yMargin: 12,
         highlightFill: 'rgb( 218, 255, 255 )',
-        cornerRadius: 8
+        cornerRadius: 8,
+        accessibleName: BeersLawLabStrings.solutionStringProperty
       }
     }, providedOptions );
 

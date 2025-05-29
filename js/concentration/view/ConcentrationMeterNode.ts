@@ -265,6 +265,7 @@ class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode ) {
       cursor: 'pointer',
       tagName: 'div',
       focusable: true,
+      accessibleName: BeersLawLabStrings.a11y.concentrationMeterProbeNode.accessibleNameStringProperty,
 
       // phet-io
       tandem: tandem,

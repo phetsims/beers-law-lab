@@ -44,7 +44,8 @@ export default class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup<Sol
       touchAreaXDilation: 8,
       touchAreaYDilation: 3,
       mouseAreaXDilation: 8,
-      mouseAreaYDilation: 3
+      mouseAreaYDilation: 3,
+      accessibleName: BeersLawLabStrings.a11y.soluteFormRadioButtonGroup.accessibleNameStringProperty
     }, providedOptions );
 
     // radio button descriptions

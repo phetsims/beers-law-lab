@@ -160,6 +160,56 @@
           "value": "TODO.beersLawScreen.screenSummary.interactionHint"
         }
       }
+    },
+    "soluteFormRadioButtonGroup": {
+      "accessibleName": {
+        "value": "Solute Form"
+      }
+    },
+    "lightModeRadioButtonGroup": {
+      "accessibleName": {
+        "value": "Light Mode"
+      }
+    },
+    "detectorModeRadioButtonGroup": {
+      "accessibleName": {
+        "value": "Detector Mode"
+      }
+    },
+    "concentrationMeterProbeNode": {
+      "accessibleName": {
+        "value": "Concentration Probe"
+      }
+    },
+    "detectorProbeNode": {
+      "accessibleName": {
+        "value": "Detector Probe"
+      }
+    },
+    "shakerNode": {
+      "accessibleName": {
+        "value": "Solute Shaker"
+      }
+    },
+    "soluteDropperToggleButton": {
+      "accessibleName": {
+        "value": "Solute Dropper Toggle Button"
+      }
+    },
+    "solventFaucetNode": {
+      "accessibleName": {
+        "value": "Solvent Faucet"
+      }
+    },
+    "drainFaucetNode": {
+      "accessibleName": {
+        "value": "Drain Faucet"
+      }
+    },
+    "rulerNode": {
+      "accessibleName": {
+        "value": "Ruler"
+      }
     }
   }
 }

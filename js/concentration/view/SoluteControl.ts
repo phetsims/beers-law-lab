@@ -46,6 +46,7 @@ export default class SoluteControl extends HBox {
         yMargin: 12,
         highlightFill: 'rgb( 218, 255, 255 )',
         cornerRadius: 8,
+        accessibleName: BeersLawLabStrings.soluteStringProperty,
         tandem: Tandem.REQUIRED
       },
 

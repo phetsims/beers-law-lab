@@ -108,6 +108,7 @@ export default class WavelengthPanel extends Panel {
       spacing: 15,
       touchAreaYDilation: 8,
       maxWidth: 250,
+      accessibleName: BeersLawLabStrings.a11y.lightModeRadioButtonGroup.accessibleNameStringProperty,
       tandem: options.tandem.createTandem( 'radioButtonGroup' )
     } );
 
@@ -142,6 +143,7 @@ export default class WavelengthPanel extends Panel {
           children: [ decrementButton!, slider, incrementButton! ]
         } );
       },
+      accessibleName: BeersLawLabStrings.wavelengthStringProperty,
       tandem: wavelengthNumberControlTandem
     } );
 

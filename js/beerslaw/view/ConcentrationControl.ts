@@ -139,6 +139,7 @@ class SoluteConcentrationControl extends NumberControl {
           children: [ titleNode, numberDisplay, new HStrut( 5 ), leftArrowButton!, slider, rightArrowButton! ]
         } );
       },
+      accessibleName: BeersLawLabStrings.concentrationStringProperty,
 
       tandem: Tandem.OPT_OUT // see https://github.com/phetsims/beers-law-lab/issues/270
     }, providedOptions );

@@ -22,6 +22,7 @@ import Shaker from '../model/Shaker.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 
 const DEBUG_ORIGIN = false;
 
@@ -47,6 +48,7 @@ export default class ShakerNode extends InteractiveHighlighting( Node ) {
       isDisposable: false,
       tagName: 'div',
       focusable: true,
+      accessibleName: BeersLawLabStrings.a11y.shakerNode.accessibleNameStringProperty,
       phetioInputEnabledPropertyInstrumented: true
     }, providedOptions );
 

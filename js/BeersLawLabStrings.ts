@@ -1,4 +1,4 @@
-// Copyright 2021-2024, University of Colorado Boulder
+// Copyright 2021-2025, University of Colorado Boulder
 
 /* eslint-disable */
 /* @formatter:off */
@@ -83,6 +83,36 @@ type StringsType = {
         'controlAreaStringProperty': LocalizedStringProperty;
         'interactionHintStringProperty': LocalizedStringProperty;
       }
+    };
+    'soluteFormRadioButtonGroup': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
+    };
+    'lightModeRadioButtonGroup': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
+    };
+    'detectorModeRadioButtonGroup': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
+    };
+    'concentrationMeterProbeNode': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
+    };
+    'detectorProbeNode': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
+    };
+    'shakerNode': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
+    };
+    'soluteDropperToggleButton': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
+    };
+    'solventFaucetNode': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
+    };
+    'drainFaucetNode': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
+    };
+    'rulerNode': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
     }
   }
 };

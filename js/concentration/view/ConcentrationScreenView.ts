@@ -118,9 +118,11 @@ export default class ConcentrationScreenView extends ScreenView {
 
     // faucets
     const solventFaucetNode = new BLLFaucetNode( model.solventFaucet, modelViewTransform, {
+      accessibleName: BeersLawLabStrings.a11y.solventFaucetNode.accessibleNameStringProperty,
       tandem: tandem.createTandem( 'solventFaucetNode' )
     } );
     const drainFaucetNode = new BLLFaucetNode( model.drainFaucet, modelViewTransform, {
+      accessibleName: BeersLawLabStrings.a11y.drainFaucetNode.accessibleNameStringProperty,
       tandem: tandem.createTandem( 'drainFaucetNode' )
     } );
     const SOLVENT_FLUID_HEIGHT = model.beaker.position.y - model.solventFaucet.position.y;

@@ -145,6 +145,7 @@ class BodyNode extends Node {
       orientation: 'vertical',
       align: 'left',
       spacing: 15,
+      accessibleName: BeersLawLabStrings.a11y.detectorModeRadioButtonGroup.accessibleNameStringProperty,
       tandem: options.tandem.createTandem( 'radioButtonGroup' )
     } );
 
@@ -246,6 +247,7 @@ class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
       color: PROBE_COLOR,
       tagName: 'div',
       focusable: true,
+      accessibleName: BeersLawLabStrings.a11y.detectorProbeNode.accessibleNameStringProperty,
       phetioInputEnabledPropertyInstrumented: true,
       phetioVisiblePropertyInstrumented: false
     }, providedOptions );

@@ -18,7 +18,7 @@ const SCALE = 0.75;
 
 type SelfOptions = EmptySelfOptions;
 
-type BLLFaucetNodeOptions = SelfOptions & PickRequired<FaucetNodeOptions, 'tandem'>;
+type BLLFaucetNodeOptions = SelfOptions & PickRequired<FaucetNodeOptions, 'tandem' | 'accessibleName'>;
 
 export default class BLLFaucetNode extends FaucetNode {
 

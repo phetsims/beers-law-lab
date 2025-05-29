@@ -65,6 +65,7 @@ export default class EvaporationPanel extends Panel {
       endDrag: () => {
         evaporator.evaporationRateProperty.value = 0;
       },
+      accessibleName: BeersLawLabStrings.evaporationStringProperty,
       tandem: sliderTandem,
       visiblePropertyOptions: {
         phetioFeatured: false
