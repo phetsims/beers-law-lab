@@ -20,6 +20,7 @@ import RichText from '../../../../scenery/js/nodes/RichText.js';
 import shaker_png from '../../../images/shaker_png.js';
 import beersLawLab from '../../beersLawLab.js';
 import Shaker from '../model/Shaker.js';
+import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 
 // constants
 const DEBUG_ORIGIN = false;
@@ -28,7 +29,7 @@ type SelfOptions = EmptySelfOptions;
 
 type ShakerNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
-export default class ShakerNode extends Node {
+export default class ShakerNode extends InteractiveHighlighting( Node ) {
 
   public constructor( shaker: Shaker, soluteLabelStringProperty: TReadOnlyProperty<string>,
                       modelViewTransform: ModelViewTransform2, providedOptions: ShakerNodeOptions ) {
@@ -42,6 +43,8 @@ export default class ShakerNode extends Node {
       visibleProperty: shaker.visibleProperty,
       cursor: 'pointer',
       isDisposable: false,
+      tagName: 'div',
+      focusable: true,
       phetioInputEnabledPropertyInstrumented: true
     }, providedOptions );
 

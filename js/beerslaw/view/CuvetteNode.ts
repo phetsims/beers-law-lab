@@ -23,6 +23,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
 import Cuvette from '../model/Cuvette.js';
+import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 
 // constants
 const PERCENT_FULL = 0.92;
@@ -64,20 +65,7 @@ export default class CuvetteNode extends Node {
       pickable: false
     } );
 
-    const arrowNode = new ArrowNode( -ARROW_LENGTH / 2, 0, ARROW_LENGTH / 2, 0, {
-      cursor: 'pointer',
-      tailWidth: ARROW_TAIL_WIDTH,
-      headWidth: ARROW_HEAD_WIDTH,
-      headHeight: ARROW_HEAD_HEIGHT,
-      doubleHead: true,
-      fill: ARROW_FILL,
-      stroke: 'black',
-      lineWidth: 1,
-      tandem: options.tandem.createTandem( 'arrowNode' ),
-      visiblePropertyOptions: {
-        phetioFeatured: true
-      }
-    } );
+    const arrowNode = new CuvetteArrowNode( options.tandem.createTandem( 'arrowNode' ) );
 
     // rendering order
     this.children = [ solutionNode, cuvetteNode, arrowNode ];
@@ -108,23 +96,8 @@ export default class CuvetteNode extends Node {
       newSolution.fluidColorProperty.link( colorObserver );
     } );
 
-    // Highlight the arrow
-    const pressListener = new PressListener( {
-      attach: false,
-      tandem: Tandem.OPT_OUT
-    } );
-    arrowNode.addInputListener( pressListener );
-    pressListener.isHighlightedProperty.link( isHighlighted => {
-      arrowNode.fill = isHighlighted ? ARROW_FILL.brighterColor() : ARROW_FILL;
-    } );
-
     arrowNode.addInputListener( new CuvetteDragListener( cuvette, modelViewTransform,
       options.tandem.createTandem( 'cuvetteDragListener' ) ) );
-
-    // adjust touch area for the arrow
-    const dx = 0.25 * arrowNode.width;
-    const dy = arrowNode.height;
-    arrowNode.touchArea = arrowNode.localBounds.dilatedXY( dx, dy );
 
     // position of the cuvette
     const position = modelViewTransform.modelToViewPosition( cuvette.position );
@@ -173,6 +146,44 @@ class CuvetteDragListener extends DragListener {
       // phet-io
       tandem: tandem
     } );
+  }
+}
+
+class CuvetteArrowNode extends InteractiveHighlighting( ArrowNode ) {
+
+  public constructor( tandem: Tandem ) {
+
+    super( -ARROW_LENGTH / 2, 0, ARROW_LENGTH / 2, 0, {
+      cursor: 'pointer',
+      tailWidth: ARROW_TAIL_WIDTH,
+      headWidth: ARROW_HEAD_WIDTH,
+      headHeight: ARROW_HEAD_HEIGHT,
+      doubleHead: true,
+      fill: ARROW_FILL,
+      stroke: 'black',
+      lineWidth: 1,
+      tagName: 'div',
+      focusable: true,
+      tandem: tandem,
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
+    } );
+
+    // Highlight when the pointer is over the arrow.
+    const pressListener = new PressListener( {
+      attach: false,
+      tandem: Tandem.OPT_OUT
+    } );
+    this.addInputListener( pressListener );
+    pressListener.isHighlightedProperty.link( isHighlighted => {
+      this.fill = isHighlighted ? ARROW_FILL.brighterColor() : ARROW_FILL;
+    } );
+
+    // Dilate the touch area.
+    const dx = 0.25 * this.width;
+    const dy = this.height;
+    this.touchArea = this.localBounds.dilatedXY( dx, dy );
   }
 }
 

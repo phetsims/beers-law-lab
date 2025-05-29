@@ -101,6 +101,21 @@ export default class BeersLawScreenView extends ScreenView {
       ]
     } );
     this.addChild( screenViewRootNode );
+
+    // Play Area focus order
+    this.pdomPlayAreaNode.pdomOrder = [
+      lightNode,
+      wavelengthPanel,
+      cuvetteNode,
+      detectorNode,
+      rulerNode,
+      solutionPanel
+    ];
+
+    // Control Area focus order
+    this.pdomControlAreaNode.pdomOrder = [
+      resetAllButton
+    ];
   }
 }
 

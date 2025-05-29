@@ -44,6 +44,7 @@ import BLLPreferences from '../../common/model/BLLPreferences.js';
 import ConcentrationMeter from '../model/ConcentrationMeter.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import Dropper from '../model/Dropper.js';
+import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 
 // constants
 const DECIMAL_PLACES_MOLES_PER_LITER = 3;
@@ -233,7 +234,7 @@ class BodyNode extends Node {
 /**
  * Meter probe, origin at center of crosshairs.
  */
-class ConcentrationProbeNode extends ProbeNode {
+class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
   public readonly isInSolution: () => boolean;
   public readonly isInSolvent: () => boolean;
@@ -257,6 +258,8 @@ class ConcentrationProbeNode extends ProbeNode {
       color: PROBE_COLOR,
       rotation: -Math.PI / 2,
       cursor: 'pointer',
+      tagName: 'div',
+      focusable: true,
 
       // phet-io
       tandem: tandem,

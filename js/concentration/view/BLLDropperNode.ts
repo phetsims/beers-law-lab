@@ -22,12 +22,13 @@ import Solute from '../../common/model/Solute.js';
 import Solvent from '../../common/model/Solvent.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import Dropper from '../model/Dropper.js';
+import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 
 type SelfOptions = EmptySelfOptions;
 
 type BLLDropperNodeOptions = SelfOptions & PickRequired<EyeDropperNodeOptions, 'tandem'>;
 
-export default class BLLDropperNode extends EyeDropperNode {
+export default class BLLDropperNode extends InteractiveHighlighting( EyeDropperNode ) {
 
   public constructor( dropper: Dropper, soluteLabelStringProperty: TReadOnlyProperty<string>,
                       solvent: Solvent, soluteProperty: Property<Solute>,
@@ -42,7 +43,9 @@ export default class BLLDropperNode extends EyeDropperNode {
       buttonOptions: {
         enabledProperty: dropper.enabledProperty
       },
-      visibleProperty: dropper.visibleProperty
+      visibleProperty: dropper.visibleProperty,
+      tagName: 'div',
+      focusable: true
     }, providedOptions );
 
     super( options );

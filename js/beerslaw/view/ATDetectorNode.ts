@@ -37,6 +37,7 @@ import BLLMovable from '../../common/model/BLLMovable.js';
 import ATDetector from '../model/ATDetector.js';
 import ATDetectorMode from '../model/ATDetectorMode.js';
 import Light from '../model/Light.js';
+import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 
 // constants
 const ABSORBANCE_DECIMAL_PLACES = 2;
@@ -85,6 +86,11 @@ export default class ATDetectorNode extends Node {
     this.addLinkedElement( detector, {
       tandemName: 'detector'
     } );
+
+    this.pdomOrder = [
+      probeNode,
+      bodyNode
+    ];
   }
 }
 
@@ -225,7 +231,7 @@ class BodyNode extends Node {
 type ATProbeNodeSelfOptions = EmptySelfOptions;
 type ATProbeNodeOptions = ATProbeNodeSelfOptions & PickRequired<ProbeNodeOptions, 'tandem'>;
 
-class ATProbeNode extends ProbeNode {
+class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
   public constructor( probe: BLLMovable, light: Light, modelViewTransform: ModelViewTransform2, providedOptions: ATProbeNodeOptions ) {
 
@@ -238,6 +244,8 @@ class ATProbeNode extends ProbeNode {
       handleCornerRadius: 22,
       lightAngle: 1.25 * Math.PI,
       color: PROBE_COLOR,
+      tagName: 'div',
+      focusable: true,
       phetioInputEnabledPropertyInstrumented: true,
       phetioVisiblePropertyInstrumented: false
     }, providedOptions );

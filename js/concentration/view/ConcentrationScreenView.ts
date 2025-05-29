@@ -223,6 +223,23 @@ export default class ConcentrationScreenView extends ScreenView {
     // bottom right
     resetAllButton.right = this.layoutBounds.right - 30;
     resetAllButton.bottom = this.layoutBounds.bottom - 30;
+
+    // Play Area focus order
+    this.pdomPlayAreaNode.pdomOrder = [
+      shakerNode,
+      dropperNode,
+      solventFaucetNode,
+      drainFaucetNode,
+      concentrationMeterNode,
+      solutePanel,
+      evaporationPanel,
+      removeSoluteButton
+    ];
+
+    // Control Area focus order
+    this.pdomControlAreaNode.pdomOrder = [
+      resetAllButton
+    ];
   }
 }
 

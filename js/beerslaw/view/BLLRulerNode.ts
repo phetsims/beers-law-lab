@@ -17,6 +17,7 @@ import DragListener from '../../../../scenery/js/listeners/DragListener.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Ruler from '../model/Ruler.js';
+import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 
 // constants
 const MAJOR_TICK_WIDTH = 0.5; // in model coordinate frame
@@ -25,7 +26,7 @@ type SelfOptions = EmptySelfOptions;
 
 type BLLRulerNodeOptions = SelfOptions & PickRequired<RulerNodeOptions, 'tandem'>;
 
-export default class BLLRulerNode extends RulerNode {
+export default class BLLRulerNode extends InteractiveHighlighting( RulerNode ) {
 
   public constructor( ruler: Ruler, modelViewTransform: ModelViewTransform2, providedOptions: BLLRulerNodeOptions ) {
 
@@ -36,6 +37,8 @@ export default class BLLRulerNode extends RulerNode {
       minorTicksPerMajorTick: 4,
       insetsWidth: 0,
       isDisposable: false,
+      tagName: 'div',
+      focusable: true,
       phetioInputEnabledPropertyInstrumented: true,
       visiblePropertyOptions: {
         phetioFeatured: true
