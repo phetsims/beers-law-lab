@@ -19,7 +19,6 @@ import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Ruler from '../model/Ruler.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 
-// constants
 const MAJOR_TICK_WIDTH = 0.5; // in model coordinate frame
 
 type SelfOptions = EmptySelfOptions;

@@ -39,7 +39,6 @@ import ATDetectorMode from '../model/ATDetectorMode.js';
 import Light from '../model/Light.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 
-// constants
 const ABSORBANCE_DECIMAL_PLACES = 2;
 const TRANSMITTANCE_DECIMAL_PLACES = 2;
 const NO_VALUE = MathSymbols.NO_VALUE;

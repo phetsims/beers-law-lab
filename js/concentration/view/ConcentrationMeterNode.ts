@@ -46,7 +46,6 @@ import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import Dropper from '../model/Dropper.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 
-// constants
 const DECIMAL_PLACES_MOLES_PER_LITER = 3;
 const DECIMAL_PLACES_PERCENT = 1;
 const READOUT_NO_VALUE = MathSymbols.NO_VALUE; // displayed in the readout when the meter is not measuring anything

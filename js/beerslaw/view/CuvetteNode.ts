@@ -25,7 +25,6 @@ import BeersLawSolution from '../model/BeersLawSolution.js';
 import Cuvette from '../model/Cuvette.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 
-// constants
 const PERCENT_FULL = 0.92;
 const SOLUTION_ALPHA = 0.6;
 const ARROW_LENGTH = 110;

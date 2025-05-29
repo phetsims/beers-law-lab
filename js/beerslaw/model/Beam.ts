@@ -27,7 +27,6 @@ import Cuvette from './Cuvette.js';
 import Light from './Light.js';
 import SolutionInCuvette from './SolutionInCuvette.js';
 
-// constants
 const MAX_LIGHT_WIDTH = 50; // cm, wide enough to be way off the right edge of the play area
 const MAX_LIGHT_ALPHA = 0.78; // transparency of light when transmittance is 1.0 (tuned by eye)
 const MIN_LIGHT_ALPHA = 0.078; // min transparency of light when transmittance is non-zero (tuned by eye)

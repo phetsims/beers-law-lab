@@ -28,7 +28,6 @@ import Shaker from './Shaker.js';
 import ShakerParticles from './ShakerParticles.js';
 import SoluteForm from './SoluteForm.js';
 
-// constants
 const SOLUTION_VOLUME_RANGE = BLLConstants.SOLUTION_VOLUME_RANGE; // L
 const SOLUTE_AMOUNT_RANGE = BLLConstants.SOLUTE_AMOUNT_RANGE; // moles
 const DROPPER_FLOW_RATE = 0.05; // L/sec

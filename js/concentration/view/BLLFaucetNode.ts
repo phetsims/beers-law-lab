@@ -14,7 +14,6 @@ import FaucetNode, { FaucetNodeOptions } from '../../../../scenery-phet/js/Fauce
 import beersLawLab from '../../beersLawLab.js';
 import Faucet from '../model/Faucet.js';
 
-// constants
 const SCALE = 0.75;
 
 type SelfOptions = EmptySelfOptions;

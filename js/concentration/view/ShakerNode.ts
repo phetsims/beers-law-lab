@@ -22,7 +22,6 @@ import beersLawLab from '../../beersLawLab.js';
 import Shaker from '../model/Shaker.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 
-// constants
 const DEBUG_ORIGIN = false;
 
 type SelfOptions = EmptySelfOptions;

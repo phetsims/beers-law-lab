@@ -11,7 +11,6 @@ import Range from '../../../dot/js/Range.js';
 import RangeWithValue from '../../../dot/js/RangeWithValue.js';
 import beersLawLab from '../beersLawLab.js';
 
-// constants used to compute other constants
 const BEAKER_VOLUME = 1; // L
 
 const BLLConstants = {

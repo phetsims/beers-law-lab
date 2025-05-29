@@ -15,7 +15,6 @@ import BLLConstants from '../../common/BLLConstants.js';
 import Beaker from '../model/Beaker.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 
-// constants
 const MIN_NONZERO_HEIGHT = 5; // minimum height for a solution with non-zero volume, set by visual inspection
 
 export default class SolutionNode extends Rectangle {

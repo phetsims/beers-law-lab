@@ -35,7 +35,6 @@ import BeersLawSolution from '../model/BeersLawSolution.js';
 import Light from '../model/Light.js';
 import LightMode from '../model/LightMode.js';
 
-// constants
 const SLIDER_TRACK_SIZE = new Dimension2( 150, 30 );
 const PATTERN_STRING_PROPERTY = BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ];
 const UNITS_STRING_PROPERTY = BeersLawLabStrings.units.nmStringProperty;

@@ -33,7 +33,6 @@ import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
 
-// constants
 const FONT = new PhetFont( 20 );
 const TICK_FONT = new PhetFont( 16 );
 const SLIDER_INTERVAL = 5; // in view units

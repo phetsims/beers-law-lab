@@ -19,7 +19,6 @@ import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
 
-// constants
 const DECIMAL_PLACES = 0;
 
 type SelfOptions = EmptySelfOptions;

@@ -23,7 +23,6 @@ import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
 import Beaker from '../model/Beaker.js';
 
-// constants
 const RIM_OFFSET = 20;
 const MINOR_TICK_SPACING = 0.1; // L
 const MINOR_TICKS_PER_MAJOR_TICK = 5;
