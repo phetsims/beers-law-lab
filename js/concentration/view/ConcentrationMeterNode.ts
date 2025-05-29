@@ -46,6 +46,7 @@ import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicin
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import { linear } from '../../../../dot/js/util/linear.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
+import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 
 const DECIMAL_PLACES_MOLES_PER_LITER = 3;
 const DECIMAL_PLACES_PERCENT = 1;
@@ -287,6 +288,16 @@ class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode ) {
       dragBoundsProperty: new Property( probe.dragBounds ),
       transform: modelViewTransform,
       tandem: tandem.createTandem( 'dragListener' )
+    } ) );
+
+    // keyboard drag listener
+    this.addInputListener( new SoundKeyboardDragListener( {
+      positionProperty: probe.positionProperty,
+      dragBoundsProperty: new Property( probe.dragBounds ),
+      transform: modelViewTransform,
+      dragSpeed: 300,
+      shiftDragSpeed: 20,
+      tandem: tandem.createTandem( 'keyboardDragListener' )
     } ) );
 
     const isInNode = ( node: Path ) => {
