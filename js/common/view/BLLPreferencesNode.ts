@@ -40,7 +40,8 @@ export default class BLLPreferencesNode extends VBox {
 
     // 'Show solution volume' checkbox
     const showSolutionVolumeText = new Text( BeersLawLabStrings.showSolutionVolumeStringProperty, {
-      font: PreferencesDialogConstants.CONTENT_FONT
+      font: PreferencesDialogConstants.CONTENT_FONT,
+      maxWidth: 400
     } );
     const showSolutionVolumeCheckbox = new Checkbox( BLLPreferences.showSolutionVolumeProperty, showSolutionVolumeText, {
       tandem: options.tandem.createTandem( 'showSolutionVolumeCheckbox' )
@@ -48,7 +49,8 @@ export default class BLLPreferencesNode extends VBox {
 
     // 'Show solute amount' checkbox
     const showSoluteAmountText = new Text( BeersLawLabStrings.showSoluteAmountStringProperty, {
-      font: PreferencesDialogConstants.CONTENT_FONT
+      font: PreferencesDialogConstants.CONTENT_FONT,
+      maxWidth: 400
     } );
     const showSoluteAmountCheckbox = new Checkbox( BLLPreferences.showSoluteAmountProperty, showSoluteAmountText, {
       tandem: options.tandem.createTandem( 'showSoluteAmountCheckbox' )

@@ -35,7 +35,8 @@ export default class BeakerUnitsControl extends HBox {
     }, providedOptions );
 
     const labelText = new Text( BeersLawLabStrings.beakerUnitsStringProperty, {
-      font: PreferencesDialogConstants.CONTENT_FONT
+      font: PreferencesDialogConstants.CONTENT_FONT,
+      maxWidth: 300
     } );
 
     const radioButtonGroup = new BeakerUnitsRadioButtonGroup( beakerUnitsProperty, {
@@ -89,7 +90,7 @@ function createItem( value: BeakerUnits, stringProperty: TReadOnlyProperty<strin
     value: value,
     createNode: tandem => new Text( stringProperty, {
       font: PreferencesDialogConstants.CONTENT_FONT,
-      maxWidth: 200
+      maxWidth: 100
     } ),
     tandemName: `${value}RadioButton`
   };

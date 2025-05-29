@@ -35,7 +35,8 @@ export default class ConcentrationMeterUnitsControl extends HBox {
     }, providedOptions );
 
     const labelText = new Text( BeersLawLabStrings.concentrationMeterUnitsStringProperty, {
-      font: PreferencesDialogConstants.CONTENT_FONT
+      font: PreferencesDialogConstants.CONTENT_FONT,
+      maxWidth: 300
     } );
 
     const radioButtonGroup = new ConcentrationMeterUnitsRadioButtonGroup( beakerUnitsProperty, {
@@ -66,7 +67,7 @@ type ConcentrationMeterUnitsRadioButtonGroupOptions = SelfOptions & PickRequired
 
 class ConcentrationMeterUnitsRadioButtonGroup extends AquaRadioButtonGroup<ConcentrationMeterUnits> {
 
-  public constructor( beakerUnitsProperty: Property<ConcentrationMeterUnits>, providedOptions: ConcentrationMeterUnitsRadioButtonGroupOptions ) {
+  public constructor( concentrationMeterUnitsProperty: Property<ConcentrationMeterUnits>, providedOptions: ConcentrationMeterUnitsRadioButtonGroupOptions ) {
 
     const options = optionize<ConcentrationMeterUnitsRadioButtonGroupOptions, ConcentrationMeterUnitsRadioButtonGroupSelfOptions, AquaRadioButtonGroupOptions>()( {
 
@@ -80,16 +81,16 @@ class ConcentrationMeterUnitsRadioButtonGroup extends AquaRadioButtonGroup<Conce
       createItem( 'percent', BeersLawLabStrings.units.percentStringProperty )
     ];
 
-    super( beakerUnitsProperty, items, options );
+    super( concentrationMeterUnitsProperty, items, options );
   }
 }
 
 function createItem( value: ConcentrationMeterUnits, stringProperty: TReadOnlyProperty<string> ): AquaRadioButtonGroupItem<ConcentrationMeterUnits> {
   return {
     value: value,
-    createNode: tandem => new Text( stringProperty, {
+    createNode: () => new Text( stringProperty, {
       font: PreferencesDialogConstants.CONTENT_FONT,
-      maxWidth: 200
+      maxWidth: 100
     } ),
     tandemName: `${value}RadioButton`
   };
