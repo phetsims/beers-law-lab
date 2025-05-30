@@ -1,4 +1,4 @@
-// Copyright 2013-2024, University of Colorado Boulder
+// Copyright 2013-2025, University of Colorado Boulder
 
 /**
  * ShakerParticles manages the lifetime of solute particles, from creation when they exit the shaker,
