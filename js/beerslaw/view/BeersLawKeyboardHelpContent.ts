@@ -11,6 +11,7 @@ import BasicActionsKeyboardHelpSection from '../../../../scenery-phet/js/keyboar
 import TwoColumnKeyboardHelpContent from '../../../../scenery-phet/js/keyboard/help/TwoColumnKeyboardHelpContent.js';
 import MoveDraggableItemsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/MoveDraggableItemsKeyboardHelpSection.js';
 import beersLawLab from '../../beersLawLab.js';
+import SliderControlsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/SliderControlsKeyboardHelpSection.js';
 
 export default class BeersLawKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
 
@@ -18,7 +19,8 @@ export default class BeersLawKeyboardHelpContent extends TwoColumnKeyboardHelpCo
 
     // Sections in the left column.
     const leftSections = [
-      new MoveDraggableItemsKeyboardHelpSection()
+      new MoveDraggableItemsKeyboardHelpSection(),
+      new SliderControlsKeyboardHelpSection()
     ];
 
     // Sections in the right column.

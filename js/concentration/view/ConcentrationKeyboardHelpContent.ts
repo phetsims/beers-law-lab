@@ -12,6 +12,7 @@ import TwoColumnKeyboardHelpContent from '../../../../scenery-phet/js/keyboard/h
 import MoveDraggableItemsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/MoveDraggableItemsKeyboardHelpSection.js';
 import beersLawLab from '../../beersLawLab.js';
 import FaucetControlsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/FaucetControlsKeyboardHelpSection.js';
+import SliderControlsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/SliderControlsKeyboardHelpSection.js';
 
 export default class ConcentrationKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
 
@@ -19,12 +20,13 @@ export default class ConcentrationKeyboardHelpContent extends TwoColumnKeyboardH
 
     // Sections in the left column.
     const leftSections = [
-      new MoveDraggableItemsKeyboardHelpSection(),
-      new FaucetControlsKeyboardHelpSection()
+      new FaucetControlsKeyboardHelpSection(),
+      new MoveDraggableItemsKeyboardHelpSection()
     ];
 
     // Sections in the right column.
     const rightSections = [
+      new SliderControlsKeyboardHelpSection(),
       new BasicActionsKeyboardHelpSection( {
         withCheckboxContent: true
       } )
