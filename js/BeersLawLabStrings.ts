@@ -67,9 +67,6 @@ type StringsType = {
   'showSoluteAmountStringProperty': LocalizedStringProperty;
   'beakerUnitsStringProperty': LocalizedStringProperty;
   'concentrationMeterUnitsStringProperty': LocalizedStringProperty;
-  'keyboardHelpDialog': {
-    'turnOffEvaporationStringProperty': LocalizedStringProperty;
-  };
   'a11y': {
     'concentrationScreen': {
       'screenButtonsHelpTextStringProperty': LocalizedStringProperty;
