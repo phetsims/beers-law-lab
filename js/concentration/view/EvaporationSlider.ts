@@ -35,7 +35,7 @@ export default class EvaporationSlider extends HSlider {
 
       // At end of pointer drag, snap evaporation rate back to zero.
       endDrag: event => {
-        if ( event && event.type === 'up' ) {
+        if ( event && !event.isFromPDOM() ) {
           evaporator.evaporationRateProperty.value = 0;
         }
       },
