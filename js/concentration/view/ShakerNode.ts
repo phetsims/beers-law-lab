@@ -30,7 +30,7 @@ type SelfOptions = EmptySelfOptions;
 
 type ShakerNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
-export default class ShakerNode extends InteractiveHighlighting( Node ) {
+export default class ShakerNode extends Node {
 
   public constructor( shaker: Shaker,
                       soluteLabelStringProperty: TReadOnlyProperty<string>,
@@ -66,8 +66,11 @@ export default class ShakerNode extends InteractiveHighlighting( Node ) {
       tandem: options.tandem.createTandem( 'labelText' )
     } );
 
-    // common parent, to simplify rotation and label alignment.
-    const parentNode = new Node( { children: [ imageNode, labelText ] } );
+    // Common parent, to simplify rotation and label alignment.
+    // Add interactive highlight here, so that it's fitted to the rotated imageNode. See https://github.com/phetsims/beers-law-lab/issues/344.
+    const parentNode = new ( InteractiveHighlighting( Node ) )( {
+      children: [ imageNode, labelText ]
+    } );
     this.addChild( parentNode );
     parentNode.rotate( shaker.orientation - Math.PI ); // assumes that shaker points to the left in the image file
 
