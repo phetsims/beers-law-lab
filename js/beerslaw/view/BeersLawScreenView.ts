@@ -40,11 +40,9 @@ export default class BeersLawScreenView extends ScreenView {
       layoutBounds: BLLConstants.LAYOUT_BOUNDS,
       isDisposable: false,
       screenSummaryContent: new ScreenSummaryContent( {
-        additionalContent: [
-          BeersLawLabStrings.a11y.beersLawScreen.screenSummary.playAreaStringProperty,
-          BeersLawLabStrings.a11y.beersLawScreen.screenSummary.controlAreaStringProperty,
-          BeersLawLabStrings.a11y.beersLawScreen.screenSummary.interactionHintStringProperty
-        ]
+        playAreaContent: BeersLawLabStrings.a11y.beersLawScreen.screenSummary.playAreaStringProperty,
+        controlAreaContent: BeersLawLabStrings.a11y.beersLawScreen.screenSummary.controlAreaStringProperty,
+        interactionHintContent: BeersLawLabStrings.a11y.beersLawScreen.screenSummary.interactionHintStringProperty
       } ),
       tandem: tandem
     } );

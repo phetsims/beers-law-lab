@@ -51,11 +51,9 @@ export default class ConcentrationScreenView extends ScreenView {
       layoutBounds: BLLConstants.LAYOUT_BOUNDS,
       isDisposable: false,
       screenSummaryContent: new ScreenSummaryContent( {
-        additionalContent: [
-          BeersLawLabStrings.a11y.concentrationScreen.screenSummary.playAreaStringProperty,
-          BeersLawLabStrings.a11y.concentrationScreen.screenSummary.controlAreaStringProperty,
-          BeersLawLabStrings.a11y.concentrationScreen.screenSummary.interactionHintStringProperty
-        ]
+        playAreaContent: BeersLawLabStrings.a11y.concentrationScreen.screenSummary.playAreaStringProperty,
+        controlAreaContent: BeersLawLabStrings.a11y.concentrationScreen.screenSummary.controlAreaStringProperty,
+        interactionHintContent: BeersLawLabStrings.a11y.concentrationScreen.screenSummary.interactionHintStringProperty
       } ),
       tandem: tandem
     } );
