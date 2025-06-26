@@ -21,8 +21,7 @@ import CuvetteNode from './CuvetteNode.js';
 import LightNode from './LightNode.js';
 import SolutionPanel from './SolutionPanel.js';
 import WavelengthPanel from './WavelengthPanel.js';
-import ScreenSummaryContent from '../../../../joist/js/ScreenSummaryContent.js';
-import BeersLawLabStrings from '../../BeersLawLabStrings.js';
+import BeersLawScreenSummaryContent from './BeersLawScreenSummaryContent.js';
 
 export default class BeersLawScreenView extends ScreenView {
 
@@ -39,11 +38,7 @@ export default class BeersLawScreenView extends ScreenView {
       // any phet-io instrumention. https://github.com/phetsims/phet-io/issues/1939
       layoutBounds: BLLConstants.LAYOUT_BOUNDS,
       isDisposable: false,
-      screenSummaryContent: new ScreenSummaryContent( {
-        playAreaContent: BeersLawLabStrings.a11y.beersLawScreen.screenSummary.playAreaStringProperty,
-        controlAreaContent: BeersLawLabStrings.a11y.beersLawScreen.screenSummary.controlAreaStringProperty,
-        interactionHintContent: BeersLawLabStrings.a11y.beersLawScreen.screenSummary.interactionHintStringProperty
-      } ),
+      screenSummaryContent: new BeersLawScreenSummaryContent( model ),
       tandem: tandem
     } );
 

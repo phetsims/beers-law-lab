@@ -36,8 +36,8 @@ import SolutePanel from './SolutePanel.js';
 import SolutionNode from './SolutionNode.js';
 import SolutionVolumeNode from './SolutionVolumeNode.js';
 import StockSolutionNode from './StockSolutionNode.js';
-import ScreenSummaryContent from '../../../../joist/js/ScreenSummaryContent.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
+import ConcentrationScreenSummaryContent from './ConcentrationScreenSummaryContent.js';
 
 export default class ConcentrationScreenView extends ScreenView {
 
@@ -50,11 +50,7 @@ export default class ConcentrationScreenView extends ScreenView {
       preventFit: true,
       layoutBounds: BLLConstants.LAYOUT_BOUNDS,
       isDisposable: false,
-      screenSummaryContent: new ScreenSummaryContent( {
-        playAreaContent: BeersLawLabStrings.a11y.concentrationScreen.screenSummary.playAreaStringProperty,
-        controlAreaContent: BeersLawLabStrings.a11y.concentrationScreen.screenSummary.controlAreaStringProperty,
-        interactionHintContent: BeersLawLabStrings.a11y.concentrationScreen.screenSummary.interactionHintStringProperty
-      } ),
+      screenSummaryContent: new ConcentrationScreenSummaryContent( model ),
       tandem: tandem
     } );
 

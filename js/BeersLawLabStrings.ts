@@ -73,6 +73,7 @@ type StringsType = {
       'screenSummary': {
         'playAreaStringProperty': LocalizedStringProperty;
         'controlAreaStringProperty': LocalizedStringProperty;
+        'currentDetailsStringProperty': LocalizedStringProperty;
         'interactionHintStringProperty': LocalizedStringProperty;
       }
     };
@@ -81,6 +82,7 @@ type StringsType = {
       'screenSummary': {
         'playAreaStringProperty': LocalizedStringProperty;
         'controlAreaStringProperty': LocalizedStringProperty;
+        'currentDetailsStringProperty': LocalizedStringProperty;
         'interactionHintStringProperty': LocalizedStringProperty;
       }
     };
