@@ -6,7 +6,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import optionize from '../../../../phet-core/js/optionize.js';
@@ -88,7 +87,7 @@ function createItem( solution: BeersLawSolution ): ComboBoxItem<BeersLawSolution
     stroke: solution.saturatedColor.darkerColor()
   } );
 
-  const labelStringProperty = new DerivedProperty(
+  const labelStringProperty = new DerivedStringProperty(
     [ BeersLawLabStrings.pattern[ '0formula' ][ '1nameStringProperty' ], solution.nameProperty, solution.formulaProperty ],
     ( pattern, name, formula ) => {
       if ( formula === null || formula === '' ) {

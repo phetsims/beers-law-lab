@@ -7,7 +7,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import Shape from '../../../../kite/js/Shape.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -22,6 +21,7 @@ import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
 import Beaker from '../model/Beaker.js';
 import { roundSymmetric } from '../../../../dot/js/util/roundSymmetric.js';
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 
 const RIM_OFFSET = 20;
 const MINOR_TICK_SPACING = 0.1; // L
@@ -104,7 +104,7 @@ export default class BeakerNode extends Node {
         if ( labelIndex < MAJOR_TICK_VALUES_LITERS.length ) {
 
           // display ticks in liters or milliliters, see beers-law-lab#150
-          const labelStringProperty = new DerivedProperty( [
+          const labelStringProperty = new DerivedStringProperty( [
               BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
               BeersLawLabStrings.units.litersStringProperty,
               BeersLawLabStrings.units.millilitersStringProperty,
