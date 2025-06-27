@@ -232,10 +232,10 @@ export default class ConcentrationScreenView extends ScreenView {
     this.pdomPlayAreaNode.pdomOrder = [
       shakerNode,
       dropperNode,
+      solutePanel,
+      concentrationMeterNode,
       solventFaucetNode,
       drainFaucetNode,
-      concentrationMeterNode,
-      solutePanel,
       evaporationPanel,
       removeSoluteButton
     ];
