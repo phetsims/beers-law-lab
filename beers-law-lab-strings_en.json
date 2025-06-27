@@ -128,6 +128,24 @@
   "concentrationMeterUnits": {
     "value": "Concentration Meter units:"
   },
+  "keyboardHelpDialog.chooseASolute": {
+    "value": "Choose a Solute"
+  },
+  "keyboardHelpDialog.solute": {
+    "value": "solute"
+  },
+  "keyboardHelpDialog.solutes": {
+    "value": "solutes"
+  },
+  "keyboardHelpDialog.chooseASolution": {
+    "value": "Choose a Solution"
+  },
+  "keyboardHelpDialog.solution": {
+    "value": "solution"
+  },
+  "keyboardHelpDialog.solutions": {
+    "value": "solutions"
+  },
   "a11y": {
     "concentrationScreen": {
       "screenButtonsHelpText": {

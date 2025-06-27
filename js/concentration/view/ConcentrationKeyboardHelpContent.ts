@@ -13,6 +13,8 @@ import MoveDraggableItemsKeyboardHelpSection from '../../../../scenery-phet/js/k
 import beersLawLab from '../../beersLawLab.js';
 import FaucetControlsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/FaucetControlsKeyboardHelpSection.js';
 import SliderControlsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/SliderControlsKeyboardHelpSection.js';
+import ComboBoxKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/ComboBoxKeyboardHelpSection.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 
 export default class ConcentrationKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
 
@@ -20,13 +22,28 @@ export default class ConcentrationKeyboardHelpContent extends TwoColumnKeyboardH
 
     // Sections in the left column.
     const leftSections = [
+
+      // Faucet Controls
       new FaucetControlsKeyboardHelpSection(),
-      new MoveDraggableItemsKeyboardHelpSection()
+
+      // Move Draggable Items
+      new MoveDraggableItemsKeyboardHelpSection(),
+
+      // Slider Controls
+      new SliderControlsKeyboardHelpSection()
     ];
 
     // Sections in the right column.
     const rightSections = [
-      new SliderControlsKeyboardHelpSection(),
+
+      // Choose a Solute
+      new ComboBoxKeyboardHelpSection( {
+        headingString: BeersLawLabStrings.keyboardHelpDialog.chooseASoluteStringProperty,
+        thingAsLowerCaseSingular: BeersLawLabStrings.keyboardHelpDialog.soluteStringProperty,
+        thingAsLowerCasePlural: BeersLawLabStrings.keyboardHelpDialog.solutesStringProperty
+      } ),
+
+      // Basic Actions
       new BasicActionsKeyboardHelpSection( {
         withCheckboxContent: true
       } )

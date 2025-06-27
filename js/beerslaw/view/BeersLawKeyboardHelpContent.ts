@@ -12,6 +12,8 @@ import TwoColumnKeyboardHelpContent from '../../../../scenery-phet/js/keyboard/h
 import MoveDraggableItemsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/MoveDraggableItemsKeyboardHelpSection.js';
 import beersLawLab from '../../beersLawLab.js';
 import SliderControlsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/SliderControlsKeyboardHelpSection.js';
+import ComboBoxKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/ComboBoxKeyboardHelpSection.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 
 export default class BeersLawKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
 
@@ -19,12 +21,25 @@ export default class BeersLawKeyboardHelpContent extends TwoColumnKeyboardHelpCo
 
     // Sections in the left column.
     const leftSections = [
+
+      // Move Draggable Items
       new MoveDraggableItemsKeyboardHelpSection(),
+
+      // Slider Controls
       new SliderControlsKeyboardHelpSection()
     ];
 
     // Sections in the right column.
     const rightSections = [
+
+      // Choose a Solution
+      new ComboBoxKeyboardHelpSection( {
+        headingString: BeersLawLabStrings.keyboardHelpDialog.chooseASolutionStringProperty,
+        thingAsLowerCaseSingular: BeersLawLabStrings.keyboardHelpDialog.solutionStringProperty,
+        thingAsLowerCasePlural: BeersLawLabStrings.keyboardHelpDialog.solutionsStringProperty
+      } ),
+
+      // Basic Actions
       new BasicActionsKeyboardHelpSection( {
         withCheckboxContent: true
       } )
