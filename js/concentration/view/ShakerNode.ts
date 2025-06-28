@@ -23,6 +23,7 @@ import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js'
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import HighlightFromNode from '../../../../scenery/js/accessibility/HighlightFromNode.js';
+import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 
 const DEBUG_ORIGIN = false;
 
@@ -30,7 +31,7 @@ type SelfOptions = EmptySelfOptions;
 
 type ShakerNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
-export default class ShakerNode extends Node {
+export default class ShakerNode extends InteractiveHighlighting( Node ) {
 
   public constructor( shaker: Shaker,
                       soluteLabelStringProperty: TReadOnlyProperty<string>,
