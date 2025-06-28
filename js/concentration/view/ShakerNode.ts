@@ -19,10 +19,10 @@ import RichText from '../../../../scenery/js/nodes/RichText.js';
 import shaker_png from '../../../images/shaker_png.js';
 import beersLawLab from '../../beersLawLab.js';
 import Shaker from '../model/Shaker.js';
-import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
+import HighlightFromNode from '../../../../scenery/js/accessibility/HighlightFromNode.js';
 
 const DEBUG_ORIGIN = false;
 
@@ -67,8 +67,7 @@ export default class ShakerNode extends Node {
     } );
 
     // Common parent, to simplify rotation and label alignment.
-    // Add interactive highlight here, so that it's fitted to the rotated imageNode. See https://github.com/phetsims/beers-law-lab/issues/344.
-    const parentNode = new ( InteractiveHighlighting( Node ) )( {
+    const parentNode = new Node( {
       children: [ imageNode, labelText ]
     } );
     this.addChild( parentNode );
@@ -93,6 +92,11 @@ export default class ShakerNode extends Node {
       labelText.centerX = capWidth + ( imageNode.width - capWidth ) / 2;
       labelText.centerY = imageNode.centerY;
     } );
+
+    // Create and add focus highlight explicitly, instead of by using InteractiveHighlighting trait, so that it's
+    // fitted to the rotated imageNode. This applies for both focus highlight and interactive highlight.
+    // See https://github.com/phetsims/beers-law-lab/issues/344.
+    this.focusHighlight = new HighlightFromNode( imageNode );
 
     // drag listener
     this.addInputListener( new SoundDragListener( {
