@@ -43,6 +43,7 @@ import Dropper from '../model/Dropper.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import { linear } from '../../../../dot/js/util/linear.js';
 import { ConcentrationProbeNode } from './ConcentrationProbeNode.js';
+import BLLColors from '../../common/BLLColors.js';
 
 const DECIMAL_PLACES_MOLES_PER_LITER = 3;
 const DECIMAL_PLACES_PERCENT = 1;
@@ -202,7 +203,7 @@ class BodyNode extends Node {
     const bodyWidth = Math.max( MIN_BODY_SIZE.width, vBox.width + ( 2 * BODY_X_MARGIN ) );
     const bodyHeight = Math.max( MIN_BODY_SIZE.height, vBox.height + ( 2 * BODY_Y_MARGIN ) );
     const bodyNode = new ShadedRectangle( new Bounds2( 0, 0, bodyWidth, bodyHeight ), {
-      baseColor: ConcentrationProbeNode.PROBE_COLOR,
+      baseColor: BLLColors.concentrationMeterColorProperty,
       lightOffset: 0.95
     } );
 

@@ -17,6 +17,10 @@ const BLLColors = {
 
   panelFillProperty: new ProfileColorProperty( beersLawLab, 'panelFill', {
     default: '#F0F0F0'
+  } ),
+
+  concentrationMeterColorProperty: new ProfileColorProperty( beersLawLab, 'concentrationMeterColor', {
+    default: 'rgb( 135, 4, 72 )'
   } )
 };
 

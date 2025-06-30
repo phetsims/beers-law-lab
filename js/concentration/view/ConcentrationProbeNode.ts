@@ -17,10 +17,9 @@ import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js'
 import Property from '../../../../axon/js/Property.js';
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 import beersLawLab from '../../beersLawLab.js';
+import BLLColors from '../../common/BLLColors.js';
 
 export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode ) {
-
-  public static readonly PROBE_COLOR = 'rgb( 135, 4, 72 )';
 
   public readonly isInSolution: () => boolean;
   public readonly isInSolvent: () => boolean;
@@ -45,7 +44,7 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
       handleHeight: 25,
       handleCornerRadius: 12,
       lightAngle: 1.75 * Math.PI,
-      color: ConcentrationProbeNode.PROBE_COLOR,
+      color: BLLColors.concentrationMeterColorProperty,
       rotation: -Math.PI / 2,
       cursor: 'pointer',
       tagName: 'div',
