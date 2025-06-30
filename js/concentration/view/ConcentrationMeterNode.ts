@@ -130,8 +130,7 @@ export default class ConcentrationMeterNode extends Node {
 }
 
 /**
- * Meter body, origin at upper left. Note that while the body is a BLLMovable, we have currently decided not to
- * allow it to be moved, so it has no drag handler.
+ * Meter body, origin at top-left.
  */
 class BodyNode extends Node {
 
