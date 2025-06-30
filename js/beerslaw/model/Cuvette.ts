@@ -7,7 +7,7 @@
  *
  * In this case, the cuvette is the vessel that holds the solution.
  * It has a fixed height, but a variable width, making it possible to change
- * the path length. Position is fixed.  Origin is at the upper-left corner.
+ * the path length. Position is fixed.  Origin is the top-left corner.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -32,13 +32,14 @@ type CuvetteOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
 export default class Cuvette extends PhetioObject {
 
+  // Top-left corner
   public readonly position: Vector2;
 
   // Variable width of the cuvette, in cm
   public readonly widthProperty: NumberProperty;
 
   // When dragging the cuvette, it's width will snap to this interval when the drag ends. 0 causes no snapping.
-  // Note that is only consulted at the end of a drag sequence - see CuvetteDragListener. If you change
+  // Note that it is only consulted at the end of a drag sequence - see CuvetteDragListener. If you change
   // snapIntervalProperty, it will NOT modify the value of widthProperty.
   // See https://github.com/phetsims/beers-law-lab/issues/330.
   public readonly snapIntervalProperty: NumberProperty;

@@ -20,6 +20,7 @@ import beersLawLab from '../../beersLawLab.js';
 import BLLColors from '../../common/BLLColors.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
+import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.js';
 
 export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
@@ -79,6 +80,26 @@ export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
     // touch area
     this.touchArea = this.localBounds.dilatedXY( 0.25 * this.width, 0 );
+
+    // Keyboard shortcut for moving to useful positions, see https://github.com/phetsims/beers-law-lab/issues/352.
+    const hotkeyListener = new KeyboardListener( {
+      keyStringProperties: HotkeyData.combineKeyStringProperties( [ ATProbeNode.JUMP_TO_POSITION_HOTKEY_DATA ] ),
+      fire: ( event, keysPressed ) => {
+        if ( ATProbeNode.JUMP_TO_POSITION_HOTKEY_DATA.hasKeyStroke( keysPressed ) ) {
+          phet.log && phet.log( 'hotkey J' );
+          // phet.log && phet.log( `hotkey J, probeJumpPositionIndex=${probeJumpPositionIndexProperty.value}` );
+          // probe.positionProperty.value = probeJumpPositions[ probeJumpPositionIndexProperty.value ].position;
+          // this.addAccessibleObjectResponse( probeJumpPositions[ probeJumpPositionIndexProperty.value ].accessibleObjectResponseStringProperty );
+          // if ( probeJumpPositionIndexProperty.value < probeJumpPositions.length - 1 ) {
+          //   probeJumpPositionIndexProperty.value++;
+          // }
+          // else {
+          //   probeJumpPositionIndexProperty.value = 0;
+          // }
+        }
+      }
+    } );
+    this.addInputListener( hotkeyListener );
   }
 }
 

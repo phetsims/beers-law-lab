@@ -36,8 +36,8 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
   public readonly isInStockSolution: () => boolean;
 
   public constructor( probe: BLLMovable,
-                      probeJumpPositions: JumpPosition[],
-                      probeJumpPositionIndexProperty: Property<number>,
+                      jumpPositions: JumpPosition[],
+                      jumpPositionIndexProperty: Property<number>,
                       modelViewTransform: ModelViewTransform2,
                       solutionNode: Path,
                       stockSolutionNode: Path,
@@ -114,14 +114,14 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
       keyStringProperties: HotkeyData.combineKeyStringProperties( [ ConcentrationProbeNode.JUMP_TO_POSITION_HOTKEY_DATA ] ),
       fire: ( event, keysPressed ) => {
         if ( ConcentrationProbeNode.JUMP_TO_POSITION_HOTKEY_DATA.hasKeyStroke( keysPressed ) ) {
-          phet.log && phet.log( `hotkey J, probeJumpPositionIndex=${probeJumpPositionIndexProperty.value}` );
-          probe.positionProperty.value = probeJumpPositions[ probeJumpPositionIndexProperty.value ].position;
-          this.addAccessibleObjectResponse( probeJumpPositions[ probeJumpPositionIndexProperty.value ].accessibleObjectResponseStringProperty );
-          if ( probeJumpPositionIndexProperty.value < probeJumpPositions.length - 1 ) {
-            probeJumpPositionIndexProperty.value++;
+          phet.log && phet.log( `hotkey J, jumpPositionIndex=${jumpPositionIndexProperty.value}` );
+          probe.positionProperty.value = jumpPositions[ jumpPositionIndexProperty.value ].positionProperty.value;
+          this.addAccessibleObjectResponse( jumpPositions[ jumpPositionIndexProperty.value ].accessibleObjectResponseStringProperty );
+          if ( jumpPositionIndexProperty.value < jumpPositions.length - 1 ) {
+            jumpPositionIndexProperty.value++;
           }
           else {
-            probeJumpPositionIndexProperty.value = 0;
+            jumpPositionIndexProperty.value = 0;
           }
         }
       }

@@ -31,6 +31,7 @@ import SoluteForm from './SoluteForm.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import { JumpPosition } from '../../common/model/JumpPosition.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Vector2Property from '../../../../dot/js/Vector2Property.js';
 
 const SOLUTION_VOLUME_RANGE = BLLConstants.SOLUTION_VOLUME_RANGE; // L
 const SOLUTE_AMOUNT_RANGE = BLLConstants.SOLUTE_AMOUNT_RANGE; // moles
@@ -145,31 +146,31 @@ export default class ConcentrationModel implements TModel {
 
       // Inside the beaker, bottom center.
       {
-        position: this.beaker.position.minusXY( 0, 10 ),
+        positionProperty: new Vector2Property( this.beaker.position.minusXY( 0, 10 ) ),
         accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.insideBeakerStringProperty
       },
 
       // Outside the beaker, where the probe is initially positioned.
       {
-        position: this.concentrationMeter.probe.positionProperty.value,
+        positionProperty: new Vector2Property( this.concentrationMeter.probe.positionProperty.value ),
         accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.outsideBeakerStringProperty
       },
 
       // Below the water faucet, close to the spigot, and above the max solution level in the beaker.
       {
-        position: this.solventFaucet.position.plusXY( 0, 10 ),
+        positionProperty: new Vector2Property( this.solventFaucet.position.plusXY( 0, 10 ) ),
         accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.belowWaterFaucetStringProperty
       },
 
       // Below the drain faucet, close to the spigot.
       {
-        position: this.drainFaucet.position.plusXY( 0, 10 ),
+        positionProperty: new Vector2Property( this.drainFaucet.position.plusXY( 0, 10 ) ),
         accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.belowDrainFaucetStringProperty
       },
 
       // Below the dropper, and above the max solution level in the beaker.
       {
-        position: this.dropper.position.plusXY( 0, 10 ),
+        positionProperty: new Vector2Property( this.dropper.position.plusXY( 0, 10 ) ),
         accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.belowDropperStringProperty
       }
     ];
