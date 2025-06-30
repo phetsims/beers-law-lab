@@ -153,16 +153,16 @@
       },
       "screenSummary": {
         "playArea": {
-          "value": "TODO.concentrationScreen.screenSummary.playArea"
+          "value": "A solution dispenser and water faucet sit above a drainable beaker. Choose from one of nine solutes to dispense one at a time in either solid or solution form. On the right, is a concentration meter with movable probe and on the bottom is a slider to control evaporation."
         },
         "controlArea": {
-          "value": "TODO.concentrationScreen.screenSummary.controlArea"
+          "value": "Is a button to reset the screen."
         },
         "currentDetails": {
           "value": "TODO.concentrationScreen.screenSummary.currentDetails"
         },
         "interactionHint": {
-          "value": "TODO.concentrationScreen.screenSummary.interactionHint"
+          "value": "Add solute to the water to start exploring."
         }
       }
     },
