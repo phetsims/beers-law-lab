@@ -33,6 +33,7 @@ import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import { linear } from '../../../../dot/js/util/linear.js';
 import ATDetectorModeRadioButtonGroup from './ATDetectorModeRadioButtonGroup.js';
 import { ATProbeNode } from './ATProbeNode.js';
+import BLLColors from '../../common/BLLColors.js';
 
 const ABSORBANCE_DECIMAL_PLACES = 2;
 const TRANSMITTANCE_DECIMAL_PLACES = 2;
@@ -157,7 +158,7 @@ class BodyNode extends Node {
     const bodyWidth = Math.max( MIN_BODY_SIZE.width, vBox.width + ( 2 * BODY_X_MARGIN ) );
     const bodyHeight = Math.max( MIN_BODY_SIZE.height, vBox.height + ( 2 * BODY_Y_MARGIN ) );
     const bodyNode = new ShadedRectangle( new Bounds2( 0, 0, bodyWidth, bodyHeight ), {
-      baseColor: ATProbeNode.PROBE_COLOR,
+      baseColor: BLLColors.atDetectorColorProperty,
       lightOffset: 0.95
     } );
 

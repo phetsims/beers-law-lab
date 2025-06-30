@@ -19,14 +19,13 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import beersLawLab from '../../beersLawLab.js';
+import BLLColors from '../../common/BLLColors.js';
 
 type SelfOptions = EmptySelfOptions;
 
 type ATProbeNodeOptions = SelfOptions & PickRequired<ProbeNodeOptions, 'tandem'>;
 
 export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
-
-  public static readonly PROBE_COLOR = 'rgb( 8, 133, 54 )';
 
   public constructor( probe: BLLMovable, light: Light, modelViewTransform: ModelViewTransform2, providedOptions: ATProbeNodeOptions ) {
 
@@ -38,7 +37,7 @@ export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
       handleHeight: 60,
       handleCornerRadius: 22,
       lightAngle: 1.25 * Math.PI,
-      color: ATProbeNode.PROBE_COLOR,
+      color: BLLColors.atDetectorColorProperty,
       tagName: 'div',
       focusable: true,
       accessibleName: BeersLawLabStrings.a11y.detectorProbeNode.accessibleNameStringProperty,
