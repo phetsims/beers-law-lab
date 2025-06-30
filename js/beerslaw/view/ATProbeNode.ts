@@ -7,29 +7,24 @@
  */
 
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
-import ProbeNode, { ProbeNodeOptions } from '../../../../scenery-phet/js/ProbeNode.js';
+import ProbeNode from '../../../../scenery-phet/js/ProbeNode.js';
 import BLLMovable from '../../common/model/BLLMovable.js';
 import Light from '../model/Light.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import Property from '../../../../axon/js/Property.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
-import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLColors from '../../common/BLLColors.js';
-
-type SelfOptions = EmptySelfOptions;
-
-type ATProbeNodeOptions = SelfOptions & PickRequired<ProbeNodeOptions, 'tandem'>;
+import Tandem from '../../../../tandem/js/Tandem.js';
 
 export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
-  public constructor( probe: BLLMovable, light: Light, modelViewTransform: ModelViewTransform2, providedOptions: ATProbeNodeOptions ) {
+  public constructor( probe: BLLMovable, light: Light, modelViewTransform: ModelViewTransform2, tandem: Tandem ) {
 
-    const options = optionize<ATProbeNodeOptions, SelfOptions, ProbeNodeOptions>()( {
+    super( {
       cursor: 'pointer',
       radius: 53,
       innerRadius: 40,
@@ -41,11 +36,10 @@ export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
       tagName: 'div',
       focusable: true,
       accessibleName: BeersLawLabStrings.a11y.detectorProbeNode.accessibleNameStringProperty,
+      tandem: tandem,
       phetioInputEnabledPropertyInstrumented: true,
       phetioVisiblePropertyInstrumented: false
-    }, providedOptions );
-
-    super( options );
+    } );
 
     // position
     probe.positionProperty.link( position => {
@@ -64,7 +58,7 @@ export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
           probe.positionProperty.value = new Vector2( probe.positionProperty.value.x, light.position.y );
         }
       },
-      tandem: options.tandem.createTandem( 'dragListener' )
+      tandem: tandem.createTandem( 'dragListener' )
     } ) );
 
     this.addInputListener( new SoundKeyboardDragListener( {
@@ -73,7 +67,7 @@ export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
       transform: modelViewTransform,
       dragSpeed: 300,
       shiftDragSpeed: 20,
-      tandem: options.tandem.createTandem( 'keyboardDragListener' )
+      tandem: tandem.createTandem( 'keyboardDragListener' )
     } ) );
 
     // touch area

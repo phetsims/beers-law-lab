@@ -34,6 +34,7 @@ import { linear } from '../../../../dot/js/util/linear.js';
 import ATDetectorModeRadioButtonGroup from './ATDetectorModeRadioButtonGroup.js';
 import { ATProbeNode } from './ATProbeNode.js';
 import BLLColors from '../../common/BLLColors.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 
 const ABSORBANCE_DECIMAL_PLACES = 2;
 const TRANSMITTANCE_DECIMAL_PLACES = 2;
@@ -67,13 +68,9 @@ export default class ATDetectorNode extends Node {
 
     super( options );
 
-    const bodyNode = new BodyNode( detector, modelViewTransform, {
-      tandem: options.tandem.createTandem( 'bodyNode' )
-    } );
+    const bodyNode = new BodyNode( detector, modelViewTransform, options.tandem.createTandem( 'bodyNode' ) );
 
-    const probeNode = new ATProbeNode( detector.probe, light, modelViewTransform, {
-      tandem: options.tandem.createTandem( 'probeNode' )
-    } );
+    const probeNode = new ATProbeNode( detector.probe, light, modelViewTransform, options.tandem.createTandem( 'probeNode' ) );
 
     const wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
 
@@ -92,23 +89,17 @@ export default class ATDetectorNode extends Node {
  * The body of the detector, where A and T values are displayed. Note that while the body is a BLLMovable,
  * we have currently decided not to allow it to be moved, so it has no drag listener.
  */
-type BodyNodeSelfOptions = EmptySelfOptions;
-type BodyNodeOptions = BodyNodeSelfOptions & PickRequired<NodeOptions, 'tandem'>;
-
 class BodyNode extends Node {
 
-  public constructor( detector: ATDetector, modelViewTransform: ModelViewTransform2, providedOptions: BodyNodeOptions ) {
+  public constructor( detector: ATDetector, modelViewTransform: ModelViewTransform2, tandem: Tandem ) {
 
-    const options = optionize<BodyNodeOptions, BodyNodeSelfOptions, NodeOptions>()( {
-
-      // NodeOptions
-      phetioVisiblePropertyInstrumented: false
-    }, providedOptions );
-
-    super( options );
+    super( {
+      phetioVisiblePropertyInstrumented: false,
+      tandem: tandem
+    } );
 
     // radio button group
-    const radioButtonGroup = new ATDetectorModeRadioButtonGroup( detector.modeProperty, options.tandem.createTandem( 'radioButtonGroup' ) );
+    const radioButtonGroup = new ATDetectorModeRadioButtonGroup( detector.modeProperty, tandem.createTandem( 'radioButtonGroup' ) );
 
     // value + units
     const valueStringProperty = new DerivedStringProperty(
@@ -130,7 +121,7 @@ class BodyNode extends Node {
         }
         return valueString;
       }, {
-        tandem: options.tandem.createTandem( 'valueStringProperty' ),
+        tandem: tandem.createTandem( 'valueStringProperty' ),
         phetioFeatured: true
       } );
 
