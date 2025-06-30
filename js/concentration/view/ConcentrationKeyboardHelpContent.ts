@@ -1,6 +1,5 @@
 // Copyright 2025, University of Colorado Boulder
 
-//TODO https://github.com/phetsims/beers-law-lab/issues/345 Address duplication across screens.
 /**
  * ConcentrationKeyboardHelpContent is the content for the keyboard-help dialog in the 'Concentration' screen.
  *
@@ -15,6 +14,7 @@ import FaucetControlsKeyboardHelpSection from '../../../../scenery-phet/js/keybo
 import SliderControlsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/SliderControlsKeyboardHelpSection.js';
 import ComboBoxKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/ComboBoxKeyboardHelpSection.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
+import { ConcentrationProbeControlsSection } from './ConcentrationProbeControlsSection.js';
 
 export default class ConcentrationKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
 
@@ -26,22 +26,25 @@ export default class ConcentrationKeyboardHelpContent extends TwoColumnKeyboardH
       // Faucet Controls
       new FaucetControlsKeyboardHelpSection(),
 
+      // Concentration Probe Controls
+      new ConcentrationProbeControlsSection(),
+
       // Move Draggable Items
       new MoveDraggableItemsKeyboardHelpSection(),
-
-      // Slider Controls
-      new SliderControlsKeyboardHelpSection()
-    ];
-
-    // Sections in the right column.
-    const rightSections = [
 
       // Choose a Solute
       new ComboBoxKeyboardHelpSection( {
         headingString: BeersLawLabStrings.keyboardHelpDialog.chooseASoluteStringProperty,
         thingAsLowerCaseSingular: BeersLawLabStrings.keyboardHelpDialog.soluteStringProperty,
         thingAsLowerCasePlural: BeersLawLabStrings.keyboardHelpDialog.solutesStringProperty
-      } ),
+      } )
+    ];
+
+    // Sections in the right column.
+    const rightSections = [
+
+      // Slider Controls
+      new SliderControlsKeyboardHelpSection(),
 
       // Basic Actions
       new BasicActionsKeyboardHelpSection( {
