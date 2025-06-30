@@ -17,7 +17,6 @@
 
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
-import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -28,7 +27,6 @@ import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import ProbeNode, { ProbeNodeOptions } from '../../../../scenery-phet/js/ProbeNode.js';
 import ShadedRectangle from '../../../../scenery-phet/js/ShadedRectangle.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
@@ -42,11 +40,9 @@ import BLLPreferences from '../../common/model/BLLPreferences.js';
 import ConcentrationMeter from '../model/ConcentrationMeter.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import Dropper from '../model/Dropper.js';
-import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import { linear } from '../../../../dot/js/util/linear.js';
-import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
-import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
+import { ConcentrationProbeNode } from './ConcentrationProbeNode.js';
 
 const DECIMAL_PLACES_MOLES_PER_LITER = 3;
 const DECIMAL_PLACES_PERCENT = 1;
@@ -55,7 +51,6 @@ const BODY_X_MARGIN = 15;
 const BODY_Y_MARGIN = 15;
 const READOUT_X_MARGIN = 5;
 const READOUT_Y_MARGIN = 4;
-const PROBE_COLOR = 'rgb( 135, 4, 72 )';
 const MIN_VALUE_SIZE = new Dimension2( 140, 35 );
 const MIN_BODY_SIZE = new Dimension2( 170, 100 );
 
@@ -88,8 +83,8 @@ export default class ConcentrationMeterNode extends Node {
 
     const bodyNode = new BodyNode( concentrationMeter, modelViewTransform, options.tandem.createTandem( 'bodyNode' ) );
 
-    const probeNode = new ConcentrationProbeNode( concentrationMeter.probe, modelViewTransform, solutionNode, stockSolutionNode,
-      solventFluidNode, drainFluidNode, options.tandem.createTandem( 'probeNode' ) );
+    const probeNode = new ConcentrationProbeNode( concentrationMeter.probe, modelViewTransform, solutionNode,
+      stockSolutionNode, solventFluidNode, drainFluidNode, options.tandem.createTandem( 'probeNode' ) );
 
     const wireNode = new WireNode( concentrationMeter.bodyPosition, concentrationMeter.probe, bodyNode, probeNode );
 
@@ -207,7 +202,7 @@ class BodyNode extends Node {
     const bodyWidth = Math.max( MIN_BODY_SIZE.width, vBox.width + ( 2 * BODY_X_MARGIN ) );
     const bodyHeight = Math.max( MIN_BODY_SIZE.height, vBox.height + ( 2 * BODY_Y_MARGIN ) );
     const bodyNode = new ShadedRectangle( new Bounds2( 0, 0, bodyWidth, bodyHeight ), {
-      baseColor: PROBE_COLOR,
+      baseColor: ConcentrationProbeNode.PROBE_COLOR,
       lightOffset: 0.95
     } );
 
@@ -233,86 +228,6 @@ class BodyNode extends Node {
       }
       valueText.centerY = backgroundNode.centerY;
     } );
-  }
-}
-
-/**
- * Meter probe, origin at center of crosshairs.
- */
-class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode ) {
-
-  public readonly isInSolution: () => boolean;
-  public readonly isInSolvent: () => boolean;
-  public readonly isInDrainFluid: () => boolean;
-  public readonly isInStockSolution: () => boolean;
-
-  public constructor( probe: BLLMovable, modelViewTransform: ModelViewTransform2, solutionNode: Path,
-                      stockSolutionNode: Path, solventFluidNode: Path, drainFluidNode: Path,
-                      tandem: Tandem ) {
-
-    const options: ProbeNodeOptions = {
-      sensorTypeFunction: ProbeNode.crosshairs( {
-        intersectionRadius: 6
-      } ),
-      radius: 34,
-      innerRadius: 26,
-      handleWidth: 30,
-      handleHeight: 25,
-      handleCornerRadius: 12,
-      lightAngle: 1.75 * Math.PI,
-      color: PROBE_COLOR,
-      rotation: -Math.PI / 2,
-      cursor: 'pointer',
-      tagName: 'div',
-      focusable: true,
-      accessibleName: BeersLawLabStrings.a11y.concentrationMeterProbeNode.accessibleNameStringProperty,
-
-      // phet-io
-      tandem: tandem,
-      phetioInputEnabledPropertyInstrumented: true,
-      phetioVisiblePropertyInstrumented: false
-    };
-
-    super( options );
-
-    // probe position
-    probe.positionProperty.link( position => {
-      this.translation = modelViewTransform.modelToViewPosition( position );
-    } );
-
-    // touch area
-    this.touchArea = this.localBounds.dilatedXY( 0.25 * this.width, 0.25 * this.height );
-
-    // drag listener
-    this.addInputListener( new SoundDragListener( {
-      positionProperty: probe.positionProperty,
-      dragBoundsProperty: new Property( probe.dragBounds ),
-      transform: modelViewTransform,
-      tandem: tandem.createTandem( 'dragListener' )
-    } ) );
-
-    // keyboard drag listener
-    this.addInputListener( new SoundKeyboardDragListener( {
-      positionProperty: probe.positionProperty,
-      dragBoundsProperty: new Property( probe.dragBounds ),
-      transform: modelViewTransform,
-      dragSpeed: 300,
-      shiftDragSpeed: 20,
-      tandem: tandem.createTandem( 'keyboardDragListener' )
-    } ) );
-
-    const isInNode = ( node: Path ) => {
-      const localPoint = node.parentToLocalPoint( probe.positionProperty.value );
-      const nodeShape = node.getShape()!;
-      assert && assert( nodeShape );
-      const shapeBounds = nodeShape.bounds;
-      return shapeBounds.getWidth() > 0 && shapeBounds.getHeight() > 0 && nodeShape.containsPoint( localPoint ); // see issue #65
-    };
-
-    this.isInSolution = () => isInNode( solutionNode );
-    this.isInSolvent = () => isInNode( solventFluidNode );
-    this.isInDrainFluid = () => isInNode( drainFluidNode );
-    this.isInStockSolution = () => isInNode( stockSolutionNode );
   }
 }
 
