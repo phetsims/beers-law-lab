@@ -19,8 +19,15 @@ import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboard
 import beersLawLab from '../../beersLawLab.js';
 import BLLColors from '../../common/BLLColors.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
 
 export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
+
+  public static readonly JUMP_TO_POSITION_HOTKEY_DATA = new HotkeyData( {
+    keyStringProperties: [ new Property( 'j' ) ],
+    repoName: beersLawLab.name,
+    keyboardHelpDialogLabelStringProperty: BeersLawLabStrings.keyboardHelpDialog.jumpToPositionStringProperty
+  } );
 
   public constructor( probe: BLLMovable, light: Light, modelViewTransform: ModelViewTransform2, tandem: Tandem ) {
 
