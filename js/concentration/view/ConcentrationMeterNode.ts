@@ -87,7 +87,7 @@ export default class ConcentrationMeterNode extends Node {
     const probeNode = new ConcentrationProbeNode( concentrationMeter.probe, modelViewTransform, solutionNode,
       stockSolutionNode, solventFluidNode, drainFluidNode, options.tandem.createTandem( 'probeNode' ) );
 
-    const wireNode = new WireNode( concentrationMeter.bodyPosition, concentrationMeter.probe, bodyNode, probeNode );
+    const wireNode = new WireNode( concentrationMeter.probe, bodyNode, probeNode );
 
     // rendering order
     this.addChild( wireNode );
@@ -237,7 +237,7 @@ class BodyNode extends Node {
  */
 class WireNode extends Path {
 
-  public constructor( bodyPosition: Vector2, probe: BLLMovable, bodyNode: Node, probeNode: Node ) {
+  public constructor( probe: BLLMovable, bodyNode: Node, probeNode: Node ) {
 
     const options: PathOptions = {
       stroke: 'gray',
