@@ -74,6 +74,7 @@ type StringsType = {
     'chooseASolutionStringProperty': LocalizedStringProperty;
     'solutionStringProperty': LocalizedStringProperty;
     'solutionsStringProperty': LocalizedStringProperty;
+    'jumpToPositionStringProperty': LocalizedStringProperty;
   };
   'a11y': {
     'concentrationScreen': {
@@ -103,8 +104,15 @@ type StringsType = {
     'detectorModeRadioButtonGroup': {
       'accessibleNameStringProperty': LocalizedStringProperty;
     };
-    'concentrationMeterProbeNode': {
+    'concentrationProbeNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
+      'jumpResponses': {
+        'insideBeakerStringProperty': LocalizedStringProperty;
+        'outsideBeakerStringProperty': LocalizedStringProperty;
+        'belowWaterFaucetStringProperty': LocalizedStringProperty;
+        'belowDrainFaucetStringProperty': LocalizedStringProperty;
+        'belowDropperStringProperty': LocalizedStringProperty;
+      }
     };
     'detectorProbeNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;

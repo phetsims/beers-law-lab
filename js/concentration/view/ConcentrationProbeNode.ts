@@ -18,8 +18,18 @@ import Property from '../../../../axon/js/Property.js';
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLColors from '../../common/BLLColors.js';
+import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.js';
+import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
+import { JumpPosition } from '../../common/model/JumpPosition.js';
 
 export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode ) {
+
+  public static readonly JUMP_TO_POSITION_HOTKEY_DATA = new HotkeyData( {
+    keyStringProperties: [ new Property( 'j' ) ],
+    repoName: beersLawLab.name,
+    keyboardHelpDialogLabelStringProperty: BeersLawLabStrings.keyboardHelpDialog.jumpToPositionStringProperty
+  } );
 
   public readonly isInSolution: () => boolean;
   public readonly isInSolvent: () => boolean;
@@ -49,7 +59,7 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
       cursor: 'pointer',
       tagName: 'div',
       focusable: true,
-      accessibleName: BeersLawLabStrings.a11y.concentrationMeterProbeNode.accessibleNameStringProperty,
+      accessibleName: BeersLawLabStrings.a11y.concentrationProbeNode.accessibleNameStringProperty,
 
       // phet-io
       tandem: tandem,
@@ -97,6 +107,60 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
     this.isInSolvent = () => isInNode( solventFluidNode );
     this.isInDrainFluid = () => isInNode( drainFluidNode );
     this.isInStockSolution = () => isInNode( stockSolutionNode );
+
+    //TODO https://github.com/phetsims/beers-law-lab/issues/351 Support for reset all.
+    let jumpPositionIndex = 0;
+
+    //TODO https://github.com/phetsims/beers-law-lab/issues/351 Compute these positions.
+    const jumpPositions: JumpPosition[] = [
+
+      // Inside the beaker, bottom center
+      {
+        position: new Vector2( 342, 542 ),
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.insideBeakerStringProperty
+      },
+
+      // Outside the beaker
+      {
+        position: new Vector2( 750, 370 ),
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.outsideBeakerStringProperty
+      },
+
+      // Below the water faucet (close to the spigot, and above 1 L level)
+      {
+        position: new Vector2( 154, 230 ),
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.belowWaterFaucetStringProperty
+      },
+
+      // Below the drain faucet (close to the spigot)
+      {
+        position: new Vector2( 750, 640 ),
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.belowDrainFaucetStringProperty
+      },
+
+      // Below the dropper (below dropper, above 1 L level)
+      {
+        position: new Vector2( 410, 242 ),
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.belowDropperStringProperty
+      }
+    ];
+
+    // Keyboard shortcut for moving to useful positions, see https://github.com/phetsims/beers-law-lab/issues/351.
+    const hotkeyListener = new KeyboardListener( {
+      keyStringProperties: HotkeyData.combineKeyStringProperties( [ ConcentrationProbeNode.JUMP_TO_POSITION_HOTKEY_DATA ] ),
+      fire: ( event, keysPressed ) => {
+        if ( ConcentrationProbeNode.JUMP_TO_POSITION_HOTKEY_DATA.hasKeyStroke( keysPressed ) ) {
+          phet.log && phet.log( `hotkey J, jumpPositionIndex=${jumpPositionIndex}` );
+          probe.positionProperty.value = jumpPositions[ jumpPositionIndex ].position;
+          this.addAccessibleObjectResponse( jumpPositions[ jumpPositionIndex ].accessibleObjectResponseStringProperty );
+          jumpPositionIndex++;
+          if ( jumpPositionIndex > jumpPositions.length - 1 ) {
+            jumpPositionIndex = 0;
+          }
+        }
+      }
+    } );
+    this.addInputListener( hotkeyListener );
   }
 }
 

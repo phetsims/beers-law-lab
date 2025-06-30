@@ -146,6 +146,9 @@
   "keyboardHelpDialog.solutions": {
     "value": "solutions"
   },
+  "keyboardHelpDialog.jumpToPosition": {
+    "value": "Cycle through useful positions."
+  },
   "a11y": {
     "concentrationScreen": {
       "screenButtonsHelpText": {
@@ -200,9 +203,26 @@
         "value": "Detector Mode"
       }
     },
-    "concentrationMeterProbeNode": {
+    "concentrationProbeNode": {
       "accessibleName": {
         "value": "Concentration Probe"
+      },
+      "jumpResponses": {
+        "insideBeaker": {
+          "value": "Inside beaker"
+        },
+        "outsideBeaker": {
+          "value": "Outside beaker"
+        },
+        "belowWaterFaucet": {
+          "value": "Below water faucet"
+        },
+        "belowDrainFaucet": {
+          "value": "Below drain faucet"
+        },
+        "belowDropper": {
+          "value": "Below dropper"
+        }
       }
     },
     "detectorProbeNode": {
