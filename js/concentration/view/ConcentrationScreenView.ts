@@ -125,8 +125,17 @@ export default class ConcentrationScreenView extends ScreenView {
     const drainFluidNode = new FaucetFluidNode( model.drainFaucet, model.solution, DRAIN_FLUID_HEIGHT, modelViewTransform );
 
     // Concentration meter
-    const concentrationMeterNode = new ConcentrationMeterNode( model.concentrationMeter, model.solution, model.dropper,
-      solutionNode, stockSolutionNode, solventFluidNode, drainFluidNode, modelViewTransform, {
+    const concentrationMeterNode = new ConcentrationMeterNode(
+      model.concentrationMeter,
+      model.concentrationProbeJumpPositions,
+      model.concentrationProbeJumpPositionIndexProperty,
+      model.solution,
+      model.dropper,
+      solutionNode,
+      stockSolutionNode,
+      solventFluidNode,
+      drainFluidNode,
+      modelViewTransform, {
         tandem: tandem.createTandem( 'concentrationMeterNode' )
       } );
 

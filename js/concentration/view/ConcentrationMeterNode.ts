@@ -44,6 +44,8 @@ import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import { linear } from '../../../../dot/js/util/linear.js';
 import { ConcentrationProbeNode } from './ConcentrationProbeNode.js';
 import BLLColors from '../../common/BLLColors.js';
+import { JumpPosition } from '../../common/model/JumpPosition.js';
+import Property from '../../../../axon/js/Property.js';
 
 const DECIMAL_PLACES_MOLES_PER_LITER = 3;
 const DECIMAL_PLACES_PERCENT = 1;
@@ -62,6 +64,8 @@ type ConcentrationMeterNodeOptions = SelfOptions & PickRequired<NodeOptions, 'ta
 export default class ConcentrationMeterNode extends Node {
 
   public constructor( concentrationMeter: ConcentrationMeter,
+                      probeJumpPositions: JumpPosition[],
+                      probeJumpPositionIndexProperty: Property<number>,
                       solution: ConcentrationSolution,
                       dropper: Dropper,
                       solutionNode: Path,
@@ -84,7 +88,8 @@ export default class ConcentrationMeterNode extends Node {
 
     const bodyNode = new BodyNode( concentrationMeter, modelViewTransform, options.tandem.createTandem( 'bodyNode' ) );
 
-    const probeNode = new ConcentrationProbeNode( concentrationMeter.probe, modelViewTransform, solutionNode,
+    const probeNode = new ConcentrationProbeNode( concentrationMeter.probe, probeJumpPositions,
+      probeJumpPositionIndexProperty, modelViewTransform, solutionNode,
       stockSolutionNode, solventFluidNode, drainFluidNode, options.tandem.createTandem( 'probeNode' ) );
 
     const wireNode = new WireNode( concentrationMeter.probe, bodyNode, probeNode );

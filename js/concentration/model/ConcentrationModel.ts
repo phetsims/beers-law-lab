@@ -10,6 +10,7 @@ import Disposable from '../../../../axon/js/Disposable.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
+import Range from '../../../../dot/js/Range.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import TModel from '../../../../joist/js/TModel.js';
 import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
@@ -27,6 +28,9 @@ import PrecipitateParticles from './PrecipitateParticles.js';
 import Shaker from './Shaker.js';
 import ShakerParticles from './ShakerParticles.js';
 import SoluteForm from './SoluteForm.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
+import { JumpPosition } from '../../common/model/JumpPosition.js';
+import NumberProperty from '../../../../axon/js/NumberProperty.js';
 
 const SOLUTION_VOLUME_RANGE = BLLConstants.SOLUTION_VOLUME_RANGE; // L
 const SOLUTE_AMOUNT_RANGE = BLLConstants.SOLUTE_AMOUNT_RANGE; // moles
@@ -48,6 +52,11 @@ export default class ConcentrationModel implements TModel {
   public readonly solventFaucet: Faucet;
   public readonly drainFaucet: Faucet;
   public readonly concentrationMeter: ConcentrationMeter;
+
+  // Useful positions for the concentration probe. Cycle through these positions via a keyboard shortcut.
+  // See https://github.com/phetsims/beers-law-lab/issues/351.
+  public readonly concentrationProbeJumpPositions: JumpPosition[];
+  public readonly concentrationProbeJumpPositionIndexProperty: Property<number>;
 
   public constructor( tandem: Tandem ) {
 
@@ -132,6 +141,44 @@ export default class ConcentrationModel implements TModel {
       tandem: tandem.createTandem( 'concentrationMeter' )
     } );
 
+    this.concentrationProbeJumpPositions = [
+
+      // Inside the beaker, bottom center.
+      {
+        position: this.beaker.position.minusXY( 0, 10 ),
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.insideBeakerStringProperty
+      },
+
+      // Outside the beaker, where the probe is initially positioned.
+      {
+        position: this.concentrationMeter.probe.positionProperty.value,
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.outsideBeakerStringProperty
+      },
+
+      // Below the water faucet, close to the spigot, and above the max solution level in the beaker.
+      {
+        position: this.solventFaucet.position.plusXY( 0, 10 ),
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.belowWaterFaucetStringProperty
+      },
+
+      // Below the drain faucet, close to the spigot.
+      {
+        position: this.drainFaucet.position.plusXY( 0, 10 ),
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.belowDrainFaucetStringProperty
+      },
+
+      // Below the dropper, and above the max solution level in the beaker.
+      {
+        position: this.dropper.position.plusXY( 0, 10 ),
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.belowDropperStringProperty
+      }
+    ];
+
+    this.concentrationProbeJumpPositionIndexProperty = new NumberProperty( 0, {
+      numberType: 'Integer',
+      range: new Range( 0, this.concentrationProbeJumpPositions.length - 1 )
+    } );
+
     // When the solute is changed, the amount of solute resets to 0.  If this occurs while restoring PhET-iO state,
     // then do nothing, so that we don't blow away the restored state.
     // See https://github.com/phetsims/beers-law-lab/issues/247
@@ -176,6 +223,7 @@ export default class ConcentrationModel implements TModel {
     this.solventFaucet.reset();
     this.drainFaucet.reset();
     this.concentrationMeter.reset();
+    this.concentrationProbeJumpPositionIndexProperty.reset();
   }
 
   /*
