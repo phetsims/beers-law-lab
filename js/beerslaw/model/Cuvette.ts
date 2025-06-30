@@ -21,6 +21,8 @@ import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioO
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import BLLQueryParameters from '../../common/BLLQueryParameters.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 
 type SelfOptions = {
   position?: Vector2;
@@ -37,6 +39,8 @@ export default class Cuvette extends PhetioObject {
 
   // Variable width of the cuvette, in cm
   public readonly widthProperty: NumberProperty;
+
+  public readonly centerXProperty: TReadOnlyProperty<number>;
 
   // When dragging the cuvette, it's width will snap to this interval when the drag ends. 0 causes no snapping.
   // Note that it is only consulted at the end of a drag sequence - see CuvetteDragListener. If you change
@@ -71,6 +75,8 @@ export default class Cuvette extends PhetioObject {
       tandem: options.tandem.createTandem( 'widthProperty' ),
       phetioFeatured: true
     } );
+
+    this.centerXProperty = new DerivedProperty( [ this.widthProperty ], width => this.position.x + width / 2 );
 
     this.snapIntervalProperty = new NumberProperty( BLLQueryParameters.cuvetteSnapInterval, {
       units: 'cm',

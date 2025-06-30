@@ -118,6 +118,12 @@ type StringsType = {
     };
     'detectorProbeNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
+      'jumpResponses': {
+        'betweenLightSourceAndCuvetteStringProperty': LocalizedStringProperty;
+        'centeredInCuvetteStringProperty': LocalizedStringProperty;
+        'rightOfCuvetteStringProperty': LocalizedStringProperty;
+        'outsideLightSourcePathStringProperty': LocalizedStringProperty;
+      }
     };
     'shakerNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;

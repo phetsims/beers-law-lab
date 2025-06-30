@@ -132,7 +132,7 @@ type ProbeOptions = ProbeSelfOptions & BLLMovableOptions;
 
 class Probe extends BLLMovable {
 
-  private readonly sensorDiameter: number;
+  public readonly sensorDiameter: number;
 
   public constructor( providedOptions: ProbeOptions ) {
 

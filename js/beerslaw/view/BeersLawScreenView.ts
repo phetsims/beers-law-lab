@@ -52,9 +52,14 @@ export default class BeersLawScreenView extends ScreenView {
 
     const beamNode = new BeamNode( model.beam );
 
-    const detectorNode = new ATDetectorNode( model.detector, model.light, modelViewTransform, {
-      tandem: tandem.createTandem( 'detectorNode' )
-    } );
+    const detectorNode = new ATDetectorNode(
+      model.detector,
+      model.detectorProbeJumpPositions,
+      model.detectorProbeJumpPositionIndexProperty,
+      model.light,
+      modelViewTransform, {
+        tandem: tandem.createTandem( 'detectorNode' )
+      } );
 
     const wavelengthPanel = new WavelengthPanel( model.light, {
       // below the light

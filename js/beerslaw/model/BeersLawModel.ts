@@ -21,6 +21,12 @@ import Cuvette from './Cuvette.js';
 import Light from './Light.js';
 import Ruler from './Ruler.js';
 import SolutionInCuvette from './SolutionInCuvette.js';
+import { JumpPosition } from '../../common/model/JumpPosition.js';
+import Vector2Property from '../../../../dot/js/Vector2Property.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
+import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Range from '../../../../dot/js/Range.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 
 export default class BeersLawModel implements TModel {
 
@@ -35,6 +41,11 @@ export default class BeersLawModel implements TModel {
   public readonly solutionInCuvette: SolutionInCuvette;
   public readonly detector: ATDetector;
   public readonly beam: Beam;
+
+  // Useful positions for the AT detector probe. Cycle through these positions via a keyboard shortcut.
+  // See https://github.com/phetsims/beers-law-lab/issues/352.
+  public readonly detectorProbeJumpPositions: JumpPosition[];
+  public readonly detectorProbeJumpPositionIndexProperty: Property<number>;
 
   public constructor( modelViewTransform: ModelViewTransform2, tandem: Tandem ) {
 
@@ -85,6 +96,38 @@ export default class BeersLawModel implements TModel {
     } );
 
     this.beam = new Beam( this.light, this.cuvette, this.detector, this.solutionInCuvette, modelViewTransform );
+
+    this.detectorProbeJumpPositions = [
+
+      // Between light source and cuvette, vertically centered in the beam path.
+      {
+        positionProperty: new Vector2Property( new Vector2( this.cuvette.position.x - 0.5, this.light.position.y ) ),
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.betweenLightSourceAndCuvetteStringProperty
+      },
+
+      // Horizontally centered in the cuvette, vertically centered in the beam path.
+      {
+        positionProperty: new DerivedProperty( [ this.cuvette.centerXProperty ], centerX => new Vector2( centerX, this.light.position.y ) ),
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.centeredInCuvetteStringProperty
+      },
+      
+      // Right of the cuvette's max width, vertically centered in the beam path.
+      {
+        positionProperty: new Vector2Property( new Vector2( this.detector.probe.positionProperty.value.x, this.light.position.y ) ),
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.rightOfCuvetteStringProperty
+      },
+
+      // Outside the light source path.
+      {
+        positionProperty: new Vector2Property( new Vector2( this.detector.probe.positionProperty.value.x, this.light.position.y + this.detector.probe.sensorDiameter + 0.15 ) ),
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.outsideLightSourcePathStringProperty
+      }
+    ];
+
+    this.detectorProbeJumpPositionIndexProperty = new NumberProperty( 0, {
+      numberType: 'Integer',
+      range: new Range( 0, this.detectorProbeJumpPositions.length - 1 )
+    } );
   }
 
   public dispose(): void {

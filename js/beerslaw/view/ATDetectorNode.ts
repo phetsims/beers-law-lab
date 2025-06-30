@@ -35,6 +35,8 @@ import ATDetectorModeRadioButtonGroup from './ATDetectorModeRadioButtonGroup.js'
 import { ATProbeNode } from './ATProbeNode.js';
 import BLLColors from '../../common/BLLColors.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import { JumpPosition } from '../../common/model/JumpPosition.js';
+import Property from '../../../../axon/js/Property.js';
 
 const ABSORBANCE_DECIMAL_PLACES = 2;
 const TRANSMITTANCE_DECIMAL_PLACES = 2;
@@ -53,6 +55,8 @@ type ATDetectorNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 export default class ATDetectorNode extends Node {
 
   public constructor( detector: ATDetector,
+                      jumpPositions: JumpPosition[],
+                      jumpPositionIndexProperty: Property<number>,
                       light: Light,
                       modelViewTransform: ModelViewTransform2,
                       providedOptions: ATDetectorNodeOptions ) {
@@ -70,7 +74,8 @@ export default class ATDetectorNode extends Node {
 
     const bodyNode = new BodyNode( detector, modelViewTransform, options.tandem.createTandem( 'bodyNode' ) );
 
-    const probeNode = new ATProbeNode( detector.probe, light, modelViewTransform, options.tandem.createTandem( 'probeNode' ) );
+    const probeNode = new ATProbeNode( detector.probe, jumpPositions, jumpPositionIndexProperty, light,
+      modelViewTransform, options.tandem.createTandem( 'probeNode' ) );
 
     const wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );
 

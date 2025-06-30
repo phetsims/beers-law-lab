@@ -21,6 +21,7 @@ import BLLColors from '../../common/BLLColors.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
 import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.js';
+import { JumpPosition } from '../../common/model/JumpPosition.js';
 
 export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
@@ -30,7 +31,12 @@ export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
     keyboardHelpDialogLabelStringProperty: BeersLawLabStrings.keyboardHelpDialog.jumpToPositionStringProperty
   } );
 
-  public constructor( probe: BLLMovable, light: Light, modelViewTransform: ModelViewTransform2, tandem: Tandem ) {
+  public constructor( probe: BLLMovable,
+                      jumpPositions: JumpPosition[],
+                      jumpPositionIndexProperty: Property<number>,
+                      light: Light,
+                      modelViewTransform: ModelViewTransform2,
+                      tandem: Tandem ) {
 
     super( {
       cursor: 'pointer',
@@ -86,16 +92,15 @@ export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
       keyStringProperties: HotkeyData.combineKeyStringProperties( [ ATProbeNode.JUMP_TO_POSITION_HOTKEY_DATA ] ),
       fire: ( event, keysPressed ) => {
         if ( ATProbeNode.JUMP_TO_POSITION_HOTKEY_DATA.hasKeyStroke( keysPressed ) ) {
-          phet.log && phet.log( 'hotkey J' );
-          // phet.log && phet.log( `hotkey J, probeJumpPositionIndex=${probeJumpPositionIndexProperty.value}` );
-          // probe.positionProperty.value = probeJumpPositions[ probeJumpPositionIndexProperty.value ].position;
-          // this.addAccessibleObjectResponse( probeJumpPositions[ probeJumpPositionIndexProperty.value ].accessibleObjectResponseStringProperty );
-          // if ( probeJumpPositionIndexProperty.value < probeJumpPositions.length - 1 ) {
-          //   probeJumpPositionIndexProperty.value++;
-          // }
-          // else {
-          //   probeJumpPositionIndexProperty.value = 0;
-          // }
+          phet.log && phet.log( `hotkey J, jumpPositionIndex=${jumpPositionIndexProperty.value}` );
+          probe.positionProperty.value = jumpPositions[ jumpPositionIndexProperty.value ].positionProperty.value;
+          this.addAccessibleObjectResponse( jumpPositions[ jumpPositionIndexProperty.value ].accessibleObjectResponseStringProperty );
+          if ( jumpPositionIndexProperty.value < jumpPositions.length - 1 ) {
+            jumpPositionIndexProperty.value++;
+          }
+          else {
+            jumpPositionIndexProperty.value = 0;
+          }
         }
       }
     } );
