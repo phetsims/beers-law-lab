@@ -78,6 +78,7 @@ export default class ATDetectorNode extends Node {
 
     this.addLinkedElement( detector );
 
+    // Probe gets focus before radio buttons in the body.
     this.pdomOrder = [
       probeNode,
       bodyNode
