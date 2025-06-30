@@ -1,14 +1,13 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * Detector for absorbance (A) and percent transmittance (%T).
+ * ATDetectorNode is the detector for absorbance (A) and percent transmittance (%T).
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
-import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -19,7 +18,6 @@ import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import ProbeNode, { ProbeNodeOptions } from '../../../../scenery-phet/js/ProbeNode.js';
 import ShadedRectangle from '../../../../scenery-phet/js/ShadedRectangle.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
@@ -31,12 +29,10 @@ import BLLMovable from '../../common/model/BLLMovable.js';
 import ATDetector from '../model/ATDetector.js';
 import ATDetectorMode from '../model/ATDetectorMode.js';
 import Light from '../model/Light.js';
-import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import { linear } from '../../../../dot/js/util/linear.js';
-import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
-import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 import ATDetectorModeRadioButtonGroup from './ATDetectorModeRadioButtonGroup.js';
+import { ATProbeNode } from './ATProbeNode.js';
 
 const ABSORBANCE_DECIMAL_PLACES = 2;
 const TRANSMITTANCE_DECIMAL_PLACES = 2;
@@ -45,7 +41,6 @@ const BODY_X_MARGIN = 15;
 const BODY_Y_MARGIN = 15;
 const VALUE_X_MARGIN = 6;
 const VALUE_Y_MARGIN = 4;
-const PROBE_COLOR = 'rgb( 8, 133, 54 )';
 const MIN_VALUE_SIZE = new Dimension2( 150, 36 );
 const MIN_BODY_SIZE = new Dimension2( 185, 140 );
 
@@ -94,7 +89,7 @@ export default class ATDetectorNode extends Node {
 
 /**
  * The body of the detector, where A and T values are displayed. Note that while the body is a BLLMovable,
- * we have currently decided not to allow it to be moved, so it has no drag handler
+ * we have currently decided not to allow it to be moved, so it has no drag listener.
  */
 type BodyNodeSelfOptions = EmptySelfOptions;
 type BodyNodeOptions = BodyNodeSelfOptions & PickRequired<NodeOptions, 'tandem'>;
@@ -162,7 +157,7 @@ class BodyNode extends Node {
     const bodyWidth = Math.max( MIN_BODY_SIZE.width, vBox.width + ( 2 * BODY_X_MARGIN ) );
     const bodyHeight = Math.max( MIN_BODY_SIZE.height, vBox.height + ( 2 * BODY_Y_MARGIN ) );
     const bodyNode = new ShadedRectangle( new Bounds2( 0, 0, bodyWidth, bodyHeight ), {
-      baseColor: PROBE_COLOR,
+      baseColor: ATProbeNode.PROBE_COLOR,
       lightOffset: 0.95
     } );
 
@@ -188,68 +183,6 @@ class BodyNode extends Node {
       }
       valueText.centerY = backgroundNode.centerY;
     } );
-  }
-}
-
-/**
- *  The probe portion of the detector
- */
-type ATProbeNodeSelfOptions = EmptySelfOptions;
-type ATProbeNodeOptions = ATProbeNodeSelfOptions & PickRequired<ProbeNodeOptions, 'tandem'>;
-
-class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
-
-  public constructor( probe: BLLMovable, light: Light, modelViewTransform: ModelViewTransform2, providedOptions: ATProbeNodeOptions ) {
-
-    const options = optionize<ATProbeNodeOptions, ATProbeNodeSelfOptions, ProbeNodeOptions>()( {
-      cursor: 'pointer',
-      radius: 53,
-      innerRadius: 40,
-      handleWidth: 68,
-      handleHeight: 60,
-      handleCornerRadius: 22,
-      lightAngle: 1.25 * Math.PI,
-      color: PROBE_COLOR,
-      tagName: 'div',
-      focusable: true,
-      accessibleName: BeersLawLabStrings.a11y.detectorProbeNode.accessibleNameStringProperty,
-      phetioInputEnabledPropertyInstrumented: true,
-      phetioVisiblePropertyInstrumented: false
-    }, providedOptions );
-
-    super( options );
-
-    // position
-    probe.positionProperty.link( position => {
-      this.translation = modelViewTransform.modelToViewPosition( position );
-    } );
-
-    this.addInputListener( new SoundDragListener( {
-      positionProperty: probe.positionProperty,
-      dragBoundsProperty: new Property( probe.dragBounds ),
-      transform: modelViewTransform,
-      end: () => {
-        // If the light is on and the probe is close enough to the beam, snap the probe to the center of beam.
-        if ( light.isOnProperty.value &&
-             ( probe.positionProperty.value.x >= light.position.x ) &&
-             ( Math.abs( probe.positionProperty.value.y - light.position.y ) <= 0.5 * light.lensDiameter ) ) {
-          probe.positionProperty.value = new Vector2( probe.positionProperty.value.x, light.position.y );
-        }
-      },
-      tandem: options.tandem.createTandem( 'dragListener' )
-    } ) );
-
-    this.addInputListener( new SoundKeyboardDragListener( {
-      positionProperty: probe.positionProperty,
-      dragBoundsProperty: new Property( probe.dragBounds ),
-      transform: modelViewTransform,
-      dragSpeed: 300,
-      shiftDragSpeed: 20,
-      tandem: options.tandem.createTandem( 'keyboardDragListener' )
-    } ) );
-
-    // touch area
-    this.touchArea = this.localBounds.dilatedXY( 0.25 * this.width, 0 );
   }
 }
 
