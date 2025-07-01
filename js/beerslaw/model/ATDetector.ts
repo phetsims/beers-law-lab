@@ -1,4 +1,4 @@
-// Copyright 2013-2024, University of Colorado Boulder
+// Copyright 2013-2025, University of Colorado Boulder
 
 /**
  * ATDetector is the detector for absorbance (A) and percent transmittance (%T) of light passing through
