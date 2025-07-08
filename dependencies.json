@@ -1,5 +1,5 @@
 {
-  "comment": "# beers-law-lab 1.8.0-dev.5 Fri Jun 27 2025 12:26:51 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# beers-law-lab 1.8.0-dev.6 Tue Jul 08 2025 07:36:01 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "f6d41b399ad32df2a00ab4b329981be0c574d77a",
     "branch": "main"
@@ -9,7 +9,7 @@
     "branch": "main"
   },
   "beers-law-lab": {
-    "sha": "abf3c80f9840f2f2caf8670b8b9ae4b4d14685dc",
+    "sha": "2bccd9e3d3d6510e2857876a5e5915efcf747224",
     "branch": "main"
   },
   "brand": {
@@ -17,7 +17,7 @@
     "branch": "main"
   },
   "chipper": {
-    "sha": "6cf8a866286137690c3fc155535528f2a24baa47",
+    "sha": "970568b76f4bcbda5633d92586e0a9bb69a11502",
     "branch": "main"
   },
   "dot": {
@@ -25,7 +25,7 @@
     "branch": "main"
   },
   "joist": {
-    "sha": "370b4c79ad7d0bc1b3170c9f771d49d0ab0ca511",
+    "sha": "a4a025c130673070c24448bace2694f01809059a",
     "branch": "main"
   },
   "kite": {
@@ -49,7 +49,7 @@
     "branch": "main"
   },
   "phet-io-sim-specific": {
-    "sha": "09624cdb2351d5bee75e217f6e2cc4d6e22453b2",
+    "sha": "8efd9fa39ef7321fe6f30fd3c445188fc4d16c13",
     "branch": "main"
   },
   "phet-io-wrapper-lab-book": {
@@ -61,7 +61,7 @@
     "branch": "main"
   },
   "phetcommon": {
-    "sha": "d92cb505450612d29e7364e9013f4d7a7a68a735",
+    "sha": "9827a5a8deb7d82a344da013c53b4d3e7285cf8c",
     "branch": "main"
   },
   "phetmarks": {
@@ -73,11 +73,11 @@
     "branch": "main"
   },
   "scenery": {
-    "sha": "a5717b4818e5bb858e9933b620ce54288e801be3",
+    "sha": "59da1deedc0cd918a897edf940af0aa68ceb0a13",
     "branch": "main"
   },
   "scenery-phet": {
-    "sha": "495d2fe10bed42c55e7f59a4bf673e302d18f822",
+    "sha": "82d6d0490d45800fbeb952d5b1fff495a6c9a9f5",
     "branch": "main"
   },
   "sherpa": {
@@ -89,7 +89,7 @@
     "branch": "main"
   },
   "sun": {
-    "sha": "c5c7d78f73d7e71753fc0a246f7168e11f9675c6",
+    "sha": "d049e28104929a9e23ff88e89b2c038f2b770b52",
     "branch": "main"
   },
   "tambo": {
