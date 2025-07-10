@@ -1,6 +1,5 @@
 // Copyright 2025, University of Colorado Boulder
 
-//TODO https://github.com/phetsims/beers-law-lab/issues/345 Address duplication across screens.
 /**
  * BeersLawKeyboardHelpContent is the content for the keyboard-help dialog in the 'Beer's Law' screen.
  *
