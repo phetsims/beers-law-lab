@@ -44,7 +44,7 @@ import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import { linear } from '../../../../dot/js/util/linear.js';
 import { ConcentrationProbeNode } from './ConcentrationProbeNode.js';
 import BLLColors from '../../common/BLLColors.js';
-import { JumpPosition } from '../../common/model/JumpPosition.js';
+import JumpPosition from '../../common/model/JumpPosition.js';
 import Property from '../../../../axon/js/Property.js';
 
 const DECIMAL_PLACES_MOLES_PER_LITER = 3;

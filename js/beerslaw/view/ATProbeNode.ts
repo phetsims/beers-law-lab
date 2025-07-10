@@ -20,7 +20,7 @@ import beersLawLab from '../../beersLawLab.js';
 import BLLColors from '../../common/BLLColors.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
-import { JumpPosition } from '../../common/model/JumpPosition.js';
+import JumpPosition from '../../common/model/JumpPosition.js';
 import JumpToPositionListener from './JumpToPositionListener.js';
 
 export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {

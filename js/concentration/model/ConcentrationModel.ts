@@ -29,7 +29,7 @@ import Shaker from './Shaker.js';
 import ShakerParticles from './ShakerParticles.js';
 import SoluteForm from './SoluteForm.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
-import { JumpPosition } from '../../common/model/JumpPosition.js';
+import JumpPosition from '../../common/model/JumpPosition.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Vector2Property from '../../../../dot/js/Vector2Property.js';
 
@@ -145,34 +145,35 @@ export default class ConcentrationModel implements TModel {
     this.concentrationProbeJumpPositions = [
 
       // Inside the beaker, bottom center.
-      {
+      new JumpPosition( {
         positionProperty: new Vector2Property( this.beaker.position.minusXY( 0, 0.0001 ) ),
         accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.insideBeakerStringProperty
-      },
+      } ),
 
       // Below the water faucet, close to the spigot, and above the max solution level in the beaker.
-      {
+      new JumpPosition( {
         positionProperty: new Vector2Property( this.solventFaucet.position.plusXY( 0, 10 ) ),
         accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.belowWaterFaucetStringProperty
-      },
+      } ),
 
       // Below the dropper, and above the max solution level in the beaker.
-      {
+      new JumpPosition( {
         positionProperty: new Vector2Property( this.dropper.position.plusXY( 0, 10 ) ),
+        isRelevant: () => this.dropper.visibleProperty.value,
         accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.belowDropperStringProperty
-      },
+      } ),
 
       // Below the drain faucet, close to the spigot.
-      {
+      new JumpPosition( {
         positionProperty: new Vector2Property( this.drainFaucet.position.plusXY( 0, 10 ) ),
         accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.belowDrainFaucetStringProperty
-      },
+      } ),
 
       // Outside the beaker, where the probe is initially positioned.
-      {
+      new JumpPosition( {
         positionProperty: new Vector2Property( this.concentrationMeter.probe.positionProperty.value ),
         accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.outsideBeakerStringProperty
-      }
+      } )
     ];
 
     this.concentrationProbeJumpPositionIndexProperty = new NumberProperty( 0, {

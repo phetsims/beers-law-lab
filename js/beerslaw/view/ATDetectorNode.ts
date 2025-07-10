@@ -35,7 +35,7 @@ import ATDetectorModeRadioButtonGroup from './ATDetectorModeRadioButtonGroup.js'
 import { ATProbeNode } from './ATProbeNode.js';
 import BLLColors from '../../common/BLLColors.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import { JumpPosition } from '../../common/model/JumpPosition.js';
+import JumpPosition from '../../common/model/JumpPosition.js';
 import Property from '../../../../axon/js/Property.js';
 
 const ABSORBANCE_DECIMAL_PLACES = 2;

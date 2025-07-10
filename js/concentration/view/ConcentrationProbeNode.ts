@@ -19,7 +19,7 @@ import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboard
 import beersLawLab from '../../beersLawLab.js';
 import BLLColors from '../../common/BLLColors.js';
 import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
-import { JumpPosition } from '../../common/model/JumpPosition.js';
+import JumpPosition from '../../common/model/JumpPosition.js';
 import JumpToPositionListener from '../../beerslaw/view/JumpToPositionListener.js';
 
 export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode ) {

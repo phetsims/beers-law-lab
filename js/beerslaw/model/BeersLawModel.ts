@@ -21,7 +21,7 @@ import Cuvette from './Cuvette.js';
 import Light from './Light.js';
 import Ruler from './Ruler.js';
 import SolutionInCuvette from './SolutionInCuvette.js';
-import { JumpPosition } from '../../common/model/JumpPosition.js';
+import JumpPosition from '../../common/model/JumpPosition.js';
 import Vector2Property from '../../../../dot/js/Vector2Property.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
@@ -100,28 +100,28 @@ export default class BeersLawModel implements TModel {
     this.detectorProbeJumpPositions = [
 
       // Between light source and cuvette, vertically centered in the beam path.
-      {
+      new JumpPosition( {
         positionProperty: new Vector2Property( new Vector2( this.cuvette.position.x - 0.5, this.light.position.y ) ),
         accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.betweenLightSourceAndCuvetteStringProperty
-      },
+      } ),
 
       // Horizontally centered in the cuvette, vertically centered in the beam path.
-      {
+      new JumpPosition( {
         positionProperty: new DerivedProperty( [ this.cuvette.centerXProperty ], centerX => new Vector2( centerX, this.light.position.y ) ),
         accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.centeredInCuvetteStringProperty
-      },
-      
+      } ),
+
       // Right of the cuvette's max width, vertically centered in the beam path.
-      {
+      new JumpPosition( {
         positionProperty: new Vector2Property( new Vector2( this.detector.probe.positionProperty.value.x, this.light.position.y ) ),
         accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.rightOfCuvetteStringProperty
-      },
+      } ),
 
       // Outside the light source path.
-      {
+      new JumpPosition( {
         positionProperty: new Vector2Property( new Vector2( this.detector.probe.positionProperty.value.x, this.light.position.y + this.detector.probe.sensorDiameter + 0.15 ) ),
         accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.outsideLightSourcePathStringProperty
-      }
+      } )
     ];
 
     this.detectorProbeJumpPositionIndexProperty = new NumberProperty( 0, {
