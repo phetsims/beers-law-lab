@@ -156,16 +156,16 @@ export default class ConcentrationModel implements TModel {
         accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.belowWaterFaucetStringProperty
       },
 
-      // Below the drain faucet, close to the spigot.
-      {
-        positionProperty: new Vector2Property( this.drainFaucet.position.plusXY( 0, 10 ) ),
-        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.belowDrainFaucetStringProperty
-      },
-
       // Below the dropper, and above the max solution level in the beaker.
       {
         positionProperty: new Vector2Property( this.dropper.position.plusXY( 0, 10 ) ),
         accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.belowDropperStringProperty
+      },
+
+      // Below the drain faucet, close to the spigot.
+      {
+        positionProperty: new Vector2Property( this.drainFaucet.position.plusXY( 0, 10 ) ),
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.belowDrainFaucetStringProperty
       },
 
       // Outside the beaker, where the probe is initially positioned.
