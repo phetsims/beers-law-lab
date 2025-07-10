@@ -79,7 +79,7 @@ export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
       positionProperty: probe.positionProperty,
       dragBoundsProperty: new Property( probe.dragBounds ),
       transform: modelViewTransform,
-      dragSpeed: 300,
+      dragSpeed: 150,
       shiftDragSpeed: 20,
       tandem: tandem.createTandem( 'keyboardDragListener' )
     } ) );
