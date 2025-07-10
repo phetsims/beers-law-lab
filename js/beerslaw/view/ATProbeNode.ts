@@ -20,8 +20,8 @@ import beersLawLab from '../../beersLawLab.js';
 import BLLColors from '../../common/BLLColors.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
-import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.js';
 import { JumpPosition } from '../../common/model/JumpPosition.js';
+import JumpToPositionListener from './JumpToPositionListener.js';
 
 export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
@@ -86,25 +86,10 @@ export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
     // touch area
     this.touchArea = this.localBounds.dilatedXY( 0.25 * this.width, 0 );
-
-    // Keyboard shortcut for moving to useful positions, see https://github.com/phetsims/beers-law-lab/issues/352.
-    const hotkeyListener = new KeyboardListener( {
-      keyStringProperties: HotkeyData.combineKeyStringProperties( [ ATProbeNode.JUMP_TO_POSITION_HOTKEY_DATA ] ),
-      fire: ( event, keysPressed ) => {
-        if ( ATProbeNode.JUMP_TO_POSITION_HOTKEY_DATA.hasKeyStroke( keysPressed ) ) {
-          phet.log && phet.log( `hotkey J, jumpPositionIndex=${jumpPositionIndexProperty.value}` );
-          probe.positionProperty.value = jumpPositions[ jumpPositionIndexProperty.value ].positionProperty.value;
-          this.addAccessibleObjectResponse( jumpPositions[ jumpPositionIndexProperty.value ].accessibleObjectResponseStringProperty );
-          if ( jumpPositionIndexProperty.value < jumpPositions.length - 1 ) {
-            jumpPositionIndexProperty.value++;
-          }
-          else {
-            jumpPositionIndexProperty.value = 0;
-          }
-        }
-      }
-    } );
-    this.addInputListener( hotkeyListener );
+    
+    // Keyboard shortcut for jumping to useful positions.
+    this.addInputListener( new JumpToPositionListener( this, ATProbeNode.JUMP_TO_POSITION_HOTKEY_DATA,
+      probe.positionProperty, jumpPositions, jumpPositionIndexProperty ) );
 
     // When the probe gets focus, reset the order of jump points.
     this.focusedProperty.lazyLink( focused => {

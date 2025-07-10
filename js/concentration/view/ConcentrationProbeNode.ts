@@ -18,9 +18,9 @@ import Property from '../../../../axon/js/Property.js';
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLColors from '../../common/BLLColors.js';
-import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.js';
 import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
 import { JumpPosition } from '../../common/model/JumpPosition.js';
+import JumpToPositionListener from '../../beerslaw/view/JumpToPositionListener.js';
 
 export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
@@ -109,25 +109,9 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
     this.isInDrainFluid = () => isInNode( drainFluidNode );
     this.isInStockSolution = () => isInNode( stockSolutionNode );
 
-    // Keyboard shortcut for moving to useful positions, see https://github.com/phetsims/beers-law-lab/issues/351.
-    const hotkeyListener = new KeyboardListener( {
-      keyStringProperties: HotkeyData.combineKeyStringProperties( [ ConcentrationProbeNode.JUMP_TO_POSITION_HOTKEY_DATA ] ),
-      fire: ( event, keysPressed ) => {
-        if ( ConcentrationProbeNode.JUMP_TO_POSITION_HOTKEY_DATA.hasKeyStroke( keysPressed ) ) {
-          phet.log && phet.log( `hotkey J, jumpPositionIndex=${jumpPositionIndexProperty.value}` );
-          probe.positionProperty.value = jumpPositions[ jumpPositionIndexProperty.value ].positionProperty.value;
-          this.addAccessibleObjectResponse( jumpPositions[ jumpPositionIndexProperty.value ].accessibleObjectResponseStringProperty );
-          if ( jumpPositionIndexProperty.value < jumpPositions.length - 1 ) {
-            jumpPositionIndexProperty.value++;
-          }
-          else {
-            jumpPositionIndexProperty.value = 0;
-          }
-        }
-      }
-    } );
-    this.addInputListener( hotkeyListener );
-
+    // Keyboard shortcut for jumping to useful positions.
+    this.addInputListener( new JumpToPositionListener( this, ConcentrationProbeNode.JUMP_TO_POSITION_HOTKEY_DATA,
+      probe.positionProperty, jumpPositions, jumpPositionIndexProperty ) );
 
     // When the probe gets focus, reset the order of jump points.
     this.focusedProperty.lazyLink( focused => {
