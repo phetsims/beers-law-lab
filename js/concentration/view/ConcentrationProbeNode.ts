@@ -127,6 +127,12 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
       }
     } );
     this.addInputListener( hotkeyListener );
+
+
+    // When the probe gets focus, reset the order of jump points.
+    this.focusedProperty.lazyLink( focused => {
+      focused && jumpPositionIndexProperty.reset();
+    } );
   }
 }
 
