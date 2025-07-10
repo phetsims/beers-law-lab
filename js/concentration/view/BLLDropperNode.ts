@@ -58,7 +58,6 @@ export default class BLLDropperNode extends InteractiveHighlighting( EyeDropperN
       maxWidth: 80, // determined empirically, to cover only the glass portion of the dropper
       font: new PhetFont( { size: 18, weight: 'bold' } ),
       fill: 'black',
-      tandem: options.tandem.createTandem( 'labelText' ),
       stringPropertyOptions: { phetioReadOnly: true }
     } );
 

@@ -63,8 +63,7 @@ export default class ShakerNode extends InteractiveHighlighting( Node ) {
     const labelText = new RichText( soluteLabelStringProperty, {
       font: new PhetFont( { size: 22, weight: 'bold' } ),
       fill: 'black',
-      maxWidth: 0.5 * imageNode.width, // constrain width for i18n
-      tandem: options.tandem.createTandem( 'labelText' )
+      maxWidth: 0.5 * imageNode.width // constrain width for i18n
     } );
 
     // Common parent, to simplify rotation and label alignment.
