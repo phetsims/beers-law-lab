@@ -28,8 +28,14 @@ export default class JumpToPositionListener extends KeyboardListener<OneKeyStrok
       fire: ( event, keysPressed ) => {
         if ( hotkeyData.hasKeyStroke( keysPressed ) ) {
           phet.log && phet.log( `hotkey J, jumpPositionIndex=${jumpPositionIndexProperty.value}` );
+          
+          // Jump to the next position.
           positionProperty.value = jumpPositions[ jumpPositionIndexProperty.value ].positionProperty.value;
+
+          // Add the accessible object response that is associated with the jump position.
           targetNode.addAccessibleObjectResponse( jumpPositions[ jumpPositionIndexProperty.value ].accessibleObjectResponseStringProperty );
+
+          // Adjust the index into the jumpPositions array, with wrap around.
           if ( jumpPositionIndexProperty.value < jumpPositions.length - 1 ) {
             jumpPositionIndexProperty.value++;
           }
