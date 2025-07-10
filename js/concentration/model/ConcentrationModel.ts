@@ -146,7 +146,7 @@ export default class ConcentrationModel implements TModel {
 
       // Inside the beaker, bottom center.
       {
-        positionProperty: new Vector2Property( this.beaker.position.minusXY( 0, 10 ) ),
+        positionProperty: new Vector2Property( this.beaker.position.minusXY( 0, 0.0001 ) ),
         accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.insideBeakerStringProperty
       },
 
