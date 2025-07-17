@@ -6,6 +6,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
+import Color from '../../../scenery/js/util/Color.js';
 import ProfileColorProperty from '../../../scenery/js/util/ProfileColorProperty.js';
 import beersLawLab from '../beersLawLab.js';
 
@@ -20,7 +21,7 @@ export default class BLLColors {
   } );
 
   public static readonly panelFillProperty = new ProfileColorProperty( beersLawLab, 'panelFill', {
-    default: '#F0F0F0'
+    default: Color.grayColor( 240 )
   } );
 
   public static readonly concentrationMeterColorProperty = new ProfileColorProperty( beersLawLab, 'concentrationMeterColor', {
