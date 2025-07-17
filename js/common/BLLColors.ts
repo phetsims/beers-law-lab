@@ -9,24 +9,27 @@
 import ProfileColorProperty from '../../../scenery/js/util/ProfileColorProperty.js';
 import beersLawLab from '../beersLawLab.js';
 
-const BLLColors = {
+export default class BLLColors {
 
-  screenBackgroundColorProperty: new ProfileColorProperty( beersLawLab, 'screenBackgroundColor', {
+  private constructor() {
+    // Not intended for instantiation.
+  }
+
+  public static readonly screenBackgroundColorProperty = new ProfileColorProperty( beersLawLab, 'screenBackgroundColor', {
     default: 'white'
-  } ),
+  } );
 
-  panelFillProperty: new ProfileColorProperty( beersLawLab, 'panelFill', {
+  public static readonly panelFillProperty = new ProfileColorProperty( beersLawLab, 'panelFill', {
     default: '#F0F0F0'
-  } ),
+  } );
 
-  concentrationMeterColorProperty: new ProfileColorProperty( beersLawLab, 'concentrationMeterColor', {
+  public static readonly concentrationMeterColorProperty = new ProfileColorProperty( beersLawLab, 'concentrationMeterColor', {
     default: 'rgb( 135, 4, 72 )'
-  } ),
+  } );
 
-  atDetectorColorProperty: new ProfileColorProperty( beersLawLab, 'atDetectorColor', {
+  public static readonly atDetectorColorProperty = new ProfileColorProperty( beersLawLab, 'atDetectorColor', {
     default: 'rgb( 8, 133, 54 )'
-  } )
-};
+  } );
+}
 
 beersLawLab.register( 'BLLColors', BLLColors );
-export default BLLColors;
