@@ -9,6 +9,7 @@
 import Color from '../../../../scenery/js/util/Color.js';
 import beersLawLab from '../../beersLawLab.js';
 import Fluid from './Fluid.js';
+import BLLColors from '../BLLColors.js';
 
 export default class Solvent extends Fluid {
 
@@ -18,7 +19,7 @@ export default class Solvent extends Fluid {
 
   // 'water' is not currently presented to the user as a solvent, since this sim supports only 1 solvent.
   // See https://github.com/phetsims/beers-law-lab/issues/190
-  public static readonly WATER = new Solvent( 'water', 'H<sub>2</sub>O', 1000, new Color( 224, 255, 255 ) );
+  public static readonly WATER = new Solvent( 'water', 'H<sub>2</sub>O', 1000, BLLColors.WATER );
 
   public constructor( name: string, formula: string, density: number, color: Color ) {
 

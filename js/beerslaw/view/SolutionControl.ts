@@ -23,6 +23,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
+import BLLColors from '../../common/BLLColors.js';
 
 type SelfOptions = {
   comboBoxOptions?: WithRequired<ComboBoxOptions, 'tandem'>;
@@ -45,7 +46,7 @@ export default class SolutionControl extends HBox {
         listPosition: 'above',
         xMargin: 12,
         yMargin: 12,
-        highlightFill: 'rgb( 218, 255, 255 )',
+        highlightFill: BLLColors.solutionComboBoxHighlightColorProperty,
         cornerRadius: 8,
         accessibleName: BeersLawLabStrings.solutionStringProperty
       }

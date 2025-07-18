@@ -43,6 +43,12 @@ export default class BLLColors {
   public static readonly removeSoluteButtonBaseColorProperty = new ProfileColorProperty( beersLawLab, 'removeSoluteButtonBaseColor', {
     default: 'rgb( 255, 200, 0 )'
   } );
+
+  public static readonly solutionComboBoxHighlightColorProperty = new ProfileColorProperty( beersLawLab, 'solutionComboBoxHighlightColor', {
+    default: 'rgb( 218, 255, 255 )'
+  } );
+
+  public static readonly WATER = new Color( 224, 255, 255 );
 }
 
 beersLawLab.register( 'BLLColors', BLLColors );
