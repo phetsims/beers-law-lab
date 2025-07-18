@@ -37,7 +37,7 @@ export default class BLLColors {
   } );
 
   public static readonly cuvetteArrowHighlightColorProperty = new ProfileColorProperty( beersLawLab, 'cuvetteArrowHighlightColor', {
-    default: Color.ORANGE.brighterColor()
+    default: 'rgb( 255, 255, 0 )' // brighter version of cuvetteArrowFillProperty
   } );
 
   public static readonly removeSoluteButtonBaseColorProperty = new ProfileColorProperty( beersLawLab, 'removeSoluteButtonBaseColor', {
@@ -54,5 +54,7 @@ export default class BLLColors {
 
   // Solution colors can be found in BeersLawSolution.ts - see colorRange.
 }
+
+console.log( BLLColors.cuvetteArrowHighlightColorProperty.value.brighterColor() );
 
 beersLawLab.register( 'BLLColors', BLLColors );
