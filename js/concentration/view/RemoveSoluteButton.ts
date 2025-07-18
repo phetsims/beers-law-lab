@@ -14,6 +14,7 @@ import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import ShakerParticles from '../model/ShakerParticles.js';
+import BLLColors from '../../common/BLLColors.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -29,7 +30,7 @@ export default class RemoveSoluteButton extends TextPushButton {
 
       // TextPushButtonOptions
       isDisposable: false,
-      baseColor: 'rgb(255,200,0)',
+      baseColor: BLLColors.removeSoluteButtonBaseColorProperty,
       font: new PhetFont( 22 ),
       textFill: 'black',
       xMargin: 10,

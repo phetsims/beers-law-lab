@@ -27,6 +27,7 @@ import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
+import BLLColors from '../../common/BLLColors.js';
 
 const PERCENT_FULL = 0.92;
 const SOLUTION_ALPHA = 0.6;
@@ -34,7 +35,6 @@ const ARROW_LENGTH = 110;
 const ARROW_HEAD_HEIGHT = 38;
 const ARROW_HEAD_WIDTH = 45;
 const ARROW_TAIL_WIDTH = 23;
-const ARROW_FILL = Color.ORANGE;
 
 type SelfOptions = EmptySelfOptions;
 
@@ -174,7 +174,7 @@ class CuvetteArrowNode extends InteractiveHighlighting( ArrowNode ) {
       headWidth: ARROW_HEAD_WIDTH,
       headHeight: ARROW_HEAD_HEIGHT,
       doubleHead: true,
-      fill: ARROW_FILL,
+      fill: BLLColors.cuvetteArrowFillProperty,
       stroke: 'black',
       lineWidth: 1,
       tagName: 'div',
@@ -193,7 +193,7 @@ class CuvetteArrowNode extends InteractiveHighlighting( ArrowNode ) {
     } );
     this.addInputListener( pressListener );
     pressListener.isHighlightedProperty.link( isHighlighted => {
-      this.fill = isHighlighted ? ARROW_FILL.brighterColor() : ARROW_FILL;
+      this.fill = isHighlighted ? BLLColors.cuvetteArrowHighlightColorProperty : BLLColors.cuvetteArrowFillProperty;
     } );
 
     // Dilate the touch area.

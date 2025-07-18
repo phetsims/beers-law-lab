@@ -17,7 +17,7 @@ export default class BLLColors {
   }
 
   public static readonly screenBackgroundColorProperty = new ProfileColorProperty( beersLawLab, 'screenBackgroundColor', {
-    default: 'white'
+    default: Color.WHITE
   } );
 
   public static readonly panelFillProperty = new ProfileColorProperty( beersLawLab, 'panelFill', {
@@ -30,6 +30,18 @@ export default class BLLColors {
 
   public static readonly atDetectorColorProperty = new ProfileColorProperty( beersLawLab, 'atDetectorColor', {
     default: 'rgb( 8, 133, 54 )'
+  } );
+
+  public static readonly cuvetteArrowFillProperty = new ProfileColorProperty( beersLawLab, 'cuvetteArrowFill', {
+    default: Color.ORANGE
+  } );
+
+  public static readonly cuvetteArrowHighlightColorProperty = new ProfileColorProperty( beersLawLab, 'cuvetteArrowHighlightColor', {
+    default: Color.ORANGE.brighterColor()
+  } );
+
+  public static readonly removeSoluteButtonBaseColorProperty = new ProfileColorProperty( beersLawLab, 'removeSoluteButtonBaseColor', {
+    default: 'rgb( 255, 200, 0 )'
   } );
 }
 
