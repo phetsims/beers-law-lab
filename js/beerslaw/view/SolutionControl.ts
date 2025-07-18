@@ -46,7 +46,7 @@ export default class SolutionControl extends HBox {
         listPosition: 'above',
         xMargin: 12,
         yMargin: 12,
-        highlightFill: BLLColors.solutionComboBoxHighlightColorProperty,
+        highlightFill: BLLColors.comboBoxHighlightColorProperty,
         cornerRadius: 8,
         accessibleName: BeersLawLabStrings.solutionStringProperty
       }

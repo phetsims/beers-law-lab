@@ -23,6 +23,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Solute from '../../common/model/Solute.js';
+import BLLColors from '../../common/BLLColors.js';
 
 type SelfOptions = {
   comboBoxOptions?: WithRequired<ComboBoxOptions, 'tandem'>;
@@ -44,7 +45,7 @@ export default class SoluteControl extends HBox {
         listPosition: 'below',
         xMargin: 12,
         yMargin: 12,
-        highlightFill: 'rgb( 218, 255, 255 )',
+        highlightFill: BLLColors.comboBoxHighlightColorProperty,
         cornerRadius: 8,
         accessibleName: BeersLawLabStrings.soluteStringProperty,
         tandem: Tandem.REQUIRED

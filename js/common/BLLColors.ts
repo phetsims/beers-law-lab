@@ -44,7 +44,7 @@ export default class BLLColors {
     default: 'rgb( 255, 200, 0 )'
   } );
 
-  public static readonly solutionComboBoxHighlightColorProperty = new ProfileColorProperty( beersLawLab, 'solutionComboBoxHighlightColor', {
+  public static readonly comboBoxHighlightColorProperty = new ProfileColorProperty( beersLawLab, 'comboBoxHighlightColor', {
     default: 'rgb( 218, 255, 255 )'
   } );
 
