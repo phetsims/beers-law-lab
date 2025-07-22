@@ -61,6 +61,7 @@ export default class ConcentrationScreenSummaryContent extends ScreenSummaryCont
     // Localized strings that are used directly in the derivation of currentDetailsStringProperty.
     const currentDetailsStringProperties = [
       BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.beakerEmptyStringProperty,
+      BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.onlyParticlesStringProperty,
       BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.onlyWaterStringProperty,
       BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.solutionConcentrationMeasuredStringProperty,
       BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.solutionConcentrationNotMeasuredStringProperty
@@ -70,6 +71,7 @@ export default class ConcentrationScreenSummaryContent extends ScreenSummaryCont
       ...currentDetailsStringProperties,
       model.solution.volumeProperty,
       model.solution.concentrationProperty,
+      model.solution.precipitateMolesProperty,
 
       // isInSolution() is computed in the view, so we cannot observe model.concentrationMeter.probe.positionProperty.
       concentrationProbeNode.boundsProperty,
@@ -79,8 +81,18 @@ export default class ConcentrationScreenSummaryContent extends ScreenSummaryCont
     ], () => {
       if ( model.solution.volumeProperty.value === 0 ) {
 
-        // Empty beaker
-        return BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.beakerEmptyStringProperty.value;
+        if ( model.solution.precipitateMolesProperty.value === 0 ) {
+
+          // Empty beaker
+          return BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.beakerEmptyStringProperty.value;
+        }
+        else {
+
+          // Particles in beaker, but no solution.
+          return StringUtils.fillIn( BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.onlyParticlesStringProperty.value, {
+            soluteName: soluteNameProperty.value
+          } );
+        }
       }
       else if ( model.solution.concentrationProperty.value === 0 ) {
 
