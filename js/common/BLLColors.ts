@@ -50,7 +50,7 @@ export default class BLLColors {
 
   public static readonly WATER = new Color( 224, 255, 255 );
 
-  // Solute colors can be found in Solute.ts - see colorScheme (3 colors) and particleColor.
+  // Solute colors can be found in Solute.ts - see SoluteOptions colorScheme (3 colors), particleFill, particleStroke
 
   // Solution colors can be found in BeersLawSolution.ts - see colorRange.
 }

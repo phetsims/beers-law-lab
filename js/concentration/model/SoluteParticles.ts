@@ -111,14 +111,14 @@ export default class SoluteParticles {
    * Gets the Canvas fillStyle for all particles in the system.
    */
   public getFillStyle(): string {
-    return this.soluteProperty.value.fillStyle;
+    return this.soluteProperty.value.particleFillStyle;
   }
 
   /**
    * Gets the Canvas strokeStyle for all particles in the system.
    */
   public getStrokeStyle(): string {
-    return this.soluteProperty.value.strokeStyle;
+    return this.soluteProperty.value.particleStrokeStyle;
   }
 
   /**
