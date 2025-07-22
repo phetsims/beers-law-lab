@@ -50,7 +50,7 @@ export default class SoluteParticle extends PhetioObject {
 
   public readonly solute: Solute;
 
-  public readonly color: Color;
+  public readonly fill: Color;
   public readonly size: number;
   public readonly positionProperty: Property<Vector2>;
   public readonly orientation: number;
@@ -85,7 +85,7 @@ export default class SoluteParticle extends PhetioObject {
     super( options );
 
     this.solute = solute;
-    this.color = solute.particleColor;
+    this.fill = solute.particleFill;
     this.size = solute.particleSize;
     this.positionProperty = new Vector2Property( position );
     this.orientation = orientation;
@@ -94,8 +94,8 @@ export default class SoluteParticle extends PhetioObject {
 
     this.cos = Math.cos( orientation );
     this.sin = Math.sin( orientation );
-    this.fillStyle = this.color.getCanvasStyle();
-    this.strokeStyle = this.color.darkerColor().getCanvasStyle();
+    this.fillStyle = this.fill.getCanvasStyle();
+    this.strokeStyle = this.fill.darkerColor().getCanvasStyle();
   }
 
   protected toStateObject(): SoluteParticleStateObject {

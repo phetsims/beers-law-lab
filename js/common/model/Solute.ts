@@ -35,7 +35,7 @@ type SelfOptions = {
 
   // optional
   formula?: string | null; // null or empty string defaults to nameProperty
-  particleColor?: Color;
+  particleFill?: Color;
   particleSize?: number; // cm
   particlesPerMole?: number;
 };
@@ -57,7 +57,7 @@ export default class Solute extends PhetioObject {
   public readonly stockSolutionConcentration: number; // mol/L
   public readonly molarMass: number; // g/mol
   public readonly colorScheme: SoluteColorScheme;
-  public readonly particleColor: Color;
+  public readonly particleFill: Color;
   public readonly particleSize: number;
   public readonly particlesPerMole: number;
 
@@ -76,7 +76,7 @@ export default class Solute extends PhetioObject {
 
       // SelfOptions
       formula: null,
-      particleColor: providedOptions.colorScheme.maxColor,
+      particleFill: providedOptions.colorScheme.maxColor,
       particleSize: 5, // cm
       particlesPerMole: 200,
 
@@ -103,7 +103,7 @@ export default class Solute extends PhetioObject {
     this.stockSolutionConcentration = options.stockSolutionConcentration;
     this.molarMass = options.molarMass;
     this.colorScheme = options.colorScheme;
-    this.particleColor = options.particleColor;
+    this.particleFill = options.particleFill;
     this.particleSize = options.particleSize;
     this.particlesPerMole = options.particlesPerMole;
 
@@ -112,8 +112,8 @@ export default class Solute extends PhetioObject {
       ( Solvent.WATER.density + ( options.molarMass * options.stockSolutionConcentration ) );
     assert && assert( this.stockSolutionPercentConcentration >= 0 && this.stockSolutionPercentConcentration <= 100 );
 
-    this.fillStyle = options.particleColor.getCanvasStyle();
-    this.strokeStyle = options.particleColor.darkerColor().getCanvasStyle();
+    this.fillStyle = options.particleFill.getCanvasStyle();
+    this.strokeStyle = options.particleFill.darkerColor().getCanvasStyle();
 
     this.addLinkedElement( options.nameProperty, {
       tandemName: 'nameProperty'
@@ -207,7 +207,7 @@ export default class Solute extends PhetioObject {
     molarMass: 158.034,
     colorScheme: new SoluteColorScheme( 0, Solvent.WATER.colorProperty.value, 0.01, new Color( 255, 0, 255 ), 0.48, new Color( 80, 0, 120 ) ),
     tandem: SOLUTES_TANDEM.createTandem( 'potassiumPermanganate' ),
-    particleColor: Color.BLACK
+    particleFill: Color.BLACK
   } );
 
   public static readonly SODIUM_CHLORIDE = new Solute( {
