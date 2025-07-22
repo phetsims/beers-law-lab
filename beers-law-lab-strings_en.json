@@ -218,7 +218,17 @@
     },
     "soluteFormRadioButtonGroup": {
       "accessibleName": {
-        "value": "Solute Form"
+        "value": "Solute Forms"
+      }
+    },
+    "solidRadioButton": {
+      "accessibleName": {
+        "value": "Solid Form, Shaker"
+      }
+    },
+    "solutionRadioButton": {
+      "accessibleName": {
+        "value": "Solution Form, Dropper"
       }
     },
     "lightModeRadioButtonGroup": {

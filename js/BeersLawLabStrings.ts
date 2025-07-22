@@ -110,6 +110,12 @@ type StringsType = {
     'soluteFormRadioButtonGroup': {
       'accessibleNameStringProperty': LocalizedStringProperty;
     };
+    'solidRadioButton': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
+    };
+    'solutionRadioButton': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
+    };
     'lightModeRadioButtonGroup': {
       'accessibleNameStringProperty': LocalizedStringProperty;
     };

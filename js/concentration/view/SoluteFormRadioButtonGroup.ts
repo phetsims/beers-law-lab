@@ -53,11 +53,17 @@ export default class SoluteFormRadioButtonGroup extends AquaRadioButtonGroup<Sol
       {
         value: SoluteForm.SOLID,
         createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.solidStringProperty, shakerIcon_png ),
+        options: {
+          accessibleName: BeersLawLabStrings.a11y.solidRadioButton.accessibleNameStringProperty
+        },
         tandemName: 'solidRadioButton'
       },
       {
         value: SoluteForm.SOLUTION,
         createNode: tandem => createRadioButtonLabel( BeersLawLabStrings.solutionStringProperty, dropperIcon_png ),
+        options: {
+          accessibleName: BeersLawLabStrings.a11y.solutionRadioButton.accessibleNameStringProperty
+        },
         tandemName: 'solutionRadioButton'
       }
     ];
