@@ -38,8 +38,8 @@ export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
       wavelength => toFixed( wavelength, BLLConstants.WAVELENGTH_DECIMAL_PLACES ) );
 
     // Concentration value with the correct number of decimal places, including trailing zeros.
-    const concentrationValueStringProperty = new DerivedStringProperty( [ model.solutionInCuvette.concentrationProperty ],
-      concentration => toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION ) );
+    const concentrationValueStringProperty = new DerivedStringProperty( [ model.solutionProperty, model.solutionInCuvette.concentrationProperty ],
+      ( solution, concentration ) => toFixed( solution.concentrationTransform.modelToView( concentration ), BLLConstants.DECIMAL_PLACES_CONCENTRATION ) );
 
     // Absorbance value with the correct number of decimal places, including trailing zeros.
     const absorbanceValueStringProperty = new DerivedStringProperty( [ model.detector.absorbanceProperty ],
