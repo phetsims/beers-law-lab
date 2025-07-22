@@ -44,6 +44,10 @@ export default class BLLConstants {
   // Value displayed on the concentration meter.
   public static readonly DECIMAL_PLACES_MOLES_PER_LITER = 3;
   public static readonly DECIMAL_PLACES_PERCENT = 1;
+  public static readonly DECIMAL_PLACES_CONCENTRATION = 0;
+  public static readonly ABSORBANCE_DECIMAL_PLACES = 2;
+  public static readonly TRANSMITTANCE_DECIMAL_PLACES = 2;
+  public static readonly WAVELENGTH_DECIMAL_PLACES = 0;
 
   public static readonly SOLUTE_NAME_PROPERTIES = [
     BeersLawLabStrings.drinkMixStringProperty,

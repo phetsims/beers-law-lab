@@ -22,20 +22,23 @@ export default class ConcentrationScreenSummaryContent extends ScreenSummaryCont
 
   public constructor( model: ConcentrationModel, concentrationProbeNode: ConcentrationProbeNode ) {
 
-    // Localized strings that are specific to currentDetails.
-    const currentDetailsStringProperties = [
-      BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.beakerEmptyStringProperty,
-      BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.onlyWaterStringProperty,
-      BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.solutionConcentrationMeasuredStringProperty,
-      BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.solutionConcentrationNotMeasuredStringProperty
-    ];
-
+    // Solute name, including support for dynamic locale.
     const soluteNameProperty = DerivedProperty.deriveAny( [
       model.soluteProperty,
       ...BLLConstants.SOLUTE_NAME_PROPERTIES
     ], () => model.soluteProperty.value.nameProperty.value );
 
-    // Concentration units, with singular vs plural matched to the concentration value.
+    // Concentration value with the correct number of decimal places, including trailing zeros.
+    const concentrationValueStringProperty = new DerivedProperty( [
+        model.solution.concentrationProperty,
+        BLLPreferences.concentrationMeterUnitsProperty
+      ],
+      ( concentration, concentrationMeterUnits ) =>
+        toFixed( concentration, concentrationMeterUnits === 'molesPerLiter' ?
+                                BLLConstants.DECIMAL_PLACES_MOLES_PER_LITER :
+                                BLLConstants.DECIMAL_PLACES_PERCENT ) );
+
+    // Concentration units, with singular vs plural matched to the concentration value, and support for dynamic locale.
     const concentrationUnitsDescriptionProperty = new DerivedStringProperty( [
         model.solution.concentrationProperty,
         BLLPreferences.concentrationMeterUnitsProperty,
@@ -55,14 +58,13 @@ export default class ConcentrationScreenSummaryContent extends ScreenSummaryCont
         }
       } );
 
-    const concentrationValueStringProperty = new DerivedProperty( [
-        model.solution.concentrationProperty,
-        BLLPreferences.concentrationMeterUnitsProperty
-      ],
-      ( concentration, concentrationMeterUnits ) =>
-        toFixed( concentration, concentrationMeterUnits === 'molesPerLiter' ?
-                                BLLConstants.DECIMAL_PLACES_MOLES_PER_LITER :
-                                BLLConstants.DECIMAL_PLACES_PERCENT ) );
+    // Localized strings that are used directly in the derivation of currentDetailsStringProperty.
+    const currentDetailsStringProperties = [
+      BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.beakerEmptyStringProperty,
+      BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.onlyWaterStringProperty,
+      BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.solutionConcentrationMeasuredStringProperty,
+      BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.solutionConcentrationNotMeasuredStringProperty
+    ];
 
     const currentDetailsStringProperty = DerivedStringProperty.deriveAny( [
       ...currentDetailsStringProperties,
@@ -77,23 +79,27 @@ export default class ConcentrationScreenSummaryContent extends ScreenSummaryCont
     ], () => {
       if ( model.solution.volumeProperty.value === 0 ) {
 
-        // "Currently, the beaker is empty."
+        // Empty beaker
         return BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.beakerEmptyStringProperty.value;
       }
       else if ( model.solution.concentrationProperty.value === 0 ) {
 
-        // "Currently, beaker contains water. Concentration is 0 mol/L."
+        // Only water in the beaker
         return BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.onlyWaterStringProperty.value;
       }
       else if ( concentrationProbeNode.isInSolution() ) {
-        return StringUtils.fillIn( BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.solutionConcentrationMeasuredStringProperty, {
+
+        // Concentration probe is in the solution.
+        return StringUtils.fillIn( BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.solutionConcentrationMeasuredStringProperty.value, {
           soluteName: soluteNameProperty.value,
           concentration: concentrationValueStringProperty.value,
           units: concentrationUnitsDescriptionProperty.value
         } );
       }
       else {
-        return StringUtils.fillIn( BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.solutionConcentrationNotMeasuredStringProperty, {
+
+        // Concentration probe is not in the solution.
+        return StringUtils.fillIn( BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.solutionConcentrationNotMeasuredStringProperty.value, {
           soluteName: soluteNameProperty.value,
           concentration: concentrationValueStringProperty.value,
           units: concentrationUnitsDescriptionProperty.value

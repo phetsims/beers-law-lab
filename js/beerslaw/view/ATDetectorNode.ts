@@ -37,9 +37,8 @@ import BLLColors from '../../common/BLLColors.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import JumpPosition from '../../common/model/JumpPosition.js';
 import Property from '../../../../axon/js/Property.js';
+import BLLConstants from '../../common/BLLConstants.js';
 
-const ABSORBANCE_DECIMAL_PLACES = 2;
-const TRANSMITTANCE_DECIMAL_PLACES = 2;
 const NO_VALUE = MathSymbols.NO_VALUE;
 const BODY_X_MARGIN = 15;
 const BODY_Y_MARGIN = 15;
@@ -120,10 +119,10 @@ class BodyNode extends Node {
         if ( mode === ATDetectorMode.TRANSMITTANCE ) {
           valueString = ( transmittance === null ) ?
                         NO_VALUE :
-                        StringUtils.format( pattern, toFixed( 100 * transmittance, TRANSMITTANCE_DECIMAL_PLACES ) );
+                        StringUtils.format( pattern, toFixed( 100 * transmittance, BLLConstants.TRANSMITTANCE_DECIMAL_PLACES ) );
         }
         else {
-          valueString = ( absorbance === null ) ? NO_VALUE : toFixed( absorbance, ABSORBANCE_DECIMAL_PLACES );
+          valueString = ( absorbance === null ) ? NO_VALUE : toFixed( absorbance, BLLConstants.ABSORBANCE_DECIMAL_PLACES );
         }
         return valueString;
       }, {

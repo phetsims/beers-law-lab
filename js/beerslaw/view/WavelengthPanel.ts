@@ -30,6 +30,7 @@ import Light from '../model/Light.js';
 import LightMode from '../model/LightMode.js';
 import LightModeRadioButtonGroup from './LightModeRadioButtonGroup.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
+import BLLConstants from '../../common/BLLConstants.js';
 
 const SLIDER_TRACK_SIZE = new Dimension2( 150, 30 );
 const PATTERN_STRING_PROPERTY = BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ];
@@ -64,7 +65,8 @@ export default class WavelengthPanel extends Panel {
       } );
 
     const numberDisplay = new NumberDisplay( light.wavelengthProperty, light.wavelengthProperty.range, {
-      numberFormatter: wavelength => StringUtils.format( PATTERN_STRING_PROPERTY.value, toFixed( wavelength, 0 ), UNITS_STRING_PROPERTY.value ),
+      numberFormatter: wavelength =>
+        StringUtils.format( PATTERN_STRING_PROPERTY.value, toFixed( wavelength, BLLConstants.WAVELENGTH_DECIMAL_PLACES ), UNITS_STRING_PROPERTY.value ),
       numberFormatterDependencies: [ PATTERN_STRING_PROPERTY, UNITS_STRING_PROPERTY ],
       xMargin: 7,
       yMargin: 3,

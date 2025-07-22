@@ -38,6 +38,7 @@ export default class ATDetector extends PhetioObject {
   public readonly body: BLLMovable;
   public readonly probe: Probe;
   public readonly modeProperty: EnumerationProperty<ATDetectorMode>;
+  public readonly isInBeamProperty: TReadOnlyProperty<boolean>;
 
   public readonly absorbanceProperty: TReadOnlyProperty<number | null>;
   public readonly transmittanceProperty: TReadOnlyProperty<number | null>;
@@ -103,6 +104,8 @@ export default class ATDetector extends PhetioObject {
         phetioValueType: NullableIO( NumberIO ),
         phetioDocumentation: 'Transmittance at the position of the probe, null if the probe is not in the light beam'
       } );
+
+    this.isInBeamProperty = new DerivedProperty( [ this.absorbanceProperty ], absorbance => absorbance !== null );
   }
 
   public reset(): void {

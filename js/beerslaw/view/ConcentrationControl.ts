@@ -32,6 +32,7 @@ import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
 import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
+import BLLConstants from '../../common/BLLConstants.js';
 
 const FONT = new PhetFont( 20 );
 const TICK_FONT = new PhetFont( 16 );
@@ -111,6 +112,7 @@ class SoluteConcentrationControl extends NumberControl {
         maxWidth: 120
       },
       numberDisplayOptions: {
+        decimalPlaces: BLLConstants.DECIMAL_PLACES_CONCENTRATION,
         textOptions: {
           font: FONT,
           maxWidth: 75

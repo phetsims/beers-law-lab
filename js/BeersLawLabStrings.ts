@@ -155,9 +155,15 @@ type StringsType = {
     'lightToggleButton': {
       'accessibleNameStringProperty': LocalizedStringProperty;
     };
+    'onStringProperty': LocalizedStringProperty;
+    'offStringProperty': LocalizedStringProperty;
     'unitsDescription': {
       'centimetersStringProperty': LocalizedStringProperty;
       'centimeterStringProperty': LocalizedStringProperty;
+      'microMolesStringProperty': LocalizedStringProperty;
+      'microMoleStringProperty': LocalizedStringProperty;
+      'milliMolesStringProperty': LocalizedStringProperty;
+      'milliMoleStringProperty': LocalizedStringProperty;
       'molesPerLiterStringProperty': LocalizedStringProperty;
       'molePerLiterStringProperty': LocalizedStringProperty;
       'nanometersStringProperty': LocalizedStringProperty;
