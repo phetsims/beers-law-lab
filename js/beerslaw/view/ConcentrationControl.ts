@@ -140,12 +140,11 @@ class SoluteConcentrationControl extends NumberControl {
 
         // Dynamic dependencies used in createAriaValueTextForSlider.
         pdomDependencies: [
-          solution.concentrationProperty,
           BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
-          BeersLawLabStrings.a11y.unitsDescription.microMoleStringProperty,
-          BeersLawLabStrings.a11y.unitsDescription.microMolesStringProperty,
-          BeersLawLabStrings.a11y.unitsDescription.millimoleStringProperty,
-          BeersLawLabStrings.a11y.unitsDescription.millimolesStringProperty
+          BeersLawLabStrings.a11y.unitsDescription.micromolarSingularStringProperty,
+          BeersLawLabStrings.a11y.unitsDescription.micromolarPluralStringProperty,
+          BeersLawLabStrings.a11y.unitsDescription.millimolarSingularStringProperty,
+          BeersLawLabStrings.a11y.unitsDescription.millimolarPluralStringProperty
         ]
       },
 
@@ -236,13 +235,13 @@ function createAriaValueTextForSlider( value: number, concentrationTransform: Co
   let unitsString;
   if ( concentrationTransform === ConcentrationTransform.uM ) {
     unitsString = ( value === 1 ) ?
-                  BeersLawLabStrings.a11y.unitsDescription.microMoleStringProperty.value :
-                  BeersLawLabStrings.a11y.unitsDescription.microMolesStringProperty.value;
+                  BeersLawLabStrings.a11y.unitsDescription.micromolarSingularStringProperty.value :
+                  BeersLawLabStrings.a11y.unitsDescription.micromolarPluralStringProperty.value;
   }
   else {
     unitsString = ( value === 1 ) ?
-                  BeersLawLabStrings.a11y.unitsDescription.millimoleStringProperty.value :
-                  BeersLawLabStrings.a11y.unitsDescription.millimolesStringProperty.value;
+                  BeersLawLabStrings.a11y.unitsDescription.millimolarSingularStringProperty.value :
+                  BeersLawLabStrings.a11y.unitsDescription.millimolarPluralStringProperty.value;
   }
 
   return StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value, valueString, unitsString );

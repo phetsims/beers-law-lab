@@ -160,10 +160,10 @@ type StringsType = {
     'unitsDescription': {
       'centimetersStringProperty': LocalizedStringProperty;
       'centimeterStringProperty': LocalizedStringProperty;
-      'microMolesStringProperty': LocalizedStringProperty;
-      'microMoleStringProperty': LocalizedStringProperty;
-      'millimolesStringProperty': LocalizedStringProperty;
-      'millimoleStringProperty': LocalizedStringProperty;
+      'micromolarSingularStringProperty': LocalizedStringProperty;
+      'micromolarPluralStringProperty': LocalizedStringProperty;
+      'millimolarSingularStringProperty': LocalizedStringProperty;
+      'millimolarPluralStringProperty': LocalizedStringProperty;
       'molesPerLiterStringProperty': LocalizedStringProperty;
       'molePerLiterStringProperty': LocalizedStringProperty;
       'nanometersStringProperty': LocalizedStringProperty;

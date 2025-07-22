@@ -53,17 +53,17 @@ export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
     const concentrationUnitsStringProperty = new DerivedStringProperty( [
         model.solutionProperty,
         model.solutionInCuvette.concentrationProperty,
-        BeersLawLabStrings.a11y.unitsDescription.microMoleStringProperty,
-        BeersLawLabStrings.a11y.unitsDescription.microMolesStringProperty,
-        BeersLawLabStrings.a11y.unitsDescription.millimoleStringProperty,
-        BeersLawLabStrings.a11y.unitsDescription.millimolesStringProperty
+        BeersLawLabStrings.a11y.unitsDescription.micromolarSingularStringProperty,
+        BeersLawLabStrings.a11y.unitsDescription.micromolarPluralStringProperty,
+        BeersLawLabStrings.a11y.unitsDescription.millimolarSingularStringProperty,
+        BeersLawLabStrings.a11y.unitsDescription.millimolarPluralStringProperty
       ],
-      ( solution, concentration, microMoleString, microMolesString, millimoleString, millimolesString ) => {
+      ( solution, concentration, micromolarSingular, micromolarPlural, millimolarSingular, millimolarPlural ) => {
         if ( solution.concentrationTransform === ConcentrationTransform.uM ) {
-          return ( concentration === 1 ) ? microMoleString : microMolesString;
+          return ( concentration === 1 ) ? micromolarSingular : micromolarPlural;
         }
         else {
-          return ( concentration === 1 ) ? millimoleString : millimolesString;
+          return ( concentration === 1 ) ? millimolarSingular : millimolarPlural;
         }
       } );
 
