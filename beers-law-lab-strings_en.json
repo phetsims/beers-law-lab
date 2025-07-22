@@ -24,7 +24,7 @@
     "value": "Evaporation"
   },
   "preset": {
-    "value": "preset"
+    "value": "Preset"
   },
   "lots": {
     "value": "lots"
@@ -111,7 +111,7 @@
     "value": "%"
   },
   "variable": {
-    "value": "variable"
+    "value": "Variable"
   },
   "wavelength": {
     "value": "Wavelength"
