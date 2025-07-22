@@ -323,11 +323,11 @@
       "microMole": {
         "value": "micro mole"
       },
-      "milliMoles": {
-        "value": "milli moles"
+      "millimoles": {
+        "value": "millimoles"
       },
-      "milliMole": {
-        "value": "milli mole"
+      "millimole": {
+        "value": "millimole"
       },
       "molesPerLiter": {
         "value": "moles per liter"

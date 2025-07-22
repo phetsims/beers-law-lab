@@ -162,8 +162,8 @@ type StringsType = {
       'centimeterStringProperty': LocalizedStringProperty;
       'microMolesStringProperty': LocalizedStringProperty;
       'microMoleStringProperty': LocalizedStringProperty;
-      'milliMolesStringProperty': LocalizedStringProperty;
-      'milliMoleStringProperty': LocalizedStringProperty;
+      'millimolesStringProperty': LocalizedStringProperty;
+      'millimoleStringProperty': LocalizedStringProperty;
       'molesPerLiterStringProperty': LocalizedStringProperty;
       'molePerLiterStringProperty': LocalizedStringProperty;
       'nanometersStringProperty': LocalizedStringProperty;
