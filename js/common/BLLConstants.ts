@@ -11,6 +11,7 @@ import Range from '../../../dot/js/Range.js';
 import RangeWithValue from '../../../dot/js/RangeWithValue.js';
 import beersLawLab from '../beersLawLab.js';
 import { CreditsData } from '../../../joist/js/CreditsNode.js';
+import BeersLawLabStrings from '../BeersLawLabStrings.js';
 
 export default class BLLConstants {
 
@@ -39,6 +40,22 @@ export default class BLLConstants {
   public static readonly CUVETTE_WIDTH_RANGE = new RangeWithValue( 0.5, 2.0, 1.0 ); // cm
   public static readonly CUVETTE_SNAP_INTERVAL_RANGE = new Range( 0, 0.5 ); // cm - Careful! This depends on CUVETTE_WIDTH_RANGE
   public static readonly SOLUTION_LINE_WIDTH = 1;
+
+  // Value displayed on the concentration meter.
+  public static readonly DECIMAL_PLACES_MOLES_PER_LITER = 3;
+  public static readonly DECIMAL_PLACES_PERCENT = 1;
+
+  public static readonly SOLUTE_NAME_PROPERTIES = [
+    BeersLawLabStrings.drinkMixStringProperty,
+    BeersLawLabStrings.cobaltIINitrateStringProperty,
+    BeersLawLabStrings.cobaltChlorideStringProperty,
+    BeersLawLabStrings.potassiumDichromateStringProperty,
+    BeersLawLabStrings.potassiumChromateStringProperty,
+    BeersLawLabStrings.nickelIIChlorideStringProperty,
+    BeersLawLabStrings.copperSulfateStringProperty,
+    BeersLawLabStrings.potassiumPermanganateStringProperty,
+    BeersLawLabStrings.sodiumChlorideStringProperty
+  ];
 }
 
 beersLawLab.register( 'BLLConstants', BLLConstants );

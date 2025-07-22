@@ -46,9 +46,8 @@ import { ConcentrationProbeNode } from './ConcentrationProbeNode.js';
 import BLLColors from '../../common/BLLColors.js';
 import JumpPosition from '../../common/model/JumpPosition.js';
 import Property from '../../../../axon/js/Property.js';
+import BLLConstants from '../../common/BLLConstants.js';
 
-const DECIMAL_PLACES_MOLES_PER_LITER = 3;
-const DECIMAL_PLACES_PERCENT = 1;
 const READOUT_NO_VALUE = MathSymbols.NO_VALUE; // displayed in the readout when the meter is not measuring anything
 const BODY_X_MARGIN = 15;
 const BODY_Y_MARGIN = 15;
@@ -62,6 +61,8 @@ type SelfOptions = EmptySelfOptions;
 type ConcentrationMeterNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
 export default class ConcentrationMeterNode extends Node {
+
+  public readonly probeNode: ConcentrationProbeNode;
 
   public constructor( concentrationMeter: ConcentrationMeter,
                       probeJumpPositions: JumpPosition[],
@@ -91,6 +92,7 @@ export default class ConcentrationMeterNode extends Node {
     const probeNode = new ConcentrationProbeNode( concentrationMeter.probe, probeJumpPositions,
       probeJumpPositionIndexProperty, modelViewTransform, solutionNode,
       stockSolutionNode, solventFluidNode, drainFluidNode, options.tandem.createTandem( 'probeNode' ) );
+    this.probeNode = probeNode;
 
     const wireNode = new WireNode( concentrationMeter.probe, bodyNode, probeNode );
 
@@ -173,10 +175,10 @@ class BodyNode extends Node {
 
           // display concentration as 'mol/L' or '%', see beers-law-lab#149
           if ( concentrationMeterUnits === 'molesPerLiter' ) {
-            text = StringUtils.format( patternValueUnits, toFixed( value, DECIMAL_PLACES_MOLES_PER_LITER ), molesPerLiterString );
+            text = StringUtils.format( patternValueUnits, toFixed( value, BLLConstants.DECIMAL_PLACES_MOLES_PER_LITER ), molesPerLiterString );
           }
           else {
-            text = StringUtils.format( patternValuePercent, toFixed( value, DECIMAL_PLACES_PERCENT ) );
+            text = StringUtils.format( patternValuePercent, toFixed( value, BLLConstants.DECIMAL_PLACES_PERCENT ) );
           }
         }
         return text;

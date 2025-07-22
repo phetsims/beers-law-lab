@@ -50,7 +50,6 @@ export default class ConcentrationScreenView extends ScreenView {
       preventFit: true,
       layoutBounds: BLLConstants.LAYOUT_BOUNDS,
       isDisposable: false,
-      screenSummaryContent: new ConcentrationScreenSummaryContent( model ),
       tandem: tandem
     } );
 
@@ -253,6 +252,8 @@ export default class ConcentrationScreenView extends ScreenView {
     this.pdomControlAreaNode.pdomOrder = [
       resetAllButton
     ];
+
+    this.setScreenSummaryContent( new ConcentrationScreenSummaryContent( model, concentrationMeterNode.probeNode ) );
   }
 }
 

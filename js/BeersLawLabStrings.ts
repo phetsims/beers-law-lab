@@ -84,7 +84,12 @@ type StringsType = {
       'screenSummary': {
         'playAreaStringProperty': LocalizedStringProperty;
         'controlAreaStringProperty': LocalizedStringProperty;
-        'currentDetailsStringProperty': LocalizedStringProperty;
+        'currentDetails': {
+          'beakerEmptyStringProperty': LocalizedStringProperty;
+          'onlyWaterStringProperty': LocalizedStringProperty;
+          'solutionConcentrationMeasuredStringProperty': LocalizedStringProperty;
+          'solutionConcentrationNotMeasuredStringProperty': LocalizedStringProperty;
+        };
         'interactionHintStringProperty': LocalizedStringProperty;
       }
     };
@@ -93,7 +98,11 @@ type StringsType = {
       'screenSummary': {
         'playAreaStringProperty': LocalizedStringProperty;
         'controlAreaStringProperty': LocalizedStringProperty;
-        'currentDetailsStringProperty': LocalizedStringProperty;
+        'currentDetails': {
+          'noMeasurementStringProperty': LocalizedStringProperty;
+          'measuredTransmittanceStringProperty': LocalizedStringProperty;
+          'measuredAbsorbanceStringProperty': LocalizedStringProperty;
+        };
         'interactionHintStringProperty': LocalizedStringProperty;
       }
     };
@@ -145,6 +154,15 @@ type StringsType = {
     };
     'lightToggleButton': {
       'accessibleNameStringProperty': LocalizedStringProperty;
+    };
+    'unitsDescription': {
+      'centimetersStringProperty': LocalizedStringProperty;
+      'centimeterStringProperty': LocalizedStringProperty;
+      'molesPerLiterStringProperty': LocalizedStringProperty;
+      'molePerLiterStringProperty': LocalizedStringProperty;
+      'nanometersStringProperty': LocalizedStringProperty;
+      'percentPluralStringProperty': LocalizedStringProperty;
+      'percentSingularStringProperty': LocalizedStringProperty;
     }
   }
 };
