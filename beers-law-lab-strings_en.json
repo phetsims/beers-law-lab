@@ -220,7 +220,7 @@
     },
     "lightModeRadioButtonGroup": {
       "accessibleName": {
-        "value": "Light Mode"
+        "value": "Light Source Wavelength"
       }
     },
     "detectorModeRadioButtonGroup": {
