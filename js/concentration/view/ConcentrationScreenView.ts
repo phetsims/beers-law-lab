@@ -169,6 +169,12 @@ export default class ConcentrationScreenView extends ScreenView {
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
 
+    // Groups UI elements that are related to the solute.
+    const soluteControlsHeading = new Node( {
+      children: [ shakerNode, dropperNode, solutePanel ],
+      accessibleHeading: BeersLawLabStrings.a11y.soluteControlsHeadingStringProperty
+    } );
+
     // Rendering order
     const screenViewRootNode = new Node( {
       children: [
@@ -183,13 +189,11 @@ export default class ConcentrationScreenView extends ScreenView {
         precipitateParticlesNode,
         saturatedIndicator,
         shakerParticlesNode,
-        shakerNode,
-        dropperNode,
+        soluteControlsHeading,
         evaporationPanel,
         soluteAmountNode,
         removeSoluteButton,
         resetAllButton,
-        solutePanel,
         concentrationMeterNode,
         soluteListParent // last, so that combo box list is on top
       ]
@@ -238,9 +242,7 @@ export default class ConcentrationScreenView extends ScreenView {
 
     // Play Area focus order
     this.pdomPlayAreaNode.pdomOrder = [
-      shakerNode,
-      dropperNode,
-      solutePanel,
+      soluteControlsHeading,
       concentrationMeterNode,
       solventFaucetNode,
       drainFaucetNode,
