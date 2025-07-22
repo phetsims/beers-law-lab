@@ -33,6 +33,8 @@ import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
 import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
 import BLLConstants from '../../common/BLLConstants.js';
+import { toFixed } from '../../../../dot/js/util/toFixed.js';
+import ConcentrationTransform from '../model/ConcentrationTransform.js';
 
 const FONT = new PhetFont( 20 );
 const TICK_FONT = new PhetFont( 16 );
@@ -132,7 +134,19 @@ class SoluteConcentrationControl extends NumberControl {
         trackSize: new Dimension2( 200, 15 ),
         thumbSize: new Dimension2( 22, 45 ),
         constrainValue: value => roundToInterval( value, SLIDER_INTERVAL ),
-        tandem: Tandem.OPT_OUT
+        tandem: Tandem.OPT_OUT,
+
+        pdomCreateAriaValueText: value => createAriaValueTextForSlider( value, solution.concentrationTransform ),
+
+        // Dynamic dependencies used in createAriaValueTextForSlider.
+        pdomDependencies: [
+          solution.concentrationProperty,
+          BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
+          BeersLawLabStrings.a11y.unitsDescription.microMoleStringProperty,
+          BeersLawLabStrings.a11y.unitsDescription.microMolesStringProperty,
+          BeersLawLabStrings.a11y.unitsDescription.millimoleStringProperty,
+          BeersLawLabStrings.a11y.unitsDescription.millimolesStringProperty
+        ]
       },
 
       // single-line horizontal layout
@@ -208,6 +222,30 @@ class SoluteConcentrationControl extends NumberControl {
 
     this.addLinkedElement( solution.concentrationProperty );
   }
+}
+
+/**
+ * Creates the aria-valuetext for the Concentration slider.
+ */
+function createAriaValueTextForSlider( value: number, concentrationTransform: ConcentrationTransform ): string {
+
+  // No need to apply concentrationTransform to value because the slider is operating on a DynamicProperty that is already transformed.
+
+  const valueString = toFixed( value, BLLConstants.DECIMAL_PLACES_CONCENTRATION );
+
+  let unitsString;
+  if ( concentrationTransform === ConcentrationTransform.uM ) {
+    unitsString = ( value === 1 ) ?
+                  BeersLawLabStrings.a11y.unitsDescription.microMoleStringProperty.value :
+                  BeersLawLabStrings.a11y.unitsDescription.microMolesStringProperty.value;
+  }
+  else {
+    unitsString = ( value === 1 ) ?
+                  BeersLawLabStrings.a11y.unitsDescription.millimoleStringProperty.value :
+                  BeersLawLabStrings.a11y.unitsDescription.millimolesStringProperty.value;
+  }
+
+  return StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value, valueString, unitsString );
 }
 
 beersLawLab.register( 'ConcentrationControl', ConcentrationControl );
