@@ -103,6 +103,16 @@ export default class WavelengthPanel extends Panel {
         height: 45,
         cursorHeight: SLIDER_TRACK_SIZE.height
       },
+      sliderOptions: {
+        pdomCreateAriaValueText: value => StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value,
+          toFixed( value, BLLConstants.WAVELENGTH_DECIMAL_PLACES ), BeersLawLabStrings.a11y.unitsDescription.nanometersStringProperty.value ),
+
+        // Dynamic dependencies used in pdomCreateAriaValueText.
+        pdomDependencies: [
+          BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
+          BeersLawLabStrings.a11y.unitsDescription.nanometersStringProperty
+        ]
+      },
       arrowButtonOptions: {
         scale: 1,
         touchAreaXDilation: 5,
