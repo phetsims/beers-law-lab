@@ -137,9 +137,11 @@ type StringsType = {
     };
     'shakerNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
     'soluteDropperToggleButton': {
       'accessibleNameStringProperty': LocalizedStringProperty;
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
     'solventFaucetNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;

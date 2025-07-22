@@ -8,7 +8,7 @@
 
 import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import { EmptySelfOptions, optionize4 } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
@@ -24,6 +24,8 @@ import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboard
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import HighlightFromNode from '../../../../scenery/js/accessibility/HighlightFromNode.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
+import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
+import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 
 const DEBUG_ORIGIN = false;
 
@@ -38,7 +40,7 @@ export default class ShakerNode extends InteractiveHighlighting( Node ) {
                       modelViewTransform: ModelViewTransform2,
                       providedOptions: ShakerNodeOptions ) {
 
-    const options = optionize<ShakerNodeOptions, SelfOptions, NodeOptions>()( {
+    const options = optionize4<ShakerNodeOptions, SelfOptions, NodeOptions>()( {}, AccessibleDraggableOptions, {
 
       // Performance optimization so Scenery won't fit blocks around this.
       // See https://github.com/phetsims/beers-law-lab/issues/113
@@ -47,9 +49,10 @@ export default class ShakerNode extends InteractiveHighlighting( Node ) {
       visibleProperty: shaker.visibleProperty,
       cursor: 'pointer',
       isDisposable: false,
-      tagName: 'div',
-      focusable: true,
-      accessibleName: BeersLawLabStrings.a11y.shakerNode.accessibleNameStringProperty,
+      accessibleName: new PatternStringProperty( BeersLawLabStrings.a11y.shakerNode.accessibleNameStringProperty, {
+        soluteName: soluteLabelStringProperty
+      } ),
+      accessibleHelpText: BeersLawLabStrings.a11y.shakerNode.accessibleHelpTextStringProperty,
       phetioInputEnabledPropertyInstrumented: true
     }, providedOptions );
 

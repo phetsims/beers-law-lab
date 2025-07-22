@@ -24,6 +24,7 @@ import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import Dropper from '../model/Dropper.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
+import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -46,7 +47,10 @@ export default class BLLDropperNode extends InteractiveHighlighting( EyeDropperN
       isEmptyProperty: dropper.isEmptyProperty,
       buttonOptions: {
         enabledProperty: dropper.enabledProperty,
-        accessibleName: BeersLawLabStrings.a11y.soluteDropperToggleButton.accessibleNameStringProperty
+        accessibleName: new PatternStringProperty( BeersLawLabStrings.a11y.soluteDropperToggleButton.accessibleNameStringProperty, {
+          soluteName: soluteLabelStringProperty
+        } ),
+        accessibleHelpText: BeersLawLabStrings.a11y.soluteDropperToggleButton.accessibleHelpTextStringProperty
       },
       visibleProperty: dropper.visibleProperty
     }, providedOptions );
