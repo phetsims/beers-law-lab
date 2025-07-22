@@ -1,8 +1,7 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * Solution that appears in the beaker.
- * Origin is at bottom center of beaker.
+ * SolutionNode is the solution that appears in the beaker. Its origin is at the bottom center of beaker.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
