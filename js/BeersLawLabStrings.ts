@@ -149,6 +149,10 @@ type StringsType = {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
+    'soluteComboBox': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
+      'accessibleHelpTexStringProperty': LocalizedStringProperty;
+    };
     'solventFaucetNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
     };

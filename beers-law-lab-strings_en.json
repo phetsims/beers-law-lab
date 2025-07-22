@@ -298,6 +298,14 @@
         "value": "Add solution to beaker."
       }
     },
+    "soluteComboBox": {
+      "accessibleName": {
+        "value": "Solute"
+      },
+      "accessibleHelpTex": {
+        "value": "Choose solute for adding to beaker."
+      }
+    },
     "solventFaucetNode": {
       "accessibleName": {
         "value": "Solvent Faucet"

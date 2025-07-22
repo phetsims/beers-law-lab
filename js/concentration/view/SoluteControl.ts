@@ -47,7 +47,8 @@ export default class SoluteControl extends HBox {
         yMargin: 12,
         highlightFill: BLLColors.comboBoxHighlightColorProperty,
         cornerRadius: 8,
-        accessibleName: BeersLawLabStrings.soluteStringProperty,
+        accessibleName: BeersLawLabStrings.a11y.soluteComboBox.accessibleNameStringProperty,
+        accessibleHelpText: BeersLawLabStrings.a11y.soluteComboBox.accessibleHelpTexStringProperty,
         tandem: Tandem.REQUIRED
       },
 
