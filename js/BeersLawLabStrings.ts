@@ -158,6 +158,8 @@ type StringsType = {
     };
     'onStringProperty': LocalizedStringProperty;
     'offStringProperty': LocalizedStringProperty;
+    'solutionIsSaturatedStringProperty': LocalizedStringProperty;
+    'solutionIsNotSaturatedStringProperty': LocalizedStringProperty;
     'unitsDescription': {
       'centimetersStringProperty': LocalizedStringProperty;
       'centimeterStringProperty': LocalizedStringProperty;

@@ -58,6 +58,14 @@ export default class ConcentrationScreenSummaryContent extends ScreenSummaryCont
         }
       } );
 
+    // Sentence that describes whether the solution is saturated.
+    const saturatedSentenceProperty = new DerivedProperty( [
+      model.solution.isSaturatedProperty,
+      BeersLawLabStrings.a11y.solutionIsSaturatedStringProperty,
+      BeersLawLabStrings.a11y.solutionIsNotSaturatedStringProperty
+    ], ( isSaturated, solutionIsSaturatedString, solutionIsNotSaturatedString ) =>
+      isSaturated ? solutionIsSaturatedString : solutionIsNotSaturatedString );
+
     // Localized strings that are used directly in the derivation of currentDetailsStringProperty.
     const currentDetailsStringProperties = [
       BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.beakerEmptyStringProperty,
@@ -97,7 +105,9 @@ export default class ConcentrationScreenSummaryContent extends ScreenSummaryCont
       else if ( model.solution.concentrationProperty.value === 0 ) {
 
         // Only water in the beaker
-        return BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.onlyWaterStringProperty.value;
+        return StringUtils.fillIn( BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.onlyWaterStringProperty.value, {
+          units: concentrationUnitsDescriptionProperty.value
+        } );
       }
       else if ( concentrationProbeNode.isInSolution() ) {
 
@@ -105,7 +115,8 @@ export default class ConcentrationScreenSummaryContent extends ScreenSummaryCont
         return StringUtils.fillIn( BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.solutionConcentrationMeasuredStringProperty.value, {
           soluteName: soluteNameProperty.value,
           concentration: concentrationValueStringProperty.value,
-          units: concentrationUnitsDescriptionProperty.value
+          units: concentrationUnitsDescriptionProperty.value,
+          saturationSentence: saturatedSentenceProperty.value
         } );
       }
       else {
@@ -114,7 +125,8 @@ export default class ConcentrationScreenSummaryContent extends ScreenSummaryCont
         return StringUtils.fillIn( BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.solutionConcentrationNotMeasuredStringProperty.value, {
           soluteName: soluteNameProperty.value,
           concentration: concentrationValueStringProperty.value,
-          units: concentrationUnitsDescriptionProperty.value
+          units: concentrationUnitsDescriptionProperty.value,
+          saturationSentence: saturatedSentenceProperty.value
         } );
       }
     } );
