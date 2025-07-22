@@ -16,7 +16,6 @@ import Vector2, { Vector2StateObject } from '../../../../dot/js/Vector2.js';
 import Vector2Property from '../../../../dot/js/Vector2Property.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import Color from '../../../../scenery/js/util/Color.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
@@ -50,7 +49,6 @@ export default class SoluteParticle extends PhetioObject {
 
   public readonly solute: Solute;
 
-  public readonly fill: Color;
   public readonly size: number;
   public readonly positionProperty: Property<Vector2>;
   public readonly orientation: number;
@@ -85,7 +83,6 @@ export default class SoluteParticle extends PhetioObject {
     super( options );
 
     this.solute = solute;
-    this.fill = solute.particleFill;
     this.size = solute.particleSize;
     this.positionProperty = new Vector2Property( position );
     this.orientation = orientation;
@@ -94,8 +91,8 @@ export default class SoluteParticle extends PhetioObject {
 
     this.cos = Math.cos( orientation );
     this.sin = Math.sin( orientation );
-    this.fillStyle = this.fill.getCanvasStyle();
-    this.strokeStyle = this.fill.darkerColor().getCanvasStyle();
+    this.fillStyle = solute.particleFill.getCanvasStyle();
+    this.strokeStyle = solute.particleFill.darkerColor().getCanvasStyle();
   }
 
   protected toStateObject(): SoluteParticleStateObject {
