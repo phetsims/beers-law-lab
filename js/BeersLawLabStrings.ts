@@ -169,7 +169,7 @@ type StringsType = {
       'accessibleNameStringProperty': LocalizedStringProperty;
     };
     'accessibleContextResponses': {
-      'lightSourceWavelengthChangedStringProperty': LocalizedStringProperty;
+      'presetWavelengthSetStringProperty': LocalizedStringProperty;
     };
     'onStringProperty': LocalizedStringProperty;
     'offStringProperty': LocalizedStringProperty;

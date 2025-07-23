@@ -45,10 +45,11 @@ export default class BeersLawScreenView extends ScreenView {
       tandem: tandem
     } );
 
-    // Accessible context response shared by multiple UI components that change the light source wavelength.
+    // Accessible context response shared by multiple UI components that set the wavelength to lamba max (the preset
+    // wavelength) for the selected solution.
     const wavelengthSetAccessibleContextResponseProperty = new DerivedStringProperty( [
         model.solutionProperty,
-        BeersLawLabStrings.a11y.accessibleContextResponses.lightSourceWavelengthChangedStringProperty,
+        BeersLawLabStrings.a11y.accessibleContextResponses.presetWavelengthSetStringProperty,
         BeersLawLabStrings.a11y.unitsDescription.nanometersStringProperty
       ],
       ( solution, pattern, nanometersString ) => StringUtils.fillIn( pattern, {
