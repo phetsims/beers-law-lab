@@ -49,6 +49,8 @@ export default class BeersLawScreenView extends ScreenView {
     // wavelength) for the selected solution. See https://github.com/phetsims/beers-law-lab/issues/361.
     const wavelengthSetAccessibleContextResponseProperty = new DerivedStringProperty( [
         model.solutionProperty,
+
+        // Localized strings used in this derivation.
         BeersLawLabStrings.a11y.sharedAccessibleContextResponses.presetWavelengthSetStringProperty,
         BeersLawLabStrings.a11y.unitsDescription.nanometersStringProperty
       ],

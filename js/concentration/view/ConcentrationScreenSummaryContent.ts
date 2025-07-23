@@ -44,6 +44,8 @@ export default class ConcentrationScreenSummaryContent extends ScreenSummaryCont
     const concentrationUnitsDescriptionProperty = new DerivedStringProperty( [
         model.solution.concentrationProperty,
         BLLPreferences.concentrationMeterUnitsProperty,
+
+        // Localized strings used in this derivation.
         BeersLawLabStrings.a11y.unitsDescription.molePerLiterStringProperty,
         BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty,
         BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty,

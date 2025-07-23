@@ -26,6 +26,8 @@ export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
     // Light state (on/off), with support for dynamic locale.
     const lightStateProperty = new DerivedProperty( [
         model.light.isOnProperty,
+
+        // Localized strings used in this derivation.
         BeersLawLabStrings.a11y.onStringProperty,
         BeersLawLabStrings.a11y.offStringProperty
       ],
@@ -55,6 +57,8 @@ export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
     const concentrationUnitsStringProperty = new DerivedStringProperty( [
         model.solutionProperty,
         model.solutionInCuvette.concentrationProperty,
+
+        // Localized strings used in this derivation.
         BeersLawLabStrings.a11y.unitsDescription.micromolarSingularStringProperty,
         BeersLawLabStrings.a11y.unitsDescription.micromolarPluralStringProperty,
         BeersLawLabStrings.a11y.unitsDescription.millimolarSingularStringProperty,
@@ -72,31 +76,30 @@ export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
     // Transmittance units, with singular vs plural matched to the transmittance value, and support for dynamic locale.
     const transmittanceUnitsDescriptionProperty = new DerivedStringProperty( [
         model.detector.absorbanceProperty,
+
+        // Localized strings used in this derivation.
         BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty,
         BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty
       ],
       ( absorbance, percentSingularString, percentPluralString ) => ( absorbance === 1 ) ? percentSingularString : percentPluralString );
 
-    // Localized strings that are used directly in the derivation of currentDetailsStringProperty.
-    const currentDetailsStringProperties = [
-      BeersLawLabStrings.a11y.beersLawScreen.screenSummary.currentDetails.noMeasurementStringProperty,
-      BeersLawLabStrings.a11y.beersLawScreen.screenSummary.currentDetails.measuredAbsorbanceStringProperty,
-      BeersLawLabStrings.a11y.beersLawScreen.screenSummary.currentDetails.measuredTransmittanceStringProperty
-    ];
-
     const currentDetailsStringProperty = DerivedStringProperty.deriveAny( [
-      ...currentDetailsStringProperties,
       model.light.isOnProperty,
       model.detector.isInBeamProperty,
       model.detector.modeProperty,
       lightStateProperty,
       wavelengthValueStringProperty,
-      BeersLawLabStrings.a11y.unitsDescription.nanometersStringProperty,
       concentrationValueStringProperty,
       concentrationUnitsStringProperty,
       solutionNameProperty,
       absorbanceValueStringProperty,
-      transmittanceValueStringProperty
+      transmittanceValueStringProperty,
+
+      // Localized strings used in this derivation.
+      BeersLawLabStrings.a11y.beersLawScreen.screenSummary.currentDetails.noMeasurementStringProperty,
+      BeersLawLabStrings.a11y.beersLawScreen.screenSummary.currentDetails.measuredAbsorbanceStringProperty,
+      BeersLawLabStrings.a11y.beersLawScreen.screenSummary.currentDetails.measuredTransmittanceStringProperty,
+      BeersLawLabStrings.a11y.unitsDescription.nanometersStringProperty
     ], () => {
       if ( !model.light.isOnProperty || !model.detector.isInBeamProperty.value ) {
 
