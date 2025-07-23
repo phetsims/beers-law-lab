@@ -61,6 +61,7 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
       tagName: 'div',
       focusable: true,
       accessibleName: BeersLawLabStrings.a11y.concentrationProbeNode.accessibleNameStringProperty,
+      accessibleHelpText: BeersLawLabStrings.a11y.concentrationProbeNode.accessibleHelpTextStringProperty,
 
       // phet-io
       tandem: tandem,
