@@ -374,7 +374,7 @@
     "solutionIsNotSaturated": {
       "value": "Solution is not saturated."
     },
-    "pdomHeadings": {
+    "accessibleHeadings": {
       "soluteControlsHeading": {
         "value": "Solute Controls"
       },

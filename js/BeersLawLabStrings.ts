@@ -185,7 +185,7 @@ type StringsType = {
     'offStringProperty': LocalizedStringProperty;
     'solutionIsSaturatedStringProperty': LocalizedStringProperty;
     'solutionIsNotSaturatedStringProperty': LocalizedStringProperty;
-    'pdomHeadings': {
+    'accessibleHeadings': {
       'soluteControlsHeadingStringProperty': LocalizedStringProperty;
       'concentrationMeterHeadingStringProperty': LocalizedStringProperty;
     };

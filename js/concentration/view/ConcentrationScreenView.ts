@@ -177,13 +177,13 @@ export default class ConcentrationScreenView extends ScreenView {
     // Groups UI elements that are related to the solute.
     const soluteControlsHeading = new Node( {
       pdomOrder: [ shakerNode, dropperNode, solutePanel ],
-      accessibleHeading: BeersLawLabStrings.a11y.pdomHeadings.soluteControlsHeadingStringProperty
+      accessibleHeading: BeersLawLabStrings.a11y.accessibleHeadings.soluteControlsHeadingStringProperty
     } );
 
     // Groups UI elements that are related to measuring concentration.
     const concentrationMeterHeading = new Node( {
       pdomOrder: [ concentrationMeterNode, saturatedIndicator ],
-      accessibleHeading: BeersLawLabStrings.a11y.pdomHeadings.concentrationMeterHeadingStringProperty
+      accessibleHeading: BeersLawLabStrings.a11y.accessibleHeadings.concentrationMeterHeadingStringProperty
     } );
 
     // Rendering order
