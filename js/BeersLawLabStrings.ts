@@ -145,9 +145,10 @@ type StringsType = {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
-    'soluteDropperToggleButton': {
+    'dropperButton': {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      'accessibleContextResponsePressedStringProperty': LocalizedStringProperty;
     };
     'soluteComboBox': {
       'accessibleNameStringProperty': LocalizedStringProperty;
