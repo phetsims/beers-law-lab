@@ -175,10 +175,10 @@ class BodyNode extends Node {
 
           // display concentration as 'mol/L' or '%', see beers-law-lab#149
           if ( concentrationMeterUnits === 'molesPerLiter' ) {
-            text = StringUtils.format( patternValueUnits, toFixed( value, BLLConstants.DECIMAL_PLACES_MOLES_PER_LITER ), molesPerLiterString );
+            text = StringUtils.format( patternValueUnits, toFixed( value, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER ), molesPerLiterString );
           }
           else {
-            text = StringUtils.format( patternValuePercent, toFixed( value, BLLConstants.DECIMAL_PLACES_PERCENT ) );
+            text = StringUtils.format( patternValuePercent, toFixed( value, BLLConstants.DECIMAL_PLACES_CONCENTRATION_PERCENT ) );
           }
         }
         return text;

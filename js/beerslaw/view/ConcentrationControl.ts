@@ -114,7 +114,7 @@ class SoluteConcentrationControl extends NumberControl {
         maxWidth: 120
       },
       numberDisplayOptions: {
-        decimalPlaces: BLLConstants.DECIMAL_PLACES_CONCENTRATION,
+        decimalPlaces: BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLAR,
         textOptions: {
           font: FONT,
           maxWidth: 75
@@ -230,7 +230,7 @@ function createAriaValueTextForSlider( value: number, concentrationTransform: Co
 
   // No need to apply concentrationTransform to value because the slider is operating on a DynamicProperty that is already transformed.
 
-  const valueString = toFixed( value, BLLConstants.DECIMAL_PLACES_CONCENTRATION );
+  const valueString = toFixed( value, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLAR );
 
   let unitsString;
   if ( concentrationTransform === ConcentrationTransform.uM ) {

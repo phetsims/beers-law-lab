@@ -41,7 +41,7 @@ export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
 
     // Concentration value with the correct number of decimal places, including trailing zeros
     const concentrationValueStringProperty = new DerivedStringProperty( [ model.solutionProperty, model.solutionInCuvette.concentrationProperty ],
-      ( solution, concentration ) => toFixed( solution.concentrationTransform.modelToView( concentration ), BLLConstants.DECIMAL_PLACES_CONCENTRATION ) );
+      ( solution, concentration ) => toFixed( solution.concentrationTransform.modelToView( concentration ), BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLAR ) );
 
     // Absorbance value with the correct number of decimal places, including trailing zeros.
     const absorbanceValueStringProperty = new DerivedStringProperty( [ model.detector.absorbanceProperty ],

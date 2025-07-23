@@ -36,8 +36,8 @@ export default class ConcentrationScreenSummaryContent extends ScreenSummaryCont
       ],
       ( concentrationMeterUnits, concentration, percentConcentration ) =>
         ( concentrationMeterUnits === 'molesPerLiter' ) ?
-        toFixed( concentration, BLLConstants.DECIMAL_PLACES_MOLES_PER_LITER ) :
-        toFixed( percentConcentration, BLLConstants.DECIMAL_PLACES_PERCENT )
+        toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER ) :
+        toFixed( percentConcentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_PERCENT )
     );
 
     // Concentration units, with singular vs plural matched to the concentration value, and support for dynamic locale.

@@ -41,9 +41,9 @@ export default class BLLConstants {
   public static readonly SOLUTION_LINE_WIDTH = 1;
 
   // Decimal places for various quantities. These are used in the visual UI and in description strings.
-  public static readonly DECIMAL_PLACES_MOLES_PER_LITER = 3;
-  public static readonly DECIMAL_PLACES_PERCENT = 1;
-  public static readonly DECIMAL_PLACES_CONCENTRATION = 0;
+  public static readonly DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER = 3;
+  public static readonly DECIMAL_PLACES_CONCENTRATION_PERCENT = 1;
+  public static readonly DECIMAL_PLACES_CONCENTRATION_MOLAR = 0; // for mM and uM
   public static readonly DECIMAL_PLACES_ABSORBANCE = 2;
   public static readonly DECIMAL_PLACES_TRANSMITTANCE = 2;
   public static readonly DECIMAL_PLACES_WAVELENGTH = 0;
