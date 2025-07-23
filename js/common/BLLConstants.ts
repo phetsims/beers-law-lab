@@ -47,6 +47,7 @@ export default class BLLConstants {
   public static readonly DECIMAL_PLACES_ABSORBANCE = 2;
   public static readonly DECIMAL_PLACES_TRANSMITTANCE = 2;
   public static readonly DECIMAL_PLACES_WAVELENGTH = 0;
+  public static readonly DECIMAL_PLACES_SOLUTE_AMOUNT = 0;
 }
 
 beersLawLab.register( 'BLLConstants', BLLConstants );

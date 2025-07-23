@@ -18,8 +18,7 @@ import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
-
-const DECIMAL_PLACES = 0;
+import BLLConstants from '../../common/BLLConstants.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -30,12 +29,13 @@ export default class SoluteAmountText extends Node {
   public constructor( soluteGramsProperty: TReadOnlyProperty<number>, providedOptions: SoluteGramsNodeOptions ) {
 
     const options = optionize<SoluteGramsNodeOptions, SelfOptions, NodeOptions>()( {
-      visibleProperty: BLLPreferences.showSoluteAmountProperty
+      visibleProperty: BLLPreferences.showSoluteAmountProperty,
+      accessibleParagraph: createAccessibleParagraph( soluteGramsProperty )
     }, providedOptions );
 
     const stringProperty = new DerivedStringProperty(
       [ BeersLawLabStrings.pattern[ '0soluteAmountStringProperty' ], soluteGramsProperty ],
-      ( pattern, soluteGrams ) => StringUtils.format( pattern, toFixed( soluteGrams, DECIMAL_PLACES ) ), {
+      ( pattern, soluteGrams ) => StringUtils.format( pattern, toFixed( soluteGrams, BLLConstants.DECIMAL_PLACES_SOLUTE_AMOUNT ) ), {
         tandem: options.tandem.createTandem( Text.STRING_PROPERTY_TANDEM_NAME )
       } );
 
@@ -49,6 +49,18 @@ export default class SoluteAmountText extends Node {
 
     super( options );
   }
+}
+
+/**
+ * Creates the accessible paragraph for this Node.
+ */
+function createAccessibleParagraph( soluteGramsProperty: TReadOnlyProperty<number> ): TReadOnlyProperty<string> {
+  return new DerivedStringProperty( [
+    BeersLawLabStrings.a11y.soluteAmountText.accessibleParagraphStringProperty,
+    soluteGramsProperty
+  ], ( pattern, soluteGrams ) => StringUtils.fillIn( pattern, {
+    value: toFixed( soluteGrams, BLLConstants.DECIMAL_PLACES_SOLUTE_AMOUNT )
+  } ) );
 }
 
 beersLawLab.register( 'SoluteAmountText', SoluteAmountText );

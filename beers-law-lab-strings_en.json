@@ -345,6 +345,11 @@
         "value": "Light Toggle Button"
       }
     },
+    "soluteAmountText": {
+      "accessibleParagraph": {
+        "value": "Solute amount is {{value}} grams."
+      }
+    },
     "sharedAccessibleContextResponses": {
       "presetWavelengthSet": {
         "value": "Light source wavelength set to {{wavelength}} {{units}}."
