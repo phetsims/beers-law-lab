@@ -27,6 +27,7 @@ import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Range from '../../../../dot/js/Range.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 
 export default class BeersLawModel implements TModel {
 
@@ -143,6 +144,13 @@ export default class BeersLawModel implements TModel {
     this.cuvette.reset();
     this.detector.reset();
     this.ruler.reset();
+  }
+
+  /**
+   * Gets the complete set of localized names for all solutions.
+   */
+  public getSolutionNameProperties(): TReadOnlyProperty<string>[] {
+    return this.solutions.map( solution => solution.nameProperty );
   }
 }
 

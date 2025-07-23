@@ -68,19 +68,6 @@ export default class Solute extends PhetioObject {
   public readonly particleFillStyle: string;
   public readonly particleStrokeStyle: string;
 
-  // Complete list of localized solute names, for situations where support for dynamic locale is required.
-  public static readonly SOLUTE_NAME_PROPERTIES = [
-    BeersLawLabStrings.drinkMixStringProperty,
-    BeersLawLabStrings.cobaltIINitrateStringProperty,
-    BeersLawLabStrings.cobaltChlorideStringProperty,
-    BeersLawLabStrings.potassiumDichromateStringProperty,
-    BeersLawLabStrings.potassiumChromateStringProperty,
-    BeersLawLabStrings.nickelIIChlorideStringProperty,
-    BeersLawLabStrings.copperSulfateStringProperty,
-    BeersLawLabStrings.potassiumPermanganateStringProperty,
-    BeersLawLabStrings.sodiumChlorideStringProperty
-  ];
-
   private constructor( providedOptions: SoluteOptions ) {
 
     assert && assert( Solute.SoluteIO, 'SoluteIO and Solute instances are statics, so make sure SoluteIO exists' );

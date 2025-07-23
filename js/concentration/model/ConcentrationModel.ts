@@ -32,6 +32,7 @@ import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import JumpPosition from '../../common/model/JumpPosition.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Vector2Property from '../../../../dot/js/Vector2Property.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 
 const SOLUTION_VOLUME_RANGE = BLLConstants.SOLUTION_VOLUME_RANGE; // L
 const SOLUTE_AMOUNT_RANGE = BLLConstants.SOLUTE_AMOUNT_RANGE; // moles
@@ -333,6 +334,20 @@ export default class ConcentrationModel implements TModel {
     else {
       return 0;
     }
+  }
+
+  /**
+   * Gets the complete set of localized names for all solutes.
+   */
+  public getSoluteNameProperties(): TReadOnlyProperty<string>[] {
+    return this.solutes.map( solute => solute.nameProperty );
+  }
+
+  /**
+   * Gets the complete set of formulas for all solutes. Formulas are not localized, but can be changed via PhET-iO.
+   */
+  public getSoluteFormulaProperties(): TReadOnlyProperty<string | null>[] {
+    return this.solutes.map( solute => solute.formulaProperty );
   }
 }
 

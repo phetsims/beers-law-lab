@@ -77,8 +77,8 @@ export default class ConcentrationScreenView extends ScreenView {
     // Label for the shaker and dropper. If formula is null, use the solute name.
     const soluteLabelStringProperty = DerivedProperty.deriveAny( [
       model.shaker.soluteProperty,
-      ...model.solutes.map( solute => solute.formulaProperty ),
-      ...model.solutes.map( solute => solute.nameProperty )
+      ...model.getSoluteNameProperties(),
+      ...model.getSoluteFormulaProperties()
     ], () => {
       const solute = model.shaker.soluteProperty.value;
       const formula = solute.formulaProperty.value;
