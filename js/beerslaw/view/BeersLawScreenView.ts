@@ -22,6 +22,9 @@ import LightNode from './LightNode.js';
 import SolutionPanel from './SolutionPanel.js';
 import WavelengthPanel from './WavelengthPanel.js';
 import BeersLawScreenSummaryContent from './BeersLawScreenSummaryContent.js';
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 
 export default class BeersLawScreenView extends ScreenView {
 
@@ -41,6 +44,17 @@ export default class BeersLawScreenView extends ScreenView {
       screenSummaryContent: new BeersLawScreenSummaryContent( model ),
       tandem: tandem
     } );
+
+    // Accessible context response shared by multiple UI components that change the light source wavelength.
+    const wavelengthSetAccessibleContextResponseProperty = new DerivedStringProperty( [
+        model.solutionProperty,
+        BeersLawLabStrings.a11y.accessibleContextResponses.lightSourceWavelengthChangedStringProperty,
+        BeersLawLabStrings.a11y.unitsDescription.nanometersStringProperty
+      ],
+      ( solution, pattern, nanometersString ) => StringUtils.fillIn( pattern, {
+        wavelength: solution.molarAbsorptivityData.lambdaMax,
+        units: nanometersString
+      } ) );
 
     const lightNode = new LightNode( model.light, modelViewTransform, {
       tandem: tandem.createTandem( 'lightNode' )
@@ -65,6 +79,7 @@ export default class BeersLawScreenView extends ScreenView {
       // below the light
       left: lightNode.left,
       top: lightNode.bottom + 20,
+      wavelengthSetAccessibleContextResponseProperty: wavelengthSetAccessibleContextResponseProperty,
       tandem: tandem.createTandem( 'wavelengthPanel' )
     } );
 
@@ -79,6 +94,7 @@ export default class BeersLawScreenView extends ScreenView {
         // below the cuvette
         left: cuvetteNode.left,
         top: cuvetteNode.bottom + 60,
+        wavelengthSetAccessibleContextResponseProperty: wavelengthSetAccessibleContextResponseProperty,
         tandem: tandem.createTandem( 'solutionPanel' )
       } );
 

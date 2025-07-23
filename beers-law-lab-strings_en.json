@@ -331,8 +331,10 @@
         "value": "Light Toggle Button"
       }
     },
-    "lightSourceWavelengthChanged": {
-      "value": "Light source wavelength changed."
+    "accessibleContextResponses": {
+      "lightSourceWavelengthChanged": {
+        "value": "Light source wavelength set to {{wavelength}} {{units}}."
+      }
     },
     "on": {
       "value": "on"

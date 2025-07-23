@@ -7,7 +7,7 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node, { NodeTranslationOptions } from '../../../../scenery/js/nodes/Node.js';
@@ -18,8 +18,11 @@ import BeersLawSolution from '../model/BeersLawSolution.js';
 import SolutionInCuvette from '../model/SolutionInCuvette.js';
 import ConcentrationControl from './ConcentrationControl.js';
 import SolutionControl from './SolutionControl.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 
-type SelfOptions = EmptySelfOptions;
+type SelfOptions = {
+  wavelengthSetAccessibleContextResponseProperty: TReadOnlyProperty<string>;
+};
 
 type SolutionPanelOptions = SelfOptions & NodeTranslationOptions & PickRequired<PanelOptions, 'tandem'>;
 
@@ -46,6 +49,7 @@ export default class SolutionPanel extends Panel {
 
     const solutionComboBox = new SolutionControl( solutionProperty, solutions, solutionListParent, {
       comboBoxOptions: {
+        accessibleContextResponse: options.wavelengthSetAccessibleContextResponseProperty,
         tandem: options.tandem.createTandem( 'solutionComboBox' )
       }
     } );

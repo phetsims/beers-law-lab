@@ -9,7 +9,7 @@
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import NumberDisplay from '../../../../scenery-phet/js/NumberDisplay.js';
@@ -31,12 +31,15 @@ import LightMode from '../model/LightMode.js';
 import LightModeRadioButtonGroup from './LightModeRadioButtonGroup.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import BLLConstants from '../../common/BLLConstants.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 
 const SLIDER_TRACK_SIZE = new Dimension2( 150, 30 );
 const PATTERN_STRING_PROPERTY = BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ];
 const UNITS_STRING_PROPERTY = BeersLawLabStrings.units.nmStringProperty;
 
-type SelfOptions = EmptySelfOptions;
+type SelfOptions = {
+  wavelengthSetAccessibleContextResponseProperty: TReadOnlyProperty<string>;
+};
 
 type WavelengthPanelOptions = SelfOptions & NodeTranslationOptions & PickRequired<PanelOptions, 'tandem'>;
 
@@ -84,7 +87,10 @@ export default class WavelengthPanel extends Panel {
     } );
 
     // radio button group
-    const radioButtonGroup = new LightModeRadioButtonGroup( light.modeProperty, options.tandem.createTandem( 'radioButtonGroup' ) );
+    const radioButtonGroup = new LightModeRadioButtonGroup( light.modeProperty, {
+      wavelengthSetAccessibleContextResponseProperty: options.wavelengthSetAccessibleContextResponseProperty,
+      tandem: options.tandem.createTandem( 'radioButtonGroup' )
+    } );
 
     const wavelengthNumberControlTandem = options.tandem.createTandem( 'wavelengthNumberControl' );
     const wavelengthNumberControl = new WavelengthNumberControl( light.wavelengthProperty, {

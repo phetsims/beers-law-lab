@@ -6,19 +6,39 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import AquaRadioButtonGroup, { AquaRadioButtonGroupItem } from '../../../../sun/js/AquaRadioButtonGroup.js';
+import AquaRadioButtonGroup, { AquaRadioButtonGroupItem, AquaRadioButtonGroupOptions } from '../../../../sun/js/AquaRadioButtonGroup.js';
 import LightMode from '../model/LightMode.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Text, { TextOptions } from '../../../../scenery/js/nodes/Text.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
 import BLLConstants from '../../common/BLLConstants.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import optionize from '../../../../phet-core/js/optionize.js';
+
+type SelfOptions = {
+  wavelengthSetAccessibleContextResponseProperty: TReadOnlyProperty<string>;
+};
+
+type LightModeRadioButtonGroupOptions = SelfOptions & PickRequired<AquaRadioButtonGroupOptions, 'tandem'>;
 
 export default class LightModeRadioButtonGroup extends AquaRadioButtonGroup<LightMode> {
 
-  public constructor( lightModeProperty: EnumerationProperty<LightMode>, tandem: Tandem ) {
+  public constructor( lightModeProperty: EnumerationProperty<LightMode>, providedOptions: LightModeRadioButtonGroupOptions ) {
+
+    const options = optionize<LightModeRadioButtonGroupOptions, SelfOptions, AquaRadioButtonGroupOptions>()( {
+
+      // AquaRadioButtonGroupOptions
+      radioButtonOptions: {
+        radius: BLLConstants.RADIO_BUTTON_RADIUS
+      },
+      orientation: 'horizontal',
+      spacing: 15,
+      touchAreaYDilation: 8,
+      accessibleName: BeersLawLabStrings.a11y.lightModeRadioButtonGroup.accessibleNameStringProperty
+    }, providedOptions );
 
     const textOptions: TextOptions = {
       font: new PhetFont( 18 ),
@@ -32,7 +52,7 @@ export default class LightModeRadioButtonGroup extends AquaRadioButtonGroup<Ligh
         createNode: () => new Text( BeersLawLabStrings.presetStringProperty, textOptions ),
         tandemName: 'presetWavelengthRadioButton',
         options: {
-          accessibleContextResponse: BeersLawLabStrings.a11y.lightSourceWavelengthChangedStringProperty
+          accessibleContextResponse: options.wavelengthSetAccessibleContextResponseProperty
         }
       },
       {
@@ -42,16 +62,7 @@ export default class LightModeRadioButtonGroup extends AquaRadioButtonGroup<Ligh
       }
     ];
 
-    super( lightModeProperty, items, {
-      radioButtonOptions: {
-        radius: BLLConstants.RADIO_BUTTON_RADIUS
-      },
-      orientation: 'horizontal',
-      spacing: 15,
-      touchAreaYDilation: 8,
-      accessibleName: BeersLawLabStrings.a11y.lightModeRadioButtonGroup.accessibleNameStringProperty,
-      tandem: tandem
-    } );
+    super( lightModeProperty, items, options );
   }
 }
 

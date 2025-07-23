@@ -168,7 +168,9 @@ type StringsType = {
     'lightToggleButton': {
       'accessibleNameStringProperty': LocalizedStringProperty;
     };
-    'lightSourceWavelengthChangedStringProperty': LocalizedStringProperty;
+    'accessibleContextResponses': {
+      'lightSourceWavelengthChangedStringProperty': LocalizedStringProperty;
+    };
     'onStringProperty': LocalizedStringProperty;
     'offStringProperty': LocalizedStringProperty;
     'solutionIsSaturatedStringProperty': LocalizedStringProperty;

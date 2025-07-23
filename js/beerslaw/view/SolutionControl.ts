@@ -48,8 +48,7 @@ export default class SolutionControl extends HBox {
         yMargin: 12,
         highlightFill: BLLColors.comboBoxHighlightColorProperty,
         cornerRadius: 8,
-        accessibleName: BeersLawLabStrings.solutionStringProperty,
-        accessibleContextResponse: BeersLawLabStrings.a11y.lightSourceWavelengthChangedStringProperty
+        accessibleName: BeersLawLabStrings.solutionStringProperty
       }
     }, providedOptions );
 
