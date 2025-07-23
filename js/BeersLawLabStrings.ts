@@ -185,7 +185,10 @@ type StringsType = {
     'offStringProperty': LocalizedStringProperty;
     'solutionIsSaturatedStringProperty': LocalizedStringProperty;
     'solutionIsNotSaturatedStringProperty': LocalizedStringProperty;
-    'soluteControlsHeadingStringProperty': LocalizedStringProperty;
+    'pdomHeadings': {
+      'soluteControlsHeadingStringProperty': LocalizedStringProperty;
+      'concentrationMeterHeadingStringProperty': LocalizedStringProperty;
+    };
     'unitsDescription': {
       'centimetersStringProperty': LocalizedStringProperty;
       'centimeterStringProperty': LocalizedStringProperty;
