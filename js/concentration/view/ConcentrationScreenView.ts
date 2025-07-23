@@ -176,19 +176,24 @@ export default class ConcentrationScreenView extends ScreenView {
 
     // Groups UI elements that are related to the solute.
     const soluteControlsHeading = new Node( {
-      children: [ shakerNode, dropperNode, solutePanel ],
+      pdomOrder: [ shakerNode, dropperNode, solutePanel ],
       accessibleHeading: BeersLawLabStrings.a11y.pdomHeadings.soluteControlsHeadingStringProperty
     } );
 
     // Groups UI elements that are related to measuring concentration.
     const concentrationMeterHeading = new Node( {
-      children: [ saturatedIndicator, concentrationMeterNode ],
+      pdomOrder: [ concentrationMeterNode, saturatedIndicator ],
       accessibleHeading: BeersLawLabStrings.a11y.pdomHeadings.concentrationMeterHeadingStringProperty
     } );
 
     // Rendering order
     const screenViewRootNode = new Node( {
       children: [
+
+        // Headings can be put anywhere in rendering order because they have no children. Put them all first.
+        soluteControlsHeading,
+        concentrationMeterHeading,
+
         solventFluidNode,
         solventFaucetNode,
         drainFluidNode,
@@ -198,13 +203,16 @@ export default class ConcentrationScreenView extends ScreenView {
         solutionVolumeNode,
         beakerNode.mutate( { layerSplit: true } ), // beaker is static, put in its own layer
         precipitateParticlesNode,
+        saturatedIndicator,
         shakerParticlesNode,
-        soluteControlsHeading,
+        shakerNode,
+        dropperNode,
         evaporationPanel,
         soluteAmountNode,
         removeSoluteButton,
         resetAllButton,
-        concentrationMeterHeading,
+        solutePanel,
+        concentrationMeterNode,
         soluteListParent // last, so that combo box list is on top
       ]
     } );
