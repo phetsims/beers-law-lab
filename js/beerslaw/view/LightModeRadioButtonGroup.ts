@@ -30,7 +30,10 @@ export default class LightModeRadioButtonGroup extends AquaRadioButtonGroup<Ligh
       {
         value: LightMode.PRESET,
         createNode: () => new Text( BeersLawLabStrings.presetStringProperty, textOptions ),
-        tandemName: 'presetWavelengthRadioButton'
+        tandemName: 'presetWavelengthRadioButton',
+        options: {
+          accessibleContextResponse: BeersLawLabStrings.a11y.lightSourceWavelengthChangedStringProperty
+        }
       },
       {
         value: LightMode.VARIABLE,

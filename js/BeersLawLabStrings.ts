@@ -151,7 +151,7 @@ type StringsType = {
     };
     'soluteComboBox': {
       'accessibleNameStringProperty': LocalizedStringProperty;
-      'accessibleHelpTexStringProperty': LocalizedStringProperty;
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
     'solventFaucetNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
@@ -168,6 +168,7 @@ type StringsType = {
     'lightToggleButton': {
       'accessibleNameStringProperty': LocalizedStringProperty;
     };
+    'lightSourceWavelengthChangedStringProperty': LocalizedStringProperty;
     'onStringProperty': LocalizedStringProperty;
     'offStringProperty': LocalizedStringProperty;
     'solutionIsSaturatedStringProperty': LocalizedStringProperty;
