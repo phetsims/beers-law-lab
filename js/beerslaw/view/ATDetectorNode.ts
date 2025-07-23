@@ -119,10 +119,10 @@ class BodyNode extends Node {
         if ( mode === ATDetectorMode.TRANSMITTANCE ) {
           valueString = ( transmittance === null ) ?
                         NO_VALUE :
-                        StringUtils.format( pattern, toFixed( 100 * transmittance, BLLConstants.TRANSMITTANCE_DECIMAL_PLACES ) );
+                        StringUtils.format( pattern, toFixed( 100 * transmittance, BLLConstants.DECIMAL_PLACES_TRANSMITTANCE ) );
         }
         else {
-          valueString = ( absorbance === null ) ? NO_VALUE : toFixed( absorbance, BLLConstants.ABSORBANCE_DECIMAL_PLACES );
+          valueString = ( absorbance === null ) ? NO_VALUE : toFixed( absorbance, BLLConstants.DECIMAL_PLACES_ABSORBANCE );
         }
         return valueString;
       }, {

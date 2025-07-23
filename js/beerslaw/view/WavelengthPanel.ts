@@ -69,7 +69,7 @@ export default class WavelengthPanel extends Panel {
 
     const numberDisplay = new NumberDisplay( light.wavelengthProperty, light.wavelengthProperty.range, {
       numberFormatter: wavelength =>
-        StringUtils.format( PATTERN_STRING_PROPERTY.value, toFixed( wavelength, BLLConstants.WAVELENGTH_DECIMAL_PLACES ), UNITS_STRING_PROPERTY.value ),
+        StringUtils.format( PATTERN_STRING_PROPERTY.value, toFixed( wavelength, BLLConstants.DECIMAL_PLACES_WAVELENGTH ), UNITS_STRING_PROPERTY.value ),
       numberFormatterDependencies: [ PATTERN_STRING_PROPERTY, UNITS_STRING_PROPERTY ],
       xMargin: 7,
       yMargin: 3,
@@ -111,7 +111,7 @@ export default class WavelengthPanel extends Panel {
       },
       sliderOptions: {
         pdomCreateAriaValueText: value => StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value,
-          toFixed( value, BLLConstants.WAVELENGTH_DECIMAL_PLACES ), BeersLawLabStrings.a11y.unitsDescription.nanometersStringProperty.value ),
+          toFixed( value, BLLConstants.DECIMAL_PLACES_WAVELENGTH ), BeersLawLabStrings.a11y.unitsDescription.nanometersStringProperty.value ),
 
         // Dynamic dependencies used in pdomCreateAriaValueText.
         pdomDependencies: [

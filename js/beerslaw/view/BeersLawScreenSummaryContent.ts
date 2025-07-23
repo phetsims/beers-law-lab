@@ -35,7 +35,7 @@ export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
 
     // Wavelength value with the correct number of decimal places, including trailing zeros.
     const wavelengthValueStringProperty = new DerivedStringProperty( [ model.light.wavelengthProperty ],
-      wavelength => toFixed( wavelength, BLLConstants.WAVELENGTH_DECIMAL_PLACES ) );
+      wavelength => toFixed( wavelength, BLLConstants.DECIMAL_PLACES_WAVELENGTH ) );
 
     // Concentration value with the correct number of decimal places, including trailing zeros.
     const concentrationValueStringProperty = new DerivedStringProperty( [ model.solutionProperty, model.solutionInCuvette.concentrationProperty ],
@@ -43,11 +43,11 @@ export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
 
     // Absorbance value with the correct number of decimal places, including trailing zeros.
     const absorbanceValueStringProperty = new DerivedStringProperty( [ model.detector.absorbanceProperty ],
-      absorbance => ( absorbance === null ) ? '' : toFixed( absorbance, BLLConstants.ABSORBANCE_DECIMAL_PLACES ) );
+      absorbance => ( absorbance === null ) ? '' : toFixed( absorbance, BLLConstants.DECIMAL_PLACES_ABSORBANCE ) );
 
     // Transmittance value with the correct number of decimal places, including trailing zeros.
     const transmittanceValueStringProperty = new DerivedStringProperty( [ model.detector.transmittanceProperty ],
-      transmittance => ( transmittance === null ) ? '' : toFixed( transmittance * 100, BLLConstants.TRANSMITTANCE_DECIMAL_PLACES ) );
+      transmittance => ( transmittance === null ) ? '' : toFixed( transmittance * 100, BLLConstants.DECIMAL_PLACES_TRANSMITTANCE ) );
 
     // Concentration units, with singular vs plural matched to the absorbance value, and support for dynamic locale.
     const concentrationUnitsStringProperty = new DerivedStringProperty( [
