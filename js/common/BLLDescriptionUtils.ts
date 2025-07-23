@@ -18,6 +18,8 @@ export default class BLLDescriptionUtils {
 
   /**
    * Gets the concentration units that match the preference setting, and the singular/plural nature of the value.
+   * If you use this method in a derivation, be sure to include the localized string Properties used herein
+   * as dependencies.
    */
   public static getConcentrationUnits( concentration: number ): string {
     let units;
