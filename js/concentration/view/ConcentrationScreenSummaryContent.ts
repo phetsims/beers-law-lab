@@ -2,6 +2,7 @@
 
 /**
  * ConcentrationScreenSummaryContent is the description screen summary for the 'Concentration' screen.
+ * See https://github.com/phetsims/beers-law-lab/issues/358.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -17,16 +18,15 @@ import BLLConstants from '../../common/BLLConstants.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import { ConcentrationProbeNode } from './ConcentrationProbeNode.js';
+import Solute from '../../common/model/Solute.js';
 
 export default class ConcentrationScreenSummaryContent extends ScreenSummaryContent {
 
   public constructor( model: ConcentrationModel, concentrationProbeNode: ConcentrationProbeNode ) {
 
     // Solute name, including support for dynamic locale.
-    const soluteNameProperty = DerivedProperty.deriveAny( [
-      model.soluteProperty,
-      ...BLLConstants.SOLUTE_NAME_PROPERTIES
-    ], () => model.soluteProperty.value.nameProperty.value );
+    const soluteNameProperty = DerivedProperty.deriveAny( [ model.soluteProperty, ...Solute.SOLUTE_NAME_PROPERTIES ],
+      () => model.soluteProperty.value.nameProperty.value );
 
     // Concentration value with the correct number of decimal places, including trailing zeros.
     const concentrationValueStringProperty = new DerivedProperty( [

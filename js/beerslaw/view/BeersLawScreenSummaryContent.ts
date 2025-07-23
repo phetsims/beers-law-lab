@@ -2,6 +2,7 @@
 
 /**
  * BeersLawScreenSummaryContent is the description screen summary for the "Beer's Law" screen.
+ * See https://github.com/phetsims/beers-law-lab/issues/358.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -17,6 +18,7 @@ import ATDetectorMode from '../model/ATDetectorMode.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import ConcentrationTransform from '../model/ConcentrationTransform.js';
+import Solute from '../../common/model/Solute.js';
 
 export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
 
@@ -30,7 +32,7 @@ export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
       ],
       ( isOn, onString, offString ) => isOn ? onString : offString );
 
-    const solutionNameProperty = DerivedProperty.deriveAny( [ model.solutionProperty, ...BLLConstants.SOLUTE_NAME_PROPERTIES ],
+    const solutionNameProperty = DerivedProperty.deriveAny( [ model.solutionProperty, ...Solute.SOLUTE_NAME_PROPERTIES ],
       () => model.solutionProperty.value.nameProperty.value );
 
     // Wavelength value with the correct number of decimal places, including trailing zeros.

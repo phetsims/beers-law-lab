@@ -11,7 +11,6 @@ import Range from '../../../dot/js/Range.js';
 import RangeWithValue from '../../../dot/js/RangeWithValue.js';
 import beersLawLab from '../beersLawLab.js';
 import { CreditsData } from '../../../joist/js/CreditsNode.js';
-import BeersLawLabStrings from '../BeersLawLabStrings.js';
 
 export default class BLLConstants {
 
@@ -48,19 +47,6 @@ export default class BLLConstants {
   public static readonly DECIMAL_PLACES_ABSORBANCE = 2;
   public static readonly DECIMAL_PLACES_TRANSMITTANCE = 2;
   public static readonly DECIMAL_PLACES_WAVELENGTH = 0;
-
-  // Complete list of localized solute names, for situations where support for dynamic locale is required.
-  public static readonly SOLUTE_NAME_PROPERTIES = [
-    BeersLawLabStrings.drinkMixStringProperty,
-    BeersLawLabStrings.cobaltIINitrateStringProperty,
-    BeersLawLabStrings.cobaltChlorideStringProperty,
-    BeersLawLabStrings.potassiumDichromateStringProperty,
-    BeersLawLabStrings.potassiumChromateStringProperty,
-    BeersLawLabStrings.nickelIIChlorideStringProperty,
-    BeersLawLabStrings.copperSulfateStringProperty,
-    BeersLawLabStrings.potassiumPermanganateStringProperty,
-    BeersLawLabStrings.sodiumChlorideStringProperty
-  ];
 }
 
 beersLawLab.register( 'BLLConstants', BLLConstants );
