@@ -74,7 +74,7 @@ export default class ConcentrationScreenView extends ScreenView {
       modelViewTransform.modelToViewX( model.beaker.right ), modelViewTransform.modelToViewY( model.beaker.position.y ) ) );
     const saturatedIndicator = new SaturatedIndicator( model.solution.isSaturatedProperty, tandem.createTandem( 'saturatedIndicator' ) );
 
-    // Label for the shaker and dropper. If formula is null, use the solute name.
+    // Shaker and dropper are labeled with the solute formula. If the formula is null, use the solute name.
     const soluteLabelStringProperty = DerivedProperty.deriveAny( [
       model.shaker.soluteProperty,
       ...model.getSoluteNameProperties(),
