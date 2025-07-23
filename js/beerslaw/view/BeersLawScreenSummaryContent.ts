@@ -39,7 +39,7 @@ export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
     const wavelengthValueStringProperty = new DerivedStringProperty( [ model.light.wavelengthProperty ],
       wavelength => toFixed( wavelength, BLLConstants.DECIMAL_PLACES_WAVELENGTH ) );
 
-    // Concentration value with the correct number of decimal places, including trailing zeros.
+    // Concentration value with the correct number of decimal places, including trailing zeros
     const concentrationValueStringProperty = new DerivedStringProperty( [ model.solutionProperty, model.solutionInCuvette.concentrationProperty ],
       ( solution, concentration ) => toFixed( solution.concentrationTransform.modelToView( concentration ), BLLConstants.DECIMAL_PLACES_CONCENTRATION ) );
 

@@ -30,13 +30,15 @@ export default class ConcentrationScreenSummaryContent extends ScreenSummaryCont
 
     // Concentration value with the correct number of decimal places, including trailing zeros.
     const concentrationValueStringProperty = new DerivedProperty( [
+        BLLPreferences.concentrationMeterUnitsProperty,
         model.solution.concentrationProperty,
-        BLLPreferences.concentrationMeterUnitsProperty
+        model.solution.percentConcentrationProperty
       ],
-      ( concentration, concentrationMeterUnits ) =>
-        toFixed( concentration, concentrationMeterUnits === 'molesPerLiter' ?
-                                BLLConstants.DECIMAL_PLACES_MOLES_PER_LITER :
-                                BLLConstants.DECIMAL_PLACES_PERCENT ) );
+      ( concentrationMeterUnits, concentration, percentConcentration ) =>
+        ( concentrationMeterUnits === 'molesPerLiter' ) ?
+        toFixed( concentration, BLLConstants.DECIMAL_PLACES_MOLES_PER_LITER ) :
+        toFixed( percentConcentration, BLLConstants.DECIMAL_PLACES_PERCENT )
+    );
 
     // Concentration units, with singular vs plural matched to the concentration value, and support for dynamic locale.
     const concentrationUnitsDescriptionProperty = new DerivedStringProperty( [
