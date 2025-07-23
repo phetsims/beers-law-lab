@@ -41,7 +41,7 @@ export default class BLLConstants {
   public static readonly CUVETTE_SNAP_INTERVAL_RANGE = new Range( 0, 0.5 ); // cm - Careful! This depends on CUVETTE_WIDTH_RANGE
   public static readonly SOLUTION_LINE_WIDTH = 1;
 
-  // Value displayed on the concentration meter.
+  // Decimal places for various quantities. These are used in the visual UI and in description strings.
   public static readonly DECIMAL_PLACES_MOLES_PER_LITER = 3;
   public static readonly DECIMAL_PLACES_PERCENT = 1;
   public static readonly DECIMAL_PLACES_CONCENTRATION = 0;
@@ -49,6 +49,7 @@ export default class BLLConstants {
   public static readonly DECIMAL_PLACES_TRANSMITTANCE = 2;
   public static readonly DECIMAL_PLACES_WAVELENGTH = 0;
 
+  // Complete list of localized solute names, for situations where support for dynamic locale is required.
   public static readonly SOLUTE_NAME_PROPERTIES = [
     BeersLawLabStrings.drinkMixStringProperty,
     BeersLawLabStrings.cobaltIINitrateStringProperty,
