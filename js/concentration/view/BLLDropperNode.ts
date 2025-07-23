@@ -53,7 +53,7 @@ export default class BLLDropperNode extends InteractiveHighlighting( EyeDropperN
         } ),
         accessibleHelpText: BeersLawLabStrings.a11y.dropperButton.accessibleHelpTextStringProperty,
         //TODO https://github.com/phetsims/sun/issues/942 Bug: Momentary buttons add the same context response on pressed and release.
-        accessibleContextResponse: BeersLawLabStrings.a11y.dropperButton.accessibleContextResponsePressedStringProperty
+        accessibleContextResponseValueOn: BeersLawLabStrings.a11y.dropperButton.accessibleContextResponsePressedStringProperty
       },
       visibleProperty: dropper.visibleProperty
     }, providedOptions );
