@@ -22,7 +22,7 @@ export default class SolutionNode extends Rectangle {
   public constructor( solution: ConcentrationSolution, beaker: Beaker, modelViewTransform: ModelViewTransform2 ) {
 
     super( 0, 0, 1, 1, {
-      stroke: Color.grayColor( 153 ), // see https://github.com/phetsims/beers-law-lab/issues/357
+      stroke: Color.grayColor( 148 ), // see https://github.com/phetsims/beers-law-lab/issues/357
       lineWidth: BLLConstants.SOLUTION_LINE_WIDTH,
       isDisposable: false
     } );
