@@ -174,25 +174,32 @@ export default class ConcentrationScreenView extends ScreenView {
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
 
-    // Groups UI elements that are related to the solute.
+    // 'Solute Controls' accessible heading
     const soluteControlsHeading = new Node( {
       pdomOrder: [ shakerNode, dropperNode, solutePanel ],
       accessibleHeading: BeersLawLabStrings.a11y.accessibleHeadings.soluteControlsHeadingStringProperty
     } );
 
-    // Groups UI elements that are related to measuring concentration.
+    // 'Concentration Meter' accessible heading
     const concentrationMeterHeading = new Node( {
       pdomOrder: [ concentrationMeterNode, saturatedIndicator ],
       accessibleHeading: BeersLawLabStrings.a11y.accessibleHeadings.concentrationMeterHeadingStringProperty
+    } );
+
+    // 'Beaker Controls' accessible heading
+    const beakerControlsHeading = new Node( {
+      pdomOrder: [ soluteAmountNode, beakerNode, solventFaucetNode, drainFaucetNode, evaporationPanel, removeSoluteButton ],
+      accessibleHeading: BeersLawLabStrings.a11y.accessibleHeadings.beakerControlsHeadingStringProperty
     } );
 
     // Rendering order
     const screenViewRootNode = new Node( {
       children: [
 
-        // Headings can be put anywhere in rendering order because they have no children. Put them all first.
+        // Accessible headings can be put anywhere in rendering order because they have no children. Put them all first.
         soluteControlsHeading,
         concentrationMeterHeading,
+        beakerControlsHeading,
 
         solventFluidNode,
         solventFaucetNode,
@@ -262,10 +269,7 @@ export default class ConcentrationScreenView extends ScreenView {
     this.pdomPlayAreaNode.pdomOrder = [
       soluteControlsHeading,
       concentrationMeterHeading,
-      solventFaucetNode,
-      drainFaucetNode,
-      evaporationPanel,
-      removeSoluteButton
+      beakerControlsHeading
     ];
 
     // Control Area focus order

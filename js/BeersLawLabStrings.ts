@@ -188,6 +188,7 @@ type StringsType = {
     'accessibleHeadings': {
       'soluteControlsHeadingStringProperty': LocalizedStringProperty;
       'concentrationMeterHeadingStringProperty': LocalizedStringProperty;
+      'beakerControlsHeadingStringProperty': LocalizedStringProperty;
     };
     'unitsDescription': {
       'centimetersStringProperty': LocalizedStringProperty;
