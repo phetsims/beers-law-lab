@@ -141,6 +141,7 @@ export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
     } );
 
     super( {
+      isDisposable: false,
       playAreaContent: BeersLawLabStrings.a11y.beersLawScreen.screenSummary.playAreaStringProperty,
       controlAreaContent: BeersLawLabStrings.a11y.beersLawScreen.screenSummary.controlAreaStringProperty,
       currentDetailsContent: currentDetailsStringProperty,

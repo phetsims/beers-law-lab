@@ -47,6 +47,7 @@ import BLLColors from '../../common/BLLColors.js';
 import JumpPosition from '../../common/model/JumpPosition.js';
 import Property from '../../../../axon/js/Property.js';
 import BLLConstants from '../../common/BLLConstants.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 
 const READOUT_NO_VALUE = MathSymbols.NO_VALUE; // displayed in the readout when the meter is not measuring anything
 const BODY_X_MARGIN = 15;
@@ -145,6 +146,7 @@ class BodyNode extends Node {
 
     const options: NodeOptions = {
       cursor: 'pointer',
+      accessibleParagraph: createAccessibleParagraph( concentrationMeter.valueProperty ),
       tandem: tandem,
       phetioVisiblePropertyInstrumented: false
     };
@@ -276,6 +278,69 @@ class WireNode extends Path {
     };
     probe.positionProperty.link( updateCurve );
   }
+}
+
+/**
+ * Creates the accessible paragraph for ConcentrationMeterNode.
+ */
+function createAccessibleParagraph( concentrationProperty: TReadOnlyProperty<number | null> ): TReadOnlyProperty<string> {
+
+  return new DerivedStringProperty( [
+      concentrationProperty,
+      BeersLawLabStrings.a11y.concentrationMeterBodyNode.accessibleParagraphUnknownStringProperty,
+      BeersLawLabStrings.a11y.concentrationMeterBodyNode.accessibleParagraphStringProperty,
+      BLLPreferences.concentrationMeterUnitsProperty,
+      BeersLawLabStrings.a11y.unitsDescription.molePerLiterStringProperty,
+      BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty,
+      BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty,
+      BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty
+    ],
+    value => {
+      if ( value === null ) {
+
+        // The meter is not measuring anything, so the concentration is unknown.
+        return BeersLawLabStrings.a11y.concentrationMeterBodyNode.accessibleParagraphUnknownStringProperty.value;
+      }
+      else {
+
+        // Concentration value with the same number of decimal places as the visual UI.
+        let concentrationString;
+        if ( BLLPreferences.concentrationMeterUnitsProperty.value === 'molesPerLiter' ) {
+          concentrationString = toFixed( value, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER );
+        }
+        else {
+          concentrationString = toFixed( value, BLLConstants.DECIMAL_PLACES_CONCENTRATION_PERCENT );
+        }
+
+        // Concentration units to match the preference settings, singular vs plural.
+        let units;
+        if ( BLLPreferences.concentrationMeterUnitsProperty.value === 'molesPerLiter' ) {
+          if ( value === 1 ) {
+            units = BeersLawLabStrings.a11y.unitsDescription.molePerLiterStringProperty.value;
+          }
+          else {
+            units = BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty;
+          }
+        }
+        else {
+          if ( value === 1 ) {
+            units = BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty.value;
+          }
+          else {
+            units = BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty;
+          }
+        }
+
+        return StringUtils.fillIn( BeersLawLabStrings.a11y.concentrationMeterBodyNode.accessibleParagraphStringProperty.value, {
+          concentration: concentrationString,
+          units: units
+        } );
+      }
+    },
+    {
+      isDisposable: false
+    }
+  );
 }
 
 beersLawLab.register( 'ConcentrationMeterNode', ConcentrationMeterNode );

@@ -55,7 +55,9 @@ export default class BeersLawScreenView extends ScreenView {
       ( solution, pattern, nanometersString ) => StringUtils.fillIn( pattern, {
         wavelength: solution.molarAbsorptivityData.lambdaMax,
         units: nanometersString
-      } ) );
+      } ), {
+        isDisposable: false
+      } );
 
     const lightNode = new LightNode( model.light, modelViewTransform, {
       tandem: tandem.createTandem( 'lightNode' )

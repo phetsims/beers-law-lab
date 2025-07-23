@@ -134,6 +134,7 @@ export default class ConcentrationScreenSummaryContent extends ScreenSummaryCont
     } );
 
     super( {
+      isDisposable: false,
       playAreaContent: BeersLawLabStrings.a11y.concentrationScreen.screenSummary.playAreaStringProperty,
       controlAreaContent: BeersLawLabStrings.a11y.concentrationScreen.screenSummary.controlAreaStringProperty,
       currentDetailsContent: currentDetailsStringProperty,

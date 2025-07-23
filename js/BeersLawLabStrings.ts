@@ -151,6 +151,10 @@ type StringsType = {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
       'accessibleContextResponsePressedStringProperty': LocalizedStringProperty;
     };
+    'concentrationMeterBodyNode': {
+      'accessibleParagraphStringProperty': LocalizedStringProperty;
+      'accessibleParagraphUnknownStringProperty': LocalizedStringProperty;
+    };
     'soluteComboBox': {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;

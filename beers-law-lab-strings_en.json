@@ -304,6 +304,14 @@
         "value": "Dispensing."
       }
     },
+    "concentrationMeterBodyNode": {
+      "accessibleParagraph": {
+        "value": "Concentration is {{concentration}} {{units}}."
+      },
+      "accessibleParagraphUnknown": {
+        "value": "Concentration is unknown."
+      }
+    },
     "soluteComboBox": {
       "accessibleName": {
         "value": "Solute"
