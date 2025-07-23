@@ -13,7 +13,7 @@ import BLLConstants from '../../common/BLLConstants.js';
 import Beaker from '../model/Beaker.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import { linear } from '../../../../dot/js/util/linear.js';
-import Color from '../../../../scenery/js/util/Color.js';
+import BLLColors from '../../common/BLLColors.js';
 
 const MIN_NONZERO_HEIGHT = 5; // minimum height for a solution with non-zero volume, set by visual inspection
 
@@ -22,7 +22,7 @@ export default class SolutionNode extends Rectangle {
   public constructor( solution: ConcentrationSolution, beaker: Beaker, modelViewTransform: ModelViewTransform2 ) {
 
     super( 0, 0, 1, 1, {
-      stroke: Color.grayColor( 148 ), // see https://github.com/phetsims/beers-law-lab/issues/357
+      stroke: BLLColors.solutionStrokeProperty,
       lineWidth: BLLConstants.SOLUTION_LINE_WIDTH,
       isDisposable: false
     } );

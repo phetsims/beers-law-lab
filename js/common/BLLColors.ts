@@ -24,6 +24,10 @@ export default class BLLColors {
     default: Color.grayColor( 240 )
   } );
 
+  public static readonly solutionStrokeProperty = new ProfileColorProperty( beersLawLab, 'solutionStroke', {
+    default: Color.grayColor( 148 ) // see https://github.com/phetsims/beers-law-lab/issues/357
+  } );
+
   public static readonly concentrationMeterColorProperty = new ProfileColorProperty( beersLawLab, 'concentrationMeterColor', {
     default: 'rgb( 135, 4, 72 )'
   } );

@@ -63,6 +63,7 @@ export default class CuvetteNode extends Node {
     } );
 
     const solutionNode = new Rectangle( 0, 0, 1, 1, {
+      stroke: BLLColors.solutionStrokeProperty,
       lineWidth: 0.5,
       pickable: false
     } );
@@ -87,7 +88,6 @@ export default class CuvetteNode extends Node {
     // when the fluid color changes ...
     const colorObserver = ( color: Color ) => {
       solutionNode.fill = color.withAlpha( SOLUTION_ALPHA );
-      solutionNode.stroke = color.darkerColor();
     };
 
     // when the solution changes, rewire the color observer
