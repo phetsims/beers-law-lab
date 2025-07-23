@@ -45,10 +45,8 @@ export default class BeersLawScreenView extends ScreenView {
       tandem: tandem
     } );
 
-    //TODO https://github.com/phetsims/beers-law-lab/issues/361 Add lambdaMaxProperty to BeersLawModel.
-
     // Accessible context response shared by multiple UI components that set the wavelength to lamba max (the preset
-    // wavelength) for the selected solution.
+    // wavelength) for the selected solution. See https://github.com/phetsims/beers-law-lab/issues/361.
     const wavelengthSetAccessibleContextResponseProperty = new DerivedStringProperty( [
         model.solutionProperty,
         BeersLawLabStrings.a11y.sharedAccessibleContextResponses.presetWavelengthSetStringProperty,
