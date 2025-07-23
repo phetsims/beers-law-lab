@@ -76,11 +76,11 @@ export default class ConcentrationScreenView extends ScreenView {
 
     // Shaker and dropper are labeled with the solute formula. If the formula is null, use the solute name.
     const soluteLabelStringProperty = DerivedProperty.deriveAny( [
-      model.shaker.soluteProperty,
+      model.soluteProperty,
       ...model.getSoluteNameProperties(),
       ...model.getSoluteFormulaProperties()
     ], () => {
-      const solute = model.shaker.soluteProperty.value;
+      const solute = model.soluteProperty.value;
       const formula = solute.formulaProperty.value;
       const name = solute.nameProperty.value;
       return formula ? StringUtils.wrapLTR( formula ) : name;
@@ -91,8 +91,13 @@ export default class ConcentrationScreenView extends ScreenView {
       phetioDocumentation: 'The label used on the shaker and dropper'
     } );
 
+    // Shaker and dropper are described by the solute name, not the solute formula.
+    const soluteDescriptionStringProperty = DerivedProperty.deriveAny(
+      [ model.shaker.soluteProperty, ...model.getSoluteNameProperties() ],
+      () => model.soluteProperty.value.nameProperty.value );
+
     // Shaker
-    const shakerNode = new ShakerNode( model.shaker, soluteLabelStringProperty, modelViewTransform, {
+    const shakerNode = new ShakerNode( model.shaker, soluteLabelStringProperty, soluteDescriptionStringProperty, modelViewTransform, {
       tandem: tandem.createTandem( 'shakerNode' )
     } );
 
@@ -102,8 +107,8 @@ export default class ConcentrationScreenView extends ScreenView {
       modelViewTransform.modelToViewX( model.beaker.right ), modelViewTransform.modelToViewY( model.beaker.position.y ) ) );
 
     // Dropper
-    const dropperNode = new BLLDropperNode( model.dropper, soluteLabelStringProperty, model.solution.solvent,
-      model.solution.soluteProperty, modelViewTransform, {
+    const dropperNode = new BLLDropperNode( model.dropper, soluteLabelStringProperty, soluteDescriptionStringProperty,
+      model.solution.solvent, model.solution.soluteProperty, modelViewTransform, {
         tandem: tandem.createTandem( 'dropperNode' )
       } );
     const stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.soluteProperty, model.dropper,

@@ -37,6 +37,7 @@ export default class ShakerNode extends InteractiveHighlighting( Node ) {
 
   public constructor( shaker: Shaker,
                       soluteLabelStringProperty: TReadOnlyProperty<string>,
+                      soluteDescriptionStringProperty: TReadOnlyProperty<string>,
                       modelViewTransform: ModelViewTransform2,
                       providedOptions: ShakerNodeOptions ) {
 
@@ -50,7 +51,7 @@ export default class ShakerNode extends InteractiveHighlighting( Node ) {
       cursor: 'pointer',
       isDisposable: false,
       accessibleName: new PatternStringProperty( BeersLawLabStrings.a11y.shakerNode.accessibleNameStringProperty, {
-        soluteName: soluteLabelStringProperty
+        soluteName: soluteDescriptionStringProperty
       } ),
       accessibleHelpText: BeersLawLabStrings.a11y.shakerNode.accessibleHelpTextStringProperty,
       phetioInputEnabledPropertyInstrumented: true

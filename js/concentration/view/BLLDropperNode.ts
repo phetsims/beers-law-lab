@@ -34,6 +34,7 @@ export default class BLLDropperNode extends InteractiveHighlighting( EyeDropperN
 
   public constructor( dropper: Dropper,
                       soluteLabelStringProperty: TReadOnlyProperty<string>,
+                      soluteDescriptionStringProperty: TReadOnlyProperty<string>,
                       solvent: Solvent,
                       soluteProperty: Property<Solute>,
                       modelViewTransform: ModelViewTransform2,
@@ -48,7 +49,7 @@ export default class BLLDropperNode extends InteractiveHighlighting( EyeDropperN
       buttonOptions: {
         enabledProperty: dropper.enabledProperty,
         accessibleName: new PatternStringProperty( BeersLawLabStrings.a11y.soluteDropperToggleButton.accessibleNameStringProperty, {
-          soluteName: soluteLabelStringProperty
+          soluteName: soluteDescriptionStringProperty
         } ),
         accessibleHelpText: BeersLawLabStrings.a11y.soluteDropperToggleButton.accessibleHelpTextStringProperty
       },
