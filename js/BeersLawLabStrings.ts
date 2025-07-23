@@ -171,6 +171,14 @@ type StringsType = {
     'sharedAccessibleContextResponses': {
       'presetWavelengthSetStringProperty': LocalizedStringProperty;
     };
+    'colorNames': {
+      'redStringProperty': LocalizedStringProperty;
+      'orangeStringProperty': LocalizedStringProperty;
+      'yellowStringProperty': LocalizedStringProperty;
+      'greenStringProperty': LocalizedStringProperty;
+      'blueStringProperty': LocalizedStringProperty;
+      'violetStringProperty': LocalizedStringProperty;
+    };
     'onStringProperty': LocalizedStringProperty;
     'offStringProperty': LocalizedStringProperty;
     'solutionIsSaturatedStringProperty': LocalizedStringProperty;
