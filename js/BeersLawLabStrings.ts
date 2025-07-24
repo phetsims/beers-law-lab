@@ -159,6 +159,9 @@ type StringsType = {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
+    'removeSoluteButton': {
+      'accessibleContextResponseStringProperty': LocalizedStringProperty;
+    };
     'solventFaucetNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;

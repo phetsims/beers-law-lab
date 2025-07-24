@@ -320,6 +320,11 @@
         "value": "Choose solute for adding to beaker."
       }
     },
+    "removeSoluteButton": {
+      "accessibleContextResponse": {
+        "value": "Solute removed, only water in beaker."
+      }
+    },
     "solventFaucetNode": {
       "accessibleName": {
         "value": "Water Faucet"

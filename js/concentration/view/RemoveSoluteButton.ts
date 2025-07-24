@@ -37,7 +37,8 @@ export default class RemoveSoluteButton extends TextPushButton {
       maxWidth: 200,
       enabledPropertyOptions: {
         phetioReadOnly: true
-      }
+      },
+      accessibleContextResponse: BeersLawLabStrings.a11y.removeSoluteButton.accessibleContextResponseStringProperty
     }, providedOptions );
 
     super( BeersLawLabStrings.removeSoluteStringProperty, options );
