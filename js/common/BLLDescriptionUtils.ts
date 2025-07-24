@@ -51,19 +51,19 @@ export default class BLLDescriptionUtils {
     assert && assert( BLLConstants.WAVELENGTH_RANGE.min === 380 );
     assert && assert( BLLConstants.WAVELENGTH_RANGE.max === 780 );
 
-    if ( wavelength >= 380 && wavelength < 450 ) {
+    if ( wavelength <= 450 ) {
       return BeersLawLabStrings.a11y.colorNames.violetStringProperty.value;
     }
-    else if ( wavelength >= 450 && wavelength < 495 ) {
+    else if ( wavelength <= 500 ) {
       return BeersLawLabStrings.a11y.colorNames.blueStringProperty.value;
     }
-    else if ( wavelength >= 495 && wavelength < 570 ) {
+    else if ( wavelength <= 565 ) {
       return BeersLawLabStrings.a11y.colorNames.greenStringProperty.value;
     }
-    else if ( wavelength >= 570 && wavelength < 590 ) {
+    else if ( wavelength <= 590 ) {
       return BeersLawLabStrings.a11y.colorNames.yellowStringProperty.value;
     }
-    else if ( wavelength >= 590 && wavelength < 620 ) {
+    else if ( wavelength <= 625 ) {
       return BeersLawLabStrings.a11y.colorNames.orangeStringProperty.value;
     }
     else {
