@@ -25,7 +25,7 @@ import JumpToPositionListener from '../../beerslaw/view/JumpToPositionListener.j
 export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
   public static readonly JUMP_TO_POSITION_HOTKEY_DATA = new HotkeyData( {
-    keyStringProperties: [ new Property( 'j' ) ],
+    keys: [ 'j' ],
     repoName: beersLawLab.name,
     keyboardHelpDialogLabelStringProperty: BeersLawLabStrings.keyboardHelpDialog.jumpToPositionStringProperty
   } );

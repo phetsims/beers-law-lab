@@ -6,27 +6,27 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
-import ProbeNode from '../../../../scenery-phet/js/ProbeNode.js';
-import BLLMovable from '../../common/model/BLLMovable.js';
-import Light from '../model/Light.js';
-import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import BeersLawLabStrings from '../../BeersLawLabStrings.js';
-import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import Property from '../../../../axon/js/Property.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import ProbeNode from '../../../../scenery-phet/js/ProbeNode.js';
+import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
-import beersLawLab from '../../beersLawLab.js';
-import BLLColors from '../../common/BLLColors.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
+import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
+import beersLawLab from '../../beersLawLab.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
+import BLLColors from '../../common/BLLColors.js';
+import BLLMovable from '../../common/model/BLLMovable.js';
 import JumpPosition from '../../common/model/JumpPosition.js';
+import Light from '../model/Light.js';
 import JumpToPositionListener from './JumpToPositionListener.js';
 
 export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
   public static readonly JUMP_TO_POSITION_HOTKEY_DATA = new HotkeyData( {
-    keyStringProperties: [ new Property( 'j' ) ],
+    keys: [ 'j' ],
     repoName: beersLawLab.name,
     keyboardHelpDialogLabelStringProperty: BeersLawLabStrings.keyboardHelpDialog.jumpToPositionStringProperty
   } );
@@ -86,7 +86,7 @@ export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
     // touch area
     this.touchArea = this.localBounds.dilatedXY( 0.25 * this.width, 0 );
-    
+
     // Keyboard shortcut for jumping to useful positions.
     this.addInputListener( new JumpToPositionListener( this, ATProbeNode.JUMP_TO_POSITION_HOTKEY_DATA,
       probe.positionProperty, jumpPositions, jumpPositionIndexProperty ) );
