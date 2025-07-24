@@ -52,7 +52,7 @@ export default class BLLFaucetNode extends FaucetNode {
         }
         else {
           return StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value,
-            toFixed( value, BLLConstants.DECIMAL_PLACES_MILLILITERS_PER_SECOND ),
+            toFixed( value * 1000, BLLConstants.DECIMAL_PLACES_MILLILITERS_PER_SECOND ),
             BeersLawLabStrings.a11y.unitsDescription.millilitersPerSecondStringProperty.value );
         }
       },
