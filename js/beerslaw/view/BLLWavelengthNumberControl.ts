@@ -20,6 +20,7 @@ import BLLConstants from '../../common/BLLConstants.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
+import BLLDescriptionUtils from '../../common/BLLDescriptionUtils.js';
 
 const SLIDER_TRACK_SIZE = new Dimension2( 150, 30 );
 
@@ -44,13 +45,29 @@ export default class BLLWavelengthNumberControl extends WavelengthNumberControl 
         cursorHeight: SLIDER_TRACK_SIZE.height
       },
       sliderOptions: {
-        pdomCreateAriaValueText: value => StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value,
-          toFixed( value, BLLConstants.DECIMAL_PLACES_WAVELENGTH ), BeersLawLabStrings.a11y.unitsDescription.nanometersStringProperty.value ),
+        pdomCreateAriaValueText: wavelength => {
+          const wavelengthString = toFixed( wavelength, BLLConstants.DECIMAL_PLACES_WAVELENGTH );
+          const units = BeersLawLabStrings.a11y.unitsDescription.nanometersStringProperty.value;
+          const colorName = BLLDescriptionUtils.getColorDescriptionString( wavelength );
+          return StringUtils.fillIn( BeersLawLabStrings.a11y.wavelengthNumberControl.ariaValueTextStringProperty.value, {
+            wavelength: wavelengthString,
+            units: units,
+            colorName: colorName
+          } );
+        },
 
         // Dynamic dependencies used in pdomCreateAriaValueText.
         pdomDependencies: [
-          BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
-          BeersLawLabStrings.a11y.unitsDescription.nanometersStringProperty
+          BeersLawLabStrings.a11y.wavelengthNumberControl.ariaValueTextStringProperty,
+          BeersLawLabStrings.a11y.unitsDescription.nanometersStringProperty,
+
+          // Used in BLLDescriptionUtils.getColorDescriptionString
+          BeersLawLabStrings.a11y.colorNames.redStringProperty,
+          BeersLawLabStrings.a11y.colorNames.orangeStringProperty,
+          BeersLawLabStrings.a11y.colorNames.yellowStringProperty,
+          BeersLawLabStrings.a11y.colorNames.greenStringProperty,
+          BeersLawLabStrings.a11y.colorNames.blueStringProperty,
+          BeersLawLabStrings.a11y.colorNames.violetStringProperty
         ]
       },
       arrowButtonOptions: {
@@ -67,7 +84,8 @@ export default class BLLWavelengthNumberControl extends WavelengthNumberControl 
           children: [ decrementButton!, slider, incrementButton! ]
         } );
       },
-      accessibleName: BeersLawLabStrings.wavelengthStringProperty,
+      accessibleName: BeersLawLabStrings.a11y.wavelengthNumberControl.accessibleNameStringProperty,
+      accessibleHelpText: BeersLawLabStrings.a11y.wavelengthNumberControl.accessibleHelpTextStringProperty,
       tandem: tandem
     } );
   }
