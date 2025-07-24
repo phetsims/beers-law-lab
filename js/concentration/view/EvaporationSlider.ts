@@ -38,7 +38,9 @@ export default class EvaporationSlider extends HSlider {
 
       pdomCreateAriaValueText: value => {
 
-        const valueString = toFixed( value, BLLConstants.DECIMAL_PLACES_EVAPORATION_RATE );
+        const valueString = ( BLLPreferences.beakerUnitsProperty.value === 'liters' ) ?
+                            toFixed( value, BLLConstants.DECIMAL_PLACES_EVAPORATION_RATE_LITERS_PER_SECOND ) :
+                            toFixed( value * 1000, BLLConstants.DECIMAL_PLACES_EVAPORATION_RATE_MILLILITERS_PER_SECOND );
 
         const units = ( BLLPreferences.beakerUnitsProperty.value === 'liters' ) ?
                       BeersLawLabStrings.a11y.unitsDescription.litersPerSecondStringProperty.value :
