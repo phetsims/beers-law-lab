@@ -422,6 +422,9 @@
       "liters": {
         "value": "liters"
       },
+      "litersPerSecond": {
+        "value": "liters per second"
+      },
       "micromolarSingular": {
         "value": "micromolar"
       },
@@ -433,6 +436,9 @@
       },
       "milliliters": {
         "value": "milliliters"
+      },
+      "millilitersPerSecond": {
+        "value": "milliliters per second"
       },
       "millimolarSingular": {
         "value": "millimolar"

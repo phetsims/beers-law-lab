@@ -13,6 +13,11 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import FaucetNode, { FaucetNodeOptions } from '../../../../scenery-phet/js/FaucetNode.js';
 import beersLawLab from '../../beersLawLab.js';
 import Faucet from '../model/Faucet.js';
+import BeersLawLabStrings from '../../BeersLawLabStrings.js';
+import BLLPreferences from '../../common/model/BLLPreferences.js';
+import { toFixed } from '../../../../dot/js/util/toFixed.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import BLLConstants from '../../common/BLLConstants.js';
 
 const SCALE = 0.75;
 
@@ -38,7 +43,27 @@ export default class BLLFaucetNode extends FaucetNode {
       },
       visiblePropertyOptions: {
         phetioFeatured: true
-      }
+      },
+      pdomCreateAriaValueText: value => {
+        if ( BLLPreferences.beakerUnitsProperty.value === 'liters' ) {
+          return StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value,
+            toFixed( value, BLLConstants.DECIMAL_PLACES_LITERS_PER_SECOND ),
+            BeersLawLabStrings.a11y.unitsDescription.litersPerSecondStringProperty.value );
+        }
+        else {
+          return StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value,
+            toFixed( value, BLLConstants.DECIMAL_PLACES_MILLILITERS_PER_SECOND ),
+            BeersLawLabStrings.a11y.unitsDescription.millilitersPerSecondStringProperty.value );
+        }
+      },
+
+      // Dynamic dependencies used in pdomCreateAriaValueText.
+      pdomDependencies: [
+        BLLPreferences.beakerUnitsProperty,
+        BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
+        BeersLawLabStrings.a11y.unitsDescription.litersPerSecondStringProperty,
+        BeersLawLabStrings.a11y.unitsDescription.millilitersPerSecondStringProperty
+      ]
     }, providedOptions );
 
     super( faucet.maxFlowRate, faucet.flowRateProperty, faucet.enabledProperty, options );

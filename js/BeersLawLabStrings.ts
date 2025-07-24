@@ -207,10 +207,12 @@ type StringsType = {
       'centimeterStringProperty': LocalizedStringProperty;
       'literStringProperty': LocalizedStringProperty;
       'litersStringProperty': LocalizedStringProperty;
+      'litersPerSecondStringProperty': LocalizedStringProperty;
       'micromolarSingularStringProperty': LocalizedStringProperty;
       'micromolarPluralStringProperty': LocalizedStringProperty;
       'milliliterStringProperty': LocalizedStringProperty;
       'millilitersStringProperty': LocalizedStringProperty;
+      'millilitersPerSecondStringProperty': LocalizedStringProperty;
       'millimolarSingularStringProperty': LocalizedStringProperty;
       'millimolarPluralStringProperty': LocalizedStringProperty;
       'molesPerLiterStringProperty': LocalizedStringProperty;
