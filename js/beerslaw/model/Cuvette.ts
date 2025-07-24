@@ -57,7 +57,7 @@ export default class Cuvette extends PhetioObject {
 
       // SelfOptions
       position: Vector2.ZERO,
-      widthRange: new RangeWithValue( 0.5, 2.0, 1.0 ), // variable width, cm
+      widthRange: BLLConstants.CUVETTE_WIDTH_RANGE, // variable width, cm
       height: 3, // fixed height, cm
 
       // PhetioObjectOptions
