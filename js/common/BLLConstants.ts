@@ -11,6 +11,7 @@ import Range from '../../../dot/js/Range.js';
 import RangeWithValue from '../../../dot/js/RangeWithValue.js';
 import beersLawLab from '../beersLawLab.js';
 import { CreditsData } from '../../../joist/js/CreditsNode.js';
+import VisibleColor from '../../../scenery-phet/js/VisibleColor.js';
 
 export default class BLLConstants {
 
@@ -34,11 +35,13 @@ export default class BLLConstants {
 
   public static readonly BEAKER_VOLUME = 1; // L
   public static readonly RADIO_BUTTON_RADIUS = 11;
+  public static readonly SOLUTION_LINE_WIDTH = 1;
+
   public static readonly SOLUTE_AMOUNT_RANGE = new RangeWithValue( 0, 7, 0 ); // moles
   public static readonly SOLUTION_VOLUME_RANGE = new RangeWithValue( 0, BLLConstants.BEAKER_VOLUME, 0.5 ); // L
   public static readonly CUVETTE_WIDTH_RANGE = new RangeWithValue( 0.5, 2.0, 1.0 ); // cm
   public static readonly CUVETTE_SNAP_INTERVAL_RANGE = new Range( 0, 0.5 ); // cm - Careful! This depends on CUVETTE_WIDTH_RANGE
-  public static readonly SOLUTION_LINE_WIDTH = 1;
+  public static readonly WAVELENGTH_RANGE = new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH );
 
   // Decimal places for various quantities. These are used in the visual UI and in description strings.
   public static readonly DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER = 3;

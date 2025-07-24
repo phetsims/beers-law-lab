@@ -11,15 +11,14 @@ import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
-import Range from '../../../../dot/js/Range.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
-import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawSolution from './BeersLawSolution.js';
 import LightMode from './LightMode.js';
+import BLLConstants from '../../common/BLLConstants.js';
 
 type SelfOptions = {
   position?: Vector2; // cm
@@ -63,7 +62,7 @@ export default class Light extends PhetioObject {
 
     this.wavelengthProperty = new NumberProperty( solutionProperty.value.molarAbsorptivityData.lambdaMax /*nm*/, {
       units: 'nm',
-      range: new Range( VisibleColor.MIN_WAVELENGTH, VisibleColor.MAX_WAVELENGTH ),
+      range: BLLConstants.WAVELENGTH_RANGE,
       tandem: options.tandem.createTandem( 'wavelengthProperty' ),
       phetioFeatured: true,
       phetioReadOnly: true
