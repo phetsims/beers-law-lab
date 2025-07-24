@@ -188,7 +188,7 @@ export default class ConcentrationScreenView extends ScreenView {
 
     // 'Beaker Controls' accessible heading
     const beakerControlsHeading = new Node( {
-      pdomOrder: [ soluteAmountNode, beakerNode, solventFaucetNode, drainFaucetNode, evaporationPanel, removeSoluteButton ],
+      pdomOrder: [ soluteAmountNode, solutionVolumeNode, solventFaucetNode, drainFaucetNode, evaporationPanel, removeSoluteButton ],
       accessibleHeading: BeersLawLabStrings.a11y.accessibleHeadings.beakerControlsHeadingStringProperty
     } );
 

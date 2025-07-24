@@ -10,7 +10,6 @@
  */
 
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
-import Property from '../../../../axon/js/Property.js';
 import Shape from '../../../../kite/js/Shape.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -23,6 +22,8 @@ import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -30,7 +31,7 @@ type SolutionVolumeNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem
 
 export default class SolutionVolumeNode extends Node {
 
-  public constructor( volumeProperty: Property<number>, providedOptions: SolutionVolumeNodeOptions ) {
+  public constructor( volumeProperty: TReadOnlyProperty<number>, providedOptions: SolutionVolumeNodeOptions ) {
 
     const options = optionize<SolutionVolumeNodeOptions, SelfOptions, NodeOptions>()( {
 
@@ -50,28 +51,33 @@ export default class SolutionVolumeNode extends Node {
       centerY: 0
     } );
 
-    const stringProperty = new DerivedStringProperty( [
-        BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
-        volumeProperty,
-        BeersLawLabStrings.units.litersStringProperty,
-        BeersLawLabStrings.units.millilitersStringProperty,
-        BLLPreferences.beakerUnitsProperty
-      ],
-      ( pattern, volume, litersString, millilitersString, beakerUnits ) => {
-
-        // Display integer values with 0 decimal places, non-integer values with 2 decimal places.
+    // Display integer values with 0 decimal places, non-integer values with 2 decimal places.
+    const volumeStringProperty = new DerivedStringProperty( [ volumeProperty, BLLPreferences.beakerUnitsProperty ],
+      ( volume, beakerUnits ) => {
         let volumeString: string;
-        let units: string;
         if ( beakerUnits === 'liters' ) {
           volumeString = Number.isInteger( volume ) ? toFixed( volume, 0 ) : toFixed( volume, 2 );
-          units = litersString;
         }
         else {
           volumeString = toFixed( volume * 1000, 0 ); // convert L to mL
-          units = millilitersString;
         }
-        return StringUtils.format( pattern, volumeString, units );
+        return volumeString;
       } );
+
+    const unitsProperty = new DerivedStringProperty( [
+      BLLPreferences.beakerUnitsProperty,
+      BeersLawLabStrings.units.litersStringProperty,
+      BeersLawLabStrings.units.millilitersStringProperty
+    ], ( beakerUnits, litersString, millilitersString ) =>
+      ( beakerUnits === 'liters' ) ? litersString : millilitersString );
+
+    const stringProperty = new DerivedStringProperty( [
+        BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
+        volumeStringProperty,
+        unitsProperty
+      ],
+      ( pattern, volumeString, units ) => StringUtils.format( pattern, volumeString, units )
+    );
 
     const text = new Text( stringProperty, {
       font: new PhetFont( 22 ),
@@ -84,9 +90,41 @@ export default class SolutionVolumeNode extends Node {
     } );
 
     options.children = [ text, triangleNode ];
+    options.accessibleParagraph = createAccessibleParagraph( volumeProperty, volumeStringProperty );
 
     super( options );
   }
+}
+
+/**
+ * Creates the accessible paragraph for this Node.
+ */
+function createAccessibleParagraph( volumeProperty: TReadOnlyProperty<number>, volumeStringProperty: TReadOnlyProperty<string> ): TReadOnlyProperty<string> {
+
+  const unitsDescriptionProperty = new DerivedStringProperty( [
+      volumeProperty,
+      BLLPreferences.beakerUnitsProperty,
+      BeersLawLabStrings.a11y.unitsDescription.literStringProperty,
+      BeersLawLabStrings.a11y.unitsDescription.litersStringProperty,
+      BeersLawLabStrings.a11y.unitsDescription.milliliterStringProperty,
+      BeersLawLabStrings.a11y.unitsDescription.millilitersStringProperty
+    ],
+    ( volume, beakerUnits, literString, litersString, milliliterString, millilitersString ) => {
+    if ( beakerUnits === 'liters' ) {
+      return ( volume === 1 ) ? literString : litersString;
+    }
+    else {
+      return ( volume === 1 ) ? milliliterString : millilitersString;
+    }
+    }
+  );
+
+  return new PatternStringProperty( BeersLawLabStrings.a11y.solutionVolumeNode.accessibleParagraphStringProperty, {
+    value: volumeStringProperty,
+    units: unitsDescriptionProperty
+  }, {
+    isDisposable: false // because we cannot clean up unitsDescriptionProperty
+  } );
 }
 
 beersLawLab.register( 'SolutionVolumeNode', SolutionVolumeNode );

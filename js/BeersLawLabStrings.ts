@@ -177,6 +177,9 @@ type StringsType = {
     'soluteAmountText': {
       'accessibleParagraphStringProperty': LocalizedStringProperty;
     };
+    'solutionVolumeNode': {
+      'accessibleParagraphStringProperty': LocalizedStringProperty;
+    };
     'sharedAccessibleContextResponses': {
       'presetWavelengthSetStringProperty': LocalizedStringProperty;
     };
@@ -200,8 +203,12 @@ type StringsType = {
     'unitsDescription': {
       'centimetersStringProperty': LocalizedStringProperty;
       'centimeterStringProperty': LocalizedStringProperty;
+      'literStringProperty': LocalizedStringProperty;
+      'litersStringProperty': LocalizedStringProperty;
       'micromolarSingularStringProperty': LocalizedStringProperty;
       'micromolarPluralStringProperty': LocalizedStringProperty;
+      'milliliterStringProperty': LocalizedStringProperty;
+      'millilitersStringProperty': LocalizedStringProperty;
       'millimolarSingularStringProperty': LocalizedStringProperty;
       'millimolarPluralStringProperty': LocalizedStringProperty;
       'molesPerLiterStringProperty': LocalizedStringProperty;
