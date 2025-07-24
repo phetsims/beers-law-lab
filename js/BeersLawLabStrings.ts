@@ -161,9 +161,11 @@ type StringsType = {
     };
     'solventFaucetNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
     'drainFaucetNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
     'rulerNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;

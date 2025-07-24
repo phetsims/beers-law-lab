@@ -22,7 +22,6 @@ import BLLConstants from '../../common/BLLConstants.js';
 import ConcentrationModel from '../model/ConcentrationModel.js';
 import BeakerNode from './BeakerNode.js';
 import BLLDropperNode from './BLLDropperNode.js';
-import BLLFaucetNode from './BLLFaucetNode.js';
 import ConcentrationMeterNode from './ConcentrationMeterNode.js';
 import EvaporationPanel from './EvaporationPanel.js';
 import FaucetFluidNode from './FaucetFluidNode.js';
@@ -38,6 +37,8 @@ import SolutionVolumeNode from './SolutionVolumeNode.js';
 import StockSolutionNode from './StockSolutionNode.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import ConcentrationScreenSummaryContent from './ConcentrationScreenSummaryContent.js';
+import SolventFaucetNode from './SolventFaucetNode.js';
+import DrainFaucetNode from './DrainFaucetNode.js';
 
 export default class ConcentrationScreenView extends ScreenView {
 
@@ -115,14 +116,10 @@ export default class ConcentrationScreenView extends ScreenView {
       model.beaker, EyeDropperNode.TIP_WIDTH - 1, modelViewTransform );
 
     // faucets
-    const solventFaucetNode = new BLLFaucetNode( model.solventFaucet, modelViewTransform, {
-      accessibleName: BeersLawLabStrings.a11y.solventFaucetNode.accessibleNameStringProperty,
-      tandem: tandem.createTandem( 'solventFaucetNode' )
-    } );
-    const drainFaucetNode = new BLLFaucetNode( model.drainFaucet, modelViewTransform, {
-      accessibleName: BeersLawLabStrings.a11y.drainFaucetNode.accessibleNameStringProperty,
-      tandem: tandem.createTandem( 'drainFaucetNode' )
-    } );
+    const solventFaucetNode = new SolventFaucetNode( model.solventFaucet, modelViewTransform,
+      tandem.createTandem( 'solventFaucetNode' ) );
+    const drainFaucetNode = new DrainFaucetNode( model.drainFaucet, modelViewTransform,
+      tandem.createTandem( 'drainFaucetNode' ) );
     const SOLVENT_FLUID_HEIGHT = model.beaker.position.y - model.solventFaucet.position.y;
     const DRAIN_FLUID_HEIGHT = 1000; // tall enough that resizing the play area is unlikely to show bottom of fluid
     const solventFluidNode = new FaucetFluidNode( model.solventFaucet, model.solution.solvent, SOLVENT_FLUID_HEIGHT, modelViewTransform );

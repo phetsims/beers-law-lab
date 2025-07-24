@@ -18,11 +18,11 @@ const SCALE = 0.75;
 
 type SelfOptions = EmptySelfOptions;
 
-type BLLFaucetNodeOptions = SelfOptions & PickRequired<FaucetNodeOptions, 'tandem' | 'accessibleName'>;
+type BLLFaucetNodeOptions = SelfOptions & PickRequired<FaucetNodeOptions, 'tandem' | 'accessibleName' | 'accessibleHelpText'>;
 
 export default class BLLFaucetNode extends FaucetNode {
 
-  public constructor( faucet: Faucet, modelViewTransform: ModelViewTransform2, providedOptions: BLLFaucetNodeOptions ) {
+  protected constructor( faucet: Faucet, modelViewTransform: ModelViewTransform2, providedOptions: BLLFaucetNodeOptions ) {
 
     const horizontalPipeLength = modelViewTransform.modelToViewX( faucet.position.x - faucet.pipeMinX ) / SCALE;
 
