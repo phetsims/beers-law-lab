@@ -42,7 +42,7 @@ export default class EvaporationSlider extends HSlider {
 
         const units = ( BLLPreferences.beakerUnitsProperty.value === 'liters' ) ?
                       BeersLawLabStrings.a11y.unitsDescription.litersPerSecondStringProperty.value :
-                      BeersLawLabStrings.a11y.unitsDescription.millilitersPerSecondStringProperty;
+                      BeersLawLabStrings.a11y.unitsDescription.millilitersPerSecondStringProperty.value;
 
         return StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value, valueString, units );
       },
