@@ -37,6 +37,12 @@ export default class SaturatedIndicator extends BackgroundNode {
       },
       tandem: tandem
     } );
+
+    this.visibleProperty.lazyLink( visible => {
+      if ( visible ) {
+        this.addAccessibleContextResponse( BeersLawLabStrings.a11y.solutionIsSaturatedStringProperty.value );
+      }
+    } );
   }
 }
 
