@@ -30,7 +30,7 @@ export default class EvaporationSlider extends HSlider {
           evaporator.evaporationRateProperty.value = 0;
         }
       },
-      accessibleName: BeersLawLabStrings.evaporationStringProperty,
+      accessibleName: BeersLawLabStrings.a11y.evaporationSlider.accessibleNameStringProperty,
       tandem: tandem,
       visiblePropertyOptions: {
         phetioFeatured: false

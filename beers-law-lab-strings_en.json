@@ -341,6 +341,11 @@
         "value": "Open to drain solution from beaker."
       }
     },
+    "evaporationSlider": {
+      "accessibleName": {
+        "value": "Evaporation Rate"
+      }
+    },
     "rulerNode": {
       "accessibleName": {
         "value": "Ruler"
