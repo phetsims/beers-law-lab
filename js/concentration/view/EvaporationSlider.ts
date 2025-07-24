@@ -14,6 +14,10 @@ import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Evaporator from '../model/Evaporator.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import BLLPreferences from '../../common/model/BLLPreferences.js';
+import { toFixed } from '../../../../dot/js/util/toFixed.js';
+import BLLConstants from '../../common/BLLConstants.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 
 export default class EvaporationSlider extends HSlider {
 
@@ -31,6 +35,25 @@ export default class EvaporationSlider extends HSlider {
         }
       },
       accessibleName: BeersLawLabStrings.a11y.evaporationSlider.accessibleNameStringProperty,
+
+      pdomCreateAriaValueText: value => {
+
+        const valueString = toFixed( value, BLLConstants.DECIMAL_PLACES_EVAPORATION_RATE );
+
+        const units = ( BLLPreferences.beakerUnitsProperty.value === 'liters' ) ?
+                      BeersLawLabStrings.a11y.unitsDescription.litersPerSecondStringProperty.value :
+                      BeersLawLabStrings.a11y.unitsDescription.millilitersPerSecondStringProperty;
+
+        return StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value, valueString, units );
+      },
+
+      // Dynamic dependencies used in pdomCreateAriaValueText.
+      pdomDependencies: [
+        BLLPreferences.beakerUnitsProperty,
+        BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
+        BeersLawLabStrings.a11y.unitsDescription.litersPerSecondStringProperty,
+        BeersLawLabStrings.a11y.unitsDescription.millilitersPerSecondStringProperty
+      ],
       tandem: tandem,
       visiblePropertyOptions: {
         phetioFeatured: false

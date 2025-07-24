@@ -50,6 +50,7 @@ export default class BLLConstants {
   public static readonly DECIMAL_PLACES_SOLUTE_AMOUNT = 0;
   public static readonly DECIMAL_PLACES_LITERS_PER_SECOND = 3;
   public static readonly DECIMAL_PLACES_MILLILITERS_PER_SECOND = 3;
+  public static readonly DECIMAL_PLACES_EVAPORATION_RATE = 3;
 }
 
 beersLawLab.register( 'BLLConstants', BLLConstants );
