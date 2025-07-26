@@ -16,7 +16,7 @@ import beersLawLab from '../../beersLawLab.js';
 import BLLColors from '../../common/BLLColors.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
 import SolutionInCuvette from '../model/SolutionInCuvette.js';
-import ConcentrationControl from './ConcentrationControl.js';
+import SolutionConcentrationControl from './SolutionConcentrationControl.js';
 import SolutionControl from './SolutionControl.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 
@@ -54,7 +54,7 @@ export default class SolutionPanel extends Panel {
       }
     } );
 
-    const concentrationControl = new ConcentrationControl( solutions, solutionProperty, solutionInCuvette.concentrationProperty, {
+    const concentrationControl = new SolutionConcentrationControl( solutions, solutionProperty, solutionInCuvette.concentrationProperty, {
       tandem: options.tandem.createTandem( 'concentrationControl' )
     } );
 

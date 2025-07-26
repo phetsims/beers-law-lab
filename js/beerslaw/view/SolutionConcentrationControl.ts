@@ -1,7 +1,7 @@
 // Copyright 2018-2025, University of Colorado Boulder
 
 /**
- * ConcentrationControl is actually a set of NumberControls, one for each solute.  Since each solute has its
+ * SolutionConcentrationControl is actually a set of NumberControls, one for each solution.  Since each solution has its
  * own concentration, range, and associated color, it is (as of this writing) impossible to use a single NumberControl.
  *
  * @author Chris Malley (PixelZoom, Inc.)
@@ -44,7 +44,7 @@ type SelfOptions = EmptySelfOptions;
 
 type ConcentrationControlOptions = SelfOptions & PickRequired<NumberControlOptions, 'tandem'>;
 
-export default class ConcentrationControl extends Node {
+export default class SolutionConcentrationControl extends Node {
 
   public constructor( solutions: BeersLawSolution[],
                       solutionProperty: Property<BeersLawSolution>,
@@ -165,19 +165,19 @@ class SoluteConcentrationControl extends NumberControl {
     const transform = solution.concentrationTransform;
 
     // e.g. display units that are specific to the solution, e.g. '{0} mM'
-    assert && assert( !options.numberDisplayOptions.valuePattern, 'ConcentrationControl sets valuePattern' );
+    assert && assert( !options.numberDisplayOptions.valuePattern, 'SolutionConcentrationControl sets valuePattern' );
     options.numberDisplayOptions.valuePattern = new DerivedProperty(
       [ BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ], transform.unitsStringProperty ],
       ( pattern, unitsString ) => StringUtils.format( pattern, SunConstants.VALUE_NUMBERED_PLACEHOLDER, unitsString )
     );
 
-    assert && assert( options.delta === undefined, 'ConcentrationControl sets delta' );
+    assert && assert( options.delta === undefined, 'SolutionConcentrationControl sets delta' );
     options.delta = 1; // in view coordinates
 
     // fill the track with a linear gradient that corresponds to the solution color
     const trackSize = options.sliderOptions.trackSize!;
     assert && assert( trackSize );
-    assert && assert( !options.sliderOptions.trackFillEnabled, 'ConcentrationControl sets trackFillEnabled' );
+    assert && assert( !options.sliderOptions.trackFillEnabled, 'SolutionConcentrationControl sets trackFillEnabled' );
     options.sliderOptions.trackFillEnabled = new LinearGradient( 0, 0, trackSize.width, 0 )
       .addColorStop( 0, solution.colorRange.min )
       .addColorStop( 1, solution.colorRange.max );
@@ -204,7 +204,7 @@ class SoluteConcentrationControl extends NumberControl {
     );
 
     // ticks at the min and max of the solution's concentration range
-    assert && assert( !options.sliderOptions.majorTicks, 'ConcentrationControl sets majorTicks' );
+    assert && assert( !options.sliderOptions.majorTicks, 'SolutionConcentrationControl sets majorTicks' );
     options.sliderOptions.majorTicks = [
       {
         value: numberRange.min,
@@ -248,4 +248,4 @@ function createAriaValueTextForSlider( value: number, concentrationTransform: Co
   return StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value, valueString, unitsString );
 }
 
-beersLawLab.register( 'ConcentrationControl', ConcentrationControl );
+beersLawLab.register( 'SolutionConcentrationControl', SolutionConcentrationControl );
