@@ -25,6 +25,7 @@ import BeersLawScreenSummaryContent from './BeersLawScreenSummaryContent.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import BLLDescriptionUtils from '../../common/BLLDescriptionUtils.js';
 
 export default class BeersLawScreenView extends ScreenView {
 
@@ -56,7 +57,8 @@ export default class BeersLawScreenView extends ScreenView {
       ],
       ( solution, pattern, nanometersString ) => StringUtils.fillIn( pattern, {
         wavelength: solution.molarAbsorptivityData.lambdaMax,
-        units: nanometersString
+        units: nanometersString,
+        colorName: BLLDescriptionUtils.getColorDescriptionString( solution.molarAbsorptivityData.lambdaMax )
       } ), {
         isDisposable: false
       } );
