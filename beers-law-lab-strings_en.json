@@ -368,6 +368,9 @@
     "cuvetteArrowNode": {
       "accessibleName": {
         "value": "Cuvette Resize Handle"
+      },
+      "accessibleHelpText": {
+        "value": "Adjust solution container width."
       }
     },
     "lightToggleButton": {

@@ -180,6 +180,7 @@ class CuvetteArrowNode extends InteractiveHighlighting( ArrowNode ) {
       tagName: 'div',
       focusable: true,
       accessibleName: BeersLawLabStrings.a11y.cuvetteArrowNode.accessibleNameStringProperty,
+      accessibleHelpText: BeersLawLabStrings.a11y.cuvetteArrowNode.accessibleHelpTextStringProperty,
       tandem: tandem,
       visiblePropertyOptions: {
         phetioFeatured: true
