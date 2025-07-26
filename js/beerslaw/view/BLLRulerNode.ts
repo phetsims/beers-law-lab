@@ -9,28 +9,30 @@
 
 import Property from '../../../../axon/js/Property.js';
 import Shape from '../../../../kite/js/Shape.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import RulerNode, { RulerNodeOptions } from '../../../../scenery-phet/js/RulerNode.js';
+import RulerNode from '../../../../scenery-phet/js/RulerNode.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Ruler from '../model/Ruler.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
+import JumpToPositionListener from './JumpToPositionListener.js';
+import BLLConstants from '../../common/BLLConstants.js';
+import JumpPosition from '../../common/model/JumpPosition.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 
 const MAJOR_TICK_WIDTH = 0.5; // in model coordinate frame
 
-type SelfOptions = EmptySelfOptions;
-
-type BLLRulerNodeOptions = SelfOptions & PickRequired<RulerNodeOptions, 'tandem'>;
-
 export default class BLLRulerNode extends InteractiveHighlighting( RulerNode ) {
 
-  public constructor( ruler: Ruler, modelViewTransform: ModelViewTransform2, providedOptions: BLLRulerNodeOptions ) {
+  public constructor( ruler: Ruler,
+                      jumpPositions: JumpPosition[],
+                      jumpPositionIndexProperty: Property<number>,
+                      modelViewTransform: ModelViewTransform2,
+                      tandem: Tandem ) {
 
-    const options = optionize<BLLRulerNodeOptions, SelfOptions, RulerNodeOptions>()( {
+    const options = {
 
       //  RulerNodeOptions
       cursor: 'pointer',
@@ -44,8 +46,9 @@ export default class BLLRulerNode extends InteractiveHighlighting( RulerNode ) {
       phetioInputEnabledPropertyInstrumented: true,
       visiblePropertyOptions: {
         phetioFeatured: true
-      }
-    }, providedOptions );
+      },
+      tandem: tandem
+    };
 
     // Compute tick labels, 1 major tick for every 0.5 unit of length, labels on the ticks that correspond to integer values.
     const majorTickLabels: string[] = [];
@@ -89,6 +92,15 @@ export default class BLLRulerNode extends InteractiveHighlighting( RulerNode ) {
     } ) );
 
     this.addLinkedElement( ruler );
+
+    // Keyboard shortcut for jumping to useful positions.
+    this.addInputListener( new JumpToPositionListener( this, BLLConstants.JUMP_TO_POSITION_HOTKEY_DATA,
+      ruler.positionProperty, jumpPositions, jumpPositionIndexProperty ) );
+
+    // When the probe gets focus, reset the order of jump points.
+    this.focusedProperty.lazyLink( focused => {
+      focused && jumpPositionIndexProperty.reset();
+    } );
   }
 }
 

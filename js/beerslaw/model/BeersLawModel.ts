@@ -48,6 +48,11 @@ export default class BeersLawModel implements TModel {
   public readonly detectorProbeJumpPositions: JumpPosition[];
   public readonly detectorProbeJumpPositionIndexProperty: Property<number>;
 
+  // Useful positions for the ruler. Cycle through these positions via a keyboard shortcut.
+  // See https://github.com/phetsims/beers-law-lab/issues/364.
+  public readonly rulerJumpPositions: JumpPosition[];
+  public readonly rulerJumpPositionIndexProperty: Property<number>;
+
   public constructor( modelViewTransform: ModelViewTransform2, tandem: Tandem ) {
 
     // in rainbow (ROYGBIV) order.
@@ -84,6 +89,32 @@ export default class BeersLawModel implements TModel {
       position: new Vector2( this.cuvette.position.x - 2.6, this.cuvette.position.y + 4 ),
       dragBounds: new Bounds2( 0, 0, 6, 5 ),
       tandem: tandem.createTandem( 'ruler' )
+    } );
+
+    this.rulerJumpPositions = [
+
+      // Measuring the cuvette
+      new JumpPosition( {
+        positionProperty: new Vector2Property( new Vector2( this.cuvette.position.x, this.cuvette.position.y + this.cuvette.height ) ),
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.rulerNode.jumpResponses.measuringCuvetteWidthStringProperty
+      } ),
+
+      // Measuring the path length
+      new JumpPosition( {
+        positionProperty: new Vector2Property( new Vector2( this.cuvette.position.x, this.light.position.y + this.light.lensDiameter / 2 ) ),
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.rulerNode.jumpResponses.measuringPathLengthStringProperty
+      } ),
+
+      // The default position of the ruler.
+      new JumpPosition( {
+        positionProperty: new Vector2Property( this.ruler.positionProperty.value ),
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.rulerNode.jumpResponses.movedOutOfTheWayStringProperty
+      } )
+    ];
+
+    this.rulerJumpPositionIndexProperty = new NumberProperty( 0, {
+      numberType: 'Integer',
+      range: new Range( 0, this.rulerJumpPositions.length - 1 )
     } );
 
     this.solutionInCuvette = new SolutionInCuvette( this.solutions, this.solutionProperty,

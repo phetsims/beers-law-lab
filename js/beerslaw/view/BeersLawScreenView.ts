@@ -90,9 +90,8 @@ export default class BeersLawScreenView extends ScreenView {
       tandem: tandem.createTandem( 'wavelengthPanel' )
     } );
 
-    const rulerNode = new BLLRulerNode( model.ruler, modelViewTransform, {
-      tandem: tandem.createTandem( 'rulerNode' )
-    } );
+    const rulerNode = new BLLRulerNode( model.ruler, model.rulerJumpPositions, model.rulerJumpPositionIndexProperty,
+      modelViewTransform, tandem.createTandem( 'rulerNode' ) );
 
     const comboBoxListParent = new Node();
 
