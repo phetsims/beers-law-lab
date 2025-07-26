@@ -208,6 +208,10 @@ type StringsType = {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
+    'solutionConcentrationControl': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
     'sharedAccessibleContextResponses': {
       'presetWavelengthSetStringProperty': LocalizedStringProperty;
     };
