@@ -181,6 +181,7 @@ type StringsType = {
     };
     'rulerNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
     'cuvetteArrowNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;

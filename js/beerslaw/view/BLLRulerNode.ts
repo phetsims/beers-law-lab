@@ -40,6 +40,7 @@ export default class BLLRulerNode extends InteractiveHighlighting( RulerNode ) {
       tagName: 'div',
       focusable: true,
       accessibleName: BeersLawLabStrings.a11y.rulerNode.accessibleNameStringProperty,
+      accessibleHelpText: BeersLawLabStrings.a11y.rulerNode.accessibleHelpTextStringProperty,
       phetioInputEnabledPropertyInstrumented: true,
       visiblePropertyOptions: {
         phetioFeatured: true
