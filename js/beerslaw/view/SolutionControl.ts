@@ -115,6 +115,7 @@ function createItem( solution: BeersLawSolution ): ComboBoxItem<BeersLawSolution
   return {
     value: solution,
     createNode: () => hBox,
+    accessibleName: solution.nameProperty,
     tandemName: `${solution.tandemName}Item`
   };
 }
