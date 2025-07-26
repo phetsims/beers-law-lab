@@ -121,6 +121,7 @@ type StringsType = {
     };
     'detectorModeRadioButtonGroup': {
       'accessibleNameStringProperty': LocalizedStringProperty;
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
     'wavelengthNumberControl': {
       'accessibleNameStringProperty': LocalizedStringProperty;

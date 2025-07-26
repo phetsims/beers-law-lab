@@ -239,6 +239,9 @@
     "detectorModeRadioButtonGroup": {
       "accessibleName": {
         "value": "Detector Mode"
+      },
+      "accessibleHelpText": {
+        "value": "Select measurement type for detector."
       }
     },
     "wavelengthNumberControl": {

@@ -47,6 +47,7 @@ export default class ATDetectorModeRadioButtonGroup extends AquaRadioButtonGroup
       align: 'left',
       spacing: 15,
       accessibleName: BeersLawLabStrings.a11y.detectorModeRadioButtonGroup.accessibleNameStringProperty,
+      accessibleHelpText: BeersLawLabStrings.a11y.detectorModeRadioButtonGroup.accessibleHelpTextStringProperty,
       tandem: tandem
     } );
   }
