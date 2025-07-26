@@ -7,7 +7,6 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import PreferencesDialogConstants from '../../../../joist/js/preferences/PreferencesDialogConstants.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -73,27 +72,38 @@ class BeakerUnitsRadioButtonGroup extends AquaRadioButtonGroup<BeakerUnits> {
 
       // AquaRadioButtonGroupOptions
       orientation: 'horizontal',
-      spacing: 15
+      spacing: 15,
+      accessibleName: BeersLawLabStrings.a11y.beakerUnitsRadioButtonGroup.accessibleNameStringProperty,
+      accessibleHelpText: BeersLawLabStrings.a11y.beakerUnitsRadioButtonGroup.accessibleHelpTextStringProperty
     }, providedOptions );
 
     const items: AquaRadioButtonGroupItem<BeakerUnits>[] = [
-      createItem( 'liters', BeersLawLabStrings.units.litersStringProperty ),
-      createItem( 'milliliters', BeersLawLabStrings.units.millilitersStringProperty )
+      {
+        value: 'liters',
+        createNode: tandem => new Text( BeersLawLabStrings.units.litersStringProperty, {
+          font: PreferencesDialogConstants.CONTENT_FONT,
+          maxWidth: 100
+        } ),
+        options: {
+          accessibleName: BeersLawLabStrings.a11y.unitsDescription.litersStringProperty
+        },
+        tandemName: 'litersRadioButton'
+      },
+      {
+        value: 'milliliters',
+        createNode: tandem => new Text( BeersLawLabStrings.units.millilitersStringProperty, {
+          font: PreferencesDialogConstants.CONTENT_FONT,
+          maxWidth: 100
+        } ),
+        options: {
+          accessibleName: BeersLawLabStrings.a11y.unitsDescription.millilitersStringProperty
+        },
+        tandemName: 'millilitersRadioButton'
+      }
     ];
 
     super( beakerUnitsProperty, items, options );
   }
-}
-
-function createItem( value: BeakerUnits, stringProperty: TReadOnlyProperty<string> ): AquaRadioButtonGroupItem<BeakerUnits> {
-  return {
-    value: value,
-    createNode: tandem => new Text( stringProperty, {
-      font: PreferencesDialogConstants.CONTENT_FONT,
-      maxWidth: 100
-    } ),
-    tandemName: `${value}RadioButton`
-  };
 }
 
 beersLawLab.register( 'BeakerUnitsControl', BeakerUnitsControl );

@@ -193,6 +193,20 @@ type StringsType = {
     'solutionVolumeNode': {
       'accessibleParagraphStringProperty': LocalizedStringProperty;
     };
+    'showSolutionVolumeCheckbox': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'showSoluteAmountCheckbox': {
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'beakerUnitsRadioButtonGroup': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
+    'concentrationMeterUnitsRadioButtonGroup': {
+      'accessibleNameStringProperty': LocalizedStringProperty;
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
+    };
     'sharedAccessibleContextResponses': {
       'presetWavelengthSetStringProperty': LocalizedStringProperty;
     };

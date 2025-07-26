@@ -44,6 +44,7 @@ export default class BLLPreferencesNode extends VBox {
       maxWidth: 400
     } );
     const showSolutionVolumeCheckbox = new Checkbox( BLLPreferences.showSolutionVolumeProperty, showSolutionVolumeText, {
+      accessibleHelpText: BeersLawLabStrings.a11y.showSolutionVolumeCheckbox.accessibleHelpTextStringProperty,
       tandem: options.tandem.createTandem( 'showSolutionVolumeCheckbox' )
     } );
 
@@ -53,6 +54,7 @@ export default class BLLPreferencesNode extends VBox {
       maxWidth: 400
     } );
     const showSoluteAmountCheckbox = new Checkbox( BLLPreferences.showSoluteAmountProperty, showSoluteAmountText, {
+      accessibleHelpText: BeersLawLabStrings.a11y.showSoluteAmountCheckbox.accessibleHelpTextStringProperty,
       tandem: options.tandem.createTandem( 'showSoluteAmountCheckbox' )
     } );
 

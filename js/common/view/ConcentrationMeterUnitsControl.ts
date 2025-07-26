@@ -7,7 +7,6 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import PreferencesDialogConstants from '../../../../joist/js/preferences/PreferencesDialogConstants.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
@@ -73,27 +72,38 @@ class ConcentrationMeterUnitsRadioButtonGroup extends AquaRadioButtonGroup<Conce
 
       // AquaRadioButtonGroupOptions
       orientation: 'horizontal',
-      spacing: 15
+      spacing: 15,
+      accessibleName: BeersLawLabStrings.a11y.concentrationMeterUnitsRadioButtonGroup.accessibleNameStringProperty,
+      accessibleHelpText: BeersLawLabStrings.a11y.concentrationMeterUnitsRadioButtonGroup.accessibleHelpTextStringProperty
     }, providedOptions );
 
     const items: AquaRadioButtonGroupItem<ConcentrationMeterUnits>[] = [
-      createItem( 'molesPerLiter', BeersLawLabStrings.units.molesPerLiterStringProperty ),
-      createItem( 'percent', BeersLawLabStrings.units.percentStringProperty )
+      {
+        value: 'molesPerLiter',
+        createNode: () => new Text( BeersLawLabStrings.units.molesPerLiterStringProperty, {
+          font: PreferencesDialogConstants.CONTENT_FONT,
+          maxWidth: 100
+        } ),
+        options: {
+          accessibleName: BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty
+        },
+        tandemName: 'molesPerLiterRadioButton'
+      },
+      {
+        value: 'percent',
+        createNode: () => new Text( BeersLawLabStrings.units.percentStringProperty, {
+          font: PreferencesDialogConstants.CONTENT_FONT,
+          maxWidth: 100
+        } ),
+        options: {
+          accessibleName: BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty
+        },
+        tandemName: 'percentRadioButton'
+      }
     ];
 
     super( concentrationMeterUnitsProperty, items, options );
   }
-}
-
-function createItem( value: ConcentrationMeterUnits, stringProperty: TReadOnlyProperty<string> ): AquaRadioButtonGroupItem<ConcentrationMeterUnits> {
-  return {
-    value: value,
-    createNode: () => new Text( stringProperty, {
-      font: PreferencesDialogConstants.CONTENT_FONT,
-      maxWidth: 100
-    } ),
-    tandemName: `${value}RadioButton`
-  };
 }
 
 beersLawLab.register( 'ConcentrationMeterUnitsControl', ConcentrationMeterUnitsControl );
