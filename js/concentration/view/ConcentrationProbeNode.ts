@@ -18,17 +18,11 @@ import Property from '../../../../axon/js/Property.js';
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLColors from '../../common/BLLColors.js';
-import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
 import JumpPosition from '../../common/model/JumpPosition.js';
 import JumpToPositionListener from '../../beerslaw/view/JumpToPositionListener.js';
+import BLLConstants from '../../common/BLLConstants.js';
 
 export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode ) {
-
-  public static readonly JUMP_TO_POSITION_HOTKEY_DATA = new HotkeyData( {
-    keys: [ 'j' ],
-    repoName: beersLawLab.name,
-    keyboardHelpDialogLabelStringProperty: BeersLawLabStrings.keyboardHelpDialog.jumpToPositionStringProperty
-  } );
 
   public readonly isInSolution: () => boolean;
   public readonly isInSolvent: () => boolean;
@@ -111,7 +105,7 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
     this.isInStockSolution = () => isInNode( stockSolutionNode );
 
     // Keyboard shortcut for jumping to useful positions.
-    this.addInputListener( new JumpToPositionListener( this, ConcentrationProbeNode.JUMP_TO_POSITION_HOTKEY_DATA,
+    this.addInputListener( new JumpToPositionListener( this, BLLConstants.JUMP_TO_POSITION_HOTKEY_DATA,
       probe.positionProperty, jumpPositions, jumpPositionIndexProperty ) );
 
     // When the probe gets focus, reset the order of jump points.

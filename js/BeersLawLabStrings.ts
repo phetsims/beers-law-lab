@@ -182,6 +182,11 @@ type StringsType = {
     'rulerNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      'jumpResponses': {
+        'measuringCuvetteWidthStringProperty': LocalizedStringProperty;
+        'measuringLightBeamWidthStringProperty': LocalizedStringProperty;
+        'movedOutOfTheWayStringProperty': LocalizedStringProperty;
+      }
     };
     'cuvetteArrowNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;

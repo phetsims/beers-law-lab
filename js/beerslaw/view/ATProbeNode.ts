@@ -13,7 +13,6 @@ import ProbeNode from '../../../../scenery-phet/js/ProbeNode.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
-import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
@@ -22,14 +21,9 @@ import BLLMovable from '../../common/model/BLLMovable.js';
 import JumpPosition from '../../common/model/JumpPosition.js';
 import Light from '../model/Light.js';
 import JumpToPositionListener from './JumpToPositionListener.js';
+import BLLConstants from '../../common/BLLConstants.js';
 
 export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
-
-  public static readonly JUMP_TO_POSITION_HOTKEY_DATA = new HotkeyData( {
-    keys: [ 'j' ],
-    repoName: beersLawLab.name,
-    keyboardHelpDialogLabelStringProperty: BeersLawLabStrings.keyboardHelpDialog.jumpToPositionStringProperty
-  } );
 
   public constructor( probe: BLLMovable,
                       jumpPositions: JumpPosition[],
@@ -88,7 +82,7 @@ export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
     this.touchArea = this.localBounds.dilatedXY( 0.25 * this.width, 0 );
 
     // Keyboard shortcut for jumping to useful positions.
-    this.addInputListener( new JumpToPositionListener( this, ATProbeNode.JUMP_TO_POSITION_HOTKEY_DATA,
+    this.addInputListener( new JumpToPositionListener( this, BLLConstants.JUMP_TO_POSITION_HOTKEY_DATA,
       probe.positionProperty, jumpPositions, jumpPositionIndexProperty ) );
 
     // When the probe gets focus, reset the order of jump points.

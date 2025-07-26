@@ -12,6 +12,8 @@ import RangeWithValue from '../../../dot/js/RangeWithValue.js';
 import beersLawLab from '../beersLawLab.js';
 import { CreditsData } from '../../../joist/js/CreditsNode.js';
 import VisibleColor from '../../../scenery-phet/js/VisibleColor.js';
+import HotkeyData from '../../../scenery/js/input/HotkeyData.js';
+import BeersLawLabStrings from '../BeersLawLabStrings.js';
 
 export default class BLLConstants {
 
@@ -56,6 +58,13 @@ export default class BLLConstants {
   public static readonly DECIMAL_PLACES_EVAPORATION_RATE_LITERS_PER_SECOND = 3;
   public static readonly DECIMAL_PLACES_EVAPORATION_RATE_MILLILITERS_PER_SECOND = 0;
   public static readonly DECIMAL_PLACES_CUVETTE_WIDTH = 2;
+
+  // Keyboard shortcut used for probes and ruler.
+  public static readonly JUMP_TO_POSITION_HOTKEY_DATA = new HotkeyData( {
+    keys: [ 'j' ],
+    repoName: beersLawLab.name,
+    keyboardHelpDialogLabelStringProperty: BeersLawLabStrings.keyboardHelpDialog.jumpToPositionStringProperty
+  } );
 }
 
 beersLawLab.register( 'BLLConstants', BLLConstants );
