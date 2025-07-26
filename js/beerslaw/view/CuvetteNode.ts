@@ -28,6 +28,9 @@ import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js'
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLColors from '../../common/BLLColors.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import BLLConstants from '../../common/BLLConstants.js';
+import { toFixed } from '../../../../dot/js/util/toFixed.js';
 
 const PERCENT_FULL = 0.92;
 const SOLUTION_ALPHA = 0.6;
@@ -99,7 +102,7 @@ export default class CuvetteNode extends Node {
     } );
 
     arrowNode.addInputListener( new CuvetteDragListener( cuvette, modelViewTransform,
-      options.tandem.createTandem( 'cuvetteDragListener' ) ) );
+      arrowNode, options.tandem.createTandem( 'cuvetteDragListener' ) ) );
 
     arrowNode.addInputListener( new SoundKeyboardDragListener( {
       transform: modelViewTransform,
@@ -128,7 +131,7 @@ export default class CuvetteNode extends Node {
  */
 class CuvetteDragListener extends SoundDragListener {
 
-  public constructor( cuvette: Cuvette, modelViewTransform: ModelViewTransform2, tandem: Tandem ) {
+  public constructor( cuvette: Cuvette, modelViewTransform: ModelViewTransform2, arrowNode: CuvetteArrowNode, tandem: Tandem ) {
 
     const widthRange = cuvette.widthProperty.range;
 
@@ -149,6 +152,15 @@ class CuvetteDragListener extends SoundDragListener {
         const dragX = event.pointer.point.x;
         const deltaWidth = modelViewTransform.viewToModelDeltaX( dragX - startX );
         cuvette.widthProperty.value = clamp( startWidth + deltaWidth, widthRange.min, widthRange.max );
+        arrowNode.addAccessibleObjectResponse( StringUtils.format(
+          BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value,
+          // value
+          toFixed( cuvette.widthProperty.value, BLLConstants.DECIMAL_PLACES_CUVETTE_WIDTH ),
+          // units, singular or plural
+          ( cuvette.widthProperty.value === 1 ) ?
+          BeersLawLabStrings.a11y.unitsDescription.centimeterStringProperty.value :
+          BeersLawLabStrings.a11y.unitsDescription.centimetersStringProperty.value
+        ) );
       },
 
       end: () => {
