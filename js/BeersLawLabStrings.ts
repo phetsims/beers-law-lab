@@ -226,6 +226,9 @@ type StringsType = {
       'soluteControlsHeadingStringProperty': LocalizedStringProperty;
       'concentrationMeterHeadingStringProperty': LocalizedStringProperty;
       'beakerControlsHeadingStringProperty': LocalizedStringProperty;
+      'lightSourceControlsHeadingStringProperty': LocalizedStringProperty;
+      'atDetectorHeadingStringProperty': LocalizedStringProperty;
+      'solutionControlsHeadingStringProperty': LocalizedStringProperty;
     };
     'unitsDescription': {
       'centimetersStringProperty': LocalizedStringProperty;

@@ -66,7 +66,8 @@ export default class ATDetectorNode extends Node {
       isDisposable: false,
       visiblePropertyOptions: {
         phetioFeatured: true
-      }
+      },
+      accessibleHeading: BeersLawLabStrings.a11y.accessibleHeadings.atDetectorHeadingStringProperty
     }, providedOptions );
 
     super( options );

@@ -115,8 +115,25 @@ export default class BeersLawScreenView extends ScreenView {
       tandem: tandem.createTandem( 'resetAllButton' )
     } );
 
+    // 'Light Source Controls' accessible heading
+    const lightSourceControlsHeading = new Node( {
+      pdomOrder: [ lightNode, wavelengthPanel ],
+      accessibleHeading: BeersLawLabStrings.a11y.accessibleHeadings.lightSourceControlsHeadingStringProperty
+    } );
+
+    // 'Solution Controls' accessible heading
+    const solutionControlsHeading = new Node( {
+      pdomOrder: [ cuvetteNode, solutionPanel ],
+      accessibleHeading: BeersLawLabStrings.a11y.accessibleHeadings.solutionControlsHeadingStringProperty
+    } );
+
     const screenViewRootNode = new Node( {
       children: [
+
+        // Accessible headings can be put anywhere in rendering order because they have no children. Put them all first.
+        lightSourceControlsHeading,
+        solutionControlsHeading,
+
         wavelengthPanel,
         resetAllButton,
         solutionPanel,
@@ -132,11 +149,9 @@ export default class BeersLawScreenView extends ScreenView {
 
     // Play Area focus order
     this.pdomPlayAreaNode.pdomOrder = [
-      lightNode,
-      wavelengthPanel,
+      lightSourceControlsHeading,
       detectorNode,
-      cuvetteNode,
-      solutionPanel,
+      solutionControlsHeading,
       rulerNode
     ];
 

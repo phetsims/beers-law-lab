@@ -454,6 +454,15 @@
       },
       "beakerControlsHeading": {
         "value": "Beaker Controls"
+      },
+      "lightSourceControlsHeading": {
+        "value": "Light Source Controls"
+      },
+      "atDetectorHeading": {
+        "value": "Absorbance Transmittance Detector"
+      },
+      "solutionControlsHeading": {
+        "value": "Solution Controls"
       }
     },
     "unitsDescription": {
