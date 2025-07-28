@@ -19,7 +19,9 @@ export class ConcentrationProbeControlsSection extends KeyboardHelpSection {
     const rows = [
 
       // J, for 'Jump'
-      KeyboardHelpSectionRow.fromHotkeyData( BLLConstants.JUMP_TO_POSITION_HOTKEY_DATA )
+      KeyboardHelpSectionRow.fromHotkeyData( BLLConstants.JUMP_TO_POSITION_HOTKEY_DATA, {
+        pdomLabelStringProperty: BeersLawLabStrings.a11y.keyboardHelpDialog.jumpToPositionDescriptionStringProperty
+      } )
     ];
 
     super( BeersLawLabStrings.keyboardHelpDialog.concentrationProbeControlsStringProperty, rows, {
