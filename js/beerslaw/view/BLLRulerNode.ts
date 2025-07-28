@@ -10,7 +10,7 @@
 import Property from '../../../../axon/js/Property.js';
 import Shape from '../../../../kite/js/Shape.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import RulerNode from '../../../../scenery-phet/js/RulerNode.js';
+import RulerNode, { RulerNodeOptions } from '../../../../scenery-phet/js/RulerNode.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Ruler from '../model/Ruler.js';
@@ -21,6 +21,8 @@ import JumpToPositionListener from './JumpToPositionListener.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import JumpPosition from '../../common/model/JumpPosition.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
+import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
+import { combineOptions } from '../../../../phet-core/js/optionize.js';
 
 const MAJOR_TICK_WIDTH = 0.5; // in model coordinate frame
 
@@ -32,15 +34,13 @@ export default class BLLRulerNode extends InteractiveHighlighting( RulerNode ) {
                       modelViewTransform: ModelViewTransform2,
                       tandem: Tandem ) {
 
-    const options = {
+    const options = combineOptions<RulerNodeOptions>( {
 
       //  RulerNodeOptions
       cursor: 'pointer',
       minorTicksPerMajorTick: 4,
       insetsWidth: 0,
       isDisposable: false,
-      tagName: 'div',
-      focusable: true,
       accessibleName: BeersLawLabStrings.a11y.rulerNode.accessibleNameStringProperty,
       accessibleHelpText: BeersLawLabStrings.a11y.rulerNode.accessibleHelpTextStringProperty,
       phetioInputEnabledPropertyInstrumented: true,
@@ -48,7 +48,7 @@ export default class BLLRulerNode extends InteractiveHighlighting( RulerNode ) {
         phetioFeatured: true
       },
       tandem: tandem
-    };
+    }, AccessibleDraggableOptions );
 
     // Compute tick labels, 1 major tick for every 0.5 unit of length, labels on the ticks that correspond to integer values.
     const majorTickLabels: string[] = [];
@@ -79,7 +79,7 @@ export default class BLLRulerNode extends InteractiveHighlighting( RulerNode ) {
       positionProperty: ruler.positionProperty,
       dragBoundsProperty: new Property( ruler.dragBounds ),
       transform: modelViewTransform,
-      tandem: options.tandem.createTandem( 'dragListener' )
+      tandem: tandem.createTandem( 'dragListener' )
     } ) );
 
     this.addInputListener( new SoundKeyboardDragListener( {
@@ -88,7 +88,7 @@ export default class BLLRulerNode extends InteractiveHighlighting( RulerNode ) {
       transform: modelViewTransform,
       dragSpeed: 300,
       shiftDragSpeed: 20,
-      tandem: options.tandem.createTandem( 'keyboardDragListener' )
+      tandem: tandem.createTandem( 'keyboardDragListener' )
     } ) );
 
     this.addLinkedElement( ruler );
