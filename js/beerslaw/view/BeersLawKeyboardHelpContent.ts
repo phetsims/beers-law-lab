@@ -13,7 +13,7 @@ import beersLawLab from '../../beersLawLab.js';
 import SliderControlsKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/SliderControlsKeyboardHelpSection.js';
 import ComboBoxKeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/ComboBoxKeyboardHelpSection.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
-import { ATProbeControlsSection } from './ATProbeControlsSection.js';
+import { DetectorProbeAndRulerControlsSection } from './DetectorProbeAndRulerControlsSection.js';
 
 export default class BeersLawKeyboardHelpContent extends TwoColumnKeyboardHelpContent {
 
@@ -22,8 +22,8 @@ export default class BeersLawKeyboardHelpContent extends TwoColumnKeyboardHelpCo
     // Sections in the left column.
     const leftSections = [
 
-      // Detector Probe Controls
-      new ATProbeControlsSection(),
+      // Detector Probe and Ruler Controls
+      new DetectorProbeAndRulerControlsSection(),
 
       // Move Draggable Items
       new MoveDraggableItemsKeyboardHelpSection(),

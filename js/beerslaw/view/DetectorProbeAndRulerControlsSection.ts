@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * ATProbeControlsSection is the keyboard help section labeled 'Concentration Probe Controls'.
+ * DetectorProbeAndRulerControlsSection is the keyboard help section labeled 'Concentration Probe Controls'.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -12,7 +12,7 @@ import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 
-export class ATProbeControlsSection extends KeyboardHelpSection {
+export class DetectorProbeAndRulerControlsSection extends KeyboardHelpSection {
 
   public constructor() {
 
@@ -31,4 +31,4 @@ export class ATProbeControlsSection extends KeyboardHelpSection {
   }
 }
 
-beersLawLab.register( 'ATProbeControlsSection', ATProbeControlsSection );
+beersLawLab.register( 'DetectorProbeAndRulerControlsSection', DetectorProbeAndRulerControlsSection );
