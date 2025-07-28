@@ -24,6 +24,8 @@ import BLLPreferences from '../../common/model/BLLPreferences.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
+import BLLDescriptionUtils from '../../common/BLLDescriptionUtils.js';
+import BLLConstants from '../../common/BLLConstants.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -56,10 +58,10 @@ export default class SolutionVolumeNode extends Node {
       ( volume, beakerUnits ) => {
         let volumeString: string;
         if ( beakerUnits === 'liters' ) {
-          volumeString = Number.isInteger( volume ) ? toFixed( volume, 0 ) : toFixed( volume, 2 );
+          volumeString = Number.isInteger( volume ) ? toFixed( volume, 0 ) : toFixed( volume, BLLConstants.DECIMAL_PLACES_VOLUME_LITERS );
         }
         else {
-          volumeString = toFixed( volume * 1000, 0 ); // convert L to mL
+          volumeString = toFixed( volume * 1000, BLLConstants.DECIMAL_PLACES_VOLUME_MILLILITERS ); // convert L to mL
         }
         return volumeString;
       } );
@@ -111,10 +113,10 @@ function createAccessibleParagraph( volumeProperty: TReadOnlyProperty<number>, v
     ],
     ( volume, beakerUnits, literString, litersString, milliliterString, millilitersString ) => {
     if ( beakerUnits === 'liters' ) {
-      return ( volume === 1 ) ? literString : litersString;
+      return BLLDescriptionUtils.getUnitsForValue( volume, BLLConstants.DECIMAL_PLACES_VOLUME_LITERS, literString, litersString );
     }
     else {
-      return ( volume === 1 ) ? milliliterString : millilitersString;
+      return BLLDescriptionUtils.getUnitsForValue( volume, BLLConstants.DECIMAL_PLACES_VOLUME_MILLILITERS, milliliterString, millilitersString );
     }
     }
   );

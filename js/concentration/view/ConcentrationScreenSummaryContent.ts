@@ -18,6 +18,7 @@ import BLLConstants from '../../common/BLLConstants.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import { ConcentrationProbeNode } from './ConcentrationProbeNode.js';
+import BLLDescriptionUtils from '../../common/BLLDescriptionUtils.js';
 
 export default class ConcentrationScreenSummaryContent extends ScreenSummaryContent {
 
@@ -43,24 +44,15 @@ export default class ConcentrationScreenSummaryContent extends ScreenSummaryCont
     // Concentration units, with singular vs plural matched to the concentration value, and support for dynamic locale.
     const concentrationUnitsDescriptionProperty = new DerivedStringProperty( [
         model.solution.concentrationProperty,
-        BLLPreferences.concentrationMeterUnitsProperty,
 
-        // Localized strings used in this derivation.
+        // Properties used by BLLDescriptionUtils.getConcentrationUnits
+        BLLPreferences.concentrationMeterUnitsProperty,
         BeersLawLabStrings.a11y.unitsDescription.molePerLiterStringProperty,
         BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty,
         BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty,
         BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty
       ],
-      ( concentration, concentrationMeterUnits, molePerLiterString, molesPerLiterString, percentSingularString, percentPluralString ) => {
-        if ( ( concentration === 1 ) ) {
-          // singular
-          return ( concentrationMeterUnits === 'molesPerLiter' ) ? molePerLiterString : percentSingularString;
-        }
-        else {
-          // plural
-          return ( concentrationMeterUnits === 'molesPerLiter' ) ? molesPerLiterString : percentPluralString;
-        }
-      } );
+      concentration => BLLDescriptionUtils.getConcentrationUnits( concentration ) );
 
     // Sentence that describes whether the solution is saturated.
     const saturatedSentenceProperty = new DerivedProperty( [

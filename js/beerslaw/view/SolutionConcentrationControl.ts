@@ -35,6 +35,7 @@ import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import ConcentrationTransform from '../model/ConcentrationTransform.js';
+import BLLDescriptionUtils from '../../common/BLLDescriptionUtils.js';
 
 const FONT = new PhetFont( 20 );
 const TICK_FONT = new PhetFont( 16 );
@@ -136,7 +137,7 @@ class SoluteConcentrationControl extends NumberControl {
         constrainValue: value => roundToInterval( value, SLIDER_INTERVAL ),
         tandem: Tandem.OPT_OUT,
 
-        pdomCreateAriaValueText: value => createAriaValueTextForSlider( value, solution.concentrationTransform ),
+        pdomCreateAriaValueText: concentration => createAriaValueTextForSlider( concentration, solution.concentrationTransform ),
 
         // Dynamic dependencies used in createAriaValueTextForSlider.
         pdomDependencies: [
@@ -227,22 +228,22 @@ class SoluteConcentrationControl extends NumberControl {
 /**
  * Creates the aria-valuetext for the Concentration slider.
  */
-function createAriaValueTextForSlider( value: number, concentrationTransform: ConcentrationTransform ): string {
+function createAriaValueTextForSlider( concentration: number, concentrationTransform: ConcentrationTransform ): string {
 
   // No need to apply concentrationTransform to value because the slider is operating on a DynamicProperty that is already transformed.
 
-  const valueString = toFixed( value, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLAR );
+  const valueString = toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLAR );
 
   let unitsString;
   if ( concentrationTransform === ConcentrationTransform.uM ) {
-    unitsString = ( value === 1 ) ?
-                  BeersLawLabStrings.a11y.unitsDescription.micromolarSingularStringProperty.value :
-                  BeersLawLabStrings.a11y.unitsDescription.micromolarPluralStringProperty.value;
+    unitsString = BLLDescriptionUtils.getUnitsForValue( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLAR,
+      BeersLawLabStrings.a11y.unitsDescription.micromolarSingularStringProperty.value,
+      BeersLawLabStrings.a11y.unitsDescription.micromolarPluralStringProperty.value );
   }
   else {
-    unitsString = ( value === 1 ) ?
-                  BeersLawLabStrings.a11y.unitsDescription.millimolarSingularStringProperty.value :
-                  BeersLawLabStrings.a11y.unitsDescription.millimolarPluralStringProperty.value;
+    unitsString = BLLDescriptionUtils.getUnitsForValue( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLAR,
+      BeersLawLabStrings.a11y.unitsDescription.millimolarSingularStringProperty.value,
+      BeersLawLabStrings.a11y.unitsDescription.millimolarPluralStringProperty.value );
   }
 
   return StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value, valueString, unitsString );

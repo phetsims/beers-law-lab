@@ -18,6 +18,7 @@ import ATDetectorMode from '../model/ATDetectorMode.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import ConcentrationTransform from '../model/ConcentrationTransform.js';
+import BLLDescriptionUtils from '../../common/BLLDescriptionUtils.js';
 
 export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
 
@@ -66,10 +67,10 @@ export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
       ],
       ( solution, concentration, micromolarSingular, micromolarPlural, millimolarSingular, millimolarPlural ) => {
         if ( solution.concentrationTransform === ConcentrationTransform.uM ) {
-          return ( concentration === 1 ) ? micromolarSingular : micromolarPlural;
+          return BLLDescriptionUtils.getUnitsForValue( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLAR, micromolarSingular, micromolarPlural );
         }
         else {
-          return ( concentration === 1 ) ? millimolarSingular : millimolarPlural;
+          return BLLDescriptionUtils.getUnitsForValue( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLAR, millimolarSingular, millimolarPlural );
         }
       } );
 
@@ -81,7 +82,14 @@ export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
         BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty,
         BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty
       ],
-      ( absorbance, percentSingularString, percentPluralString ) => ( absorbance === 1 ) ? percentSingularString : percentPluralString );
+      ( absorbance, percentSingularString, percentPluralString ) => {
+        if ( absorbance === null ) {
+          return '';
+        }
+        else {
+          return BLLDescriptionUtils.getUnitsForValue( absorbance, BLLConstants.DECIMAL_PLACES_ABSORBANCE, percentSingularString, percentPluralString );
+        }
+      } );
 
     const currentDetailsStringProperty = DerivedStringProperty.deriveAny( [
       model.light.isOnProperty,

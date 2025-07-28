@@ -255,6 +255,8 @@ type StringsType = {
     'unitsDescription': {
       'centimetersStringProperty': LocalizedStringProperty;
       'centimeterStringProperty': LocalizedStringProperty;
+      'gramsStringProperty': LocalizedStringProperty;
+      'gramStringProperty': LocalizedStringProperty;
       'literStringProperty': LocalizedStringProperty;
       'litersStringProperty': LocalizedStringProperty;
       'litersPerSecondStringProperty': LocalizedStringProperty;

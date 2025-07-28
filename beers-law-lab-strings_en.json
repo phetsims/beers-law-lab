@@ -411,7 +411,7 @@
     },
     "soluteAmountText": {
       "accessibleParagraph": {
-        "value": "Solute amount is {{value}} grams."
+        "value": "Solute amount is {{value}} {{units}}."
       }
     },
     "solutionVolumeNode": {
@@ -521,6 +521,12 @@
       },
       "centimeter": {
         "value": "centimeter"
+      },
+      "grams": {
+        "value": "grams"
+      },
+      "gram": {
+        "value": "gram"
       },
       "liter": {
         "value": "liter"

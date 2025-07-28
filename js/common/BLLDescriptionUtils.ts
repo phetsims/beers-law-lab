@@ -10,11 +10,19 @@ import BLLPreferences from './model/BLLPreferences.js';
 import BeersLawLabStrings from '../BeersLawLabStrings.js';
 import beersLawLab from '../beersLawLab.js';
 import BLLConstants from './BLLConstants.js';
+import { toFixedNumber } from '../../../dot/js/util/toFixedNumber.js';
 
 export default class BLLDescriptionUtils {
 
   private constructor() {
     // Not intended for instantiation.
+  }
+
+  /**
+   * Gets singular or plural units based on a rounded values.
+   */
+  public static getUnitsForValue( value: number, decimalPlaces: number, unitsSingular: string, unitsPlural: string ): string {
+    return ( toFixedNumber( value, decimalPlaces ) === 1 ) ? unitsSingular : unitsPlural;
   }
 
   /**
@@ -24,20 +32,14 @@ export default class BLLDescriptionUtils {
   public static getConcentrationUnits( concentration: number ): string {
     let units;
     if ( BLLPreferences.concentrationMeterUnitsProperty.value === 'molesPerLiter' ) {
-      if ( concentration === 1 ) {
-        units = BeersLawLabStrings.a11y.unitsDescription.molePerLiterStringProperty.value;
-      }
-      else {
-        units = BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty.value;
-      }
+      units = BLLDescriptionUtils.getUnitsForValue( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER,
+        BeersLawLabStrings.a11y.unitsDescription.molePerLiterStringProperty.value,
+        BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty.value );
     }
     else {
-      if ( concentration === 1 ) {
-        units = BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty.value;
-      }
-      else {
-        units = BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty.value;
-      }
+      units = BLLDescriptionUtils.getUnitsForValue( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_PERCENT,
+        BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty.value,
+        BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty.value );
     }
     return units;
   }

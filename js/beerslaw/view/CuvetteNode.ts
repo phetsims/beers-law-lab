@@ -32,6 +32,7 @@ import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
+import BLLDescriptionUtils from '../../common/BLLDescriptionUtils.js';
 
 const PERCENT_FULL = 0.92;
 const SOLUTION_ALPHA = 0.6;
@@ -157,10 +158,11 @@ class CuvetteDragListener extends SoundDragListener {
           BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value,
           // value
           toFixed( cuvette.widthProperty.value, BLLConstants.DECIMAL_PLACES_CUVETTE_WIDTH ),
-          // units, singular or plural
-          ( cuvette.widthProperty.value === 1 ) ?
-          BeersLawLabStrings.a11y.unitsDescription.centimeterStringProperty.value :
-          BeersLawLabStrings.a11y.unitsDescription.centimetersStringProperty.value
+          // units
+          BLLDescriptionUtils.getUnitsForValue( cuvette.widthProperty.value, BLLConstants.DECIMAL_PLACES_CUVETTE_WIDTH,
+            BeersLawLabStrings.a11y.unitsDescription.centimeterStringProperty.value,
+            BeersLawLabStrings.a11y.unitsDescription.centimetersStringProperty.value
+          )
         ) );
       },
 
