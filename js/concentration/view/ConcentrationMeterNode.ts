@@ -282,7 +282,7 @@ class WireNode extends Path {
 }
 
 /**
- * Creates the accessible paragraph for ConcentrationMeterNode.
+ * Creates the accessible paragraph for ConcentrationMeterNode.BodyNode.
  */
 function createAccessibleParagraph( concentrationProperty: TReadOnlyProperty<number | null> ): TReadOnlyProperty<string> {
 

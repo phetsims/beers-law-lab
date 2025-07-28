@@ -162,6 +162,12 @@ type StringsType = {
       'accessibleParagraphStringProperty': LocalizedStringProperty;
       'accessibleParagraphUnknownStringProperty': LocalizedStringProperty;
     };
+    'detectorBodyNode': {
+      'accessibleParagraphAbsorbanceStringProperty': LocalizedStringProperty;
+      'accessibleParagraphAbsorbanceUnknownStringProperty': LocalizedStringProperty;
+      'accessibleParagraphTransmittanceStringProperty': LocalizedStringProperty;
+      'accessibleParagraphTransmittanceUnknownStringProperty': LocalizedStringProperty;
+    };
     'soluteComboBox': {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;

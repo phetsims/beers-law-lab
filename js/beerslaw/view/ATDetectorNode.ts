@@ -38,6 +38,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import JumpPosition from '../../common/model/JumpPosition.js';
 import Property from '../../../../axon/js/Property.js';
 import BLLConstants from '../../common/BLLConstants.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 
 const NO_VALUE = MathSymbols.NO_VALUE;
 const BODY_X_MARGIN = 15;
@@ -66,8 +67,7 @@ export default class ATDetectorNode extends Node {
       isDisposable: false,
       visiblePropertyOptions: {
         phetioFeatured: true
-      },
-      accessibleHeading: BeersLawLabStrings.a11y.accessibleHeadings.atDetectorHeadingStringProperty
+      }
     }, providedOptions );
 
     super( options );
@@ -100,6 +100,7 @@ class BodyNode extends Node {
   public constructor( detector: ATDetector, modelViewTransform: ModelViewTransform2, tandem: Tandem ) {
 
     super( {
+      accessibleParagraph: createAccessibleParagraph( detector ),
       phetioVisiblePropertyInstrumented: false,
       tandem: tandem
     } );
@@ -222,6 +223,53 @@ class WireNode extends Path {
       pickable: false
     } );
   }
+}
+
+/**
+ * Creates the accessible paragraph for ATDetectorNode.BodyNode.
+ */
+function createAccessibleParagraph( detector: ATDetector ): TReadOnlyProperty<string> {
+  return new DerivedStringProperty( [
+    detector.modeProperty,
+    detector.transmittanceProperty,
+    detector.absorbanceProperty,
+
+    // Localized strings used in this derivation.
+    BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphTransmittanceUnknownStringProperty,
+    BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphTransmittanceStringProperty,
+    BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphAbsorbanceUnknownStringProperty,
+    BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphAbsorbanceStringProperty,
+    BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty,
+    BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty
+  ], ( mode, transmittance, absorbance ) => {
+    if ( mode === ATDetectorMode.TRANSMITTANCE ) {
+      if ( transmittance === null ) {
+        return BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphTransmittanceUnknownStringProperty.value;
+      }
+      else {
+        return StringUtils.fillIn( BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphTransmittanceStringProperty.value, {
+          transmittance: toFixed( transmittance, BLLConstants.DECIMAL_PLACES_TRANSMITTANCE )
+        } );
+      }
+    }
+    else {
+      assert && assert( mode === ATDetectorMode.ABSORBANCE );
+      if ( absorbance === null ) {
+        return BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphAbsorbanceUnknownStringProperty.value;
+      }
+      else {
+        const units = ( absorbance === 1 ) ?
+                      BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty.value :
+                      BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty.value;
+        return StringUtils.fillIn( BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphAbsorbanceStringProperty.value, {
+          absorbance: toFixed( absorbance, BLLConstants.DECIMAL_PLACES_ABSORBANCE ),
+          units: units
+        } );
+      }
+    }
+  }, {
+    isDisposable: false
+  } );
 }
 
 beersLawLab.register( 'ATDetectorNode', ATDetectorNode );
