@@ -44,6 +44,7 @@ export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
       lightAngle: 1.25 * Math.PI,
       color: BLLColors.atDetectorColorProperty,
       accessibleName: BeersLawLabStrings.a11y.detectorProbeNode.accessibleNameStringProperty,
+      accessibleHelpText: BeersLawLabStrings.a11y.detectorProbeNode.accessibleHelpTextStringProperty,
       tandem: tandem,
       phetioInputEnabledPropertyInstrumented: true,
       phetioVisiblePropertyInstrumented: false
