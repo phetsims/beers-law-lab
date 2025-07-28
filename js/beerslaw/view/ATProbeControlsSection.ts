@@ -24,7 +24,7 @@ export class ATProbeControlsSection extends KeyboardHelpSection {
       } )
     ];
 
-    super( BeersLawLabStrings.keyboardHelpDialog.detectorProbeControlsStringProperty, rows, {
+    super( BeersLawLabStrings.keyboardHelpDialog.detectorProbeAndRulerControlsStringProperty, rows, {
       textMaxWidth: 300,
       isDisposable: false
     } );

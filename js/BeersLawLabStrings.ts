@@ -75,7 +75,7 @@ type StringsType = {
     'solutionStringProperty': LocalizedStringProperty;
     'solutionsStringProperty': LocalizedStringProperty;
     'concentrationProbeControlsStringProperty': LocalizedStringProperty;
-    'detectorProbeControlsStringProperty': LocalizedStringProperty;
+    'detectorProbeAndRulerControlsStringProperty': LocalizedStringProperty;
     'jumpToPositionStringProperty': LocalizedStringProperty;
   };
   'a11y': {
