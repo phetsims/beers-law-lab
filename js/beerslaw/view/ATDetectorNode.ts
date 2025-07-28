@@ -247,8 +247,12 @@ function createAccessibleParagraph( detector: ATDetector ): TReadOnlyProperty<st
         return BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphTransmittanceUnknownStringProperty.value;
       }
       else {
+        const units = ( absorbance === 1 ) ?
+                      BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty.value :
+                      BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty.value;
         return StringUtils.fillIn( BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphTransmittanceStringProperty.value, {
-          transmittance: toFixed( transmittance, BLLConstants.DECIMAL_PLACES_TRANSMITTANCE )
+          transmittance: toFixed( 100 * transmittance, BLLConstants.DECIMAL_PLACES_TRANSMITTANCE ),
+          units: units
         } );
       }
     }
@@ -258,12 +262,8 @@ function createAccessibleParagraph( detector: ATDetector ): TReadOnlyProperty<st
         return BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphAbsorbanceUnknownStringProperty.value;
       }
       else {
-        const units = ( absorbance === 1 ) ?
-                      BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty.value :
-                      BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty.value;
         return StringUtils.fillIn( BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphAbsorbanceStringProperty.value, {
-          absorbance: toFixed( absorbance, BLLConstants.DECIMAL_PLACES_ABSORBANCE ),
-          units: units
+          absorbance: toFixed( absorbance, BLLConstants.DECIMAL_PLACES_ABSORBANCE )
         } );
       }
     }
