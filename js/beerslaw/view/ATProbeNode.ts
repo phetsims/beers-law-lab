@@ -9,7 +9,7 @@
 import Property from '../../../../axon/js/Property.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import ProbeNode from '../../../../scenery-phet/js/ProbeNode.js';
+import ProbeNode, { ProbeNodeOptions } from '../../../../scenery-phet/js/ProbeNode.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
@@ -22,6 +22,8 @@ import JumpPosition from '../../common/model/JumpPosition.js';
 import Light from '../model/Light.js';
 import JumpToPositionListener from './JumpToPositionListener.js';
 import BLLConstants from '../../common/BLLConstants.js';
+import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
+import { combineOptions } from '../../../../phet-core/js/optionize.js';
 
 export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
@@ -32,7 +34,7 @@ export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
                       modelViewTransform: ModelViewTransform2,
                       tandem: Tandem ) {
 
-    super( {
+    const options = combineOptions<ProbeNodeOptions>( {
       cursor: 'pointer',
       radius: 53,
       innerRadius: 40,
@@ -41,13 +43,13 @@ export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
       handleCornerRadius: 22,
       lightAngle: 1.25 * Math.PI,
       color: BLLColors.atDetectorColorProperty,
-      tagName: 'div',
-      focusable: true,
       accessibleName: BeersLawLabStrings.a11y.detectorProbeNode.accessibleNameStringProperty,
       tandem: tandem,
       phetioInputEnabledPropertyInstrumented: true,
       phetioVisiblePropertyInstrumented: false
-    } );
+    }, AccessibleDraggableOptions );
+
+    super( options );
 
     // position
     probe.positionProperty.link( position => {

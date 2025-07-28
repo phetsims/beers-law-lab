@@ -8,10 +8,10 @@
 
 import Property from '../../../../axon/js/Property.js';
 import Shape from '../../../../kite/js/Shape.js';
-import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import optionize, { combineOptions, EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import ArrowNode from '../../../../scenery-phet/js/ArrowNode.js';
+import ArrowNode, { ArrowNodeOptions } from '../../../../scenery-phet/js/ArrowNode.js';
 import PressListener from '../../../../scenery/js/listeners/PressListener.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
@@ -31,6 +31,7 @@ import BLLColors from '../../common/BLLColors.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
+import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
 
 const PERCENT_FULL = 0.92;
 const SOLUTION_ALPHA = 0.6;
@@ -180,7 +181,7 @@ class CuvetteArrowNode extends InteractiveHighlighting( ArrowNode ) {
 
   public constructor( tandem: Tandem ) {
 
-    super( -ARROW_LENGTH / 2, 0, ARROW_LENGTH / 2, 0, {
+    const options = combineOptions<ArrowNodeOptions>( {
       cursor: 'pointer',
       tailWidth: ARROW_TAIL_WIDTH,
       headWidth: ARROW_HEAD_WIDTH,
@@ -189,15 +190,15 @@ class CuvetteArrowNode extends InteractiveHighlighting( ArrowNode ) {
       fill: BLLColors.cuvetteArrowFillProperty,
       stroke: 'black',
       lineWidth: 1,
-      tagName: 'div',
-      focusable: true,
       accessibleName: BeersLawLabStrings.a11y.cuvetteArrowNode.accessibleNameStringProperty,
       accessibleHelpText: BeersLawLabStrings.a11y.cuvetteArrowNode.accessibleHelpTextStringProperty,
       tandem: tandem,
       visiblePropertyOptions: {
         phetioFeatured: true
       }
-    } );
+    }, AccessibleDraggableOptions );
+
+    super( -ARROW_LENGTH / 2, 0, ARROW_LENGTH / 2, 0, options );
 
     // Highlight when the pointer is over the arrow.
     const pressListener = new PressListener( {

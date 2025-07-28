@@ -21,6 +21,8 @@ import BLLColors from '../../common/BLLColors.js';
 import JumpPosition from '../../common/model/JumpPosition.js';
 import JumpToPositionListener from '../../beerslaw/view/JumpToPositionListener.js';
 import BLLConstants from '../../common/BLLConstants.js';
+import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
+import { combineOptions } from '../../../../phet-core/js/optionize.js';
 
 export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
@@ -39,7 +41,7 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
                       drainFluidNode: Path,
                       tandem: Tandem ) {
 
-    const options: ProbeNodeOptions = {
+    const options = combineOptions<ProbeNodeOptions>( {
       sensorTypeFunction: ProbeNode.crosshairs( {
         intersectionRadius: 6
       } ),
@@ -52,8 +54,6 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
       color: BLLColors.concentrationMeterColorProperty,
       rotation: -Math.PI / 2,
       cursor: 'pointer',
-      tagName: 'div',
-      focusable: true,
       accessibleName: BeersLawLabStrings.a11y.concentrationProbeNode.accessibleNameStringProperty,
       accessibleHelpText: BeersLawLabStrings.a11y.concentrationProbeNode.accessibleHelpTextStringProperty,
 
@@ -61,7 +61,7 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
       tandem: tandem,
       phetioInputEnabledPropertyInstrumented: true,
       phetioVisiblePropertyInstrumented: false
-    };
+    }, AccessibleDraggableOptions );
 
     super( options );
 
