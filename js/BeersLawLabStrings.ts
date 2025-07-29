@@ -191,8 +191,8 @@ type StringsType = {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
       'jumpResponses': {
         'measuringCuvetteWidthStringProperty': LocalizedStringProperty;
-        'measuringPathLengthStringProperty': LocalizedStringProperty;
-        'movedOutOfTheWayStringProperty': LocalizedStringProperty;
+        'measuringOpticalPathLengthStringProperty': LocalizedStringProperty;
+        'notMeasuringStringProperty': LocalizedStringProperty;
       }
     };
     'cuvetteArrowNode': {

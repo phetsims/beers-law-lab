@@ -102,13 +102,13 @@ export default class BeersLawModel implements TModel {
       // Measuring the path length
       new JumpPosition( {
         positionProperty: new Vector2Property( new Vector2( this.cuvette.position.x, this.light.position.y + this.light.lensDiameter / 2 ) ),
-        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.rulerNode.jumpResponses.measuringPathLengthStringProperty
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.rulerNode.jumpResponses.measuringOpticalPathLengthStringProperty
       } ),
 
-      // The default position of the ruler.
+      // Not measuring
       new JumpPosition( {
         positionProperty: new Vector2Property( this.ruler.positionProperty.value ),
-        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.rulerNode.jumpResponses.movedOutOfTheWayStringProperty
+        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.rulerNode.jumpResponses.notMeasuringStringProperty
       } )
     ];
 
