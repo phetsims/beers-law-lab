@@ -43,7 +43,7 @@ export default class BeersLawModel implements TModel {
   public readonly detector: Detector;
   public readonly beam: Beam;
 
-  // Useful positions for the AT detector probe. Cycle through these positions via a keyboard shortcut.
+  // Useful positions for the detector probe. Cycle through these positions via a keyboard shortcut.
   // See https://github.com/phetsims/beers-law-lab/issues/352.
   public readonly detectorProbeJumpPositions: JumpPosition[];
   public readonly detectorProbeJumpPositionIndexProperty: Property<number>;

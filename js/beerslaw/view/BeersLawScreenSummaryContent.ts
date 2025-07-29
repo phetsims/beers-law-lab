@@ -96,7 +96,7 @@ export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
     ], () => {
       if ( !model.light.isOnProperty || !model.detector.isInBeamProperty.value ) {
 
-        // AT probe is not measuring anything.
+        // Not measuring anything.
         return StringUtils.fillIn( BeersLawLabStrings.a11y.beersLawScreen.screenSummary.currentDetails.noMeasurementStringProperty.value, {
           onOff: lightStateProperty.value,
           wavelength: wavelengthValueStringProperty.value,
@@ -108,7 +108,7 @@ export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
       }
       else if ( model.detector.modeProperty.value === DetectorMode.TRANSMITTANCE ) {
 
-        // AT probe is measuring transmittance.
+        // Measuring transmittance.
         return StringUtils.fillIn( BeersLawLabStrings.a11y.beersLawScreen.screenSummary.currentDetails.measuredTransmittanceStringProperty.value, {
           onOff: lightStateProperty.value,
           wavelength: wavelengthValueStringProperty.value,
@@ -122,7 +122,7 @@ export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
       }
       else {
 
-        // AT probe is measuring absorbance.
+        // Measuring absorbance.
         return StringUtils.fillIn( BeersLawLabStrings.a11y.beersLawScreen.screenSummary.currentDetails.measuredAbsorbanceStringProperty.value, {
           onOff: lightStateProperty.value,
           wavelength: model.light.wavelengthProperty.value,
