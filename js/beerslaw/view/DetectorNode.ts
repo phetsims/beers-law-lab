@@ -31,7 +31,7 @@ import ATDetectorMode from '../model/ATDetectorMode.js';
 import Light from '../model/Light.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import { linear } from '../../../../dot/js/util/linear.js';
-import ATDetectorModeRadioButtonGroup from './ATDetectorModeRadioButtonGroup.js';
+import DetectorModeRadioButtonGroup from './DetectorModeRadioButtonGroup.js';
 import { DetectorProbeNode } from './DetectorProbeNode.js';
 import BLLColors from '../../common/BLLColors.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -106,7 +106,7 @@ class BodyNode extends Node {
     } );
 
     // radio button group
-    const radioButtonGroup = new ATDetectorModeRadioButtonGroup( detector.modeProperty, tandem.createTandem( 'radioButtonGroup' ) );
+    const radioButtonGroup = new DetectorModeRadioButtonGroup( detector.modeProperty, tandem.createTandem( 'radioButtonGroup' ) );
 
     // value + units
     const valueStringProperty = new DerivedStringProperty(

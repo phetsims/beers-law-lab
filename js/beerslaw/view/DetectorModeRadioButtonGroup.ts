@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * ATDetectorModeRadioButtonGroup selects the detector mode ('transmittance' or 'absorbance').
+ * DetectorModeRadioButtonGroup selects what the detector is measuring ('transmittance' or 'absorbance').
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -16,7 +16,7 @@ import Text, { TextOptions } from '../../../../scenery/js/nodes/Text.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import beersLawLab from '../../beersLawLab.js';
 
-export default class ATDetectorModeRadioButtonGroup extends AquaRadioButtonGroup<ATDetectorMode> {
+export default class DetectorModeRadioButtonGroup extends AquaRadioButtonGroup<ATDetectorMode> {
 
   public constructor( modeProperty: Property<ATDetectorMode>, tandem: Tandem ) {
 
@@ -53,4 +53,4 @@ export default class ATDetectorModeRadioButtonGroup extends AquaRadioButtonGroup
   }
 }
 
-beersLawLab.register( 'ATDetectorModeRadioButtonGroup', ATDetectorModeRadioButtonGroup );
+beersLawLab.register( 'DetectorModeRadioButtonGroup', DetectorModeRadioButtonGroup );
