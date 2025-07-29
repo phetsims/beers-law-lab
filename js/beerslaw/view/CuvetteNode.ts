@@ -113,6 +113,7 @@ export default class CuvetteNode extends Node {
         const delta = ( listener.modelDelta.x !== 0 ) ? listener.modelDelta.x : listener.modelDelta.y;
         const newWidth = cuvette.widthProperty.value + delta;
         cuvette.widthProperty.value = clamp( newWidth, cuvette.widthProperty.range.min, cuvette.widthProperty.range.max );
+        arrowNode.addAccessibleObjectResponse( getAccessibleObjectResponse( cuvette.widthProperty.value ) );
       },
       dragSpeed: 300,
       shiftDragSpeed: 20,
@@ -154,16 +155,7 @@ class CuvetteDragListener extends SoundDragListener {
         const dragX = event.pointer.point.x;
         const deltaWidth = modelViewTransform.viewToModelDeltaX( dragX - startX );
         cuvette.widthProperty.value = clamp( startWidth + deltaWidth, widthRange.min, widthRange.max );
-        arrowNode.addAccessibleObjectResponse( StringUtils.format(
-          BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value,
-          // value
-          toFixed( cuvette.widthProperty.value, BLLConstants.DECIMAL_PLACES_CUVETTE_WIDTH ),
-          // units
-          BLLDescriptionUtils.getUnitsForValue( cuvette.widthProperty.value, BLLConstants.DECIMAL_PLACES_CUVETTE_WIDTH,
-            BeersLawLabStrings.a11y.unitsDescription.centimeterStringProperty.value,
-            BeersLawLabStrings.a11y.unitsDescription.centimetersStringProperty.value
-          )
-        ) );
+        arrowNode.addAccessibleObjectResponse( getAccessibleObjectResponse( cuvette.widthProperty.value ) );
       },
 
       end: () => {
@@ -216,6 +208,19 @@ class CuvetteArrowNode extends InteractiveHighlighting( ArrowNode ) {
     const dy = this.height;
     this.touchArea = this.localBounds.dilatedXY( dx, dy );
   }
+}
+
+function getAccessibleObjectResponse( cuvetteWidth: number ): string {
+  return StringUtils.format(
+    BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value,
+    // value
+    toFixed( cuvetteWidth, BLLConstants.DECIMAL_PLACES_CUVETTE_WIDTH ),
+    // units
+    BLLDescriptionUtils.getUnitsForValue( cuvetteWidth, BLLConstants.DECIMAL_PLACES_CUVETTE_WIDTH,
+      BeersLawLabStrings.a11y.unitsDescription.centimeterStringProperty.value,
+      BeersLawLabStrings.a11y.unitsDescription.centimetersStringProperty.value
+    )
+  );
 }
 
 beersLawLab.register( 'CuvetteNode', CuvetteNode );
