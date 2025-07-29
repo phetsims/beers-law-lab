@@ -515,6 +515,9 @@
         "value": "Solution Controls"
       }
     },
+    "valueUnits": {
+      "value": "{{value}} {{units}}"
+    },
     "unitsDescription": {
       "centimeters": {
         "value": "centimeters"

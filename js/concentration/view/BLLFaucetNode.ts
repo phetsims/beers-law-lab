@@ -46,21 +46,23 @@ export default class BLLFaucetNode extends FaucetNode {
       },
       pdomCreateAriaValueText: value => {
         if ( BLLPreferences.beakerUnitsProperty.value === 'liters' ) {
-          return StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value,
-            toFixed( value, BLLConstants.DECIMAL_PLACES_LITERS_PER_SECOND ),
-            BeersLawLabStrings.a11y.unitsDescription.litersPerSecondStringProperty.value );
+          return StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty, {
+            value: toFixed( value, BLLConstants.DECIMAL_PLACES_LITERS_PER_SECOND ),
+            units: BeersLawLabStrings.a11y.unitsDescription.litersPerSecondStringProperty.value
+          } );
         }
         else {
-          return StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value,
-            toFixed( value * 1000, BLLConstants.DECIMAL_PLACES_MILLILITERS_PER_SECOND ),
-            BeersLawLabStrings.a11y.unitsDescription.millilitersPerSecondStringProperty.value );
+          return StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty, {
+            value: toFixed( value * 1000, BLLConstants.DECIMAL_PLACES_MILLILITERS_PER_SECOND ),
+            units: BeersLawLabStrings.a11y.unitsDescription.millilitersPerSecondStringProperty.value
+          } );
         }
       },
 
       // Dynamic dependencies used in pdomCreateAriaValueText.
       pdomDependencies: [
         BLLPreferences.beakerUnitsProperty,
-        BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
+        BeersLawLabStrings.a11y.valueUnitsStringProperty,
         BeersLawLabStrings.a11y.unitsDescription.litersPerSecondStringProperty,
         BeersLawLabStrings.a11y.unitsDescription.millilitersPerSecondStringProperty
       ]

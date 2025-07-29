@@ -38,23 +38,19 @@ export default class EvaporationSlider extends HSlider {
       },
       accessibleName: BeersLawLabStrings.a11y.evaporationSlider.accessibleNameStringProperty,
 
-      pdomCreateAriaValueText: value => {
-
-        const valueString = ( BLLPreferences.beakerUnitsProperty.value === 'liters' ) ?
-                            toFixed( value, BLLConstants.DECIMAL_PLACES_EVAPORATION_RATE_LITERS_PER_SECOND ) :
-                            toFixed( value * 1000, BLLConstants.DECIMAL_PLACES_EVAPORATION_RATE_MILLILITERS_PER_SECOND );
-
-        const units = ( BLLPreferences.beakerUnitsProperty.value === 'liters' ) ?
-                      BeersLawLabStrings.a11y.unitsDescription.litersPerSecondStringProperty.value :
-                      BeersLawLabStrings.a11y.unitsDescription.millilitersPerSecondStringProperty.value;
-
-        return StringUtils.format( BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value, valueString, units );
-      },
+      pdomCreateAriaValueText: evaporationRate => StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty, {
+        value: ( BLLPreferences.beakerUnitsProperty.value === 'liters' ) ?
+               toFixed( evaporationRate, BLLConstants.DECIMAL_PLACES_EVAPORATION_RATE_LITERS_PER_SECOND ) :
+               toFixed( evaporationRate * 1000, BLLConstants.DECIMAL_PLACES_EVAPORATION_RATE_MILLILITERS_PER_SECOND ),
+        units: ( BLLPreferences.beakerUnitsProperty.value === 'liters' ) ?
+               BeersLawLabStrings.a11y.unitsDescription.litersPerSecondStringProperty.value :
+               BeersLawLabStrings.a11y.unitsDescription.millilitersPerSecondStringProperty.value
+      } ),
 
       // Dynamic dependencies used in pdomCreateAriaValueText.
       pdomDependencies: [
         BLLPreferences.beakerUnitsProperty,
-        BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ],
+        BeersLawLabStrings.a11y.valueUnitsStringProperty,
         BeersLawLabStrings.a11y.unitsDescription.litersPerSecondStringProperty,
         BeersLawLabStrings.a11y.unitsDescription.millilitersPerSecondStringProperty
       ],

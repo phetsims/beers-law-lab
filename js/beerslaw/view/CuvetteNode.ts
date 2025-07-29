@@ -210,13 +210,10 @@ class CuvetteArrowNode extends InteractiveHighlighting( ArrowNode ) {
 }
 
 function getAccessibleObjectResponse( cuvetteWidth: number ): string {
-  return StringUtils.format(
-    BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ].value,
-    // value
-    toFixed( cuvetteWidth, BLLConstants.DECIMAL_PLACES_CUVETTE_WIDTH ),
-    // units
-    BeersLawLabStrings.a11y.unitsDescription.centimetersStringProperty.value
-  );
+  return StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty, {
+    value: toFixed( cuvetteWidth, BLLConstants.DECIMAL_PLACES_CUVETTE_WIDTH ),
+    units: BeersLawLabStrings.a11y.unitsDescription.centimetersStringProperty.value
+  } );
 }
 
 beersLawLab.register( 'CuvetteNode', CuvetteNode );
