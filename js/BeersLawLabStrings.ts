@@ -197,7 +197,6 @@ type StringsType = {
     };
     'cuvetteArrowNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
-      'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
     'lightToggleButton': {
       'accessibleNameStringProperty': LocalizedStringProperty;

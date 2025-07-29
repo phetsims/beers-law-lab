@@ -193,7 +193,6 @@ class CuvetteArrowNode extends InteractiveHighlighting( ArrowNode ) {
       stroke: 'black',
       lineWidth: 1,
       accessibleName: BeersLawLabStrings.a11y.cuvetteArrowNode.accessibleNameStringProperty,
-      accessibleHelpText: BeersLawLabStrings.a11y.cuvetteArrowNode.accessibleHelpTextStringProperty,
       tandem: tandem,
       visiblePropertyOptions: {
         phetioFeatured: true
