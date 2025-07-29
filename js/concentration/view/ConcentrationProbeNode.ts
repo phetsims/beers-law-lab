@@ -8,7 +8,6 @@
 
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 import ProbeNode, { ProbeNodeOptions } from '../../../../scenery-phet/js/ProbeNode.js';
-import BLLMovable from '../../common/model/BLLMovable.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -23,6 +22,10 @@ import JumpToPositionListener from '../../beerslaw/view/JumpToPositionListener.j
 import BLLConstants from '../../common/BLLConstants.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
+import ConcentrationMeter from '../model/ConcentrationMeter.js';
+import BLLPreferences from '../../common/model/BLLPreferences.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import { toFixed } from '../../../../dot/js/util/toFixed.js';
 
 export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
@@ -31,7 +34,7 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
   public readonly isInDrainFluid: () => boolean;
   public readonly isInStockSolution: () => boolean;
 
-  public constructor( probe: BLLMovable,
+  public constructor( concentrationMeter: ConcentrationMeter,
                       jumpPositions: JumpPosition[],
                       jumpPositionIndexProperty: Property<number>,
                       modelViewTransform: ModelViewTransform2,
@@ -65,6 +68,8 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
 
     super( options );
 
+    const probe = concentrationMeter.probe;
+
     // probe position
     probe.positionProperty.link( position => {
       this.translation = modelViewTransform.modelToViewPosition( position );
@@ -73,10 +78,21 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
     // touch area
     this.touchArea = this.localBounds.dilatedXY( 0.25 * this.width, 0.25 * this.height );
 
+    let previousConcentration = concentrationMeter.valueProperty.value;
+
+    const drag = () => {
+      const concentration = concentrationMeter.valueProperty.value;
+      if ( concentration !== previousConcentration ) {
+        this.addAccessibleObjectResponse( createAccessibleObjectResponse( concentration ) );
+      }
+      previousConcentration = concentration;
+    };
+
     // drag listener
     this.addInputListener( new SoundDragListener( {
       positionProperty: probe.positionProperty,
       dragBoundsProperty: new Property( probe.dragBounds ),
+      drag: drag,
       transform: modelViewTransform,
       tandem: tandem.createTandem( 'dragListener' )
     } ) );
@@ -86,6 +102,7 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
       positionProperty: probe.positionProperty,
       dragBoundsProperty: new Property( probe.dragBounds ),
       transform: modelViewTransform,
+      drag: drag,
       dragSpeed: 300,
       shiftDragSpeed: 20,
       tandem: tandem.createTandem( 'keyboardDragListener' )
@@ -108,11 +125,41 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
     this.addInputListener( new JumpToPositionListener( this, BLLConstants.JUMP_TO_POSITION_HOTKEY_DATA,
       probe.positionProperty, jumpPositions, jumpPositionIndexProperty ) );
 
-    // When the probe gets focus, reset the order of jump points.
+    // When the probe gets focus...
     this.focusedProperty.lazyLink( focused => {
-      focused && jumpPositionIndexProperty.reset();
+      if ( focused ) {
+
+        // Add an accessible object response for the current measurement.
+        this.addAccessibleObjectResponse( createAccessibleObjectResponse( concentrationMeter.valueProperty.value ) );
+
+        // Reset the order of jump points
+        focused && jumpPositionIndexProperty.reset();
+      }
     } );
   }
+}
+
+/**
+ * Create the accessible object response that occurs when the probe gets focus or is dragged.
+ */
+function createAccessibleObjectResponse( concentration: number | null ): string {
+  let response;
+  if ( concentration === null ) {
+    response = BeersLawLabStrings.a11y.concentrationProbeNode.accessibleObjectResponseUnknownStringProperty.value;
+  }
+  else if ( BLLPreferences.concentrationMeterUnitsProperty.value === 'molesPerLiter' ) {
+    response = StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty.value, {
+      value: toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER ),
+      units: BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty.value
+    } );
+  }
+  else {
+    response = StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty.value, {
+      value: toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_PERCENT ),
+      units: BeersLawLabStrings.a11y.unitsDescription.percentStringProperty.value
+    } );
+  }
+  return response;
 }
 
 beersLawLab.register( 'ConcentrationProbeNode', ConcentrationProbeNode );

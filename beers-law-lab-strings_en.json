@@ -262,6 +262,9 @@
       "accessibleHelpText": {
         "value": "Drag the probe, or move to useful positions with keyboard shortcut."
       },
+      "accessibleObjectResponseUnknown": {
+        "value": "unknown"
+      },
       "jumpResponses": {
         "inSolution": {
           "value": "In solution, concentration is {{concentration}} {{units}}"

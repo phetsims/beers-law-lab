@@ -67,24 +67,26 @@ export class DetectorProbeNode extends InteractiveHighlighting( ProbeNode ) {
     let previousTransmittance = detector.transmittanceProperty.value;
     let previousAbsorbance = detector.absorbanceProperty.value;
 
+    const drag = () => {
+
+      const mode = detector.modeProperty.value;
+      const transmittance = detector.transmittanceProperty.value;
+      const absorbance = detector.absorbanceProperty.value;
+
+      if ( mode !== previousMode || transmittance !== previousTransmittance || absorbance !== previousAbsorbance ) {
+        this.addAccessibleObjectResponse( createAccessibleObjectResponse( mode, transmittance, absorbance ) );
+      }
+
+      previousMode = mode;
+      previousTransmittance = transmittance;
+      previousAbsorbance = absorbance;
+    };
+
     this.addInputListener( new SoundDragListener( {
       positionProperty: probe.positionProperty,
       dragBoundsProperty: new Property( probe.dragBounds ),
       transform: modelViewTransform,
-      drag: () => {
-
-        const mode = detector.modeProperty.value;
-        const transmittance = detector.transmittanceProperty.value;
-        const absorbance = detector.absorbanceProperty.value;
-
-        if ( mode !== previousMode || transmittance !== previousTransmittance || absorbance !== previousAbsorbance ) {
-          this.addAccessibleObjectResponse( createAccessibleObjectResponse( mode, transmittance, absorbance ) );
-        }
-
-        previousMode = mode;
-        previousTransmittance = transmittance;
-        previousAbsorbance = absorbance;
-      },
+      drag: drag,
       end: () => {
         // If the light is on and the probe is close enough to the beam, snap the probe to the center of beam.
         if ( light.isOnProperty.value &&
@@ -100,19 +102,7 @@ export class DetectorProbeNode extends InteractiveHighlighting( ProbeNode ) {
       positionProperty: probe.positionProperty,
       dragBoundsProperty: new Property( probe.dragBounds ),
       transform: modelViewTransform,
-      drag: () => {
-        const mode = detector.modeProperty.value;
-        const transmittance = detector.transmittanceProperty.value;
-        const absorbance = detector.absorbanceProperty.value;
-
-        if ( mode !== previousMode || transmittance !== previousTransmittance || absorbance !== previousAbsorbance ) {
-          this.addAccessibleObjectResponse( createAccessibleObjectResponse( mode, transmittance, absorbance ) );
-        }
-
-        previousMode = mode;
-        previousTransmittance = transmittance;
-        previousAbsorbance = absorbance;
-      },
+      drag: drag,
       dragSpeed: 150,
       shiftDragSpeed: 20,
       tandem: tandem.createTandem( 'keyboardDragListener' )
@@ -127,13 +117,15 @@ export class DetectorProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
     // When the probe gets focus...
     this.focusedProperty.lazyLink( focused => {
+      if ( focused ) {
 
-      // Add an accessible object response for the current measurement.
-      this.addAccessibleObjectResponse( createAccessibleObjectResponse( detector.modeProperty.value,
-        detector.transmittanceProperty.value, detector.absorbanceProperty.value ) );
+        // Add an accessible object response for the current measurement.
+        this.addAccessibleObjectResponse( createAccessibleObjectResponse( detector.modeProperty.value,
+          detector.transmittanceProperty.value, detector.absorbanceProperty.value ) );
 
-      // Reset the order of jump points
-      focused && jumpPositionIndexProperty.reset();
+        // Reset the order of jump points
+        focused && jumpPositionIndexProperty.reset();
+      }
     } );
   }
 }
@@ -160,7 +152,6 @@ function createAccessibleObjectResponse( mode: DetectorMode, transmittance: numb
       response = BeersLawLabStrings.a11y.detectorProbeNode.accessibleObjectResponseUnknownStringProperty.value;
     }
     else {
-      response = toFixed( absorbance, BLLConstants.DECIMAL_PLACES_ABSORBANCE );
       response = StringUtils.fillIn( BeersLawLabStrings.a11y.detectorProbeNode.accessibleObjectResponseAbsorbanceStringProperty.value, {
         mode: BeersLawLabStrings.absorbanceStringProperty.value,
         absorbance: toFixed( absorbance, BLLConstants.DECIMAL_PLACES_ABSORBANCE )

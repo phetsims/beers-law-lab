@@ -90,7 +90,7 @@ export default class ConcentrationMeterNode extends Node {
 
     const bodyNode = new BodyNode( concentrationMeter, modelViewTransform, options.tandem.createTandem( 'bodyNode' ) );
 
-    const probeNode = new ConcentrationProbeNode( concentrationMeter.probe, probeJumpPositions,
+    const probeNode = new ConcentrationProbeNode( concentrationMeter, probeJumpPositions,
       probeJumpPositionIndexProperty, modelViewTransform, solutionNode,
       stockSolutionNode, solventFluidNode, drainFluidNode, options.tandem.createTandem( 'probeNode' ) );
     this.probeNode = probeNode;

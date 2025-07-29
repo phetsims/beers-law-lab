@@ -97,9 +97,13 @@ export default class BLLRulerNode extends InteractiveHighlighting( RulerNode ) {
     this.addInputListener( new JumpToPositionListener( this, BLLConstants.JUMP_TO_POSITION_HOTKEY_DATA,
       ruler.positionProperty, jumpPositions, jumpPositionIndexProperty ) );
 
-    // When the probe gets focus, reset the order of jump points.
+    // When the probe gets focus...
     this.focusedProperty.lazyLink( focused => {
-      focused && jumpPositionIndexProperty.reset();
+      if ( focused ) {
+
+        // Reset the order of jump points.
+        focused && jumpPositionIndexProperty.reset();
+      }
     } );
   }
 }
