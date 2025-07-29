@@ -14,7 +14,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import BeersLawModel from '../model/BeersLawModel.js';
-import ATDetectorNode from './ATDetectorNode.js';
+import DetectorNode from './DetectorNode.js';
 import BeamNode from './BeamNode.js';
 import BLLRulerNode from './BLLRulerNode.js';
 import CuvetteNode from './CuvetteNode.js';
@@ -73,7 +73,7 @@ export default class BeersLawScreenView extends ScreenView {
 
     const beamNode = new BeamNode( model.beam );
 
-    const detectorNode = new ATDetectorNode(
+    const detectorNode = new DetectorNode(
       model.detector,
       model.detectorProbeJumpPositions,
       model.detectorProbeJumpPositionIndexProperty,

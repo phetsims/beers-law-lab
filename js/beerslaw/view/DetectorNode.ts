@@ -1,7 +1,7 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * ATDetectorNode is the detector for absorbance (A) and percent transmittance (%T).
+ * DetectorNode is the detector for measuring transmittance (%T) and absorbance (A).
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -50,18 +50,18 @@ const MIN_BODY_SIZE = new Dimension2( 185, 140 );
 
 type SelfOptions = EmptySelfOptions;
 
-type ATDetectorNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
+type DetectorNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
-export default class ATDetectorNode extends Node {
+export default class DetectorNode extends Node {
 
   public constructor( detector: ATDetector,
                       jumpPositions: JumpPosition[],
                       jumpPositionIndexProperty: Property<number>,
                       light: Light,
                       modelViewTransform: ModelViewTransform2,
-                      providedOptions: ATDetectorNodeOptions ) {
+                      providedOptions: DetectorNodeOptions ) {
 
-    const options = optionize<ATDetectorNodeOptions, SelfOptions, NodeOptions>()( {
+    const options = optionize<DetectorNodeOptions, SelfOptions, NodeOptions>()( {
 
       // NodeOptions
       isDisposable: false,
@@ -226,7 +226,7 @@ class WireNode extends Path {
 }
 
 /**
- * Creates the accessible paragraph for ATDetectorNode.BodyNode.
+ * Creates the accessible paragraph for DetectorNode.BodyNode.
  */
 function createAccessibleParagraph( detector: ATDetector ): TReadOnlyProperty<string> {
   return new DerivedStringProperty( [
@@ -268,4 +268,4 @@ function createAccessibleParagraph( detector: ATDetector ): TReadOnlyProperty<st
   } );
 }
 
-beersLawLab.register( 'ATDetectorNode', ATDetectorNode );
+beersLawLab.register( 'DetectorNode', DetectorNode );
