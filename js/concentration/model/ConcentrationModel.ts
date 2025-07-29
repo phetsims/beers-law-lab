@@ -33,6 +33,7 @@ import JumpPosition from '../../common/model/JumpPosition.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Vector2Property from '../../../../dot/js/Vector2Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 
 const SOLUTION_VOLUME_RANGE = BLLConstants.SOLUTION_VOLUME_RANGE; // L
 const SOLUTE_AMOUNT_RANGE = BLLConstants.SOLUTE_AMOUNT_RANGE; // moles
@@ -145,10 +146,17 @@ export default class ConcentrationModel implements TModel {
 
     this.concentrationProbeJumpPositions = [
 
-      // Inside the beaker, bottom center.
+      // Inside the beaker, bottom center. The beaker may be empty or may contain solution.
       new JumpPosition( {
         positionProperty: new Vector2Property( this.beaker.position.minusXY( 0, 0.0001 ) ),
-        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.insideBeakerStringProperty
+        accessibleObjectResponseStringProperty: new DerivedStringProperty( [
+            this.concentrationMeter.probe.positionProperty,
+            BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.insideEmptyBeakerStringProperty,
+            BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.inSolutionStringProperty
+          ],
+          ( position, insideEmptyBeakerString, inSolutionString ) =>
+            ( this.solution.volumeProperty.value === 0 ) ? insideEmptyBeakerString : inSolutionString
+        )
       } ),
 
       // Below the water faucet, close to the spigot, and above the max solution level in the beaker.

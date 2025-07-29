@@ -132,7 +132,8 @@ type StringsType = {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
       'jumpResponses': {
-        'insideBeakerStringProperty': LocalizedStringProperty;
+        'inSolutionStringProperty': LocalizedStringProperty;
+        'insideEmptyBeakerStringProperty': LocalizedStringProperty;
         'outsideBeakerStringProperty': LocalizedStringProperty;
         'belowWaterFaucetStringProperty': LocalizedStringProperty;
         'belowDrainFaucetStringProperty': LocalizedStringProperty;
