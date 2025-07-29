@@ -39,7 +39,6 @@ import JumpPosition from '../../common/model/JumpPosition.js';
 import Property from '../../../../axon/js/Property.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
-import BLLDescriptionUtils from '../../common/BLLDescriptionUtils.js';
 
 const NO_VALUE = MathSymbols.NO_VALUE;
 const BODY_X_MARGIN = 15;
@@ -240,20 +239,16 @@ function createAccessibleParagraph( detector: ATDetector ): TReadOnlyProperty<st
     BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphTransmittanceStringProperty,
     BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphAbsorbanceUnknownStringProperty,
     BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphAbsorbanceStringProperty,
-    BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty,
-    BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty
+    BeersLawLabStrings.a11y.unitsDescription.percentStringProperty
   ], ( mode, transmittance, absorbance ) => {
     if ( mode === ATDetectorMode.TRANSMITTANCE ) {
       if ( transmittance === null ) {
         return BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphTransmittanceUnknownStringProperty.value;
       }
       else {
-        const units = BLLDescriptionUtils.getUnitsForValue( transmittance, BLLConstants.DECIMAL_PLACES_TRANSMITTANCE,
-          BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty.value,
-          BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty.value );
         return StringUtils.fillIn( BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphTransmittanceStringProperty.value, {
           transmittance: toFixed( 100 * transmittance, BLLConstants.DECIMAL_PLACES_TRANSMITTANCE ),
-          units: units
+          units: BeersLawLabStrings.a11y.unitsDescription.percentStringProperty.value
         } );
       }
     }

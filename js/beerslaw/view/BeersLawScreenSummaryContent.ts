@@ -18,13 +18,12 @@ import ATDetectorMode from '../model/ATDetectorMode.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import ConcentrationTransform from '../model/ConcentrationTransform.js';
-import BLLDescriptionUtils from '../../common/BLLDescriptionUtils.js';
 
 export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
 
   public constructor( model: BeersLawModel ) {
 
-    // Light state (on/off), with support for dynamic locale.
+    // Light state (on/off)
     const lightStateProperty = new DerivedProperty( [
         model.light.isOnProperty,
 
@@ -54,42 +53,28 @@ export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
     const transmittanceValueStringProperty = new DerivedStringProperty( [ model.detector.transmittanceProperty ],
       transmittance => ( transmittance === null ) ? '' : toFixed( transmittance * 100, BLLConstants.DECIMAL_PLACES_TRANSMITTANCE ) );
 
-    // Concentration units, with singular vs plural matched to the absorbance value, and support for dynamic locale.
+    // Concentration units
     const concentrationUnitsStringProperty = new DerivedStringProperty( [
         model.solutionProperty,
         model.solutionInCuvette.concentrationProperty,
 
         // Localized strings used in this derivation.
-        BeersLawLabStrings.a11y.unitsDescription.micromolarSingularStringProperty,
-        BeersLawLabStrings.a11y.unitsDescription.micromolarPluralStringProperty,
-        BeersLawLabStrings.a11y.unitsDescription.millimolarSingularStringProperty,
-        BeersLawLabStrings.a11y.unitsDescription.millimolarPluralStringProperty
+        BeersLawLabStrings.a11y.unitsDescription.micromolarStringProperty,
+        BeersLawLabStrings.a11y.unitsDescription.millimolarStringProperty
       ],
-      ( solution, concentration, micromolarSingular, micromolarPlural, millimolarSingular, millimolarPlural ) => {
-        if ( solution.concentrationTransform === ConcentrationTransform.uM ) {
-          return BLLDescriptionUtils.getUnitsForValue( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLAR, micromolarSingular, micromolarPlural );
-        }
-        else {
-          return BLLDescriptionUtils.getUnitsForValue( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLAR, millimolarSingular, millimolarPlural );
-        }
-      } );
+      ( solution, concentration, micromolarString, millimolarString ) =>
+        ( solution.concentrationTransform === ConcentrationTransform.uM ) ? micromolarString : millimolarString
+    );
 
-    // Transmittance units, with singular vs plural matched to the transmittance value, and support for dynamic locale.
+    // Transmittance units
     const transmittanceUnitsDescriptionProperty = new DerivedStringProperty( [
         model.detector.absorbanceProperty,
 
         // Localized strings used in this derivation.
-        BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty,
-        BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty
+        BeersLawLabStrings.a11y.unitsDescription.percentStringProperty
       ],
-      ( absorbance, percentSingularString, percentPluralString ) => {
-        if ( absorbance === null ) {
-          return '';
-        }
-        else {
-          return BLLDescriptionUtils.getUnitsForValue( absorbance, BLLConstants.DECIMAL_PLACES_ABSORBANCE, percentSingularString, percentPluralString );
-        }
-      } );
+      ( absorbance, percentString ) => ( absorbance === null ) ? '' : percentString
+    );
 
     const currentDetailsStringProperty = DerivedStringProperty.deriveAny( [
       model.light.isOnProperty,

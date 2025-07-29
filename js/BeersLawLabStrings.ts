@@ -254,24 +254,16 @@ type StringsType = {
     };
     'unitsDescription': {
       'centimetersStringProperty': LocalizedStringProperty;
-      'centimeterStringProperty': LocalizedStringProperty;
       'gramsStringProperty': LocalizedStringProperty;
-      'gramStringProperty': LocalizedStringProperty;
-      'literStringProperty': LocalizedStringProperty;
       'litersStringProperty': LocalizedStringProperty;
       'litersPerSecondStringProperty': LocalizedStringProperty;
-      'micromolarSingularStringProperty': LocalizedStringProperty;
-      'micromolarPluralStringProperty': LocalizedStringProperty;
-      'milliliterStringProperty': LocalizedStringProperty;
+      'micromolarStringProperty': LocalizedStringProperty;
       'millilitersStringProperty': LocalizedStringProperty;
       'millilitersPerSecondStringProperty': LocalizedStringProperty;
-      'millimolarSingularStringProperty': LocalizedStringProperty;
-      'millimolarPluralStringProperty': LocalizedStringProperty;
+      'millimolarStringProperty': LocalizedStringProperty;
       'molesPerLiterStringProperty': LocalizedStringProperty;
-      'molePerLiterStringProperty': LocalizedStringProperty;
       'nanometersStringProperty': LocalizedStringProperty;
-      'percentPluralStringProperty': LocalizedStringProperty;
-      'percentSingularStringProperty': LocalizedStringProperty;
+      'percentStringProperty': LocalizedStringProperty;
     }
   }
 };

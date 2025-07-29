@@ -519,17 +519,8 @@
       "centimeters": {
         "value": "centimeters"
       },
-      "centimeter": {
-        "value": "centimeter"
-      },
       "grams": {
         "value": "grams"
-      },
-      "gram": {
-        "value": "gram"
-      },
-      "liter": {
-        "value": "liter"
       },
       "liters": {
         "value": "liters"
@@ -537,14 +528,8 @@
       "litersPerSecond": {
         "value": "liters per second"
       },
-      "micromolarSingular": {
+      "micromolar": {
         "value": "micromolar"
-      },
-      "micromolarPlural": {
-        "value": "micromolar"
-      },
-      "milliliter": {
-        "value": "milliliter"
       },
       "milliliters": {
         "value": "milliliters"
@@ -552,25 +537,16 @@
       "millilitersPerSecond": {
         "value": "milliliters per second"
       },
-      "millimolarSingular": {
-        "value": "millimolar"
-      },
-      "millimolarPlural": {
+      "millimolar": {
         "value": "millimolar"
       },
       "molesPerLiter": {
         "value": "moles per liter"
       },
-      "molePerLiter": {
-        "value": "mole per liter"
-      },
       "nanometers": {
         "value": "nanometers"
       },
-      "percentPlural": {
-        "value": "percent"
-      },
-      "percentSingular": {
+      "percent": {
         "value": "percent"
       }
     }

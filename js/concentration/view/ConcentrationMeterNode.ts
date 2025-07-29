@@ -48,7 +48,6 @@ import JumpPosition from '../../common/model/JumpPosition.js';
 import Property from '../../../../axon/js/Property.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
-import BLLDescriptionUtils from '../../common/BLLDescriptionUtils.js';
 
 const READOUT_NO_VALUE = MathSymbols.NO_VALUE; // displayed in the readout when the meter is not measuring anything
 const BODY_X_MARGIN = 15;
@@ -293,10 +292,8 @@ function createAccessibleParagraph( concentrationProperty: TReadOnlyProperty<num
       // Localized strings used in this derivation.
       BeersLawLabStrings.a11y.concentrationMeterBodyNode.accessibleParagraphUnknownStringProperty,
       BeersLawLabStrings.a11y.concentrationMeterBodyNode.accessibleParagraphStringProperty,
-      BeersLawLabStrings.a11y.unitsDescription.molePerLiterStringProperty,
       BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty,
-      BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty,
-      BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty
+      BeersLawLabStrings.a11y.unitsDescription.percentStringProperty
     ],
     concentration => {
       if ( concentration === null ) {
@@ -317,7 +314,9 @@ function createAccessibleParagraph( concentrationProperty: TReadOnlyProperty<num
 
         return StringUtils.fillIn( BeersLawLabStrings.a11y.concentrationMeterBodyNode.accessibleParagraphStringProperty.value, {
           concentration: concentrationString,
-          units: BLLDescriptionUtils.getConcentrationUnits( concentration )
+          units: ( BLLPreferences.concentrationMeterUnitsProperty.value === 'molesPerLiter' ) ?
+                 BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty.value :
+                 BeersLawLabStrings.a11y.unitsDescription.percentStringProperty.value
         } );
       }
     },

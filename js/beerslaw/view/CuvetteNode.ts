@@ -32,7 +32,6 @@ import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
-import BLLDescriptionUtils from '../../common/BLLDescriptionUtils.js';
 
 const PERCENT_FULL = 0.92;
 const SOLUTION_ALPHA = 0.6;
@@ -216,10 +215,7 @@ function getAccessibleObjectResponse( cuvetteWidth: number ): string {
     // value
     toFixed( cuvetteWidth, BLLConstants.DECIMAL_PLACES_CUVETTE_WIDTH ),
     // units
-    BLLDescriptionUtils.getUnitsForValue( cuvetteWidth, BLLConstants.DECIMAL_PLACES_CUVETTE_WIDTH,
-      BeersLawLabStrings.a11y.unitsDescription.centimeterStringProperty.value,
-      BeersLawLabStrings.a11y.unitsDescription.centimetersStringProperty.value
-    )
+    BeersLawLabStrings.a11y.unitsDescription.centimetersStringProperty.value
   );
 }
 

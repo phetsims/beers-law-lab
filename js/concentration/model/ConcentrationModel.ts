@@ -37,7 +37,6 @@ import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js'
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
-import BLLDescriptionUtils from '../../common/BLLDescriptionUtils.js';
 
 const SOLUTION_VOLUME_RANGE = BLLConstants.SOLUTION_VOLUME_RANGE; // L
 const SOLUTE_AMOUNT_RANGE = BLLConstants.SOLUTE_AMOUNT_RANGE; // moles
@@ -159,35 +158,23 @@ export default class ConcentrationModel implements TModel {
             this.concentrationMeter.probe.positionProperty,
             this.solution.concentrationProperty,
             this.solution.percentConcentrationProperty,
-            BeersLawLabStrings.a11y.unitsDescription.molePerLiterStringProperty,
             BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty,
-            BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty,
-            BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty
+            BeersLawLabStrings.a11y.unitsDescription.percentStringProperty
           ],
           ( insideEmptyBeakerString, inSolutionString ) => {
             if ( this.solution.volumeProperty.value === 0 ) {
               return insideEmptyBeakerString;
             }
             else if ( BLLPreferences.concentrationMeterUnitsProperty.value === 'molesPerLiter' ) {
-              const concentration = this.solution.concentrationProperty.value;
-              const concentrationString = toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER );
-              const units = BLLDescriptionUtils.getUnitsForValue( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER,
-                BeersLawLabStrings.a11y.unitsDescription.molePerLiterStringProperty.value,
-                BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty.value );
               return StringUtils.fillIn( inSolutionString, {
-                concentration: concentrationString,
-                units: units
+                concentration: toFixed( this.solution.concentrationProperty.value, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER ),
+                units: BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty.value
               } );
             }
             else {
-              const percentConcentration = this.solution.percentConcentrationProperty.value;
-              const percentConcentrationString = toFixed( percentConcentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_PERCENT );
-              const units = BLLDescriptionUtils.getUnitsForValue( percentConcentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_PERCENT,
-                BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty.value,
-                BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty.value );
               return StringUtils.fillIn( inSolutionString, {
-                concentration: percentConcentrationString,
-                units: units
+                concentration: toFixed( this.solution.percentConcentrationProperty.value, BLLConstants.DECIMAL_PLACES_CONCENTRATION_PERCENT ),
+                units: BeersLawLabStrings.a11y.unitsDescription.percentStringProperty.value
               } );
             }
           }

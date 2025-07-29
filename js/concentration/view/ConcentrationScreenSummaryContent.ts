@@ -18,13 +18,12 @@ import BLLConstants from '../../common/BLLConstants.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import { ConcentrationProbeNode } from './ConcentrationProbeNode.js';
-import BLLDescriptionUtils from '../../common/BLLDescriptionUtils.js';
 
 export default class ConcentrationScreenSummaryContent extends ScreenSummaryContent {
 
   public constructor( model: ConcentrationModel, concentrationProbeNode: ConcentrationProbeNode ) {
 
-    // Solute name, including support for dynamic locale.
+    // Solute name
     const soluteNameProperty = DerivedProperty.deriveAny(
       [ model.soluteProperty, ...model.getSoluteNameProperties() ],
       () => model.soluteProperty.value.nameProperty.value );
@@ -41,18 +40,16 @@ export default class ConcentrationScreenSummaryContent extends ScreenSummaryCont
         toFixed( percentConcentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_PERCENT )
     );
 
-    // Concentration units, with singular vs plural matched to the concentration value, and support for dynamic locale.
+    // Concentration units
     const concentrationUnitsDescriptionProperty = new DerivedStringProperty( [
-        model.solution.concentrationProperty,
 
         // Properties used by BLLDescriptionUtils.getConcentrationUnits
         BLLPreferences.concentrationMeterUnitsProperty,
-        BeersLawLabStrings.a11y.unitsDescription.molePerLiterStringProperty,
         BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty,
-        BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty,
-        BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty
+        BeersLawLabStrings.a11y.unitsDescription.percentStringProperty
       ],
-      concentration => BLLDescriptionUtils.getConcentrationUnits( concentration ) );
+      ( concentrationMeterUnits, molesPerLiterString, percentString ) =>
+        ( concentrationMeterUnits === 'molesPerLiter' ) ? molesPerLiterString : percentString );
 
     // Sentence that describes whether the solution is saturated.
     const saturatedSentenceProperty = new DerivedProperty( [

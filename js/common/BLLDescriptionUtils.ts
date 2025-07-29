@@ -6,42 +6,14 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import BLLPreferences from './model/BLLPreferences.js';
 import BeersLawLabStrings from '../BeersLawLabStrings.js';
 import beersLawLab from '../beersLawLab.js';
 import BLLConstants from './BLLConstants.js';
-import { toFixedNumber } from '../../../dot/js/util/toFixedNumber.js';
 
 export default class BLLDescriptionUtils {
 
   private constructor() {
     // Not intended for instantiation.
-  }
-
-  /**
-   * Gets singular or plural units based on a rounded values.
-   */
-  public static getUnitsForValue( value: number, decimalPlaces: number, unitsSingular: string, unitsPlural: string ): string {
-    return ( toFixedNumber( value, decimalPlaces ) === 1 ) ? unitsSingular : unitsPlural;
-  }
-
-  /**
-   * Gets the concentration units that match the preference setting, and the singular/plural nature of the value.
-   * If you use this method in a derivation, include the localized string Properties used herein as dependencies.
-   */
-  public static getConcentrationUnits( concentration: number ): string {
-    let units;
-    if ( BLLPreferences.concentrationMeterUnitsProperty.value === 'molesPerLiter' ) {
-      units = BLLDescriptionUtils.getUnitsForValue( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER,
-        BeersLawLabStrings.a11y.unitsDescription.molePerLiterStringProperty.value,
-        BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty.value );
-    }
-    else {
-      units = BLLDescriptionUtils.getUnitsForValue( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_PERCENT,
-        BeersLawLabStrings.a11y.unitsDescription.percentSingularStringProperty.value,
-        BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty.value );
-    }
-    return units;
   }
 
   /**

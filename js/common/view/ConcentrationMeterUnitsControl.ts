@@ -96,7 +96,7 @@ class ConcentrationMeterUnitsRadioButtonGroup extends AquaRadioButtonGroup<Conce
           maxWidth: 100
         } ),
         options: {
-          accessibleName: BeersLawLabStrings.a11y.unitsDescription.percentPluralStringProperty
+          accessibleName: BeersLawLabStrings.a11y.unitsDescription.percentStringProperty
         },
         tandemName: 'percentRadioButton'
       }

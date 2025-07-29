@@ -24,7 +24,6 @@ import BLLPreferences from '../../common/model/BLLPreferences.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
-import BLLDescriptionUtils from '../../common/BLLDescriptionUtils.js';
 import BLLConstants from '../../common/BLLConstants.js';
 
 type SelfOptions = EmptySelfOptions;
@@ -106,19 +105,10 @@ function createAccessibleParagraph( volumeProperty: TReadOnlyProperty<number>, v
   const unitsDescriptionProperty = new DerivedStringProperty( [
       volumeProperty,
       BLLPreferences.beakerUnitsProperty,
-      BeersLawLabStrings.a11y.unitsDescription.literStringProperty,
       BeersLawLabStrings.a11y.unitsDescription.litersStringProperty,
-      BeersLawLabStrings.a11y.unitsDescription.milliliterStringProperty,
       BeersLawLabStrings.a11y.unitsDescription.millilitersStringProperty
     ],
-    ( volume, beakerUnits, literString, litersString, milliliterString, millilitersString ) => {
-    if ( beakerUnits === 'liters' ) {
-      return BLLDescriptionUtils.getUnitsForValue( volume, BLLConstants.DECIMAL_PLACES_VOLUME_LITERS, literString, litersString );
-    }
-    else {
-      return BLLDescriptionUtils.getUnitsForValue( volume, BLLConstants.DECIMAL_PLACES_VOLUME_MILLILITERS, milliliterString, millilitersString );
-    }
-    }
+    ( volume, beakerUnits, litersString, millilitersString ) => ( beakerUnits === 'liters' ) ? litersString : millilitersString
   );
 
   return new PatternStringProperty( BeersLawLabStrings.a11y.solutionVolumeNode.accessibleParagraphStringProperty, {

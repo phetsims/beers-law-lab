@@ -19,7 +19,6 @@ import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import BLLConstants from '../../common/BLLConstants.js';
-import BLLDescriptionUtils from '../../common/BLLDescriptionUtils.js';
 
 type SelfOptions = EmptySelfOptions;
 
@@ -57,15 +56,14 @@ export default class SoluteAmountText extends Node {
  */
 function createAccessibleParagraph( soluteGramsProperty: TReadOnlyProperty<number> ): TReadOnlyProperty<string> {
   return new DerivedStringProperty( [
-    BeersLawLabStrings.a11y.soluteAmountText.accessibleParagraphStringProperty,
-    soluteGramsProperty
-  ], ( pattern, soluteGrams ) => StringUtils.fillIn( pattern, {
-    value: toFixed( soluteGrams, BLLConstants.DECIMAL_PLACES_SOLUTE_AMOUNT ),
-    units: BLLDescriptionUtils.getUnitsForValue( soluteGrams, BLLConstants.DECIMAL_PLACES_SOLUTE_AMOUNT,
-      BeersLawLabStrings.a11y.unitsDescription.gramStringProperty.value,
-      BeersLawLabStrings.a11y.unitsDescription.gramsStringProperty.value
-    )
-  } ) );
+      BeersLawLabStrings.a11y.soluteAmountText.accessibleParagraphStringProperty,
+      soluteGramsProperty,
+      BeersLawLabStrings.a11y.unitsDescription.gramsStringProperty
+    ],
+    ( pattern, soluteGrams, gramsString ) => StringUtils.fillIn( pattern, {
+      value: toFixed( soluteGrams, BLLConstants.DECIMAL_PLACES_SOLUTE_AMOUNT ),
+      units: gramsString
+    } ) );
 }
 
 beersLawLab.register( 'SoluteAmountText', SoluteAmountText );
