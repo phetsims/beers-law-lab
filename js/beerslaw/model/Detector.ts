@@ -18,7 +18,7 @@ import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
 import beersLawLab from '../../beersLawLab.js';
 import BLLMovable, { BLLMovableOptions } from '../../common/model/BLLMovable.js';
-import ATDetectorMode from './ATDetectorMode.js';
+import DetectorMode from './DetectorMode.js';
 import Cuvette from './Cuvette.js';
 import Light from './Light.js';
 import SolutionInCuvette from './SolutionInCuvette.js';
@@ -36,7 +36,7 @@ export default class Detector extends PhetioObject {
   private readonly light: Light;
   public readonly body: BLLMovable;
   public readonly probe: Probe;
-  public readonly modeProperty: EnumerationProperty<ATDetectorMode>;
+  public readonly modeProperty: EnumerationProperty<DetectorMode>;
   public readonly isInBeamProperty: TReadOnlyProperty<boolean>;
 
   public readonly absorbanceProperty: TReadOnlyProperty<number | null>;
@@ -69,7 +69,7 @@ export default class Detector extends PhetioObject {
       tandem: options.tandem.createTandem( 'probe' )
     } );
 
-    this.modeProperty = new EnumerationProperty( ATDetectorMode.TRANSMITTANCE, {
+    this.modeProperty = new EnumerationProperty( DetectorMode.TRANSMITTANCE, {
       tandem: options.tandem.createTandem( 'modeProperty' ),
       phetioFeatured: true
     } );

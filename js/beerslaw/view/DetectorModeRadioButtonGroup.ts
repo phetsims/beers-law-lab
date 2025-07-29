@@ -7,7 +7,7 @@
  */
 
 import AquaRadioButtonGroup, { AquaRadioButtonGroupItem } from '../../../../sun/js/AquaRadioButtonGroup.js';
-import ATDetectorMode from '../model/ATDetectorMode.js';
+import DetectorMode from '../model/DetectorMode.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import Property from '../../../../axon/js/Property.js';
 import BLLConstants from '../../common/BLLConstants.js';
@@ -16,9 +16,9 @@ import Text, { TextOptions } from '../../../../scenery/js/nodes/Text.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import beersLawLab from '../../beersLawLab.js';
 
-export default class DetectorModeRadioButtonGroup extends AquaRadioButtonGroup<ATDetectorMode> {
+export default class DetectorModeRadioButtonGroup extends AquaRadioButtonGroup<DetectorMode> {
 
-  public constructor( modeProperty: Property<ATDetectorMode>, tandem: Tandem ) {
+  public constructor( modeProperty: Property<DetectorMode>, tandem: Tandem ) {
 
     const textOptions: TextOptions = {
       font: new PhetFont( 18 ),
@@ -26,14 +26,14 @@ export default class DetectorModeRadioButtonGroup extends AquaRadioButtonGroup<A
       maxWidth: 120
     };
 
-    const items: AquaRadioButtonGroupItem<ATDetectorMode>[] = [
+    const items: AquaRadioButtonGroupItem<DetectorMode>[] = [
       {
-        value: ATDetectorMode.TRANSMITTANCE,
+        value: DetectorMode.TRANSMITTANCE,
         createNode: () => new Text( BeersLawLabStrings.transmittanceStringProperty, textOptions ),
         tandemName: 'transmittanceRadioButton'
       },
       {
-        value: ATDetectorMode.ABSORBANCE,
+        value: DetectorMode.ABSORBANCE,
         createNode: () => new Text( BeersLawLabStrings.absorbanceStringProperty, textOptions ),
         tandemName: 'absorbanceRadioButton'
       }

@@ -27,7 +27,7 @@ import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLMovable from '../../common/model/BLLMovable.js';
 import Detector from '../model/Detector.js';
-import ATDetectorMode from '../model/ATDetectorMode.js';
+import DetectorMode from '../model/DetectorMode.js';
 import Light from '../model/Light.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import { linear } from '../../../../dot/js/util/linear.js';
@@ -118,7 +118,7 @@ class BodyNode extends Node {
       ],
       ( pattern, mode, absorbance, transmittance ) => {
         let valueString: string;
-        if ( mode === ATDetectorMode.TRANSMITTANCE ) {
+        if ( mode === DetectorMode.TRANSMITTANCE ) {
           valueString = ( transmittance === null ) ?
                         NO_VALUE :
                         StringUtils.format( pattern, toFixed( 100 * transmittance, BLLConstants.DECIMAL_PLACES_TRANSMITTANCE ) );
@@ -241,7 +241,7 @@ function createAccessibleParagraph( detector: Detector ): TReadOnlyProperty<stri
     BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphAbsorbanceStringProperty,
     BeersLawLabStrings.a11y.unitsDescription.percentStringProperty
   ], ( mode, transmittance, absorbance ) => {
-    if ( mode === ATDetectorMode.TRANSMITTANCE ) {
+    if ( mode === DetectorMode.TRANSMITTANCE ) {
       if ( transmittance === null ) {
         return BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphTransmittanceUnknownStringProperty.value;
       }
@@ -253,7 +253,7 @@ function createAccessibleParagraph( detector: Detector ): TReadOnlyProperty<stri
       }
     }
     else {
-      assert && assert( mode === ATDetectorMode.ABSORBANCE );
+      assert && assert( mode === DetectorMode.ABSORBANCE );
       if ( absorbance === null ) {
         return BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphAbsorbanceUnknownStringProperty.value;
       }

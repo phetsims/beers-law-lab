@@ -14,7 +14,7 @@ import BeersLawModel from '../model/BeersLawModel.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import BLLConstants from '../../common/BLLConstants.js';
-import ATDetectorMode from '../model/ATDetectorMode.js';
+import DetectorMode from '../model/DetectorMode.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import ConcentrationTransform from '../model/ConcentrationTransform.js';
@@ -106,7 +106,7 @@ export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
           solutionName: solutionNameProperty.value
         } );
       }
-      else if ( model.detector.modeProperty.value === ATDetectorMode.TRANSMITTANCE ) {
+      else if ( model.detector.modeProperty.value === DetectorMode.TRANSMITTANCE ) {
 
         // AT probe is measuring transmittance.
         return StringUtils.fillIn( BeersLawLabStrings.a11y.beersLawScreen.screenSummary.currentDetails.measuredTransmittanceStringProperty.value, {
