@@ -17,17 +17,20 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLColors from '../../common/BLLColors.js';
-import BLLMovable from '../../common/model/BLLMovable.js';
+import Detector from '../../beerslaw/model/Detector.js';
 import JumpPosition from '../../common/model/JumpPosition.js';
 import Light from '../model/Light.js';
 import JumpToPositionListener from './JumpToPositionListener.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import { toFixed } from '../../../../dot/js/util/toFixed.js';
+import DetectorMode from '../model/DetectorMode.js';
 
 export class DetectorProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
-  public constructor( probe: BLLMovable,
+  public constructor( detector: Detector,
                       jumpPositions: JumpPosition[],
                       jumpPositionIndexProperty: Property<number>,
                       light: Light,
@@ -52,15 +55,36 @@ export class DetectorProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
     super( options );
 
+    const probe = detector.probe;
+
     // position
     probe.positionProperty.link( position => {
       this.translation = modelViewTransform.modelToViewPosition( position );
     } );
 
+    // Previous state of the detector, so that we add accessibleObjectResponse only when the state has changed.
+    let previousMode = detector.modeProperty.value;
+    let previousTransmittance = detector.transmittanceProperty.value;
+    let previousAbsorbance = detector.absorbanceProperty.value;
+
     this.addInputListener( new SoundDragListener( {
       positionProperty: probe.positionProperty,
       dragBoundsProperty: new Property( probe.dragBounds ),
       transform: modelViewTransform,
+      drag: () => {
+
+        const mode = detector.modeProperty.value;
+        const transmittance = detector.transmittanceProperty.value;
+        const absorbance = detector.absorbanceProperty.value;
+
+        if ( mode !== previousMode || transmittance !== previousTransmittance || absorbance !== previousAbsorbance ) {
+          this.addAccessibleObjectResponse( createAccessibleObjectResponse( mode, transmittance, absorbance ) );
+        }
+
+        previousMode = mode;
+        previousTransmittance = transmittance;
+        previousAbsorbance = absorbance;
+      },
       end: () => {
         // If the light is on and the probe is close enough to the beam, snap the probe to the center of beam.
         if ( light.isOnProperty.value &&
@@ -76,6 +100,19 @@ export class DetectorProbeNode extends InteractiveHighlighting( ProbeNode ) {
       positionProperty: probe.positionProperty,
       dragBoundsProperty: new Property( probe.dragBounds ),
       transform: modelViewTransform,
+      drag: () => {
+        const mode = detector.modeProperty.value;
+        const transmittance = detector.transmittanceProperty.value;
+        const absorbance = detector.absorbanceProperty.value;
+
+        if ( mode !== previousMode || transmittance !== previousTransmittance || absorbance !== previousAbsorbance ) {
+          this.addAccessibleObjectResponse( createAccessibleObjectResponse( mode, transmittance, absorbance ) );
+        }
+
+        previousMode = mode;
+        previousTransmittance = transmittance;
+        previousAbsorbance = absorbance;
+      },
       dragSpeed: 150,
       shiftDragSpeed: 20,
       tandem: tandem.createTandem( 'keyboardDragListener' )
@@ -88,11 +125,49 @@ export class DetectorProbeNode extends InteractiveHighlighting( ProbeNode ) {
     this.addInputListener( new JumpToPositionListener( this, BLLConstants.JUMP_TO_POSITION_HOTKEY_DATA,
       probe.positionProperty, jumpPositions, jumpPositionIndexProperty ) );
 
-    // When the probe gets focus, reset the order of jump points.
+    // When the probe gets focus...
     this.focusedProperty.lazyLink( focused => {
+
+      // Add an accessible object response for the current measurement.
+      this.addAccessibleObjectResponse( createAccessibleObjectResponse( detector.modeProperty.value,
+        detector.transmittanceProperty.value, detector.absorbanceProperty.value ) );
+
+      // Reset the order of jump points
       focused && jumpPositionIndexProperty.reset();
     } );
   }
+}
+
+/**
+ * Create the accessible object response that occurs when the probe gets focus or is dragged.
+ */
+function createAccessibleObjectResponse( mode: DetectorMode, transmittance: number | null, absorbance: number | null ): string {
+  let response;
+  if ( mode === DetectorMode.TRANSMITTANCE ) {
+    if ( transmittance === null ) {
+      response = BeersLawLabStrings.a11y.detectorProbeNode.accessibleObjectResponseUnknownStringProperty.value;
+    }
+    else {
+      response = StringUtils.fillIn( BeersLawLabStrings.a11y.detectorProbeNode.accessibleObjectResponseTransmittanceStringProperty.value, {
+        mode: BeersLawLabStrings.transmittanceStringProperty.value,
+        transmittance: toFixed( 100 * transmittance, BLLConstants.DECIMAL_PLACES_TRANSMITTANCE ),
+        units: BeersLawLabStrings.a11y.unitsDescription.percentStringProperty.value
+      } );
+    }
+  }
+  else {
+    if ( absorbance === null ) {
+      response = BeersLawLabStrings.a11y.detectorProbeNode.accessibleObjectResponseUnknownStringProperty.value;
+    }
+    else {
+      response = toFixed( absorbance, BLLConstants.DECIMAL_PLACES_ABSORBANCE );
+      response = StringUtils.fillIn( BeersLawLabStrings.a11y.detectorProbeNode.accessibleObjectResponseAbsorbanceStringProperty.value, {
+        mode: BeersLawLabStrings.absorbanceStringProperty.value,
+        absorbance: toFixed( absorbance, BLLConstants.DECIMAL_PLACES_ABSORBANCE )
+      } );
+    }
+  }
+  return response;
 }
 
 beersLawLab.register( 'DetectorProbeNode', DetectorProbeNode );

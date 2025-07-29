@@ -74,7 +74,7 @@ export default class DetectorNode extends Node {
 
     const bodyNode = new BodyNode( detector, modelViewTransform, options.tandem.createTandem( 'bodyNode' ) );
 
-    const probeNode = new DetectorProbeNode( detector.probe, jumpPositions, jumpPositionIndexProperty, light,
+    const probeNode = new DetectorProbeNode( detector, jumpPositions, jumpPositionIndexProperty, light,
       modelViewTransform, options.tandem.createTandem( 'probeNode' ) );
 
     const wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );

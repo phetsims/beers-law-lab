@@ -143,6 +143,9 @@ type StringsType = {
     'detectorProbeNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      'accessibleObjectResponseTransmittanceStringProperty': LocalizedStringProperty;
+      'accessibleObjectResponseAbsorbanceStringProperty': LocalizedStringProperty;
+      'accessibleObjectResponseUnknownStringProperty': LocalizedStringProperty;
       'jumpResponses': {
         'betweenLightSourceAndCuvetteStringProperty': LocalizedStringProperty;
         'centeredInCuvetteStringProperty': LocalizedStringProperty;
