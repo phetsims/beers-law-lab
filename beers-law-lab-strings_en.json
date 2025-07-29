@@ -264,7 +264,7 @@
       },
       "jumpResponses": {
         "inSolution": {
-          "value": "In solution"
+          "value": "In solution, concentration is {{concentration}} {{units}}"
         },
         "insideEmptyBeaker": {
           "value": "Inside empty beaker"
