@@ -1,7 +1,7 @@
 // Copyright 2021-2022, University of Colorado Boulder
 
 /**
- * DetectorMode is an enumeration of the modes for the detector that measure transmittance or absorbance.
+ * DetectorMode is an enumeration of the modes for the detector that measures transmittance or absorbance.
  * NOTE: When converting to TypeScript, this was not converted to a string union because we do not want to change
  * the PhET-iO API. String-union values use camelCase, while EnumerationValue uses UPPER_CASE.
  *
