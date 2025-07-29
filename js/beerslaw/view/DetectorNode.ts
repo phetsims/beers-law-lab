@@ -32,7 +32,7 @@ import Light from '../model/Light.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import { linear } from '../../../../dot/js/util/linear.js';
 import ATDetectorModeRadioButtonGroup from './ATDetectorModeRadioButtonGroup.js';
-import { ATProbeNode } from './ATProbeNode.js';
+import { DetectorProbeNode } from './DetectorProbeNode.js';
 import BLLColors from '../../common/BLLColors.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import JumpPosition from '../../common/model/JumpPosition.js';
@@ -74,7 +74,7 @@ export default class DetectorNode extends Node {
 
     const bodyNode = new BodyNode( detector, modelViewTransform, options.tandem.createTandem( 'bodyNode' ) );
 
-    const probeNode = new ATProbeNode( detector.probe, jumpPositions, jumpPositionIndexProperty, light,
+    const probeNode = new DetectorProbeNode( detector.probe, jumpPositions, jumpPositionIndexProperty, light,
       modelViewTransform, options.tandem.createTandem( 'probeNode' ) );
 
     const wireNode = new WireNode( detector.body, detector.probe, bodyNode, probeNode );

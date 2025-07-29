@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * ATProbeNode is the draggable probe for the AT detector.
+ * DetectorProbeNode is the draggable probe for measuring transmittance and absorbance.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -25,7 +25,7 @@ import BLLConstants from '../../common/BLLConstants.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 
-export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
+export class DetectorProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
   public constructor( probe: BLLMovable,
                       jumpPositions: JumpPosition[],
@@ -95,4 +95,4 @@ export class ATProbeNode extends InteractiveHighlighting( ProbeNode ) {
   }
 }
 
-beersLawLab.register( 'ATProbeNode', ATProbeNode );
+beersLawLab.register( 'DetectorProbeNode', DetectorProbeNode );
