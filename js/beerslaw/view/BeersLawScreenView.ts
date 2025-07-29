@@ -159,12 +159,12 @@ export default class BeersLawScreenView extends ScreenView {
     this.pdomPlayAreaNode.pdomOrder = [
       lightSourceControlsHeading,
       absorbanceTransmittanceDetectorHeading,
-      solutionControlsHeading,
-      rulerNode
+      solutionControlsHeading
     ];
 
     // Control Area focus order
     this.pdomControlAreaNode.pdomOrder = [
+      rulerNode,
       resetAllButton
     ];
   }
