@@ -14,7 +14,7 @@ import TModel from '../../../../joist/js/TModel.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
-import ATDetector from './ATDetector.js';
+import Detector from './Detector.js';
 import Beam from './Beam.js';
 import BeersLawSolution from './BeersLawSolution.js';
 import Cuvette from './Cuvette.js';
@@ -40,7 +40,7 @@ export default class BeersLawModel implements TModel {
   public readonly light: Light;
   public readonly ruler: Ruler;
   public readonly solutionInCuvette: SolutionInCuvette;
-  public readonly detector: ATDetector;
+  public readonly detector: Detector;
   public readonly beam: Beam;
 
   // Useful positions for the AT detector probe. Cycle through these positions via a keyboard shortcut.
@@ -120,7 +120,7 @@ export default class BeersLawModel implements TModel {
     this.solutionInCuvette = new SolutionInCuvette( this.solutions, this.solutionProperty,
       this.cuvette.widthProperty, this.light.wavelengthProperty, tandem.createTandem( 'solutionInCuvette' ) );
 
-    this.detector = new ATDetector( this.light, this.cuvette, this.solutionInCuvette, {
+    this.detector = new Detector( this.light, this.cuvette, this.solutionInCuvette, {
       bodyPosition: new Vector2( this.cuvette.position.x + 3, this.cuvette.position.y - 0.3 ),
       probePosition: new Vector2( this.cuvette.position.x + 3, this.light.position.y ),
       probeDragBounds: new Bounds2( 0, 0, 7.9, 5.25 ),

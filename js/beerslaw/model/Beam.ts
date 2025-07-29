@@ -21,7 +21,7 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
 import beersLawLab from '../../beersLawLab.js';
-import ATDetector from './ATDetector.js';
+import Detector from './Detector.js';
 import Cuvette from './Cuvette.js';
 import Light from './Light.js';
 import SolutionInCuvette from './SolutionInCuvette.js';
@@ -43,7 +43,7 @@ export default class Beam {
 
   public constructor( light: Light,
                       cuvette: Cuvette,
-                      detector: ATDetector,
+                      detector: Detector,
                       solutionInCuvette: SolutionInCuvette,
                       modelViewTransform: ModelViewTransform2 ) {
 

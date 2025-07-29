@@ -26,7 +26,7 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLMovable from '../../common/model/BLLMovable.js';
-import ATDetector from '../model/ATDetector.js';
+import Detector from '../model/Detector.js';
 import ATDetectorMode from '../model/ATDetectorMode.js';
 import Light from '../model/Light.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
@@ -54,7 +54,7 @@ type DetectorNodeOptions = SelfOptions & PickRequired<NodeOptions, 'tandem'>;
 
 export default class DetectorNode extends Node {
 
-  public constructor( detector: ATDetector,
+  public constructor( detector: Detector,
                       jumpPositions: JumpPosition[],
                       jumpPositionIndexProperty: Property<number>,
                       light: Light,
@@ -97,7 +97,7 @@ export default class DetectorNode extends Node {
  */
 class BodyNode extends Node {
 
-  public constructor( detector: ATDetector, modelViewTransform: ModelViewTransform2, tandem: Tandem ) {
+  public constructor( detector: Detector, modelViewTransform: ModelViewTransform2, tandem: Tandem ) {
 
     super( {
       accessibleParagraph: createAccessibleParagraph( detector ),
@@ -228,7 +228,7 @@ class WireNode extends Path {
 /**
  * Creates the accessible paragraph for DetectorNode.BodyNode.
  */
-function createAccessibleParagraph( detector: ATDetector ): TReadOnlyProperty<string> {
+function createAccessibleParagraph( detector: Detector ): TReadOnlyProperty<string> {
   return new DerivedStringProperty( [
     detector.modeProperty,
     detector.transmittanceProperty,

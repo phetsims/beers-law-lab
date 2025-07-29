@@ -1,8 +1,7 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * ATDetector is the detector for absorbance (A) and percent transmittance (%T) of light passing through
- * a solution in a cuvette.
+ * Detector measure transmittance (%T) and absorbance (A) of light passing through a solution in a cuvette.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -30,9 +29,9 @@ type SelfOptions = {
   probeDragBounds?: Bounds2;
 };
 
-type ATDetectorOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
+type DetectorOptions = SelfOptions & PickRequired<PhetioObjectOptions, 'tandem'>;
 
-export default class ATDetector extends PhetioObject {
+export default class Detector extends PhetioObject {
 
   private readonly light: Light;
   public readonly body: BLLMovable;
@@ -43,9 +42,9 @@ export default class ATDetector extends PhetioObject {
   public readonly absorbanceProperty: TReadOnlyProperty<number | null>;
   public readonly transmittanceProperty: TReadOnlyProperty<number | null>;
 
-  public constructor( light: Light, cuvette: Cuvette, solutionInCuvette: SolutionInCuvette, providedOptions: ATDetectorOptions ) {
+  public constructor( light: Light, cuvette: Cuvette, solutionInCuvette: SolutionInCuvette, providedOptions: DetectorOptions ) {
 
-    const options = optionize<ATDetectorOptions, SelfOptions, PhetioObjectOptions>()( {
+    const options = optionize<DetectorOptions, SelfOptions, PhetioObjectOptions>()( {
       bodyPosition: Vector2.ZERO,
       probePosition: Vector2.ZERO,
       probeDragBounds: Bounds2.EVERYTHING,
@@ -162,4 +161,4 @@ class Probe extends BLLMovable {
   }
 }
 
-beersLawLab.register( 'ATDetector', ATDetector );
+beersLawLab.register( 'Detector', Detector );
