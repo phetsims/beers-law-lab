@@ -26,6 +26,8 @@ export default class EvaporationSlider extends HSlider {
     super( evaporator.evaporationRateProperty, evaporator.evaporationRateProperty.range, {
       trackSize: new Dimension2( 150, 6 ),
       thumbSize: new Dimension2( 22, 45 ),
+      keyboardStep: 0.05,
+      shiftKeyboardStep: 0.025,
       enabledProperty: evaporator.enabledProperty,
 
       // At end of pointer drag, snap evaporation rate back to zero.
