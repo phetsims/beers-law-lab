@@ -45,6 +45,8 @@ export default class BLLWavelengthNumberControl extends WavelengthNumberControl 
         cursorHeight: SLIDER_TRACK_SIZE.height
       },
       sliderOptions: {
+
+        // aria-valuetext: "{{value}} nanometers, {{colorName}} range"
         pdomCreateAriaValueText: wavelength => {
           const wavelengthString = toFixed( wavelength, BLLConstants.DECIMAL_PLACES_WAVELENGTH );
           const units = BeersLawLabStrings.a11y.unitsDescription.nanometersStringProperty.value;

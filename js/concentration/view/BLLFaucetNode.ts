@@ -44,16 +44,18 @@ export default class BLLFaucetNode extends FaucetNode {
       visiblePropertyOptions: {
         phetioFeatured: true
       },
-      pdomCreateAriaValueText: value => {
+
+      // aria-valuetext: {{flowRate}} {{units}}
+      pdomCreateAriaValueText: flowRate => {
         if ( BLLPreferences.beakerUnitsProperty.value === 'liters' ) {
           return StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty, {
-            value: toFixed( value, BLLConstants.DECIMAL_PLACES_LITERS_PER_SECOND ),
+            value: toFixed( flowRate, BLLConstants.DECIMAL_PLACES_LITERS_PER_SECOND ),
             units: BeersLawLabStrings.a11y.unitsDescription.litersPerSecondStringProperty.value
           } );
         }
         else {
           return StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty, {
-            value: toFixed( value * 1000, BLLConstants.DECIMAL_PLACES_MILLILITERS_PER_SECOND ),
+            value: toFixed( flowRate * 1000, BLLConstants.DECIMAL_PLACES_MILLILITERS_PER_SECOND ),
             units: BeersLawLabStrings.a11y.unitsDescription.millilitersPerSecondStringProperty.value
           } );
         }

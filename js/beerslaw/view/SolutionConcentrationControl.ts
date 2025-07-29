@@ -136,6 +136,7 @@ class SoluteConcentrationControl extends NumberControl {
         constrainValue: value => roundToInterval( value, SLIDER_INTERVAL ),
         tandem: Tandem.OPT_OUT,
 
+        // aria-valuetext: {{concentration}} {{units}}
         pdomCreateAriaValueText: concentration => createAriaValueTextForSlider( concentration, solution.concentrationTransform ),
 
         // Dynamic dependencies used in createAriaValueTextForSlider.
