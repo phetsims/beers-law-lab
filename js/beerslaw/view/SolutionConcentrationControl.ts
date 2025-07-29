@@ -74,7 +74,7 @@ export default class SolutionConcentrationControl extends Node {
       phetioDocumentation: 'Setting this to true will hide the slider and arrow buttons, showing only the value.'
     } );
 
-    // 1 control for each solution, with mutually-exclusive visibility
+    // 1 control for each solution, with mutually exclusive visibility
     options.children = solutions.map( solution =>
       new SoluteConcentrationControl( labelStringProperty, solution, displayOnlyProperty, {
         visibleProperty: new DerivedProperty( [ solutionProperty ], solutionValue => ( solutionValue === solution ) )
@@ -133,7 +133,7 @@ class SoluteConcentrationControl extends NumberControl {
         visibleProperty: DerivedProperty.not( displayOnlyProperty ),
         trackSize: new Dimension2( 200, 15 ),
         thumbSize: new Dimension2( 22, 45 ),
-        constrainValue: value => roundToInterval( value, SLIDER_INTERVAL ),
+        constrainValue: concentration => roundToInterval( concentration, SLIDER_INTERVAL ),
         tandem: Tandem.OPT_OUT,
 
         // aria-valuetext: {{concentration}} {{units}}
@@ -189,10 +189,10 @@ class SoluteConcentrationControl extends NumberControl {
       reentrant: true,
 
       // map from model to view, apply options.interval to model value
-      map: ( value: number ) => transform.modelToView( value ),
+      map: ( concentration: number ) => transform.modelToView( concentration ),
 
       // map from view to model, apply options.interval to model value
-      inverseMap: ( value: number ) => transform.viewToModel( value )
+      inverseMap: ( concentration: number ) => transform.viewToModel( concentration )
     } );
 
     // convert solution's concentration range from model to view

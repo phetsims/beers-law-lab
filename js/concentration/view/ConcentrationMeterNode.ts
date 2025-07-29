@@ -168,19 +168,19 @@ class BodyNode extends Node {
         BeersLawLabStrings.units.molesPerLiterStringProperty,
         BLLPreferences.concentrationMeterUnitsProperty
       ],
-      ( patternValueUnits, patternValuePercent, value, molesPerLiterString, concentrationMeterUnits ) => {
+      ( patternValueUnits, patternValuePercent, concentration, molesPerLiterString, concentrationMeterUnits ) => {
         let text: string;
-        if ( value === null ) {
+        if ( concentration === null ) {
           text = READOUT_NO_VALUE;
         }
         else {
 
           // display concentration as 'mol/L' or '%', see beers-law-lab#149
           if ( concentrationMeterUnits === 'molesPerLiter' ) {
-            text = StringUtils.format( patternValueUnits, toFixed( value, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER ), molesPerLiterString );
+            text = StringUtils.format( patternValueUnits, toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER ), molesPerLiterString );
           }
           else {
-            text = StringUtils.format( patternValuePercent, toFixed( value, BLLConstants.DECIMAL_PLACES_CONCENTRATION_PERCENT ) );
+            text = StringUtils.format( patternValuePercent, toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_PERCENT ) );
           }
         }
         return text;

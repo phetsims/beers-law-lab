@@ -56,7 +56,7 @@ const BLLQueryParameters = QueryStringMachine.getAll( {
   cuvetteSnapInterval: {
     type: 'number',
     defaultValue: 0.1, // cm
-    isValidValue: value => BLLConstants.CUVETTE_SNAP_INTERVAL_RANGE.contains( value ),
+    isValidValue: cuvetteSnapInterval => BLLConstants.CUVETTE_SNAP_INTERVAL_RANGE.contains( cuvetteSnapInterval ),
     public: true
   }
 } );

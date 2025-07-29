@@ -78,7 +78,7 @@ export default class Shaker extends BLLMovable {
 
     this.dispensingRateProperty = new NumberProperty( 0, {
       units: 'mol/s',
-      isValidValue: value => ( value >= 0 ),
+      isValidValue: dispensingRate => ( dispensingRate >= 0 ),
       tandem: options.tandem.createTandem( 'dispensingRateProperty' ),
       phetioReadOnly: true
     } );
