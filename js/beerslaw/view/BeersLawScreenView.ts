@@ -122,10 +122,10 @@ export default class BeersLawScreenView extends ScreenView {
       accessibleHeading: BeersLawLabStrings.a11y.accessibleHeadings.lightSourceControlsHeadingStringProperty
     } );
 
-    // 'Absorbance Transmittance Detector' accessible heading
-    const absorbanceTransmittanceDetectorHeading = new Node( {
+    // 'Detector Controls' accessible heading
+    const detectorControlsHeading = new Node( {
       pdomOrder: [ detectorNode ],
-      accessibleHeading: BeersLawLabStrings.a11y.accessibleHeadings.absorbanceTransmittanceDetectorHeadingStringProperty
+      accessibleHeading: BeersLawLabStrings.a11y.accessibleHeadings.detectorControlsHeadingStringProperty
     } );
 
     // 'Solution Controls' accessible heading
@@ -139,7 +139,7 @@ export default class BeersLawScreenView extends ScreenView {
 
         // Accessible headings can be put anywhere in rendering order because they have no children. Put them all first.
         lightSourceControlsHeading,
-        absorbanceTransmittanceDetectorHeading,
+        detectorControlsHeading,
         solutionControlsHeading,
 
         wavelengthPanel,
@@ -158,7 +158,7 @@ export default class BeersLawScreenView extends ScreenView {
     // Play Area focus order
     this.pdomPlayAreaNode.pdomOrder = [
       lightSourceControlsHeading,
-      absorbanceTransmittanceDetectorHeading,
+      detectorControlsHeading,
       solutionControlsHeading
     ];
 

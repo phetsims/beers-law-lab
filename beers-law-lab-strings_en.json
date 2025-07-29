@@ -508,8 +508,8 @@
       "lightSourceControlsHeading": {
         "value": "Light Source Controls"
       },
-      "absorbanceTransmittanceDetectorHeading": {
-        "value": "Absorbance Transmittance Detector"
+      "detectorControlsHeading": {
+        "value": "Detector Controls"
       },
       "solutionControlsHeading": {
         "value": "Solution Controls"

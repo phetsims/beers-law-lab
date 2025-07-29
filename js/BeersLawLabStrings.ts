@@ -249,7 +249,7 @@ type StringsType = {
       'concentrationMeterHeadingStringProperty': LocalizedStringProperty;
       'beakerControlsHeadingStringProperty': LocalizedStringProperty;
       'lightSourceControlsHeadingStringProperty': LocalizedStringProperty;
-      'absorbanceTransmittanceDetectorHeadingStringProperty': LocalizedStringProperty;
+      'detectorControlsHeadingStringProperty': LocalizedStringProperty;
       'solutionControlsHeadingStringProperty': LocalizedStringProperty;
     };
     'unitsDescription': {
