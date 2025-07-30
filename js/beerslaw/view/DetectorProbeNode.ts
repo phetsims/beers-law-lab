@@ -137,7 +137,9 @@ function createAccessibleObjectResponse( mode: DetectorMode, transmittance: numb
   let response;
   if ( mode === DetectorMode.TRANSMITTANCE ) {
     if ( transmittance === null ) {
-      response = BeersLawLabStrings.a11y.detectorProbeNode.accessibleObjectResponseUnknownStringProperty.value;
+      response = StringUtils.fillIn( BeersLawLabStrings.a11y.detectorProbeNode.accessibleObjectResponseUnknownStringProperty.value, {
+        mode: BeersLawLabStrings.transmittanceStringProperty.value
+      } );
     }
     else {
       response = StringUtils.fillIn( BeersLawLabStrings.a11y.detectorProbeNode.accessibleObjectResponseTransmittanceStringProperty.value, {
@@ -149,7 +151,9 @@ function createAccessibleObjectResponse( mode: DetectorMode, transmittance: numb
   }
   else {
     if ( absorbance === null ) {
-      response = BeersLawLabStrings.a11y.detectorProbeNode.accessibleObjectResponseUnknownStringProperty.value;
+      response = StringUtils.fillIn( BeersLawLabStrings.a11y.detectorProbeNode.accessibleObjectResponseUnknownStringProperty.value, {
+        mode: BeersLawLabStrings.absorbanceStringProperty.value
+      } );
     }
     else {
       response = StringUtils.fillIn( BeersLawLabStrings.a11y.detectorProbeNode.accessibleObjectResponseAbsorbanceStringProperty.value, {
