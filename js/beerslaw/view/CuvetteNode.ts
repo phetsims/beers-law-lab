@@ -1,7 +1,7 @@
 // Copyright 2013-2025, University of Colorado Boulder
 
 /**
- * Visual representation of the cuvette.
+ * CuvetteNode is the visual representation of the cuvette.  It's width can be changed by dragging a handle.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
@@ -121,7 +121,7 @@ export default class CuvetteNode extends Node {
 }
 
 /**
- * Drag listener for pointer input that is attached to the cuvette's handle.
+ * CuvetteDragListener is the drag listener for pointer input that is attached to the cuvette's handle.
  */
 class CuvetteDragListener extends SoundDragListener {
 
@@ -163,7 +163,7 @@ class CuvetteDragListener extends SoundDragListener {
 }
 
 /**
- * Drag listener for keyboard input that is attached to the cuvette's handle.
+ * CuvetteKeyboardDragListener is the drag listener for keyboard input that is attached to the cuvette's handle.
  */
 class CuvetteKeyboardDragListener extends SoundKeyboardDragListener {
 
@@ -171,6 +171,7 @@ class CuvetteKeyboardDragListener extends SoundKeyboardDragListener {
     super( {
       transform: modelViewTransform,
       drag: ( event, listener ) => {
+
         // To support all arrow keys and WASD keys, use the modelDelta component that is non-zero.
         const delta = ( listener.modelDelta.x !== 0 ) ? listener.modelDelta.x : listener.modelDelta.y;
         const newWidth = cuvette.widthProperty.value + delta;
