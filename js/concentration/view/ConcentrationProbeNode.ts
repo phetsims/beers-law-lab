@@ -29,6 +29,8 @@ import { toFixed } from '../../../../dot/js/util/toFixed.js';
 
 export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
+  private readonly concentrationMeter: ConcentrationMeter;
+
   public readonly isInSolution: () => boolean;
   public readonly isInSolvent: () => boolean;
   public readonly isInDrainFluid: () => boolean;
@@ -68,6 +70,8 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
 
     super( options );
 
+    this.concentrationMeter = concentrationMeter;
+
     const probe = concentrationMeter.probe;
 
     // probe position
@@ -78,21 +82,11 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
     // touch area
     this.touchArea = this.localBounds.dilatedXY( 0.25 * this.width, 0.25 * this.height );
 
-    let previousConcentration = concentrationMeter.valueProperty.value;
-
-    const drag = () => {
-      const concentration = concentrationMeter.valueProperty.value;
-      if ( concentration !== previousConcentration ) {
-        this.addAccessibleObjectResponse( createAccessibleObjectResponse( concentration ) );
-      }
-      previousConcentration = concentration;
-    };
-
     // drag listener
     this.addInputListener( new SoundDragListener( {
       positionProperty: probe.positionProperty,
       dragBoundsProperty: new Property( probe.dragBounds ),
-      drag: drag,
+      drag: () => this.doAccessibleObjectResponse(),
       transform: modelViewTransform,
       tandem: tandem.createTandem( 'dragListener' )
     } ) );
@@ -102,7 +96,7 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
       positionProperty: probe.positionProperty,
       dragBoundsProperty: new Property( probe.dragBounds ),
       transform: modelViewTransform,
-      drag: drag,
+      drag: () => this.doAccessibleObjectResponse(),
       dragSpeed: 300,
       shiftDragSpeed: 20,
       tandem: tandem.createTandem( 'keyboardDragListener' )
@@ -130,36 +124,38 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
       if ( focused ) {
 
         // Add an accessible object response for the current measurement.
-        this.addAccessibleObjectResponse( createAccessibleObjectResponse( concentrationMeter.valueProperty.value ) );
+        this.doAccessibleObjectResponse();
 
         // Reset the order of jump points
         focused && jumpPositionIndexProperty.reset();
       }
     } );
   }
-}
 
-/**
- * Create the accessible object response that occurs when the probe gets focus or is dragged.
- */
-function createAccessibleObjectResponse( concentration: number | null ): string {
-  let response;
-  if ( concentration === null ) {
-    response = BeersLawLabStrings.a11y.concentrationProbeNode.accessibleObjectResponseUnknownStringProperty.value;
+  /**
+   * Adds an accessible object response to report the concentration that the probe is reading.
+   * This occurs on focus and drag.
+   */
+  private doAccessibleObjectResponse(): void {
+    let response;
+    const concentration = this.concentrationMeter.valueProperty.value;
+    if ( concentration === null ) {
+      response = BeersLawLabStrings.a11y.concentrationProbeNode.accessibleObjectResponseUnknownStringProperty.value;
+    }
+    else if ( BLLPreferences.concentrationMeterUnitsProperty.value === 'molesPerLiter' ) {
+      response = StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty.value, {
+        value: toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER ),
+        units: BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty.value
+      } );
+    }
+    else {
+      response = StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty.value, {
+        value: toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_PERCENT ),
+        units: BeersLawLabStrings.a11y.unitsDescription.percentStringProperty.value
+      } );
+    }
+    this.addAccessibleObjectResponse( response );
   }
-  else if ( BLLPreferences.concentrationMeterUnitsProperty.value === 'molesPerLiter' ) {
-    response = StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty.value, {
-      value: toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER ),
-      units: BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty.value
-    } );
-  }
-  else {
-    response = StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty.value, {
-      value: toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_PERCENT ),
-      units: BeersLawLabStrings.a11y.unitsDescription.percentStringProperty.value
-    } );
-  }
-  return response;
 }
 
 beersLawLab.register( 'ConcentrationProbeNode', ConcentrationProbeNode );
