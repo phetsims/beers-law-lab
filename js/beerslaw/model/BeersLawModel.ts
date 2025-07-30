@@ -28,6 +28,11 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Range from '../../../../dot/js/Range.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
+import DetectorMode from './DetectorMode.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
+import BLLConstants from '../../common/BLLConstants.js';
+import { toFixed } from '../../../../dot/js/util/toFixed.js';
 
 export default class BeersLawModel implements TModel {
 
@@ -129,30 +134,78 @@ export default class BeersLawModel implements TModel {
 
     this.beam = new Beam( this.light, this.cuvette, this.detector, this.solutionInCuvette, modelViewTransform );
 
+    // Model Properties that are used by all derivations of descriptions for jump positions.
+    const modelDependencies = [
+      this.detector.modeProperty,
+      this.detector.transmittanceProperty,
+      this.detector.absorbanceProperty
+    ];
+
+    // Localized strings used by getDetectorValueSentence
+    const getDetectorValueSentenceDependencies = [
+      BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.transmittanceValueUnitsStringProperty,
+      BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.transmittanceUnknownStringProperty,
+      BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.absorbanceValueStringProperty,
+      BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.absorbanceUnknownStringProperty,
+      BeersLawLabStrings.a11y.unitsDescription.percentStringProperty
+    ];
+
     this.detectorProbeJumpPositions = [
 
       // Between light source and cuvette, vertically centered in the beam path.
       new JumpPosition( {
         positionProperty: new Vector2Property( new Vector2( this.cuvette.position.x - 0.5, this.light.position.y ) ),
-        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.betweenLightSourceAndCuvetteStringProperty
+        accessibleObjectResponseStringProperty: DerivedStringProperty.deriveAny( [
+            BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.betweenLightSourceAndCuvetteStringProperty,
+            ...modelDependencies,
+            ...getDetectorValueSentenceDependencies
+          ],
+          () => StringUtils.fillIn( BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.betweenLightSourceAndCuvetteStringProperty.value, {
+            valueSentence: getDetectorValueSentence( this.detector )
+          } )
+        )
       } ),
 
       // Horizontally centered in the cuvette, vertically centered in the beam path.
       new JumpPosition( {
         positionProperty: new DerivedProperty( [ this.cuvette.centerXProperty ], centerX => new Vector2( centerX, this.light.position.y ) ),
-        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.centeredInCuvetteStringProperty
+        accessibleObjectResponseStringProperty: DerivedStringProperty.deriveAny( [
+            BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.centeredInCuvetteStringProperty,
+            ...modelDependencies,
+            ...getDetectorValueSentenceDependencies
+          ],
+          () => StringUtils.fillIn( BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.centeredInCuvetteStringProperty.value, {
+            valueSentence: getDetectorValueSentence( this.detector )
+          } )
+        )
       } ),
 
       // Right of the cuvette's max width, vertically centered in the beam path.
       new JumpPosition( {
         positionProperty: new Vector2Property( new Vector2( this.detector.probe.positionProperty.value.x, this.light.position.y ) ),
-        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.rightOfCuvetteStringProperty
+        accessibleObjectResponseStringProperty: DerivedStringProperty.deriveAny( [
+            BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.rightOfCuvetteStringProperty,
+            ...modelDependencies,
+            ...getDetectorValueSentenceDependencies
+          ],
+          () => StringUtils.fillIn( BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.rightOfCuvetteStringProperty.value, {
+            valueSentence: getDetectorValueSentence( this.detector )
+          } )
+        )
       } ),
 
       // Outside the light source path.
       new JumpPosition( {
         positionProperty: new Vector2Property( new Vector2( this.detector.probe.positionProperty.value.x, this.light.position.y + this.detector.probe.sensorDiameter + 0.15 ) ),
-        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.outsideLightSourcePathStringProperty
+        accessibleObjectResponseStringProperty: DerivedStringProperty.deriveAny( [
+            BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.outsideLightSourcePathStringProperty,
+            ...modelDependencies,
+            ...getDetectorValueSentenceDependencies
+          ],
+          () => StringUtils.fillIn( BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.outsideLightSourcePathStringProperty.value, {
+            valueSentence: getDetectorValueSentence( this.detector )
+          } )
+        )
       } )
     ];
 
@@ -183,6 +236,41 @@ export default class BeersLawModel implements TModel {
   public getSolutionNameProperties(): TReadOnlyProperty<string>[] {
     return this.solutions.map( solution => solution.nameProperty );
   }
+}
+
+/**
+ * Gets the sentence that describes the value displayed by the detector.
+ */
+function getDetectorValueSentence( detector: Detector ): string {
+
+  const mode = detector.modeProperty.value;
+  const transmittance = detector.transmittanceProperty.value;
+  const absorbance = detector.absorbanceProperty.value;
+
+  let valueSentence: string;
+  if ( mode === DetectorMode.TRANSMITTANCE ) {
+    if ( transmittance === null ) {
+      valueSentence = BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.transmittanceUnknownStringProperty.value;
+    }
+    else {
+      valueSentence = StringUtils.fillIn( BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.transmittanceValueUnitsStringProperty.value, {
+        transmittance: toFixed( 100 * transmittance, BLLConstants.DECIMAL_PLACES_TRANSMITTANCE ),
+        units: BeersLawLabStrings.a11y.unitsDescription.percentStringProperty.value
+      } );
+    }
+  }
+  else {
+    assert && assert( mode === DetectorMode.ABSORBANCE );
+    if ( absorbance === null ) {
+      valueSentence = BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.absorbanceUnknownStringProperty.value;
+    }
+    else {
+      valueSentence = StringUtils.fillIn( BeersLawLabStrings.a11y.detectorProbeNode.jumpResponses.absorbanceValueStringProperty.value, {
+        absorbance: toFixed( absorbance, BLLConstants.DECIMAL_PLACES_ABSORBANCE )
+      } );
+    }
+  }
+  return valueSentence;
 }
 
 beersLawLab.register( 'BeersLawModel', BeersLawModel );

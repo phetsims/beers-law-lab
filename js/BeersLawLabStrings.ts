@@ -152,6 +152,10 @@ type StringsType = {
         'centeredInCuvetteStringProperty': LocalizedStringProperty;
         'rightOfCuvetteStringProperty': LocalizedStringProperty;
         'outsideLightSourcePathStringProperty': LocalizedStringProperty;
+        'transmittanceValueUnitsStringProperty': LocalizedStringProperty;
+        'transmittanceUnknownStringProperty': LocalizedStringProperty;
+        'absorbanceValueStringProperty': LocalizedStringProperty;
+        'absorbanceUnknownStringProperty': LocalizedStringProperty;
       }
     };
     'shakerNode': {
