@@ -73,6 +73,9 @@ export default class CuvetteNode extends Node {
     } );
 
     const arrowNode = new CuvetteArrowNode( options.tandem.createTandem( 'arrowNode' ) );
+    arrowNode.focusedProperty.lazyLink( focused => {
+      focused && arrowNode.doAccessibleObjectResponse( cuvette.widthProperty.value );
+    } );
 
     // rendering order
     this.children = [ solutionNode, cuvetteNode, arrowNode ];
@@ -105,19 +108,8 @@ export default class CuvetteNode extends Node {
     arrowNode.addInputListener( new CuvetteDragListener( cuvette, modelViewTransform,
       arrowNode, options.tandem.createTandem( 'cuvetteDragListener' ) ) );
 
-    arrowNode.addInputListener( new SoundKeyboardDragListener( {
-      transform: modelViewTransform,
-      drag: ( event, listener ) => {
-        // To support all arrow keys and WASD keys, use the modelDelta component that is non-zero.
-        const delta = ( listener.modelDelta.x !== 0 ) ? listener.modelDelta.x : listener.modelDelta.y;
-        const newWidth = cuvette.widthProperty.value + delta;
-        cuvette.widthProperty.value = clamp( newWidth, cuvette.widthProperty.range.min, cuvette.widthProperty.range.max );
-        arrowNode.addAccessibleObjectResponse( getAccessibleObjectResponse( cuvette.widthProperty.value ) );
-      },
-      dragSpeed: 300,
-      shiftDragSpeed: 20,
-      tandem: options.tandem.createTandem( 'cuvetteKeyboardDragListener' )
-    } ) );
+    arrowNode.addInputListener( new CuvetteKeyboardDragListener( cuvette, modelViewTransform,
+      arrowNode, options.tandem.createTandem( 'cuvetteKeyboardDragListener' ) ) );
 
     // position of the cuvette
     const position = modelViewTransform.modelToViewPosition( cuvette.position );
@@ -129,7 +121,7 @@ export default class CuvetteNode extends Node {
 }
 
 /**
- * Drag listener that is attached to the cuvette's handle.
+ * Drag listener for pointer input that is attached to the cuvette's handle.
  */
 class CuvetteDragListener extends SoundDragListener {
 
@@ -154,7 +146,7 @@ class CuvetteDragListener extends SoundDragListener {
         const dragX = event.pointer.point.x;
         const deltaWidth = modelViewTransform.viewToModelDeltaX( dragX - startX );
         cuvette.widthProperty.value = clamp( startWidth + deltaWidth, widthRange.min, widthRange.max );
-        arrowNode.addAccessibleObjectResponse( getAccessibleObjectResponse( cuvette.widthProperty.value ) );
+        arrowNode.doAccessibleObjectResponse( cuvette.widthProperty.value );
       },
 
       end: () => {
@@ -170,6 +162,33 @@ class CuvetteDragListener extends SoundDragListener {
   }
 }
 
+/**
+ * Drag listener for keyboard input that is attached to the cuvette's handle.
+ */
+class CuvetteKeyboardDragListener extends SoundKeyboardDragListener {
+
+  public constructor( cuvette: Cuvette, modelViewTransform: ModelViewTransform2, arrowNode: CuvetteArrowNode, tandem: Tandem ) {
+    super( {
+      transform: modelViewTransform,
+      drag: ( event, listener ) => {
+        // To support all arrow keys and WASD keys, use the modelDelta component that is non-zero.
+        const delta = ( listener.modelDelta.x !== 0 ) ? listener.modelDelta.x : listener.modelDelta.y;
+        const newWidth = cuvette.widthProperty.value + delta;
+        cuvette.widthProperty.value = clamp( newWidth, cuvette.widthProperty.range.min, cuvette.widthProperty.range.max );
+
+        // accessibleObjectResponse
+        arrowNode.doAccessibleObjectResponse( cuvette.widthProperty.value );
+      },
+      dragSpeed: 300,
+      shiftDragSpeed: 20,
+      tandem: tandem
+    } );
+  }
+}
+
+/**
+ * CuvetteArrowNode is the draggable handle for changing the width of the cuvette.
+ */
 class CuvetteArrowNode extends InteractiveHighlighting( ArrowNode ) {
 
   public constructor( tandem: Tandem ) {
@@ -207,13 +226,18 @@ class CuvetteArrowNode extends InteractiveHighlighting( ArrowNode ) {
     const dy = this.height;
     this.touchArea = this.localBounds.dilatedXY( dx, dy );
   }
-}
 
-function getAccessibleObjectResponse( cuvetteWidth: number ): string {
-  return StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty, {
-    value: toFixed( cuvetteWidth, BLLConstants.DECIMAL_PLACES_CUVETTE_WIDTH ),
-    units: BeersLawLabStrings.a11y.unitsDescription.centimetersStringProperty.value
-  } );
+  /**
+   * Adds an accessible object response to report the width of the cuvette.
+   * This occurs on focus and drag.
+   */
+  public doAccessibleObjectResponse( cuvetteWidth: number ): void {
+    const response = StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty, {
+      value: toFixed( cuvetteWidth, BLLConstants.DECIMAL_PLACES_CUVETTE_WIDTH ),
+      units: BeersLawLabStrings.a11y.unitsDescription.centimetersStringProperty.value
+    } );
+    this.addAccessibleObjectResponse( response );
+  }
 }
 
 beersLawLab.register( 'CuvetteNode', CuvetteNode );
