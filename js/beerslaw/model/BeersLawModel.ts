@@ -33,6 +33,7 @@ import DetectorMode from './DetectorMode.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
+import RulerJumpPositions from './RulerJumpPositions.js';
 
 export default class BeersLawModel implements TModel {
 
@@ -96,26 +97,7 @@ export default class BeersLawModel implements TModel {
       tandem: tandem.createTandem( 'ruler' )
     } );
 
-    this.rulerJumpPositions = [
-
-      // Measuring the cuvette
-      new JumpPosition( {
-        positionProperty: new Vector2Property( new Vector2( this.cuvette.position.x, this.cuvette.position.y + this.cuvette.height ) ),
-        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.rulerNode.jumpResponses.measuringCuvetteWidthStringProperty
-      } ),
-
-      // Measuring the path length
-      new JumpPosition( {
-        positionProperty: new Vector2Property( new Vector2( this.cuvette.position.x, this.light.position.y + this.light.lensDiameter / 2 ) ),
-        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.rulerNode.jumpResponses.measuringOpticalPathLengthStringProperty
-      } ),
-
-      // Not measuring
-      new JumpPosition( {
-        positionProperty: new Vector2Property( this.ruler.positionProperty.value ),
-        accessibleObjectResponseStringProperty: BeersLawLabStrings.a11y.rulerNode.jumpResponses.notMeasuringStringProperty
-      } )
-    ];
+    this.rulerJumpPositions = new RulerJumpPositions( this );
 
     this.rulerJumpPositionIndexProperty = new NumberProperty( 0, {
       numberType: 'Integer',
