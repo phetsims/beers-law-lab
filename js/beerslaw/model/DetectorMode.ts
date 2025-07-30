@@ -1,4 +1,4 @@
-// Copyright 2021-2022, University of Colorado Boulder
+// Copyright 2021-2025, University of Colorado Boulder
 
 /**
  * DetectorMode is an enumeration of the modes for the detector that measures transmittance or absorbance.
