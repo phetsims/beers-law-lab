@@ -428,7 +428,7 @@
           "value": "Measuring optical path length. Light source is off."
         },
         "notMeasuring": {
-          "value": "Not measuring"
+          "value": "Not measuring."
         }
       }
     },
