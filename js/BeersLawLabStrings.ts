@@ -133,7 +133,7 @@ type StringsType = {
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
       'accessibleObjectResponseUnknownStringProperty': LocalizedStringProperty;
       'jumpResponses': {
-        'inSolutionStringProperty': LocalizedStringProperty;
+        'inBeakerStringProperty': LocalizedStringProperty;
         'insideEmptyBeakerStringProperty': LocalizedStringProperty;
         'outsideBeakerStringProperty': LocalizedStringProperty;
         'belowWaterFaucetStringProperty': LocalizedStringProperty;
@@ -161,6 +161,7 @@ type StringsType = {
     'shakerNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
+      'accessibleObjectResponseStringProperty': LocalizedStringProperty;
     };
     'dropperButton': {
       'accessibleNameStringProperty': LocalizedStringProperty;

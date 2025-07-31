@@ -28,7 +28,7 @@ export default class ConcentrationProbeJumpPositions extends Array<JumpPosition>
         positionProperty: new Vector2Property( model.beaker.position.minusXY( 0, 0.0001 ) ),
         accessibleObjectResponseStringProperty: new DerivedStringProperty( [
             BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.insideEmptyBeakerStringProperty,
-            BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.inSolutionStringProperty,
+            BeersLawLabStrings.a11y.concentrationProbeNode.jumpResponses.inBeakerStringProperty,
             model.concentrationMeter.probe.positionProperty,
             model.solution.concentrationProperty,
             model.solution.percentConcentrationProperty,
