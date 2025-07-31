@@ -419,10 +419,10 @@
       },
       "jumpResponses": {
         "measuringCuvetteWidth": {
-          "value": "Measuring cuvette width, {{width}} {{units}}"
+          "value": "Measuring cuvette width, {{width}} {{units}}."
         },
         "measuringOpticalPathLength": {
-          "value": "Measuring optical path length, {{width}} {{units}}"
+          "value": "Measuring optical path length, {{width}} {{units}}."
         },
         "measuringOpticalPathLengthLightOff": {
           "value": "Measuring optical path length. Light source is off."
