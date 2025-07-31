@@ -195,6 +195,7 @@ type StringsType = {
     };
     'evaporationSlider': {
       'accessibleNameStringProperty': LocalizedStringProperty;
+      'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
     'rulerNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;

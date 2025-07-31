@@ -37,6 +37,7 @@ export default class EvaporationSlider extends HSlider {
         }
       },
       accessibleName: BeersLawLabStrings.a11y.evaporationSlider.accessibleNameStringProperty,
+      accessibleHelpText: BeersLawLabStrings.a11y.evaporationSlider.accessibleHelpTextStringProperty,
 
       // aria-valuetext: "{{evaporationRate}} {{units}}"
       pdomCreateAriaValueText: evaporationRate => StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty, {
