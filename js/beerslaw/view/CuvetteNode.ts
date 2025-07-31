@@ -30,8 +30,8 @@ import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLColors from '../../common/BLLColors.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import BLLConstants from '../../common/BLLConstants.js';
-import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
+import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 
 const PERCENT_FULL = 0.92;
 const SOLUTION_ALPHA = 0.6;
@@ -234,7 +234,7 @@ class CuvetteArrowNode extends InteractiveHighlighting( ArrowNode ) {
    */
   public doAccessibleObjectResponse( cuvetteWidth: number ): void {
     const response = StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty, {
-      value: toFixed( cuvetteWidth, BLLConstants.DECIMAL_PLACES_CUVETTE_WIDTH ),
+      value: toFixedNumber( cuvetteWidth, BLLConstants.DECIMAL_PLACES_CUVETTE_WIDTH ),
       units: BeersLawLabStrings.a11y.unitsDescription.centimetersStringProperty.value
     } );
     this.addAccessibleObjectResponse( response );

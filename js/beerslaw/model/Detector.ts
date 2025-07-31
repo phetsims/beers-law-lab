@@ -38,6 +38,7 @@ export default class Detector extends PhetioObject {
   public readonly probe: Probe;
   public readonly modeProperty: EnumerationProperty<DetectorMode>;
   public readonly isInBeamProperty: TReadOnlyProperty<boolean>;
+  public readonly pathLengthProperty: TReadOnlyProperty<number | null>;
 
   public readonly absorbanceProperty: TReadOnlyProperty<number | null>;
   public readonly transmittanceProperty: TReadOnlyProperty<number | null>;
@@ -74,7 +75,7 @@ export default class Detector extends PhetioObject {
       phetioFeatured: true
     } );
 
-    const pathLengthProperty = new DerivedProperty( [ this.light.isOnProperty, this.probe.positionProperty, cuvette.widthProperty ],
+    this.pathLengthProperty = new DerivedProperty( [ this.light.isOnProperty, this.probe.positionProperty, cuvette.widthProperty ],
       ( lightIsOn, probePosition, cuvetteWidth ) =>
         ( lightIsOn && this.isProbeInBeam() ) ? Math.min( Math.max( 0, probePosition.x - cuvette.position.x ), cuvetteWidth ) : null, {
         units: 'cm',
@@ -86,7 +87,7 @@ export default class Detector extends PhetioObject {
       } );
 
     this.absorbanceProperty = new DerivedProperty(
-      [ solutionInCuvette.molarAbsorptivityProperty, pathLengthProperty, solutionInCuvette.concentrationProperty ],
+      [ solutionInCuvette.molarAbsorptivityProperty, this.pathLengthProperty, solutionInCuvette.concentrationProperty ],
       ( molarAbsorptivity, pathLength, concentration ) =>
         ( pathLength === null ) ? null : SolutionInCuvette.getAbsorbance( molarAbsorptivity, pathLength, concentration ), {
         tandem: options.tandem.createTandem( 'absorbanceProperty' ),

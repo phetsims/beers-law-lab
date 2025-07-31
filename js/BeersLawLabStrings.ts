@@ -203,6 +203,7 @@ type StringsType = {
       'jumpResponses': {
         'measuringCuvetteWidthStringProperty': LocalizedStringProperty;
         'measuringOpticalPathLengthStringProperty': LocalizedStringProperty;
+        'measuringOpticalPathLengthLightOffStringProperty': LocalizedStringProperty;
         'notMeasuringStringProperty': LocalizedStringProperty;
       }
     };

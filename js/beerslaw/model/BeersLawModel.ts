@@ -84,19 +84,6 @@ export default class BeersLawModel implements TModel {
       tandem: tandem.createTandem( 'light' )
     } );
 
-    this.ruler = new Ruler( {
-      position: new Vector2( this.cuvette.position.x - 2.6, this.cuvette.position.y + 4 ),
-      dragBounds: new Bounds2( 0, 0, 6, 5 ),
-      tandem: tandem.createTandem( 'ruler' )
-    } );
-
-    this.rulerJumpPositions = new RulerJumpPositions( this );
-
-    this.rulerJumpPositionIndexProperty = new NumberProperty( 0, {
-      numberType: 'Integer',
-      range: new Range( 0, this.rulerJumpPositions.length - 1 )
-    } );
-
     this.solutionInCuvette = new SolutionInCuvette( this.solutions, this.solutionProperty,
       this.cuvette.widthProperty, this.light.wavelengthProperty, tandem.createTandem( 'solutionInCuvette' ) );
 
@@ -114,6 +101,19 @@ export default class BeersLawModel implements TModel {
     this.detectorProbeJumpPositionIndexProperty = new NumberProperty( 0, {
       numberType: 'Integer',
       range: new Range( 0, this.detectorProbeJumpPositions.length - 1 )
+    } );
+
+    this.ruler = new Ruler( {
+      position: new Vector2( this.cuvette.position.x - 2.6, this.cuvette.position.y + 4 ),
+      dragBounds: new Bounds2( 0, 0, 6, 5 ),
+      tandem: tandem.createTandem( 'ruler' )
+    } );
+
+    this.rulerJumpPositions = new RulerJumpPositions( this );
+
+    this.rulerJumpPositionIndexProperty = new NumberProperty( 0, {
+      numberType: 'Integer',
+      range: new Range( 0, this.rulerJumpPositions.length - 1 )
     } );
   }
 
