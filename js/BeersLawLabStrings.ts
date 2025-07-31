@@ -152,12 +152,12 @@ type StringsType = {
         'centeredInCuvetteStringProperty': LocalizedStringProperty;
         'rightOfCuvetteStringProperty': LocalizedStringProperty;
         'outsideLightSourcePathStringProperty': LocalizedStringProperty;
-        'transmittanceValueUnitsStringProperty': LocalizedStringProperty;
-        'transmittanceUnknownStringProperty': LocalizedStringProperty;
-        'absorbanceValueStringProperty': LocalizedStringProperty;
-        'absorbanceUnknownStringProperty': LocalizedStringProperty;
       }
     };
+    'transmittanceValueUnitsStringProperty': LocalizedStringProperty;
+    'transmittanceUnknownStringProperty': LocalizedStringProperty;
+    'absorbanceValueStringProperty': LocalizedStringProperty;
+    'absorbanceUnknownStringProperty': LocalizedStringProperty;
     'shakerNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
@@ -171,12 +171,6 @@ type StringsType = {
     'concentrationMeterBodyNode': {
       'accessibleParagraphStringProperty': LocalizedStringProperty;
       'accessibleParagraphUnknownStringProperty': LocalizedStringProperty;
-    };
-    'detectorBodyNode': {
-      'accessibleParagraphAbsorbanceStringProperty': LocalizedStringProperty;
-      'accessibleParagraphAbsorbanceUnknownStringProperty': LocalizedStringProperty;
-      'accessibleParagraphTransmittanceStringProperty': LocalizedStringProperty;
-      'accessibleParagraphTransmittanceUnknownStringProperty': LocalizedStringProperty;
     };
     'soluteComboBox': {
       'accessibleNameStringProperty': LocalizedStringProperty;

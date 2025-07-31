@@ -106,7 +106,7 @@ class BodyNode extends Node {
     } );
 
     // radio button group
-    const radioButtonGroup = new DetectorModeRadioButtonGroup( detector.modeProperty, tandem.createTandem( 'radioButtonGroup' ) );
+    const radioButtonGroup = new DetectorModeRadioButtonGroup( detector, tandem.createTandem( 'radioButtonGroup' ) );
 
     // value + units
     const valueStringProperty = new DerivedStringProperty(
@@ -235,18 +235,18 @@ function createAccessibleParagraph( detector: Detector ): TReadOnlyProperty<stri
     detector.absorbanceProperty,
 
     // Localized strings used in this derivation.
-    BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphTransmittanceUnknownStringProperty,
-    BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphTransmittanceStringProperty,
-    BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphAbsorbanceUnknownStringProperty,
-    BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphAbsorbanceStringProperty,
+    BeersLawLabStrings.a11y.transmittanceValueUnitsStringProperty,
+    BeersLawLabStrings.a11y.transmittanceUnknownStringProperty,
+    BeersLawLabStrings.a11y.absorbanceValueStringProperty,
+    BeersLawLabStrings.a11y.absorbanceUnknownStringProperty,
     BeersLawLabStrings.a11y.unitsDescription.percentStringProperty
   ], ( mode, transmittance, absorbance ) => {
     if ( mode === DetectorMode.TRANSMITTANCE ) {
       if ( transmittance === null ) {
-        return BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphTransmittanceUnknownStringProperty.value;
+        return BeersLawLabStrings.a11y.transmittanceUnknownStringProperty.value;
       }
       else {
-        return StringUtils.fillIn( BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphTransmittanceStringProperty.value, {
+        return StringUtils.fillIn( BeersLawLabStrings.a11y.transmittanceValueUnitsStringProperty.value, {
           transmittance: toFixed( 100 * transmittance, BLLConstants.DECIMAL_PLACES_TRANSMITTANCE ),
           units: BeersLawLabStrings.a11y.unitsDescription.percentStringProperty.value
         } );
@@ -255,10 +255,10 @@ function createAccessibleParagraph( detector: Detector ): TReadOnlyProperty<stri
     else {
       assert && assert( mode === DetectorMode.ABSORBANCE );
       if ( absorbance === null ) {
-        return BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphAbsorbanceUnknownStringProperty.value;
+        return BeersLawLabStrings.a11y.absorbanceUnknownStringProperty.value;
       }
       else {
-        return StringUtils.fillIn( BeersLawLabStrings.a11y.detectorBodyNode.accessibleParagraphAbsorbanceStringProperty.value, {
+        return StringUtils.fillIn( BeersLawLabStrings.a11y.absorbanceValueStringProperty.value, {
           absorbance: toFixed( absorbance, BLLConstants.DECIMAL_PLACES_ABSORBANCE )
         } );
       }

@@ -314,20 +314,20 @@
         },
         "outsideLightSourcePath": {
           "value": "Outside light source path. {{valueSentence}}"
-        },
-        "transmittanceValueUnits": {
-          "value": "Transmittance is {{transmittance}} {{units}}."
-        },
-        "transmittanceUnknown": {
-          "value": "Transmittance is unknown."
-        },
-        "absorbanceValue": {
-          "value": "Absorbance is {{absorbance}}."
-        },
-        "absorbanceUnknown": {
-          "value": "Absorbance is unknown."
         }
       }
+    },
+    "transmittanceValueUnits": {
+      "value": "Transmittance is {{transmittance}} {{units}}."
+    },
+    "transmittanceUnknown": {
+      "value": "Transmittance is unknown."
+    },
+    "absorbanceValue": {
+      "value": "Absorbance is {{absorbance}}."
+    },
+    "absorbanceUnknown": {
+      "value": "Absorbance is unknown."
     },
     "shakerNode": {
       "accessibleName": {
@@ -357,20 +357,6 @@
       },
       "accessibleParagraphUnknown": {
         "value": "Concentration is unknown."
-      }
-    },
-    "detectorBodyNode": {
-      "accessibleParagraphAbsorbance": {
-        "value": "Absorbance is {{absorbance}}."
-      },
-      "accessibleParagraphAbsorbanceUnknown": {
-        "value": "Absorbance is unknown."
-      },
-      "accessibleParagraphTransmittance": {
-        "value": "Transmittance is {{transmittance}} {{units}}."
-      },
-      "accessibleParagraphTransmittanceUnknown": {
-        "value": "Transmittance is unknown."
       }
     },
     "soluteComboBox": {
