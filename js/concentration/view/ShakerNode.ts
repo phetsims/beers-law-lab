@@ -106,7 +106,7 @@ export default class ShakerNode extends InteractiveHighlighting( Node ) {
     this.addInputListener( new SoundDragListener( {
       positionProperty: shaker.positionProperty,
       dragBoundsProperty: new Property( shaker.dragBounds ),
-      start: () => this.addAccessibleObjectResponse( BeersLawLabStrings.a11y.shakerNode.accessibleObjectResponseStringProperty.value ),
+      start: () => this.addAccessibleObjectResponse( BeersLawLabStrings.a11y.shakerNode.accessibleContextResponseStringProperty.value ),
       transform: modelViewTransform,
       tandem: options.tandem.createTandem( 'dragListener' )
     } ) );
@@ -116,7 +116,7 @@ export default class ShakerNode extends InteractiveHighlighting( Node ) {
       positionProperty: shaker.positionProperty,
       dragBoundsProperty: new Property( shaker.dragBounds ),
       transform: modelViewTransform,
-      start: () => this.addAccessibleObjectResponse( BeersLawLabStrings.a11y.shakerNode.accessibleObjectResponseStringProperty.value ),
+      start: () => this.addAccessibleContextResponse( BeersLawLabStrings.a11y.shakerNode.accessibleContextResponseStringProperty.value ),
       dragSpeed: 200,
       shiftDragSpeed: 20,
       tandem: options.tandem.createTandem( 'keyboardDragListener' )
