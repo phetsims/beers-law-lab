@@ -135,6 +135,35 @@ export default class ConcentrationMeterNode extends Node {
 
     this.addLinkedElement( concentrationMeter );
   }
+
+  /**
+   * Creates a description of the concentration displayed by ConcentrationMeterNode.BodyNode.
+   */
+  public static createConcentrationDescription( concentration: number | null ): string {
+    if ( concentration === null ) {
+
+      // The meter is not measuring anything, so the concentration is unknown.
+      return BeersLawLabStrings.a11y.concentrationMeterBodyNode.concentrationIsUnknownStringProperty.value;
+    }
+    else {
+
+      // Concentration value with the same number of decimal places as the visual UI.
+      let concentrationString;
+      if ( BLLPreferences.concentrationMeterUnitsProperty.value === 'molesPerLiter' ) {
+        concentrationString = toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER );
+      }
+      else {
+        concentrationString = toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_PERCENT );
+      }
+
+      return StringUtils.fillIn( BeersLawLabStrings.a11y.concentrationMeterBodyNode.concentrationIsValueUnitsStringProperty.value, {
+        concentration: concentrationString,
+        units: ( BLLPreferences.concentrationMeterUnitsProperty.value === 'molesPerLiter' ) ?
+               BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty.value :
+               BeersLawLabStrings.a11y.unitsDescription.percentStringProperty.value
+      } );
+    }
+  }
 }
 
 /**
@@ -146,7 +175,7 @@ class BodyNode extends Node {
 
     const options: NodeOptions = {
       cursor: 'pointer',
-      accessibleParagraph: createAccessibleParagraph( concentrationMeter.valueProperty ),
+      accessibleParagraph: BodyNode.createAccessibleParagraph( concentrationMeter.valueProperty ),
       tandem: tandem,
       phetioVisiblePropertyInstrumented: false
     };
@@ -237,6 +266,34 @@ class BodyNode extends Node {
       }
       valueText.centerY = backgroundNode.centerY;
     } );
+
+    // When the value displayed by the meter changes, add a context response that describes the concentration.
+    valueStringProperty.lazyLink( () => {
+      const response = ConcentrationMeterNode.createConcentrationDescription( concentrationMeter.valueProperty.value );
+      this.addAccessibleContextResponse( response );
+    } );
+  }
+
+  /**
+   * Creates the accessible paragraph for BodyNode.
+   */
+  private static createAccessibleParagraph( concentrationProperty: TReadOnlyProperty<number | null> ): TReadOnlyProperty<string> {
+
+    return new DerivedStringProperty( [
+        concentrationProperty,
+        BLLPreferences.concentrationMeterUnitsProperty,
+
+        // Localized strings used createConcentrationDescription.
+        BeersLawLabStrings.a11y.concentrationMeterBodyNode.concentrationIsUnknownStringProperty,
+        BeersLawLabStrings.a11y.concentrationMeterBodyNode.concentrationIsValueUnitsStringProperty,
+        BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty,
+        BeersLawLabStrings.a11y.unitsDescription.percentStringProperty
+      ],
+      concentration => ConcentrationMeterNode.createConcentrationDescription( concentration ),
+      {
+        isDisposable: false
+      }
+    );
   }
 }
 
@@ -277,57 +334,6 @@ class WireNode extends Path {
         .cubicCurveTo( c1.x, c1.y, c2.x, c2.y, probeConnectionPoint.x, probeConnectionPoint.y );
     };
     probe.positionProperty.link( updateCurve );
-  }
-}
-
-/**
- * Creates the accessible paragraph for ConcentrationMeterNode.BodyNode.
- */
-function createAccessibleParagraph( concentrationProperty: TReadOnlyProperty<number | null> ): TReadOnlyProperty<string> {
-
-  return new DerivedStringProperty( [
-      concentrationProperty,
-      BLLPreferences.concentrationMeterUnitsProperty,
-
-      // Localized strings used createConcentrationDescription.
-      BeersLawLabStrings.a11y.concentrationMeterBodyNode.concentrationIsUnknownStringProperty,
-      BeersLawLabStrings.a11y.concentrationMeterBodyNode.concentrationIsValueUnitsStringProperty,
-      BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty,
-      BeersLawLabStrings.a11y.unitsDescription.percentStringProperty
-    ],
-    concentration => createConcentrationDescription( concentration ),
-    {
-      isDisposable: false
-    }
-  );
-}
-
-/**
- * Creates a description of the concentration value displayed by ConcentrationMeterNode.BodyNode.
- */
-function createConcentrationDescription( concentration: number | null ): string {
-  if ( concentration === null ) {
-
-    // The meter is not measuring anything, so the concentration is unknown.
-    return BeersLawLabStrings.a11y.concentrationMeterBodyNode.concentrationIsUnknownStringProperty.value;
-  }
-  else {
-
-    // Concentration value with the same number of decimal places as the visual UI.
-    let concentrationString;
-    if ( BLLPreferences.concentrationMeterUnitsProperty.value === 'molesPerLiter' ) {
-      concentrationString = toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER );
-    }
-    else {
-      concentrationString = toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_PERCENT );
-    }
-
-    return StringUtils.fillIn( BeersLawLabStrings.a11y.concentrationMeterBodyNode.concentrationIsValueUnitsStringProperty.value, {
-      concentration: concentrationString,
-      units: ( BLLPreferences.concentrationMeterUnitsProperty.value === 'molesPerLiter' ) ?
-             BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty.value :
-             BeersLawLabStrings.a11y.unitsDescription.percentStringProperty.value
-    } );
   }
 }
 

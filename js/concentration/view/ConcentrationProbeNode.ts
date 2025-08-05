@@ -23,9 +23,7 @@ import BLLConstants from '../../common/BLLConstants.js';
 import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
 import { combineOptions } from '../../../../phet-core/js/optionize.js';
 import ConcentrationMeter from '../model/ConcentrationMeter.js';
-import BLLPreferences from '../../common/model/BLLPreferences.js';
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
-import { toFixed } from '../../../../dot/js/util/toFixed.js';
+import ConcentrationMeterNode from './ConcentrationMeterNode.js';
 
 export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode ) {
 
@@ -86,7 +84,6 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
     this.addInputListener( new SoundDragListener( {
       positionProperty: probe.positionProperty,
       dragBoundsProperty: new Property( probe.dragBounds ),
-      drag: () => this.doAccessibleObjectResponse(),
       transform: modelViewTransform,
       tandem: tandem.createTandem( 'dragListener' )
     } ) );
@@ -96,7 +93,6 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
       positionProperty: probe.positionProperty,
       dragBoundsProperty: new Property( probe.dragBounds ),
       transform: modelViewTransform,
-      drag: () => this.doAccessibleObjectResponse(),
       dragSpeed: 300,
       shiftDragSpeed: 20,
       tandem: tandem.createTandem( 'keyboardDragListener' )
@@ -123,38 +119,13 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
     this.focusedProperty.lazyLink( focused => {
       if ( focused ) {
 
-        // Add an accessible object response for the current measurement.
-        this.doAccessibleObjectResponse();
+        // Add an accessible object response for the concentration that is currently measured by the probe.
+        this.addAccessibleObjectResponse( ConcentrationMeterNode.createConcentrationDescription( concentrationMeter.valueProperty.value ) );
 
         // Reset the order of jump points
         focused && jumpPositionIndexProperty.reset();
       }
     } );
-  }
-
-  /**
-   * Adds an accessible object response to report the concentration that the probe is reading.
-   * This occurs on focus and drag.
-   */
-  private doAccessibleObjectResponse(): void {
-    let response;
-    const concentration = this.concentrationMeter.valueProperty.value;
-    if ( concentration === null ) {
-      response = BeersLawLabStrings.a11y.concentrationProbeNode.accessibleObjectResponseUnknownStringProperty.value;
-    }
-    else if ( BLLPreferences.concentrationMeterUnitsProperty.value === 'molesPerLiter' ) {
-      response = StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsPatternStringProperty.value, {
-        value: toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER ),
-        units: BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty.value
-      } );
-    }
-    else {
-      response = StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsPatternStringProperty.value, {
-        value: toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_PERCENT ),
-        units: BeersLawLabStrings.a11y.unitsDescription.percentStringProperty.value
-      } );
-    }
-    this.addAccessibleObjectResponse( response );
   }
 }
 
