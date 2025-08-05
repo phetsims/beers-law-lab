@@ -141,7 +141,7 @@ class SoluteConcentrationControl extends NumberControl {
 
         // Dynamic dependencies used in createAriaValueTextForSlider.
         pdomDependencies: [
-          BeersLawLabStrings.a11y.valueUnitsStringProperty,
+          BeersLawLabStrings.a11y.valueUnitsPatternStringProperty,
           BeersLawLabStrings.a11y.unitsDescription.micromolarStringProperty,
           BeersLawLabStrings.a11y.unitsDescription.millimolarStringProperty
         ]
@@ -230,7 +230,7 @@ function createAriaValueTextForSlider( concentration: number, concentrationTrans
 
   // No need to apply concentrationTransform to value because the slider is operating on a DynamicProperty that is already transformed.
 
-  return StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty, {
+  return StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsPatternStringProperty, {
     value: toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLAR ),
     units: ( concentrationTransform === ConcentrationTransform.uM ) ?
            BeersLawLabStrings.a11y.unitsDescription.micromolarStringProperty.value :

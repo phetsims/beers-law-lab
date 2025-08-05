@@ -257,7 +257,7 @@ type StringsType = {
       'detectorControlsHeadingStringProperty': LocalizedStringProperty;
       'solutionControlsHeadingStringProperty': LocalizedStringProperty;
     };
-    'valueUnitsStringProperty': LocalizedStringProperty;
+    'valueUnitsPatternStringProperty': LocalizedStringProperty;
     'unitsDescription': {
       'centimetersStringProperty': LocalizedStringProperty;
       'gramsStringProperty': LocalizedStringProperty;

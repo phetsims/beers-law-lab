@@ -143,13 +143,13 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
       response = BeersLawLabStrings.a11y.concentrationProbeNode.accessibleObjectResponseUnknownStringProperty.value;
     }
     else if ( BLLPreferences.concentrationMeterUnitsProperty.value === 'molesPerLiter' ) {
-      response = StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty.value, {
+      response = StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsPatternStringProperty.value, {
         value: toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER ),
         units: BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty.value
       } );
     }
     else {
-      response = StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty.value, {
+      response = StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsPatternStringProperty.value, {
         value: toFixed( concentration, BLLConstants.DECIMAL_PLACES_CONCENTRATION_PERCENT ),
         units: BeersLawLabStrings.a11y.unitsDescription.percentStringProperty.value
       } );

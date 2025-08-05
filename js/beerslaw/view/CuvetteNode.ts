@@ -233,7 +233,7 @@ class CuvetteArrowNode extends InteractiveHighlighting( ArrowNode ) {
    * This occurs on focus and drag.
    */
   public doAccessibleObjectResponse( cuvetteWidth: number ): void {
-    const response = StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsStringProperty, {
+    const response = StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsPatternStringProperty, {
       value: toFixedNumber( cuvetteWidth, BLLConstants.DECIMAL_PLACES_CUVETTE_WIDTH ),
       units: BeersLawLabStrings.a11y.unitsDescription.centimetersStringProperty.value
     } );
