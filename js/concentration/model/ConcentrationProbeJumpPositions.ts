@@ -35,18 +35,18 @@ export default class ConcentrationProbeJumpPositions extends Array<JumpPosition>
             BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty,
             BeersLawLabStrings.a11y.unitsDescription.percentStringProperty
           ],
-          ( insideEmptyBeakerString, inSolutionString ) => {
+          ( insideEmptyBeakerString, inBeakerString ) => {
             if ( model.solution.volumeProperty.value === 0 ) {
               return insideEmptyBeakerString;
             }
             else if ( BLLPreferences.concentrationMeterUnitsProperty.value === 'molesPerLiter' ) {
-              return StringUtils.fillIn( inSolutionString, {
+              return StringUtils.fillIn( inBeakerString, {
                 concentration: toFixed( model.solution.concentrationProperty.value, BLLConstants.DECIMAL_PLACES_CONCENTRATION_MOLES_PER_LITER ),
                 units: BeersLawLabStrings.a11y.unitsDescription.molesPerLiterStringProperty.value
               } );
             }
             else {
-              return StringUtils.fillIn( inSolutionString, {
+              return StringUtils.fillIn( inBeakerString, {
                 concentration: toFixed( model.solution.percentConcentrationProperty.value, BLLConstants.DECIMAL_PLACES_CONCENTRATION_PERCENT ),
                 units: BeersLawLabStrings.a11y.unitsDescription.percentStringProperty.value
               } );
