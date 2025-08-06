@@ -48,6 +48,7 @@ import JumpPosition from '../../common/model/JumpPosition.js';
 import Property from '../../../../axon/js/Property.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import Utterance from '../../../../utterance-queue/js/Utterance.js';
 
 const READOUT_NO_VALUE = MathSymbols.NO_VALUE; // displayed in the readout when the meter is not measuring anything
 const BODY_X_MARGIN = 15;
@@ -267,10 +268,14 @@ class BodyNode extends Node {
       valueText.centerY = backgroundNode.centerY;
     } );
 
+    // We need a separate utterance so that this context response does not interrupt other desired context responses.
+    // See https://github.com/phetsims/beers-law-lab/issues/373
+    const concentrationUtterance = new Utterance();
+
     // When the value displayed by the meter changes, add a context response that describes the concentration.
     valueStringProperty.lazyLink( () => {
-      const response = ConcentrationMeterNode.createConcentrationDescription( concentrationMeter.valueProperty.value );
-      this.addAccessibleContextResponse( response );
+      concentrationUtterance.alert = ConcentrationMeterNode.createConcentrationDescription( concentrationMeter.valueProperty.value );
+      this.addAccessibleContextResponse( concentrationUtterance, 'queue' );
     } );
   }
 
