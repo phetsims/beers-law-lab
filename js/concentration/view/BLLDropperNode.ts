@@ -100,9 +100,6 @@ export default class BLLDropperNode extends InteractiveHighlighting( EyeDropperN
       this.setFluidColor( ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration ) );
     } );
 
-    // dilate touch area
-    this.touchArea = this.localBounds.dilatedX( 0.25 * this.width );
-
     this.addLinkedElement( dropper );
   }
 }
