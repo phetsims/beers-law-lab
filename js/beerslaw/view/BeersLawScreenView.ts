@@ -41,7 +41,6 @@ export default class BeersLawScreenView extends ScreenView {
       // default layout bounds in ScreenView. Do not change these bounds as changes could break or disturb
       // any phet-io instrumention. https://github.com/phetsims/phet-io/issues/1939
       layoutBounds: BLLConstants.LAYOUT_BOUNDS,
-      isDisposable: false,
       screenSummaryContent: new BeersLawScreenSummaryContent( model ),
       tandem: tandem
     } );

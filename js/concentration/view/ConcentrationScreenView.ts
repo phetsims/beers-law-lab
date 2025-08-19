@@ -50,7 +50,6 @@ export default class ConcentrationScreenView extends ScreenView {
       // See https://github.com/phetsims/scenery/issues/1289 and https://github.com/phetsims/beers-law-lab/issues/299.
       preventFit: true,
       layoutBounds: BLLConstants.LAYOUT_BOUNDS,
-      isDisposable: false,
       tandem: tandem
     } );
 
