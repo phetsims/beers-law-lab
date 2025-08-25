@@ -29,7 +29,7 @@ export default class BLLConstants {
   public static readonly CREDITS: CreditsData = {
     leadDesign: 'Julia Chamberlain',
     softwareDevelopment: 'Chris Malley (PixelZoom, Inc.)',
-    team: 'Kelly Lancaster, Emily B. Moore, Ariel Paul, Kathy Perkins, Amy Rouinfar, Nancy Salpepi',
+    team: 'Kelly Lancaster, Diana L\u00f3pez Tavares, Emily B. Moore, Ariel Paul, Kathy Perkins, Amy Rouinfar, Nancy Salpepi',
     qualityAssurance: 'Steele Dalton, Jaron Droder, Bryce Griebenow, Clifford Hardin, Emily Miller, Elise Morgan, ' +
                       'Liam Mulhall, Oliver Orejola, Benjamin Roberts, Kathryn Woessner, Bryan Yoelin',
     thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
