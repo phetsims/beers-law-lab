@@ -51,7 +51,8 @@ const BLLQueryParameters = QueryStringMachine.getAll( {
     public: true
   },
 
-  // Snap interval for the cuvette in centimeters, or 0 for no snap
+  // Snap interval for the cuvette in centimeters, or 0 for no snap.
+  // This is relevant only for pointer input. With keyboard input, this feels too jerky.
   // For external use, see https://github.com/phetsims/phet-io/issues/568
   cuvetteSnapInterval: {
     type: 'number',
