@@ -66,19 +66,21 @@ export class DetectorProbeNode extends InteractiveHighlighting( ProbeNode ) {
       this.translation = modelViewTransform.modelToViewPosition( position );
     } );
 
+    // If the light is on and the probe is close enough to the beam, snap the probe to the center of beam.
+    const snapToBeam = () => {
+      if ( light.isOnProperty.value &&
+           ( probe.positionProperty.value.x >= light.position.x ) &&
+           ( Math.abs( probe.positionProperty.value.y - light.position.y ) <= 0.5 * light.lensDiameter ) ) {
+        probe.positionProperty.value = new Vector2( probe.positionProperty.value.x, light.position.y );
+      }
+    };
+
     this.addInputListener( new SoundDragListener( {
       positionProperty: probe.positionProperty,
       dragBoundsProperty: new Property( probe.dragBounds ),
       transform: modelViewTransform,
       drag: () => this.doAccessibleObjectResponse(),
-      end: () => {
-        // If the light is on and the probe is close enough to the beam, snap the probe to the center of beam.
-        if ( light.isOnProperty.value &&
-             ( probe.positionProperty.value.x >= light.position.x ) &&
-             ( Math.abs( probe.positionProperty.value.y - light.position.y ) <= 0.5 * light.lensDiameter ) ) {
-          probe.positionProperty.value = new Vector2( probe.positionProperty.value.x, light.position.y );
-        }
-      },
+      end: snapToBeam,
       tandem: tandem.createTandem( 'dragListener' )
     } ) );
 
@@ -87,6 +89,7 @@ export class DetectorProbeNode extends InteractiveHighlighting( ProbeNode ) {
       dragBoundsProperty: new Property( probe.dragBounds ),
       transform: modelViewTransform,
       drag: () => this.doAccessibleObjectResponse(),
+      end: snapToBeam,
       dragSpeed: 150,
       shiftDragSpeed: 20,
       tandem: tandem.createTandem( 'keyboardDragListener' )
