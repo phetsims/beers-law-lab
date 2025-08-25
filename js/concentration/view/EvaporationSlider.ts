@@ -19,6 +19,9 @@ import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 
+const KEYBOARD_STEP = 0.05;
+const SHIFT_KEYBOARD_STEP = 0.025;
+
 export default class EvaporationSlider extends HSlider {
 
   public constructor( evaporator: Evaporator, tandem: Tandem ) {
@@ -26,8 +29,9 @@ export default class EvaporationSlider extends HSlider {
     super( evaporator.evaporationRateProperty, evaporator.evaporationRateProperty.range, {
       trackSize: new Dimension2( 150, 6 ),
       thumbSize: new Dimension2( 22, 45 ),
-      keyboardStep: 0.05,
-      shiftKeyboardStep: 0.025,
+      keyboardStep: KEYBOARD_STEP,
+      shiftKeyboardStep: SHIFT_KEYBOARD_STEP,
+      pageKeyboardStep: KEYBOARD_STEP, // see https://github.com/phetsims/beers-law-lab/issues/359
       enabledProperty: evaporator.enabledProperty,
 
       // At end of pointer drag, snap evaporation rate back to zero.
