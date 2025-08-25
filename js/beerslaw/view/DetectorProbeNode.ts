@@ -72,6 +72,7 @@ export class DetectorProbeNode extends InteractiveHighlighting( ProbeNode ) {
            ( probe.positionProperty.value.x >= light.position.x ) &&
            ( Math.abs( probe.positionProperty.value.y - light.position.y ) <= 0.5 * light.lensDiameter ) ) {
         probe.positionProperty.value = new Vector2( probe.positionProperty.value.x, light.position.y );
+        this.doAccessibleObjectResponse();
       }
     };
 
