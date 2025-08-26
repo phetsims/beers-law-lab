@@ -369,7 +369,7 @@
     },
     "removeSoluteButton": {
       "accessibleContextResponse": {
-        "value": "Solute removed, only water in beaker."
+        "value": "Solute removed."
       }
     },
     "solventFaucetNode": {
