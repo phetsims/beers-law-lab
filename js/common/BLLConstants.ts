@@ -9,10 +9,10 @@
 import Bounds2 from '../../../dot/js/Bounds2.js';
 import Range from '../../../dot/js/Range.js';
 import RangeWithValue from '../../../dot/js/RangeWithValue.js';
-import beersLawLab from '../beersLawLab.js';
 import { CreditsData } from '../../../joist/js/CreditsNode.js';
 import VisibleColor from '../../../scenery-phet/js/VisibleColor.js';
 import HotkeyData from '../../../scenery/js/input/HotkeyData.js';
+import beersLawLab from '../beersLawLab.js';
 import BeersLawLabStrings from '../BeersLawLabStrings.js';
 
 export default class BLLConstants {
@@ -31,7 +31,7 @@ export default class BLLConstants {
     softwareDevelopment: 'Chris Malley (PixelZoom, Inc.)',
     team: 'Kelly Lancaster, Diana López Tavares, Emily B. Moore, Ariel Paul, Kathy Perkins, Amy Rouinfar, Nancy Salpepi',
     qualityAssurance: 'Steele Dalton, Jaron Droder, Bryce Griebenow, Clifford Hardin, Emily Miller, Matthew Moore, Elise Morgan, ' +
-                      'Liam Mulhall, Oliver Orejola, Valentina Pérez, Benjamin Roberts, Kathryn Woessner, Bryan Yoelin',
+                      'Liam Mulhall, Oliver Orejola, Valentina P\u00e9rez, Benjamin Roberts, Kathryn Woessner, Bryan Yoelin',
     thanks: 'Conversion of this simulation to HTML5 was funded by the Royal Society of Chemistry.'
   };
 
