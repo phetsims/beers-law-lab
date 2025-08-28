@@ -47,7 +47,7 @@ import BLLColors from '../../common/BLLColors.js';
 import JumpPosition from '../../common/model/JumpPosition.js';
 import Property from '../../../../axon/js/Property.js';
 import BLLConstants from '../../common/BLLConstants.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Utterance from '../../../../utterance-queue/js/Utterance.js';
 
 const READOUT_NO_VALUE = MathSymbols.NO_VALUE; // displayed in the readout when the meter is not measuring anything

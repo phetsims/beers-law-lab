@@ -30,7 +30,7 @@ import ShakerParticles from './ShakerParticles.js';
 import SoluteForm from './SoluteForm.js';
 import JumpPosition from '../../common/model/JumpPosition.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import ConcentrationProbeJumpPositions from './ConcentrationProbeJumpPositions.js';
 
 const SOLUTION_VOLUME_RANGE = BLLConstants.SOLUTION_VOLUME_RANGE; // L

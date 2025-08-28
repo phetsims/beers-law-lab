@@ -25,7 +25,7 @@ import Light from '../model/Light.js';
 import LightModeRadioButtonGroup from './LightModeRadioButtonGroup.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import BLLConstants from '../../common/BLLConstants.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import BLLWavelengthNumberControl from './BLLWavelengthNumberControl.js';
 
 const PATTERN_STRING_PROPERTY = BeersLawLabStrings.pattern[ '0value' ][ '1unitsStringProperty' ];

@@ -24,7 +24,7 @@ import SolutionInCuvette from './SolutionInCuvette.js';
 import JumpPosition from '../../common/model/JumpPosition.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Range from '../../../../dot/js/Range.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import RulerJumpPositions from './RulerJumpPositions.js';
 import DetectorProbeJumpPositions from './DetectorProbeJumpPositions.js';
 

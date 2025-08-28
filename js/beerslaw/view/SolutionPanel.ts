@@ -18,7 +18,7 @@ import BeersLawSolution from '../model/BeersLawSolution.js';
 import SolutionInCuvette from '../model/SolutionInCuvette.js';
 import SolutionConcentrationControl from './SolutionConcentrationControl.js';
 import SolutionControl from './SolutionControl.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 
 type SelfOptions = {
   wavelengthSetAccessibleContextResponseProperty: TReadOnlyProperty<string>;

@@ -22,7 +22,7 @@ import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 import BLLConstants from '../../common/BLLConstants.js';
 

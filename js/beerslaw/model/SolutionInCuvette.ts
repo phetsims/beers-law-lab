@@ -21,7 +21,7 @@
 
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';

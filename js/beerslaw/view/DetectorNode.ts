@@ -38,7 +38,7 @@ import Tandem from '../../../../tandem/js/Tandem.js';
 import JumpPosition from '../../common/model/JumpPosition.js';
 import Property from '../../../../axon/js/Property.js';
 import BLLConstants from '../../common/BLLConstants.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 
 const NO_VALUE = MathSymbols.NO_VALUE;
 const BODY_X_MARGIN = 15;

@@ -14,7 +14,7 @@ import Text, { TextOptions } from '../../../../scenery/js/nodes/Text.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import EnumerationProperty from '../../../../axon/js/EnumerationProperty.js';
 import BLLConstants from '../../common/BLLConstants.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 
