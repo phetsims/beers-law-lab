@@ -174,8 +174,11 @@
           "onlyParticles": {
             "value": "Currently, the beaker contains {{soluteName}} particles."
           },
-          "onlyWater": {
+          "onlyWaterConcentrationMeasured": {
             "value": "Currently, beaker contains water. Concentration is 0 {{units}}."
+          },
+          "onlyWaterConcentrationNotMeasured": {
+            "value": "Currently, beaker contains water. Concentration is unknown."
           },
           "solutionConcentrationMeasured": {
             "value": "Currently, beaker contains {{soluteName}} solution. Concentration is {{concentration}} {{units}}. {{saturationSentence}}"

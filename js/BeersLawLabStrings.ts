@@ -87,7 +87,8 @@ type StringsType = {
         'currentDetails': {
           'beakerEmptyStringProperty': LocalizedStringProperty;
           'onlyParticlesStringProperty': LocalizedStringProperty;
-          'onlyWaterStringProperty': LocalizedStringProperty;
+          'onlyWaterConcentrationMeasuredStringProperty': LocalizedStringProperty;
+          'onlyWaterConcentrationNotMeasuredStringProperty': LocalizedStringProperty;
           'solutionConcentrationMeasuredStringProperty': LocalizedStringProperty;
           'solutionConcentrationNotMeasuredStringProperty': LocalizedStringProperty;
         };
