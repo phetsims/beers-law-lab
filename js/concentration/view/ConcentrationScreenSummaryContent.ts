@@ -63,7 +63,8 @@ export default class ConcentrationScreenSummaryContent extends ScreenSummaryCont
     const currentDetailsStringProperties = [
       BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.beakerEmptyStringProperty,
       BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.onlyParticlesStringProperty,
-      BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.onlyWaterStringProperty,
+      BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.onlyWaterConcentrationMeasuredStringProperty,
+      BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.onlyWaterConcentrationNotMeasuredStringProperty,
       BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.solutionConcentrationMeasuredStringProperty,
       BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.solutionConcentrationNotMeasuredStringProperty
     ];
@@ -98,9 +99,17 @@ export default class ConcentrationScreenSummaryContent extends ScreenSummaryCont
       else if ( model.solution.concentrationProperty.value === 0 ) {
 
         // Only water in the beaker
-        return StringUtils.fillIn( BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.onlyWaterStringProperty.value, {
-          units: concentrationUnitsDescriptionProperty.value
-        } );
+        if ( concentrationProbeNode.isInSolution() ) {
+
+          // Only water with concentration measured by the probe.
+          return StringUtils.fillIn( BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.onlyWaterConcentrationMeasuredStringProperty.value, {
+            units: concentrationUnitsDescriptionProperty.value
+          } );
+        }
+        else {
+          // Only water with concentration not measured by the probe.
+          return BeersLawLabStrings.a11y.concentrationScreen.screenSummary.currentDetails.onlyWaterConcentrationNotMeasuredStringProperty.value;
+        }
       }
       else if ( concentrationProbeNode.isInSolution() ) {
 
