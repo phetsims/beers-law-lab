@@ -102,11 +102,21 @@ export default class ShakerNode extends InteractiveHighlighting( Node ) {
     // See https://github.com/phetsims/beers-law-lab/issues/344.
     this.focusHighlight = new HighlightFromNode( imageNode );
 
+    // Add an accessible context response when the user starts shaking.
+    const start = () => {
+      if ( shaker.isEmptyProperty.value ) {
+        this.addAccessibleObjectResponse( BeersLawLabStrings.a11y.shakerNode.accessibleContextResponseEmptyStringProperty.value );
+      }
+      else {
+        this.addAccessibleObjectResponse( BeersLawLabStrings.a11y.shakerNode.accessibleContextResponseDispensingStringProperty.value );
+      }
+    };
+
     // drag listener
     this.addInputListener( new SoundDragListener( {
       positionProperty: shaker.positionProperty,
       dragBoundsProperty: new Property( shaker.dragBounds ),
-      start: () => this.addAccessibleObjectResponse( BeersLawLabStrings.a11y.shakerNode.accessibleContextResponseStringProperty.value ),
+      start: start,
       transform: modelViewTransform,
       tandem: options.tandem.createTandem( 'dragListener' )
     } ) );
@@ -116,7 +126,7 @@ export default class ShakerNode extends InteractiveHighlighting( Node ) {
       positionProperty: shaker.positionProperty,
       dragBoundsProperty: new Property( shaker.dragBounds ),
       transform: modelViewTransform,
-      start: () => this.addAccessibleContextResponse( BeersLawLabStrings.a11y.shakerNode.accessibleContextResponseStringProperty.value ),
+      start: start,
       dragSpeed: 200,
       shiftDragSpeed: 20,
       tandem: options.tandem.createTandem( 'keyboardDragListener' )
