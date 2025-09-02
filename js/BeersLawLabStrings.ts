@@ -167,7 +167,9 @@ type StringsType = {
     'dropperButton': {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
-      'accessibleContextResponsePressedStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseDispensingStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseBeakerFullStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseDropperEmptyStringProperty': LocalizedStringProperty;
     };
     'concentrationMeterBodyNode': {
       'concentrationIsValueUnitsStringProperty': LocalizedStringProperty;

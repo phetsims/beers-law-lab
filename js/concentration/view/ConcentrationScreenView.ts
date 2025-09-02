@@ -107,8 +107,8 @@ export default class ConcentrationScreenView extends ScreenView {
       modelViewTransform.modelToViewX( model.beaker.right ), modelViewTransform.modelToViewY( model.beaker.position.y ) ) );
 
     // Dropper
-    const dropperNode = new BLLDropperNode( model.dropper, soluteLabelStringProperty, soluteDescriptionStringProperty,
-      model.solution.solvent, model.solution.soluteProperty, modelViewTransform, {
+    const dropperNode = new BLLDropperNode( model.dropper, model.solution, model.beaker.volume,
+      soluteLabelStringProperty, soluteDescriptionStringProperty, modelViewTransform, {
         tandem: tandem.createTandem( 'dropperNode' )
       } );
     const stockSolutionNode = new StockSolutionNode( model.solution.solvent, model.soluteProperty, model.dropper,

@@ -7,7 +7,6 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 
-import Property from '../../../../axon/js/Property.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Shape from '../../../../kite/js/Shape.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
@@ -18,8 +17,6 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import beersLawLab from '../../beersLawLab.js';
-import Solute from '../../common/model/Solute.js';
-import Solvent from '../../common/model/Solvent.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import Dropper from '../model/Dropper.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
@@ -32,10 +29,10 @@ type BLLDropperNodeOptions = SelfOptions & PickRequired<EyeDropperNodeOptions, '
 export default class BLLDropperNode extends EyeDropperNode {
 
   public constructor( dropper: Dropper,
+                      solution: ConcentrationSolution,
+                      beakerVolume: number,
                       soluteLabelStringProperty: TReadOnlyProperty<string>,
                       soluteDescriptionStringProperty: TReadOnlyProperty<string>,
-                      solvent: Solvent,
-                      soluteProperty: Property<Solute>,
                       modelViewTransform: ModelViewTransform2,
                       providedOptions: BLLDropperNodeOptions ) {
 
@@ -51,7 +48,7 @@ export default class BLLDropperNode extends EyeDropperNode {
           soluteName: soluteDescriptionStringProperty
         } ),
         accessibleHelpText: BeersLawLabStrings.a11y.dropperButton.accessibleHelpTextStringProperty,
-        accessibleContextResponseValueOn: BeersLawLabStrings.a11y.dropperButton.accessibleContextResponsePressedStringProperty
+        accessibleContextResponseValueOn: BeersLawLabStrings.a11y.dropperButton.accessibleContextResponseDispensingStringProperty
       },
       visibleProperty: dropper.visibleProperty
     }, providedOptions );
@@ -95,11 +92,24 @@ export default class BLLDropperNode extends EyeDropperNode {
     } );
 
     // Change color when the solute changes.
-    soluteProperty.link( solute => {
-      this.setFluidColor( ConcentrationSolution.createColor( solvent, solute, solute.stockSolutionConcentration ) );
+    solution.soluteProperty.link( solute => {
+      this.setFluidColor( ConcentrationSolution.createColor( solution.solvent, solute, solute.stockSolutionConcentration ) );
     } );
 
     this.addLinkedElement( dropper );
+
+    // Context responses when the button becomes disabled because the beaker is full, or the dropper is empty.
+    // See https://github.com/phetsims/beers-law-lab/issues/394
+    this.button.enabledProperty.lazyLink( enabled => {
+      if ( !enabled ) {
+        if ( dropper.isEmptyProperty.value ) {
+          this.addAccessibleContextResponse( BeersLawLabStrings.a11y.dropperButton.accessibleContextResponseDropperEmptyStringProperty );
+        }
+        else if ( solution.volumeProperty.value === beakerVolume ) {
+          this.addAccessibleContextResponse( BeersLawLabStrings.a11y.dropperButton.accessibleContextResponseBeakerFullStringProperty );
+        }
+      }
+    } );
   }
 }
 
