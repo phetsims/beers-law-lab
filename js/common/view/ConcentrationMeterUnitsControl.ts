@@ -30,7 +30,10 @@ export default class ConcentrationMeterUnitsControl extends HBox {
     const options = optionize<ConcentrationMeterUnitsControlOptions, SelfOptions, HBoxOptions>()( {
 
       // HBoxOptions
-      spacing: 15
+      spacing: 15,
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
     }, providedOptions );
 
     const labelText = new Text( BeersLawLabStrings.concentrationMeterUnitsStringProperty, {
