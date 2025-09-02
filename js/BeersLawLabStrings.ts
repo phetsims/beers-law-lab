@@ -132,7 +132,6 @@ type StringsType = {
     'concentrationProbeNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
-      'accessibleObjectResponseUnknownStringProperty': LocalizedStringProperty;
       'jumpResponses': {
         'inBeakerStringProperty': LocalizedStringProperty;
         'insideEmptyBeakerStringProperty': LocalizedStringProperty;
