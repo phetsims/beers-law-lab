@@ -350,8 +350,14 @@
       "accessibleHelpText": {
         "value": "Add solution to beaker."
       },
-      "accessibleContextResponsePressed": {
+      "accessibleContextResponseDispensing": {
         "value": "Dispensing."
+      },
+      "accessibleContextResponseBeakerFull": {
+        "value": "Beaker full."
+      },
+      "accessibleContextResponseDropperEmpty": {
+        "value": "Dropper empty."
       }
     },
     "concentrationMeterBodyNode": {
