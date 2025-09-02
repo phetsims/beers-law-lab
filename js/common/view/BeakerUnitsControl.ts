@@ -30,7 +30,10 @@ export default class BeakerUnitsControl extends HBox {
     const options = optionize<BeakerUnitsControlOptions, SelfOptions, HBoxOptions>()( {
 
       // HBoxOptions
-      spacing: 15
+      spacing: 15,
+      visiblePropertyOptions: {
+        phetioFeatured: true
+      }
     }, providedOptions );
 
     const labelText = new Text( BeersLawLabStrings.beakerUnitsStringProperty, {
