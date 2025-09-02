@@ -161,7 +161,8 @@ type StringsType = {
     'shakerNode': {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
-      'accessibleContextResponseStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseDispensingStringProperty': LocalizedStringProperty;
+      'accessibleContextResponseEmptyStringProperty': LocalizedStringProperty;
     };
     'dropperButton': {
       'accessibleNameStringProperty': LocalizedStringProperty;

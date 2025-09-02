@@ -336,8 +336,11 @@
       "accessibleHelpText": {
         "value": "Move shaker to add solute to beaker."
       },
-      "accessibleContextResponse": {
+      "accessibleContextResponseDispensing": {
         "value": "Dispensing."
+      },
+      "accessibleContextResponseEmpty": {
+        "value": "Shaker empty."
       }
     },
     "dropperButton": {
