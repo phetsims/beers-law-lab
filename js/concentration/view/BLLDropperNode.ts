@@ -22,7 +22,6 @@ import Solute from '../../common/model/Solute.js';
 import Solvent from '../../common/model/Solvent.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import Dropper from '../model/Dropper.js';
-import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 
@@ -30,7 +29,7 @@ type SelfOptions = EmptySelfOptions;
 
 type BLLDropperNodeOptions = SelfOptions & PickRequired<EyeDropperNodeOptions, 'tandem'>;
 
-export default class BLLDropperNode extends InteractiveHighlighting( EyeDropperNode ) {
+export default class BLLDropperNode extends EyeDropperNode {
 
   public constructor( dropper: Dropper,
                       soluteLabelStringProperty: TReadOnlyProperty<string>,
