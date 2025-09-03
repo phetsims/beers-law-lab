@@ -54,13 +54,13 @@ export default class ConcentrationMeter extends PhetioObject {
     super( options );
 
     this.valueProperty = new Property<number | null>( null, {
-      units: 'mol/L',
+      // units vary, based on the value of global.model.preferences.concentrationMeterUnitsProperty.
       tandem: options.tandem.createTandem( 'valueProperty' ),
       phetioFeatured: true,
       phetioValueType: NullableIO( NumberIO ),
       phetioReadOnly: true,
-      phetioDocumentation: 'mol/L or % concentration, depending on the concentrationMeterUnits query parameter. ' +
-                           'null if the meter is not reading a value'
+      phetioDocumentation: 'Units are mol/L or % concentration, depending on the value of global.model.preferences.concentrationMeterUnitsProperty. ' +
+                           'null if the meter is not reading a value.'
     } );
 
     this.bodyPosition = options.bodyPosition;
