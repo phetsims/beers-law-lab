@@ -206,6 +206,10 @@ export default class ConcentrationModel implements TModel {
     this.evaporateSolvent( dt );
     this.propagateShakerParticles( dt );
     this.createShakerParticles();
+
+    // Determine whether the solution is saturated last, AFTER modifying the solution.
+    // This is a workaround for https://github.com/phetsims/beers-law-lab/issues/391.
+    this.solution.updateIsSaturatedProperty();
   }
 
   // Adds solvent from the input faucet.
