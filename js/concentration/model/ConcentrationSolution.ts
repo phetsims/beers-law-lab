@@ -26,6 +26,7 @@ import Fluid from '../../common/model/Fluid.js';
 import Solute from '../../common/model/Solute.js';
 import Solvent from '../../common/model/Solvent.js';
 import { roundSymmetric } from '../../../../dot/js/util/roundSymmetric.js';
+import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 
 type SelfOptions = EmptySelfOptions &
   PickOptional<PhetioObjectOptions, 'phetioDocumentation'> &
@@ -47,6 +48,7 @@ export default class ConcentrationSolution extends Fluid {
   public readonly precipitateMolesProperty: TReadOnlyProperty<number>; // mol
   public readonly concentrationProperty: TReadOnlyProperty<number>; // M
   public readonly isSaturatedProperty: TReadOnlyProperty<boolean>;
+  private readonly _isSaturatedProperty: Property<boolean>;
   public readonly soluteGramsProperty: TReadOnlyProperty<number>; // solute dissolved in solution, in grams
   public readonly percentConcentrationProperty: TReadOnlyProperty<number>; // [0,100]
 
@@ -112,16 +114,12 @@ export default class ConcentrationSolution extends Fluid {
       }
     );
 
-    this.isSaturatedProperty = new DerivedProperty(
-      [ this.soluteProperty, this.soluteMolesProperty, this.volumeProperty ],
-      ( solute, soluteMoles, volume ) => {
-        return ( volume > 0 ) && ( soluteMoles / volume ) > solute.getSaturatedConcentration();
-      }, {
+    this._isSaturatedProperty = new BooleanProperty( false, {
         tandem: options.tandem.createTandem( 'isSaturatedProperty' ),
         phetioFeatured: true,
-        phetioValueType: BooleanIO
-      }
-    );
+        phetioReadOnly: true
+      } );
+    this.isSaturatedProperty = this._isSaturatedProperty;
 
     this.soluteGramsProperty = new DerivedProperty(
       [ this.soluteProperty, this.soluteMolesProperty, this.precipitateMolesProperty ],
@@ -190,6 +188,20 @@ export default class ConcentrationSolution extends Fluid {
       numberOfParticles = 1;
     }
     return numberOfParticles;
+  }
+
+  /**
+   * Updates the value of isSaturatedProperty. isSaturatedProperty was originally a DerivedProperty, which would
+   * typically be preferred. But it goes through intermediate states, as the derivation is not atomic, and the
+   * Properties use in the derivation change at different times. This resulted in incorrect context responses,
+   * specifically for SaturatedIndicator. So to resolve https://github.com/phetsims/beers-law-lab/issues/391 this
+   * workaround was implemented.
+   */
+  public updateIsSaturatedProperty(): void {
+    const volume = this.volumeProperty.value;
+    const soluteMoles = this.soluteMolesProperty.value;
+    const saturatedConcentration = this.soluteProperty.value.getSaturatedConcentration();
+    this._isSaturatedProperty.value = ( volume > 0 ) && ( soluteMoles / volume ) > saturatedConcentration;
   }
 
   /**
