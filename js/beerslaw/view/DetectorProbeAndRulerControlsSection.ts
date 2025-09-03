@@ -1,7 +1,7 @@
 // Copyright 2025, University of Colorado Boulder
 
 /**
- * DetectorProbeAndRulerControlsSection is the keyboard help section labeled 'Concentration Probe Controls'.
+ * DetectorProbeAndRulerControlsSection is the keyboard help section labeled 'Detector Probe and Ruler Controls'.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
