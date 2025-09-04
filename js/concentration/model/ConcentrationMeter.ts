@@ -1,4 +1,4 @@
-// Copyright 2013-2023, University of Colorado Boulder
+// Copyright 2013-2025, University of Colorado Boulder
 
 /**
  * ConcentrationMeter is the model of the concentration meter in the 'Concentration' screen.
