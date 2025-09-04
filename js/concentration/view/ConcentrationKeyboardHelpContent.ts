@@ -24,7 +24,9 @@ export default class ConcentrationKeyboardHelpContent extends TwoColumnKeyboardH
     const leftSections = [
 
       // Faucet Controls
-      new FaucetControlsKeyboardHelpSection(),
+      new FaucetControlsKeyboardHelpSection( {
+        tapToDispenseEnabled: true
+      } ),
 
       // Concentration Probe Controls
       new ConcentrationProbeControlsSection(),
