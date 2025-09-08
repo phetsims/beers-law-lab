@@ -7,7 +7,7 @@
  */
 
 import Vector2 from '../../../dot/js/Vector2.js';
-import Screen from '../../../joist/js/Screen.js';
+import Screen, { ScreenOptions } from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
 import Image from '../../../scenery/js/nodes/Image.js';
@@ -24,7 +24,7 @@ export default class BeersLawScreen extends Screen<BeersLawModel, BeersLawScreen
 
   public constructor( tandem: Tandem ) {
 
-    const options = {
+    const options: ScreenOptions = {
 
       // ScreenOptions
       name: BeersLawLabStrings.screen.beersLawStringProperty,
