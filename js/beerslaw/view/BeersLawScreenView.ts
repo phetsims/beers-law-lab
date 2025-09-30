@@ -109,7 +109,6 @@ export default class BeersLawScreenView extends ScreenView {
       bottom: this.layoutBounds.bottom - 30,
       scale: 1.32,
       listener: () => {
-        this.interruptSubtreeInput(); // cancel interactions that may be in progress
         model.reset();
       },
       tandem: tandem.createTandem( 'resetAllButton' )

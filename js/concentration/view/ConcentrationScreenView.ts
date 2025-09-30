@@ -163,7 +163,6 @@ export default class ConcentrationScreenView extends ScreenView {
     // Reset All button
     const resetAllButton = new ResetAllButton( {
       listener: () => {
-        this.interruptSubtreeInput(); // cancel interactions that may be in progress
         model.reset();
       },
       scale: 1.32,
