@@ -8,9 +8,6 @@
   ],
   "references": [
     {
-      "path": "../nitroglycerin/tsconfig.json"
-    },
-    {
       "path": "../perennial-alias/tsconfig/buildjson/tsconfig.json"
     }
   ]
