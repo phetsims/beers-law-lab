@@ -275,7 +275,7 @@ class BodyNode extends Node {
     // When the value displayed by the meter changes, add a context response that describes the concentration.
     valueStringProperty.lazyLink( () => {
       concentrationUtterance.alert = ConcentrationMeterNode.createConcentrationDescription( concentrationMeter.valueProperty.value );
-      this.addAccessibleContextResponse( concentrationUtterance, 'queue' );
+      this.addAccessibleContextResponse( concentrationUtterance, { alertBehavior: 'queue' } );
     } );
   }
 
