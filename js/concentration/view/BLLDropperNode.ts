@@ -48,7 +48,7 @@ export default class BLLDropperNode extends EyeDropperNode {
           soluteName: soluteDescriptionStringProperty
         } ),
         accessibleHelpText: BeersLawLabStrings.a11y.dropperButton.accessibleHelpTextStringProperty,
-        accessibleContextResponseValueOn: BeersLawLabStrings.a11y.dropperButton.accessibleContextResponseDispensingStringProperty
+        accessibleContextResponseOn: BeersLawLabStrings.a11y.dropperButton.accessibleContextResponseDispensingStringProperty
       },
       visibleProperty: dropper.visibleProperty
     }, providedOptions );
