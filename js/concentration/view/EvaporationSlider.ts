@@ -54,7 +54,7 @@ export default class EvaporationSlider extends HSlider {
       } ),
 
       // Dynamic dependencies used in pdomCreateAriaValueText.
-      pdomDependencies: [
+      descriptionDependencies: [
         BLLPreferences.beakerUnitsProperty,
         BeersLawLabStrings.a11y.valueUnitsPatternStringProperty,
         BeersLawLabStrings.a11y.unitsDescription.litersPerSecondStringProperty,

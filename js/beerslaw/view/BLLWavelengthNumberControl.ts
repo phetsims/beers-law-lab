@@ -59,7 +59,7 @@ export default class BLLWavelengthNumberControl extends WavelengthNumberControl 
         },
 
         // Dynamic dependencies used in pdomCreateAriaValueText.
-        pdomDependencies: [
+        descriptionDependencies: [
           BeersLawLabStrings.a11y.wavelengthNumberControl.ariaValueTextStringProperty,
           BeersLawLabStrings.a11y.unitsDescription.nanometersStringProperty,
 

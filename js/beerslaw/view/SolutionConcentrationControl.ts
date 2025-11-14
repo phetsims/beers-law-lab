@@ -140,7 +140,7 @@ class SoluteConcentrationControl extends NumberControl {
         pdomCreateAriaValueText: concentration => createAriaValueTextForSlider( concentration, solution.concentrationTransform ),
 
         // Dynamic dependencies used in createAriaValueTextForSlider.
-        pdomDependencies: [
+        descriptionDependencies: [
           BeersLawLabStrings.a11y.valueUnitsPatternStringProperty,
           BeersLawLabStrings.a11y.unitsDescription.micromolarStringProperty,
           BeersLawLabStrings.a11y.unitsDescription.millimolarStringProperty
