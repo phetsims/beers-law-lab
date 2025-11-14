@@ -47,7 +47,7 @@ export default class BLLWavelengthNumberControl extends WavelengthNumberControl 
       sliderOptions: {
 
         // aria-valuetext: "{{wavelength}} nanometers, {{colorName}} range"
-        pdomCreateAriaValueText: wavelength => {
+        createAriaValueText: wavelength => {
           const wavelengthString = toFixed( wavelength, BLLConstants.DECIMAL_PLACES_WAVELENGTH );
           const units = BeersLawLabStrings.a11y.unitsDescription.nanometersStringProperty.value;
           const colorName = BLLDescriptionUtils.getColorDescriptionString( wavelength );
@@ -58,7 +58,7 @@ export default class BLLWavelengthNumberControl extends WavelengthNumberControl 
           } );
         },
 
-        // Dynamic dependencies used in pdomCreateAriaValueText.
+        // Dynamic dependencies used in createAriaValueText.
         descriptionDependencies: [
           BeersLawLabStrings.a11y.wavelengthNumberControl.ariaValueTextStringProperty,
           BeersLawLabStrings.a11y.unitsDescription.nanometersStringProperty,

@@ -44,7 +44,7 @@ export default class EvaporationSlider extends HSlider {
       accessibleHelpText: BeersLawLabStrings.a11y.evaporationSlider.accessibleHelpTextStringProperty,
 
       // aria-valuetext: "{{evaporationRate}} {{units}}"
-      pdomCreateAriaValueText: evaporationRate => StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsPatternStringProperty, {
+      createAriaValueText: evaporationRate => StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsPatternStringProperty, {
         value: ( BLLPreferences.beakerUnitsProperty.value === 'liters' ) ?
                toFixed( evaporationRate, BLLConstants.DECIMAL_PLACES_EVAPORATION_RATE_LITERS_PER_SECOND ) :
                toFixed( evaporationRate * 1000, BLLConstants.DECIMAL_PLACES_EVAPORATION_RATE_MILLILITERS_PER_SECOND ),
@@ -53,7 +53,7 @@ export default class EvaporationSlider extends HSlider {
                BeersLawLabStrings.a11y.unitsDescription.millilitersPerSecondStringProperty.value
       } ),
 
-      // Dynamic dependencies used in pdomCreateAriaValueText.
+      // Dynamic dependencies used in createAriaValueText.
       descriptionDependencies: [
         BLLPreferences.beakerUnitsProperty,
         BeersLawLabStrings.a11y.valueUnitsPatternStringProperty,

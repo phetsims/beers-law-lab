@@ -137,7 +137,7 @@ class SoluteConcentrationControl extends NumberControl {
         tandem: Tandem.OPT_OUT,
 
         // aria-valuetext: {{concentration}} {{units}}
-        pdomCreateAriaValueText: concentration => createAriaValueTextForSlider( concentration, solution.concentrationTransform ),
+        createAriaValueText: concentration => createAriaValueTextForSlider( concentration, solution.concentrationTransform ),
 
         // Dynamic dependencies used in createAriaValueTextForSlider.
         descriptionDependencies: [
