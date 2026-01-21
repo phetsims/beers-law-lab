@@ -17,8 +17,12 @@
 
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Multilink from '../../../../axon/js/Multilink.js';
+import Property from '../../../../axon/js/Property.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
+import { linear } from '../../../../dot/js/util/linear.js';
+import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Shape from '../../../../kite/js/Shape.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
@@ -28,6 +32,7 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import ShadedRectangle from '../../../../scenery-phet/js/ShadedRectangle.js';
+import ParallelDOM from '../../../../scenery/js/accessibility/pdom/ParallelDOM.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Path, { PathOptions } from '../../../../scenery/js/nodes/Path.js';
@@ -35,20 +40,15 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
+import BLLColors from '../../common/BLLColors.js';
+import BLLConstants from '../../common/BLLConstants.js';
 import BLLMovable from '../../common/model/BLLMovable.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
+import JumpPosition from '../../common/model/JumpPosition.js';
 import ConcentrationMeter from '../model/ConcentrationMeter.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import Dropper from '../model/Dropper.js';
-import { toFixed } from '../../../../dot/js/util/toFixed.js';
-import { linear } from '../../../../dot/js/util/linear.js';
 import { ConcentrationProbeNode } from './ConcentrationProbeNode.js';
-import BLLColors from '../../common/BLLColors.js';
-import JumpPosition from '../../common/model/JumpPosition.js';
-import Property from '../../../../axon/js/Property.js';
-import BLLConstants from '../../common/BLLConstants.js';
-import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
-import Utterance from '../../../../utterance-queue/js/Utterance.js';
 
 const READOUT_NO_VALUE = MathSymbols.NO_VALUE; // displayed in the readout when the meter is not measuring anything
 const BODY_X_MARGIN = 15;
@@ -268,14 +268,14 @@ class BodyNode extends Node {
       valueText.centerY = backgroundNode.centerY;
     } );
 
-    // We need a separate utterance so that this context response does not interrupt other desired context responses.
-    // See https://github.com/phetsims/beers-law-lab/issues/373
-    const concentrationUtterance = new Utterance();
+    // A separate Utterance is needed so that the concentration information interrupts itself, but does not interrupt
+    // others and does not get interrupted by others. See https://github.com/phetsims/beers-law-lab/issues/373.
+    const concentrationUtterance = ParallelDOM.createSelfInterruptingUtterance();
 
     // When the value displayed by the meter changes, add a context response that describes the concentration.
     valueStringProperty.lazyLink( () => {
       concentrationUtterance.alert = ConcentrationMeterNode.createConcentrationDescription( concentrationMeter.valueProperty.value );
-      this.addAccessibleContextResponse( concentrationUtterance, { alertBehavior: 'queue' } );
+      this.addAccessibleContextResponse( concentrationUtterance );
     } );
   }
 

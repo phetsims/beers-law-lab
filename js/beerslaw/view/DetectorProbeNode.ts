@@ -154,7 +154,9 @@ export class DetectorProbeNode extends InteractiveHighlighting( ProbeNode ) {
         } );
       }
     }
-    this.addAccessibleObjectResponse( response );
+
+    // This response is self-interrupting so that only the most recent value is spoken during rapid drag events.
+    this.addAccessibleObjectResponse( response, { interruptible: true } );
   }
 }
 
