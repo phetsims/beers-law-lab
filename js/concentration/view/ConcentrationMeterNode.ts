@@ -32,7 +32,6 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import MathSymbols from '../../../../scenery-phet/js/MathSymbols.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import ShadedRectangle from '../../../../scenery-phet/js/ShadedRectangle.js';
-import ParallelDOM from '../../../../scenery/js/accessibility/pdom/ParallelDOM.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Path, { PathOptions } from '../../../../scenery/js/nodes/Path.js';
@@ -268,14 +267,15 @@ class BodyNode extends Node {
       valueText.centerY = backgroundNode.centerY;
     } );
 
-    // A separate Utterance is needed so that the concentration information interrupts itself, but does not interrupt
-    // others and does not get interrupted by others. See https://github.com/phetsims/beers-law-lab/issues/373.
-    const concentrationUtterance = ParallelDOM.createSelfInterruptingUtterance();
-
     // When the value displayed by the meter changes, add a context response that describes the concentration.
     valueStringProperty.lazyLink( () => {
-      concentrationUtterance.alert = ConcentrationMeterNode.createConcentrationDescription( concentrationMeter.valueProperty.value );
-      this.addAccessibleContextResponse( concentrationUtterance );
+
+      // Interruptible is needed so that the concentration information interrupts itself without spamming the
+      // user with every single change.
+      this.addAccessibleContextResponse(
+        ConcentrationMeterNode.createConcentrationDescription( concentrationMeter.valueProperty.value ),
+        { interruptible: true }
+      );
     } );
   }
 
