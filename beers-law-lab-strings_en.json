@@ -153,7 +153,7 @@
     "value": "Detector Probe and Ruler Controls"
   },
   "keyboardHelpDialog.jumpToPosition": {
-    "value": "Cycle through useful positions."
+    "value": "Cycle through useful positions"
   },
   "a11y": {
     "concentrationScreen": {
@@ -479,11 +479,6 @@
       },
       "accessibleHelpText": {
         "value": "Adjust solution concentration to make it lighter or darker."
-      }
-    },
-    "keyboardHelpDialog": {
-      "jumpToPositionDescription": {
-        "value": "Cycle through useful positions with J key."
       }
     },
     "sharedAccessibleContextResponses": {

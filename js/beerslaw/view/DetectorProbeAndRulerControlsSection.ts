@@ -19,9 +19,7 @@ export class DetectorProbeAndRulerControlsSection extends KeyboardHelpSection {
     const rows = [
 
       // J, for 'Jump'
-      KeyboardHelpSectionRow.fromHotkeyData( BLLConstants.JUMP_TO_POSITION_HOTKEY_DATA, {
-        pdomLabelStringProperty: BeersLawLabStrings.a11y.keyboardHelpDialog.jumpToPositionDescriptionStringProperty
-      } )
+      KeyboardHelpSectionRow.fromHotkeyData( BLLConstants.JUMP_TO_POSITION_HOTKEY_DATA )
     ];
 
     super( BeersLawLabStrings.keyboardHelpDialog.detectorProbeAndRulerControlsStringProperty, rows, {

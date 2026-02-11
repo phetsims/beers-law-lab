@@ -234,9 +234,6 @@ type StringsType = {
       'accessibleNameStringProperty': LocalizedStringProperty;
       'accessibleHelpTextStringProperty': LocalizedStringProperty;
     };
-    'keyboardHelpDialog': {
-      'jumpToPositionDescriptionStringProperty': LocalizedStringProperty;
-    };
     'sharedAccessibleContextResponses': {
       'presetWavelengthSetStringProperty': LocalizedStringProperty;
     };
