@@ -10,7 +10,6 @@ import Dimension2 from '../../../../dot/js/Dimension2.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import HSlider from '../../../../sun/js/HSlider.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Evaporator from '../model/Evaporator.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -82,5 +81,3 @@ export default class EvaporationSlider extends HSlider {
     } );
   }
 }
-
-beersLawLab.register( 'EvaporationSlider', EvaporationSlider );

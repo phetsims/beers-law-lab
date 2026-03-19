@@ -20,7 +20,6 @@ import Shape from '../../../../kite/js/Shape.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
-import beersLawLab from '../../beersLawLab.js';
 import Detector from './Detector.js';
 import Cuvette from './Cuvette.js';
 import Light from './Light.js';
@@ -89,5 +88,3 @@ export default class Beam {
     Disposable.assertNotDisposable();
   }
 }
-
-beersLawLab.register( 'Beam', Beam );

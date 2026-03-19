@@ -16,7 +16,6 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
-import beersLawLab from '../../beersLawLab.js';
 
 type SelfOptions = {
   position?: Vector2; // center of output pipe, cm
@@ -80,5 +79,3 @@ export default class Faucet {
     this.enabledProperty.reset();
   }
 }
-
-beersLawLab.register( 'Faucet', Faucet );

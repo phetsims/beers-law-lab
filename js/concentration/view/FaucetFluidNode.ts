@@ -9,7 +9,6 @@
 
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
-import beersLawLab from '../../beersLawLab.js';
 import Fluid from '../../common/model/Fluid.js';
 import Faucet from '../model/Faucet.js';
 
@@ -43,5 +42,3 @@ export default class FaucetFluidNode extends Rectangle {
     } );
   }
 }
-
-beersLawLab.register( 'FaucetFluidNode', FaucetFluidNode );

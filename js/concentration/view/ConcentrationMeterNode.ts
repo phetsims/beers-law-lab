@@ -37,7 +37,6 @@ import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Path, { PathOptions } from '../../../../scenery/js/nodes/Path.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLColors from '../../common/BLLColors.js';
 import BLLConstants from '../../common/BLLConstants.js';
@@ -341,5 +340,3 @@ class WireNode extends Path {
     probe.positionProperty.link( updateCurve );
   }
 }
-
-beersLawLab.register( 'ConcentrationMeterNode', ConcentrationMeterNode );

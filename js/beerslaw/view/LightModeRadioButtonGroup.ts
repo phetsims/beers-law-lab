@@ -8,7 +8,6 @@
 
 import AquaRadioButtonGroup, { AquaRadioButtonGroupItem, AquaRadioButtonGroupOptions } from '../../../../sun/js/AquaRadioButtonGroup.js';
 import LightMode from '../model/LightMode.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Text, { TextOptions } from '../../../../scenery/js/nodes/Text.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
@@ -65,5 +64,3 @@ export default class LightModeRadioButtonGroup extends AquaRadioButtonGroup<Ligh
     super( lightModeProperty, items, options );
   }
 }
-
-beersLawLab.register( 'LightModeRadioButtonGroup', LightModeRadioButtonGroup );

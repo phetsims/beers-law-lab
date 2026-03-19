@@ -15,7 +15,6 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import TModel from '../../../../joist/js/TModel.js';
 import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import Solute from '../../common/model/Solute.js';
 import Beaker from './Beaker.js';
@@ -321,5 +320,3 @@ export default class ConcentrationModel implements TModel {
     return this.solutes.map( solute => solute.formulaProperty );
   }
 }
-
-beersLawLab.register( 'ConcentrationModel', ConcentrationModel );

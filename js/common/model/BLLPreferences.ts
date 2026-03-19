@@ -10,7 +10,6 @@
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import StringUnionProperty from '../../../../axon/js/StringUnionProperty.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import beersLawLab from '../../beersLawLab.js';
 import BLLQueryParameters, { BeakerUnits, BeakerUnitsValues, ConcentrationMeterUnits, ConcentrationMeterUnitsValues } from '../BLLQueryParameters.js';
 
 const BLLPreferences = {
@@ -42,5 +41,4 @@ const BLLPreferences = {
   } )
 };
 
-beersLawLab.register( 'BLLPreferences', BLLPreferences );
 export default BLLPreferences;

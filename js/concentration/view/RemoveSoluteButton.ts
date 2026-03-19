@@ -10,7 +10,6 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import TextPushButton, { TextPushButtonOptions } from '../../../../sun/js/buttons/TextPushButton.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import ShakerParticles from '../model/ShakerParticles.js';
@@ -54,5 +53,3 @@ export default class RemoveSoluteButton extends TextPushButton {
     } );
   }
 }
-
-beersLawLab.register( 'RemoveSoluteButton', RemoveSoluteButton );

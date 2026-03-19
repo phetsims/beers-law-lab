@@ -12,7 +12,6 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import LaserPointerNode, { LaserPointerNodeOptions } from '../../../../scenery-phet/js/LaserPointerNode.js';
-import beersLawLab from '../../beersLawLab.js';
 import Light from '../model/Light.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 
@@ -44,5 +43,3 @@ export default class LightNode extends LaserPointerNode {
     this.addLinkedElement( light );
   }
 }
-
-beersLawLab.register( 'LightNode', LightNode );

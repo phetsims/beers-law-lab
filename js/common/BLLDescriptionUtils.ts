@@ -7,7 +7,6 @@
  */
 
 import BeersLawLabStrings from '../BeersLawLabStrings.js';
-import beersLawLab from '../beersLawLab.js';
 import BLLConstants from './BLLConstants.js';
 
 export default class BLLDescriptionUtils {
@@ -45,5 +44,3 @@ export default class BLLDescriptionUtils {
     }
   }
 }
-
-beersLawLab.register( 'BLLDescriptionUtils', BLLDescriptionUtils );

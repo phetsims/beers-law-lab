@@ -8,7 +8,6 @@
 
 import logGlobal from '../../../phet-core/js/logGlobal.js';
 import { QueryStringMachine } from '../../../query-string-machine/js/QueryStringMachineModule.js';
-import beersLawLab from '../beersLawLab.js';
 import BLLConstants from './BLLConstants.js';
 
 export const BeakerUnitsValues = [ 'liters', 'milliliters' ] as const;
@@ -61,8 +60,6 @@ const BLLQueryParameters = QueryStringMachine.getAll( {
     public: true
   }
 } );
-
-beersLawLab.register( 'BLLQueryParameters', BLLQueryParameters );
 
 // Log query parameters
 logGlobal( 'phet.chipper.queryParameters' );

@@ -18,7 +18,6 @@ import Path from '../../../../scenery/js/nodes/Path.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Color from '../../../../scenery/js/util/Color.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
 import Cuvette from '../model/Cuvette.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
@@ -240,5 +239,3 @@ class CuvetteArrowNode extends InteractiveHighlighting( ArrowNode ) {
     this.addAccessibleObjectResponse( response );
   }
 }
-
-beersLawLab.register( 'CuvetteNode', CuvetteNode );

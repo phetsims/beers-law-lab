@@ -8,7 +8,6 @@
  */
 
 import KeyboardListener from '../../../../scenery/js/listeners/KeyboardListener.js';
-import beersLawLab from '../../beersLawLab.js';
 import HotkeyData from '../../../../scenery/js/input/HotkeyData.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import JumpPosition from '../../common/model/JumpPosition.js';
@@ -60,5 +59,3 @@ export default class JumpToPositionListener extends KeyboardListener<OneKeyStrok
     } );
   }
 }
-
-beersLawLab.register( 'JumpToPositionListener', JumpToPositionListener );

@@ -7,7 +7,6 @@
  */
 
 import Path from '../../../../scenery/js/nodes/Path.js';
-import beersLawLab from '../../beersLawLab.js';
 import Beam from '../model/Beam.js';
 
 export default class BeamNode extends Path {
@@ -31,5 +30,3 @@ export default class BeamNode extends Path {
     } );
   }
 }
-
-beersLawLab.register( 'BeamNode', BeamNode );

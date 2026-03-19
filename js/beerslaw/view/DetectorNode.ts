@@ -23,7 +23,6 @@ import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLMovable from '../../common/model/BLLMovable.js';
 import Detector from '../model/Detector.js';
@@ -267,5 +266,3 @@ function createAccessibleParagraph( detector: Detector ): TReadOnlyProperty<stri
     isDisposable: false
   } );
 }
-
-beersLawLab.register( 'DetectorNode', DetectorNode );

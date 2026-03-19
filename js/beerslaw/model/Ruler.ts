@@ -7,7 +7,6 @@
  */
 
 import optionize from '../../../../phet-core/js/optionize.js';
-import beersLawLab from '../../beersLawLab.js';
 import BLLMovable, { BLLMovableOptions } from '../../common/model/BLLMovable.js';
 
 type SelfOptions = {
@@ -40,5 +39,3 @@ export default class Ruler extends BLLMovable {
     this.height = options.height;
   }
 }
-
-beersLawLab.register( 'Ruler', Ruler );

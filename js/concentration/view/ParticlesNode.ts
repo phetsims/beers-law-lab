@@ -11,7 +11,6 @@
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import CanvasNode from '../../../../scenery/js/nodes/CanvasNode.js';
-import beersLawLab from '../../beersLawLab.js';
 import SoluteParticles from '../model/SoluteParticles.js';
 
 export default class ParticlesNode extends CanvasNode {
@@ -77,5 +76,3 @@ export default class ParticlesNode extends CanvasNode {
     }
   }
 }
-
-beersLawLab.register( 'ParticlesNode', ParticlesNode );

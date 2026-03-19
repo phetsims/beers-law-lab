@@ -8,7 +8,6 @@
  */
 
 import ScreenSummaryContent from '../../../../joist/js/ScreenSummaryContent.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import ConcentrationModel from '../model/ConcentrationModel.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
@@ -142,5 +141,3 @@ export default class ConcentrationScreenSummaryContent extends ScreenSummaryCont
     } );
   }
 }
-
-beersLawLab.register( 'ConcentrationScreenSummaryContent', ConcentrationScreenSummaryContent );

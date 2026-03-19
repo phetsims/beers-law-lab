@@ -7,7 +7,6 @@
  */
 
 import Color from '../../../../scenery/js/util/Color.js';
-import beersLawLab from '../../beersLawLab.js';
 
 export default class ColorRange {
 
@@ -28,5 +27,3 @@ export default class ColorRange {
     return Color.interpolateRGBA( this.min, this.max, distance );
   }
 }
-
-beersLawLab.register( 'ColorRange', ColorRange );

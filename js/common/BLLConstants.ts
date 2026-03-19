@@ -68,5 +68,3 @@ export default class BLLConstants {
     keyboardHelpDialogLabelStringProperty: BeersLawLabStrings.keyboardHelpDialog.jumpToPositionStringProperty
   } );
 }
-
-beersLawLab.register( 'BLLConstants', BLLConstants );

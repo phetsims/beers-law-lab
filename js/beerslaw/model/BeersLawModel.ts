@@ -13,7 +13,6 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import TModel from '../../../../joist/js/TModel.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import beersLawLab from '../../beersLawLab.js';
 import Detector from './Detector.js';
 import Beam from './Beam.js';
 import BeersLawSolution from './BeersLawSolution.js';
@@ -139,5 +138,3 @@ export default class BeersLawModel implements TModel {
     return this.solutions.map( solution => solution.nameProperty );
   }
 }
-
-beersLawLab.register( 'BeersLawModel', BeersLawModel );

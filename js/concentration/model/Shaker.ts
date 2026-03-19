@@ -17,7 +17,6 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
-import beersLawLab from '../../beersLawLab.js';
 import BLLMovable, { BLLMovableOptions } from '../../common/model/BLLMovable.js';
 import Solute from '../../common/model/Solute.js';
 import SoluteForm from './SoluteForm.js';
@@ -127,5 +126,3 @@ export default class Shaker extends BLLMovable {
     this.previousPosition = this.positionProperty.value;
   }
 }
-
-beersLawLab.register( 'Shaker', Shaker );

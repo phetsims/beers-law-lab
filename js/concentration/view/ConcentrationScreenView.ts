@@ -17,7 +17,6 @@ import EyeDropperNode from '../../../../scenery-phet/js/EyeDropperNode.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
-import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import ConcentrationModel from '../model/ConcentrationModel.js';
 import BeakerNode from './BeakerNode.js';
@@ -275,5 +274,3 @@ export default class ConcentrationScreenView extends ScreenView {
     this.setScreenSummaryContent( new ConcentrationScreenSummaryContent( model, concentrationMeterNode.probeNode ) );
   }
 }
-
-beersLawLab.register( 'ConcentrationScreenView', ConcentrationScreenView );

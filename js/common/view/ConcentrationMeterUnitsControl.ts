@@ -13,7 +13,6 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import HBox, { HBoxOptions } from '../../../../scenery/js/layout/nodes/HBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import AquaRadioButtonGroup, { AquaRadioButtonGroupItem, AquaRadioButtonGroupOptions } from '../../../../sun/js/AquaRadioButtonGroup.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import { ConcentrationMeterUnits } from '../BLLQueryParameters.js';
 
@@ -108,5 +107,3 @@ class ConcentrationMeterUnitsRadioButtonGroup extends AquaRadioButtonGroup<Conce
     super( concentrationMeterUnitsProperty, items, options );
   }
 }
-
-beersLawLab.register( 'ConcentrationMeterUnitsControl', ConcentrationMeterUnitsControl );

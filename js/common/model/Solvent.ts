@@ -7,7 +7,6 @@
  */
 
 import Color from '../../../../scenery/js/util/Color.js';
-import beersLawLab from '../../beersLawLab.js';
 import Fluid from './Fluid.js';
 import BLLColors from '../BLLColors.js';
 
@@ -30,5 +29,3 @@ export default class Solvent extends Fluid {
     this.density = density;
   }
 }
-
-beersLawLab.register( 'Solvent', Solvent );

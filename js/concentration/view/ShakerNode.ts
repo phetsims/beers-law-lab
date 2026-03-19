@@ -17,7 +17,6 @@ import Image from '../../../../scenery/js/nodes/Image.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
 import shaker_png from '../../../images/shaker_png.js';
-import beersLawLab from '../../beersLawLab.js';
 import Shaker from '../model/Shaker.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
@@ -135,5 +134,3 @@ export default class ShakerNode extends InteractiveHighlighting( Node ) {
     this.addLinkedElement( shaker );
   }
 }
-
-beersLawLab.register( 'ShakerNode', ShakerNode );

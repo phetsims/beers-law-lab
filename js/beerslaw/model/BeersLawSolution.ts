@@ -25,7 +25,6 @@ import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioO
 import Tandem from '../../../../tandem/js/Tandem.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import ReferenceIO from '../../../../tandem/js/types/ReferenceIO.js';
-import beersLawLab from '../../beersLawLab.js';
 import ColorRange from '../../common/model/ColorRange.js';
 import Solute from '../../common/model/Solute.js';
 import Solvent from '../../common/model/Solvent.js';
@@ -224,5 +223,3 @@ export default class BeersLawSolution extends PhetioObject {
     tandem: SOLUTIONS_TANDEM.createTandem( 'potassiumPermanganate' )
   } );
 }
-
-beersLawLab.register( 'BeersLawSolution', BeersLawSolution );

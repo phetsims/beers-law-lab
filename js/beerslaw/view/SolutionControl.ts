@@ -20,7 +20,6 @@ import RichText from '../../../../scenery/js/nodes/RichText.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import ComboBox, { ComboBoxItem, ComboBoxOptions } from '../../../../sun/js/ComboBox.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
 import BLLColors from '../../common/BLLColors.js';
@@ -119,5 +118,3 @@ function createItem( solution: BeersLawSolution ): ComboBoxItem<BeersLawSolution
     tandemName: `${solution.tandemName}Item`
   };
 }
-
-beersLawLab.register( 'SolutionControl', SolutionControl );

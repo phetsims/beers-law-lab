@@ -18,7 +18,6 @@ import HStrut from '../../../../scenery/js/nodes/HStrut.js';
 import Node, { NodeTranslationOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLColors from '../../common/BLLColors.js';
 import Light from '../model/Light.js';
@@ -112,5 +111,3 @@ export default class WavelengthPanel extends Panel {
     this.addLinkedElement( light.wavelengthProperty );
   }
 }
-
-beersLawLab.register( 'WavelengthPanel', WavelengthPanel );

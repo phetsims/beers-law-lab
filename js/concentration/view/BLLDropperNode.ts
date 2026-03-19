@@ -16,7 +16,6 @@ import EyeDropperNode, { EyeDropperNodeOptions } from '../../../../scenery-phet/
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import RichText from '../../../../scenery/js/nodes/RichText.js';
-import beersLawLab from '../../beersLawLab.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
 import Dropper from '../model/Dropper.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
@@ -112,5 +111,3 @@ export default class BLLDropperNode extends EyeDropperNode {
     } );
   }
 }
-
-beersLawLab.register( 'BLLDropperNode', BLLDropperNode );

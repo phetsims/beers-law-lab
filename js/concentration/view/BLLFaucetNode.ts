@@ -11,7 +11,6 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import FaucetNode, { FaucetNodeOptions } from '../../../../scenery-phet/js/FaucetNode.js';
-import beersLawLab from '../../beersLawLab.js';
 import Faucet from '../model/Faucet.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
@@ -75,5 +74,3 @@ export default class BLLFaucetNode extends FaucetNode {
     this.translation = modelViewTransform.modelToViewPosition( faucet.position );
   }
 }
-
-beersLawLab.register( 'BLLFaucetNode', BLLFaucetNode );

@@ -15,7 +15,6 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import isSettingPhetioStateProperty from '../../../../tandem/js/isSettingPhetioStateProperty.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
-import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import Beaker from './Beaker.js';
 import ConcentrationSolution from './ConcentrationSolution.js';
@@ -171,5 +170,3 @@ function getRandomPosition( origin: Vector2 ): Vector2 {
   const yOffset = dotRandom.nextIntBetween( 0, MAX_Y_OFFSET ); // positive only
   return new Vector2( origin.x + xOffset, origin.y + yOffset );
 }
-
-beersLawLab.register( 'ShakerParticles', ShakerParticles );

@@ -14,7 +14,6 @@ import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js'
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLColors from '../../common/BLLColors.js';
 import Detector from '../../beerslaw/model/Detector.js';
@@ -159,5 +158,3 @@ export class DetectorProbeNode extends InteractiveHighlighting( ProbeNode ) {
     this.addAccessibleObjectResponse( response, { interruptible: true } );
   }
 }
-
-beersLawLab.register( 'DetectorProbeNode', DetectorProbeNode );

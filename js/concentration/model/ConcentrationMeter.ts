@@ -18,7 +18,6 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
-import beersLawLab from '../../beersLawLab.js';
 import BLLMovable from '../../common/model/BLLMovable.js';
 
 type SelfOptions = {
@@ -78,5 +77,3 @@ export default class ConcentrationMeter extends PhetioObject {
     this.probe.reset();
   }
 }
-
-beersLawLab.register( 'ConcentrationMeter', ConcentrationMeter );

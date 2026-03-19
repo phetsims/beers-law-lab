@@ -12,7 +12,6 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node, { NodeTranslationOptions } from '../../../../scenery/js/nodes/Node.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
-import beersLawLab from '../../beersLawLab.js';
 import BLLColors from '../../common/BLLColors.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
 import SolutionInCuvette from '../model/SolutionInCuvette.js';
@@ -69,5 +68,3 @@ export default class SolutionPanel extends Panel {
     this.addLinkedElement( solutionInCuvette );
   }
 }
-
-beersLawLab.register( 'SolutionPanel', SolutionPanel );

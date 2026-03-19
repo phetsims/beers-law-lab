@@ -8,7 +8,6 @@
 
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
-import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import Beaker from '../model/Beaker.js';
 import ConcentrationSolution from '../model/ConcentrationSolution.js';
@@ -50,5 +49,3 @@ export default class SolutionNode extends Rectangle {
     } );
   }
 }
-
-beersLawLab.register( 'SolutionNode', SolutionNode );

@@ -18,7 +18,6 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import AquaRadioButtonGroup, { AquaRadioButtonGroupItem, AquaRadioButtonGroupOptions } from '../../../../sun/js/AquaRadioButtonGroup.js';
 import dropperIcon_png from '../../../images/dropperIcon_png.js';
 import shakerIcon_png from '../../../images/shakerIcon_png.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import SoluteForm from '../model/SoluteForm.js';
@@ -88,5 +87,3 @@ function createRadioButtonLabel( text: TReadOnlyProperty<string>, image: HTMLIma
     ]
   } );
 }
-
-beersLawLab.register( 'SoluteFormRadioButtonGroup', SoluteFormRadioButtonGroup );

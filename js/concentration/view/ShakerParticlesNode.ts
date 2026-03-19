@@ -8,7 +8,6 @@
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import beersLawLab from '../../beersLawLab.js';
 import ShakerParticles from '../model/ShakerParticles.js';
 import ParticlesNode from './ParticlesNode.js';
 
@@ -24,5 +23,3 @@ export default class ShakerParticlesNode extends ParticlesNode {
     shakerParticles.particlesMovedEmitter.addListener( this.invalidatePaint.bind( this ) );
   }
 }
-
-beersLawLab.register( 'ShakerParticlesNode', ShakerParticlesNode );

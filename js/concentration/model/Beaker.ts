@@ -10,7 +10,6 @@ import Disposable from '../../../../axon/js/Disposable.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
-import beersLawLab from '../../beersLawLab.js';
 
 type SelfOptions = {
   position?: Vector2;
@@ -51,5 +50,3 @@ export default class Beaker {
     Disposable.assertNotDisposable();
   }
 }
-
-beersLawLab.register( 'Beaker', Beaker );

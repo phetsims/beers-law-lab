@@ -25,7 +25,6 @@ import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import PhetioObject from '../../../../tandem/js/PhetioObject.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawSolution from './BeersLawSolution.js';
 
 export default class SolutionInCuvette extends PhetioObject {
@@ -112,5 +111,3 @@ export default class SolutionInCuvette extends PhetioObject {
     return Math.pow( 10, -absorbance );
   }
 }
-
-beersLawLab.register( 'SolutionInCuvette', SolutionInCuvette );

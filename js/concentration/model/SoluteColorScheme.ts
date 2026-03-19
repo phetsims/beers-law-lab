@@ -9,7 +9,6 @@
  */
 
 import Color from '../../../../scenery/js/util/Color.js';
-import beersLawLab from '../../beersLawLab.js';
 
 export default class SoluteColorScheme {
 
@@ -42,5 +41,3 @@ export default class SoluteColorScheme {
     }
   }
 }
-
-beersLawLab.register( 'SoluteColorScheme', SoluteColorScheme );

@@ -28,7 +28,6 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import LinearGradient from '../../../../scenery/js/util/LinearGradient.js';
 import SunConstants from '../../../../sun/js/SunConstants.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BeersLawSolution from '../model/BeersLawSolution.js';
 import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
@@ -237,5 +236,3 @@ function createAriaValueTextForSlider( concentration: number, concentrationTrans
            BeersLawLabStrings.a11y.unitsDescription.millimolarStringProperty.value
   } );
 }
-
-beersLawLab.register( 'SolutionConcentrationControl', SolutionConcentrationControl );

@@ -12,7 +12,6 @@ import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2
 import Image from '../../../scenery/js/nodes/Image.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import concentrationScreenIcon_jpg from '../../images/concentrationScreenIcon_jpg.js';
-import beersLawLab from '../beersLawLab.js';
 import BeersLawLabStrings from '../BeersLawLabStrings.js';
 import BLLColors from '../common/BLLColors.js';
 import ConcentrationModel from './model/ConcentrationModel.js';
@@ -50,5 +49,3 @@ function createScreenIcon(): ScreenIcon {
     maxIconHeightProportion: 1
   } );
 }
-
-beersLawLab.register( 'ConcentrationScreen', ConcentrationScreen );

@@ -18,7 +18,6 @@ import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import BooleanIO from '../../../../tandem/js/types/BooleanIO.js';
-import beersLawLab from '../../beersLawLab.js';
 import Solute from '../../common/model/Solute.js';
 import SoluteForm from './SoluteForm.js';
 
@@ -125,5 +124,3 @@ export default class Dropper extends PhetioObject {
     this.flowRateProperty.reset();
   }
 }
-
-beersLawLab.register( 'Dropper', Dropper );

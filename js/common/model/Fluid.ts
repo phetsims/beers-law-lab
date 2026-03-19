@@ -9,7 +9,6 @@
 import Disposable from '../../../../axon/js/Disposable.js';
 import Property from '../../../../axon/js/Property.js';
 import Color from '../../../../scenery/js/util/Color.js';
-import beersLawLab from '../../beersLawLab.js';
 
 export default class Fluid {
 
@@ -27,5 +26,3 @@ export default class Fluid {
     this.colorProperty.reset();
   }
 }
-
-beersLawLab.register( 'Fluid', Fluid );

@@ -18,7 +18,6 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLPreferences from '../../common/model/BLLPreferences.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
@@ -118,5 +117,3 @@ function createAccessibleParagraph( volumeProperty: TReadOnlyProperty<number>, v
     isDisposable: false // because we cannot clean up unitsDescriptionProperty
   } );
 }
-
-beersLawLab.register( 'SolutionVolumeNode', SolutionVolumeNode );

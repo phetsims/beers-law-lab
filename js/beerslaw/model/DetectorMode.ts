@@ -10,7 +10,6 @@
 
 import Enumeration from '../../../../phet-core/js/Enumeration.js';
 import EnumerationValue from '../../../../phet-core/js/EnumerationValue.js';
-import beersLawLab from '../../beersLawLab.js';
 
 export default class DetectorMode extends EnumerationValue {
   public static readonly TRANSMITTANCE = new DetectorMode();
@@ -18,5 +17,3 @@ export default class DetectorMode extends EnumerationValue {
 
   public static readonly enumeration = new Enumeration( DetectorMode );
 }
-
-beersLawLab.register( 'DetectorMode', DetectorMode );

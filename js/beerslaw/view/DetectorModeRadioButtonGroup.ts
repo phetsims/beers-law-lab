@@ -13,7 +13,6 @@ import BLLConstants from '../../common/BLLConstants.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Text, { TextOptions } from '../../../../scenery/js/nodes/Text.js';
 import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
-import beersLawLab from '../../beersLawLab.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
 import Detector from '../model/Detector.js';
 import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
@@ -95,5 +94,3 @@ export default class DetectorModeRadioButtonGroup extends AquaRadioButtonGroup<D
     } );
   }
 }
-
-beersLawLab.register( 'DetectorModeRadioButtonGroup', DetectorModeRadioButtonGroup );

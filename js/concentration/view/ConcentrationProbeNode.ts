@@ -15,7 +15,6 @@ import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
 import Property from '../../../../axon/js/Property.js';
 import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
-import beersLawLab from '../../beersLawLab.js';
 import BLLColors from '../../common/BLLColors.js';
 import JumpPosition from '../../common/model/JumpPosition.js';
 import JumpToPositionListener from '../../beerslaw/view/JumpToPositionListener.js';
@@ -128,5 +127,3 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
     } );
   }
 }
-
-beersLawLab.register( 'ConcentrationProbeNode', ConcentrationProbeNode );

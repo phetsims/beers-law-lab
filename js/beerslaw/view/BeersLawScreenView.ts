@@ -11,7 +11,6 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import BeersLawModel from '../model/BeersLawModel.js';
 import DetectorNode from './DetectorNode.js';
@@ -167,5 +166,3 @@ export default class BeersLawScreenView extends ScreenView {
     ];
   }
 }
-
-beersLawLab.register( 'BeersLawScreenView', BeersLawScreenView );

@@ -14,7 +14,6 @@ import Range from '../../../../dot/js/Range.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
-import beersLawLab from '../../beersLawLab.js';
 import ConcentrationSolution from './ConcentrationSolution.js';
 
 type SelfOptions = {
@@ -75,5 +74,3 @@ export default class Evaporator {
     this.enabledProperty.reset();
   }
 }
-
-beersLawLab.register( 'Evaporator', Evaporator );

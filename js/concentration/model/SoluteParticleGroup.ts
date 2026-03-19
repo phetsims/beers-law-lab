@@ -11,7 +11,6 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetioGroup, { PhetioGroupOptions } from '../../../../tandem/js/PhetioGroup.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import beersLawLab from '../../beersLawLab.js';
 import Solute from '../../common/model/Solute.js';
 import SoluteParticle, { SoluteParticleCreateElementArguments } from './SoluteParticle.js';
 
@@ -54,5 +53,3 @@ export default class SoluteParticleGroup extends PhetioGroup<SoluteParticle, Sol
     super( createElement, DEFAULT_ARGUMENTS, options );
   }
 }
-
-beersLawLab.register( 'SoluteParticleGroup', SoluteParticleGroup );

@@ -9,7 +9,6 @@
 import KeyboardHelpSection from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpSection.js';
 import KeyboardHelpSectionRow from '../../../../scenery-phet/js/keyboard/help/KeyboardHelpSectionRow.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
-import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 
 export class DetectorProbeAndRulerControlsSection extends KeyboardHelpSection {
@@ -28,5 +27,3 @@ export class DetectorProbeAndRulerControlsSection extends KeyboardHelpSection {
     } );
   }
 }
-
-beersLawLab.register( 'DetectorProbeAndRulerControlsSection', DetectorProbeAndRulerControlsSection );

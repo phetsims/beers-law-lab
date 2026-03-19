@@ -60,5 +60,3 @@ export default class BLLColors {
 }
 
 console.log( BLLColors.cuvetteArrowHighlightColorProperty.value.brighterColor() );
-
-beersLawLab.register( 'BLLColors', BLLColors );

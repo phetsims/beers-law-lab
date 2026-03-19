@@ -13,7 +13,6 @@ import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2
 import Image from '../../../scenery/js/nodes/Image.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import beersLawScreenIcon_jpg from '../../images/beersLawScreenIcon_jpg.js';
-import beersLawLab from '../beersLawLab.js';
 import BeersLawLabStrings from '../BeersLawLabStrings.js';
 import BLLColors from '../common/BLLColors.js';
 import BeersLawModel from './model/BeersLawModel.js';
@@ -52,5 +51,3 @@ function createScreenIcon(): ScreenIcon {
     maxIconHeightProportion: 1
   } );
 }
-
-beersLawLab.register( 'BeersLawScreen', BeersLawScreen );

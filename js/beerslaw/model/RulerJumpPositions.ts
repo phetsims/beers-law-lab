@@ -7,7 +7,6 @@
  */
 
 import JumpPosition from '../../common/model/JumpPosition.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawModel from './BeersLawModel.js';
 import Vector2Property from '../../../../dot/js/Vector2Property.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -67,5 +66,3 @@ export default class RulerJumpPositions extends Array<JumpPosition> {
     );
   }
 }
-
-beersLawLab.register( 'RulerJumpPositions', RulerJumpPositions );

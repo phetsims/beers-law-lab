@@ -13,7 +13,6 @@ import dotRandom from '../../../../dot/js/dotRandom.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
-import beersLawLab from '../../beersLawLab.js';
 import Solute from '../../common/model/Solute.js';
 import SoluteParticle from './SoluteParticle.js';
 import SoluteParticleGroup from './SoluteParticleGroup.js';
@@ -128,5 +127,3 @@ export default class SoluteParticles {
     return dotRandom.nextDouble() * 2 * Math.PI;
   }
 }
-
-beersLawLab.register( 'SoluteParticles', SoluteParticles );

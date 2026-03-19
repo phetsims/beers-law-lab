@@ -8,7 +8,6 @@
 
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import beersLawLab from '../../beersLawLab.js';
 
 type SelfOptions = {
 
@@ -38,5 +37,3 @@ export default class JumpPosition {
     this.accessibleObjectResponseStringProperty = providedOptions.accessibleObjectResponseStringProperty;
   }
 }
-
-beersLawLab.register( 'JumpPosition', JumpPosition );

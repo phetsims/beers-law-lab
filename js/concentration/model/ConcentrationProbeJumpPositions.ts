@@ -15,7 +15,6 @@ import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import { toFixed } from '../../../../dot/js/util/toFixed.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import ConcentrationModel from './ConcentrationModel.js';
-import beersLawLab from '../../beersLawLab.js';
 
 export default class ConcentrationProbeJumpPositions extends Array<JumpPosition> {
 
@@ -82,5 +81,3 @@ export default class ConcentrationProbeJumpPositions extends Array<JumpPosition>
     );
   }
 }
-
-beersLawLab.register( 'ConcentrationProbeJumpPositions', ConcentrationProbeJumpPositions );

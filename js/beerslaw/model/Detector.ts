@@ -16,7 +16,6 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
-import beersLawLab from '../../beersLawLab.js';
 import BLLMovable, { BLLMovableOptions } from '../../common/model/BLLMovable.js';
 import DetectorMode from './DetectorMode.js';
 import Cuvette from './Cuvette.js';
@@ -161,5 +160,3 @@ class Probe extends BLLMovable {
     return this.positionProperty.value.y + ( this.sensorDiameter / 2 );
   }
 }
-
-beersLawLab.register( 'Detector', Detector );

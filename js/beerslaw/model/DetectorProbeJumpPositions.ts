@@ -7,7 +7,6 @@
  */
 
 import JumpPosition from '../../common/model/JumpPosition.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawModel from './BeersLawModel.js';
 import Vector2Property from '../../../../dot/js/Vector2Property.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
@@ -135,5 +134,3 @@ function getDetectorValueSentence( detector: Detector ): string {
   }
   return valueSentence;
 }
-
-beersLawLab.register( 'DetectorProbeJumpPositions', DetectorProbeJumpPositions );

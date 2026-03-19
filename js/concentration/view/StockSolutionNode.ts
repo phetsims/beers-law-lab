@@ -9,7 +9,6 @@
 import Property from '../../../../axon/js/Property.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
-import beersLawLab from '../../beersLawLab.js';
 import Solute from '../../common/model/Solute.js';
 import Solvent from '../../common/model/Solvent.js';
 import Beaker from '../model/Beaker.js';
@@ -60,5 +59,3 @@ export default class StockSolutionNode extends Rectangle {
     } );
   }
 }
-
-beersLawLab.register( 'StockSolutionNode', StockSolutionNode );

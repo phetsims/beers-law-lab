@@ -11,7 +11,6 @@
 
 import Disposable from '../../../../axon/js/Disposable.js';
 import VisibleColor from '../../../../scenery-phet/js/VisibleColor.js';
-import beersLawLab from '../../beersLawLab.js';
 
 const NUMBER_OF_VISIBLE_WAVELENGTH = VisibleColor.MAX_WAVELENGTH - VisibleColor.MIN_WAVELENGTH + 1;
 
@@ -288,5 +287,4 @@ class MolarAbsorptivityData {
   ] );
 }
 
-beersLawLab.register( 'MolarAbsorptivityData', MolarAbsorptivityData );
 export default MolarAbsorptivityData;

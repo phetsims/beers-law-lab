@@ -15,7 +15,6 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawSolution from './BeersLawSolution.js';
 import LightMode from './LightMode.js';
 import BLLConstants from '../../common/BLLConstants.js';
@@ -101,5 +100,3 @@ export default class Light extends PhetioObject {
     return this.position.y + ( this.lensDiameter / 2 );
   }
 }
-
-beersLawLab.register( 'Light', Light );

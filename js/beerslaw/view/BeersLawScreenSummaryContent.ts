@@ -8,7 +8,6 @@
  */
 
 import ScreenSummaryContent from '../../../../joist/js/ScreenSummaryContent.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BeersLawModel from '../model/BeersLawModel.js';
 import DerivedStringProperty from '../../../../axon/js/DerivedStringProperty.js';
@@ -145,5 +144,3 @@ export default class BeersLawScreenSummaryContent extends ScreenSummaryContent {
     } );
   }
 }
-
-beersLawLab.register( 'BeersLawScreenSummaryContent', BeersLawScreenSummaryContent );

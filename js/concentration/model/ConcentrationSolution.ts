@@ -20,7 +20,6 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import Color from '../../../../scenery/js/util/Color.js';
 import { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
-import beersLawLab from '../../beersLawLab.js';
 import Fluid from '../../common/model/Fluid.js';
 import Solute from '../../common/model/Solute.js';
 import Solvent from '../../common/model/Solvent.js';
@@ -214,5 +213,3 @@ export default class ConcentrationSolution extends Fluid {
     return color;
   }
 }
-
-beersLawLab.register( 'ConcentrationSolution', ConcentrationSolution );

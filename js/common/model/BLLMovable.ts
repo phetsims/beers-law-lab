@@ -15,7 +15,6 @@ import optionize from '../../../../phet-core/js/optionize.js';
 import PickOptional from '../../../../phet-core/js/types/PickOptional.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
-import beersLawLab from '../../beersLawLab.js';
 
 type SelfOptions = {
   position?: Vector2; // initial position
@@ -65,5 +64,3 @@ export default class BLLMovable extends PhetioObject {
     this.positionProperty.reset();
   }
 }
-
-beersLawLab.register( 'BLLMovable', BLLMovable );

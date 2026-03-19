@@ -17,7 +17,6 @@ import IOType from '../../../../tandem/js/types/IOType.js';
 import NullableIO from '../../../../tandem/js/types/NullableIO.js';
 import ReferenceIO, { ReferenceIOState } from '../../../../tandem/js/types/ReferenceIO.js';
 import StringIO from '../../../../tandem/js/types/StringIO.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import SoluteColorScheme from '../../concentration/model/SoluteColorScheme.js';
 import Solvent from './Solvent.js';
@@ -222,5 +221,3 @@ export default class Solute extends PhetioObject {
     tandem: SOLUTES_TANDEM.createTandem( 'sodiumChloride' )
   } );
 }
-
-beersLawLab.register( 'Solute', Solute );

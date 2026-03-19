@@ -7,7 +7,6 @@
  */
 
 import WavelengthNumberControl from '../../../../scenery-phet/js/WavelengthNumberControl.js';
-import beersLawLab from '../../beersLawLab.js';
 import Property from '../../../../axon/js/Property.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
@@ -92,5 +91,3 @@ export default class BLLWavelengthNumberControl extends WavelengthNumberControl 
     } );
   }
 }
-
-beersLawLab.register( 'BLLWavelengthNumberControl', BLLWavelengthNumberControl );

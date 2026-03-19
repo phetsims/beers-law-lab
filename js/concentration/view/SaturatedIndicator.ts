@@ -13,7 +13,6 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Color from '../../../../scenery/js/util/Color.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 
 export default class SaturatedIndicator extends BackgroundNode {
@@ -45,5 +44,3 @@ export default class SaturatedIndicator extends BackgroundNode {
     } );
   }
 }
-
-beersLawLab.register( 'SaturatedIndicator', SaturatedIndicator );

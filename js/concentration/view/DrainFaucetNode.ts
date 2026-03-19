@@ -10,7 +10,6 @@ import BLLFaucetNode from './BLLFaucetNode.js';
 import Faucet from '../model/Faucet.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 
 export default class DrainFaucetNode extends BLLFaucetNode {
@@ -23,5 +22,3 @@ export default class DrainFaucetNode extends BLLFaucetNode {
     } );
   }
 }
-
-beersLawLab.register( 'DrainFaucetNode', DrainFaucetNode );

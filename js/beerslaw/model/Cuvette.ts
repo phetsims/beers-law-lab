@@ -18,7 +18,6 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
-import beersLawLab from '../../beersLawLab.js';
 import BLLConstants from '../../common/BLLConstants.js';
 import BLLQueryParameters from '../../common/BLLQueryParameters.js';
 import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
@@ -93,5 +92,3 @@ export default class Cuvette extends PhetioObject {
     this.widthProperty.reset();
   }
 }
-
-beersLawLab.register( 'Cuvette', Cuvette );

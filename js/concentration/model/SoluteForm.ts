@@ -10,7 +10,6 @@
 
 import Enumeration from '../../../../phet-core/js/Enumeration.js';
 import EnumerationValue from '../../../../phet-core/js/EnumerationValue.js';
-import beersLawLab from '../../beersLawLab.js';
 
 export default class SoluteForm extends EnumerationValue {
   public static readonly SOLID = new SoluteForm();
@@ -18,5 +17,3 @@ export default class SoluteForm extends EnumerationValue {
 
   public static readonly enumeration = new Enumeration( SoluteForm );
 }
-
-beersLawLab.register( 'SoluteForm', SoluteForm );

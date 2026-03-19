@@ -13,7 +13,6 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
-import beersLawLab from '../../beersLawLab.js';
 import BLLColors from '../../common/BLLColors.js';
 import Solute from '../../common/model/Solute.js';
 import SoluteForm from '../model/SoluteForm.js';
@@ -66,5 +65,3 @@ export default class SolutePanel extends Panel {
     super( contentNode, options );
   }
 }
-
-beersLawLab.register( 'SolutePanel', SolutePanel );

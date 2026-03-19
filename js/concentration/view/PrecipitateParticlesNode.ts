@@ -8,7 +8,6 @@
 
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import beersLawLab from '../../beersLawLab.js';
 import PrecipitateParticles from '../model/PrecipitateParticles.js';
 import ParticlesNode from './ParticlesNode.js';
 
@@ -20,5 +19,3 @@ export default class PrecipitateParticlesNode extends ParticlesNode {
     super( precipitateParticles, modelViewTransform, canvasBounds );
   }
 }
-
-beersLawLab.register( 'PrecipitateParticlesNode', PrecipitateParticlesNode );

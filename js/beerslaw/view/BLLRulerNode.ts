@@ -11,7 +11,6 @@ import Property from '../../../../axon/js/Property.js';
 import Shape from '../../../../kite/js/Shape.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import RulerNode, { RulerNodeOptions } from '../../../../scenery-phet/js/RulerNode.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import Ruler from '../model/Ruler.js';
 import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
@@ -107,5 +106,3 @@ export default class BLLRulerNode extends InteractiveHighlighting( RulerNode ) {
     } );
   }
 }
-
-beersLawLab.register( 'BLLRulerNode', BLLRulerNode );

@@ -19,7 +19,6 @@ import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
 import PhetioObject, { PhetioObjectOptions } from '../../../../tandem/js/PhetioObject.js';
 import IOType from '../../../../tandem/js/types/IOType.js';
 import NumberIO from '../../../../tandem/js/types/NumberIO.js';
-import beersLawLab from '../../beersLawLab.js';
 import Solute, { SoluteStateObject } from '../../common/model/Solute.js';
 
 type SelfOptions = {
@@ -124,5 +123,3 @@ export default class SoluteParticle extends PhetioObject {
     stateObjectToCreateElementArguments: stateObject => SoluteParticle.stateObjectToCreateElementArguments( stateObject )
   } );
 }
-
-beersLawLab.register( 'SoluteParticle', SoluteParticle );

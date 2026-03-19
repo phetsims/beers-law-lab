@@ -14,7 +14,6 @@ import PhetFont from '../../../../scenery-phet/js/PhetFont.js';
 import HBox from '../../../../scenery/js/layout/nodes/HBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
-import beersLawLab from '../../beersLawLab.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLColors from '../../common/BLLColors.js';
 import Evaporator from '../model/Evaporator.js';
@@ -63,5 +62,3 @@ export default class EvaporationPanel extends Panel {
     super( content, options );
   }
 }
-
-beersLawLab.register( 'EvaporationPanel', EvaporationPanel );
