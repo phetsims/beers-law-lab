@@ -64,6 +64,6 @@ const BLLQueryParameters = QueryStringMachine.getAll( {
 // Log query parameters
 logGlobal( 'phet.chipper.queryParameters' );
 logGlobal( 'phet.preloads.phetio.queryParameters' );
-logGlobal( 'phet.beersLawLab.BLLQueryParameters' );
+phet.log && phet.log( `BLLQueryParameters: ${JSON.stringify( BLLQueryParameters, null, 2 )}` );
 
 export default BLLQueryParameters;
