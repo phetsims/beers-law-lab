@@ -9,7 +9,7 @@
     "branch": "HEAD"
   },
   "beers-law-lab": {
-    "sha": "8f0491427a5acb7afc987a7953bc974847b9ff22",
+    "sha": "19ce5ecb8f417baf8faa636ca757ae650d029768",
     "branch": "1.8"
   },
   "brand": {
@@ -17,7 +17,7 @@
     "branch": "HEAD"
   },
   "chipper": {
-    "sha": "fa3d47887b534c412e7c6351802e7a1f3e7ad1eb",
+    "sha": "9d0b1a627875429b4337fc591ece8208a4b9848f",
     "branch": "HEAD"
   },
   "dot": {
@@ -37,7 +37,7 @@
     "branch": "HEAD"
   },
   "perennial-alias": {
-    "sha": "bebb7be2d20ff41d8afee18299adcf8da1159a46",
+    "sha": "6188c04aa83323e5f235dd79831f524e77069f84",
     "branch": "HEAD"
   },
   "phet-core": {
