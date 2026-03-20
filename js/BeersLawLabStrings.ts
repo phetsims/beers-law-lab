@@ -276,4 +276,6 @@ type StringsType = {
 
 const BeersLawLabStrings = getStringModule( 'BEERS_LAW_LAB' ) as StringsType;
 
+beersLawLab.register( 'BeersLawLabStrings', BeersLawLabStrings );
+
 export default BeersLawLabStrings;
