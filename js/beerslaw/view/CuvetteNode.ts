@@ -1,4 +1,4 @@
-// Copyright 2013-2025, University of Colorado Boulder
+// Copyright 2013-2026, University of Colorado Boulder
 
 /**
  * CuvetteNode is the visual representation of the cuvette.  It's width can be changed by dragging a handle.

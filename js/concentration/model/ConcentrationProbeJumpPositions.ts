@@ -1,4 +1,4 @@
-// Copyright 2025, University of Colorado Boulder
+// Copyright 2025-2026, University of Colorado Boulder
 
 /**
  * ConcentrationProbeJumpPositions is the set of jump positions for the concentration probe, used by the 'J' shortcut.

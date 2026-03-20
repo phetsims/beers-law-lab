@@ -1,4 +1,4 @@
-// Copyright 2025, University of Colorado Boulder
+// Copyright 2025-2026, University of Colorado Boulder
 
 /**
  * DetectorProbeJumpPositions is the set of jump positions for the detector probe, used by the 'J' shortcut.

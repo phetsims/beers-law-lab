@@ -1,4 +1,4 @@
-// Copyright 2025, University of Colorado Boulder
+// Copyright 2025-2026, University of Colorado Boulder
 
 /**
  * BLLDescriptionUtils is a collection of utility functions related to description strings in this sim.
