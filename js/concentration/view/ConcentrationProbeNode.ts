@@ -118,12 +118,19 @@ export class ConcentrationProbeNode extends InteractiveHighlighting( ProbeNode )
     this.focusedProperty.lazyLink( focused => {
       if ( focused ) {
 
-        // Add an accessible object response for the concentration that is currently measured by the probe.
-        this.addAccessibleObjectResponse( ConcentrationMeterNode.createConcentrationDescription( concentrationMeter.valueProperty.value ) );
+        // Describe what the probe is measuring.
+        this.describedFocused();
 
-        // Reset the order of jump points
-        focused && jumpPositionIndexProperty.reset();
+        // Reset the order of jump points.
+        jumpPositionIndexProperty.reset();
       }
     } );
+  }
+
+  /**
+   * Adds an accessible object response when the probe gets focus.
+   */
+  private describedFocused(): void {
+    this.addAccessibleFocusObjectResponse( ConcentrationMeterNode.createConcentrationDescription( this.concentrationMeter.valueProperty.value ) );
   }
 }
