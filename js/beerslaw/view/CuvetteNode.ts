@@ -133,7 +133,7 @@ class CuvetteDragListener extends SoundDragListener {
       isDisposable: false,
       allowTouchSnag: true,
 
-      start: event => {
+      start: ( event, listener ) => {
         startX = this.globalToParentPoint( event.pointer.point ).x;
         startWidth = cuvette.widthProperty.value;
       },
@@ -144,7 +144,7 @@ class CuvetteDragListener extends SoundDragListener {
         cuvette.widthProperty.value = clamp( startWidth + deltaWidth, widthRange.min, widthRange.max );
       },
 
-      end: () => {
+      end: ( event, listener ) => {
         const snapInterval = cuvette.snapIntervalProperty.value;
         if ( snapInterval > 0 ) {
           cuvette.widthProperty.value = roundToInterval( cuvette.widthProperty.value, snapInterval );
