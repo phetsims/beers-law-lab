@@ -65,22 +65,25 @@ export class DetectorProbeNode extends InteractiveHighlighting( ProbeNode ) {
       this.translation = modelViewTransform.modelToViewPosition( position );
     } );
 
-    // If the light is on and the probe is close enough to the beam, snap the probe to the center of beam.
-    const snapToBeam = () => {
+    // Callback when dragging ends.
+    const end = () => {
+
+      // If the light is on and the probe is close enough to the beam, snap the probe to the center of beam.
       if ( light.isOnProperty.value &&
            ( probe.positionProperty.value.x >= light.position.x ) &&
            ( Math.abs( probe.positionProperty.value.y - light.position.y ) <= 0.5 * light.lensDiameter ) ) {
         probe.positionProperty.value = new Vector2( probe.positionProperty.value.x, light.position.y );
-        this.doAccessibleObjectResponse();
       }
+
+      // Describe what the probe is measuring.
+      this.describeMoved();
     };
 
     this.addInputListener( new SoundDragListener( {
       positionProperty: probe.positionProperty,
       dragBoundsProperty: new Property( probe.dragBounds ),
       transform: modelViewTransform,
-      drag: () => this.doAccessibleObjectResponse(),
-      end: snapToBeam,
+      end: end,
       tandem: tandem.createTandem( 'dragListener' )
     } ) );
 
@@ -88,8 +91,7 @@ export class DetectorProbeNode extends InteractiveHighlighting( ProbeNode ) {
       positionProperty: probe.positionProperty,
       dragBoundsProperty: new Property( probe.dragBounds ),
       transform: modelViewTransform,
-      drag: () => this.doAccessibleObjectResponse(),
-      end: snapToBeam,
+      end: end,
       dragSpeed: 150,
       shiftDragSpeed: 20,
       tandem: tandem.createTandem( 'keyboardDragListener' )
@@ -106,20 +108,36 @@ export class DetectorProbeNode extends InteractiveHighlighting( ProbeNode ) {
     this.focusedProperty.lazyLink( focused => {
       if ( focused ) {
 
-        // Add an accessible object response for the current measurement.
-        this.doAccessibleObjectResponse();
+        // Describe what the probe is measuring.
+        this.describeFocused();
 
-        // Reset the order of jump points
-        focused && jumpPositionIndexProperty.reset();
+        // Reset the order of jump points.
+        jumpPositionIndexProperty.reset();
       }
     } );
   }
 
   /**
-   * Adds an accessible object response to report the value that the probe is reading.
-   * This occurs on focus and drag.
+   * Adds an accessible object response when the probe gets focus.
    */
-  private doAccessibleObjectResponse(): void {
+  private describeFocused(): void {
+    this.addAccessibleFocusObjectResponse( this.getProbeDescription() );
+  }
+
+  /**
+   * Adds an accessible object response when the probe is moved.
+   */
+  private describeMoved(): void {
+    this.addAccessibleObjectResponse( this.getProbeDescription(), {
+      interruptible: true,
+      alertDelay: 1000
+    } );
+  }
+
+  /**
+   * Gets a description of the probe's current state.
+   */
+  private getProbeDescription(): string {
 
     const mode = this.detector.modeProperty.value;
     const transmittance = this.detector.transmittanceProperty.value;
@@ -153,8 +171,6 @@ export class DetectorProbeNode extends InteractiveHighlighting( ProbeNode ) {
         } );
       }
     }
-
-    // This response is self-interrupting so that only the most recent value is spoken during rapid drag events.
-    this.addAccessibleObjectResponse( response, { interruptible: true } );
+    return response;
   }
 }
