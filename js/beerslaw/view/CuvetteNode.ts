@@ -134,12 +134,12 @@ class CuvetteDragListener extends SoundDragListener {
       allowTouchSnag: true,
 
       start: event => {
-        startX = event.pointer.point.x;
+        startX = this.globalToParentPoint( event.pointer.point ).x;
         startWidth = cuvette.widthProperty.value;
       },
 
       drag: ( event, listener ) => {
-        const dragX = event.pointer.point.x;
+        const dragX = this.globalToParentPoint( event.pointer.point ).x;
         const deltaWidth = modelViewTransform.viewToModelDeltaX( dragX - startX );
         cuvette.widthProperty.value = clamp( startWidth + deltaWidth, widthRange.min, widthRange.max );
       },
