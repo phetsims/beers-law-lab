@@ -7,30 +7,30 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
+import { clamp } from '../../../../dot/js/util/clamp.js';
+import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
+import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
 import Shape from '../../../../kite/js/Shape.js';
 import optionize, { combineOptions, EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import PickRequired from '../../../../phet-core/js/types/PickRequired.js';
+import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
 import ArrowNode, { ArrowNodeOptions } from '../../../../scenery-phet/js/ArrowNode.js';
+import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
+import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
+import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
 import PressListener from '../../../../scenery/js/listeners/PressListener.js';
 import Node, { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Path from '../../../../scenery/js/nodes/Path.js';
 import Rectangle from '../../../../scenery/js/nodes/Rectangle.js';
 import Color from '../../../../scenery/js/util/Color.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
-import BeersLawSolution from '../model/BeersLawSolution.js';
-import Cuvette from '../model/Cuvette.js';
-import InteractiveHighlighting from '../../../../scenery/js/accessibility/voicing/InteractiveHighlighting.js';
-import { clamp } from '../../../../dot/js/util/clamp.js';
-import { roundToInterval } from '../../../../dot/js/util/roundToInterval.js';
-import SoundDragListener from '../../../../scenery-phet/js/SoundDragListener.js';
-import SoundKeyboardDragListener from '../../../../scenery-phet/js/SoundKeyboardDragListener.js';
 import BeersLawLabStrings from '../../BeersLawLabStrings.js';
 import BLLColors from '../../common/BLLColors.js';
-import StringUtils from '../../../../phetcommon/js/util/StringUtils.js';
 import BLLConstants from '../../common/BLLConstants.js';
-import AccessibleDraggableOptions from '../../../../scenery-phet/js/accessibility/grab-drag/AccessibleDraggableOptions.js';
-import { toFixedNumber } from '../../../../dot/js/util/toFixedNumber.js';
+import BeersLawSolution from '../model/BeersLawSolution.js';
+import Cuvette from '../model/Cuvette.js';
 
 const PERCENT_FULL = 0.92;
 const SOLUTION_ALPHA = 0.6;
@@ -71,10 +71,7 @@ export default class CuvetteNode extends Node {
       pickable: false
     } );
 
-    const arrowNode = new CuvetteArrowNode( options.tandem.createTandem( 'arrowNode' ) );
-    arrowNode.focusedProperty.lazyLink( focused => {
-      focused && arrowNode.doAccessibleObjectResponse( cuvette.widthProperty.value );
-    } );
+    const arrowNode = new CuvetteArrowNode( cuvette, options.tandem.createTandem( 'arrowNode' ) );
 
     // rendering order
     this.children = [ solutionNode, cuvetteNode, arrowNode ];
@@ -141,11 +138,10 @@ class CuvetteDragListener extends SoundDragListener {
         startWidth = cuvette.widthProperty.value;
       },
 
-      drag: event => {
+      drag: ( event, listener ) => {
         const dragX = event.pointer.point.x;
         const deltaWidth = modelViewTransform.viewToModelDeltaX( dragX - startX );
         cuvette.widthProperty.value = clamp( startWidth + deltaWidth, widthRange.min, widthRange.max );
-        arrowNode.doAccessibleObjectResponse( cuvette.widthProperty.value );
       },
 
       end: () => {
@@ -153,6 +149,7 @@ class CuvetteDragListener extends SoundDragListener {
         if ( snapInterval > 0 ) {
           cuvette.widthProperty.value = roundToInterval( cuvette.widthProperty.value, snapInterval );
         }
+        arrowNode.describedMoved();
       },
 
       // phet-io
@@ -175,10 +172,8 @@ class CuvetteKeyboardDragListener extends SoundKeyboardDragListener {
         const delta = ( listener.modelDelta.x !== 0 ) ? listener.modelDelta.x : listener.modelDelta.y;
         const newWidth = cuvette.widthProperty.value + delta;
         cuvette.widthProperty.value = clamp( newWidth, cuvette.widthProperty.range.min, cuvette.widthProperty.range.max );
-
-        // accessibleObjectResponse
-        arrowNode.doAccessibleObjectResponse( cuvette.widthProperty.value );
       },
+      end: ( event, listener ) => arrowNode.describedMoved(),
       dragSpeed: 300,
       shiftDragSpeed: 20,
       tandem: tandem
@@ -191,7 +186,9 @@ class CuvetteKeyboardDragListener extends SoundKeyboardDragListener {
  */
 class CuvetteArrowNode extends InteractiveHighlighting( ArrowNode ) {
 
-  public constructor( tandem: Tandem ) {
+  private readonly cuvette: Cuvette;
+
+  public constructor( cuvette: Cuvette, tandem: Tandem ) {
 
     const options = combineOptions<ArrowNodeOptions>( {
       cursor: 'pointer',
@@ -211,6 +208,12 @@ class CuvetteArrowNode extends InteractiveHighlighting( ArrowNode ) {
 
     super( -ARROW_LENGTH / 2, 0, ARROW_LENGTH / 2, 0, options );
 
+    this.cuvette = cuvette;
+
+    this.focusedProperty.lazyLink( focused => {
+      focused && this.describeFocused();
+    } );
+
     // Highlight when the pointer is over the arrow.
     const pressListener = new PressListener( {
       attach: false,
@@ -228,14 +231,30 @@ class CuvetteArrowNode extends InteractiveHighlighting( ArrowNode ) {
   }
 
   /**
-   * Adds an accessible object response to report the width of the cuvette.
-   * This occurs on focus and drag.
+   * Adds an accessible object response when the arrow gets focus.
    */
-  public doAccessibleObjectResponse( cuvetteWidth: number ): void {
-    const response = StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsPatternStringProperty, {
-      value: toFixedNumber( cuvetteWidth, BLLConstants.DECIMAL_PLACES_CUVETTE_WIDTH ),
+  public describeFocused(): void {
+    this.addAccessibleFocusObjectResponse( this.getCuvetteDescription() );
+  }
+
+  /**
+   * Adds an accessible object response when the arrow is moved.
+   */
+  public describedMoved(): void {
+    this.addAccessibleObjectResponse( this.getCuvetteDescription(), {
+      interruptible: true,
+      alertDelay: 1000
+    } );
+  }
+
+  /**
+   * Adds an accessible object response to report the width of the cuvette.
+   * This occurs when the cuvette's resize handle (arrow) gets focus or is moved.
+   */
+  private getCuvetteDescription(): string {
+    return StringUtils.fillIn( BeersLawLabStrings.a11y.valueUnitsPatternStringProperty, {
+      value: toFixedNumber( this.cuvette.widthProperty.value, BLLConstants.DECIMAL_PLACES_CUVETTE_WIDTH ),
       units: BeersLawLabStrings.a11y.unitsDescription.centimetersStringProperty.value
     } );
-    this.addAccessibleObjectResponse( response );
   }
 }
